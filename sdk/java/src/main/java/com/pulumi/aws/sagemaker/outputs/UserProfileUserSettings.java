@@ -20,49 +20,34 @@ public final class UserProfileUserSettings {
      * @return The execution role ARN for the user.
      * 
      */
-    private final String executionRole;
+    private String executionRole;
     /**
      * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
      * 
      */
-    private final @Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
+    private @Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
     /**
      * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
      * 
      */
-    private final @Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
+    private @Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
     /**
      * @return The security groups.
      * 
      */
-    private final @Nullable List<String> securityGroups;
+    private @Nullable List<String> securityGroups;
     /**
      * @return The sharing settings. See Sharing Settings below.
      * 
      */
-    private final @Nullable UserProfileUserSettingsSharingSettings sharingSettings;
+    private @Nullable UserProfileUserSettingsSharingSettings sharingSettings;
     /**
      * @return The TensorBoard app settings. See TensorBoard App Settings below.
      * 
      */
-    private final @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
+    private @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
 
-    @CustomType.Constructor
-    private UserProfileUserSettings(
-        @CustomType.Parameter("executionRole") String executionRole,
-        @CustomType.Parameter("jupyterServerAppSettings") @Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings,
-        @CustomType.Parameter("kernelGatewayAppSettings") @Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings,
-        @CustomType.Parameter("securityGroups") @Nullable List<String> securityGroups,
-        @CustomType.Parameter("sharingSettings") @Nullable UserProfileUserSettingsSharingSettings sharingSettings,
-        @CustomType.Parameter("tensorBoardAppSettings") @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings) {
-        this.executionRole = executionRole;
-        this.jupyterServerAppSettings = jupyterServerAppSettings;
-        this.kernelGatewayAppSettings = kernelGatewayAppSettings;
-        this.securityGroups = securityGroups;
-        this.sharingSettings = sharingSettings;
-        this.tensorBoardAppSettings = tensorBoardAppSettings;
-    }
-
+    private UserProfileUserSettings() {}
     /**
      * @return The execution role ARN for the user.
      * 
@@ -113,7 +98,7 @@ public final class UserProfileUserSettings {
     public static Builder builder(UserProfileUserSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String executionRole;
         private @Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
@@ -121,11 +106,7 @@ public final class UserProfileUserSettings {
         private @Nullable List<String> securityGroups;
         private @Nullable UserProfileUserSettingsSharingSettings sharingSettings;
         private @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserProfileUserSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.executionRole = defaults.executionRole;
@@ -136,18 +117,22 @@ public final class UserProfileUserSettings {
     	      this.tensorBoardAppSettings = defaults.tensorBoardAppSettings;
         }
 
+        @CustomType.Setter
         public Builder executionRole(String executionRole) {
             this.executionRole = Objects.requireNonNull(executionRole);
             return this;
         }
+        @CustomType.Setter
         public Builder jupyterServerAppSettings(@Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings) {
             this.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder kernelGatewayAppSettings(@Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings) {
             this.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
             this.securityGroups = securityGroups;
             return this;
@@ -155,15 +140,25 @@ public final class UserProfileUserSettings {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder sharingSettings(@Nullable UserProfileUserSettingsSharingSettings sharingSettings) {
             this.sharingSettings = sharingSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder tensorBoardAppSettings(@Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings) {
             this.tensorBoardAppSettings = tensorBoardAppSettings;
             return this;
-        }        public UserProfileUserSettings build() {
-            return new UserProfileUserSettings(executionRole, jupyterServerAppSettings, kernelGatewayAppSettings, securityGroups, sharingSettings, tensorBoardAppSettings);
+        }
+        public UserProfileUserSettings build() {
+            final var o = new UserProfileUserSettings();
+            o.executionRole = executionRole;
+            o.jupyterServerAppSettings = jupyterServerAppSettings;
+            o.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            o.securityGroups = securityGroups;
+            o.sharingSettings = sharingSettings;
+            o.tensorBoardAppSettings = tensorBoardAppSettings;
+            return o;
         }
     }
 }

@@ -18,7 +18,7 @@ public final class PolicyStepAdjustment {
      * Without a value, AWS will treat this bound as negative infinity.
      * 
      */
-    private final @Nullable String metricIntervalLowerBound;
+    private @Nullable String metricIntervalLowerBound;
     /**
      * @return The upper bound for the
      * difference between the alarm threshold and the CloudWatch metric.
@@ -26,25 +26,16 @@ public final class PolicyStepAdjustment {
      * must be greater than the lower bound.
      * 
      */
-    private final @Nullable String metricIntervalUpperBound;
+    private @Nullable String metricIntervalUpperBound;
     /**
      * @return The number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      * 
      */
-    private final Integer scalingAdjustment;
+    private Integer scalingAdjustment;
 
-    @CustomType.Constructor
-    private PolicyStepAdjustment(
-        @CustomType.Parameter("metricIntervalLowerBound") @Nullable String metricIntervalLowerBound,
-        @CustomType.Parameter("metricIntervalUpperBound") @Nullable String metricIntervalUpperBound,
-        @CustomType.Parameter("scalingAdjustment") Integer scalingAdjustment) {
-        this.metricIntervalLowerBound = metricIntervalLowerBound;
-        this.metricIntervalUpperBound = metricIntervalUpperBound;
-        this.scalingAdjustment = scalingAdjustment;
-    }
-
+    private PolicyStepAdjustment() {}
     /**
      * @return The lower bound for the
      * difference between the alarm threshold and the CloudWatch metric.
@@ -81,16 +72,12 @@ public final class PolicyStepAdjustment {
     public static Builder builder(PolicyStepAdjustment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String metricIntervalLowerBound;
         private @Nullable String metricIntervalUpperBound;
         private Integer scalingAdjustment;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyStepAdjustment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricIntervalLowerBound = defaults.metricIntervalLowerBound;
@@ -98,19 +85,27 @@ public final class PolicyStepAdjustment {
     	      this.scalingAdjustment = defaults.scalingAdjustment;
         }
 
+        @CustomType.Setter
         public Builder metricIntervalLowerBound(@Nullable String metricIntervalLowerBound) {
             this.metricIntervalLowerBound = metricIntervalLowerBound;
             return this;
         }
+        @CustomType.Setter
         public Builder metricIntervalUpperBound(@Nullable String metricIntervalUpperBound) {
             this.metricIntervalUpperBound = metricIntervalUpperBound;
             return this;
         }
+        @CustomType.Setter
         public Builder scalingAdjustment(Integer scalingAdjustment) {
             this.scalingAdjustment = Objects.requireNonNull(scalingAdjustment);
             return this;
-        }        public PolicyStepAdjustment build() {
-            return new PolicyStepAdjustment(metricIntervalLowerBound, metricIntervalUpperBound, scalingAdjustment);
+        }
+        public PolicyStepAdjustment build() {
+            final var o = new PolicyStepAdjustment();
+            o.metricIntervalLowerBound = metricIntervalLowerBound;
+            o.metricIntervalUpperBound = metricIntervalUpperBound;
+            o.scalingAdjustment = scalingAdjustment;
+            return o;
         }
     }
 }

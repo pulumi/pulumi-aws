@@ -16,28 +16,19 @@ public final class ProjectCache {
      * @return Location of the source code from git or s3.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
      * 
      */
-    private final @Nullable List<String> modes;
+    private @Nullable List<String> modes;
     /**
      * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ProjectCache(
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("modes") @Nullable List<String> modes,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.location = location;
-        this.modes = modes;
-        this.type = type;
-    }
-
+    private ProjectCache() {}
     /**
      * @return Location of the source code from git or s3.
      * 
@@ -67,16 +58,12 @@ public final class ProjectCache {
     public static Builder builder(ProjectCache defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String location;
         private @Nullable List<String> modes;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectCache defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.location = defaults.location;
@@ -84,10 +71,12 @@ public final class ProjectCache {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder modes(@Nullable List<String> modes) {
             this.modes = modes;
             return this;
@@ -95,11 +84,17 @@ public final class ProjectCache {
         public Builder modes(String... modes) {
             return modes(List.of(modes));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ProjectCache build() {
-            return new ProjectCache(location, modes, type);
+        }
+        public ProjectCache build() {
+            final var o = new ProjectCache();
+            o.location = location;
+            o.modes = modes;
+            o.type = type;
+            return o;
         }
     }
 }

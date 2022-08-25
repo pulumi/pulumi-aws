@@ -17,35 +17,24 @@ public final class OrganizationRoot {
      * @return ARN of the root
      * 
      */
-    private final @Nullable String arn;
+    private @Nullable String arn;
     /**
      * @return Identifier of the root
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the policy type
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return List of policy types enabled for this root. All elements have these attributes:
      * 
      */
-    private final @Nullable List<OrganizationRootPolicyType> policyTypes;
+    private @Nullable List<OrganizationRootPolicyType> policyTypes;
 
-    @CustomType.Constructor
-    private OrganizationRoot(
-        @CustomType.Parameter("arn") @Nullable String arn,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("policyTypes") @Nullable List<OrganizationRootPolicyType> policyTypes) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-        this.policyTypes = policyTypes;
-    }
-
+    private OrganizationRoot() {}
     /**
      * @return ARN of the root
      * 
@@ -82,17 +71,13 @@ public final class OrganizationRoot {
     public static Builder builder(OrganizationRoot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
         private @Nullable String id;
         private @Nullable String name;
         private @Nullable List<OrganizationRootPolicyType> policyTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationRoot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -101,26 +86,36 @@ public final class OrganizationRoot {
     	      this.policyTypes = defaults.policyTypes;
         }
 
+        @CustomType.Setter
         public Builder arn(@Nullable String arn) {
             this.arn = arn;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder policyTypes(@Nullable List<OrganizationRootPolicyType> policyTypes) {
             this.policyTypes = policyTypes;
             return this;
         }
         public Builder policyTypes(OrganizationRootPolicyType... policyTypes) {
             return policyTypes(List.of(policyTypes));
-        }        public OrganizationRoot build() {
-            return new OrganizationRoot(arn, id, name, policyTypes);
+        }
+        public OrganizationRoot build() {
+            final var o = new OrganizationRoot();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            o.policyTypes = policyTypes;
+            return o;
         }
     }
 }

@@ -19,177 +19,124 @@ public final class GetClusterResult {
      * @return The name of the Access Control List associated with the cluster.
      * 
      */
-    private final String aclName;
+    private String aclName;
     /**
      * @return The ARN of the cluster.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return True when the cluster allows automatic minor version upgrades.
      * * `cluster_endpoint`
      * 
      */
-    private final Boolean autoMinorVersionUpgrade;
-    private final List<GetClusterClusterEndpoint> clusterEndpoints;
+    private Boolean autoMinorVersionUpgrade;
+    private List<GetClusterClusterEndpoint> clusterEndpoints;
     /**
      * @return Description for the cluster.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Patch version number of the Redis engine used by the cluster.
      * 
      */
-    private final String enginePatchVersion;
+    private String enginePatchVersion;
     /**
      * @return Version number of the Redis engine used by the cluster.
      * 
      */
-    private final String engineVersion;
+    private String engineVersion;
     /**
      * @return Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
      * 
      */
-    private final String finalSnapshotName;
+    private String finalSnapshotName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return ARN of the KMS key used to encrypt the cluster at rest.
      * 
      */
-    private final String kmsKeyArn;
+    private String kmsKeyArn;
     /**
      * @return The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
      * 
      */
-    private final String maintenanceWindow;
+    private String maintenanceWindow;
     /**
      * @return Name of this node.
      * * `endpoint`
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The compute and memory capacity of the nodes in the cluster.
      * 
      */
-    private final String nodeType;
+    private String nodeType;
     /**
      * @return The number of replicas to apply to each shard.
      * 
      */
-    private final Integer numReplicasPerShard;
+    private Integer numReplicasPerShard;
     /**
      * @return The number of shards in the cluster.
      * 
      */
-    private final Integer numShards;
+    private Integer numShards;
     /**
      * @return The name of the parameter group associated with the cluster.
      * 
      */
-    private final String parameterGroupName;
+    private String parameterGroupName;
     /**
      * @return Port number that this node is listening on.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return Set of VPC Security Group ID-s associated with this cluster.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return Set of shards in this cluster.
      * 
      */
-    private final List<GetClusterShard> shards;
+    private List<GetClusterShard> shards;
     /**
      * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
      * 
      */
-    private final Integer snapshotRetentionLimit;
+    private Integer snapshotRetentionLimit;
     /**
      * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
-    private final String snapshotWindow;
+    private String snapshotWindow;
     /**
      * @return ARN of the SNS topic to which cluster notifications are sent.
      * * `subnet_group_name` -The name of the subnet group used for the cluster.
      * 
      */
-    private final String snsTopicArn;
-    private final String subnetGroupName;
+    private String snsTopicArn;
+    private String subnetGroupName;
     /**
      * @return A map of tags assigned to the cluster.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return When true, in-transit encryption is enabled for the cluster.
      * 
      */
-    private final Boolean tlsEnabled;
+    private Boolean tlsEnabled;
 
-    @CustomType.Constructor
-    private GetClusterResult(
-        @CustomType.Parameter("aclName") String aclName,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("autoMinorVersionUpgrade") Boolean autoMinorVersionUpgrade,
-        @CustomType.Parameter("clusterEndpoints") List<GetClusterClusterEndpoint> clusterEndpoints,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("enginePatchVersion") String enginePatchVersion,
-        @CustomType.Parameter("engineVersion") String engineVersion,
-        @CustomType.Parameter("finalSnapshotName") String finalSnapshotName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyArn") String kmsKeyArn,
-        @CustomType.Parameter("maintenanceWindow") String maintenanceWindow,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeType") String nodeType,
-        @CustomType.Parameter("numReplicasPerShard") Integer numReplicasPerShard,
-        @CustomType.Parameter("numShards") Integer numShards,
-        @CustomType.Parameter("parameterGroupName") String parameterGroupName,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("shards") List<GetClusterShard> shards,
-        @CustomType.Parameter("snapshotRetentionLimit") Integer snapshotRetentionLimit,
-        @CustomType.Parameter("snapshotWindow") String snapshotWindow,
-        @CustomType.Parameter("snsTopicArn") String snsTopicArn,
-        @CustomType.Parameter("subnetGroupName") String subnetGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("tlsEnabled") Boolean tlsEnabled) {
-        this.aclName = aclName;
-        this.arn = arn;
-        this.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
-        this.clusterEndpoints = clusterEndpoints;
-        this.description = description;
-        this.enginePatchVersion = enginePatchVersion;
-        this.engineVersion = engineVersion;
-        this.finalSnapshotName = finalSnapshotName;
-        this.id = id;
-        this.kmsKeyArn = kmsKeyArn;
-        this.maintenanceWindow = maintenanceWindow;
-        this.name = name;
-        this.nodeType = nodeType;
-        this.numReplicasPerShard = numReplicasPerShard;
-        this.numShards = numShards;
-        this.parameterGroupName = parameterGroupName;
-        this.port = port;
-        this.securityGroupIds = securityGroupIds;
-        this.shards = shards;
-        this.snapshotRetentionLimit = snapshotRetentionLimit;
-        this.snapshotWindow = snapshotWindow;
-        this.snsTopicArn = snsTopicArn;
-        this.subnetGroupName = subnetGroupName;
-        this.tags = tags;
-        this.tlsEnabled = tlsEnabled;
-    }
-
+    private GetClusterResult() {}
     /**
      * @return The name of the Access Control List associated with the cluster.
      * 
@@ -368,7 +315,7 @@ public final class GetClusterResult {
     public static Builder builder(GetClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String aclName;
         private String arn;
@@ -395,11 +342,7 @@ public final class GetClusterResult {
         private String subnetGroupName;
         private Map<String,String> tags;
         private Boolean tlsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aclName = defaults.aclName;
@@ -429,18 +372,22 @@ public final class GetClusterResult {
     	      this.tlsEnabled = defaults.tlsEnabled;
         }
 
+        @CustomType.Setter
         public Builder aclName(String aclName) {
             this.aclName = Objects.requireNonNull(aclName);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder autoMinorVersionUpgrade(Boolean autoMinorVersionUpgrade) {
             this.autoMinorVersionUpgrade = Objects.requireNonNull(autoMinorVersionUpgrade);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterEndpoints(List<GetClusterClusterEndpoint> clusterEndpoints) {
             this.clusterEndpoints = Objects.requireNonNull(clusterEndpoints);
             return this;
@@ -448,58 +395,72 @@ public final class GetClusterResult {
         public Builder clusterEndpoints(GetClusterClusterEndpoint... clusterEndpoints) {
             return clusterEndpoints(List.of(clusterEndpoints));
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder enginePatchVersion(String enginePatchVersion) {
             this.enginePatchVersion = Objects.requireNonNull(enginePatchVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder engineVersion(String engineVersion) {
             this.engineVersion = Objects.requireNonNull(engineVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder finalSnapshotName(String finalSnapshotName) {
             this.finalSnapshotName = Objects.requireNonNull(finalSnapshotName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
             this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
             return this;
         }
+        @CustomType.Setter
         public Builder maintenanceWindow(String maintenanceWindow) {
             this.maintenanceWindow = Objects.requireNonNull(maintenanceWindow);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeType(String nodeType) {
             this.nodeType = Objects.requireNonNull(nodeType);
             return this;
         }
+        @CustomType.Setter
         public Builder numReplicasPerShard(Integer numReplicasPerShard) {
             this.numReplicasPerShard = Objects.requireNonNull(numReplicasPerShard);
             return this;
         }
+        @CustomType.Setter
         public Builder numShards(Integer numShards) {
             this.numShards = Objects.requireNonNull(numShards);
             return this;
         }
+        @CustomType.Setter
         public Builder parameterGroupName(String parameterGroupName) {
             this.parameterGroupName = Objects.requireNonNull(parameterGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -507,6 +468,7 @@ public final class GetClusterResult {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder shards(List<GetClusterShard> shards) {
             this.shards = Objects.requireNonNull(shards);
             return this;
@@ -514,31 +476,64 @@ public final class GetClusterResult {
         public Builder shards(GetClusterShard... shards) {
             return shards(List.of(shards));
         }
+        @CustomType.Setter
         public Builder snapshotRetentionLimit(Integer snapshotRetentionLimit) {
             this.snapshotRetentionLimit = Objects.requireNonNull(snapshotRetentionLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotWindow(String snapshotWindow) {
             this.snapshotWindow = Objects.requireNonNull(snapshotWindow);
             return this;
         }
+        @CustomType.Setter
         public Builder snsTopicArn(String snsTopicArn) {
             this.snsTopicArn = Objects.requireNonNull(snsTopicArn);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetGroupName(String subnetGroupName) {
             this.subnetGroupName = Objects.requireNonNull(subnetGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder tlsEnabled(Boolean tlsEnabled) {
             this.tlsEnabled = Objects.requireNonNull(tlsEnabled);
             return this;
-        }        public GetClusterResult build() {
-            return new GetClusterResult(aclName, arn, autoMinorVersionUpgrade, clusterEndpoints, description, enginePatchVersion, engineVersion, finalSnapshotName, id, kmsKeyArn, maintenanceWindow, name, nodeType, numReplicasPerShard, numShards, parameterGroupName, port, securityGroupIds, shards, snapshotRetentionLimit, snapshotWindow, snsTopicArn, subnetGroupName, tags, tlsEnabled);
+        }
+        public GetClusterResult build() {
+            final var o = new GetClusterResult();
+            o.aclName = aclName;
+            o.arn = arn;
+            o.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
+            o.clusterEndpoints = clusterEndpoints;
+            o.description = description;
+            o.enginePatchVersion = enginePatchVersion;
+            o.engineVersion = engineVersion;
+            o.finalSnapshotName = finalSnapshotName;
+            o.id = id;
+            o.kmsKeyArn = kmsKeyArn;
+            o.maintenanceWindow = maintenanceWindow;
+            o.name = name;
+            o.nodeType = nodeType;
+            o.numReplicasPerShard = numReplicasPerShard;
+            o.numShards = numShards;
+            o.parameterGroupName = parameterGroupName;
+            o.port = port;
+            o.securityGroupIds = securityGroupIds;
+            o.shards = shards;
+            o.snapshotRetentionLimit = snapshotRetentionLimit;
+            o.snapshotWindow = snapshotWindow;
+            o.snsTopicArn = snsTopicArn;
+            o.subnetGroupName = subnetGroupName;
+            o.tags = tags;
+            o.tlsEnabled = tlsEnabled;
+            return o;
         }
     }
 }

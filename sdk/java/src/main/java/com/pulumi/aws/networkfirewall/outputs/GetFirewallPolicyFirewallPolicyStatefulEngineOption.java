@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
-    private final String ruleOrder;
+    private String ruleOrder;
 
-    @CustomType.Constructor
-    private GetFirewallPolicyFirewallPolicyStatefulEngineOption(@CustomType.Parameter("ruleOrder") String ruleOrder) {
-        this.ruleOrder = ruleOrder;
-    }
-
+    private GetFirewallPolicyFirewallPolicyStatefulEngineOption() {}
     public String ruleOrder() {
         return this.ruleOrder;
     }
@@ -27,24 +23,24 @@ public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
     public static Builder builder(GetFirewallPolicyFirewallPolicyStatefulEngineOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ruleOrder;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatefulEngineOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ruleOrder = defaults.ruleOrder;
         }
 
+        @CustomType.Setter
         public Builder ruleOrder(String ruleOrder) {
             this.ruleOrder = Objects.requireNonNull(ruleOrder);
             return this;
-        }        public GetFirewallPolicyFirewallPolicyStatefulEngineOption build() {
-            return new GetFirewallPolicyFirewallPolicyStatefulEngineOption(ruleOrder);
+        }
+        public GetFirewallPolicyFirewallPolicyStatefulEngineOption build() {
+            final var o = new GetFirewallPolicyFirewallPolicyStatefulEngineOption();
+            o.ruleOrder = ruleOrder;
+            return o;
         }
     }
 }

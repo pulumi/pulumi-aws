@@ -13,21 +13,14 @@ public final class FunctionFileSystemConfig {
      * @return Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Path where the function can access the file system, starting with /mnt/.
      * 
      */
-    private final String localMountPath;
+    private String localMountPath;
 
-    @CustomType.Constructor
-    private FunctionFileSystemConfig(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("localMountPath") String localMountPath) {
-        this.arn = arn;
-        this.localMountPath = localMountPath;
-    }
-
+    private FunctionFileSystemConfig() {}
     /**
      * @return Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      * 
@@ -50,30 +43,32 @@ public final class FunctionFileSystemConfig {
     public static Builder builder(FunctionFileSystemConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String localMountPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionFileSystemConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.localMountPath = defaults.localMountPath;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder localMountPath(String localMountPath) {
             this.localMountPath = Objects.requireNonNull(localMountPath);
             return this;
-        }        public FunctionFileSystemConfig build() {
-            return new FunctionFileSystemConfig(arn, localMountPath);
+        }
+        public FunctionFileSystemConfig build() {
+            final var o = new FunctionFileSystemConfig();
+            o.arn = arn;
+            o.localMountPath = localMountPath;
+            return o;
         }
     }
 }

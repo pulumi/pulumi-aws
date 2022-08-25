@@ -18,35 +18,24 @@ public final class EventConnectionAuthParameters {
      * @return Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
      * 
      */
-    private final @Nullable EventConnectionAuthParametersApiKey apiKey;
+    private @Nullable EventConnectionAuthParametersApiKey apiKey;
     /**
      * @return Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
      * 
      */
-    private final @Nullable EventConnectionAuthParametersBasic basic;
+    private @Nullable EventConnectionAuthParametersBasic basic;
     /**
      * @return Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
-    private final @Nullable EventConnectionAuthParametersInvocationHttpParameters invocationHttpParameters;
+    private @Nullable EventConnectionAuthParametersInvocationHttpParameters invocationHttpParameters;
     /**
      * @return Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
      * 
      */
-    private final @Nullable EventConnectionAuthParametersOauth oauth;
+    private @Nullable EventConnectionAuthParametersOauth oauth;
 
-    @CustomType.Constructor
-    private EventConnectionAuthParameters(
-        @CustomType.Parameter("apiKey") @Nullable EventConnectionAuthParametersApiKey apiKey,
-        @CustomType.Parameter("basic") @Nullable EventConnectionAuthParametersBasic basic,
-        @CustomType.Parameter("invocationHttpParameters") @Nullable EventConnectionAuthParametersInvocationHttpParameters invocationHttpParameters,
-        @CustomType.Parameter("oauth") @Nullable EventConnectionAuthParametersOauth oauth) {
-        this.apiKey = apiKey;
-        this.basic = basic;
-        this.invocationHttpParameters = invocationHttpParameters;
-        this.oauth = oauth;
-    }
-
+    private EventConnectionAuthParameters() {}
     /**
      * @return Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
      * 
@@ -83,17 +72,13 @@ public final class EventConnectionAuthParameters {
     public static Builder builder(EventConnectionAuthParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EventConnectionAuthParametersApiKey apiKey;
         private @Nullable EventConnectionAuthParametersBasic basic;
         private @Nullable EventConnectionAuthParametersInvocationHttpParameters invocationHttpParameters;
         private @Nullable EventConnectionAuthParametersOauth oauth;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventConnectionAuthParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
@@ -102,23 +87,33 @@ public final class EventConnectionAuthParameters {
     	      this.oauth = defaults.oauth;
         }
 
+        @CustomType.Setter
         public Builder apiKey(@Nullable EventConnectionAuthParametersApiKey apiKey) {
             this.apiKey = apiKey;
             return this;
         }
+        @CustomType.Setter
         public Builder basic(@Nullable EventConnectionAuthParametersBasic basic) {
             this.basic = basic;
             return this;
         }
+        @CustomType.Setter
         public Builder invocationHttpParameters(@Nullable EventConnectionAuthParametersInvocationHttpParameters invocationHttpParameters) {
             this.invocationHttpParameters = invocationHttpParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder oauth(@Nullable EventConnectionAuthParametersOauth oauth) {
             this.oauth = oauth;
             return this;
-        }        public EventConnectionAuthParameters build() {
-            return new EventConnectionAuthParameters(apiKey, basic, invocationHttpParameters, oauth);
+        }
+        public EventConnectionAuthParameters build() {
+            final var o = new EventConnectionAuthParameters();
+            o.apiKey = apiKey;
+            o.basic = basic;
+            o.invocationHttpParameters = invocationHttpParameters;
+            o.oauth = oauth;
+            return o;
         }
     }
 }

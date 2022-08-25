@@ -14,28 +14,19 @@ public final class GetPolicyDocumentStatementCondition {
      * @return Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
      * 
      */
-    private final String test;
+    private String test;
     /**
      * @return Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an &#34;OR&#34; boolean operation.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
     /**
      * @return Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
      * 
      */
-    private final String variable;
+    private String variable;
 
-    @CustomType.Constructor
-    private GetPolicyDocumentStatementCondition(
-        @CustomType.Parameter("test") String test,
-        @CustomType.Parameter("values") List<String> values,
-        @CustomType.Parameter("variable") String variable) {
-        this.test = test;
-        this.values = values;
-        this.variable = variable;
-    }
-
+    private GetPolicyDocumentStatementCondition() {}
     /**
      * @return Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
      * 
@@ -65,16 +56,12 @@ public final class GetPolicyDocumentStatementCondition {
     public static Builder builder(GetPolicyDocumentStatementCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String test;
         private List<String> values;
         private String variable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyDocumentStatementCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.test = defaults.test;
@@ -82,10 +69,12 @@ public final class GetPolicyDocumentStatementCondition {
     	      this.variable = defaults.variable;
         }
 
+        @CustomType.Setter
         public Builder test(String test) {
             this.test = Objects.requireNonNull(test);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
@@ -93,11 +82,17 @@ public final class GetPolicyDocumentStatementCondition {
         public Builder values(String... values) {
             return values(List.of(values));
         }
+        @CustomType.Setter
         public Builder variable(String variable) {
             this.variable = Objects.requireNonNull(variable);
             return this;
-        }        public GetPolicyDocumentStatementCondition build() {
-            return new GetPolicyDocumentStatementCondition(test, values, variable);
+        }
+        public GetPolicyDocumentStatementCondition build() {
+            final var o = new GetPolicyDocumentStatementCondition();
+            o.test = test;
+            o.values = values;
+            o.variable = variable;
+            return o;
         }
     }
 }

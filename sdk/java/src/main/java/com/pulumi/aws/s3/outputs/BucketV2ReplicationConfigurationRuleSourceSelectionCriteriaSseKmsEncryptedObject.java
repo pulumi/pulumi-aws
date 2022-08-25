@@ -13,13 +13,9 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSs
      * @return Boolean which indicates if this criteria is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject() {}
     /**
      * @return Boolean which indicates if this criteria is enabled.
      * 
@@ -35,24 +31,24 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSs
     public static Builder builder(BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject build() {
-            return new BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject(enabled);
+        }
+        public BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject build() {
+            final var o = new BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

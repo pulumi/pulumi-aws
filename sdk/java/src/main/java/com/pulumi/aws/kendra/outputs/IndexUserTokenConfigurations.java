@@ -16,21 +16,14 @@ public final class IndexUserTokenConfigurations {
      * @return A block that specifies the information about the JSON token type configuration.
      * 
      */
-    private final @Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration jsonTokenTypeConfiguration;
+    private @Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration jsonTokenTypeConfiguration;
     /**
      * @return A block that specifies the information about the JWT token type configuration.
      * 
      */
-    private final @Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration jwtTokenTypeConfiguration;
+    private @Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration jwtTokenTypeConfiguration;
 
-    @CustomType.Constructor
-    private IndexUserTokenConfigurations(
-        @CustomType.Parameter("jsonTokenTypeConfiguration") @Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration jsonTokenTypeConfiguration,
-        @CustomType.Parameter("jwtTokenTypeConfiguration") @Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration jwtTokenTypeConfiguration) {
-        this.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
-        this.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
-    }
-
+    private IndexUserTokenConfigurations() {}
     /**
      * @return A block that specifies the information about the JSON token type configuration.
      * 
@@ -53,30 +46,32 @@ public final class IndexUserTokenConfigurations {
     public static Builder builder(IndexUserTokenConfigurations defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration jsonTokenTypeConfiguration;
         private @Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration jwtTokenTypeConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexUserTokenConfigurations defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.jsonTokenTypeConfiguration = defaults.jsonTokenTypeConfiguration;
     	      this.jwtTokenTypeConfiguration = defaults.jwtTokenTypeConfiguration;
         }
 
+        @CustomType.Setter
         public Builder jsonTokenTypeConfiguration(@Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration jsonTokenTypeConfiguration) {
             this.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder jwtTokenTypeConfiguration(@Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration jwtTokenTypeConfiguration) {
             this.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
             return this;
-        }        public IndexUserTokenConfigurations build() {
-            return new IndexUserTokenConfigurations(jsonTokenTypeConfiguration, jwtTokenTypeConfiguration);
+        }
+        public IndexUserTokenConfigurations build() {
+            final var o = new IndexUserTokenConfigurations();
+            o.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
+            o.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
+            return o;
         }
     }
 }

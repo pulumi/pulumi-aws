@@ -13,38 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotFleetRequestLaunchSpecificationEbsBlockDevice {
-    private final @Nullable Boolean deleteOnTermination;
-    private final String deviceName;
-    private final @Nullable Boolean encrypted;
-    private final @Nullable Integer iops;
-    private final @Nullable String kmsKeyId;
-    private final @Nullable String snapshotId;
-    private final @Nullable Integer throughput;
-    private final @Nullable Integer volumeSize;
-    private final @Nullable String volumeType;
+    private @Nullable Boolean deleteOnTermination;
+    private String deviceName;
+    private @Nullable Boolean encrypted;
+    private @Nullable Integer iops;
+    private @Nullable String kmsKeyId;
+    private @Nullable String snapshotId;
+    private @Nullable Integer throughput;
+    private @Nullable Integer volumeSize;
+    private @Nullable String volumeType;
 
-    @CustomType.Constructor
-    private SpotFleetRequestLaunchSpecificationEbsBlockDevice(
-        @CustomType.Parameter("deleteOnTermination") @Nullable Boolean deleteOnTermination,
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("encrypted") @Nullable Boolean encrypted,
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("snapshotId") @Nullable String snapshotId,
-        @CustomType.Parameter("throughput") @Nullable Integer throughput,
-        @CustomType.Parameter("volumeSize") @Nullable Integer volumeSize,
-        @CustomType.Parameter("volumeType") @Nullable String volumeType) {
-        this.deleteOnTermination = deleteOnTermination;
-        this.deviceName = deviceName;
-        this.encrypted = encrypted;
-        this.iops = iops;
-        this.kmsKeyId = kmsKeyId;
-        this.snapshotId = snapshotId;
-        this.throughput = throughput;
-        this.volumeSize = volumeSize;
-        this.volumeType = volumeType;
-    }
-
+    private SpotFleetRequestLaunchSpecificationEbsBlockDevice() {}
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
@@ -80,7 +59,7 @@ public final class SpotFleetRequestLaunchSpecificationEbsBlockDevice {
     public static Builder builder(SpotFleetRequestLaunchSpecificationEbsBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean deleteOnTermination;
         private String deviceName;
@@ -91,11 +70,7 @@ public final class SpotFleetRequestLaunchSpecificationEbsBlockDevice {
         private @Nullable Integer throughput;
         private @Nullable Integer volumeSize;
         private @Nullable String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotFleetRequestLaunchSpecificationEbsBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOnTermination = defaults.deleteOnTermination;
@@ -109,43 +84,63 @@ public final class SpotFleetRequestLaunchSpecificationEbsBlockDevice {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
             this.encrypted = encrypted;
             return this;
         }
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotId(@Nullable String snapshotId) {
             this.snapshotId = snapshotId;
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
             this.throughput = throughput;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
             this.volumeSize = volumeSize;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
             this.volumeType = volumeType;
             return this;
-        }        public SpotFleetRequestLaunchSpecificationEbsBlockDevice build() {
-            return new SpotFleetRequestLaunchSpecificationEbsBlockDevice(deleteOnTermination, deviceName, encrypted, iops, kmsKeyId, snapshotId, throughput, volumeSize, volumeType);
+        }
+        public SpotFleetRequestLaunchSpecificationEbsBlockDevice build() {
+            final var o = new SpotFleetRequestLaunchSpecificationEbsBlockDevice();
+            o.deleteOnTermination = deleteOnTermination;
+            o.deviceName = deviceName;
+            o.encrypted = encrypted;
+            o.iops = iops;
+            o.kmsKeyId = kmsKeyId;
+            o.snapshotId = snapshotId;
+            o.throughput = throughput;
+            o.volumeSize = volumeSize;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

@@ -15,35 +15,24 @@ public final class EndpointAccessVpcEndpointNetworkInterface {
      * @return The Availability Zone.
      * 
      */
-    private final @Nullable String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return The network interface identifier.
      * 
      */
-    private final @Nullable String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
     /**
      * @return The IPv4 address of the network interface within the subnet.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The subnet identifier.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
 
-    @CustomType.Constructor
-    private EndpointAccessVpcEndpointNetworkInterface(
-        @CustomType.Parameter("availabilityZone") @Nullable String availabilityZone,
-        @CustomType.Parameter("networkInterfaceId") @Nullable String networkInterfaceId,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId) {
-        this.availabilityZone = availabilityZone;
-        this.networkInterfaceId = networkInterfaceId;
-        this.privateIpAddress = privateIpAddress;
-        this.subnetId = subnetId;
-    }
-
+    private EndpointAccessVpcEndpointNetworkInterface() {}
     /**
      * @return The Availability Zone.
      * 
@@ -80,17 +69,13 @@ public final class EndpointAccessVpcEndpointNetworkInterface {
     public static Builder builder(EndpointAccessVpcEndpointNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String availabilityZone;
         private @Nullable String networkInterfaceId;
         private @Nullable String privateIpAddress;
         private @Nullable String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointAccessVpcEndpointNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZone = defaults.availabilityZone;
@@ -99,23 +84,33 @@ public final class EndpointAccessVpcEndpointNetworkInterface {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
             this.availabilityZone = availabilityZone;
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
-        }        public EndpointAccessVpcEndpointNetworkInterface build() {
-            return new EndpointAccessVpcEndpointNetworkInterface(availabilityZone, networkInterfaceId, privateIpAddress, subnetId);
+        }
+        public EndpointAccessVpcEndpointNetworkInterface build() {
+            final var o = new EndpointAccessVpcEndpointNetworkInterface();
+            o.availabilityZone = availabilityZone;
+            o.networkInterfaceId = networkInterfaceId;
+            o.privateIpAddress = privateIpAddress;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

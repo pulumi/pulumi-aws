@@ -17,133 +17,94 @@ public final class EndpointKafkaSettings {
      * @return Kafka broker location. Specify in the form broker-hostname-or-ip:port.
      * 
      */
-    private final String broker;
+    private String broker;
     /**
      * @return Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includeControlDetails;
+    private @Nullable Boolean includeControlDetails;
     /**
      * @return Include NULL and empty columns in the target. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includeNullAndEmpty;
+    private @Nullable Boolean includeNullAndEmpty;
     /**
      * @return Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includePartitionValue;
+    private @Nullable Boolean includePartitionValue;
     /**
      * @return Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includeTableAlterOperations;
+    private @Nullable Boolean includeTableAlterOperations;
     /**
      * @return Provides detailed transaction information from the source database. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includeTransactionDetails;
+    private @Nullable Boolean includeTransactionDetails;
     /**
      * @return Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
      * 
      */
-    private final @Nullable String messageFormat;
+    private @Nullable String messageFormat;
     /**
      * @return Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
      * 
      */
-    private final @Nullable Integer messageMaxBytes;
+    private @Nullable Integer messageMaxBytes;
     /**
      * @return Set this optional parameter to true to avoid adding a &#39;0x&#39; prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a &#39;0x&#39; prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `&#39;0x&#39;` prefix.
      * 
      */
-    private final @Nullable Boolean noHexPrefix;
+    private @Nullable Boolean noHexPrefix;
     /**
      * @return Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
      * 
      */
-    private final @Nullable Boolean partitionIncludeSchemaTable;
+    private @Nullable Boolean partitionIncludeSchemaTable;
     /**
      * @return Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
      * 
      */
-    private final @Nullable String saslPassword;
+    private @Nullable String saslPassword;
     /**
      * @return Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
      * 
      */
-    private final @Nullable String saslUsername;
+    private @Nullable String saslUsername;
     /**
      * @return Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
      * 
      */
-    private final @Nullable String securityProtocol;
+    private @Nullable String securityProtocol;
     /**
      * @return ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
      * 
      */
-    private final @Nullable String sslCaCertificateArn;
+    private @Nullable String sslCaCertificateArn;
     /**
      * @return ARN of the client certificate used to securely connect to a Kafka target endpoint.
      * 
      */
-    private final @Nullable String sslClientCertificateArn;
+    private @Nullable String sslClientCertificateArn;
     /**
      * @return ARN for the client private key used to securely connect to a Kafka target endpoint.
      * 
      */
-    private final @Nullable String sslClientKeyArn;
+    private @Nullable String sslClientKeyArn;
     /**
      * @return Password for the client private key used to securely connect to a Kafka target endpoint.
      * 
      */
-    private final @Nullable String sslClientKeyPassword;
+    private @Nullable String sslClientKeyPassword;
     /**
      * @return Kafka topic for migration. Default is `kafka-default-topic`.
      * 
      */
-    private final @Nullable String topic;
+    private @Nullable String topic;
 
-    @CustomType.Constructor
-    private EndpointKafkaSettings(
-        @CustomType.Parameter("broker") String broker,
-        @CustomType.Parameter("includeControlDetails") @Nullable Boolean includeControlDetails,
-        @CustomType.Parameter("includeNullAndEmpty") @Nullable Boolean includeNullAndEmpty,
-        @CustomType.Parameter("includePartitionValue") @Nullable Boolean includePartitionValue,
-        @CustomType.Parameter("includeTableAlterOperations") @Nullable Boolean includeTableAlterOperations,
-        @CustomType.Parameter("includeTransactionDetails") @Nullable Boolean includeTransactionDetails,
-        @CustomType.Parameter("messageFormat") @Nullable String messageFormat,
-        @CustomType.Parameter("messageMaxBytes") @Nullable Integer messageMaxBytes,
-        @CustomType.Parameter("noHexPrefix") @Nullable Boolean noHexPrefix,
-        @CustomType.Parameter("partitionIncludeSchemaTable") @Nullable Boolean partitionIncludeSchemaTable,
-        @CustomType.Parameter("saslPassword") @Nullable String saslPassword,
-        @CustomType.Parameter("saslUsername") @Nullable String saslUsername,
-        @CustomType.Parameter("securityProtocol") @Nullable String securityProtocol,
-        @CustomType.Parameter("sslCaCertificateArn") @Nullable String sslCaCertificateArn,
-        @CustomType.Parameter("sslClientCertificateArn") @Nullable String sslClientCertificateArn,
-        @CustomType.Parameter("sslClientKeyArn") @Nullable String sslClientKeyArn,
-        @CustomType.Parameter("sslClientKeyPassword") @Nullable String sslClientKeyPassword,
-        @CustomType.Parameter("topic") @Nullable String topic) {
-        this.broker = broker;
-        this.includeControlDetails = includeControlDetails;
-        this.includeNullAndEmpty = includeNullAndEmpty;
-        this.includePartitionValue = includePartitionValue;
-        this.includeTableAlterOperations = includeTableAlterOperations;
-        this.includeTransactionDetails = includeTransactionDetails;
-        this.messageFormat = messageFormat;
-        this.messageMaxBytes = messageMaxBytes;
-        this.noHexPrefix = noHexPrefix;
-        this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
-        this.saslPassword = saslPassword;
-        this.saslUsername = saslUsername;
-        this.securityProtocol = securityProtocol;
-        this.sslCaCertificateArn = sslCaCertificateArn;
-        this.sslClientCertificateArn = sslClientCertificateArn;
-        this.sslClientKeyArn = sslClientKeyArn;
-        this.sslClientKeyPassword = sslClientKeyPassword;
-        this.topic = topic;
-    }
-
+    private EndpointKafkaSettings() {}
     /**
      * @return Kafka broker location. Specify in the form broker-hostname-or-ip:port.
      * 
@@ -278,7 +239,7 @@ public final class EndpointKafkaSettings {
     public static Builder builder(EndpointKafkaSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String broker;
         private @Nullable Boolean includeControlDetails;
@@ -298,11 +259,7 @@ public final class EndpointKafkaSettings {
         private @Nullable String sslClientKeyArn;
         private @Nullable String sslClientKeyPassword;
         private @Nullable String topic;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointKafkaSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.broker = defaults.broker;
@@ -325,79 +282,117 @@ public final class EndpointKafkaSettings {
     	      this.topic = defaults.topic;
         }
 
+        @CustomType.Setter
         public Builder broker(String broker) {
             this.broker = Objects.requireNonNull(broker);
             return this;
         }
+        @CustomType.Setter
         public Builder includeControlDetails(@Nullable Boolean includeControlDetails) {
             this.includeControlDetails = includeControlDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder includeNullAndEmpty(@Nullable Boolean includeNullAndEmpty) {
             this.includeNullAndEmpty = includeNullAndEmpty;
             return this;
         }
+        @CustomType.Setter
         public Builder includePartitionValue(@Nullable Boolean includePartitionValue) {
             this.includePartitionValue = includePartitionValue;
             return this;
         }
+        @CustomType.Setter
         public Builder includeTableAlterOperations(@Nullable Boolean includeTableAlterOperations) {
             this.includeTableAlterOperations = includeTableAlterOperations;
             return this;
         }
+        @CustomType.Setter
         public Builder includeTransactionDetails(@Nullable Boolean includeTransactionDetails) {
             this.includeTransactionDetails = includeTransactionDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder messageFormat(@Nullable String messageFormat) {
             this.messageFormat = messageFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder messageMaxBytes(@Nullable Integer messageMaxBytes) {
             this.messageMaxBytes = messageMaxBytes;
             return this;
         }
+        @CustomType.Setter
         public Builder noHexPrefix(@Nullable Boolean noHexPrefix) {
             this.noHexPrefix = noHexPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder partitionIncludeSchemaTable(@Nullable Boolean partitionIncludeSchemaTable) {
             this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             return this;
         }
+        @CustomType.Setter
         public Builder saslPassword(@Nullable String saslPassword) {
             this.saslPassword = saslPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder saslUsername(@Nullable String saslUsername) {
             this.saslUsername = saslUsername;
             return this;
         }
+        @CustomType.Setter
         public Builder securityProtocol(@Nullable String securityProtocol) {
             this.securityProtocol = securityProtocol;
             return this;
         }
+        @CustomType.Setter
         public Builder sslCaCertificateArn(@Nullable String sslCaCertificateArn) {
             this.sslCaCertificateArn = sslCaCertificateArn;
             return this;
         }
+        @CustomType.Setter
         public Builder sslClientCertificateArn(@Nullable String sslClientCertificateArn) {
             this.sslClientCertificateArn = sslClientCertificateArn;
             return this;
         }
+        @CustomType.Setter
         public Builder sslClientKeyArn(@Nullable String sslClientKeyArn) {
             this.sslClientKeyArn = sslClientKeyArn;
             return this;
         }
+        @CustomType.Setter
         public Builder sslClientKeyPassword(@Nullable String sslClientKeyPassword) {
             this.sslClientKeyPassword = sslClientKeyPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder topic(@Nullable String topic) {
             this.topic = topic;
             return this;
-        }        public EndpointKafkaSettings build() {
-            return new EndpointKafkaSettings(broker, includeControlDetails, includeNullAndEmpty, includePartitionValue, includeTableAlterOperations, includeTransactionDetails, messageFormat, messageMaxBytes, noHexPrefix, partitionIncludeSchemaTable, saslPassword, saslUsername, securityProtocol, sslCaCertificateArn, sslClientCertificateArn, sslClientKeyArn, sslClientKeyPassword, topic);
+        }
+        public EndpointKafkaSettings build() {
+            final var o = new EndpointKafkaSettings();
+            o.broker = broker;
+            o.includeControlDetails = includeControlDetails;
+            o.includeNullAndEmpty = includeNullAndEmpty;
+            o.includePartitionValue = includePartitionValue;
+            o.includeTableAlterOperations = includeTableAlterOperations;
+            o.includeTransactionDetails = includeTransactionDetails;
+            o.messageFormat = messageFormat;
+            o.messageMaxBytes = messageMaxBytes;
+            o.noHexPrefix = noHexPrefix;
+            o.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            o.saslPassword = saslPassword;
+            o.saslUsername = saslUsername;
+            o.securityProtocol = securityProtocol;
+            o.sslCaCertificateArn = sslCaCertificateArn;
+            o.sslClientCertificateArn = sslClientCertificateArn;
+            o.sslClientKeyArn = sslClientKeyArn;
+            o.sslClientKeyPassword = sslClientKeyPassword;
+            o.topic = topic;
+            return o;
         }
     }
 }

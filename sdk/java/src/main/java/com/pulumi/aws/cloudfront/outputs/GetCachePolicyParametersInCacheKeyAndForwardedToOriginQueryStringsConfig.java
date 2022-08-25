@@ -15,21 +15,14 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQuerySt
      * @return Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
      * 
      */
-    private final String queryStringBehavior;
+    private String queryStringBehavior;
     /**
      * @return Object that contains a list of query string names. See Items for more information.
      * 
      */
-    private final List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings;
+    private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings;
 
-    @CustomType.Constructor
-    private GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(
-        @CustomType.Parameter("queryStringBehavior") String queryStringBehavior,
-        @CustomType.Parameter("queryStrings") List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings) {
-        this.queryStringBehavior = queryStringBehavior;
-        this.queryStrings = queryStrings;
-    }
-
+    private GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig() {}
     /**
      * @return Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
      * 
@@ -52,33 +45,35 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQuerySt
     public static Builder builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String queryStringBehavior;
         private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.queryStringBehavior = defaults.queryStringBehavior;
     	      this.queryStrings = defaults.queryStrings;
         }
 
+        @CustomType.Setter
         public Builder queryStringBehavior(String queryStringBehavior) {
             this.queryStringBehavior = Objects.requireNonNull(queryStringBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder queryStrings(List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings) {
             this.queryStrings = Objects.requireNonNull(queryStrings);
             return this;
         }
         public Builder queryStrings(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString... queryStrings) {
             return queryStrings(List.of(queryStrings));
-        }        public GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig build() {
-            return new GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(queryStringBehavior, queryStrings);
+        }
+        public GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig build() {
+            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig();
+            o.queryStringBehavior = queryStringBehavior;
+            o.queryStrings = queryStrings;
+            return o;
         }
     }
 }

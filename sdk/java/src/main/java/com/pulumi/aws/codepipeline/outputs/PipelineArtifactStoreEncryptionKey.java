@@ -13,21 +13,14 @@ public final class PipelineArtifactStoreEncryptionKey {
      * @return The KMS key ARN or ID
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The type of key; currently only `KMS` is supported
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private PipelineArtifactStoreEncryptionKey(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private PipelineArtifactStoreEncryptionKey() {}
     /**
      * @return The KMS key ARN or ID
      * 
@@ -50,30 +43,32 @@ public final class PipelineArtifactStoreEncryptionKey {
     public static Builder builder(PipelineArtifactStoreEncryptionKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineArtifactStoreEncryptionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public PipelineArtifactStoreEncryptionKey build() {
-            return new PipelineArtifactStoreEncryptionKey(id, type);
+        }
+        public PipelineArtifactStoreEncryptionKey build() {
+            final var o = new PipelineArtifactStoreEncryptionKey();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

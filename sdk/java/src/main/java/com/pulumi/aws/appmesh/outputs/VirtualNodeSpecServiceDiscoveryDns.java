@@ -13,13 +13,9 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
      * @return The DNS host name for your virtual node.
      * 
      */
-    private final String hostname;
+    private String hostname;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecServiceDiscoveryDns(@CustomType.Parameter("hostname") String hostname) {
-        this.hostname = hostname;
-    }
-
+    private VirtualNodeSpecServiceDiscoveryDns() {}
     /**
      * @return The DNS host name for your virtual node.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
     public static Builder builder(VirtualNodeSpecServiceDiscoveryDns defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostname;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecServiceDiscoveryDns defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
         }
 
+        @CustomType.Setter
         public Builder hostname(String hostname) {
             this.hostname = Objects.requireNonNull(hostname);
             return this;
-        }        public VirtualNodeSpecServiceDiscoveryDns build() {
-            return new VirtualNodeSpecServiceDiscoveryDns(hostname);
+        }
+        public VirtualNodeSpecServiceDiscoveryDns build() {
+            final var o = new VirtualNodeSpecServiceDiscoveryDns();
+            o.hostname = hostname;
+            return o;
         }
     }
 }

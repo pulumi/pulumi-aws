@@ -13,13 +13,9 @@ public final class FsxOpenZfsFileSystemProtocolNfs {
      * @return Represents the mount options that are available for DataSync to access an NFS location. See below.
      * 
      */
-    private final FsxOpenZfsFileSystemProtocolNfsMountOptions mountOptions;
+    private FsxOpenZfsFileSystemProtocolNfsMountOptions mountOptions;
 
-    @CustomType.Constructor
-    private FsxOpenZfsFileSystemProtocolNfs(@CustomType.Parameter("mountOptions") FsxOpenZfsFileSystemProtocolNfsMountOptions mountOptions) {
-        this.mountOptions = mountOptions;
-    }
-
+    private FsxOpenZfsFileSystemProtocolNfs() {}
     /**
      * @return Represents the mount options that are available for DataSync to access an NFS location. See below.
      * 
@@ -35,24 +31,24 @@ public final class FsxOpenZfsFileSystemProtocolNfs {
     public static Builder builder(FsxOpenZfsFileSystemProtocolNfs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private FsxOpenZfsFileSystemProtocolNfsMountOptions mountOptions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FsxOpenZfsFileSystemProtocolNfs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mountOptions = defaults.mountOptions;
         }
 
+        @CustomType.Setter
         public Builder mountOptions(FsxOpenZfsFileSystemProtocolNfsMountOptions mountOptions) {
             this.mountOptions = Objects.requireNonNull(mountOptions);
             return this;
-        }        public FsxOpenZfsFileSystemProtocolNfs build() {
-            return new FsxOpenZfsFileSystemProtocolNfs(mountOptions);
+        }
+        public FsxOpenZfsFileSystemProtocolNfs build() {
+            final var o = new FsxOpenZfsFileSystemProtocolNfs();
+            o.mountOptions = mountOptions;
+            return o;
         }
     }
 }

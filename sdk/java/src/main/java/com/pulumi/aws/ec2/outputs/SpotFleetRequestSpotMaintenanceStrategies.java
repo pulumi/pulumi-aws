@@ -15,13 +15,9 @@ public final class SpotFleetRequestSpotMaintenanceStrategies {
      * @return Nested argument containing the capacity rebalance for your fleet request. Defined below.
      * 
      */
-    private final @Nullable SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance capacityRebalance;
+    private @Nullable SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance capacityRebalance;
 
-    @CustomType.Constructor
-    private SpotFleetRequestSpotMaintenanceStrategies(@CustomType.Parameter("capacityRebalance") @Nullable SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance capacityRebalance) {
-        this.capacityRebalance = capacityRebalance;
-    }
-
+    private SpotFleetRequestSpotMaintenanceStrategies() {}
     /**
      * @return Nested argument containing the capacity rebalance for your fleet request. Defined below.
      * 
@@ -37,24 +33,24 @@ public final class SpotFleetRequestSpotMaintenanceStrategies {
     public static Builder builder(SpotFleetRequestSpotMaintenanceStrategies defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance capacityRebalance;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotFleetRequestSpotMaintenanceStrategies defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityRebalance = defaults.capacityRebalance;
         }
 
+        @CustomType.Setter
         public Builder capacityRebalance(@Nullable SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance capacityRebalance) {
             this.capacityRebalance = capacityRebalance;
             return this;
-        }        public SpotFleetRequestSpotMaintenanceStrategies build() {
-            return new SpotFleetRequestSpotMaintenanceStrategies(capacityRebalance);
+        }
+        public SpotFleetRequestSpotMaintenanceStrategies build() {
+            final var o = new SpotFleetRequestSpotMaintenanceStrategies();
+            o.capacityRebalance = capacityRebalance;
+            return o;
         }
     }
 }

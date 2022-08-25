@@ -16,21 +16,14 @@ public final class DistributionTrustedSignerItem {
      * @return AWS account ID or `self`
      * 
      */
-    private final @Nullable String awsAccountNumber;
+    private @Nullable String awsAccountNumber;
     /**
      * @return Set of active CloudFront key pairs associated with the signer account
      * 
      */
-    private final @Nullable List<String> keyPairIds;
+    private @Nullable List<String> keyPairIds;
 
-    @CustomType.Constructor
-    private DistributionTrustedSignerItem(
-        @CustomType.Parameter("awsAccountNumber") @Nullable String awsAccountNumber,
-        @CustomType.Parameter("keyPairIds") @Nullable List<String> keyPairIds) {
-        this.awsAccountNumber = awsAccountNumber;
-        this.keyPairIds = keyPairIds;
-    }
-
+    private DistributionTrustedSignerItem() {}
     /**
      * @return AWS account ID or `self`
      * 
@@ -53,33 +46,35 @@ public final class DistributionTrustedSignerItem {
     public static Builder builder(DistributionTrustedSignerItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String awsAccountNumber;
         private @Nullable List<String> keyPairIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionTrustedSignerItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsAccountNumber = defaults.awsAccountNumber;
     	      this.keyPairIds = defaults.keyPairIds;
         }
 
+        @CustomType.Setter
         public Builder awsAccountNumber(@Nullable String awsAccountNumber) {
             this.awsAccountNumber = awsAccountNumber;
             return this;
         }
+        @CustomType.Setter
         public Builder keyPairIds(@Nullable List<String> keyPairIds) {
             this.keyPairIds = keyPairIds;
             return this;
         }
         public Builder keyPairIds(String... keyPairIds) {
             return keyPairIds(List.of(keyPairIds));
-        }        public DistributionTrustedSignerItem build() {
-            return new DistributionTrustedSignerItem(awsAccountNumber, keyPairIds);
+        }
+        public DistributionTrustedSignerItem build() {
+            final var o = new DistributionTrustedSignerItem();
+            o.awsAccountNumber = awsAccountNumber;
+            o.keyPairIds = keyPairIds;
+            return o;
         }
     }
 }

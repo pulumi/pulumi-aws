@@ -13,13 +13,9 @@ public final class ModelPrimaryContainerImageConfigRepositoryAuthConfig {
      * @return The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
      * 
      */
-    private final String repositoryCredentialsProviderArn;
+    private String repositoryCredentialsProviderArn;
 
-    @CustomType.Constructor
-    private ModelPrimaryContainerImageConfigRepositoryAuthConfig(@CustomType.Parameter("repositoryCredentialsProviderArn") String repositoryCredentialsProviderArn) {
-        this.repositoryCredentialsProviderArn = repositoryCredentialsProviderArn;
-    }
-
+    private ModelPrimaryContainerImageConfigRepositoryAuthConfig() {}
     /**
      * @return The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
      * 
@@ -35,24 +31,24 @@ public final class ModelPrimaryContainerImageConfigRepositoryAuthConfig {
     public static Builder builder(ModelPrimaryContainerImageConfigRepositoryAuthConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String repositoryCredentialsProviderArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ModelPrimaryContainerImageConfigRepositoryAuthConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.repositoryCredentialsProviderArn = defaults.repositoryCredentialsProviderArn;
         }
 
+        @CustomType.Setter
         public Builder repositoryCredentialsProviderArn(String repositoryCredentialsProviderArn) {
             this.repositoryCredentialsProviderArn = Objects.requireNonNull(repositoryCredentialsProviderArn);
             return this;
-        }        public ModelPrimaryContainerImageConfigRepositoryAuthConfig build() {
-            return new ModelPrimaryContainerImageConfigRepositoryAuthConfig(repositoryCredentialsProviderArn);
+        }
+        public ModelPrimaryContainerImageConfigRepositoryAuthConfig build() {
+            final var o = new ModelPrimaryContainerImageConfigRepositoryAuthConfig();
+            o.repositoryCredentialsProviderArn = repositoryCredentialsProviderArn;
+            return o;
         }
     }
 }

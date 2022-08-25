@@ -13,13 +13,9 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
      * @return Path to the top-level parent that contains the records.
      * 
      */
-    private final String recordRowPath;
+    private String recordRowPath;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson(@CustomType.Parameter("recordRowPath") String recordRowPath) {
-        this.recordRowPath = recordRowPath;
-    }
-
+    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson() {}
     /**
      * @return Path to the top-level parent that contains the records.
      * 
@@ -35,24 +31,24 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
     public static Builder builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String recordRowPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordRowPath = defaults.recordRowPath;
         }
 
+        @CustomType.Setter
         public Builder recordRowPath(String recordRowPath) {
             this.recordRowPath = Objects.requireNonNull(recordRowPath);
             return this;
-        }        public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson build() {
-            return new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson(recordRowPath);
+        }
+        public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson build() {
+            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson();
+            o.recordRowPath = recordRowPath;
+            return o;
         }
     }
 }

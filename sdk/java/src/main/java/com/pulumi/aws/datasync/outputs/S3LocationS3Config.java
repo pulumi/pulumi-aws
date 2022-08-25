@@ -13,13 +13,9 @@ public final class S3LocationS3Config {
      * @return Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
      * 
      */
-    private final String bucketAccessRoleArn;
+    private String bucketAccessRoleArn;
 
-    @CustomType.Constructor
-    private S3LocationS3Config(@CustomType.Parameter("bucketAccessRoleArn") String bucketAccessRoleArn) {
-        this.bucketAccessRoleArn = bucketAccessRoleArn;
-    }
-
+    private S3LocationS3Config() {}
     /**
      * @return Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
      * 
@@ -35,24 +31,24 @@ public final class S3LocationS3Config {
     public static Builder builder(S3LocationS3Config defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketAccessRoleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(S3LocationS3Config defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketAccessRoleArn = defaults.bucketAccessRoleArn;
         }
 
+        @CustomType.Setter
         public Builder bucketAccessRoleArn(String bucketAccessRoleArn) {
             this.bucketAccessRoleArn = Objects.requireNonNull(bucketAccessRoleArn);
             return this;
-        }        public S3LocationS3Config build() {
-            return new S3LocationS3Config(bucketAccessRoleArn);
+        }
+        public S3LocationS3Config build() {
+            final var o = new S3LocationS3Config();
+            o.bucketAccessRoleArn = bucketAccessRoleArn;
+            return o;
         }
     }
 }

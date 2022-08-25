@@ -15,49 +15,34 @@ public final class GetLaunchConfigurationRootBlockDevice {
      * @return Whether the EBS Volume will be deleted on instance termination.
      * 
      */
-    private final Boolean deleteOnTermination;
+    private Boolean deleteOnTermination;
     /**
      * @return Whether the volume is Encrypted.
      * 
      */
-    private final Boolean encrypted;
+    private Boolean encrypted;
     /**
      * @return The provisioned IOPs of the volume.
      * 
      */
-    private final Integer iops;
+    private Integer iops;
     /**
      * @return The Throughput of the volume.
      * 
      */
-    private final Integer throughput;
+    private Integer throughput;
     /**
      * @return The Size of the volume.
      * 
      */
-    private final Integer volumeSize;
+    private Integer volumeSize;
     /**
      * @return The Type of the volume.
      * 
      */
-    private final String volumeType;
+    private String volumeType;
 
-    @CustomType.Constructor
-    private GetLaunchConfigurationRootBlockDevice(
-        @CustomType.Parameter("deleteOnTermination") Boolean deleteOnTermination,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("iops") Integer iops,
-        @CustomType.Parameter("throughput") Integer throughput,
-        @CustomType.Parameter("volumeSize") Integer volumeSize,
-        @CustomType.Parameter("volumeType") String volumeType) {
-        this.deleteOnTermination = deleteOnTermination;
-        this.encrypted = encrypted;
-        this.iops = iops;
-        this.throughput = throughput;
-        this.volumeSize = volumeSize;
-        this.volumeType = volumeType;
-    }
-
+    private GetLaunchConfigurationRootBlockDevice() {}
     /**
      * @return Whether the EBS Volume will be deleted on instance termination.
      * 
@@ -108,7 +93,7 @@ public final class GetLaunchConfigurationRootBlockDevice {
     public static Builder builder(GetLaunchConfigurationRootBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean deleteOnTermination;
         private Boolean encrypted;
@@ -116,11 +101,7 @@ public final class GetLaunchConfigurationRootBlockDevice {
         private Integer throughput;
         private Integer volumeSize;
         private String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchConfigurationRootBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOnTermination = defaults.deleteOnTermination;
@@ -131,31 +112,45 @@ public final class GetLaunchConfigurationRootBlockDevice {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder deleteOnTermination(Boolean deleteOnTermination) {
             this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder iops(Integer iops) {
             this.iops = Objects.requireNonNull(iops);
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(Integer throughput) {
             this.throughput = Objects.requireNonNull(throughput);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(Integer volumeSize) {
             this.volumeSize = Objects.requireNonNull(volumeSize);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(String volumeType) {
             this.volumeType = Objects.requireNonNull(volumeType);
             return this;
-        }        public GetLaunchConfigurationRootBlockDevice build() {
-            return new GetLaunchConfigurationRootBlockDevice(deleteOnTermination, encrypted, iops, throughput, volumeSize, volumeType);
+        }
+        public GetLaunchConfigurationRootBlockDevice build() {
+            final var o = new GetLaunchConfigurationRootBlockDevice();
+            o.deleteOnTermination = deleteOnTermination;
+            o.encrypted = encrypted;
+            o.iops = iops;
+            o.throughput = throughput;
+            o.volumeSize = volumeSize;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

@@ -15,84 +15,35 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerResult {
-    private final GetLoadBalancerAccessLogs accessLogs;
-    private final String arn;
-    private final String arnSuffix;
-    private final String customerOwnedIpv4Pool;
-    private final String desyncMitigationMode;
-    private final String dnsName;
-    private final Boolean dropInvalidHeaderFields;
-    private final Boolean enableDeletionProtection;
-    private final Boolean enableHttp2;
-    private final Boolean enableWafFailOpen;
+    private GetLoadBalancerAccessLogs accessLogs;
+    private String arn;
+    private String arnSuffix;
+    private String customerOwnedIpv4Pool;
+    private String desyncMitigationMode;
+    private String dnsName;
+    private Boolean dropInvalidHeaderFields;
+    private Boolean enableDeletionProtection;
+    private Boolean enableHttp2;
+    private Boolean enableWafFailOpen;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final Integer idleTimeout;
-    private final Boolean internal;
-    private final String ipAddressType;
-    private final String loadBalancerType;
-    private final String name;
-    private final Boolean preserveHostHeader;
-    private final List<String> securityGroups;
-    private final List<GetLoadBalancerSubnetMapping> subnetMappings;
-    private final List<String> subnets;
-    private final Map<String,String> tags;
-    private final String vpcId;
-    private final String zoneId;
+    private String id;
+    private Integer idleTimeout;
+    private Boolean internal;
+    private String ipAddressType;
+    private String loadBalancerType;
+    private String name;
+    private Boolean preserveHostHeader;
+    private List<String> securityGroups;
+    private List<GetLoadBalancerSubnetMapping> subnetMappings;
+    private List<String> subnets;
+    private Map<String,String> tags;
+    private String vpcId;
+    private String zoneId;
 
-    @CustomType.Constructor
-    private GetLoadBalancerResult(
-        @CustomType.Parameter("accessLogs") GetLoadBalancerAccessLogs accessLogs,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("arnSuffix") String arnSuffix,
-        @CustomType.Parameter("customerOwnedIpv4Pool") String customerOwnedIpv4Pool,
-        @CustomType.Parameter("desyncMitigationMode") String desyncMitigationMode,
-        @CustomType.Parameter("dnsName") String dnsName,
-        @CustomType.Parameter("dropInvalidHeaderFields") Boolean dropInvalidHeaderFields,
-        @CustomType.Parameter("enableDeletionProtection") Boolean enableDeletionProtection,
-        @CustomType.Parameter("enableHttp2") Boolean enableHttp2,
-        @CustomType.Parameter("enableWafFailOpen") Boolean enableWafFailOpen,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("idleTimeout") Integer idleTimeout,
-        @CustomType.Parameter("internal") Boolean internal,
-        @CustomType.Parameter("ipAddressType") String ipAddressType,
-        @CustomType.Parameter("loadBalancerType") String loadBalancerType,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("preserveHostHeader") Boolean preserveHostHeader,
-        @CustomType.Parameter("securityGroups") List<String> securityGroups,
-        @CustomType.Parameter("subnetMappings") List<GetLoadBalancerSubnetMapping> subnetMappings,
-        @CustomType.Parameter("subnets") List<String> subnets,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId,
-        @CustomType.Parameter("zoneId") String zoneId) {
-        this.accessLogs = accessLogs;
-        this.arn = arn;
-        this.arnSuffix = arnSuffix;
-        this.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
-        this.desyncMitigationMode = desyncMitigationMode;
-        this.dnsName = dnsName;
-        this.dropInvalidHeaderFields = dropInvalidHeaderFields;
-        this.enableDeletionProtection = enableDeletionProtection;
-        this.enableHttp2 = enableHttp2;
-        this.enableWafFailOpen = enableWafFailOpen;
-        this.id = id;
-        this.idleTimeout = idleTimeout;
-        this.internal = internal;
-        this.ipAddressType = ipAddressType;
-        this.loadBalancerType = loadBalancerType;
-        this.name = name;
-        this.preserveHostHeader = preserveHostHeader;
-        this.securityGroups = securityGroups;
-        this.subnetMappings = subnetMappings;
-        this.subnets = subnets;
-        this.tags = tags;
-        this.vpcId = vpcId;
-        this.zoneId = zoneId;
-    }
-
+    private GetLoadBalancerResult() {}
     public GetLoadBalancerAccessLogs accessLogs() {
         return this.accessLogs;
     }
@@ -174,7 +125,7 @@ public final class GetLoadBalancerResult {
     public static Builder builder(GetLoadBalancerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GetLoadBalancerAccessLogs accessLogs;
         private String arn;
@@ -199,11 +150,7 @@ public final class GetLoadBalancerResult {
         private Map<String,String> tags;
         private String vpcId;
         private String zoneId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLoadBalancerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessLogs = defaults.accessLogs;
@@ -231,74 +178,92 @@ public final class GetLoadBalancerResult {
     	      this.zoneId = defaults.zoneId;
         }
 
+        @CustomType.Setter
         public Builder accessLogs(GetLoadBalancerAccessLogs accessLogs) {
             this.accessLogs = Objects.requireNonNull(accessLogs);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder arnSuffix(String arnSuffix) {
             this.arnSuffix = Objects.requireNonNull(arnSuffix);
             return this;
         }
+        @CustomType.Setter
         public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
             this.customerOwnedIpv4Pool = Objects.requireNonNull(customerOwnedIpv4Pool);
             return this;
         }
+        @CustomType.Setter
         public Builder desyncMitigationMode(String desyncMitigationMode) {
             this.desyncMitigationMode = Objects.requireNonNull(desyncMitigationMode);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsName(String dnsName) {
             this.dnsName = Objects.requireNonNull(dnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder dropInvalidHeaderFields(Boolean dropInvalidHeaderFields) {
             this.dropInvalidHeaderFields = Objects.requireNonNull(dropInvalidHeaderFields);
             return this;
         }
+        @CustomType.Setter
         public Builder enableDeletionProtection(Boolean enableDeletionProtection) {
             this.enableDeletionProtection = Objects.requireNonNull(enableDeletionProtection);
             return this;
         }
+        @CustomType.Setter
         public Builder enableHttp2(Boolean enableHttp2) {
             this.enableHttp2 = Objects.requireNonNull(enableHttp2);
             return this;
         }
+        @CustomType.Setter
         public Builder enableWafFailOpen(Boolean enableWafFailOpen) {
             this.enableWafFailOpen = Objects.requireNonNull(enableWafFailOpen);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeout(Integer idleTimeout) {
             this.idleTimeout = Objects.requireNonNull(idleTimeout);
             return this;
         }
+        @CustomType.Setter
         public Builder internal(Boolean internal) {
             this.internal = Objects.requireNonNull(internal);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddressType(String ipAddressType) {
             this.ipAddressType = Objects.requireNonNull(ipAddressType);
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancerType(String loadBalancerType) {
             this.loadBalancerType = Objects.requireNonNull(loadBalancerType);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder preserveHostHeader(Boolean preserveHostHeader) {
             this.preserveHostHeader = Objects.requireNonNull(preserveHostHeader);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             this.securityGroups = Objects.requireNonNull(securityGroups);
             return this;
@@ -306,6 +271,7 @@ public final class GetLoadBalancerResult {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder subnetMappings(List<GetLoadBalancerSubnetMapping> subnetMappings) {
             this.subnetMappings = Objects.requireNonNull(subnetMappings);
             return this;
@@ -313,6 +279,7 @@ public final class GetLoadBalancerResult {
         public Builder subnetMappings(GetLoadBalancerSubnetMapping... subnetMappings) {
             return subnetMappings(List.of(subnetMappings));
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
@@ -320,19 +287,47 @@ public final class GetLoadBalancerResult {
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneId(String zoneId) {
             this.zoneId = Objects.requireNonNull(zoneId);
             return this;
-        }        public GetLoadBalancerResult build() {
-            return new GetLoadBalancerResult(accessLogs, arn, arnSuffix, customerOwnedIpv4Pool, desyncMitigationMode, dnsName, dropInvalidHeaderFields, enableDeletionProtection, enableHttp2, enableWafFailOpen, id, idleTimeout, internal, ipAddressType, loadBalancerType, name, preserveHostHeader, securityGroups, subnetMappings, subnets, tags, vpcId, zoneId);
+        }
+        public GetLoadBalancerResult build() {
+            final var o = new GetLoadBalancerResult();
+            o.accessLogs = accessLogs;
+            o.arn = arn;
+            o.arnSuffix = arnSuffix;
+            o.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
+            o.desyncMitigationMode = desyncMitigationMode;
+            o.dnsName = dnsName;
+            o.dropInvalidHeaderFields = dropInvalidHeaderFields;
+            o.enableDeletionProtection = enableDeletionProtection;
+            o.enableHttp2 = enableHttp2;
+            o.enableWafFailOpen = enableWafFailOpen;
+            o.id = id;
+            o.idleTimeout = idleTimeout;
+            o.internal = internal;
+            o.ipAddressType = ipAddressType;
+            o.loadBalancerType = loadBalancerType;
+            o.name = name;
+            o.preserveHostHeader = preserveHostHeader;
+            o.securityGroups = securityGroups;
+            o.subnetMappings = subnetMappings;
+            o.subnets = subnets;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            o.zoneId = zoneId;
+            return o;
         }
     }
 }

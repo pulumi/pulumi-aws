@@ -15,21 +15,14 @@ public final class SigningJobSignedObjectS3 {
      * @return Name of the S3 bucket.
      * 
      */
-    private final @Nullable String bucket;
+    private @Nullable String bucket;
     /**
      * @return Key name of the object that contains your unsigned code.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
 
-    @CustomType.Constructor
-    private SigningJobSignedObjectS3(
-        @CustomType.Parameter("bucket") @Nullable String bucket,
-        @CustomType.Parameter("key") @Nullable String key) {
-        this.bucket = bucket;
-        this.key = key;
-    }
-
+    private SigningJobSignedObjectS3() {}
     /**
      * @return Name of the S3 bucket.
      * 
@@ -52,30 +45,32 @@ public final class SigningJobSignedObjectS3 {
     public static Builder builder(SigningJobSignedObjectS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucket;
         private @Nullable String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SigningJobSignedObjectS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
             this.bucket = bucket;
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
-        }        public SigningJobSignedObjectS3 build() {
-            return new SigningJobSignedObjectS3(bucket, key);
+        }
+        public SigningJobSignedObjectS3 build() {
+            final var o = new SigningJobSignedObjectS3();
+            o.bucket = bucket;
+            o.key = key;
+            return o;
         }
     }
 }

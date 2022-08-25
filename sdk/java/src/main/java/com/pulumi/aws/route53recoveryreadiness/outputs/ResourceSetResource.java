@@ -13,35 +13,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceSetResource {
-    private final @Nullable String componentId;
+    private @Nullable String componentId;
     /**
      * @return Component for DNS/Routing Control Readiness Checks.
      * 
      */
-    private final @Nullable ResourceSetResourceDnsTargetResource dnsTargetResource;
+    private @Nullable ResourceSetResourceDnsTargetResource dnsTargetResource;
     /**
      * @return Recovery group ARN or cell ARN that contains this resource set.
      * 
      */
-    private final @Nullable List<String> readinessScopes;
+    private @Nullable List<String> readinessScopes;
     /**
      * @return ARN of the resource.
      * 
      */
-    private final @Nullable String resourceArn;
+    private @Nullable String resourceArn;
 
-    @CustomType.Constructor
-    private ResourceSetResource(
-        @CustomType.Parameter("componentId") @Nullable String componentId,
-        @CustomType.Parameter("dnsTargetResource") @Nullable ResourceSetResourceDnsTargetResource dnsTargetResource,
-        @CustomType.Parameter("readinessScopes") @Nullable List<String> readinessScopes,
-        @CustomType.Parameter("resourceArn") @Nullable String resourceArn) {
-        this.componentId = componentId;
-        this.dnsTargetResource = dnsTargetResource;
-        this.readinessScopes = readinessScopes;
-        this.resourceArn = resourceArn;
-    }
-
+    private ResourceSetResource() {}
     public Optional<String> componentId() {
         return Optional.ofNullable(this.componentId);
     }
@@ -74,17 +63,13 @@ public final class ResourceSetResource {
     public static Builder builder(ResourceSetResource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String componentId;
         private @Nullable ResourceSetResourceDnsTargetResource dnsTargetResource;
         private @Nullable List<String> readinessScopes;
         private @Nullable String resourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceSetResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.componentId = defaults.componentId;
@@ -93,14 +78,17 @@ public final class ResourceSetResource {
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
         public Builder componentId(@Nullable String componentId) {
             this.componentId = componentId;
             return this;
         }
+        @CustomType.Setter
         public Builder dnsTargetResource(@Nullable ResourceSetResourceDnsTargetResource dnsTargetResource) {
             this.dnsTargetResource = dnsTargetResource;
             return this;
         }
+        @CustomType.Setter
         public Builder readinessScopes(@Nullable List<String> readinessScopes) {
             this.readinessScopes = readinessScopes;
             return this;
@@ -108,11 +96,18 @@ public final class ResourceSetResource {
         public Builder readinessScopes(String... readinessScopes) {
             return readinessScopes(List.of(readinessScopes));
         }
+        @CustomType.Setter
         public Builder resourceArn(@Nullable String resourceArn) {
             this.resourceArn = resourceArn;
             return this;
-        }        public ResourceSetResource build() {
-            return new ResourceSetResource(componentId, dnsTargetResource, readinessScopes, resourceArn);
+        }
+        public ResourceSetResource build() {
+            final var o = new ResourceSetResource();
+            o.componentId = componentId;
+            o.dnsTargetResource = dnsTargetResource;
+            o.readinessScopes = readinessScopes;
+            o.resourceArn = resourceArn;
+            return o;
         }
     }
 }

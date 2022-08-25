@@ -13,13 +13,9 @@ public final class DataSourceParametersServiceNow {
      * @return The base URL of the Jira instance&#39;s site to which to connect.
      * 
      */
-    private final String siteBaseUrl;
+    private String siteBaseUrl;
 
-    @CustomType.Constructor
-    private DataSourceParametersServiceNow(@CustomType.Parameter("siteBaseUrl") String siteBaseUrl) {
-        this.siteBaseUrl = siteBaseUrl;
-    }
-
+    private DataSourceParametersServiceNow() {}
     /**
      * @return The base URL of the Jira instance&#39;s site to which to connect.
      * 
@@ -35,24 +31,24 @@ public final class DataSourceParametersServiceNow {
     public static Builder builder(DataSourceParametersServiceNow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String siteBaseUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersServiceNow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.siteBaseUrl = defaults.siteBaseUrl;
         }
 
+        @CustomType.Setter
         public Builder siteBaseUrl(String siteBaseUrl) {
             this.siteBaseUrl = Objects.requireNonNull(siteBaseUrl);
             return this;
-        }        public DataSourceParametersServiceNow build() {
-            return new DataSourceParametersServiceNow(siteBaseUrl);
+        }
+        public DataSourceParametersServiceNow build() {
+            final var o = new DataSourceParametersServiceNow();
+            o.siteBaseUrl = siteBaseUrl;
+            return o;
         }
     }
 }

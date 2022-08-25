@@ -15,13 +15,9 @@ public final class IndexServerSideEncryptionConfiguration {
      * @return The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
 
-    @CustomType.Constructor
-    private IndexServerSideEncryptionConfiguration(@CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId) {
-        this.kmsKeyId = kmsKeyId;
-    }
-
+    private IndexServerSideEncryptionConfiguration() {}
     /**
      * @return The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
      * 
@@ -37,24 +33,24 @@ public final class IndexServerSideEncryptionConfiguration {
     public static Builder builder(IndexServerSideEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexServerSideEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
-        }        public IndexServerSideEncryptionConfiguration build() {
-            return new IndexServerSideEncryptionConfiguration(kmsKeyId);
+        }
+        public IndexServerSideEncryptionConfiguration build() {
+            final var o = new IndexServerSideEncryptionConfiguration();
+            o.kmsKeyId = kmsKeyId;
+            return o;
         }
     }
 }

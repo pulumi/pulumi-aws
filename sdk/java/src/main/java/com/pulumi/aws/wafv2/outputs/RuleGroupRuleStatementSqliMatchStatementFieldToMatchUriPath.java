@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath {
-    @CustomType.Constructor
-    private RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath() {
-    }
-
+    private RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath {
     public static Builder builder(RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath build() {
-            return new RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath();
+            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath();
+            return o;
         }
     }
 }

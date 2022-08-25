@@ -16,21 +16,14 @@ public final class BucketWebsiteConfigurationV2RoutingRule {
      * @return A configuration block for describing a condition that must be met for the specified redirect to apply detailed below.
      * 
      */
-    private final @Nullable BucketWebsiteConfigurationV2RoutingRuleCondition condition;
+    private @Nullable BucketWebsiteConfigurationV2RoutingRuleCondition condition;
     /**
      * @return A configuration block for redirect information detailed below.
      * 
      */
-    private final BucketWebsiteConfigurationV2RoutingRuleRedirect redirect;
+    private BucketWebsiteConfigurationV2RoutingRuleRedirect redirect;
 
-    @CustomType.Constructor
-    private BucketWebsiteConfigurationV2RoutingRule(
-        @CustomType.Parameter("condition") @Nullable BucketWebsiteConfigurationV2RoutingRuleCondition condition,
-        @CustomType.Parameter("redirect") BucketWebsiteConfigurationV2RoutingRuleRedirect redirect) {
-        this.condition = condition;
-        this.redirect = redirect;
-    }
-
+    private BucketWebsiteConfigurationV2RoutingRule() {}
     /**
      * @return A configuration block for describing a condition that must be met for the specified redirect to apply detailed below.
      * 
@@ -53,30 +46,32 @@ public final class BucketWebsiteConfigurationV2RoutingRule {
     public static Builder builder(BucketWebsiteConfigurationV2RoutingRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketWebsiteConfigurationV2RoutingRuleCondition condition;
         private BucketWebsiteConfigurationV2RoutingRuleRedirect redirect;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketWebsiteConfigurationV2RoutingRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.condition = defaults.condition;
     	      this.redirect = defaults.redirect;
         }
 
+        @CustomType.Setter
         public Builder condition(@Nullable BucketWebsiteConfigurationV2RoutingRuleCondition condition) {
             this.condition = condition;
             return this;
         }
+        @CustomType.Setter
         public Builder redirect(BucketWebsiteConfigurationV2RoutingRuleRedirect redirect) {
             this.redirect = Objects.requireNonNull(redirect);
             return this;
-        }        public BucketWebsiteConfigurationV2RoutingRule build() {
-            return new BucketWebsiteConfigurationV2RoutingRule(condition, redirect);
+        }
+        public BucketWebsiteConfigurationV2RoutingRule build() {
+            final var o = new BucketWebsiteConfigurationV2RoutingRule();
+            o.condition = condition;
+            o.redirect = redirect;
+            return o;
         }
     }
 }

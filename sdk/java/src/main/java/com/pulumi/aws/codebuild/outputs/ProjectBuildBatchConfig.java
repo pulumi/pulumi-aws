@@ -18,35 +18,24 @@ public final class ProjectBuildBatchConfig {
      * @return Specifies if the build artifacts for the batch build should be combined into a single artifact location.
      * 
      */
-    private final @Nullable Boolean combineArtifacts;
+    private @Nullable Boolean combineArtifacts;
     /**
      * @return Specifies the restrictions for the batch build.
      * 
      */
-    private final @Nullable ProjectBuildBatchConfigRestrictions restrictions;
+    private @Nullable ProjectBuildBatchConfigRestrictions restrictions;
     /**
      * @return Specifies the service role ARN for the batch build project.
      * 
      */
-    private final String serviceRole;
+    private String serviceRole;
     /**
      * @return Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
      * 
      */
-    private final @Nullable Integer timeoutInMins;
+    private @Nullable Integer timeoutInMins;
 
-    @CustomType.Constructor
-    private ProjectBuildBatchConfig(
-        @CustomType.Parameter("combineArtifacts") @Nullable Boolean combineArtifacts,
-        @CustomType.Parameter("restrictions") @Nullable ProjectBuildBatchConfigRestrictions restrictions,
-        @CustomType.Parameter("serviceRole") String serviceRole,
-        @CustomType.Parameter("timeoutInMins") @Nullable Integer timeoutInMins) {
-        this.combineArtifacts = combineArtifacts;
-        this.restrictions = restrictions;
-        this.serviceRole = serviceRole;
-        this.timeoutInMins = timeoutInMins;
-    }
-
+    private ProjectBuildBatchConfig() {}
     /**
      * @return Specifies if the build artifacts for the batch build should be combined into a single artifact location.
      * 
@@ -83,17 +72,13 @@ public final class ProjectBuildBatchConfig {
     public static Builder builder(ProjectBuildBatchConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean combineArtifacts;
         private @Nullable ProjectBuildBatchConfigRestrictions restrictions;
         private String serviceRole;
         private @Nullable Integer timeoutInMins;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectBuildBatchConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.combineArtifacts = defaults.combineArtifacts;
@@ -102,23 +87,33 @@ public final class ProjectBuildBatchConfig {
     	      this.timeoutInMins = defaults.timeoutInMins;
         }
 
+        @CustomType.Setter
         public Builder combineArtifacts(@Nullable Boolean combineArtifacts) {
             this.combineArtifacts = combineArtifacts;
             return this;
         }
+        @CustomType.Setter
         public Builder restrictions(@Nullable ProjectBuildBatchConfigRestrictions restrictions) {
             this.restrictions = restrictions;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
             this.serviceRole = Objects.requireNonNull(serviceRole);
             return this;
         }
+        @CustomType.Setter
         public Builder timeoutInMins(@Nullable Integer timeoutInMins) {
             this.timeoutInMins = timeoutInMins;
             return this;
-        }        public ProjectBuildBatchConfig build() {
-            return new ProjectBuildBatchConfig(combineArtifacts, restrictions, serviceRole, timeoutInMins);
+        }
+        public ProjectBuildBatchConfig build() {
+            final var o = new ProjectBuildBatchConfig();
+            o.combineArtifacts = combineArtifacts;
+            o.restrictions = restrictions;
+            o.serviceRole = serviceRole;
+            o.timeoutInMins = timeoutInMins;
+            return o;
         }
     }
 }

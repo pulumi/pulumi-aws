@@ -10,32 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterCacheNode {
-    private final String address;
+    private String address;
     /**
      * @return The Availability Zone for the cache cluster.
      * 
      */
-    private final String availabilityZone;
-    private final String id;
+    private String availabilityZone;
+    private String id;
     /**
      * @return The port number on which each of the cache nodes will
      * accept connections.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private GetClusterCacheNode(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("port") Integer port) {
-        this.address = address;
-        this.availabilityZone = availabilityZone;
-        this.id = id;
-        this.port = port;
-    }
-
+    private GetClusterCacheNode() {}
     public String address() {
         return this.address;
     }
@@ -65,17 +54,13 @@ public final class GetClusterCacheNode {
     public static Builder builder(GetClusterCacheNode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private String availabilityZone;
         private String id;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterCacheNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -84,23 +69,33 @@ public final class GetClusterCacheNode {
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public GetClusterCacheNode build() {
-            return new GetClusterCacheNode(address, availabilityZone, id, port);
+        }
+        public GetClusterCacheNode build() {
+            final var o = new GetClusterCacheNode();
+            o.address = address;
+            o.availabilityZone = availabilityZone;
+            o.id = id;
+            o.port = port;
+            return o;
         }
     }
 }

@@ -17,13 +17,9 @@ public final class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisionin
      * * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
      * 
      */
-    private final @Nullable String action;
+    private @Nullable String action;
 
-    @CustomType.Constructor
-    private DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(@CustomType.Parameter("action") @Nullable String action) {
-        this.action = action;
-    }
-
+    private DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption() {}
     /**
      * @return The method used to add instances to a replacement environment.
      * * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
@@ -41,24 +37,24 @@ public final class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisionin
     public static Builder builder(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable String action) {
             this.action = action;
             return this;
-        }        public DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption build() {
-            return new DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(action);
+        }
+        public DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption build() {
+            final var o = new DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption();
+            o.action = action;
+            return o;
         }
     }
 }

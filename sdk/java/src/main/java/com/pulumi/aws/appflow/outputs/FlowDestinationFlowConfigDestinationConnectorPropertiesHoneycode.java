@@ -16,21 +16,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
      * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig errorHandlingConfig;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig errorHandlingConfig;
     /**
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode(
-        @CustomType.Parameter("errorHandlingConfig") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig errorHandlingConfig,
-        @CustomType.Parameter("object") String object) {
-        this.errorHandlingConfig = errorHandlingConfig;
-        this.object = object;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode() {}
     /**
      * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
@@ -53,30 +46,32 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig errorHandlingConfig;
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.errorHandlingConfig = defaults.errorHandlingConfig;
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder errorHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig errorHandlingConfig) {
             this.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode(errorHandlingConfig, object);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode();
+            o.errorHandlingConfig = errorHandlingConfig;
+            o.object = object;
+            return o;
         }
     }
 }

@@ -13,28 +13,19 @@ public final class GetActiveReceiptRuleSetResult {
      * @return The SES receipt rule set ARN.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the rule set
      * 
      */
-    private final String ruleSetName;
+    private String ruleSetName;
 
-    @CustomType.Constructor
-    private GetActiveReceiptRuleSetResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ruleSetName") String ruleSetName) {
-        this.arn = arn;
-        this.id = id;
-        this.ruleSetName = ruleSetName;
-    }
-
+    private GetActiveReceiptRuleSetResult() {}
     /**
      * @return The SES receipt rule set ARN.
      * 
@@ -64,16 +55,12 @@ public final class GetActiveReceiptRuleSetResult {
     public static Builder builder(GetActiveReceiptRuleSetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private String ruleSetName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActiveReceiptRuleSetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -81,19 +68,27 @@ public final class GetActiveReceiptRuleSetResult {
     	      this.ruleSetName = defaults.ruleSetName;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleSetName(String ruleSetName) {
             this.ruleSetName = Objects.requireNonNull(ruleSetName);
             return this;
-        }        public GetActiveReceiptRuleSetResult build() {
-            return new GetActiveReceiptRuleSetResult(arn, id, ruleSetName);
+        }
+        public GetActiveReceiptRuleSetResult build() {
+            final var o = new GetActiveReceiptRuleSetResult();
+            o.arn = arn;
+            o.id = id;
+            o.ruleSetName = ruleSetName;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class GetLocalGatewayVirtualInterfaceFilter {
      * @return Name of the filter.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return List of one or more values for the filter.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetLocalGatewayVirtualInterfaceFilter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private GetLocalGatewayVirtualInterfaceFilter() {}
     /**
      * @return Name of the filter.
      * 
@@ -51,33 +44,35 @@ public final class GetLocalGatewayVirtualInterfaceFilter {
     public static Builder builder(GetLocalGatewayVirtualInterfaceFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLocalGatewayVirtualInterfaceFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetLocalGatewayVirtualInterfaceFilter build() {
-            return new GetLocalGatewayVirtualInterfaceFilter(name, values);
+        }
+        public GetLocalGatewayVirtualInterfaceFilter build() {
+            final var o = new GetLocalGatewayVirtualInterfaceFilter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

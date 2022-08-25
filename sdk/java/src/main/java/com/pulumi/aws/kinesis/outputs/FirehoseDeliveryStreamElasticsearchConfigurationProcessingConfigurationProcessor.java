@@ -16,21 +16,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingCon
      * @return Array of processor parameters. More details are given below
      * 
      */
-    private final @Nullable List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter> parameters;
+    private @Nullable List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter> parameters;
     /**
      * @return The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor(
-        @CustomType.Parameter("parameters") @Nullable List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter> parameters,
-        @CustomType.Parameter("type") String type) {
-        this.parameters = parameters;
-        this.type = type;
-    }
-
+    private FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor() {}
     /**
      * @return Array of processor parameters. More details are given below
      * 
@@ -53,21 +46,18 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingCon
     public static Builder builder(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter> parameters;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameters = defaults.parameters;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder parameters(@Nullable List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter> parameters) {
             this.parameters = parameters;
             return this;
@@ -75,11 +65,16 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingCon
         public Builder parameters(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter... parameters) {
             return parameters(List.of(parameters));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor build() {
-            return new FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor(parameters, type);
+        }
+        public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor build() {
+            final var o = new FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor();
+            o.parameters = parameters;
+            o.type = type;
+            return o;
         }
     }
 }

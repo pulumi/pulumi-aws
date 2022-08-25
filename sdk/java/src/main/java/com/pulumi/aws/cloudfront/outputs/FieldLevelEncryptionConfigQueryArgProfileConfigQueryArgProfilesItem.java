@@ -13,21 +13,14 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
      * @return ID of profile to use for field-level encryption query argument-profile mapping
      * 
      */
-    private final String profileId;
+    private String profileId;
     /**
      * @return Query argument for field-level encryption query argument-profile mapping.
      * 
      */
-    private final String queryArg;
+    private String queryArg;
 
-    @CustomType.Constructor
-    private FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(
-        @CustomType.Parameter("profileId") String profileId,
-        @CustomType.Parameter("queryArg") String queryArg) {
-        this.profileId = profileId;
-        this.queryArg = queryArg;
-    }
-
+    private FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem() {}
     /**
      * @return ID of profile to use for field-level encryption query argument-profile mapping
      * 
@@ -50,30 +43,32 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
     public static Builder builder(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String profileId;
         private String queryArg;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.profileId = defaults.profileId;
     	      this.queryArg = defaults.queryArg;
         }
 
+        @CustomType.Setter
         public Builder profileId(String profileId) {
             this.profileId = Objects.requireNonNull(profileId);
             return this;
         }
+        @CustomType.Setter
         public Builder queryArg(String queryArg) {
             this.queryArg = Objects.requireNonNull(queryArg);
             return this;
-        }        public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem build() {
-            return new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(profileId, queryArg);
+        }
+        public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem build() {
+            final var o = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem();
+            o.profileId = profileId;
+            o.queryArg = queryArg;
+            return o;
         }
     }
 }

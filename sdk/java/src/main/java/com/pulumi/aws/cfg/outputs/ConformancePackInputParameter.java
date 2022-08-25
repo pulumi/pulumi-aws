@@ -13,21 +13,14 @@ public final class ConformancePackInputParameter {
      * @return The input key.
      * 
      */
-    private final String parameterName;
+    private String parameterName;
     /**
      * @return The input value.
      * 
      */
-    private final String parameterValue;
+    private String parameterValue;
 
-    @CustomType.Constructor
-    private ConformancePackInputParameter(
-        @CustomType.Parameter("parameterName") String parameterName,
-        @CustomType.Parameter("parameterValue") String parameterValue) {
-        this.parameterName = parameterName;
-        this.parameterValue = parameterValue;
-    }
-
+    private ConformancePackInputParameter() {}
     /**
      * @return The input key.
      * 
@@ -50,30 +43,32 @@ public final class ConformancePackInputParameter {
     public static Builder builder(ConformancePackInputParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String parameterName;
         private String parameterValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConformancePackInputParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameterName = defaults.parameterName;
     	      this.parameterValue = defaults.parameterValue;
         }
 
+        @CustomType.Setter
         public Builder parameterName(String parameterName) {
             this.parameterName = Objects.requireNonNull(parameterName);
             return this;
         }
+        @CustomType.Setter
         public Builder parameterValue(String parameterValue) {
             this.parameterValue = Objects.requireNonNull(parameterValue);
             return this;
-        }        public ConformancePackInputParameter build() {
-            return new ConformancePackInputParameter(parameterName, parameterValue);
+        }
+        public ConformancePackInputParameter build() {
+            final var o = new ConformancePackInputParameter();
+            o.parameterName = parameterName;
+            o.parameterValue = parameterValue;
+            return o;
         }
     }
 }

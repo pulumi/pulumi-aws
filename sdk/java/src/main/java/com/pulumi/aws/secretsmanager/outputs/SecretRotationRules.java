@@ -13,13 +13,9 @@ public final class SecretRotationRules {
      * @return Specifies the number of days between automatic scheduled rotations of the secret.
      * 
      */
-    private final Integer automaticallyAfterDays;
+    private Integer automaticallyAfterDays;
 
-    @CustomType.Constructor
-    private SecretRotationRules(@CustomType.Parameter("automaticallyAfterDays") Integer automaticallyAfterDays) {
-        this.automaticallyAfterDays = automaticallyAfterDays;
-    }
-
+    private SecretRotationRules() {}
     /**
      * @return Specifies the number of days between automatic scheduled rotations of the secret.
      * 
@@ -35,24 +31,24 @@ public final class SecretRotationRules {
     public static Builder builder(SecretRotationRules defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer automaticallyAfterDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecretRotationRules defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automaticallyAfterDays = defaults.automaticallyAfterDays;
         }
 
+        @CustomType.Setter
         public Builder automaticallyAfterDays(Integer automaticallyAfterDays) {
             this.automaticallyAfterDays = Objects.requireNonNull(automaticallyAfterDays);
             return this;
-        }        public SecretRotationRules build() {
-            return new SecretRotationRules(automaticallyAfterDays);
+        }
+        public SecretRotationRules build() {
+            final var o = new SecretRotationRules();
+            o.automaticallyAfterDays = automaticallyAfterDays;
+            return o;
         }
     }
 }

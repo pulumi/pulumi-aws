@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
-    private final List<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem> items;
+    private List<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem> items;
 
-    @CustomType.Constructor
-    private FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles(@CustomType.Parameter("items") List<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem> items) {
-        this.items = items;
-    }
-
+    private FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles() {}
     public List<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem> items() {
         return this.items;
     }
@@ -28,27 +24,27 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
     public static Builder builder(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(List<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem> items) {
             this.items = Objects.requireNonNull(items);
             return this;
         }
         public Builder items(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem... items) {
             return items(List.of(items));
-        }        public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles build() {
-            return new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles(items);
+        }
+        public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles build() {
+            final var o = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles();
+            o.items = items;
+            return o;
         }
     }
 }

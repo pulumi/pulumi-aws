@@ -14,62 +14,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessPointResult {
-    private final String accessPointId;
+    private String accessPointId;
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    private final String fileSystemArn;
+    private String fileSystemArn;
     /**
      * @return The ID of the file system for which the access point is intended.
      * 
      */
-    private final String fileSystemId;
+    private String fileSystemId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String ownerId;
+    private String id;
+    private String ownerId;
     /**
      * @return Single element list containing operating system user and group applied to all file system requests made using the access point.
      * 
      */
-    private final List<GetAccessPointPosixUser> posixUsers;
-    private final List<GetAccessPointRootDirectory> rootDirectories;
+    private List<GetAccessPointPosixUser> posixUsers;
+    private List<GetAccessPointRootDirectory> rootDirectories;
     /**
      * @return Key-value mapping of resource tags.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetAccessPointResult(
-        @CustomType.Parameter("accessPointId") String accessPointId,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("fileSystemArn") String fileSystemArn,
-        @CustomType.Parameter("fileSystemId") String fileSystemId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("posixUsers") List<GetAccessPointPosixUser> posixUsers,
-        @CustomType.Parameter("rootDirectories") List<GetAccessPointRootDirectory> rootDirectories,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.accessPointId = accessPointId;
-        this.arn = arn;
-        this.fileSystemArn = fileSystemArn;
-        this.fileSystemId = fileSystemId;
-        this.id = id;
-        this.ownerId = ownerId;
-        this.posixUsers = posixUsers;
-        this.rootDirectories = rootDirectories;
-        this.tags = tags;
-    }
-
+    private GetAccessPointResult() {}
     public String accessPointId() {
         return this.accessPointId;
     }
@@ -129,7 +108,7 @@ public final class GetAccessPointResult {
     public static Builder builder(GetAccessPointResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessPointId;
         private String arn;
@@ -140,11 +119,7 @@ public final class GetAccessPointResult {
         private List<GetAccessPointPosixUser> posixUsers;
         private List<GetAccessPointRootDirectory> rootDirectories;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccessPointResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPointId = defaults.accessPointId;
@@ -158,30 +133,37 @@ public final class GetAccessPointResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder accessPointId(String accessPointId) {
             this.accessPointId = Objects.requireNonNull(accessPointId);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemArn(String fileSystemArn) {
             this.fileSystemArn = Objects.requireNonNull(fileSystemArn);
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
             this.fileSystemId = Objects.requireNonNull(fileSystemId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder posixUsers(List<GetAccessPointPosixUser> posixUsers) {
             this.posixUsers = Objects.requireNonNull(posixUsers);
             return this;
@@ -189,6 +171,7 @@ public final class GetAccessPointResult {
         public Builder posixUsers(GetAccessPointPosixUser... posixUsers) {
             return posixUsers(List.of(posixUsers));
         }
+        @CustomType.Setter
         public Builder rootDirectories(List<GetAccessPointRootDirectory> rootDirectories) {
             this.rootDirectories = Objects.requireNonNull(rootDirectories);
             return this;
@@ -196,11 +179,23 @@ public final class GetAccessPointResult {
         public Builder rootDirectories(GetAccessPointRootDirectory... rootDirectories) {
             return rootDirectories(List.of(rootDirectories));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetAccessPointResult build() {
-            return new GetAccessPointResult(accessPointId, arn, fileSystemArn, fileSystemId, id, ownerId, posixUsers, rootDirectories, tags);
+        }
+        public GetAccessPointResult build() {
+            final var o = new GetAccessPointResult();
+            o.accessPointId = accessPointId;
+            o.arn = arn;
+            o.fileSystemArn = fileSystemArn;
+            o.fileSystemId = fileSystemId;
+            o.id = id;
+            o.ownerId = ownerId;
+            o.posixUsers = posixUsers;
+            o.rootDirectories = rootDirectories;
+            o.tags = tags;
+            return o;
         }
     }
 }

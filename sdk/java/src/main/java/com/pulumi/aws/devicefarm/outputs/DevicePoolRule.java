@@ -15,28 +15,19 @@ public final class DevicePoolRule {
      * @return The rule&#39;s stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
      * 
      */
-    private final @Nullable String attribute;
+    private @Nullable String attribute;
     /**
      * @return Specifies how Device Farm compares the rule&#39;s attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
      * 
      */
-    private final @Nullable String operator;
+    private @Nullable String operator;
     /**
      * @return The rule&#39;s value.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private DevicePoolRule(
-        @CustomType.Parameter("attribute") @Nullable String attribute,
-        @CustomType.Parameter("operator") @Nullable String operator,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.attribute = attribute;
-        this.operator = operator;
-        this.value = value;
-    }
-
+    private DevicePoolRule() {}
     /**
      * @return The rule&#39;s stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
      * 
@@ -66,16 +57,12 @@ public final class DevicePoolRule {
     public static Builder builder(DevicePoolRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String attribute;
         private @Nullable String operator;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DevicePoolRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attribute = defaults.attribute;
@@ -83,19 +70,27 @@ public final class DevicePoolRule {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder attribute(@Nullable String attribute) {
             this.attribute = attribute;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(@Nullable String operator) {
             this.operator = operator;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public DevicePoolRule build() {
-            return new DevicePoolRule(attribute, operator, value);
+        }
+        public DevicePoolRule build() {
+            final var o = new DevicePoolRule();
+            o.attribute = attribute;
+            o.operator = operator;
+            o.value = value;
+            return o;
         }
     }
 }

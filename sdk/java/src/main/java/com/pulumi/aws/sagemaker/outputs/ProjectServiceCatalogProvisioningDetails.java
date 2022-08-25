@@ -17,35 +17,24 @@ public final class ProjectServiceCatalogProvisioningDetails {
      * @return The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
      * 
      */
-    private final @Nullable String pathId;
+    private @Nullable String pathId;
     /**
      * @return The ID of the product to provision.
      * 
      */
-    private final String productId;
+    private String productId;
     /**
      * @return The ID of the provisioning artifact.
      * 
      */
-    private final @Nullable String provisioningArtifactId;
+    private @Nullable String provisioningArtifactId;
     /**
      * @return A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
      * 
      */
-    private final @Nullable List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> provisioningParameters;
+    private @Nullable List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> provisioningParameters;
 
-    @CustomType.Constructor
-    private ProjectServiceCatalogProvisioningDetails(
-        @CustomType.Parameter("pathId") @Nullable String pathId,
-        @CustomType.Parameter("productId") String productId,
-        @CustomType.Parameter("provisioningArtifactId") @Nullable String provisioningArtifactId,
-        @CustomType.Parameter("provisioningParameters") @Nullable List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> provisioningParameters) {
-        this.pathId = pathId;
-        this.productId = productId;
-        this.provisioningArtifactId = provisioningArtifactId;
-        this.provisioningParameters = provisioningParameters;
-    }
-
+    private ProjectServiceCatalogProvisioningDetails() {}
     /**
      * @return The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
      * 
@@ -82,17 +71,13 @@ public final class ProjectServiceCatalogProvisioningDetails {
     public static Builder builder(ProjectServiceCatalogProvisioningDetails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String pathId;
         private String productId;
         private @Nullable String provisioningArtifactId;
         private @Nullable List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> provisioningParameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectServiceCatalogProvisioningDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.pathId = defaults.pathId;
@@ -101,26 +86,36 @@ public final class ProjectServiceCatalogProvisioningDetails {
     	      this.provisioningParameters = defaults.provisioningParameters;
         }
 
+        @CustomType.Setter
         public Builder pathId(@Nullable String pathId) {
             this.pathId = pathId;
             return this;
         }
+        @CustomType.Setter
         public Builder productId(String productId) {
             this.productId = Objects.requireNonNull(productId);
             return this;
         }
+        @CustomType.Setter
         public Builder provisioningArtifactId(@Nullable String provisioningArtifactId) {
             this.provisioningArtifactId = provisioningArtifactId;
             return this;
         }
+        @CustomType.Setter
         public Builder provisioningParameters(@Nullable List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> provisioningParameters) {
             this.provisioningParameters = provisioningParameters;
             return this;
         }
         public Builder provisioningParameters(ProjectServiceCatalogProvisioningDetailsProvisioningParameter... provisioningParameters) {
             return provisioningParameters(List.of(provisioningParameters));
-        }        public ProjectServiceCatalogProvisioningDetails build() {
-            return new ProjectServiceCatalogProvisioningDetails(pathId, productId, provisioningArtifactId, provisioningParameters);
+        }
+        public ProjectServiceCatalogProvisioningDetails build() {
+            final var o = new ProjectServiceCatalogProvisioningDetails();
+            o.pathId = pathId;
+            o.productId = productId;
+            o.provisioningArtifactId = provisioningArtifactId;
+            o.provisioningParameters = provisioningParameters;
+            return o;
         }
     }
 }

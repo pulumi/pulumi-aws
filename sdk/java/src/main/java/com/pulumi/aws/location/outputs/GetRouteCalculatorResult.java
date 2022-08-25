@@ -14,59 +14,40 @@ public final class GetRouteCalculatorResult {
      * @return The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
-    private final String calculatorArn;
-    private final String calculatorName;
+    private String calculatorArn;
+    private String calculatorName;
     /**
      * @return The timestamp for when the route calculator resource was created in ISO 8601 format.
      * 
      */
-    private final String createTime;
+    private String createTime;
     /**
      * @return The data provider of traffic and road network data.
      * 
      */
-    private final String dataSource;
+    private String dataSource;
     /**
      * @return The optional description of the route calculator resource.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Key-value map of resource tags for the route calculator.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The timestamp for when the route calculator resource was last updated in ISO 8601 format.
      * 
      */
-    private final String updateTime;
+    private String updateTime;
 
-    @CustomType.Constructor
-    private GetRouteCalculatorResult(
-        @CustomType.Parameter("calculatorArn") String calculatorArn,
-        @CustomType.Parameter("calculatorName") String calculatorName,
-        @CustomType.Parameter("createTime") String createTime,
-        @CustomType.Parameter("dataSource") String dataSource,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("updateTime") String updateTime) {
-        this.calculatorArn = calculatorArn;
-        this.calculatorName = calculatorName;
-        this.createTime = createTime;
-        this.dataSource = dataSource;
-        this.description = description;
-        this.id = id;
-        this.tags = tags;
-        this.updateTime = updateTime;
-    }
-
+    private GetRouteCalculatorResult() {}
     /**
      * @return The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
@@ -127,7 +108,7 @@ public final class GetRouteCalculatorResult {
     public static Builder builder(GetRouteCalculatorResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String calculatorArn;
         private String calculatorName;
@@ -137,11 +118,7 @@ public final class GetRouteCalculatorResult {
         private String id;
         private Map<String,String> tags;
         private String updateTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRouteCalculatorResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.calculatorArn = defaults.calculatorArn;
@@ -154,39 +131,57 @@ public final class GetRouteCalculatorResult {
     	      this.updateTime = defaults.updateTime;
         }
 
+        @CustomType.Setter
         public Builder calculatorArn(String calculatorArn) {
             this.calculatorArn = Objects.requireNonNull(calculatorArn);
             return this;
         }
+        @CustomType.Setter
         public Builder calculatorName(String calculatorName) {
             this.calculatorName = Objects.requireNonNull(calculatorName);
             return this;
         }
+        @CustomType.Setter
         public Builder createTime(String createTime) {
             this.createTime = Objects.requireNonNull(createTime);
             return this;
         }
+        @CustomType.Setter
         public Builder dataSource(String dataSource) {
             this.dataSource = Objects.requireNonNull(dataSource);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder updateTime(String updateTime) {
             this.updateTime = Objects.requireNonNull(updateTime);
             return this;
-        }        public GetRouteCalculatorResult build() {
-            return new GetRouteCalculatorResult(calculatorArn, calculatorName, createTime, dataSource, description, id, tags, updateTime);
+        }
+        public GetRouteCalculatorResult build() {
+            final var o = new GetRouteCalculatorResult();
+            o.calculatorArn = calculatorArn;
+            o.calculatorName = calculatorName;
+            o.createTime = createTime;
+            o.dataSource = dataSource;
+            o.description = description;
+            o.id = id;
+            o.tags = tags;
+            o.updateTime = updateTime;
+            return o;
         }
     }
 }

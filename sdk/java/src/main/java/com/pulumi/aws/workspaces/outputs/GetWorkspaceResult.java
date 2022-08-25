@@ -13,66 +13,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkspaceResult {
-    private final String bundleId;
+    private String bundleId;
     /**
      * @return The name of the WorkSpace, as seen by the operating system.
      * 
      */
-    private final String computerName;
-    private final String directoryId;
+    private String computerName;
+    private String directoryId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The IP address of the WorkSpace.
      * 
      */
-    private final String ipAddress;
-    private final Boolean rootVolumeEncryptionEnabled;
+    private String ipAddress;
+    private Boolean rootVolumeEncryptionEnabled;
     /**
      * @return The operational state of the WorkSpace.
      * 
      */
-    private final String state;
-    private final Map<String,String> tags;
-    private final String userName;
-    private final Boolean userVolumeEncryptionEnabled;
-    private final String volumeEncryptionKey;
-    private final String workspaceId;
-    private final List<GetWorkspaceWorkspaceProperty> workspaceProperties;
+    private String state;
+    private Map<String,String> tags;
+    private String userName;
+    private Boolean userVolumeEncryptionEnabled;
+    private String volumeEncryptionKey;
+    private String workspaceId;
+    private List<GetWorkspaceWorkspaceProperty> workspaceProperties;
 
-    @CustomType.Constructor
-    private GetWorkspaceResult(
-        @CustomType.Parameter("bundleId") String bundleId,
-        @CustomType.Parameter("computerName") String computerName,
-        @CustomType.Parameter("directoryId") String directoryId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("rootVolumeEncryptionEnabled") Boolean rootVolumeEncryptionEnabled,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("userName") String userName,
-        @CustomType.Parameter("userVolumeEncryptionEnabled") Boolean userVolumeEncryptionEnabled,
-        @CustomType.Parameter("volumeEncryptionKey") String volumeEncryptionKey,
-        @CustomType.Parameter("workspaceId") String workspaceId,
-        @CustomType.Parameter("workspaceProperties") List<GetWorkspaceWorkspaceProperty> workspaceProperties) {
-        this.bundleId = bundleId;
-        this.computerName = computerName;
-        this.directoryId = directoryId;
-        this.id = id;
-        this.ipAddress = ipAddress;
-        this.rootVolumeEncryptionEnabled = rootVolumeEncryptionEnabled;
-        this.state = state;
-        this.tags = tags;
-        this.userName = userName;
-        this.userVolumeEncryptionEnabled = userVolumeEncryptionEnabled;
-        this.volumeEncryptionKey = volumeEncryptionKey;
-        this.workspaceId = workspaceId;
-        this.workspaceProperties = workspaceProperties;
-    }
-
+    private GetWorkspaceResult() {}
     public String bundleId() {
         return this.bundleId;
     }
@@ -136,7 +107,7 @@ public final class GetWorkspaceResult {
     public static Builder builder(GetWorkspaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bundleId;
         private String computerName;
@@ -151,11 +122,7 @@ public final class GetWorkspaceResult {
         private String volumeEncryptionKey;
         private String workspaceId;
         private List<GetWorkspaceWorkspaceProperty> workspaceProperties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bundleId = defaults.bundleId;
@@ -173,62 +140,90 @@ public final class GetWorkspaceResult {
     	      this.workspaceProperties = defaults.workspaceProperties;
         }
 
+        @CustomType.Setter
         public Builder bundleId(String bundleId) {
             this.bundleId = Objects.requireNonNull(bundleId);
             return this;
         }
+        @CustomType.Setter
         public Builder computerName(String computerName) {
             this.computerName = Objects.requireNonNull(computerName);
             return this;
         }
+        @CustomType.Setter
         public Builder directoryId(String directoryId) {
             this.directoryId = Objects.requireNonNull(directoryId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder rootVolumeEncryptionEnabled(Boolean rootVolumeEncryptionEnabled) {
             this.rootVolumeEncryptionEnabled = Objects.requireNonNull(rootVolumeEncryptionEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder userName(String userName) {
             this.userName = Objects.requireNonNull(userName);
             return this;
         }
+        @CustomType.Setter
         public Builder userVolumeEncryptionEnabled(Boolean userVolumeEncryptionEnabled) {
             this.userVolumeEncryptionEnabled = Objects.requireNonNull(userVolumeEncryptionEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeEncryptionKey(String volumeEncryptionKey) {
             this.volumeEncryptionKey = Objects.requireNonNull(volumeEncryptionKey);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceProperties(List<GetWorkspaceWorkspaceProperty> workspaceProperties) {
             this.workspaceProperties = Objects.requireNonNull(workspaceProperties);
             return this;
         }
         public Builder workspaceProperties(GetWorkspaceWorkspaceProperty... workspaceProperties) {
             return workspaceProperties(List.of(workspaceProperties));
-        }        public GetWorkspaceResult build() {
-            return new GetWorkspaceResult(bundleId, computerName, directoryId, id, ipAddress, rootVolumeEncryptionEnabled, state, tags, userName, userVolumeEncryptionEnabled, volumeEncryptionKey, workspaceId, workspaceProperties);
+        }
+        public GetWorkspaceResult build() {
+            final var o = new GetWorkspaceResult();
+            o.bundleId = bundleId;
+            o.computerName = computerName;
+            o.directoryId = directoryId;
+            o.id = id;
+            o.ipAddress = ipAddress;
+            o.rootVolumeEncryptionEnabled = rootVolumeEncryptionEnabled;
+            o.state = state;
+            o.tags = tags;
+            o.userName = userName;
+            o.userVolumeEncryptionEnabled = userVolumeEncryptionEnabled;
+            o.volumeEncryptionKey = volumeEncryptionKey;
+            o.workspaceId = workspaceId;
+            o.workspaceProperties = workspaceProperties;
+            return o;
         }
     }
 }

@@ -13,24 +13,15 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
      * @return The email HTML body.
      * 
      */
-    private final String htmlBody;
+    private String htmlBody;
     /**
      * @return The email subject.
      * 
      */
-    private final String subject;
-    private final String textBody;
+    private String subject;
+    private String textBody;
 
-    @CustomType.Constructor
-    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail(
-        @CustomType.Parameter("htmlBody") String htmlBody,
-        @CustomType.Parameter("subject") String subject,
-        @CustomType.Parameter("textBody") String textBody) {
-        this.htmlBody = htmlBody;
-        this.subject = subject;
-        this.textBody = textBody;
-    }
-
+    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail() {}
     /**
      * @return The email HTML body.
      * 
@@ -56,16 +47,12 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
     public static Builder builder(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String htmlBody;
         private String subject;
         private String textBody;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.htmlBody = defaults.htmlBody;
@@ -73,19 +60,27 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
     	      this.textBody = defaults.textBody;
         }
 
+        @CustomType.Setter
         public Builder htmlBody(String htmlBody) {
             this.htmlBody = Objects.requireNonNull(htmlBody);
             return this;
         }
+        @CustomType.Setter
         public Builder subject(String subject) {
             this.subject = Objects.requireNonNull(subject);
             return this;
         }
+        @CustomType.Setter
         public Builder textBody(String textBody) {
             this.textBody = Objects.requireNonNull(textBody);
             return this;
-        }        public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail build() {
-            return new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail(htmlBody, subject, textBody);
+        }
+        public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail build() {
+            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail();
+            o.htmlBody = htmlBody;
+            o.subject = subject;
+            o.textBody = textBody;
+            return o;
         }
     }
 }

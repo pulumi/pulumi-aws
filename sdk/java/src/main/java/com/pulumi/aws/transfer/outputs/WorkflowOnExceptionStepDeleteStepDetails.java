@@ -15,21 +15,14 @@ public final class WorkflowOnExceptionStepDeleteStepDetails {
      * @return The name of the step, used as an identifier.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
      * 
      */
-    private final @Nullable String sourceFileLocation;
+    private @Nullable String sourceFileLocation;
 
-    @CustomType.Constructor
-    private WorkflowOnExceptionStepDeleteStepDetails(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("sourceFileLocation") @Nullable String sourceFileLocation) {
-        this.name = name;
-        this.sourceFileLocation = sourceFileLocation;
-    }
-
+    private WorkflowOnExceptionStepDeleteStepDetails() {}
     /**
      * @return The name of the step, used as an identifier.
      * 
@@ -52,30 +45,32 @@ public final class WorkflowOnExceptionStepDeleteStepDetails {
     public static Builder builder(WorkflowOnExceptionStepDeleteStepDetails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String sourceFileLocation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowOnExceptionStepDeleteStepDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.sourceFileLocation = defaults.sourceFileLocation;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceFileLocation(@Nullable String sourceFileLocation) {
             this.sourceFileLocation = sourceFileLocation;
             return this;
-        }        public WorkflowOnExceptionStepDeleteStepDetails build() {
-            return new WorkflowOnExceptionStepDeleteStepDetails(name, sourceFileLocation);
+        }
+        public WorkflowOnExceptionStepDeleteStepDetails build() {
+            final var o = new WorkflowOnExceptionStepDeleteStepDetails();
+            o.name = name;
+            o.sourceFileLocation = sourceFileLocation;
+            return o;
         }
     }
 }

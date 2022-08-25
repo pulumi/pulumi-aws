@@ -15,21 +15,14 @@ public final class DeploymentGroupDeploymentStyle {
      * @return Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
      * 
      */
-    private final @Nullable String deploymentOption;
+    private @Nullable String deploymentOption;
     /**
      * @return Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
      * 
      */
-    private final @Nullable String deploymentType;
+    private @Nullable String deploymentType;
 
-    @CustomType.Constructor
-    private DeploymentGroupDeploymentStyle(
-        @CustomType.Parameter("deploymentOption") @Nullable String deploymentOption,
-        @CustomType.Parameter("deploymentType") @Nullable String deploymentType) {
-        this.deploymentOption = deploymentOption;
-        this.deploymentType = deploymentType;
-    }
-
+    private DeploymentGroupDeploymentStyle() {}
     /**
      * @return Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
      * 
@@ -52,30 +45,32 @@ public final class DeploymentGroupDeploymentStyle {
     public static Builder builder(DeploymentGroupDeploymentStyle defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deploymentOption;
         private @Nullable String deploymentType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupDeploymentStyle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deploymentOption = defaults.deploymentOption;
     	      this.deploymentType = defaults.deploymentType;
         }
 
+        @CustomType.Setter
         public Builder deploymentOption(@Nullable String deploymentOption) {
             this.deploymentOption = deploymentOption;
             return this;
         }
+        @CustomType.Setter
         public Builder deploymentType(@Nullable String deploymentType) {
             this.deploymentType = deploymentType;
             return this;
-        }        public DeploymentGroupDeploymentStyle build() {
-            return new DeploymentGroupDeploymentStyle(deploymentOption, deploymentType);
+        }
+        public DeploymentGroupDeploymentStyle build() {
+            final var o = new DeploymentGroupDeploymentStyle();
+            o.deploymentOption = deploymentOption;
+            o.deploymentType = deploymentType;
+            return o;
         }
     }
 }

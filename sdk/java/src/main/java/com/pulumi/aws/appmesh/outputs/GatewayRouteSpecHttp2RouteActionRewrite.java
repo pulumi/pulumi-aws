@@ -16,21 +16,14 @@ public final class GatewayRouteSpecHttp2RouteActionRewrite {
      * @return The host name to rewrite.
      * 
      */
-    private final @Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname;
+    private @Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname;
     /**
      * @return The specified beginning characters to rewrite.
      * 
      */
-    private final @Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix;
+    private @Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttp2RouteActionRewrite(
-        @CustomType.Parameter("hostname") @Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname,
-        @CustomType.Parameter("prefix") @Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix) {
-        this.hostname = hostname;
-        this.prefix = prefix;
-    }
-
+    private GatewayRouteSpecHttp2RouteActionRewrite() {}
     /**
      * @return The host name to rewrite.
      * 
@@ -53,30 +46,32 @@ public final class GatewayRouteSpecHttp2RouteActionRewrite {
     public static Builder builder(GatewayRouteSpecHttp2RouteActionRewrite defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname;
         private @Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttp2RouteActionRewrite defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname) {
             this.hostname = hostname;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix) {
             this.prefix = prefix;
             return this;
-        }        public GatewayRouteSpecHttp2RouteActionRewrite build() {
-            return new GatewayRouteSpecHttp2RouteActionRewrite(hostname, prefix);
+        }
+        public GatewayRouteSpecHttp2RouteActionRewrite build() {
+            final var o = new GatewayRouteSpecHttp2RouteActionRewrite();
+            o.hostname = hostname;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

@@ -16,31 +16,20 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
      * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return A list of security group IDs to associate with Kinesis Firehose.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return A list of subnet IDs to associate with Kinesis Firehose.
      * 
      */
-    private final List<String> subnetIds;
-    private final @Nullable String vpcId;
+    private List<String> subnetIds;
+    private @Nullable String vpcId;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig(
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") @Nullable String vpcId) {
-        this.roleArn = roleArn;
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig() {}
     /**
      * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
      * 
@@ -73,17 +62,13 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
     public static Builder builder(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String roleArn;
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private @Nullable String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.roleArn = defaults.roleArn;
@@ -92,10 +77,12 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -103,6 +90,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -110,11 +98,18 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
             this.vpcId = vpcId;
             return this;
-        }        public FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig build() {
-            return new FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig(roleArn, securityGroupIds, subnetIds, vpcId);
+        }
+        public FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig build() {
+            final var o = new FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig();
+            o.roleArn = roleArn;
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

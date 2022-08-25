@@ -13,13 +13,9 @@ public final class InventoryDestination {
      * @return The S3 bucket configuration where inventory results are published (documented below).
      * 
      */
-    private final InventoryDestinationBucket bucket;
+    private InventoryDestinationBucket bucket;
 
-    @CustomType.Constructor
-    private InventoryDestination(@CustomType.Parameter("bucket") InventoryDestinationBucket bucket) {
-        this.bucket = bucket;
-    }
-
+    private InventoryDestination() {}
     /**
      * @return The S3 bucket configuration where inventory results are published (documented below).
      * 
@@ -35,24 +31,24 @@ public final class InventoryDestination {
     public static Builder builder(InventoryDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private InventoryDestinationBucket bucket;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InventoryDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
         }
 
+        @CustomType.Setter
         public Builder bucket(InventoryDestinationBucket bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
-        }        public InventoryDestination build() {
-            return new InventoryDestination(bucket);
+        }
+        public InventoryDestination build() {
+            final var o = new InventoryDestination();
+            o.bucket = bucket;
+            return o;
         }
     }
 }

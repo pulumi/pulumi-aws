@@ -15,21 +15,14 @@ public final class ClusterClientAuthenticationSasl {
      * @return Enables IAM client authentication. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean iam;
+    private @Nullable Boolean iam;
     /**
      * @return Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean scram;
+    private @Nullable Boolean scram;
 
-    @CustomType.Constructor
-    private ClusterClientAuthenticationSasl(
-        @CustomType.Parameter("iam") @Nullable Boolean iam,
-        @CustomType.Parameter("scram") @Nullable Boolean scram) {
-        this.iam = iam;
-        this.scram = scram;
-    }
-
+    private ClusterClientAuthenticationSasl() {}
     /**
      * @return Enables IAM client authentication. Defaults to `false`.
      * 
@@ -52,30 +45,32 @@ public final class ClusterClientAuthenticationSasl {
     public static Builder builder(ClusterClientAuthenticationSasl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean iam;
         private @Nullable Boolean scram;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterClientAuthenticationSasl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.iam = defaults.iam;
     	      this.scram = defaults.scram;
         }
 
+        @CustomType.Setter
         public Builder iam(@Nullable Boolean iam) {
             this.iam = iam;
             return this;
         }
+        @CustomType.Setter
         public Builder scram(@Nullable Boolean scram) {
             this.scram = scram;
             return this;
-        }        public ClusterClientAuthenticationSasl build() {
-            return new ClusterClientAuthenticationSasl(iam, scram);
+        }
+        public ClusterClientAuthenticationSasl build() {
+            final var o = new ClusterClientAuthenticationSasl();
+            o.iam = iam;
+            o.scram = scram;
+            return o;
         }
     }
 }

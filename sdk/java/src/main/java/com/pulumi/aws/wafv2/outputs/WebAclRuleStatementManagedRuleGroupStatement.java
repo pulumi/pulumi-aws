@@ -18,42 +18,29 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
      * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
      * 
      */
-    private final @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
+    private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
     /**
      * @return Name of the managed rule group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
      * 
      */
-    private final @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement;
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement;
     /**
      * @return Name of the managed rule group vendor.
      * 
      */
-    private final String vendorName;
+    private String vendorName;
     /**
      * @return Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementManagedRuleGroupStatement(
-        @CustomType.Parameter("excludedRules") @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("scopeDownStatement") @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement,
-        @CustomType.Parameter("vendorName") String vendorName,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.excludedRules = excludedRules;
-        this.name = name;
-        this.scopeDownStatement = scopeDownStatement;
-        this.vendorName = vendorName;
-        this.version = version;
-    }
-
+    private WebAclRuleStatementManagedRuleGroupStatement() {}
     /**
      * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
      * 
@@ -97,18 +84,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     public static Builder builder(WebAclRuleStatementManagedRuleGroupStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
         private String name;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement;
         private String vendorName;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludedRules = defaults.excludedRules;
@@ -118,6 +101,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder excludedRules(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules) {
             this.excludedRules = excludedRules;
             return this;
@@ -125,23 +109,34 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         public Builder excludedRules(WebAclRuleStatementManagedRuleGroupStatementExcludedRule... excludedRules) {
             return excludedRules(List.of(excludedRules));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder scopeDownStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement) {
             this.scopeDownStatement = scopeDownStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder vendorName(String vendorName) {
             this.vendorName = Objects.requireNonNull(vendorName);
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public WebAclRuleStatementManagedRuleGroupStatement build() {
-            return new WebAclRuleStatementManagedRuleGroupStatement(excludedRules, name, scopeDownStatement, vendorName, version);
+        }
+        public WebAclRuleStatementManagedRuleGroupStatement build() {
+            final var o = new WebAclRuleStatementManagedRuleGroupStatement();
+            o.excludedRules = excludedRules;
+            o.name = name;
+            o.scopeDownStatement = scopeDownStatement;
+            o.vendorName = vendorName;
+            o.version = version;
+            return o;
         }
     }
 }

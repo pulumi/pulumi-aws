@@ -13,21 +13,14 @@ public final class EventDestinationKinesisDestination {
      * @return The ARN of the role that has permissions to access the Kinesis Stream
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The ARN of the Kinesis Stream
      * 
      */
-    private final String streamArn;
+    private String streamArn;
 
-    @CustomType.Constructor
-    private EventDestinationKinesisDestination(
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("streamArn") String streamArn) {
-        this.roleArn = roleArn;
-        this.streamArn = streamArn;
-    }
-
+    private EventDestinationKinesisDestination() {}
     /**
      * @return The ARN of the role that has permissions to access the Kinesis Stream
      * 
@@ -50,30 +43,32 @@ public final class EventDestinationKinesisDestination {
     public static Builder builder(EventDestinationKinesisDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String roleArn;
         private String streamArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventDestinationKinesisDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.roleArn = defaults.roleArn;
     	      this.streamArn = defaults.streamArn;
         }
 
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder streamArn(String streamArn) {
             this.streamArn = Objects.requireNonNull(streamArn);
             return this;
-        }        public EventDestinationKinesisDestination build() {
-            return new EventDestinationKinesisDestination(roleArn, streamArn);
+        }
+        public EventDestinationKinesisDestination build() {
+            final var o = new EventDestinationKinesisDestination();
+            o.roleArn = roleArn;
+            o.streamArn = streamArn;
+            return o;
         }
     }
 }

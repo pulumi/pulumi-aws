@@ -16,21 +16,14 @@ public final class StreamKinesisConfiguration {
      * @return Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
      * 
      */
-    private final @Nullable Boolean aggregationEnabled;
+    private @Nullable Boolean aggregationEnabled;
     /**
      * @return The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
      * 
      */
-    private final String streamArn;
+    private String streamArn;
 
-    @CustomType.Constructor
-    private StreamKinesisConfiguration(
-        @CustomType.Parameter("aggregationEnabled") @Nullable Boolean aggregationEnabled,
-        @CustomType.Parameter("streamArn") String streamArn) {
-        this.aggregationEnabled = aggregationEnabled;
-        this.streamArn = streamArn;
-    }
-
+    private StreamKinesisConfiguration() {}
     /**
      * @return Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
      * 
@@ -53,30 +46,32 @@ public final class StreamKinesisConfiguration {
     public static Builder builder(StreamKinesisConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean aggregationEnabled;
         private String streamArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamKinesisConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregationEnabled = defaults.aggregationEnabled;
     	      this.streamArn = defaults.streamArn;
         }
 
+        @CustomType.Setter
         public Builder aggregationEnabled(@Nullable Boolean aggregationEnabled) {
             this.aggregationEnabled = aggregationEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder streamArn(String streamArn) {
             this.streamArn = Objects.requireNonNull(streamArn);
             return this;
-        }        public StreamKinesisConfiguration build() {
-            return new StreamKinesisConfiguration(aggregationEnabled, streamArn);
+        }
+        public StreamKinesisConfiguration build() {
+            final var o = new StreamKinesisConfiguration();
+            o.aggregationEnabled = aggregationEnabled;
+            o.streamArn = streamArn;
+            return o;
         }
     }
 }

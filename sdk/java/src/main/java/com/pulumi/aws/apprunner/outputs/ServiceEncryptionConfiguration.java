@@ -13,13 +13,9 @@ public final class ServiceEncryptionConfiguration {
      * @return The ARN of the KMS key used for encryption.
      * 
      */
-    private final String kmsKey;
+    private String kmsKey;
 
-    @CustomType.Constructor
-    private ServiceEncryptionConfiguration(@CustomType.Parameter("kmsKey") String kmsKey) {
-        this.kmsKey = kmsKey;
-    }
-
+    private ServiceEncryptionConfiguration() {}
     /**
      * @return The ARN of the KMS key used for encryption.
      * 
@@ -35,24 +31,24 @@ public final class ServiceEncryptionConfiguration {
     public static Builder builder(ServiceEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String kmsKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKey = defaults.kmsKey;
         }
 
+        @CustomType.Setter
         public Builder kmsKey(String kmsKey) {
             this.kmsKey = Objects.requireNonNull(kmsKey);
             return this;
-        }        public ServiceEncryptionConfiguration build() {
-            return new ServiceEncryptionConfiguration(kmsKey);
+        }
+        public ServiceEncryptionConfiguration build() {
+            final var o = new ServiceEncryptionConfiguration();
+            o.kmsKey = kmsKey;
+            return o;
         }
     }
 }

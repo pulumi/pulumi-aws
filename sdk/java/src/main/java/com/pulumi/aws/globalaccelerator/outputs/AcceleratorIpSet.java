@@ -16,21 +16,14 @@ public final class AcceleratorIpSet {
      * @return A list of IP addresses in the IP address set.
      * 
      */
-    private final @Nullable List<String> ipAddresses;
+    private @Nullable List<String> ipAddresses;
     /**
      * @return The type of IP addresses included in this IP set.
      * 
      */
-    private final @Nullable String ipFamily;
+    private @Nullable String ipFamily;
 
-    @CustomType.Constructor
-    private AcceleratorIpSet(
-        @CustomType.Parameter("ipAddresses") @Nullable List<String> ipAddresses,
-        @CustomType.Parameter("ipFamily") @Nullable String ipFamily) {
-        this.ipAddresses = ipAddresses;
-        this.ipFamily = ipFamily;
-    }
-
+    private AcceleratorIpSet() {}
     /**
      * @return A list of IP addresses in the IP address set.
      * 
@@ -53,21 +46,18 @@ public final class AcceleratorIpSet {
     public static Builder builder(AcceleratorIpSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> ipAddresses;
         private @Nullable String ipFamily;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AcceleratorIpSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipAddresses = defaults.ipAddresses;
     	      this.ipFamily = defaults.ipFamily;
         }
 
+        @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
             this.ipAddresses = ipAddresses;
             return this;
@@ -75,11 +65,16 @@ public final class AcceleratorIpSet {
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
+        @CustomType.Setter
         public Builder ipFamily(@Nullable String ipFamily) {
             this.ipFamily = ipFamily;
             return this;
-        }        public AcceleratorIpSet build() {
-            return new AcceleratorIpSet(ipAddresses, ipFamily);
+        }
+        public AcceleratorIpSet build() {
+            final var o = new AcceleratorIpSet();
+            o.ipAddresses = ipAddresses;
+            o.ipFamily = ipFamily;
+            return o;
         }
     }
 }

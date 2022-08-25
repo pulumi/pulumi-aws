@@ -13,13 +13,9 @@ public final class GatewayRouteSpecHttp2RouteActionTarget {
      * @return The virtual service gateway route target.
      * 
      */
-    private final GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService;
+    private GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttp2RouteActionTarget(@CustomType.Parameter("virtualService") GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService) {
-        this.virtualService = virtualService;
-    }
-
+    private GatewayRouteSpecHttp2RouteActionTarget() {}
     /**
      * @return The virtual service gateway route target.
      * 
@@ -35,24 +31,24 @@ public final class GatewayRouteSpecHttp2RouteActionTarget {
     public static Builder builder(GatewayRouteSpecHttp2RouteActionTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttp2RouteActionTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualService = defaults.virtualService;
         }
 
+        @CustomType.Setter
         public Builder virtualService(GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService) {
             this.virtualService = Objects.requireNonNull(virtualService);
             return this;
-        }        public GatewayRouteSpecHttp2RouteActionTarget build() {
-            return new GatewayRouteSpecHttp2RouteActionTarget(virtualService);
+        }
+        public GatewayRouteSpecHttp2RouteActionTarget build() {
+            final var o = new GatewayRouteSpecHttp2RouteActionTarget();
+            o.virtualService = virtualService;
+            return o;
         }
     }
 }

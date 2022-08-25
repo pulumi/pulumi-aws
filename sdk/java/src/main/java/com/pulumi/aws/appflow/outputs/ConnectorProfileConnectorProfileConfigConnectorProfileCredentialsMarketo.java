@@ -16,35 +16,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The credentials used to access protected Zendesk resources.
      * 
      */
-    private final @Nullable String accessToken;
+    private @Nullable String accessToken;
     /**
      * @return The identifier for the desired client.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The client secret used by the OAuth client to authenticate to the authorization server.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest oauthRequest;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest oauthRequest;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo(
-        @CustomType.Parameter("accessToken") @Nullable String accessToken,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("oauthRequest") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest oauthRequest) {
-        this.accessToken = accessToken;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.oauthRequest = oauthRequest;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo() {}
     /**
      * @return The credentials used to access protected Zendesk resources.
      * 
@@ -81,17 +70,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessToken;
         private String clientId;
         private String clientSecret;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest oauthRequest;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
@@ -100,23 +85,33 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     	      this.oauthRequest = defaults.oauthRequest;
         }
 
+        @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
             this.accessToken = accessToken;
             return this;
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthRequest(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest oauthRequest) {
             this.oauthRequest = oauthRequest;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo(accessToken, clientId, clientSecret, oauthRequest);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo();
+            o.accessToken = accessToken;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.oauthRequest = oauthRequest;
+            return o;
         }
     }
 }

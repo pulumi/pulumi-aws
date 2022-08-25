@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyMultiRegionConfigurationReplicaKey {
-    private final String arn;
-    private final String region;
+    private String arn;
+    private String region;
 
-    @CustomType.Constructor
-    private GetKeyMultiRegionConfigurationReplicaKey(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("region") String region) {
-        this.arn = arn;
-        this.region = region;
-    }
-
+    private GetKeyMultiRegionConfigurationReplicaKey() {}
     public String arn() {
         return this.arn;
     }
@@ -34,30 +27,32 @@ public final class GetKeyMultiRegionConfigurationReplicaKey {
     public static Builder builder(GetKeyMultiRegionConfigurationReplicaKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKeyMultiRegionConfigurationReplicaKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
-        }        public GetKeyMultiRegionConfigurationReplicaKey build() {
-            return new GetKeyMultiRegionConfigurationReplicaKey(arn, region);
+        }
+        public GetKeyMultiRegionConfigurationReplicaKey build() {
+            final var o = new GetKeyMultiRegionConfigurationReplicaKey();
+            o.arn = arn;
+            o.region = region;
+            return o;
         }
     }
 }

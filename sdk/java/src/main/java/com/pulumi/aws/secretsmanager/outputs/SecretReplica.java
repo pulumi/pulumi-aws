@@ -15,42 +15,29 @@ public final class SecretReplica {
      * @return ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Date that you last accessed the secret in the Region.
      * 
      */
-    private final @Nullable String lastAccessedDate;
+    private @Nullable String lastAccessedDate;
     /**
      * @return Region for replicating the secret.
      * 
      */
-    private final String region;
+    private String region;
     /**
      * @return Status can be `InProgress`, `Failed`, or `InSync`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
      * 
      */
-    private final @Nullable String statusMessage;
+    private @Nullable String statusMessage;
 
-    @CustomType.Constructor
-    private SecretReplica(
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("lastAccessedDate") @Nullable String lastAccessedDate,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("statusMessage") @Nullable String statusMessage) {
-        this.kmsKeyId = kmsKeyId;
-        this.lastAccessedDate = lastAccessedDate;
-        this.region = region;
-        this.status = status;
-        this.statusMessage = statusMessage;
-    }
-
+    private SecretReplica() {}
     /**
      * @return ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
      * 
@@ -94,18 +81,14 @@ public final class SecretReplica {
     public static Builder builder(SecretReplica defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyId;
         private @Nullable String lastAccessedDate;
         private String region;
         private @Nullable String status;
         private @Nullable String statusMessage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecretReplica defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
@@ -115,27 +98,39 @@ public final class SecretReplica {
     	      this.statusMessage = defaults.statusMessage;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder lastAccessedDate(@Nullable String lastAccessedDate) {
             this.lastAccessedDate = lastAccessedDate;
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder statusMessage(@Nullable String statusMessage) {
             this.statusMessage = statusMessage;
             return this;
-        }        public SecretReplica build() {
-            return new SecretReplica(kmsKeyId, lastAccessedDate, region, status, statusMessage);
+        }
+        public SecretReplica build() {
+            final var o = new SecretReplica();
+            o.kmsKeyId = kmsKeyId;
+            o.lastAccessedDate = lastAccessedDate;
+            o.region = region;
+            o.status = status;
+            o.statusMessage = statusMessage;
+            return o;
         }
     }
 }

@@ -17,42 +17,29 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      * @return The dimensions of the metric.
      * 
      */
-    private final @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions;
+    private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions;
     /**
      * @return The name of the metric.
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return The namespace of the metric.
      * 
      */
-    private final String namespace;
+    private String namespace;
     /**
      * @return The statistic of the metric.
      * 
      */
-    private final String statistic;
+    private String statistic;
     /**
      * @return The unit of the metrics to return.
      * 
      */
-    private final @Nullable String unit;
+    private @Nullable String unit;
 
-    @CustomType.Constructor
-    private PolicyTargetTrackingConfigurationCustomizedMetricSpecification(
-        @CustomType.Parameter("metricDimensions") @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions,
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("namespace") String namespace,
-        @CustomType.Parameter("statistic") String statistic,
-        @CustomType.Parameter("unit") @Nullable String unit) {
-        this.metricDimensions = metricDimensions;
-        this.metricName = metricName;
-        this.namespace = namespace;
-        this.statistic = statistic;
-        this.unit = unit;
-    }
-
+    private PolicyTargetTrackingConfigurationCustomizedMetricSpecification() {}
     /**
      * @return The dimensions of the metric.
      * 
@@ -96,18 +83,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     public static Builder builder(PolicyTargetTrackingConfigurationCustomizedMetricSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions;
         private String metricName;
         private String namespace;
         private String statistic;
         private @Nullable String unit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyTargetTrackingConfigurationCustomizedMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricDimensions = defaults.metricDimensions;
@@ -117,6 +100,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     	      this.unit = defaults.unit;
         }
 
+        @CustomType.Setter
         public Builder metricDimensions(@Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions) {
             this.metricDimensions = metricDimensions;
             return this;
@@ -124,23 +108,34 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         public Builder metricDimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension... metricDimensions) {
             return metricDimensions(List.of(metricDimensions));
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
         }
+        @CustomType.Setter
         public Builder statistic(String statistic) {
             this.statistic = Objects.requireNonNull(statistic);
             return this;
         }
+        @CustomType.Setter
         public Builder unit(@Nullable String unit) {
             this.unit = unit;
             return this;
-        }        public PolicyTargetTrackingConfigurationCustomizedMetricSpecification build() {
-            return new PolicyTargetTrackingConfigurationCustomizedMetricSpecification(metricDimensions, metricName, namespace, statistic, unit);
+        }
+        public PolicyTargetTrackingConfigurationCustomizedMetricSpecification build() {
+            final var o = new PolicyTargetTrackingConfigurationCustomizedMetricSpecification();
+            o.metricDimensions = metricDimensions;
+            o.metricName = metricName;
+            o.namespace = namespace;
+            o.statistic = statistic;
+            o.unit = unit;
+            return o;
         }
     }
 }

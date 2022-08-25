@@ -15,21 +15,14 @@ public final class IndexCapacityUnits {
      * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
      * 
      */
-    private final @Nullable Integer queryCapacityUnits;
+    private @Nullable Integer queryCapacityUnits;
     /**
      * @return The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
      * 
      */
-    private final @Nullable Integer storageCapacityUnits;
+    private @Nullable Integer storageCapacityUnits;
 
-    @CustomType.Constructor
-    private IndexCapacityUnits(
-        @CustomType.Parameter("queryCapacityUnits") @Nullable Integer queryCapacityUnits,
-        @CustomType.Parameter("storageCapacityUnits") @Nullable Integer storageCapacityUnits) {
-        this.queryCapacityUnits = queryCapacityUnits;
-        this.storageCapacityUnits = storageCapacityUnits;
-    }
-
+    private IndexCapacityUnits() {}
     /**
      * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
      * 
@@ -52,30 +45,32 @@ public final class IndexCapacityUnits {
     public static Builder builder(IndexCapacityUnits defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer queryCapacityUnits;
         private @Nullable Integer storageCapacityUnits;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexCapacityUnits defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.queryCapacityUnits = defaults.queryCapacityUnits;
     	      this.storageCapacityUnits = defaults.storageCapacityUnits;
         }
 
+        @CustomType.Setter
         public Builder queryCapacityUnits(@Nullable Integer queryCapacityUnits) {
             this.queryCapacityUnits = queryCapacityUnits;
             return this;
         }
+        @CustomType.Setter
         public Builder storageCapacityUnits(@Nullable Integer storageCapacityUnits) {
             this.storageCapacityUnits = storageCapacityUnits;
             return this;
-        }        public IndexCapacityUnits build() {
-            return new IndexCapacityUnits(queryCapacityUnits, storageCapacityUnits);
+        }
+        public IndexCapacityUnits build() {
+            final var o = new IndexCapacityUnits();
+            o.queryCapacityUnits = queryCapacityUnits;
+            o.storageCapacityUnits = storageCapacityUnits;
+            return o;
         }
     }
 }

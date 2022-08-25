@@ -16,7 +16,7 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
      * If `type` is any other value, omit this field.
      * 
      */
-    private final @Nullable String data;
+    private @Nullable String data;
     /**
      * @return The part of the web request that you want AWS WAF to search for a specified string.
      * e.g., `HEADER`, `METHOD` or `BODY`.
@@ -24,16 +24,9 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
      * for all supported values.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(
-        @CustomType.Parameter("data") @Nullable String data,
-        @CustomType.Parameter("type") String type) {
-        this.data = data;
-        this.type = type;
-    }
-
+    private SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch() {}
     /**
      * @return When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
      * If `type` is any other value, omit this field.
@@ -60,30 +53,32 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
     public static Builder builder(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String data;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.data = defaults.data;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder data(@Nullable String data) {
             this.data = data;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch build() {
-            return new SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(data, type);
+        }
+        public SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch build() {
+            final var o = new SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch();
+            o.data = data;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -14,28 +14,19 @@ public final class GetAccessPointRootDirectoryCreationInfo {
      * @return POSIX owner group ID
      * 
      */
-    private final Integer ownerGid;
+    private Integer ownerGid;
     /**
      * @return POSIX owner user ID
      * 
      */
-    private final Integer ownerUid;
+    private Integer ownerUid;
     /**
      * @return POSIX permissions mode
      * 
      */
-    private final String permissions;
+    private String permissions;
 
-    @CustomType.Constructor
-    private GetAccessPointRootDirectoryCreationInfo(
-        @CustomType.Parameter("ownerGid") Integer ownerGid,
-        @CustomType.Parameter("ownerUid") Integer ownerUid,
-        @CustomType.Parameter("permissions") String permissions) {
-        this.ownerGid = ownerGid;
-        this.ownerUid = ownerUid;
-        this.permissions = permissions;
-    }
-
+    private GetAccessPointRootDirectoryCreationInfo() {}
     /**
      * @return POSIX owner group ID
      * 
@@ -65,16 +56,12 @@ public final class GetAccessPointRootDirectoryCreationInfo {
     public static Builder builder(GetAccessPointRootDirectoryCreationInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer ownerGid;
         private Integer ownerUid;
         private String permissions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccessPointRootDirectoryCreationInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ownerGid = defaults.ownerGid;
@@ -82,19 +69,27 @@ public final class GetAccessPointRootDirectoryCreationInfo {
     	      this.permissions = defaults.permissions;
         }
 
+        @CustomType.Setter
         public Builder ownerGid(Integer ownerGid) {
             this.ownerGid = Objects.requireNonNull(ownerGid);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerUid(Integer ownerUid) {
             this.ownerUid = Objects.requireNonNull(ownerUid);
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(String permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
-        }        public GetAccessPointRootDirectoryCreationInfo build() {
-            return new GetAccessPointRootDirectoryCreationInfo(ownerGid, ownerUid, permissions);
+        }
+        public GetAccessPointRootDirectoryCreationInfo build() {
+            final var o = new GetAccessPointRootDirectoryCreationInfo();
+            o.ownerGid = ownerGid;
+            o.ownerUid = ownerUid;
+            o.permissions = permissions;
+            return o;
         }
     }
 }

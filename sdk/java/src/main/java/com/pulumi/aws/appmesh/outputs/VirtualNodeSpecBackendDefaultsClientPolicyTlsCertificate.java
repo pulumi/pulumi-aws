@@ -16,21 +16,14 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
      * @return A local file certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile file;
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile file;
     /**
      * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds sds;
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds sds;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(
-        @CustomType.Parameter("file") @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile file,
-        @CustomType.Parameter("sds") @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds sds) {
-        this.file = file;
-        this.sds = sds;
-    }
-
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate() {}
     /**
      * @return A local file certificate.
      * 
@@ -53,30 +46,32 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
     public static Builder builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile file;
         private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds sds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.file = defaults.file;
     	      this.sds = defaults.sds;
         }
 
+        @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile file) {
             this.file = file;
             return this;
         }
+        @CustomType.Setter
         public Builder sds(@Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds sds) {
             this.sds = sds;
             return this;
-        }        public VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate build() {
-            return new VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(file, sds);
+        }
+        public VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate build() {
+            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate();
+            o.file = file;
+            o.sds = sds;
+            return o;
         }
     }
 }

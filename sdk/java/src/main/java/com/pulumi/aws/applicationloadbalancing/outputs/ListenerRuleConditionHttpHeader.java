@@ -14,21 +14,14 @@ public final class ListenerRuleConditionHttpHeader {
      * @return Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
      * 
      */
-    private final String httpHeaderName;
+    private String httpHeaderName;
     /**
      * @return List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private ListenerRuleConditionHttpHeader(
-        @CustomType.Parameter("httpHeaderName") String httpHeaderName,
-        @CustomType.Parameter("values") List<String> values) {
-        this.httpHeaderName = httpHeaderName;
-        this.values = values;
-    }
-
+    private ListenerRuleConditionHttpHeader() {}
     /**
      * @return Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
      * 
@@ -51,33 +44,35 @@ public final class ListenerRuleConditionHttpHeader {
     public static Builder builder(ListenerRuleConditionHttpHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String httpHeaderName;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerRuleConditionHttpHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpHeaderName = defaults.httpHeaderName;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder httpHeaderName(String httpHeaderName) {
             this.httpHeaderName = Objects.requireNonNull(httpHeaderName);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public ListenerRuleConditionHttpHeader build() {
-            return new ListenerRuleConditionHttpHeader(httpHeaderName, values);
+        }
+        public ListenerRuleConditionHttpHeader build() {
+            final var o = new ListenerRuleConditionHttpHeader();
+            o.httpHeaderName = httpHeaderName;
+            o.values = values;
+            return o;
         }
     }
 }

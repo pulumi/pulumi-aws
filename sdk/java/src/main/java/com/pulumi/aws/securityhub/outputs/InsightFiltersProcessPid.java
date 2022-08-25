@@ -15,28 +15,19 @@ public final class InsightFiltersProcessPid {
      * @return The equal-to condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private final @Nullable String eq;
+    private @Nullable String eq;
     /**
      * @return The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private final @Nullable String gte;
+    private @Nullable String gte;
     /**
      * @return The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private final @Nullable String lte;
+    private @Nullable String lte;
 
-    @CustomType.Constructor
-    private InsightFiltersProcessPid(
-        @CustomType.Parameter("eq") @Nullable String eq,
-        @CustomType.Parameter("gte") @Nullable String gte,
-        @CustomType.Parameter("lte") @Nullable String lte) {
-        this.eq = eq;
-        this.gte = gte;
-        this.lte = lte;
-    }
-
+    private InsightFiltersProcessPid() {}
     /**
      * @return The equal-to condition to be applied to a single field when querying for findings, provided as a String.
      * 
@@ -66,16 +57,12 @@ public final class InsightFiltersProcessPid {
     public static Builder builder(InsightFiltersProcessPid defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String eq;
         private @Nullable String gte;
         private @Nullable String lte;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersProcessPid defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eq = defaults.eq;
@@ -83,19 +70,27 @@ public final class InsightFiltersProcessPid {
     	      this.lte = defaults.lte;
         }
 
+        @CustomType.Setter
         public Builder eq(@Nullable String eq) {
             this.eq = eq;
             return this;
         }
+        @CustomType.Setter
         public Builder gte(@Nullable String gte) {
             this.gte = gte;
             return this;
         }
+        @CustomType.Setter
         public Builder lte(@Nullable String lte) {
             this.lte = lte;
             return this;
-        }        public InsightFiltersProcessPid build() {
-            return new InsightFiltersProcessPid(eq, gte, lte);
+        }
+        public InsightFiltersProcessPid build() {
+            final var o = new InsightFiltersProcessPid();
+            o.eq = eq;
+            o.gte = gte;
+            o.lte = lte;
+            return o;
         }
     }
 }

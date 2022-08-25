@@ -13,63 +13,44 @@ public final class GetDirectoryWorkspaceAccessProperty {
      * @return (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
      * 
      */
-    private final String deviceTypeAndroid;
+    private String deviceTypeAndroid;
     /**
      * @return (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
      * 
      */
-    private final String deviceTypeChromeos;
+    private String deviceTypeChromeos;
     /**
      * @return (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
      * 
      */
-    private final String deviceTypeIos;
+    private String deviceTypeIos;
     /**
      * @return (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
      * 
      */
-    private final String deviceTypeLinux;
+    private String deviceTypeLinux;
     /**
      * @return (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
      * 
      */
-    private final String deviceTypeOsx;
+    private String deviceTypeOsx;
     /**
      * @return (Optional) Indicates whether users can access their WorkSpaces through a web browser.
      * 
      */
-    private final String deviceTypeWeb;
+    private String deviceTypeWeb;
     /**
      * @return (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
      * 
      */
-    private final String deviceTypeWindows;
+    private String deviceTypeWindows;
     /**
      * @return (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
      * 
      */
-    private final String deviceTypeZeroclient;
+    private String deviceTypeZeroclient;
 
-    @CustomType.Constructor
-    private GetDirectoryWorkspaceAccessProperty(
-        @CustomType.Parameter("deviceTypeAndroid") String deviceTypeAndroid,
-        @CustomType.Parameter("deviceTypeChromeos") String deviceTypeChromeos,
-        @CustomType.Parameter("deviceTypeIos") String deviceTypeIos,
-        @CustomType.Parameter("deviceTypeLinux") String deviceTypeLinux,
-        @CustomType.Parameter("deviceTypeOsx") String deviceTypeOsx,
-        @CustomType.Parameter("deviceTypeWeb") String deviceTypeWeb,
-        @CustomType.Parameter("deviceTypeWindows") String deviceTypeWindows,
-        @CustomType.Parameter("deviceTypeZeroclient") String deviceTypeZeroclient) {
-        this.deviceTypeAndroid = deviceTypeAndroid;
-        this.deviceTypeChromeos = deviceTypeChromeos;
-        this.deviceTypeIos = deviceTypeIos;
-        this.deviceTypeLinux = deviceTypeLinux;
-        this.deviceTypeOsx = deviceTypeOsx;
-        this.deviceTypeWeb = deviceTypeWeb;
-        this.deviceTypeWindows = deviceTypeWindows;
-        this.deviceTypeZeroclient = deviceTypeZeroclient;
-    }
-
+    private GetDirectoryWorkspaceAccessProperty() {}
     /**
      * @return (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
      * 
@@ -134,7 +115,7 @@ public final class GetDirectoryWorkspaceAccessProperty {
     public static Builder builder(GetDirectoryWorkspaceAccessProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceTypeAndroid;
         private String deviceTypeChromeos;
@@ -144,11 +125,7 @@ public final class GetDirectoryWorkspaceAccessProperty {
         private String deviceTypeWeb;
         private String deviceTypeWindows;
         private String deviceTypeZeroclient;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDirectoryWorkspaceAccessProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceTypeAndroid = defaults.deviceTypeAndroid;
@@ -161,39 +138,57 @@ public final class GetDirectoryWorkspaceAccessProperty {
     	      this.deviceTypeZeroclient = defaults.deviceTypeZeroclient;
         }
 
+        @CustomType.Setter
         public Builder deviceTypeAndroid(String deviceTypeAndroid) {
             this.deviceTypeAndroid = Objects.requireNonNull(deviceTypeAndroid);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceTypeChromeos(String deviceTypeChromeos) {
             this.deviceTypeChromeos = Objects.requireNonNull(deviceTypeChromeos);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceTypeIos(String deviceTypeIos) {
             this.deviceTypeIos = Objects.requireNonNull(deviceTypeIos);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceTypeLinux(String deviceTypeLinux) {
             this.deviceTypeLinux = Objects.requireNonNull(deviceTypeLinux);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceTypeOsx(String deviceTypeOsx) {
             this.deviceTypeOsx = Objects.requireNonNull(deviceTypeOsx);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceTypeWeb(String deviceTypeWeb) {
             this.deviceTypeWeb = Objects.requireNonNull(deviceTypeWeb);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceTypeWindows(String deviceTypeWindows) {
             this.deviceTypeWindows = Objects.requireNonNull(deviceTypeWindows);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceTypeZeroclient(String deviceTypeZeroclient) {
             this.deviceTypeZeroclient = Objects.requireNonNull(deviceTypeZeroclient);
             return this;
-        }        public GetDirectoryWorkspaceAccessProperty build() {
-            return new GetDirectoryWorkspaceAccessProperty(deviceTypeAndroid, deviceTypeChromeos, deviceTypeIos, deviceTypeLinux, deviceTypeOsx, deviceTypeWeb, deviceTypeWindows, deviceTypeZeroclient);
+        }
+        public GetDirectoryWorkspaceAccessProperty build() {
+            final var o = new GetDirectoryWorkspaceAccessProperty();
+            o.deviceTypeAndroid = deviceTypeAndroid;
+            o.deviceTypeChromeos = deviceTypeChromeos;
+            o.deviceTypeIos = deviceTypeIos;
+            o.deviceTypeLinux = deviceTypeLinux;
+            o.deviceTypeOsx = deviceTypeOsx;
+            o.deviceTypeWeb = deviceTypeWeb;
+            o.deviceTypeWindows = deviceTypeWindows;
+            o.deviceTypeZeroclient = deviceTypeZeroclient;
+            return o;
         }
     }
 }

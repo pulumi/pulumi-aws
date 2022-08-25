@@ -21,63 +21,44 @@ public final class LifecyclePolicyPolicyDetails {
      * @return The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
      * 
      */
-    private final @Nullable LifecyclePolicyPolicyDetailsAction action;
+    private @Nullable LifecyclePolicyPolicyDetailsAction action;
     /**
      * @return The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
      * 
      */
-    private final @Nullable LifecyclePolicyPolicyDetailsEventSource eventSource;
+    private @Nullable LifecyclePolicyPolicyDetailsEventSource eventSource;
     /**
      * @return Information about the event. See the `parameters` configuration block.
      * 
      */
-    private final @Nullable LifecyclePolicyPolicyDetailsParameters parameters;
+    private @Nullable LifecyclePolicyPolicyDetailsParameters parameters;
     /**
      * @return The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
      * 
      */
-    private final @Nullable String policyType;
+    private @Nullable String policyType;
     /**
      * @return The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
      * 
      */
-    private final @Nullable String resourceLocations;
+    private @Nullable String resourceLocations;
     /**
      * @return A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
      * 
      */
-    private final @Nullable List<String> resourceTypes;
+    private @Nullable List<String> resourceTypes;
     /**
      * @return See the `schedule` configuration block.
      * 
      */
-    private final @Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules;
+    private @Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules;
     /**
      * @return A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
      * 
      */
-    private final @Nullable Map<String,String> targetTags;
+    private @Nullable Map<String,String> targetTags;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetails(
-        @CustomType.Parameter("action") @Nullable LifecyclePolicyPolicyDetailsAction action,
-        @CustomType.Parameter("eventSource") @Nullable LifecyclePolicyPolicyDetailsEventSource eventSource,
-        @CustomType.Parameter("parameters") @Nullable LifecyclePolicyPolicyDetailsParameters parameters,
-        @CustomType.Parameter("policyType") @Nullable String policyType,
-        @CustomType.Parameter("resourceLocations") @Nullable String resourceLocations,
-        @CustomType.Parameter("resourceTypes") @Nullable List<String> resourceTypes,
-        @CustomType.Parameter("schedules") @Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules,
-        @CustomType.Parameter("targetTags") @Nullable Map<String,String> targetTags) {
-        this.action = action;
-        this.eventSource = eventSource;
-        this.parameters = parameters;
-        this.policyType = policyType;
-        this.resourceLocations = resourceLocations;
-        this.resourceTypes = resourceTypes;
-        this.schedules = schedules;
-        this.targetTags = targetTags;
-    }
-
+    private LifecyclePolicyPolicyDetails() {}
     /**
      * @return The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
      * 
@@ -142,7 +123,7 @@ public final class LifecyclePolicyPolicyDetails {
     public static Builder builder(LifecyclePolicyPolicyDetails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable LifecyclePolicyPolicyDetailsAction action;
         private @Nullable LifecyclePolicyPolicyDetailsEventSource eventSource;
@@ -152,11 +133,7 @@ public final class LifecyclePolicyPolicyDetails {
         private @Nullable List<String> resourceTypes;
         private @Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules;
         private @Nullable Map<String,String> targetTags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -169,26 +146,32 @@ public final class LifecyclePolicyPolicyDetails {
     	      this.targetTags = defaults.targetTags;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable LifecyclePolicyPolicyDetailsAction action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder eventSource(@Nullable LifecyclePolicyPolicyDetailsEventSource eventSource) {
             this.eventSource = eventSource;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable LifecyclePolicyPolicyDetailsParameters parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder policyType(@Nullable String policyType) {
             this.policyType = policyType;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceLocations(@Nullable String resourceLocations) {
             this.resourceLocations = resourceLocations;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceTypes(@Nullable List<String> resourceTypes) {
             this.resourceTypes = resourceTypes;
             return this;
@@ -196,6 +179,7 @@ public final class LifecyclePolicyPolicyDetails {
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }
+        @CustomType.Setter
         public Builder schedules(@Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules) {
             this.schedules = schedules;
             return this;
@@ -203,11 +187,22 @@ public final class LifecyclePolicyPolicyDetails {
         public Builder schedules(LifecyclePolicyPolicyDetailsSchedule... schedules) {
             return schedules(List.of(schedules));
         }
+        @CustomType.Setter
         public Builder targetTags(@Nullable Map<String,String> targetTags) {
             this.targetTags = targetTags;
             return this;
-        }        public LifecyclePolicyPolicyDetails build() {
-            return new LifecyclePolicyPolicyDetails(action, eventSource, parameters, policyType, resourceLocations, resourceTypes, schedules, targetTags);
+        }
+        public LifecyclePolicyPolicyDetails build() {
+            final var o = new LifecyclePolicyPolicyDetails();
+            o.action = action;
+            o.eventSource = eventSource;
+            o.parameters = parameters;
+            o.policyType = policyType;
+            o.resourceLocations = resourceLocations;
+            o.resourceTypes = resourceTypes;
+            o.schedules = schedules;
+            o.targetTags = targetTags;
+            return o;
         }
     }
 }

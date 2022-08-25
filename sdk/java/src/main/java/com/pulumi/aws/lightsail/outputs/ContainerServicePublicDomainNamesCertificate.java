@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class ContainerServicePublicDomainNamesCertificate {
-    private final String certificateName;
-    private final List<String> domainNames;
+    private String certificateName;
+    private List<String> domainNames;
 
-    @CustomType.Constructor
-    private ContainerServicePublicDomainNamesCertificate(
-        @CustomType.Parameter("certificateName") String certificateName,
-        @CustomType.Parameter("domainNames") List<String> domainNames) {
-        this.certificateName = certificateName;
-        this.domainNames = domainNames;
-    }
-
+    private ContainerServicePublicDomainNamesCertificate() {}
     public String certificateName() {
         return this.certificateName;
     }
@@ -35,33 +28,35 @@ public final class ContainerServicePublicDomainNamesCertificate {
     public static Builder builder(ContainerServicePublicDomainNamesCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateName;
         private List<String> domainNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContainerServicePublicDomainNamesCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateName = defaults.certificateName;
     	      this.domainNames = defaults.domainNames;
         }
 
+        @CustomType.Setter
         public Builder certificateName(String certificateName) {
             this.certificateName = Objects.requireNonNull(certificateName);
             return this;
         }
+        @CustomType.Setter
         public Builder domainNames(List<String> domainNames) {
             this.domainNames = Objects.requireNonNull(domainNames);
             return this;
         }
         public Builder domainNames(String... domainNames) {
             return domainNames(List.of(domainNames));
-        }        public ContainerServicePublicDomainNamesCertificate build() {
-            return new ContainerServicePublicDomainNamesCertificate(certificateName, domainNames);
+        }
+        public ContainerServicePublicDomainNamesCertificate build() {
+            final var o = new ContainerServicePublicDomainNamesCertificate();
+            o.certificateName = certificateName;
+            o.domainNames = domainNames;
+            return o;
         }
     }
 }

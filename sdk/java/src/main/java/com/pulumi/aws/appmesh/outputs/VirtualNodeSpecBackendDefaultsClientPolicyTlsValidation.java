@@ -16,21 +16,14 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
      * @return The SANs for a TLS validation context.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames;
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames;
     /**
      * @return The TLS validation context trust.
      * 
      */
-    private final VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust trust;
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust trust;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(
-        @CustomType.Parameter("subjectAlternativeNames") @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames,
-        @CustomType.Parameter("trust") VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust trust) {
-        this.subjectAlternativeNames = subjectAlternativeNames;
-        this.trust = trust;
-    }
-
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation() {}
     /**
      * @return The SANs for a TLS validation context.
      * 
@@ -53,30 +46,32 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
     public static Builder builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames;
         private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust trust;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subjectAlternativeNames = defaults.subjectAlternativeNames;
     	      this.trust = defaults.trust;
         }
 
+        @CustomType.Setter
         public Builder subjectAlternativeNames(@Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames) {
             this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
+        @CustomType.Setter
         public Builder trust(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust trust) {
             this.trust = Objects.requireNonNull(trust);
             return this;
-        }        public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation build() {
-            return new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(subjectAlternativeNames, trust);
+        }
+        public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation build() {
+            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation();
+            o.subjectAlternativeNames = subjectAlternativeNames;
+            o.trust = trust;
+            return o;
         }
     }
 }

@@ -20,24 +20,15 @@ public final class GetEndpointResult {
      * * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
      * 
      */
-    private final String endpointAddress;
-    private final @Nullable String endpointType;
+    private String endpointAddress;
+    private @Nullable String endpointType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetEndpointResult(
-        @CustomType.Parameter("endpointAddress") String endpointAddress,
-        @CustomType.Parameter("endpointType") @Nullable String endpointType,
-        @CustomType.Parameter("id") String id) {
-        this.endpointAddress = endpointAddress;
-        this.endpointType = endpointType;
-        this.id = id;
-    }
-
+    private GetEndpointResult() {}
     /**
      * @return The endpoint based on `endpoint_type`:
      * * No `endpoint_type`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
@@ -68,16 +59,12 @@ public final class GetEndpointResult {
     public static Builder builder(GetEndpointResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpointAddress;
         private @Nullable String endpointType;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointAddress = defaults.endpointAddress;
@@ -85,19 +72,27 @@ public final class GetEndpointResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder endpointAddress(String endpointAddress) {
             this.endpointAddress = Objects.requireNonNull(endpointAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder endpointType(@Nullable String endpointType) {
             this.endpointType = endpointType;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetEndpointResult build() {
-            return new GetEndpointResult(endpointAddress, endpointType, id);
+        }
+        public GetEndpointResult build() {
+            final var o = new GetEndpointResult();
+            o.endpointAddress = endpointAddress;
+            o.endpointType = endpointType;
+            o.id = id;
+            return o;
         }
     }
 }

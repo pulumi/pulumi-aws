@@ -13,21 +13,14 @@ public final class OrganizationConformancePackInputParameter {
      * @return The input key.
      * 
      */
-    private final String parameterName;
+    private String parameterName;
     /**
      * @return The input value.
      * 
      */
-    private final String parameterValue;
+    private String parameterValue;
 
-    @CustomType.Constructor
-    private OrganizationConformancePackInputParameter(
-        @CustomType.Parameter("parameterName") String parameterName,
-        @CustomType.Parameter("parameterValue") String parameterValue) {
-        this.parameterName = parameterName;
-        this.parameterValue = parameterValue;
-    }
-
+    private OrganizationConformancePackInputParameter() {}
     /**
      * @return The input key.
      * 
@@ -50,30 +43,32 @@ public final class OrganizationConformancePackInputParameter {
     public static Builder builder(OrganizationConformancePackInputParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String parameterName;
         private String parameterValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationConformancePackInputParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameterName = defaults.parameterName;
     	      this.parameterValue = defaults.parameterValue;
         }
 
+        @CustomType.Setter
         public Builder parameterName(String parameterName) {
             this.parameterName = Objects.requireNonNull(parameterName);
             return this;
         }
+        @CustomType.Setter
         public Builder parameterValue(String parameterValue) {
             this.parameterValue = Objects.requireNonNull(parameterValue);
             return this;
-        }        public OrganizationConformancePackInputParameter build() {
-            return new OrganizationConformancePackInputParameter(parameterName, parameterValue);
+        }
+        public OrganizationConformancePackInputParameter build() {
+            final var o = new OrganizationConformancePackInputParameter();
+            o.parameterName = parameterName;
+            o.parameterValue = parameterValue;
+            return o;
         }
     }
 }

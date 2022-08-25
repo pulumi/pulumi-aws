@@ -16,21 +16,14 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfiguration {
      * @return The compromised credentials risk configuration actions. See details below.
      * 
      */
-    private final RiskConfigurationCompromisedCredentialsRiskConfigurationActions actions;
+    private RiskConfigurationCompromisedCredentialsRiskConfigurationActions actions;
     /**
      * @return Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
      * 
      */
-    private final @Nullable List<String> eventFilters;
+    private @Nullable List<String> eventFilters;
 
-    @CustomType.Constructor
-    private RiskConfigurationCompromisedCredentialsRiskConfiguration(
-        @CustomType.Parameter("actions") RiskConfigurationCompromisedCredentialsRiskConfigurationActions actions,
-        @CustomType.Parameter("eventFilters") @Nullable List<String> eventFilters) {
-        this.actions = actions;
-        this.eventFilters = eventFilters;
-    }
-
+    private RiskConfigurationCompromisedCredentialsRiskConfiguration() {}
     /**
      * @return The compromised credentials risk configuration actions. See details below.
      * 
@@ -53,33 +46,35 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfiguration {
     public static Builder builder(RiskConfigurationCompromisedCredentialsRiskConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RiskConfigurationCompromisedCredentialsRiskConfigurationActions actions;
         private @Nullable List<String> eventFilters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RiskConfigurationCompromisedCredentialsRiskConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.eventFilters = defaults.eventFilters;
         }
 
+        @CustomType.Setter
         public Builder actions(RiskConfigurationCompromisedCredentialsRiskConfigurationActions actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
         }
+        @CustomType.Setter
         public Builder eventFilters(@Nullable List<String> eventFilters) {
             this.eventFilters = eventFilters;
             return this;
         }
         public Builder eventFilters(String... eventFilters) {
             return eventFilters(List.of(eventFilters));
-        }        public RiskConfigurationCompromisedCredentialsRiskConfiguration build() {
-            return new RiskConfigurationCompromisedCredentialsRiskConfiguration(actions, eventFilters);
+        }
+        public RiskConfigurationCompromisedCredentialsRiskConfiguration build() {
+            final var o = new RiskConfigurationCompromisedCredentialsRiskConfiguration();
+            o.actions = actions;
+            o.eventFilters = eventFilters;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class DomainNameEndpointConfiguration {
      * @return List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
      * 
      */
-    private final String types;
+    private String types;
 
-    @CustomType.Constructor
-    private DomainNameEndpointConfiguration(@CustomType.Parameter("types") String types) {
-        this.types = types;
-    }
-
+    private DomainNameEndpointConfiguration() {}
     /**
      * @return List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
      * 
@@ -35,24 +31,24 @@ public final class DomainNameEndpointConfiguration {
     public static Builder builder(DomainNameEndpointConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String types;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainNameEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.types = defaults.types;
         }
 
+        @CustomType.Setter
         public Builder types(String types) {
             this.types = Objects.requireNonNull(types);
             return this;
-        }        public DomainNameEndpointConfiguration build() {
-            return new DomainNameEndpointConfiguration(types);
+        }
+        public DomainNameEndpointConfiguration build() {
+            final var o = new DomainNameEndpointConfiguration();
+            o.types = types;
+            return o;
         }
     }
 }

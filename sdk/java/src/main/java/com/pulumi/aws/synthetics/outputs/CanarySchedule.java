@@ -16,21 +16,14 @@ public final class CanarySchedule {
      * @return Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
      * 
      */
-    private final @Nullable Integer durationInSeconds;
+    private @Nullable Integer durationInSeconds;
     /**
      * @return Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
      * 
      */
-    private final String expression;
+    private String expression;
 
-    @CustomType.Constructor
-    private CanarySchedule(
-        @CustomType.Parameter("durationInSeconds") @Nullable Integer durationInSeconds,
-        @CustomType.Parameter("expression") String expression) {
-        this.durationInSeconds = durationInSeconds;
-        this.expression = expression;
-    }
-
+    private CanarySchedule() {}
     /**
      * @return Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
      * 
@@ -53,30 +46,32 @@ public final class CanarySchedule {
     public static Builder builder(CanarySchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer durationInSeconds;
         private String expression;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CanarySchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.durationInSeconds = defaults.durationInSeconds;
     	      this.expression = defaults.expression;
         }
 
+        @CustomType.Setter
         public Builder durationInSeconds(@Nullable Integer durationInSeconds) {
             this.durationInSeconds = durationInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder expression(String expression) {
             this.expression = Objects.requireNonNull(expression);
             return this;
-        }        public CanarySchedule build() {
-            return new CanarySchedule(durationInSeconds, expression);
+        }
+        public CanarySchedule build() {
+            final var o = new CanarySchedule();
+            o.durationInSeconds = durationInSeconds;
+            o.expression = expression;
+            return o;
         }
     }
 }

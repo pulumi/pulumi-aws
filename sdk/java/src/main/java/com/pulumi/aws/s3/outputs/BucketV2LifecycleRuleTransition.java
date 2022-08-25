@@ -16,28 +16,19 @@ public final class BucketV2LifecycleRuleTransition {
      * @return Specifies the date after which you want the corresponding action to take effect.
      * 
      */
-    private final @Nullable String date;
+    private @Nullable String date;
     /**
      * @return Specifies the number of days after object creation when the specific rule action takes effect.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
      * 
      */
-    private final String storageClass;
+    private String storageClass;
 
-    @CustomType.Constructor
-    private BucketV2LifecycleRuleTransition(
-        @CustomType.Parameter("date") @Nullable String date,
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("storageClass") String storageClass) {
-        this.date = date;
-        this.days = days;
-        this.storageClass = storageClass;
-    }
-
+    private BucketV2LifecycleRuleTransition() {}
     /**
      * @return Specifies the date after which you want the corresponding action to take effect.
      * 
@@ -67,16 +58,12 @@ public final class BucketV2LifecycleRuleTransition {
     public static Builder builder(BucketV2LifecycleRuleTransition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String date;
         private @Nullable Integer days;
         private String storageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2LifecycleRuleTransition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.date = defaults.date;
@@ -84,19 +71,27 @@ public final class BucketV2LifecycleRuleTransition {
     	      this.storageClass = defaults.storageClass;
         }
 
+        @CustomType.Setter
         public Builder date(@Nullable String date) {
             this.date = date;
             return this;
         }
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder storageClass(String storageClass) {
             this.storageClass = Objects.requireNonNull(storageClass);
             return this;
-        }        public BucketV2LifecycleRuleTransition build() {
-            return new BucketV2LifecycleRuleTransition(date, days, storageClass);
+        }
+        public BucketV2LifecycleRuleTransition build() {
+            final var o = new BucketV2LifecycleRuleTransition();
+            o.date = date;
+            o.days = days;
+            o.storageClass = storageClass;
+            return o;
         }
     }
 }

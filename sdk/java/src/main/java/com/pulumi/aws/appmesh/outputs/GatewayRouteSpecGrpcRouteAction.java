@@ -13,13 +13,9 @@ public final class GatewayRouteSpecGrpcRouteAction {
      * @return The target that traffic is routed to when a request matches the gateway route.
      * 
      */
-    private final GatewayRouteSpecGrpcRouteActionTarget target;
+    private GatewayRouteSpecGrpcRouteActionTarget target;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecGrpcRouteAction(@CustomType.Parameter("target") GatewayRouteSpecGrpcRouteActionTarget target) {
-        this.target = target;
-    }
-
+    private GatewayRouteSpecGrpcRouteAction() {}
     /**
      * @return The target that traffic is routed to when a request matches the gateway route.
      * 
@@ -35,24 +31,24 @@ public final class GatewayRouteSpecGrpcRouteAction {
     public static Builder builder(GatewayRouteSpecGrpcRouteAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GatewayRouteSpecGrpcRouteActionTarget target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecGrpcRouteAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder target(GatewayRouteSpecGrpcRouteActionTarget target) {
             this.target = Objects.requireNonNull(target);
             return this;
-        }        public GatewayRouteSpecGrpcRouteAction build() {
-            return new GatewayRouteSpecGrpcRouteAction(target);
+        }
+        public GatewayRouteSpecGrpcRouteAction build() {
+            final var o = new GatewayRouteSpecGrpcRouteAction();
+            o.target = target;
+            return o;
         }
     }
 }

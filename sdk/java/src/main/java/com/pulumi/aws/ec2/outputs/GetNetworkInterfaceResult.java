@@ -19,135 +19,92 @@ public final class GetNetworkInterfaceResult {
      * @return The ARN of the network interface.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
      * 
      */
-    private final List<GetNetworkInterfaceAssociation> associations;
-    private final List<GetNetworkInterfaceAttachment> attachments;
+    private List<GetNetworkInterfaceAssociation> associations;
+    private List<GetNetworkInterfaceAttachment> attachments;
     /**
      * @return The Availability Zone.
      * 
      */
-    private final String availabilityZone;
+    private String availabilityZone;
     /**
      * @return Description of the network interface.
      * 
      */
-    private final String description;
-    private final @Nullable List<GetNetworkInterfaceFilter> filters;
-    private final String id;
+    private String description;
+    private @Nullable List<GetNetworkInterfaceFilter> filters;
+    private String id;
     /**
      * @return The type of interface.
      * 
      */
-    private final String interfaceType;
+    private String interfaceType;
     /**
      * @return List of IPv6 addresses to assign to the ENI.
      * 
      */
-    private final List<String> ipv6Addresses;
+    private List<String> ipv6Addresses;
     /**
      * @return The MAC address.
      * 
      */
-    private final String macAddress;
+    private String macAddress;
     /**
      * @return The Amazon Resource Name (ARN) of the Outpost.
      * 
      */
-    private final String outpostArn;
+    private String outpostArn;
     /**
      * @return The AWS account ID of the owner of the network interface.
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return The private DNS name.
      * 
      */
-    private final String privateDnsName;
+    private String privateDnsName;
     /**
      * @return The private IPv4 address of the network interface within the subnet.
      * 
      */
-    private final String privateIp;
+    private String privateIp;
     /**
      * @return The private IPv4 addresses associated with the network interface.
      * 
      */
-    private final List<String> privateIps;
+    private List<String> privateIps;
     /**
      * @return The ID of the entity that launched the instance on your behalf.
      * 
      */
-    private final String requesterId;
+    private String requesterId;
     /**
      * @return The list of security groups for the network interface.
      * 
      */
-    private final List<String> securityGroups;
+    private List<String> securityGroups;
     /**
      * @return The ID of the subnet.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
     /**
      * @return Any tags assigned to the network interface.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The ID of the VPC.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetNetworkInterfaceResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("associations") List<GetNetworkInterfaceAssociation> associations,
-        @CustomType.Parameter("attachments") List<GetNetworkInterfaceAttachment> attachments,
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("filters") @Nullable List<GetNetworkInterfaceFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("interfaceType") String interfaceType,
-        @CustomType.Parameter("ipv6Addresses") List<String> ipv6Addresses,
-        @CustomType.Parameter("macAddress") String macAddress,
-        @CustomType.Parameter("outpostArn") String outpostArn,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("privateDnsName") String privateDnsName,
-        @CustomType.Parameter("privateIp") String privateIp,
-        @CustomType.Parameter("privateIps") List<String> privateIps,
-        @CustomType.Parameter("requesterId") String requesterId,
-        @CustomType.Parameter("securityGroups") List<String> securityGroups,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.arn = arn;
-        this.associations = associations;
-        this.attachments = attachments;
-        this.availabilityZone = availabilityZone;
-        this.description = description;
-        this.filters = filters;
-        this.id = id;
-        this.interfaceType = interfaceType;
-        this.ipv6Addresses = ipv6Addresses;
-        this.macAddress = macAddress;
-        this.outpostArn = outpostArn;
-        this.ownerId = ownerId;
-        this.privateDnsName = privateDnsName;
-        this.privateIp = privateIp;
-        this.privateIps = privateIps;
-        this.requesterId = requesterId;
-        this.securityGroups = securityGroups;
-        this.subnetId = subnetId;
-        this.tags = tags;
-        this.vpcId = vpcId;
-    }
-
+    private GetNetworkInterfaceResult() {}
     /**
      * @return The ARN of the network interface.
      * 
@@ -284,7 +241,7 @@ public final class GetNetworkInterfaceResult {
     public static Builder builder(GetNetworkInterfaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetNetworkInterfaceAssociation> associations;
@@ -306,11 +263,7 @@ public final class GetNetworkInterfaceResult {
         private String subnetId;
         private Map<String,String> tags;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkInterfaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -335,10 +288,12 @@ public final class GetNetworkInterfaceResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder associations(List<GetNetworkInterfaceAssociation> associations) {
             this.associations = Objects.requireNonNull(associations);
             return this;
@@ -346,6 +301,7 @@ public final class GetNetworkInterfaceResult {
         public Builder associations(GetNetworkInterfaceAssociation... associations) {
             return associations(List.of(associations));
         }
+        @CustomType.Setter
         public Builder attachments(List<GetNetworkInterfaceAttachment> attachments) {
             this.attachments = Objects.requireNonNull(attachments);
             return this;
@@ -353,14 +309,17 @@ public final class GetNetworkInterfaceResult {
         public Builder attachments(GetNetworkInterfaceAttachment... attachments) {
             return attachments(List.of(attachments));
         }
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetNetworkInterfaceFilter> filters) {
             this.filters = filters;
             return this;
@@ -368,14 +327,17 @@ public final class GetNetworkInterfaceResult {
         public Builder filters(GetNetworkInterfaceFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder interfaceType(String interfaceType) {
             this.interfaceType = Objects.requireNonNull(interfaceType);
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6Addresses(List<String> ipv6Addresses) {
             this.ipv6Addresses = Objects.requireNonNull(ipv6Addresses);
             return this;
@@ -383,26 +345,32 @@ public final class GetNetworkInterfaceResult {
         public Builder ipv6Addresses(String... ipv6Addresses) {
             return ipv6Addresses(List.of(ipv6Addresses));
         }
+        @CustomType.Setter
         public Builder macAddress(String macAddress) {
             this.macAddress = Objects.requireNonNull(macAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
             this.outpostArn = Objects.requireNonNull(outpostArn);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder privateDnsName(String privateDnsName) {
             this.privateDnsName = Objects.requireNonNull(privateDnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIp(String privateIp) {
             this.privateIp = Objects.requireNonNull(privateIp);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIps(List<String> privateIps) {
             this.privateIps = Objects.requireNonNull(privateIps);
             return this;
@@ -410,10 +378,12 @@ public final class GetNetworkInterfaceResult {
         public Builder privateIps(String... privateIps) {
             return privateIps(List.of(privateIps));
         }
+        @CustomType.Setter
         public Builder requesterId(String requesterId) {
             this.requesterId = Objects.requireNonNull(requesterId);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             this.securityGroups = Objects.requireNonNull(securityGroups);
             return this;
@@ -421,19 +391,44 @@ public final class GetNetworkInterfaceResult {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetNetworkInterfaceResult build() {
-            return new GetNetworkInterfaceResult(arn, associations, attachments, availabilityZone, description, filters, id, interfaceType, ipv6Addresses, macAddress, outpostArn, ownerId, privateDnsName, privateIp, privateIps, requesterId, securityGroups, subnetId, tags, vpcId);
+        }
+        public GetNetworkInterfaceResult build() {
+            final var o = new GetNetworkInterfaceResult();
+            o.arn = arn;
+            o.associations = associations;
+            o.attachments = attachments;
+            o.availabilityZone = availabilityZone;
+            o.description = description;
+            o.filters = filters;
+            o.id = id;
+            o.interfaceType = interfaceType;
+            o.ipv6Addresses = ipv6Addresses;
+            o.macAddress = macAddress;
+            o.outpostArn = outpostArn;
+            o.ownerId = ownerId;
+            o.privateDnsName = privateDnsName;
+            o.privateIp = privateIp;
+            o.privateIps = privateIps;
+            o.requesterId = requesterId;
+            o.securityGroups = securityGroups;
+            o.subnetId = subnetId;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

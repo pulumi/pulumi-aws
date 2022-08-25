@@ -15,42 +15,29 @@ public final class DocumentationPartLocation {
      * @return The HTTP verb of a method. The default value is `*` for any method.
      * 
      */
-    private final @Nullable String method;
+    private @Nullable String method;
     /**
      * @return The name of the targeted API entity.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The URL path of the target. The default value is `/` for the root resource.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return The HTTP status code of a response. The default value is `*` for any status code.
      * 
      */
-    private final @Nullable String statusCode;
+    private @Nullable String statusCode;
     /**
      * @return The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private DocumentationPartLocation(
-        @CustomType.Parameter("method") @Nullable String method,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("statusCode") @Nullable String statusCode,
-        @CustomType.Parameter("type") String type) {
-        this.method = method;
-        this.name = name;
-        this.path = path;
-        this.statusCode = statusCode;
-        this.type = type;
-    }
-
+    private DocumentationPartLocation() {}
     /**
      * @return The HTTP verb of a method. The default value is `*` for any method.
      * 
@@ -94,18 +81,14 @@ public final class DocumentationPartLocation {
     public static Builder builder(DocumentationPartLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String method;
         private @Nullable String name;
         private @Nullable String path;
         private @Nullable String statusCode;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DocumentationPartLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.method = defaults.method;
@@ -115,27 +98,39 @@ public final class DocumentationPartLocation {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder method(@Nullable String method) {
             this.method = method;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder statusCode(@Nullable String statusCode) {
             this.statusCode = statusCode;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public DocumentationPartLocation build() {
-            return new DocumentationPartLocation(method, name, path, statusCode, type);
+        }
+        public DocumentationPartLocation build() {
+            final var o = new DocumentationPartLocation();
+            o.method = method;
+            o.name = name;
+            o.path = path;
+            o.statusCode = statusCode;
+            o.type = type;
+            return o;
         }
     }
 }

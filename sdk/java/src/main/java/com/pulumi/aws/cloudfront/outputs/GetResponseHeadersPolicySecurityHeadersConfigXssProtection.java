@@ -14,35 +14,24 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
      * @return A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
      * 
      */
-    private final Boolean modeBlock;
+    private Boolean modeBlock;
     /**
      * @return A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private final Boolean override;
+    private Boolean override;
     /**
      * @return A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
      * 
      */
-    private final Boolean protection;
+    private Boolean protection;
     /**
      * @return A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
      * 
      */
-    private final String reportUri;
+    private String reportUri;
 
-    @CustomType.Constructor
-    private GetResponseHeadersPolicySecurityHeadersConfigXssProtection(
-        @CustomType.Parameter("modeBlock") Boolean modeBlock,
-        @CustomType.Parameter("override") Boolean override,
-        @CustomType.Parameter("protection") Boolean protection,
-        @CustomType.Parameter("reportUri") String reportUri) {
-        this.modeBlock = modeBlock;
-        this.override = override;
-        this.protection = protection;
-        this.reportUri = reportUri;
-    }
-
+    private GetResponseHeadersPolicySecurityHeadersConfigXssProtection() {}
     /**
      * @return A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
      * 
@@ -79,17 +68,13 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
     public static Builder builder(GetResponseHeadersPolicySecurityHeadersConfigXssProtection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean modeBlock;
         private Boolean override;
         private Boolean protection;
         private String reportUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfigXssProtection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.modeBlock = defaults.modeBlock;
@@ -98,23 +83,33 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
     	      this.reportUri = defaults.reportUri;
         }
 
+        @CustomType.Setter
         public Builder modeBlock(Boolean modeBlock) {
             this.modeBlock = Objects.requireNonNull(modeBlock);
             return this;
         }
+        @CustomType.Setter
         public Builder override(Boolean override) {
             this.override = Objects.requireNonNull(override);
             return this;
         }
+        @CustomType.Setter
         public Builder protection(Boolean protection) {
             this.protection = Objects.requireNonNull(protection);
             return this;
         }
+        @CustomType.Setter
         public Builder reportUri(String reportUri) {
             this.reportUri = Objects.requireNonNull(reportUri);
             return this;
-        }        public GetResponseHeadersPolicySecurityHeadersConfigXssProtection build() {
-            return new GetResponseHeadersPolicySecurityHeadersConfigXssProtection(modeBlock, override, protection, reportUri);
+        }
+        public GetResponseHeadersPolicySecurityHeadersConfigXssProtection build() {
+            final var o = new GetResponseHeadersPolicySecurityHeadersConfigXssProtection();
+            o.modeBlock = modeBlock;
+            o.override = override;
+            o.protection = protection;
+            o.reportUri = reportUri;
+            return o;
         }
     }
 }

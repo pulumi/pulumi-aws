@@ -9,35 +9,24 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResourceResult {
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private final String lastModified;
+    private String lastModified;
     /**
      * @return Role that the resource was registered with.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private GetResourceResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastModified") String lastModified,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.arn = arn;
-        this.id = id;
-        this.lastModified = lastModified;
-        this.roleArn = roleArn;
-    }
-
+    private GetResourceResult() {}
     public String arn() {
         return this.arn;
     }
@@ -70,17 +59,13 @@ public final class GetResourceResult {
     public static Builder builder(GetResourceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private String lastModified;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -89,23 +74,33 @@ public final class GetResourceResult {
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModified(String lastModified) {
             this.lastModified = Objects.requireNonNull(lastModified);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public GetResourceResult build() {
-            return new GetResourceResult(arn, id, lastModified, roleArn);
+        }
+        public GetResourceResult build() {
+            final var o = new GetResourceResult();
+            o.arn = arn;
+            o.id = id;
+            o.lastModified = lastModified;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

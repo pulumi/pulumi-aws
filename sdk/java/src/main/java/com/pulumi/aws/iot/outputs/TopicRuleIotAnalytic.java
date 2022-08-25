@@ -13,21 +13,14 @@ public final class TopicRuleIotAnalytic {
      * @return Name of AWS IOT Analytics channel.
      * 
      */
-    private final String channelName;
+    private String channelName;
     /**
      * @return The ARN of the IAM role that grants access.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private TopicRuleIotAnalytic(
-        @CustomType.Parameter("channelName") String channelName,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.channelName = channelName;
-        this.roleArn = roleArn;
-    }
-
+    private TopicRuleIotAnalytic() {}
     /**
      * @return Name of AWS IOT Analytics channel.
      * 
@@ -50,30 +43,32 @@ public final class TopicRuleIotAnalytic {
     public static Builder builder(TopicRuleIotAnalytic defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String channelName;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleIotAnalytic defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.channelName = defaults.channelName;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder channelName(String channelName) {
             this.channelName = Objects.requireNonNull(channelName);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public TopicRuleIotAnalytic build() {
-            return new TopicRuleIotAnalytic(channelName, roleArn);
+        }
+        public TopicRuleIotAnalytic build() {
+            final var o = new TopicRuleIotAnalytic();
+            o.channelName = channelName;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

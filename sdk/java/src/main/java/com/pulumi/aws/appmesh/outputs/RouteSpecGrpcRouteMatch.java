@@ -17,36 +17,25 @@ public final class RouteSpecGrpcRouteMatch {
      * @return The data to match from the gRPC request.
      * 
      */
-    private final @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas;
+    private @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas;
     /**
      * @return The method name to match from the request. If you specify a name, you must also specify a `service_name`.
      * 
      */
-    private final @Nullable String methodName;
+    private @Nullable String methodName;
     /**
      * @return The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return The fully qualified domain name for the service to match from the request.
      * 
      */
-    private final @Nullable String serviceName;
+    private @Nullable String serviceName;
 
-    @CustomType.Constructor
-    private RouteSpecGrpcRouteMatch(
-        @CustomType.Parameter("metadatas") @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas,
-        @CustomType.Parameter("methodName") @Nullable String methodName,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("serviceName") @Nullable String serviceName) {
-        this.metadatas = metadatas;
-        this.methodName = methodName;
-        this.prefix = prefix;
-        this.serviceName = serviceName;
-    }
-
+    private RouteSpecGrpcRouteMatch() {}
     /**
      * @return The data to match from the gRPC request.
      * 
@@ -84,17 +73,13 @@ public final class RouteSpecGrpcRouteMatch {
     public static Builder builder(RouteSpecGrpcRouteMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas;
         private @Nullable String methodName;
         private @Nullable String prefix;
         private @Nullable String serviceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecGrpcRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metadatas = defaults.metadatas;
@@ -103,6 +88,7 @@ public final class RouteSpecGrpcRouteMatch {
     	      this.serviceName = defaults.serviceName;
         }
 
+        @CustomType.Setter
         public Builder metadatas(@Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas) {
             this.metadatas = metadatas;
             return this;
@@ -110,19 +96,28 @@ public final class RouteSpecGrpcRouteMatch {
         public Builder metadatas(RouteSpecGrpcRouteMatchMetadata... metadatas) {
             return metadatas(List.of(metadatas));
         }
+        @CustomType.Setter
         public Builder methodName(@Nullable String methodName) {
             this.methodName = methodName;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceName(@Nullable String serviceName) {
             this.serviceName = serviceName;
             return this;
-        }        public RouteSpecGrpcRouteMatch build() {
-            return new RouteSpecGrpcRouteMatch(metadatas, methodName, prefix, serviceName);
+        }
+        public RouteSpecGrpcRouteMatch build() {
+            final var o = new RouteSpecGrpcRouteMatch();
+            o.metadatas = metadatas;
+            o.methodName = methodName;
+            o.prefix = prefix;
+            o.serviceName = serviceName;
+            return o;
         }
     }
 }

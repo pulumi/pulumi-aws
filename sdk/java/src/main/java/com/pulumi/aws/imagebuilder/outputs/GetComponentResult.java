@@ -12,112 +12,79 @@ import java.util.Objects;
 
 @CustomType
 public final class GetComponentResult {
-    private final String arn;
+    private String arn;
     /**
      * @return Change description of the component.
      * 
      */
-    private final String changeDescription;
+    private String changeDescription;
     /**
      * @return Data of the component.
      * 
      */
-    private final String data;
+    private String data;
     /**
      * @return Date the component was created.
      * 
      */
-    private final String dateCreated;
+    private String dateCreated;
     /**
      * @return Description of the component.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Encryption status of the component.
      * 
      */
-    private final Boolean encrypted;
+    private Boolean encrypted;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      * 
      */
-    private final String kmsKeyId;
+    private String kmsKeyId;
     /**
      * @return Name of the component.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Owner of the component.
      * 
      */
-    private final String owner;
+    private String owner;
     /**
      * @return Platform of the component.
      * 
      */
-    private final String platform;
+    private String platform;
     /**
      * @return Operating Systems (OSes) supported by the component.
      * 
      */
-    private final List<String> supportedOsVersions;
+    private List<String> supportedOsVersions;
     /**
      * @return Key-value map of resource tags for the component.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Type of the component.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Version of the component.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private GetComponentResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("changeDescription") String changeDescription,
-        @CustomType.Parameter("data") String data,
-        @CustomType.Parameter("dateCreated") String dateCreated,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("platform") String platform,
-        @CustomType.Parameter("supportedOsVersions") List<String> supportedOsVersions,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("version") String version) {
-        this.arn = arn;
-        this.changeDescription = changeDescription;
-        this.data = data;
-        this.dateCreated = dateCreated;
-        this.description = description;
-        this.encrypted = encrypted;
-        this.id = id;
-        this.kmsKeyId = kmsKeyId;
-        this.name = name;
-        this.owner = owner;
-        this.platform = platform;
-        this.supportedOsVersions = supportedOsVersions;
-        this.tags = tags;
-        this.type = type;
-        this.version = version;
-    }
-
+    private GetComponentResult() {}
     public String arn() {
         return this.arn;
     }
@@ -227,7 +194,7 @@ public final class GetComponentResult {
     public static Builder builder(GetComponentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String changeDescription;
@@ -244,11 +211,7 @@ public final class GetComponentResult {
         private Map<String,String> tags;
         private String type;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetComponentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -268,50 +231,62 @@ public final class GetComponentResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder changeDescription(String changeDescription) {
             this.changeDescription = Objects.requireNonNull(changeDescription);
             return this;
         }
+        @CustomType.Setter
         public Builder data(String data) {
             this.data = Objects.requireNonNull(data);
             return this;
         }
+        @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
             this.dateCreated = Objects.requireNonNull(dateCreated);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder platform(String platform) {
             this.platform = Objects.requireNonNull(platform);
             return this;
         }
+        @CustomType.Setter
         public Builder supportedOsVersions(List<String> supportedOsVersions) {
             this.supportedOsVersions = Objects.requireNonNull(supportedOsVersions);
             return this;
@@ -319,19 +294,39 @@ public final class GetComponentResult {
         public Builder supportedOsVersions(String... supportedOsVersions) {
             return supportedOsVersions(List.of(supportedOsVersions));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetComponentResult build() {
-            return new GetComponentResult(arn, changeDescription, data, dateCreated, description, encrypted, id, kmsKeyId, name, owner, platform, supportedOsVersions, tags, type, version);
+        }
+        public GetComponentResult build() {
+            final var o = new GetComponentResult();
+            o.arn = arn;
+            o.changeDescription = changeDescription;
+            o.data = data;
+            o.dateCreated = dateCreated;
+            o.description = description;
+            o.encrypted = encrypted;
+            o.id = id;
+            o.kmsKeyId = kmsKeyId;
+            o.name = name;
+            o.owner = owner;
+            o.platform = platform;
+            o.supportedOsVersions = supportedOsVersions;
+            o.tags = tags;
+            o.type = type;
+            o.version = version;
+            return o;
         }
     }
 }

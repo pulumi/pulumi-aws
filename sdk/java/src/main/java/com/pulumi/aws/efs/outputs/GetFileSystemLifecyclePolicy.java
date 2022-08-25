@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFileSystemLifecyclePolicy {
-    private final String transitionToIa;
-    private final String transitionToPrimaryStorageClass;
+    private String transitionToIa;
+    private String transitionToPrimaryStorageClass;
 
-    @CustomType.Constructor
-    private GetFileSystemLifecyclePolicy(
-        @CustomType.Parameter("transitionToIa") String transitionToIa,
-        @CustomType.Parameter("transitionToPrimaryStorageClass") String transitionToPrimaryStorageClass) {
-        this.transitionToIa = transitionToIa;
-        this.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
-    }
-
+    private GetFileSystemLifecyclePolicy() {}
     public String transitionToIa() {
         return this.transitionToIa;
     }
@@ -34,30 +27,32 @@ public final class GetFileSystemLifecyclePolicy {
     public static Builder builder(GetFileSystemLifecyclePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String transitionToIa;
         private String transitionToPrimaryStorageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFileSystemLifecyclePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.transitionToIa = defaults.transitionToIa;
     	      this.transitionToPrimaryStorageClass = defaults.transitionToPrimaryStorageClass;
         }
 
+        @CustomType.Setter
         public Builder transitionToIa(String transitionToIa) {
             this.transitionToIa = Objects.requireNonNull(transitionToIa);
             return this;
         }
+        @CustomType.Setter
         public Builder transitionToPrimaryStorageClass(String transitionToPrimaryStorageClass) {
             this.transitionToPrimaryStorageClass = Objects.requireNonNull(transitionToPrimaryStorageClass);
             return this;
-        }        public GetFileSystemLifecyclePolicy build() {
-            return new GetFileSystemLifecyclePolicy(transitionToIa, transitionToPrimaryStorageClass);
+        }
+        public GetFileSystemLifecyclePolicy build() {
+            final var o = new GetFileSystemLifecyclePolicy();
+            o.transitionToIa = transitionToIa;
+            o.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
+            return o;
         }
     }
 }

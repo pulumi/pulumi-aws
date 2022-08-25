@@ -13,42 +13,29 @@ public final class GetDirectorySelfServicePermission {
      * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
      * 
      */
-    private final Boolean changeComputeType;
+    private Boolean changeComputeType;
     /**
      * @return Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
      * 
      */
-    private final Boolean increaseVolumeSize;
+    private Boolean increaseVolumeSize;
     /**
      * @return Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
      * 
      */
-    private final Boolean rebuildWorkspace;
+    private Boolean rebuildWorkspace;
     /**
      * @return Whether WorkSpaces directory users can restart their workspace.
      * 
      */
-    private final Boolean restartWorkspace;
+    private Boolean restartWorkspace;
     /**
      * @return Whether WorkSpaces directory users can switch the running mode of their workspace.
      * 
      */
-    private final Boolean switchRunningMode;
+    private Boolean switchRunningMode;
 
-    @CustomType.Constructor
-    private GetDirectorySelfServicePermission(
-        @CustomType.Parameter("changeComputeType") Boolean changeComputeType,
-        @CustomType.Parameter("increaseVolumeSize") Boolean increaseVolumeSize,
-        @CustomType.Parameter("rebuildWorkspace") Boolean rebuildWorkspace,
-        @CustomType.Parameter("restartWorkspace") Boolean restartWorkspace,
-        @CustomType.Parameter("switchRunningMode") Boolean switchRunningMode) {
-        this.changeComputeType = changeComputeType;
-        this.increaseVolumeSize = increaseVolumeSize;
-        this.rebuildWorkspace = rebuildWorkspace;
-        this.restartWorkspace = restartWorkspace;
-        this.switchRunningMode = switchRunningMode;
-    }
-
+    private GetDirectorySelfServicePermission() {}
     /**
      * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
      * 
@@ -92,18 +79,14 @@ public final class GetDirectorySelfServicePermission {
     public static Builder builder(GetDirectorySelfServicePermission defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean changeComputeType;
         private Boolean increaseVolumeSize;
         private Boolean rebuildWorkspace;
         private Boolean restartWorkspace;
         private Boolean switchRunningMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDirectorySelfServicePermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.changeComputeType = defaults.changeComputeType;
@@ -113,27 +96,39 @@ public final class GetDirectorySelfServicePermission {
     	      this.switchRunningMode = defaults.switchRunningMode;
         }
 
+        @CustomType.Setter
         public Builder changeComputeType(Boolean changeComputeType) {
             this.changeComputeType = Objects.requireNonNull(changeComputeType);
             return this;
         }
+        @CustomType.Setter
         public Builder increaseVolumeSize(Boolean increaseVolumeSize) {
             this.increaseVolumeSize = Objects.requireNonNull(increaseVolumeSize);
             return this;
         }
+        @CustomType.Setter
         public Builder rebuildWorkspace(Boolean rebuildWorkspace) {
             this.rebuildWorkspace = Objects.requireNonNull(rebuildWorkspace);
             return this;
         }
+        @CustomType.Setter
         public Builder restartWorkspace(Boolean restartWorkspace) {
             this.restartWorkspace = Objects.requireNonNull(restartWorkspace);
             return this;
         }
+        @CustomType.Setter
         public Builder switchRunningMode(Boolean switchRunningMode) {
             this.switchRunningMode = Objects.requireNonNull(switchRunningMode);
             return this;
-        }        public GetDirectorySelfServicePermission build() {
-            return new GetDirectorySelfServicePermission(changeComputeType, increaseVolumeSize, rebuildWorkspace, restartWorkspace, switchRunningMode);
+        }
+        public GetDirectorySelfServicePermission build() {
+            final var o = new GetDirectorySelfServicePermission();
+            o.changeComputeType = changeComputeType;
+            o.increaseVolumeSize = increaseVolumeSize;
+            o.rebuildWorkspace = rebuildWorkspace;
+            o.restartWorkspace = restartWorkspace;
+            o.switchRunningMode = switchRunningMode;
+            return o;
         }
     }
 }

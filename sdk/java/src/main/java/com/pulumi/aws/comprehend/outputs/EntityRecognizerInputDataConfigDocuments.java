@@ -16,24 +16,15 @@ public final class EntityRecognizerInputDataConfigDocuments {
      * One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
      * 
      */
-    private final @Nullable String inputFormat;
+    private @Nullable String inputFormat;
     /**
      * @return Location of entity list.
      * 
      */
-    private final String s3Uri;
-    private final @Nullable String testS3Uri;
+    private String s3Uri;
+    private @Nullable String testS3Uri;
 
-    @CustomType.Constructor
-    private EntityRecognizerInputDataConfigDocuments(
-        @CustomType.Parameter("inputFormat") @Nullable String inputFormat,
-        @CustomType.Parameter("s3Uri") String s3Uri,
-        @CustomType.Parameter("testS3Uri") @Nullable String testS3Uri) {
-        this.inputFormat = inputFormat;
-        this.s3Uri = s3Uri;
-        this.testS3Uri = testS3Uri;
-    }
-
+    private EntityRecognizerInputDataConfigDocuments() {}
     /**
      * @return Specifies how the input files should be processed.
      * One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
@@ -60,16 +51,12 @@ public final class EntityRecognizerInputDataConfigDocuments {
     public static Builder builder(EntityRecognizerInputDataConfigDocuments defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String inputFormat;
         private String s3Uri;
         private @Nullable String testS3Uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EntityRecognizerInputDataConfigDocuments defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inputFormat = defaults.inputFormat;
@@ -77,19 +64,27 @@ public final class EntityRecognizerInputDataConfigDocuments {
     	      this.testS3Uri = defaults.testS3Uri;
         }
 
+        @CustomType.Setter
         public Builder inputFormat(@Nullable String inputFormat) {
             this.inputFormat = inputFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
             this.s3Uri = Objects.requireNonNull(s3Uri);
             return this;
         }
+        @CustomType.Setter
         public Builder testS3Uri(@Nullable String testS3Uri) {
             this.testS3Uri = testS3Uri;
             return this;
-        }        public EntityRecognizerInputDataConfigDocuments build() {
-            return new EntityRecognizerInputDataConfigDocuments(inputFormat, s3Uri, testS3Uri);
+        }
+        public EntityRecognizerInputDataConfigDocuments build() {
+            final var o = new EntityRecognizerInputDataConfigDocuments();
+            o.inputFormat = inputFormat;
+            o.s3Uri = s3Uri;
+            o.testS3Uri = testS3Uri;
+            return o;
         }
     }
 }

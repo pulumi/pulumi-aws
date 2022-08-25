@@ -16,28 +16,19 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
      */
-    private final @Nullable String bucketName;
+    private @Nullable String bucketName;
     /**
      * @return The object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
-    private final @Nullable String bucketPrefix;
+    private @Nullable String bucketPrefix;
     /**
      * @return Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
      * 
      */
-    private final @Nullable Boolean failOnFirstDestinationError;
+    private @Nullable Boolean failOnFirstDestinationError;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig(
-        @CustomType.Parameter("bucketName") @Nullable String bucketName,
-        @CustomType.Parameter("bucketPrefix") @Nullable String bucketPrefix,
-        @CustomType.Parameter("failOnFirstDestinationError") @Nullable Boolean failOnFirstDestinationError) {
-        this.bucketName = bucketName;
-        this.bucketPrefix = bucketPrefix;
-        this.failOnFirstDestinationError = failOnFirstDestinationError;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig() {}
     /**
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
@@ -67,16 +58,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucketName;
         private @Nullable String bucketPrefix;
         private @Nullable Boolean failOnFirstDestinationError;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -84,19 +71,27 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
     	      this.failOnFirstDestinationError = defaults.failOnFirstDestinationError;
         }
 
+        @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
             this.bucketName = bucketName;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder failOnFirstDestinationError(@Nullable Boolean failOnFirstDestinationError) {
             this.failOnFirstDestinationError = failOnFirstDestinationError;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig(bucketName, bucketPrefix, failOnFirstDestinationError);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig();
+            o.bucketName = bucketName;
+            o.bucketPrefix = bucketPrefix;
+            o.failOnFirstDestinationError = failOnFirstDestinationError;
+            return o;
         }
     }
 }

@@ -14,28 +14,19 @@ public final class GetInstancesResult {
      * @return Set of Amazon Resource Names (ARNs) of the SSO Instances.
      * 
      */
-    private final List<String> arns;
+    private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of identifiers of the identity stores connected to the SSO Instances.
      * 
      */
-    private final List<String> identityStoreIds;
+    private List<String> identityStoreIds;
 
-    @CustomType.Constructor
-    private GetInstancesResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identityStoreIds") List<String> identityStoreIds) {
-        this.arns = arns;
-        this.id = id;
-        this.identityStoreIds = identityStoreIds;
-    }
-
+    private GetInstancesResult() {}
     /**
      * @return Set of Amazon Resource Names (ARNs) of the SSO Instances.
      * 
@@ -65,16 +56,12 @@ public final class GetInstancesResult {
     public static Builder builder(GetInstancesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private String id;
         private List<String> identityStoreIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstancesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -82,6 +69,7 @@ public final class GetInstancesResult {
     	      this.identityStoreIds = defaults.identityStoreIds;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -89,18 +77,25 @@ public final class GetInstancesResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identityStoreIds(List<String> identityStoreIds) {
             this.identityStoreIds = Objects.requireNonNull(identityStoreIds);
             return this;
         }
         public Builder identityStoreIds(String... identityStoreIds) {
             return identityStoreIds(List.of(identityStoreIds));
-        }        public GetInstancesResult build() {
-            return new GetInstancesResult(arns, id, identityStoreIds);
+        }
+        public GetInstancesResult build() {
+            final var o = new GetInstancesResult();
+            o.arns = arns;
+            o.id = id;
+            o.identityStoreIds = identityStoreIds;
+            return o;
         }
     }
 }

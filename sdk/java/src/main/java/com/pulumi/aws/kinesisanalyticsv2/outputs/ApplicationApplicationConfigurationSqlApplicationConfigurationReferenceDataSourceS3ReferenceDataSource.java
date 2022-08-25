@@ -13,21 +13,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return The ARN for the S3 bucket containing the application code.
      * 
      */
-    private final String bucketArn;
+    private String bucketArn;
     /**
      * @return The file key for the object containing the application code.
      * 
      */
-    private final String fileKey;
+    private String fileKey;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource(
-        @CustomType.Parameter("bucketArn") String bucketArn,
-        @CustomType.Parameter("fileKey") String fileKey) {
-        this.bucketArn = bucketArn;
-        this.fileKey = fileKey;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource() {}
     /**
      * @return The ARN for the S3 bucket containing the application code.
      * 
@@ -50,30 +43,32 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketArn;
         private String fileKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketArn = defaults.bucketArn;
     	      this.fileKey = defaults.fileKey;
         }
 
+        @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
             this.bucketArn = Objects.requireNonNull(bucketArn);
             return this;
         }
+        @CustomType.Setter
         public Builder fileKey(String fileKey) {
             this.fileKey = Objects.requireNonNull(fileKey);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource(bucketArn, fileKey);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource();
+            o.bucketArn = bucketArn;
+            o.fileKey = fileKey;
+            return o;
         }
     }
 }

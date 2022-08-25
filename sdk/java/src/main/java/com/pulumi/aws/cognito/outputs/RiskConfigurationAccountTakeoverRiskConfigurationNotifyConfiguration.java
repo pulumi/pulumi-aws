@@ -18,49 +18,34 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
      * @return Email template used when a detected risk event is blocked. See notify email type below.
      * 
      */
-    private final @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail blockEmail;
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail blockEmail;
     /**
      * @return The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
      * 
      */
-    private final @Nullable String from;
+    private @Nullable String from;
     /**
      * @return The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
      * 
      */
-    private final @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail mfaEmail;
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail mfaEmail;
     /**
      * @return The email template used when a detected risk event is allowed. See notify email type below.
      * 
      */
-    private final @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail noActionEmail;
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail noActionEmail;
     /**
      * @return The destination to which the receiver of an email should reply to.
      * 
      */
-    private final @Nullable String replyTo;
+    private @Nullable String replyTo;
     /**
      * @return The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
      * 
      */
-    private final String sourceArn;
+    private String sourceArn;
 
-    @CustomType.Constructor
-    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(
-        @CustomType.Parameter("blockEmail") @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail blockEmail,
-        @CustomType.Parameter("from") @Nullable String from,
-        @CustomType.Parameter("mfaEmail") @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail mfaEmail,
-        @CustomType.Parameter("noActionEmail") @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail noActionEmail,
-        @CustomType.Parameter("replyTo") @Nullable String replyTo,
-        @CustomType.Parameter("sourceArn") String sourceArn) {
-        this.blockEmail = blockEmail;
-        this.from = from;
-        this.mfaEmail = mfaEmail;
-        this.noActionEmail = noActionEmail;
-        this.replyTo = replyTo;
-        this.sourceArn = sourceArn;
-    }
-
+    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration() {}
     /**
      * @return Email template used when a detected risk event is blocked. See notify email type below.
      * 
@@ -111,7 +96,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
     public static Builder builder(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail blockEmail;
         private @Nullable String from;
@@ -119,11 +104,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
         private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail noActionEmail;
         private @Nullable String replyTo;
         private String sourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blockEmail = defaults.blockEmail;
@@ -134,31 +115,45 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
     	      this.sourceArn = defaults.sourceArn;
         }
 
+        @CustomType.Setter
         public Builder blockEmail(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail blockEmail) {
             this.blockEmail = blockEmail;
             return this;
         }
+        @CustomType.Setter
         public Builder from(@Nullable String from) {
             this.from = from;
             return this;
         }
+        @CustomType.Setter
         public Builder mfaEmail(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail mfaEmail) {
             this.mfaEmail = mfaEmail;
             return this;
         }
+        @CustomType.Setter
         public Builder noActionEmail(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail noActionEmail) {
             this.noActionEmail = noActionEmail;
             return this;
         }
+        @CustomType.Setter
         public Builder replyTo(@Nullable String replyTo) {
             this.replyTo = replyTo;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceArn(String sourceArn) {
             this.sourceArn = Objects.requireNonNull(sourceArn);
             return this;
-        }        public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration build() {
-            return new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(blockEmail, from, mfaEmail, noActionEmail, replyTo, sourceArn);
+        }
+        public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration build() {
+            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration();
+            o.blockEmail = blockEmail;
+            o.from = from;
+            o.mfaEmail = mfaEmail;
+            o.noActionEmail = noActionEmail;
+            o.replyTo = replyTo;
+            o.sourceArn = sourceArn;
+            return o;
         }
     }
 }

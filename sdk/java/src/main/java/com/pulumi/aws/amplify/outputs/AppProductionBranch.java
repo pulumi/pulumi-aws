@@ -15,35 +15,24 @@ public final class AppProductionBranch {
      * @return The branch name for the production branch.
      * 
      */
-    private final @Nullable String branchName;
+    private @Nullable String branchName;
     /**
      * @return The last deploy time of the production branch.
      * 
      */
-    private final @Nullable String lastDeployTime;
+    private @Nullable String lastDeployTime;
     /**
      * @return The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return The thumbnail URL for the production branch.
      * 
      */
-    private final @Nullable String thumbnailUrl;
+    private @Nullable String thumbnailUrl;
 
-    @CustomType.Constructor
-    private AppProductionBranch(
-        @CustomType.Parameter("branchName") @Nullable String branchName,
-        @CustomType.Parameter("lastDeployTime") @Nullable String lastDeployTime,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("thumbnailUrl") @Nullable String thumbnailUrl) {
-        this.branchName = branchName;
-        this.lastDeployTime = lastDeployTime;
-        this.status = status;
-        this.thumbnailUrl = thumbnailUrl;
-    }
-
+    private AppProductionBranch() {}
     /**
      * @return The branch name for the production branch.
      * 
@@ -80,17 +69,13 @@ public final class AppProductionBranch {
     public static Builder builder(AppProductionBranch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String branchName;
         private @Nullable String lastDeployTime;
         private @Nullable String status;
         private @Nullable String thumbnailUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppProductionBranch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.branchName = defaults.branchName;
@@ -99,23 +84,33 @@ public final class AppProductionBranch {
     	      this.thumbnailUrl = defaults.thumbnailUrl;
         }
 
+        @CustomType.Setter
         public Builder branchName(@Nullable String branchName) {
             this.branchName = branchName;
             return this;
         }
+        @CustomType.Setter
         public Builder lastDeployTime(@Nullable String lastDeployTime) {
             this.lastDeployTime = lastDeployTime;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder thumbnailUrl(@Nullable String thumbnailUrl) {
             this.thumbnailUrl = thumbnailUrl;
             return this;
-        }        public AppProductionBranch build() {
-            return new AppProductionBranch(branchName, lastDeployTime, status, thumbnailUrl);
+        }
+        public AppProductionBranch build() {
+            final var o = new AppProductionBranch();
+            o.branchName = branchName;
+            o.lastDeployTime = lastDeployTime;
+            o.status = status;
+            o.thumbnailUrl = thumbnailUrl;
+            return o;
         }
     }
 }

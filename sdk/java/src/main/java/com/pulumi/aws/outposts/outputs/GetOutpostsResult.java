@@ -14,40 +14,23 @@ public final class GetOutpostsResult {
      * @return Set of Amazon Resource Names (ARNs).
      * 
      */
-    private final List<String> arns;
-    private final String availabilityZone;
-    private final String availabilityZoneId;
+    private List<String> arns;
+    private String availabilityZone;
+    private String availabilityZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of identifiers.
      * 
      */
-    private final List<String> ids;
-    private final String ownerId;
-    private final String siteId;
+    private List<String> ids;
+    private String ownerId;
+    private String siteId;
 
-    @CustomType.Constructor
-    private GetOutpostsResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("availabilityZoneId") String availabilityZoneId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("siteId") String siteId) {
-        this.arns = arns;
-        this.availabilityZone = availabilityZone;
-        this.availabilityZoneId = availabilityZoneId;
-        this.id = id;
-        this.ids = ids;
-        this.ownerId = ownerId;
-        this.siteId = siteId;
-    }
-
+    private GetOutpostsResult() {}
     /**
      * @return Set of Amazon Resource Names (ARNs).
      * 
@@ -89,7 +72,7 @@ public final class GetOutpostsResult {
     public static Builder builder(GetOutpostsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private String availabilityZone;
@@ -98,11 +81,7 @@ public final class GetOutpostsResult {
         private List<String> ids;
         private String ownerId;
         private String siteId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOutpostsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -114,6 +93,7 @@ public final class GetOutpostsResult {
     	      this.siteId = defaults.siteId;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -121,18 +101,22 @@ public final class GetOutpostsResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZoneId(String availabilityZoneId) {
             this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -140,15 +124,26 @@ public final class GetOutpostsResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder siteId(String siteId) {
             this.siteId = Objects.requireNonNull(siteId);
             return this;
-        }        public GetOutpostsResult build() {
-            return new GetOutpostsResult(arns, availabilityZone, availabilityZoneId, id, ids, ownerId, siteId);
+        }
+        public GetOutpostsResult build() {
+            final var o = new GetOutpostsResult();
+            o.arns = arns;
+            o.availabilityZone = availabilityZone;
+            o.availabilityZoneId = availabilityZoneId;
+            o.id = id;
+            o.ids = ids;
+            o.ownerId = ownerId;
+            o.siteId = siteId;
+            return o;
         }
     }
 }

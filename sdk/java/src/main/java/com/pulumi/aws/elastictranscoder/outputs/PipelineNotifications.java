@@ -15,35 +15,24 @@ public final class PipelineNotifications {
      * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
      * 
      */
-    private final @Nullable String completed;
+    private @Nullable String completed;
     /**
      * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
      * 
      */
-    private final @Nullable String error;
+    private @Nullable String error;
     /**
      * @return The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
      * 
      */
-    private final @Nullable String progressing;
+    private @Nullable String progressing;
     /**
      * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
      * 
      */
-    private final @Nullable String warning;
+    private @Nullable String warning;
 
-    @CustomType.Constructor
-    private PipelineNotifications(
-        @CustomType.Parameter("completed") @Nullable String completed,
-        @CustomType.Parameter("error") @Nullable String error,
-        @CustomType.Parameter("progressing") @Nullable String progressing,
-        @CustomType.Parameter("warning") @Nullable String warning) {
-        this.completed = completed;
-        this.error = error;
-        this.progressing = progressing;
-        this.warning = warning;
-    }
-
+    private PipelineNotifications() {}
     /**
      * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
      * 
@@ -80,17 +69,13 @@ public final class PipelineNotifications {
     public static Builder builder(PipelineNotifications defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String completed;
         private @Nullable String error;
         private @Nullable String progressing;
         private @Nullable String warning;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineNotifications defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.completed = defaults.completed;
@@ -99,23 +84,33 @@ public final class PipelineNotifications {
     	      this.warning = defaults.warning;
         }
 
+        @CustomType.Setter
         public Builder completed(@Nullable String completed) {
             this.completed = completed;
             return this;
         }
+        @CustomType.Setter
         public Builder error(@Nullable String error) {
             this.error = error;
             return this;
         }
+        @CustomType.Setter
         public Builder progressing(@Nullable String progressing) {
             this.progressing = progressing;
             return this;
         }
+        @CustomType.Setter
         public Builder warning(@Nullable String warning) {
             this.warning = warning;
             return this;
-        }        public PipelineNotifications build() {
-            return new PipelineNotifications(completed, error, progressing, warning);
+        }
+        public PipelineNotifications build() {
+            final var o = new PipelineNotifications();
+            o.completed = completed;
+            o.error = error;
+            o.progressing = progressing;
+            o.warning = warning;
+            return o;
         }
     }
 }

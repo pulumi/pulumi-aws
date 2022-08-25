@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerLogs {
-    private final Boolean audit;
-    private final Boolean general;
+    private Boolean audit;
+    private Boolean general;
 
-    @CustomType.Constructor
-    private GetBrokerLogs(
-        @CustomType.Parameter("audit") Boolean audit,
-        @CustomType.Parameter("general") Boolean general) {
-        this.audit = audit;
-        this.general = general;
-    }
-
+    private GetBrokerLogs() {}
     public Boolean audit() {
         return this.audit;
     }
@@ -34,30 +27,32 @@ public final class GetBrokerLogs {
     public static Builder builder(GetBrokerLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean audit;
         private Boolean general;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrokerLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audit = defaults.audit;
     	      this.general = defaults.general;
         }
 
+        @CustomType.Setter
         public Builder audit(Boolean audit) {
             this.audit = Objects.requireNonNull(audit);
             return this;
         }
+        @CustomType.Setter
         public Builder general(Boolean general) {
             this.general = Objects.requireNonNull(general);
             return this;
-        }        public GetBrokerLogs build() {
-            return new GetBrokerLogs(audit, general);
+        }
+        public GetBrokerLogs build() {
+            final var o = new GetBrokerLogs();
+            o.audit = audit;
+            o.general = general;
+            return o;
         }
     }
 }

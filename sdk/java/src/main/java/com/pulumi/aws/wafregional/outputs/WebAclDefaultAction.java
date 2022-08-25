@@ -13,13 +13,9 @@ public final class WebAclDefaultAction {
      * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private WebAclDefaultAction(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private WebAclDefaultAction() {}
     /**
      * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
      * 
@@ -35,24 +31,24 @@ public final class WebAclDefaultAction {
     public static Builder builder(WebAclDefaultAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclDefaultAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public WebAclDefaultAction build() {
-            return new WebAclDefaultAction(type);
+        }
+        public WebAclDefaultAction build() {
+            final var o = new WebAclDefaultAction();
+            o.type = type;
+            return o;
         }
     }
 }

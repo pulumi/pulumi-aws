@@ -15,21 +15,14 @@ public final class FleetVpcConfig {
      * @return Identifiers of the security groups for the fleet or image builder.
      * 
      */
-    private final @Nullable List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
      * 
      */
-    private final @Nullable List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
 
-    @CustomType.Constructor
-    private FleetVpcConfig(
-        @CustomType.Parameter("securityGroupIds") @Nullable List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") @Nullable List<String> subnetIds) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-    }
-
+    private FleetVpcConfig() {}
     /**
      * @return Identifiers of the security groups for the fleet or image builder.
      * 
@@ -52,21 +45,18 @@ public final class FleetVpcConfig {
     public static Builder builder(FleetVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> securityGroupIds;
         private @Nullable List<String> subnetIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
             this.securityGroupIds = securityGroupIds;
             return this;
@@ -74,14 +64,19 @@ public final class FleetVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
             this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
-        }        public FleetVpcConfig build() {
-            return new FleetVpcConfig(securityGroupIds, subnetIds);
+        }
+        public FleetVpcConfig build() {
+            final var o = new FleetVpcConfig();
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            return o;
         }
     }
 }

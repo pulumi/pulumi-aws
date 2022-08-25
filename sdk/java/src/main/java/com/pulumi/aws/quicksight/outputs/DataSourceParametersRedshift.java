@@ -16,35 +16,24 @@ public final class DataSourceParametersRedshift {
      * @return The ID of the cluster to which to connect.
      * 
      */
-    private final @Nullable String clusterId;
+    private @Nullable String clusterId;
     /**
      * @return The database to which to connect.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The host to which to connect.
      * 
      */
-    private final @Nullable String host;
+    private @Nullable String host;
     /**
      * @return The port to which to connect.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
 
-    @CustomType.Constructor
-    private DataSourceParametersRedshift(
-        @CustomType.Parameter("clusterId") @Nullable String clusterId,
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("host") @Nullable String host,
-        @CustomType.Parameter("port") @Nullable Integer port) {
-        this.clusterId = clusterId;
-        this.database = database;
-        this.host = host;
-        this.port = port;
-    }
-
+    private DataSourceParametersRedshift() {}
     /**
      * @return The ID of the cluster to which to connect.
      * 
@@ -81,17 +70,13 @@ public final class DataSourceParametersRedshift {
     public static Builder builder(DataSourceParametersRedshift defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clusterId;
         private String database;
         private @Nullable String host;
         private @Nullable Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersRedshift defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterId = defaults.clusterId;
@@ -100,23 +85,33 @@ public final class DataSourceParametersRedshift {
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder clusterId(@Nullable String clusterId) {
             this.clusterId = clusterId;
             return this;
         }
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder host(@Nullable String host) {
             this.host = host;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
-        }        public DataSourceParametersRedshift build() {
-            return new DataSourceParametersRedshift(clusterId, database, host, port);
+        }
+        public DataSourceParametersRedshift build() {
+            final var o = new DataSourceParametersRedshift();
+            o.clusterId = clusterId;
+            o.database = database;
+            o.host = host;
+            o.port = port;
+            return o;
         }
     }
 }

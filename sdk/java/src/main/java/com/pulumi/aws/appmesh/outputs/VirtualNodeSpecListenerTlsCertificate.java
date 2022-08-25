@@ -17,28 +17,19 @@ public final class VirtualNodeSpecListenerTlsCertificate {
      * @return An AWS Certificate Manager (ACM) certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTlsCertificateAcm acm;
+    private @Nullable VirtualNodeSpecListenerTlsCertificateAcm acm;
     /**
      * @return A local file certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTlsCertificateFile file;
+    private @Nullable VirtualNodeSpecListenerTlsCertificateFile file;
     /**
      * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTlsCertificateSds sds;
+    private @Nullable VirtualNodeSpecListenerTlsCertificateSds sds;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTlsCertificate(
-        @CustomType.Parameter("acm") @Nullable VirtualNodeSpecListenerTlsCertificateAcm acm,
-        @CustomType.Parameter("file") @Nullable VirtualNodeSpecListenerTlsCertificateFile file,
-        @CustomType.Parameter("sds") @Nullable VirtualNodeSpecListenerTlsCertificateSds sds) {
-        this.acm = acm;
-        this.file = file;
-        this.sds = sds;
-    }
-
+    private VirtualNodeSpecListenerTlsCertificate() {}
     /**
      * @return An AWS Certificate Manager (ACM) certificate.
      * 
@@ -68,16 +59,12 @@ public final class VirtualNodeSpecListenerTlsCertificate {
     public static Builder builder(VirtualNodeSpecListenerTlsCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecListenerTlsCertificateAcm acm;
         private @Nullable VirtualNodeSpecListenerTlsCertificateFile file;
         private @Nullable VirtualNodeSpecListenerTlsCertificateSds sds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTlsCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acm = defaults.acm;
@@ -85,19 +72,27 @@ public final class VirtualNodeSpecListenerTlsCertificate {
     	      this.sds = defaults.sds;
         }
 
+        @CustomType.Setter
         public Builder acm(@Nullable VirtualNodeSpecListenerTlsCertificateAcm acm) {
             this.acm = acm;
             return this;
         }
+        @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecListenerTlsCertificateFile file) {
             this.file = file;
             return this;
         }
+        @CustomType.Setter
         public Builder sds(@Nullable VirtualNodeSpecListenerTlsCertificateSds sds) {
             this.sds = sds;
             return this;
-        }        public VirtualNodeSpecListenerTlsCertificate build() {
-            return new VirtualNodeSpecListenerTlsCertificate(acm, file, sds);
+        }
+        public VirtualNodeSpecListenerTlsCertificate build() {
+            final var o = new VirtualNodeSpecListenerTlsCertificate();
+            o.acm = acm;
+            o.file = file;
+            o.sds = sds;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class DataSourceParametersJira {
      * @return The base URL of the Jira instance&#39;s site to which to connect.
      * 
      */
-    private final String siteBaseUrl;
+    private String siteBaseUrl;
 
-    @CustomType.Constructor
-    private DataSourceParametersJira(@CustomType.Parameter("siteBaseUrl") String siteBaseUrl) {
-        this.siteBaseUrl = siteBaseUrl;
-    }
-
+    private DataSourceParametersJira() {}
     /**
      * @return The base URL of the Jira instance&#39;s site to which to connect.
      * 
@@ -35,24 +31,24 @@ public final class DataSourceParametersJira {
     public static Builder builder(DataSourceParametersJira defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String siteBaseUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersJira defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.siteBaseUrl = defaults.siteBaseUrl;
         }
 
+        @CustomType.Setter
         public Builder siteBaseUrl(String siteBaseUrl) {
             this.siteBaseUrl = Objects.requireNonNull(siteBaseUrl);
             return this;
-        }        public DataSourceParametersJira build() {
-            return new DataSourceParametersJira(siteBaseUrl);
+        }
+        public DataSourceParametersJira build() {
+            final var o = new DataSourceParametersJira();
+            o.siteBaseUrl = siteBaseUrl;
+            return o;
         }
     }
 }

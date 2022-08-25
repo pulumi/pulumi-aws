@@ -17,35 +17,24 @@ public final class MLTransformParametersFindMatchesParameters {
      * @return The value that is selected when tuning your transform for a balance between accuracy and cost.
      * 
      */
-    private final @Nullable Double accuracyCostTradeOff;
+    private @Nullable Double accuracyCostTradeOff;
     /**
      * @return The value to switch on or off to force the output to match the provided labels from users.
      * 
      */
-    private final @Nullable Boolean enforceProvidedLabels;
+    private @Nullable Boolean enforceProvidedLabels;
     /**
      * @return The value selected when tuning your transform for a balance between precision and recall.
      * 
      */
-    private final @Nullable Double precisionRecallTradeOff;
+    private @Nullable Double precisionRecallTradeOff;
     /**
      * @return The name of a column that uniquely identifies rows in the source table.
      * 
      */
-    private final @Nullable String primaryKeyColumnName;
+    private @Nullable String primaryKeyColumnName;
 
-    @CustomType.Constructor
-    private MLTransformParametersFindMatchesParameters(
-        @CustomType.Parameter("accuracyCostTradeOff") @Nullable Double accuracyCostTradeOff,
-        @CustomType.Parameter("enforceProvidedLabels") @Nullable Boolean enforceProvidedLabels,
-        @CustomType.Parameter("precisionRecallTradeOff") @Nullable Double precisionRecallTradeOff,
-        @CustomType.Parameter("primaryKeyColumnName") @Nullable String primaryKeyColumnName) {
-        this.accuracyCostTradeOff = accuracyCostTradeOff;
-        this.enforceProvidedLabels = enforceProvidedLabels;
-        this.precisionRecallTradeOff = precisionRecallTradeOff;
-        this.primaryKeyColumnName = primaryKeyColumnName;
-    }
-
+    private MLTransformParametersFindMatchesParameters() {}
     /**
      * @return The value that is selected when tuning your transform for a balance between accuracy and cost.
      * 
@@ -82,17 +71,13 @@ public final class MLTransformParametersFindMatchesParameters {
     public static Builder builder(MLTransformParametersFindMatchesParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Double accuracyCostTradeOff;
         private @Nullable Boolean enforceProvidedLabels;
         private @Nullable Double precisionRecallTradeOff;
         private @Nullable String primaryKeyColumnName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MLTransformParametersFindMatchesParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accuracyCostTradeOff = defaults.accuracyCostTradeOff;
@@ -101,23 +86,33 @@ public final class MLTransformParametersFindMatchesParameters {
     	      this.primaryKeyColumnName = defaults.primaryKeyColumnName;
         }
 
+        @CustomType.Setter
         public Builder accuracyCostTradeOff(@Nullable Double accuracyCostTradeOff) {
             this.accuracyCostTradeOff = accuracyCostTradeOff;
             return this;
         }
+        @CustomType.Setter
         public Builder enforceProvidedLabels(@Nullable Boolean enforceProvidedLabels) {
             this.enforceProvidedLabels = enforceProvidedLabels;
             return this;
         }
+        @CustomType.Setter
         public Builder precisionRecallTradeOff(@Nullable Double precisionRecallTradeOff) {
             this.precisionRecallTradeOff = precisionRecallTradeOff;
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKeyColumnName(@Nullable String primaryKeyColumnName) {
             this.primaryKeyColumnName = primaryKeyColumnName;
             return this;
-        }        public MLTransformParametersFindMatchesParameters build() {
-            return new MLTransformParametersFindMatchesParameters(accuracyCostTradeOff, enforceProvidedLabels, precisionRecallTradeOff, primaryKeyColumnName);
+        }
+        public MLTransformParametersFindMatchesParameters build() {
+            final var o = new MLTransformParametersFindMatchesParameters();
+            o.accuracyCostTradeOff = accuracyCostTradeOff;
+            o.enforceProvidedLabels = enforceProvidedLabels;
+            o.precisionRecallTradeOff = precisionRecallTradeOff;
+            o.primaryKeyColumnName = primaryKeyColumnName;
+            return o;
         }
     }
 }

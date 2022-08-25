@@ -14,21 +14,14 @@ public final class GetRoutingProfileMediaConcurrency {
      * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
-    private final String channel;
+    private String channel;
     /**
      * @return Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
      * 
      */
-    private final Integer concurrency;
+    private Integer concurrency;
 
-    @CustomType.Constructor
-    private GetRoutingProfileMediaConcurrency(
-        @CustomType.Parameter("channel") String channel,
-        @CustomType.Parameter("concurrency") Integer concurrency) {
-        this.channel = channel;
-        this.concurrency = concurrency;
-    }
-
+    private GetRoutingProfileMediaConcurrency() {}
     /**
      * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
@@ -51,30 +44,32 @@ public final class GetRoutingProfileMediaConcurrency {
     public static Builder builder(GetRoutingProfileMediaConcurrency defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String channel;
         private Integer concurrency;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRoutingProfileMediaConcurrency defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.channel = defaults.channel;
     	      this.concurrency = defaults.concurrency;
         }
 
+        @CustomType.Setter
         public Builder channel(String channel) {
             this.channel = Objects.requireNonNull(channel);
             return this;
         }
+        @CustomType.Setter
         public Builder concurrency(Integer concurrency) {
             this.concurrency = Objects.requireNonNull(concurrency);
             return this;
-        }        public GetRoutingProfileMediaConcurrency build() {
-            return new GetRoutingProfileMediaConcurrency(channel, concurrency);
+        }
+        public GetRoutingProfileMediaConcurrency build() {
+            final var o = new GetRoutingProfileMediaConcurrency();
+            o.channel = channel;
+            o.concurrency = concurrency;
+            return o;
         }
     }
 }

@@ -16,37 +16,26 @@ public final class LaunchTemplateBlockDeviceMapping {
      * @return The name of the device to mount.
      * 
      */
-    private final @Nullable String deviceName;
+    private @Nullable String deviceName;
     /**
      * @return Configure EBS volume properties.
      * 
      */
-    private final @Nullable LaunchTemplateBlockDeviceMappingEbs ebs;
+    private @Nullable LaunchTemplateBlockDeviceMappingEbs ebs;
     /**
      * @return Suppresses the specified device included in the AMI&#39;s block device mapping.
      * 
      */
-    private final @Nullable String noDevice;
+    private @Nullable String noDevice;
     /**
      * @return The [Instance Store Device
      * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
      * (e.g., `&#34;ephemeral0&#34;`).
      * 
      */
-    private final @Nullable String virtualName;
+    private @Nullable String virtualName;
 
-    @CustomType.Constructor
-    private LaunchTemplateBlockDeviceMapping(
-        @CustomType.Parameter("deviceName") @Nullable String deviceName,
-        @CustomType.Parameter("ebs") @Nullable LaunchTemplateBlockDeviceMappingEbs ebs,
-        @CustomType.Parameter("noDevice") @Nullable String noDevice,
-        @CustomType.Parameter("virtualName") @Nullable String virtualName) {
-        this.deviceName = deviceName;
-        this.ebs = ebs;
-        this.noDevice = noDevice;
-        this.virtualName = virtualName;
-    }
-
+    private LaunchTemplateBlockDeviceMapping() {}
     /**
      * @return The name of the device to mount.
      * 
@@ -85,17 +74,13 @@ public final class LaunchTemplateBlockDeviceMapping {
     public static Builder builder(LaunchTemplateBlockDeviceMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deviceName;
         private @Nullable LaunchTemplateBlockDeviceMappingEbs ebs;
         private @Nullable String noDevice;
         private @Nullable String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateBlockDeviceMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
@@ -104,23 +89,33 @@ public final class LaunchTemplateBlockDeviceMapping {
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
             this.deviceName = deviceName;
             return this;
         }
+        @CustomType.Setter
         public Builder ebs(@Nullable LaunchTemplateBlockDeviceMappingEbs ebs) {
             this.ebs = ebs;
             return this;
         }
+        @CustomType.Setter
         public Builder noDevice(@Nullable String noDevice) {
             this.noDevice = noDevice;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
             this.virtualName = virtualName;
             return this;
-        }        public LaunchTemplateBlockDeviceMapping build() {
-            return new LaunchTemplateBlockDeviceMapping(deviceName, ebs, noDevice, virtualName);
+        }
+        public LaunchTemplateBlockDeviceMapping build() {
+            final var o = new LaunchTemplateBlockDeviceMapping();
+            o.deviceName = deviceName;
+            o.ebs = ebs;
+            o.noDevice = noDevice;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

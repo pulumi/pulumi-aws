@@ -13,13 +13,9 @@ public final class DistributionOriginGroupMember {
      * @return The unique identifier of the member origin
      * 
      */
-    private final String originId;
+    private String originId;
 
-    @CustomType.Constructor
-    private DistributionOriginGroupMember(@CustomType.Parameter("originId") String originId) {
-        this.originId = originId;
-    }
-
+    private DistributionOriginGroupMember() {}
     /**
      * @return The unique identifier of the member origin
      * 
@@ -35,24 +31,24 @@ public final class DistributionOriginGroupMember {
     public static Builder builder(DistributionOriginGroupMember defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String originId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionOriginGroupMember defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.originId = defaults.originId;
         }
 
+        @CustomType.Setter
         public Builder originId(String originId) {
             this.originId = Objects.requireNonNull(originId);
             return this;
-        }        public DistributionOriginGroupMember build() {
-            return new DistributionOriginGroupMember(originId);
+        }
+        public DistributionOriginGroupMember build() {
+            final var o = new DistributionOriginGroupMember();
+            o.originId = originId;
+            return o;
         }
     }
 }

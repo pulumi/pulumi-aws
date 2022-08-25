@@ -16,21 +16,14 @@ public final class DomainEndpointOptions {
      * @return Enables or disables the requirement that all requests to the domain arrive over HTTPS.
      * 
      */
-    private final @Nullable Boolean enforceHttps;
+    private @Nullable Boolean enforceHttps;
     /**
      * @return The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
      * 
      */
-    private final @Nullable String tlsSecurityPolicy;
+    private @Nullable String tlsSecurityPolicy;
 
-    @CustomType.Constructor
-    private DomainEndpointOptions(
-        @CustomType.Parameter("enforceHttps") @Nullable Boolean enforceHttps,
-        @CustomType.Parameter("tlsSecurityPolicy") @Nullable String tlsSecurityPolicy) {
-        this.enforceHttps = enforceHttps;
-        this.tlsSecurityPolicy = tlsSecurityPolicy;
-    }
-
+    private DomainEndpointOptions() {}
     /**
      * @return Enables or disables the requirement that all requests to the domain arrive over HTTPS.
      * 
@@ -53,30 +46,32 @@ public final class DomainEndpointOptions {
     public static Builder builder(DomainEndpointOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enforceHttps;
         private @Nullable String tlsSecurityPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainEndpointOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enforceHttps = defaults.enforceHttps;
     	      this.tlsSecurityPolicy = defaults.tlsSecurityPolicy;
         }
 
+        @CustomType.Setter
         public Builder enforceHttps(@Nullable Boolean enforceHttps) {
             this.enforceHttps = enforceHttps;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsSecurityPolicy(@Nullable String tlsSecurityPolicy) {
             this.tlsSecurityPolicy = tlsSecurityPolicy;
             return this;
-        }        public DomainEndpointOptions build() {
-            return new DomainEndpointOptions(enforceHttps, tlsSecurityPolicy);
+        }
+        public DomainEndpointOptions build() {
+            final var o = new DomainEndpointOptions();
+            o.enforceHttps = enforceHttps;
+            o.tlsSecurityPolicy = tlsSecurityPolicy;
+            return o;
         }
     }
 }

@@ -17,21 +17,14 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
      * See Mapping Parameters below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters mappingParameters;
+    private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters mappingParameters;
     /**
      * @return The type of Record Format. Can be `CSV` or `JSON`.
      * 
      */
-    private final @Nullable String recordFormatType;
+    private @Nullable String recordFormatType;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat(
-        @CustomType.Parameter("mappingParameters") @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters mappingParameters,
-        @CustomType.Parameter("recordFormatType") @Nullable String recordFormatType) {
-        this.mappingParameters = mappingParameters;
-        this.recordFormatType = recordFormatType;
-    }
-
+    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat() {}
     /**
      * @return The Mapping Information for the record format.
      * See Mapping Parameters below for more details.
@@ -55,30 +48,32 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
     public static Builder builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters mappingParameters;
         private @Nullable String recordFormatType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mappingParameters = defaults.mappingParameters;
     	      this.recordFormatType = defaults.recordFormatType;
         }
 
+        @CustomType.Setter
         public Builder mappingParameters(@Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters mappingParameters) {
             this.mappingParameters = mappingParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder recordFormatType(@Nullable String recordFormatType) {
             this.recordFormatType = recordFormatType;
             return this;
-        }        public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat build() {
-            return new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat(mappingParameters, recordFormatType);
+        }
+        public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat build() {
+            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat();
+            o.mappingParameters = mappingParameters;
+            o.recordFormatType = recordFormatType;
+            return o;
         }
     }
 }

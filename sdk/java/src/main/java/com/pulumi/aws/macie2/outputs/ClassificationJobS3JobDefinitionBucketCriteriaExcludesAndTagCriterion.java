@@ -17,21 +17,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
      * @return The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
      * 
      */
-    private final @Nullable String comparator;
+    private @Nullable String comparator;
     /**
      * @return The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
      * 
      */
-    private final @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue> tagValues;
+    private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue> tagValues;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion(
-        @CustomType.Parameter("comparator") @Nullable String comparator,
-        @CustomType.Parameter("tagValues") @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue> tagValues) {
-        this.comparator = comparator;
-        this.tagValues = tagValues;
-    }
-
+    private ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion() {}
     /**
      * @return The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
      * 
@@ -54,33 +47,35 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
     public static Builder builder(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String comparator;
         private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue> tagValues;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparator = defaults.comparator;
     	      this.tagValues = defaults.tagValues;
         }
 
+        @CustomType.Setter
         public Builder comparator(@Nullable String comparator) {
             this.comparator = comparator;
             return this;
         }
+        @CustomType.Setter
         public Builder tagValues(@Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue> tagValues) {
             this.tagValues = tagValues;
             return this;
         }
         public Builder tagValues(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue... tagValues) {
             return tagValues(List.of(tagValues));
-        }        public ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion build() {
-            return new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion(comparator, tagValues);
+        }
+        public ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion build() {
+            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion();
+            o.comparator = comparator;
+            o.tagValues = tagValues;
+            return o;
         }
     }
 }

@@ -14,24 +14,15 @@ public final class GetResourceTagsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String resourceId;
+    private String id;
+    private String resourceId;
     /**
      * @return Map of key=value pairs for each tag set on the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetResourceTagsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("resourceId") String resourceId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.resourceId = resourceId;
-        this.tags = tags;
-    }
-
+    private GetResourceTagsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -57,16 +48,12 @@ public final class GetResourceTagsResult {
     public static Builder builder(GetResourceTagsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String resourceId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourceTagsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -74,19 +61,27 @@ public final class GetResourceTagsResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetResourceTagsResult build() {
-            return new GetResourceTagsResult(id, resourceId, tags);
+        }
+        public GetResourceTagsResult build() {
+            final var o = new GetResourceTagsResult();
+            o.id = id;
+            o.resourceId = resourceId;
+            o.tags = tags;
+            return o;
         }
     }
 }

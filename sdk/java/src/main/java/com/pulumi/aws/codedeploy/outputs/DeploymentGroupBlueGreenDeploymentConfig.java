@@ -17,28 +17,19 @@ public final class DeploymentGroupBlueGreenDeploymentConfig {
      * @return Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
      * 
      */
-    private final @Nullable DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption deploymentReadyOption;
+    private @Nullable DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption deploymentReadyOption;
     /**
      * @return Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
      * 
      */
-    private final @Nullable DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption greenFleetProvisioningOption;
+    private @Nullable DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption greenFleetProvisioningOption;
     /**
      * @return Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
      * 
      */
-    private final @Nullable DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess terminateBlueInstancesOnDeploymentSuccess;
+    private @Nullable DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess terminateBlueInstancesOnDeploymentSuccess;
 
-    @CustomType.Constructor
-    private DeploymentGroupBlueGreenDeploymentConfig(
-        @CustomType.Parameter("deploymentReadyOption") @Nullable DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption deploymentReadyOption,
-        @CustomType.Parameter("greenFleetProvisioningOption") @Nullable DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption greenFleetProvisioningOption,
-        @CustomType.Parameter("terminateBlueInstancesOnDeploymentSuccess") @Nullable DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess terminateBlueInstancesOnDeploymentSuccess) {
-        this.deploymentReadyOption = deploymentReadyOption;
-        this.greenFleetProvisioningOption = greenFleetProvisioningOption;
-        this.terminateBlueInstancesOnDeploymentSuccess = terminateBlueInstancesOnDeploymentSuccess;
-    }
-
+    private DeploymentGroupBlueGreenDeploymentConfig() {}
     /**
      * @return Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
      * 
@@ -68,16 +59,12 @@ public final class DeploymentGroupBlueGreenDeploymentConfig {
     public static Builder builder(DeploymentGroupBlueGreenDeploymentConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption deploymentReadyOption;
         private @Nullable DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption greenFleetProvisioningOption;
         private @Nullable DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess terminateBlueInstancesOnDeploymentSuccess;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupBlueGreenDeploymentConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deploymentReadyOption = defaults.deploymentReadyOption;
@@ -85,19 +72,27 @@ public final class DeploymentGroupBlueGreenDeploymentConfig {
     	      this.terminateBlueInstancesOnDeploymentSuccess = defaults.terminateBlueInstancesOnDeploymentSuccess;
         }
 
+        @CustomType.Setter
         public Builder deploymentReadyOption(@Nullable DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption deploymentReadyOption) {
             this.deploymentReadyOption = deploymentReadyOption;
             return this;
         }
+        @CustomType.Setter
         public Builder greenFleetProvisioningOption(@Nullable DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption greenFleetProvisioningOption) {
             this.greenFleetProvisioningOption = greenFleetProvisioningOption;
             return this;
         }
+        @CustomType.Setter
         public Builder terminateBlueInstancesOnDeploymentSuccess(@Nullable DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess terminateBlueInstancesOnDeploymentSuccess) {
             this.terminateBlueInstancesOnDeploymentSuccess = terminateBlueInstancesOnDeploymentSuccess;
             return this;
-        }        public DeploymentGroupBlueGreenDeploymentConfig build() {
-            return new DeploymentGroupBlueGreenDeploymentConfig(deploymentReadyOption, greenFleetProvisioningOption, terminateBlueInstancesOnDeploymentSuccess);
+        }
+        public DeploymentGroupBlueGreenDeploymentConfig build() {
+            final var o = new DeploymentGroupBlueGreenDeploymentConfig();
+            o.deploymentReadyOption = deploymentReadyOption;
+            o.greenFleetProvisioningOption = greenFleetProvisioningOption;
+            o.terminateBlueInstancesOnDeploymentSuccess = terminateBlueInstancesOnDeploymentSuccess;
+            return o;
         }
     }
 }

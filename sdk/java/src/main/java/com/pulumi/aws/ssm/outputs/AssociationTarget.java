@@ -14,21 +14,14 @@ public final class AssociationTarget {
      * @return Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return A list of instance IDs or tag values. AWS currently limits this list size to one value.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private AssociationTarget(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("values") List<String> values) {
-        this.key = key;
-        this.values = values;
-    }
-
+    private AssociationTarget() {}
     /**
      * @return Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
      * 
@@ -51,33 +44,35 @@ public final class AssociationTarget {
     public static Builder builder(AssociationTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AssociationTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public AssociationTarget build() {
-            return new AssociationTarget(key, values);
+        }
+        public AssociationTarget build() {
+            final var o = new AssociationTarget();
+            o.key = key;
+            o.values = values;
+            return o;
         }
     }
 }

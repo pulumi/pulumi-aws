@@ -15,21 +15,14 @@ public final class FargateProfileSelector {
      * @return Key-value map of Kubernetes labels for selection.
      * 
      */
-    private final @Nullable Map<String,String> labels;
+    private @Nullable Map<String,String> labels;
     /**
      * @return Kubernetes namespace for selection.
      * 
      */
-    private final String namespace;
+    private String namespace;
 
-    @CustomType.Constructor
-    private FargateProfileSelector(
-        @CustomType.Parameter("labels") @Nullable Map<String,String> labels,
-        @CustomType.Parameter("namespace") String namespace) {
-        this.labels = labels;
-        this.namespace = namespace;
-    }
-
+    private FargateProfileSelector() {}
     /**
      * @return Key-value map of Kubernetes labels for selection.
      * 
@@ -52,30 +45,32 @@ public final class FargateProfileSelector {
     public static Builder builder(FargateProfileSelector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> labels;
         private String namespace;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FargateProfileSelector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.labels = defaults.labels;
     	      this.namespace = defaults.namespace;
         }
 
+        @CustomType.Setter
         public Builder labels(@Nullable Map<String,String> labels) {
             this.labels = labels;
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
-        }        public FargateProfileSelector build() {
-            return new FargateProfileSelector(labels, namespace);
+        }
+        public FargateProfileSelector build() {
+            final var o = new FargateProfileSelector();
+            o.labels = labels;
+            o.namespace = namespace;
+            return o;
         }
     }
 }

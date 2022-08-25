@@ -15,13 +15,9 @@ public final class LocationSmbMountOptions {
      * @return The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private LocationSmbMountOptions(@CustomType.Parameter("version") @Nullable String version) {
-        this.version = version;
-    }
-
+    private LocationSmbMountOptions() {}
     /**
      * @return The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
      * 
@@ -37,24 +33,24 @@ public final class LocationSmbMountOptions {
     public static Builder builder(LocationSmbMountOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LocationSmbMountOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public LocationSmbMountOptions build() {
-            return new LocationSmbMountOptions(version);
+        }
+        public LocationSmbMountOptions build() {
+            final var o = new LocationSmbMountOptions();
+            o.version = version;
+            return o;
         }
     }
 }

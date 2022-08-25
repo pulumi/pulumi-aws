@@ -17,73 +17,50 @@ public final class GetVpcAttachmentResult {
      * @return Whether Appliance Mode support is enabled.
      * 
      */
-    private final String applianceModeSupport;
+    private String applianceModeSupport;
     /**
      * @return Whether DNS support is enabled.
      * 
      */
-    private final String dnsSupport;
-    private final @Nullable List<GetVpcAttachmentFilter> filters;
+    private String dnsSupport;
+    private @Nullable List<GetVpcAttachmentFilter> filters;
     /**
      * @return EC2 Transit Gateway VPC Attachment identifier
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Whether IPv6 support is enabled.
      * 
      */
-    private final String ipv6Support;
+    private String ipv6Support;
     /**
      * @return Identifiers of EC2 Subnets.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return Key-value tags for the EC2 Transit Gateway VPC Attachment
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return EC2 Transit Gateway identifier
      * 
      */
-    private final String transitGatewayId;
+    private String transitGatewayId;
     /**
      * @return Identifier of EC2 VPC.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
     /**
      * @return Identifier of the AWS account that owns the EC2 VPC.
      * 
      */
-    private final String vpcOwnerId;
+    private String vpcOwnerId;
 
-    @CustomType.Constructor
-    private GetVpcAttachmentResult(
-        @CustomType.Parameter("applianceModeSupport") String applianceModeSupport,
-        @CustomType.Parameter("dnsSupport") String dnsSupport,
-        @CustomType.Parameter("filters") @Nullable List<GetVpcAttachmentFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipv6Support") String ipv6Support,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("transitGatewayId") String transitGatewayId,
-        @CustomType.Parameter("vpcId") String vpcId,
-        @CustomType.Parameter("vpcOwnerId") String vpcOwnerId) {
-        this.applianceModeSupport = applianceModeSupport;
-        this.dnsSupport = dnsSupport;
-        this.filters = filters;
-        this.id = id;
-        this.ipv6Support = ipv6Support;
-        this.subnetIds = subnetIds;
-        this.tags = tags;
-        this.transitGatewayId = transitGatewayId;
-        this.vpcId = vpcId;
-        this.vpcOwnerId = vpcOwnerId;
-    }
-
+    private GetVpcAttachmentResult() {}
     /**
      * @return Whether Appliance Mode support is enabled.
      * 
@@ -158,7 +135,7 @@ public final class GetVpcAttachmentResult {
     public static Builder builder(GetVpcAttachmentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String applianceModeSupport;
         private String dnsSupport;
@@ -170,11 +147,7 @@ public final class GetVpcAttachmentResult {
         private String transitGatewayId;
         private String vpcId;
         private String vpcOwnerId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applianceModeSupport = defaults.applianceModeSupport;
@@ -189,14 +162,17 @@ public final class GetVpcAttachmentResult {
     	      this.vpcOwnerId = defaults.vpcOwnerId;
         }
 
+        @CustomType.Setter
         public Builder applianceModeSupport(String applianceModeSupport) {
             this.applianceModeSupport = Objects.requireNonNull(applianceModeSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsSupport(String dnsSupport) {
             this.dnsSupport = Objects.requireNonNull(dnsSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcAttachmentFilter> filters) {
             this.filters = filters;
             return this;
@@ -204,14 +180,17 @@ public final class GetVpcAttachmentResult {
         public Builder filters(GetVpcAttachmentFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6Support(String ipv6Support) {
             this.ipv6Support = Objects.requireNonNull(ipv6Support);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -219,23 +198,39 @@ public final class GetVpcAttachmentResult {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
             this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcOwnerId(String vpcOwnerId) {
             this.vpcOwnerId = Objects.requireNonNull(vpcOwnerId);
             return this;
-        }        public GetVpcAttachmentResult build() {
-            return new GetVpcAttachmentResult(applianceModeSupport, dnsSupport, filters, id, ipv6Support, subnetIds, tags, transitGatewayId, vpcId, vpcOwnerId);
+        }
+        public GetVpcAttachmentResult build() {
+            final var o = new GetVpcAttachmentResult();
+            o.applianceModeSupport = applianceModeSupport;
+            o.dnsSupport = dnsSupport;
+            o.filters = filters;
+            o.id = id;
+            o.ipv6Support = ipv6Support;
+            o.subnetIds = subnetIds;
+            o.tags = tags;
+            o.transitGatewayId = transitGatewayId;
+            o.vpcId = vpcId;
+            o.vpcOwnerId = vpcOwnerId;
+            return o;
         }
     }
 }

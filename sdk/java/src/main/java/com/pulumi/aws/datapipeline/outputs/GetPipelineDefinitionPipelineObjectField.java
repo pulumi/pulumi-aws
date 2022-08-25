@@ -13,28 +13,19 @@ public final class GetPipelineDefinitionPipelineObjectField {
      * @return Field identifier.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Field value, expressed as the identifier of another object
      * 
      */
-    private final String refValue;
+    private String refValue;
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    private final String stringValue;
+    private String stringValue;
 
-    @CustomType.Constructor
-    private GetPipelineDefinitionPipelineObjectField(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("refValue") String refValue,
-        @CustomType.Parameter("stringValue") String stringValue) {
-        this.key = key;
-        this.refValue = refValue;
-        this.stringValue = stringValue;
-    }
-
+    private GetPipelineDefinitionPipelineObjectField() {}
     /**
      * @return Field identifier.
      * 
@@ -64,16 +55,12 @@ public final class GetPipelineDefinitionPipelineObjectField {
     public static Builder builder(GetPipelineDefinitionPipelineObjectField defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String refValue;
         private String stringValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPipelineDefinitionPipelineObjectField defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -81,19 +68,27 @@ public final class GetPipelineDefinitionPipelineObjectField {
     	      this.stringValue = defaults.stringValue;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder refValue(String refValue) {
             this.refValue = Objects.requireNonNull(refValue);
             return this;
         }
+        @CustomType.Setter
         public Builder stringValue(String stringValue) {
             this.stringValue = Objects.requireNonNull(stringValue);
             return this;
-        }        public GetPipelineDefinitionPipelineObjectField build() {
-            return new GetPipelineDefinitionPipelineObjectField(key, refValue, stringValue);
+        }
+        public GetPipelineDefinitionPipelineObjectField build() {
+            final var o = new GetPipelineDefinitionPipelineObjectField();
+            o.key = key;
+            o.refValue = refValue;
+            o.stringValue = stringValue;
+            return o;
         }
     }
 }

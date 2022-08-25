@@ -26,154 +26,109 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * @return Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
      * 
      */
-    private final @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount acceleratorCount;
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount acceleratorCount;
     /**
      * @return List of accelerator manufacturer names. Default is any manufacturer.
      * 
      */
-    private final @Nullable List<String> acceleratorManufacturers;
+    private @Nullable List<String> acceleratorManufacturers;
     /**
      * @return List of accelerator names. Default is any acclerator.
      * 
      */
-    private final @Nullable List<String> acceleratorNames;
+    private @Nullable List<String> acceleratorNames;
     /**
      * @return Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
      * 
      */
-    private final @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib;
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib;
     /**
      * @return List of accelerator types. Default is any accelerator type.
      * 
      */
-    private final @Nullable List<String> acceleratorTypes;
+    private @Nullable List<String> acceleratorTypes;
     /**
      * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private final @Nullable String bareMetal;
+    private @Nullable String bareMetal;
     /**
      * @return Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
      * 
      */
-    private final @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps;
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps;
     /**
      * @return Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private final @Nullable String burstablePerformance;
+    private @Nullable String burstablePerformance;
     /**
      * @return List of CPU manufacturer names. Default is any manufacturer.
      * 
      */
-    private final @Nullable List<String> cpuManufacturers;
+    private @Nullable List<String> cpuManufacturers;
     /**
      * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
      * 
      */
-    private final @Nullable List<String> excludedInstanceTypes;
+    private @Nullable List<String> excludedInstanceTypes;
     /**
      * @return List of instance generation names. Default is any generation.
      * 
      */
-    private final @Nullable List<String> instanceGenerations;
+    private @Nullable List<String> instanceGenerations;
     /**
      * @return Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
      * 
      */
-    private final @Nullable String localStorage;
+    private @Nullable String localStorage;
     /**
      * @return List of local storage type names. Default any storage type.
      * 
      */
-    private final @Nullable List<String> localStorageTypes;
+    private @Nullable List<String> localStorageTypes;
     /**
      * @return Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
      * 
      */
-    private final @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu;
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu;
     /**
      * @return Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
      * 
      */
-    private final @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib;
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib;
     /**
      * @return Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
      * 
      */
-    private final @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount networkInterfaceCount;
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount networkInterfaceCount;
     /**
      * @return The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
      * 
      */
-    private final @Nullable Integer onDemandMaxPricePercentageOverLowestPrice;
+    private @Nullable Integer onDemandMaxPricePercentageOverLowestPrice;
     /**
      * @return Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
      * 
      */
-    private final @Nullable Boolean requireHibernateSupport;
+    private @Nullable Boolean requireHibernateSupport;
     /**
      * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
      * 
      */
-    private final @Nullable Integer spotMaxPricePercentageOverLowestPrice;
+    private @Nullable Integer spotMaxPricePercentageOverLowestPrice;
     /**
      * @return Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
      * 
      */
-    private final @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb;
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb;
     /**
      * @return Block describing the minimum and maximum number of vCPUs. Default is no maximum.
      * 
      */
-    private final @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount vcpuCount;
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount vcpuCount;
 
-    @CustomType.Constructor
-    private SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(
-        @CustomType.Parameter("acceleratorCount") @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount acceleratorCount,
-        @CustomType.Parameter("acceleratorManufacturers") @Nullable List<String> acceleratorManufacturers,
-        @CustomType.Parameter("acceleratorNames") @Nullable List<String> acceleratorNames,
-        @CustomType.Parameter("acceleratorTotalMemoryMib") @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib,
-        @CustomType.Parameter("acceleratorTypes") @Nullable List<String> acceleratorTypes,
-        @CustomType.Parameter("bareMetal") @Nullable String bareMetal,
-        @CustomType.Parameter("baselineEbsBandwidthMbps") @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps,
-        @CustomType.Parameter("burstablePerformance") @Nullable String burstablePerformance,
-        @CustomType.Parameter("cpuManufacturers") @Nullable List<String> cpuManufacturers,
-        @CustomType.Parameter("excludedInstanceTypes") @Nullable List<String> excludedInstanceTypes,
-        @CustomType.Parameter("instanceGenerations") @Nullable List<String> instanceGenerations,
-        @CustomType.Parameter("localStorage") @Nullable String localStorage,
-        @CustomType.Parameter("localStorageTypes") @Nullable List<String> localStorageTypes,
-        @CustomType.Parameter("memoryGibPerVcpu") @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu,
-        @CustomType.Parameter("memoryMib") @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib,
-        @CustomType.Parameter("networkInterfaceCount") @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount networkInterfaceCount,
-        @CustomType.Parameter("onDemandMaxPricePercentageOverLowestPrice") @Nullable Integer onDemandMaxPricePercentageOverLowestPrice,
-        @CustomType.Parameter("requireHibernateSupport") @Nullable Boolean requireHibernateSupport,
-        @CustomType.Parameter("spotMaxPricePercentageOverLowestPrice") @Nullable Integer spotMaxPricePercentageOverLowestPrice,
-        @CustomType.Parameter("totalLocalStorageGb") @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb,
-        @CustomType.Parameter("vcpuCount") @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount vcpuCount) {
-        this.acceleratorCount = acceleratorCount;
-        this.acceleratorManufacturers = acceleratorManufacturers;
-        this.acceleratorNames = acceleratorNames;
-        this.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
-        this.acceleratorTypes = acceleratorTypes;
-        this.bareMetal = bareMetal;
-        this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
-        this.burstablePerformance = burstablePerformance;
-        this.cpuManufacturers = cpuManufacturers;
-        this.excludedInstanceTypes = excludedInstanceTypes;
-        this.instanceGenerations = instanceGenerations;
-        this.localStorage = localStorage;
-        this.localStorageTypes = localStorageTypes;
-        this.memoryGibPerVcpu = memoryGibPerVcpu;
-        this.memoryMib = memoryMib;
-        this.networkInterfaceCount = networkInterfaceCount;
-        this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
-        this.requireHibernateSupport = requireHibernateSupport;
-        this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
-        this.totalLocalStorageGb = totalLocalStorageGb;
-        this.vcpuCount = vcpuCount;
-    }
-
+    private SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements() {}
     /**
      * @return Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
      * 
@@ -329,7 +284,7 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
     public static Builder builder(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount acceleratorCount;
         private @Nullable List<String> acceleratorManufacturers;
@@ -352,11 +307,7 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
         private @Nullable Integer spotMaxPricePercentageOverLowestPrice;
         private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb;
         private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount vcpuCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceleratorCount = defaults.acceleratorCount;
@@ -382,10 +333,12 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
     	      this.vcpuCount = defaults.vcpuCount;
         }
 
+        @CustomType.Setter
         public Builder acceleratorCount(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount acceleratorCount) {
             this.acceleratorCount = acceleratorCount;
             return this;
         }
+        @CustomType.Setter
         public Builder acceleratorManufacturers(@Nullable List<String> acceleratorManufacturers) {
             this.acceleratorManufacturers = acceleratorManufacturers;
             return this;
@@ -393,6 +346,7 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
         public Builder acceleratorManufacturers(String... acceleratorManufacturers) {
             return acceleratorManufacturers(List.of(acceleratorManufacturers));
         }
+        @CustomType.Setter
         public Builder acceleratorNames(@Nullable List<String> acceleratorNames) {
             this.acceleratorNames = acceleratorNames;
             return this;
@@ -400,10 +354,12 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
         public Builder acceleratorNames(String... acceleratorNames) {
             return acceleratorNames(List.of(acceleratorNames));
         }
+        @CustomType.Setter
         public Builder acceleratorTotalMemoryMib(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib) {
             this.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
             return this;
         }
+        @CustomType.Setter
         public Builder acceleratorTypes(@Nullable List<String> acceleratorTypes) {
             this.acceleratorTypes = acceleratorTypes;
             return this;
@@ -411,18 +367,22 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
         public Builder acceleratorTypes(String... acceleratorTypes) {
             return acceleratorTypes(List.of(acceleratorTypes));
         }
+        @CustomType.Setter
         public Builder bareMetal(@Nullable String bareMetal) {
             this.bareMetal = bareMetal;
             return this;
         }
+        @CustomType.Setter
         public Builder baselineEbsBandwidthMbps(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps) {
             this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             return this;
         }
+        @CustomType.Setter
         public Builder burstablePerformance(@Nullable String burstablePerformance) {
             this.burstablePerformance = burstablePerformance;
             return this;
         }
+        @CustomType.Setter
         public Builder cpuManufacturers(@Nullable List<String> cpuManufacturers) {
             this.cpuManufacturers = cpuManufacturers;
             return this;
@@ -430,6 +390,7 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
         public Builder cpuManufacturers(String... cpuManufacturers) {
             return cpuManufacturers(List.of(cpuManufacturers));
         }
+        @CustomType.Setter
         public Builder excludedInstanceTypes(@Nullable List<String> excludedInstanceTypes) {
             this.excludedInstanceTypes = excludedInstanceTypes;
             return this;
@@ -437,6 +398,7 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
         public Builder excludedInstanceTypes(String... excludedInstanceTypes) {
             return excludedInstanceTypes(List.of(excludedInstanceTypes));
         }
+        @CustomType.Setter
         public Builder instanceGenerations(@Nullable List<String> instanceGenerations) {
             this.instanceGenerations = instanceGenerations;
             return this;
@@ -444,10 +406,12 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
         public Builder instanceGenerations(String... instanceGenerations) {
             return instanceGenerations(List.of(instanceGenerations));
         }
+        @CustomType.Setter
         public Builder localStorage(@Nullable String localStorage) {
             this.localStorage = localStorage;
             return this;
         }
+        @CustomType.Setter
         public Builder localStorageTypes(@Nullable List<String> localStorageTypes) {
             this.localStorageTypes = localStorageTypes;
             return this;
@@ -455,39 +419,70 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
         public Builder localStorageTypes(String... localStorageTypes) {
             return localStorageTypes(List.of(localStorageTypes));
         }
+        @CustomType.Setter
         public Builder memoryGibPerVcpu(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu) {
             this.memoryGibPerVcpu = memoryGibPerVcpu;
             return this;
         }
+        @CustomType.Setter
         public Builder memoryMib(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib) {
             this.memoryMib = memoryMib;
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceCount(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount networkInterfaceCount) {
             this.networkInterfaceCount = networkInterfaceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder onDemandMaxPricePercentageOverLowestPrice(@Nullable Integer onDemandMaxPricePercentageOverLowestPrice) {
             this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             return this;
         }
+        @CustomType.Setter
         public Builder requireHibernateSupport(@Nullable Boolean requireHibernateSupport) {
             this.requireHibernateSupport = requireHibernateSupport;
             return this;
         }
+        @CustomType.Setter
         public Builder spotMaxPricePercentageOverLowestPrice(@Nullable Integer spotMaxPricePercentageOverLowestPrice) {
             this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
             return this;
         }
+        @CustomType.Setter
         public Builder totalLocalStorageGb(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb) {
             this.totalLocalStorageGb = totalLocalStorageGb;
             return this;
         }
+        @CustomType.Setter
         public Builder vcpuCount(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount vcpuCount) {
             this.vcpuCount = vcpuCount;
             return this;
-        }        public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements build() {
-            return new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(acceleratorCount, acceleratorManufacturers, acceleratorNames, acceleratorTotalMemoryMib, acceleratorTypes, bareMetal, baselineEbsBandwidthMbps, burstablePerformance, cpuManufacturers, excludedInstanceTypes, instanceGenerations, localStorage, localStorageTypes, memoryGibPerVcpu, memoryMib, networkInterfaceCount, onDemandMaxPricePercentageOverLowestPrice, requireHibernateSupport, spotMaxPricePercentageOverLowestPrice, totalLocalStorageGb, vcpuCount);
+        }
+        public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements build() {
+            final var o = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements();
+            o.acceleratorCount = acceleratorCount;
+            o.acceleratorManufacturers = acceleratorManufacturers;
+            o.acceleratorNames = acceleratorNames;
+            o.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
+            o.acceleratorTypes = acceleratorTypes;
+            o.bareMetal = bareMetal;
+            o.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
+            o.burstablePerformance = burstablePerformance;
+            o.cpuManufacturers = cpuManufacturers;
+            o.excludedInstanceTypes = excludedInstanceTypes;
+            o.instanceGenerations = instanceGenerations;
+            o.localStorage = localStorage;
+            o.localStorageTypes = localStorageTypes;
+            o.memoryGibPerVcpu = memoryGibPerVcpu;
+            o.memoryMib = memoryMib;
+            o.networkInterfaceCount = networkInterfaceCount;
+            o.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
+            o.requireHibernateSupport = requireHibernateSupport;
+            o.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
+            o.totalLocalStorageGb = totalLocalStorageGb;
+            o.vcpuCount = vcpuCount;
+            return o;
         }
     }
 }

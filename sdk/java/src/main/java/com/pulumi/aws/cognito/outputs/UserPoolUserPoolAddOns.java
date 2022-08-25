@@ -13,13 +13,9 @@ public final class UserPoolUserPoolAddOns {
      * @return Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
      * 
      */
-    private final String advancedSecurityMode;
+    private String advancedSecurityMode;
 
-    @CustomType.Constructor
-    private UserPoolUserPoolAddOns(@CustomType.Parameter("advancedSecurityMode") String advancedSecurityMode) {
-        this.advancedSecurityMode = advancedSecurityMode;
-    }
-
+    private UserPoolUserPoolAddOns() {}
     /**
      * @return Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
      * 
@@ -35,24 +31,24 @@ public final class UserPoolUserPoolAddOns {
     public static Builder builder(UserPoolUserPoolAddOns defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String advancedSecurityMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolUserPoolAddOns defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.advancedSecurityMode = defaults.advancedSecurityMode;
         }
 
+        @CustomType.Setter
         public Builder advancedSecurityMode(String advancedSecurityMode) {
             this.advancedSecurityMode = Objects.requireNonNull(advancedSecurityMode);
             return this;
-        }        public UserPoolUserPoolAddOns build() {
-            return new UserPoolUserPoolAddOns(advancedSecurityMode);
+        }
+        public UserPoolUserPoolAddOns build() {
+            final var o = new UserPoolUserPoolAddOns();
+            o.advancedSecurityMode = advancedSecurityMode;
+            return o;
         }
     }
 }

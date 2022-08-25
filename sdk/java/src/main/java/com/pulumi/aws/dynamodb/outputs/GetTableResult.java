@@ -20,78 +20,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableResult {
-    private final String arn;
-    private final List<GetTableAttribute> attributes;
-    private final String billingMode;
-    private final List<GetTableGlobalSecondaryIndex> globalSecondaryIndexes;
-    private final String hashKey;
+    private String arn;
+    private List<GetTableAttribute> attributes;
+    private String billingMode;
+    private List<GetTableGlobalSecondaryIndex> globalSecondaryIndexes;
+    private String hashKey;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final List<GetTableLocalSecondaryIndex> localSecondaryIndexes;
-    private final String name;
-    private final GetTablePointInTimeRecovery pointInTimeRecovery;
-    private final String rangeKey;
-    private final Integer readCapacity;
-    private final List<GetTableReplica> replicas;
-    private final GetTableServerSideEncryption serverSideEncryption;
-    private final String streamArn;
-    private final Boolean streamEnabled;
-    private final String streamLabel;
-    private final String streamViewType;
-    private final String tableClass;
-    private final Map<String,String> tags;
-    private final GetTableTtl ttl;
-    private final Integer writeCapacity;
+    private String id;
+    private List<GetTableLocalSecondaryIndex> localSecondaryIndexes;
+    private String name;
+    private GetTablePointInTimeRecovery pointInTimeRecovery;
+    private String rangeKey;
+    private Integer readCapacity;
+    private List<GetTableReplica> replicas;
+    private GetTableServerSideEncryption serverSideEncryption;
+    private String streamArn;
+    private Boolean streamEnabled;
+    private String streamLabel;
+    private String streamViewType;
+    private String tableClass;
+    private Map<String,String> tags;
+    private GetTableTtl ttl;
+    private Integer writeCapacity;
 
-    @CustomType.Constructor
-    private GetTableResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("attributes") List<GetTableAttribute> attributes,
-        @CustomType.Parameter("billingMode") String billingMode,
-        @CustomType.Parameter("globalSecondaryIndexes") List<GetTableGlobalSecondaryIndex> globalSecondaryIndexes,
-        @CustomType.Parameter("hashKey") String hashKey,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("localSecondaryIndexes") List<GetTableLocalSecondaryIndex> localSecondaryIndexes,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("pointInTimeRecovery") GetTablePointInTimeRecovery pointInTimeRecovery,
-        @CustomType.Parameter("rangeKey") String rangeKey,
-        @CustomType.Parameter("readCapacity") Integer readCapacity,
-        @CustomType.Parameter("replicas") List<GetTableReplica> replicas,
-        @CustomType.Parameter("serverSideEncryption") GetTableServerSideEncryption serverSideEncryption,
-        @CustomType.Parameter("streamArn") String streamArn,
-        @CustomType.Parameter("streamEnabled") Boolean streamEnabled,
-        @CustomType.Parameter("streamLabel") String streamLabel,
-        @CustomType.Parameter("streamViewType") String streamViewType,
-        @CustomType.Parameter("tableClass") String tableClass,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("ttl") GetTableTtl ttl,
-        @CustomType.Parameter("writeCapacity") Integer writeCapacity) {
-        this.arn = arn;
-        this.attributes = attributes;
-        this.billingMode = billingMode;
-        this.globalSecondaryIndexes = globalSecondaryIndexes;
-        this.hashKey = hashKey;
-        this.id = id;
-        this.localSecondaryIndexes = localSecondaryIndexes;
-        this.name = name;
-        this.pointInTimeRecovery = pointInTimeRecovery;
-        this.rangeKey = rangeKey;
-        this.readCapacity = readCapacity;
-        this.replicas = replicas;
-        this.serverSideEncryption = serverSideEncryption;
-        this.streamArn = streamArn;
-        this.streamEnabled = streamEnabled;
-        this.streamLabel = streamLabel;
-        this.streamViewType = streamViewType;
-        this.tableClass = tableClass;
-        this.tags = tags;
-        this.ttl = ttl;
-        this.writeCapacity = writeCapacity;
-    }
-
+    private GetTableResult() {}
     public String arn() {
         return this.arn;
     }
@@ -167,7 +122,7 @@ public final class GetTableResult {
     public static Builder builder(GetTableResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetTableAttribute> attributes;
@@ -190,11 +145,7 @@ public final class GetTableResult {
         private Map<String,String> tags;
         private GetTableTtl ttl;
         private Integer writeCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTableResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -220,10 +171,12 @@ public final class GetTableResult {
     	      this.writeCapacity = defaults.writeCapacity;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder attributes(List<GetTableAttribute> attributes) {
             this.attributes = Objects.requireNonNull(attributes);
             return this;
@@ -231,10 +184,12 @@ public final class GetTableResult {
         public Builder attributes(GetTableAttribute... attributes) {
             return attributes(List.of(attributes));
         }
+        @CustomType.Setter
         public Builder billingMode(String billingMode) {
             this.billingMode = Objects.requireNonNull(billingMode);
             return this;
         }
+        @CustomType.Setter
         public Builder globalSecondaryIndexes(List<GetTableGlobalSecondaryIndex> globalSecondaryIndexes) {
             this.globalSecondaryIndexes = Objects.requireNonNull(globalSecondaryIndexes);
             return this;
@@ -242,14 +197,17 @@ public final class GetTableResult {
         public Builder globalSecondaryIndexes(GetTableGlobalSecondaryIndex... globalSecondaryIndexes) {
             return globalSecondaryIndexes(List.of(globalSecondaryIndexes));
         }
+        @CustomType.Setter
         public Builder hashKey(String hashKey) {
             this.hashKey = Objects.requireNonNull(hashKey);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder localSecondaryIndexes(List<GetTableLocalSecondaryIndex> localSecondaryIndexes) {
             this.localSecondaryIndexes = Objects.requireNonNull(localSecondaryIndexes);
             return this;
@@ -257,22 +215,27 @@ public final class GetTableResult {
         public Builder localSecondaryIndexes(GetTableLocalSecondaryIndex... localSecondaryIndexes) {
             return localSecondaryIndexes(List.of(localSecondaryIndexes));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder pointInTimeRecovery(GetTablePointInTimeRecovery pointInTimeRecovery) {
             this.pointInTimeRecovery = Objects.requireNonNull(pointInTimeRecovery);
             return this;
         }
+        @CustomType.Setter
         public Builder rangeKey(String rangeKey) {
             this.rangeKey = Objects.requireNonNull(rangeKey);
             return this;
         }
+        @CustomType.Setter
         public Builder readCapacity(Integer readCapacity) {
             this.readCapacity = Objects.requireNonNull(readCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder replicas(List<GetTableReplica> replicas) {
             this.replicas = Objects.requireNonNull(replicas);
             return this;
@@ -280,43 +243,75 @@ public final class GetTableResult {
         public Builder replicas(GetTableReplica... replicas) {
             return replicas(List.of(replicas));
         }
+        @CustomType.Setter
         public Builder serverSideEncryption(GetTableServerSideEncryption serverSideEncryption) {
             this.serverSideEncryption = Objects.requireNonNull(serverSideEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder streamArn(String streamArn) {
             this.streamArn = Objects.requireNonNull(streamArn);
             return this;
         }
+        @CustomType.Setter
         public Builder streamEnabled(Boolean streamEnabled) {
             this.streamEnabled = Objects.requireNonNull(streamEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder streamLabel(String streamLabel) {
             this.streamLabel = Objects.requireNonNull(streamLabel);
             return this;
         }
+        @CustomType.Setter
         public Builder streamViewType(String streamViewType) {
             this.streamViewType = Objects.requireNonNull(streamViewType);
             return this;
         }
+        @CustomType.Setter
         public Builder tableClass(String tableClass) {
             this.tableClass = Objects.requireNonNull(tableClass);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder ttl(GetTableTtl ttl) {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
         }
+        @CustomType.Setter
         public Builder writeCapacity(Integer writeCapacity) {
             this.writeCapacity = Objects.requireNonNull(writeCapacity);
             return this;
-        }        public GetTableResult build() {
-            return new GetTableResult(arn, attributes, billingMode, globalSecondaryIndexes, hashKey, id, localSecondaryIndexes, name, pointInTimeRecovery, rangeKey, readCapacity, replicas, serverSideEncryption, streamArn, streamEnabled, streamLabel, streamViewType, tableClass, tags, ttl, writeCapacity);
+        }
+        public GetTableResult build() {
+            final var o = new GetTableResult();
+            o.arn = arn;
+            o.attributes = attributes;
+            o.billingMode = billingMode;
+            o.globalSecondaryIndexes = globalSecondaryIndexes;
+            o.hashKey = hashKey;
+            o.id = id;
+            o.localSecondaryIndexes = localSecondaryIndexes;
+            o.name = name;
+            o.pointInTimeRecovery = pointInTimeRecovery;
+            o.rangeKey = rangeKey;
+            o.readCapacity = readCapacity;
+            o.replicas = replicas;
+            o.serverSideEncryption = serverSideEncryption;
+            o.streamArn = streamArn;
+            o.streamEnabled = streamEnabled;
+            o.streamLabel = streamLabel;
+            o.streamViewType = streamViewType;
+            o.tableClass = tableClass;
+            o.tags = tags;
+            o.ttl = ttl;
+            o.writeCapacity = writeCapacity;
+            return o;
         }
     }
 }

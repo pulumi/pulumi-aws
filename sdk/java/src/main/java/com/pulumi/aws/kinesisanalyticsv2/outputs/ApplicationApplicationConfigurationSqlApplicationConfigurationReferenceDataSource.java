@@ -13,35 +13,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
-    private final @Nullable String referenceId;
+    private @Nullable String referenceId;
     /**
      * @return Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
      * 
      */
-    private final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema referenceSchema;
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema referenceSchema;
     /**
      * @return Identifies the S3 bucket and object that contains the reference data.
      * 
      */
-    private final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource s3ReferenceDataSource;
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource s3ReferenceDataSource;
     /**
      * @return The name of the in-application table to create.
      * 
      */
-    private final String tableName;
+    private String tableName;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource(
-        @CustomType.Parameter("referenceId") @Nullable String referenceId,
-        @CustomType.Parameter("referenceSchema") ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema referenceSchema,
-        @CustomType.Parameter("s3ReferenceDataSource") ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource s3ReferenceDataSource,
-        @CustomType.Parameter("tableName") String tableName) {
-        this.referenceId = referenceId;
-        this.referenceSchema = referenceSchema;
-        this.s3ReferenceDataSource = s3ReferenceDataSource;
-        this.tableName = tableName;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource() {}
     public Optional<String> referenceId() {
         return Optional.ofNullable(this.referenceId);
     }
@@ -74,17 +63,13 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String referenceId;
         private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema referenceSchema;
         private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource s3ReferenceDataSource;
         private String tableName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.referenceId = defaults.referenceId;
@@ -93,23 +78,33 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     	      this.tableName = defaults.tableName;
         }
 
+        @CustomType.Setter
         public Builder referenceId(@Nullable String referenceId) {
             this.referenceId = referenceId;
             return this;
         }
+        @CustomType.Setter
         public Builder referenceSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema referenceSchema) {
             this.referenceSchema = Objects.requireNonNull(referenceSchema);
             return this;
         }
+        @CustomType.Setter
         public Builder s3ReferenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource s3ReferenceDataSource) {
             this.s3ReferenceDataSource = Objects.requireNonNull(s3ReferenceDataSource);
             return this;
         }
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             this.tableName = Objects.requireNonNull(tableName);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource(referenceId, referenceSchema, s3ReferenceDataSource, tableName);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource();
+            o.referenceId = referenceId;
+            o.referenceSchema = referenceSchema;
+            o.s3ReferenceDataSource = s3ReferenceDataSource;
+            o.tableName = tableName;
+            return o;
         }
     }
 }

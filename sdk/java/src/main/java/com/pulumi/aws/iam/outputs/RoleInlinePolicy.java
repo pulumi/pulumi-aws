@@ -15,21 +15,14 @@ public final class RoleInlinePolicy {
      * @return Name of the role policy.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Policy document as a JSON formatted string.
      * 
      */
-    private final @Nullable String policy;
+    private @Nullable String policy;
 
-    @CustomType.Constructor
-    private RoleInlinePolicy(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("policy") @Nullable String policy) {
-        this.name = name;
-        this.policy = policy;
-    }
-
+    private RoleInlinePolicy() {}
     /**
      * @return Name of the role policy.
      * 
@@ -52,30 +45,32 @@ public final class RoleInlinePolicy {
     public static Builder builder(RoleInlinePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String policy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RoleInlinePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.policy = defaults.policy;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder policy(@Nullable String policy) {
             this.policy = policy;
             return this;
-        }        public RoleInlinePolicy build() {
-            return new RoleInlinePolicy(name, policy);
+        }
+        public RoleInlinePolicy build() {
+            final var o = new RoleInlinePolicy();
+            o.name = name;
+            o.policy = policy;
+            return o;
         }
     }
 }

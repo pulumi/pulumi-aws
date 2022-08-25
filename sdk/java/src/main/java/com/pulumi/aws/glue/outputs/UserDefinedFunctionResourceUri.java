@@ -13,21 +13,14 @@ public final class UserDefinedFunctionResourceUri {
      * @return The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
      * 
      */
-    private final String resourceType;
+    private String resourceType;
     /**
      * @return The URI for accessing the resource.
      * 
      */
-    private final String uri;
+    private String uri;
 
-    @CustomType.Constructor
-    private UserDefinedFunctionResourceUri(
-        @CustomType.Parameter("resourceType") String resourceType,
-        @CustomType.Parameter("uri") String uri) {
-        this.resourceType = resourceType;
-        this.uri = uri;
-    }
-
+    private UserDefinedFunctionResourceUri() {}
     /**
      * @return The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
      * 
@@ -50,30 +43,32 @@ public final class UserDefinedFunctionResourceUri {
     public static Builder builder(UserDefinedFunctionResourceUri defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resourceType;
         private String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserDefinedFunctionResourceUri defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceType = defaults.resourceType;
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder resourceType(String resourceType) {
             this.resourceType = Objects.requireNonNull(resourceType);
             return this;
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
-        }        public UserDefinedFunctionResourceUri build() {
-            return new UserDefinedFunctionResourceUri(resourceType, uri);
+        }
+        public UserDefinedFunctionResourceUri build() {
+            final var o = new UserDefinedFunctionResourceUri();
+            o.resourceType = resourceType;
+            o.uri = uri;
+            return o;
         }
     }
 }

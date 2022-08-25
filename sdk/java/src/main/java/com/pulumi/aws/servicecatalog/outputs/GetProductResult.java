@@ -13,108 +13,75 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetProductResult {
-    private final @Nullable String acceptLanguage;
+    private @Nullable String acceptLanguage;
     /**
      * @return ARN of the product.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Time when the product was created.
      * 
      */
-    private final String createdTime;
+    private String createdTime;
     /**
      * @return Description of the product.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Distributor (i.e., vendor) of the product.
      * 
      */
-    private final String distributor;
+    private String distributor;
     /**
      * @return Whether the product has a default path.
      * 
      */
-    private final Boolean hasDefaultPath;
-    private final String id;
+    private Boolean hasDefaultPath;
+    private String id;
     /**
      * @return Name of the product.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Owner of the product.
      * 
      */
-    private final String owner;
+    private String owner;
     /**
      * @return Status of the product.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Support information about the product.
      * 
      */
-    private final String supportDescription;
+    private String supportDescription;
     /**
      * @return Contact email for product support.
      * 
      */
-    private final String supportEmail;
+    private String supportEmail;
     /**
      * @return Contact URL for product support.
      * 
      */
-    private final String supportUrl;
+    private String supportUrl;
     /**
      * @return Tags to apply to the product.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Type of product.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetProductResult(
-        @CustomType.Parameter("acceptLanguage") @Nullable String acceptLanguage,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("createdTime") String createdTime,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("distributor") String distributor,
-        @CustomType.Parameter("hasDefaultPath") Boolean hasDefaultPath,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("supportDescription") String supportDescription,
-        @CustomType.Parameter("supportEmail") String supportEmail,
-        @CustomType.Parameter("supportUrl") String supportUrl,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type) {
-        this.acceptLanguage = acceptLanguage;
-        this.arn = arn;
-        this.createdTime = createdTime;
-        this.description = description;
-        this.distributor = distributor;
-        this.hasDefaultPath = hasDefaultPath;
-        this.id = id;
-        this.name = name;
-        this.owner = owner;
-        this.status = status;
-        this.supportDescription = supportDescription;
-        this.supportEmail = supportEmail;
-        this.supportUrl = supportUrl;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private GetProductResult() {}
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
@@ -220,7 +187,7 @@ public final class GetProductResult {
     public static Builder builder(GetProductResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
         private String arn;
@@ -237,11 +204,7 @@ public final class GetProductResult {
         private String supportUrl;
         private Map<String,String> tags;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetProductResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceptLanguage = defaults.acceptLanguage;
@@ -261,67 +224,99 @@ public final class GetProductResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
             this.acceptLanguage = acceptLanguage;
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder createdTime(String createdTime) {
             this.createdTime = Objects.requireNonNull(createdTime);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder distributor(String distributor) {
             this.distributor = Objects.requireNonNull(distributor);
             return this;
         }
+        @CustomType.Setter
         public Builder hasDefaultPath(Boolean hasDefaultPath) {
             this.hasDefaultPath = Objects.requireNonNull(hasDefaultPath);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder supportDescription(String supportDescription) {
             this.supportDescription = Objects.requireNonNull(supportDescription);
             return this;
         }
+        @CustomType.Setter
         public Builder supportEmail(String supportEmail) {
             this.supportEmail = Objects.requireNonNull(supportEmail);
             return this;
         }
+        @CustomType.Setter
         public Builder supportUrl(String supportUrl) {
             this.supportUrl = Objects.requireNonNull(supportUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetProductResult build() {
-            return new GetProductResult(acceptLanguage, arn, createdTime, description, distributor, hasDefaultPath, id, name, owner, status, supportDescription, supportEmail, supportUrl, tags, type);
+        }
+        public GetProductResult build() {
+            final var o = new GetProductResult();
+            o.acceptLanguage = acceptLanguage;
+            o.arn = arn;
+            o.createdTime = createdTime;
+            o.description = description;
+            o.distributor = distributor;
+            o.hasDefaultPath = hasDefaultPath;
+            o.id = id;
+            o.name = name;
+            o.owner = owner;
+            o.status = status;
+            o.supportDescription = supportDescription;
+            o.supportEmail = supportEmail;
+            o.supportUrl = supportUrl;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetInternetGatewayAttachment {
      * @return The current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
      * 
      */
-    private final String state;
+    private String state;
     /**
      * @return The ID of an attached VPC.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetInternetGatewayAttachment(
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.state = state;
-        this.vpcId = vpcId;
-    }
-
+    private GetInternetGatewayAttachment() {}
     /**
      * @return The current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
      * 
@@ -50,30 +43,32 @@ public final class GetInternetGatewayAttachment {
     public static Builder builder(GetInternetGatewayAttachment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String state;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInternetGatewayAttachment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.state = defaults.state;
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetInternetGatewayAttachment build() {
-            return new GetInternetGatewayAttachment(state, vpcId);
+        }
+        public GetInternetGatewayAttachment build() {
+            final var o = new GetInternetGatewayAttachment();
+            o.state = state;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

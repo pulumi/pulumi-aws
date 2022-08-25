@@ -16,49 +16,34 @@ public final class RepositoryCatalogData {
      * @return A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
      * 
      */
-    private final @Nullable String aboutText;
+    private @Nullable String aboutText;
     /**
      * @return The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
      * 
      */
-    private final @Nullable List<String> architectures;
+    private @Nullable List<String> architectures;
     /**
      * @return A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
      * 
      */
-    private final @Nullable String logoImageBlob;
+    private @Nullable String logoImageBlob;
     /**
      * @return The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
      * 
      */
-    private final @Nullable List<String> operatingSystems;
+    private @Nullable List<String> operatingSystems;
     /**
      * @return Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
      * 
      */
-    private final @Nullable String usageText;
+    private @Nullable String usageText;
 
-    @CustomType.Constructor
-    private RepositoryCatalogData(
-        @CustomType.Parameter("aboutText") @Nullable String aboutText,
-        @CustomType.Parameter("architectures") @Nullable List<String> architectures,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("logoImageBlob") @Nullable String logoImageBlob,
-        @CustomType.Parameter("operatingSystems") @Nullable List<String> operatingSystems,
-        @CustomType.Parameter("usageText") @Nullable String usageText) {
-        this.aboutText = aboutText;
-        this.architectures = architectures;
-        this.description = description;
-        this.logoImageBlob = logoImageBlob;
-        this.operatingSystems = operatingSystems;
-        this.usageText = usageText;
-    }
-
+    private RepositoryCatalogData() {}
     /**
      * @return A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
      * 
@@ -109,7 +94,7 @@ public final class RepositoryCatalogData {
     public static Builder builder(RepositoryCatalogData defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String aboutText;
         private @Nullable List<String> architectures;
@@ -117,11 +102,7 @@ public final class RepositoryCatalogData {
         private @Nullable String logoImageBlob;
         private @Nullable List<String> operatingSystems;
         private @Nullable String usageText;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RepositoryCatalogData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aboutText = defaults.aboutText;
@@ -132,10 +113,12 @@ public final class RepositoryCatalogData {
     	      this.usageText = defaults.usageText;
         }
 
+        @CustomType.Setter
         public Builder aboutText(@Nullable String aboutText) {
             this.aboutText = aboutText;
             return this;
         }
+        @CustomType.Setter
         public Builder architectures(@Nullable List<String> architectures) {
             this.architectures = architectures;
             return this;
@@ -143,14 +126,17 @@ public final class RepositoryCatalogData {
         public Builder architectures(String... architectures) {
             return architectures(List.of(architectures));
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder logoImageBlob(@Nullable String logoImageBlob) {
             this.logoImageBlob = logoImageBlob;
             return this;
         }
+        @CustomType.Setter
         public Builder operatingSystems(@Nullable List<String> operatingSystems) {
             this.operatingSystems = operatingSystems;
             return this;
@@ -158,11 +144,20 @@ public final class RepositoryCatalogData {
         public Builder operatingSystems(String... operatingSystems) {
             return operatingSystems(List.of(operatingSystems));
         }
+        @CustomType.Setter
         public Builder usageText(@Nullable String usageText) {
             this.usageText = usageText;
             return this;
-        }        public RepositoryCatalogData build() {
-            return new RepositoryCatalogData(aboutText, architectures, description, logoImageBlob, operatingSystems, usageText);
+        }
+        public RepositoryCatalogData build() {
+            final var o = new RepositoryCatalogData();
+            o.aboutText = aboutText;
+            o.architectures = architectures;
+            o.description = description;
+            o.logoImageBlob = logoImageBlob;
+            o.operatingSystems = operatingSystems;
+            o.usageText = usageText;
+            return o;
         }
     }
 }

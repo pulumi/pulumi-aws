@@ -13,21 +13,14 @@ public final class GetHoursOfOperationConfigStartTime {
      * @return Specifies the hour of opening.
      * 
      */
-    private final Integer hours;
+    private Integer hours;
     /**
      * @return Specifies the minute of opening.
      * 
      */
-    private final Integer minutes;
+    private Integer minutes;
 
-    @CustomType.Constructor
-    private GetHoursOfOperationConfigStartTime(
-        @CustomType.Parameter("hours") Integer hours,
-        @CustomType.Parameter("minutes") Integer minutes) {
-        this.hours = hours;
-        this.minutes = minutes;
-    }
-
+    private GetHoursOfOperationConfigStartTime() {}
     /**
      * @return Specifies the hour of opening.
      * 
@@ -50,30 +43,32 @@ public final class GetHoursOfOperationConfigStartTime {
     public static Builder builder(GetHoursOfOperationConfigStartTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer hours;
         private Integer minutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetHoursOfOperationConfigStartTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hours = defaults.hours;
     	      this.minutes = defaults.minutes;
         }
 
+        @CustomType.Setter
         public Builder hours(Integer hours) {
             this.hours = Objects.requireNonNull(hours);
             return this;
         }
+        @CustomType.Setter
         public Builder minutes(Integer minutes) {
             this.minutes = Objects.requireNonNull(minutes);
             return this;
-        }        public GetHoursOfOperationConfigStartTime build() {
-            return new GetHoursOfOperationConfigStartTime(hours, minutes);
+        }
+        public GetHoursOfOperationConfigStartTime build() {
+            final var o = new GetHoursOfOperationConfigStartTime();
+            o.hours = hours;
+            o.minutes = minutes;
+            return o;
         }
     }
 }

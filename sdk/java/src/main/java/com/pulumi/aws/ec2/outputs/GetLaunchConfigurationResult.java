@@ -19,147 +19,104 @@ public final class GetLaunchConfigurationResult {
      * @return The Amazon Resource Name of the launch configuration.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Whether a Public IP address is associated with the instance.
      * 
      */
-    private final Boolean associatePublicIpAddress;
+    private Boolean associatePublicIpAddress;
     /**
      * @return The EBS Block Devices attached to the instance.
      * 
      */
-    private final List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices;
+    private List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices;
     /**
      * @return Whether the launched EC2 instance will be EBS-optimized.
      * 
      */
-    private final Boolean ebsOptimized;
+    private Boolean ebsOptimized;
     /**
      * @return Whether Detailed Monitoring is Enabled.
      * 
      */
-    private final Boolean enableMonitoring;
+    private Boolean enableMonitoring;
     /**
      * @return The Ephemeral volumes on the instance.
      * 
      */
-    private final List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices;
+    private List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices;
     /**
      * @return The IAM Instance Profile to associate with launched instances.
      * 
      */
-    private final String iamInstanceProfile;
+    private String iamInstanceProfile;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The EC2 Image ID of the instance.
      * 
      */
-    private final String imageId;
+    private String imageId;
     /**
      * @return The Instance Type of the instance to launch.
      * 
      */
-    private final String instanceType;
+    private String instanceType;
     /**
      * @return The Key Name that should be used for the instance.
      * 
      */
-    private final String keyName;
+    private String keyName;
     /**
      * @return The metadata options for the instance.
      * 
      */
-    private final List<GetLaunchConfigurationMetadataOption> metadataOptions;
+    private List<GetLaunchConfigurationMetadataOption> metadataOptions;
     /**
      * @return The Name of the launch configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Tenancy of the instance.
      * 
      */
-    private final String placementTenancy;
+    private String placementTenancy;
     /**
      * @return The Root Block Device of the instance.
      * 
      */
-    private final List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices;
+    private List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices;
     /**
      * @return A list of associated Security Group IDS.
      * 
      */
-    private final List<String> securityGroups;
+    private List<String> securityGroups;
     /**
      * @return The Price to use for reserving Spot instances.
      * 
      */
-    private final String spotPrice;
+    private String spotPrice;
     /**
      * @return The User Data of the instance.
      * 
      */
-    private final String userData;
+    private String userData;
     /**
      * @return The ID of a ClassicLink-enabled VPC.
      * 
      */
-    private final String vpcClassicLinkId;
+    private String vpcClassicLinkId;
     /**
      * @return The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
      * 
      */
-    private final List<String> vpcClassicLinkSecurityGroups;
+    private List<String> vpcClassicLinkSecurityGroups;
 
-    @CustomType.Constructor
-    private GetLaunchConfigurationResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("associatePublicIpAddress") Boolean associatePublicIpAddress,
-        @CustomType.Parameter("ebsBlockDevices") List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices,
-        @CustomType.Parameter("ebsOptimized") Boolean ebsOptimized,
-        @CustomType.Parameter("enableMonitoring") Boolean enableMonitoring,
-        @CustomType.Parameter("ephemeralBlockDevices") List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices,
-        @CustomType.Parameter("iamInstanceProfile") String iamInstanceProfile,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageId") String imageId,
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("keyName") String keyName,
-        @CustomType.Parameter("metadataOptions") List<GetLaunchConfigurationMetadataOption> metadataOptions,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("placementTenancy") String placementTenancy,
-        @CustomType.Parameter("rootBlockDevices") List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices,
-        @CustomType.Parameter("securityGroups") List<String> securityGroups,
-        @CustomType.Parameter("spotPrice") String spotPrice,
-        @CustomType.Parameter("userData") String userData,
-        @CustomType.Parameter("vpcClassicLinkId") String vpcClassicLinkId,
-        @CustomType.Parameter("vpcClassicLinkSecurityGroups") List<String> vpcClassicLinkSecurityGroups) {
-        this.arn = arn;
-        this.associatePublicIpAddress = associatePublicIpAddress;
-        this.ebsBlockDevices = ebsBlockDevices;
-        this.ebsOptimized = ebsOptimized;
-        this.enableMonitoring = enableMonitoring;
-        this.ephemeralBlockDevices = ephemeralBlockDevices;
-        this.iamInstanceProfile = iamInstanceProfile;
-        this.id = id;
-        this.imageId = imageId;
-        this.instanceType = instanceType;
-        this.keyName = keyName;
-        this.metadataOptions = metadataOptions;
-        this.name = name;
-        this.placementTenancy = placementTenancy;
-        this.rootBlockDevices = rootBlockDevices;
-        this.securityGroups = securityGroups;
-        this.spotPrice = spotPrice;
-        this.userData = userData;
-        this.vpcClassicLinkId = vpcClassicLinkId;
-        this.vpcClassicLinkSecurityGroups = vpcClassicLinkSecurityGroups;
-    }
-
+    private GetLaunchConfigurationResult() {}
     /**
      * @return The Amazon Resource Name of the launch configuration.
      * 
@@ -308,7 +265,7 @@ public final class GetLaunchConfigurationResult {
     public static Builder builder(GetLaunchConfigurationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Boolean associatePublicIpAddress;
@@ -330,11 +287,7 @@ public final class GetLaunchConfigurationResult {
         private String userData;
         private String vpcClassicLinkId;
         private List<String> vpcClassicLinkSecurityGroups;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -359,14 +312,17 @@ public final class GetLaunchConfigurationResult {
     	      this.vpcClassicLinkSecurityGroups = defaults.vpcClassicLinkSecurityGroups;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder associatePublicIpAddress(Boolean associatePublicIpAddress) {
             this.associatePublicIpAddress = Objects.requireNonNull(associatePublicIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder ebsBlockDevices(List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices) {
             this.ebsBlockDevices = Objects.requireNonNull(ebsBlockDevices);
             return this;
@@ -374,14 +330,17 @@ public final class GetLaunchConfigurationResult {
         public Builder ebsBlockDevices(GetLaunchConfigurationEbsBlockDevice... ebsBlockDevices) {
             return ebsBlockDevices(List.of(ebsBlockDevices));
         }
+        @CustomType.Setter
         public Builder ebsOptimized(Boolean ebsOptimized) {
             this.ebsOptimized = Objects.requireNonNull(ebsOptimized);
             return this;
         }
+        @CustomType.Setter
         public Builder enableMonitoring(Boolean enableMonitoring) {
             this.enableMonitoring = Objects.requireNonNull(enableMonitoring);
             return this;
         }
+        @CustomType.Setter
         public Builder ephemeralBlockDevices(List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices) {
             this.ephemeralBlockDevices = Objects.requireNonNull(ephemeralBlockDevices);
             return this;
@@ -389,26 +348,32 @@ public final class GetLaunchConfigurationResult {
         public Builder ephemeralBlockDevices(GetLaunchConfigurationEphemeralBlockDevice... ephemeralBlockDevices) {
             return ephemeralBlockDevices(List.of(ephemeralBlockDevices));
         }
+        @CustomType.Setter
         public Builder iamInstanceProfile(String iamInstanceProfile) {
             this.iamInstanceProfile = Objects.requireNonNull(iamInstanceProfile);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageId(String imageId) {
             this.imageId = Objects.requireNonNull(imageId);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder keyName(String keyName) {
             this.keyName = Objects.requireNonNull(keyName);
             return this;
         }
+        @CustomType.Setter
         public Builder metadataOptions(List<GetLaunchConfigurationMetadataOption> metadataOptions) {
             this.metadataOptions = Objects.requireNonNull(metadataOptions);
             return this;
@@ -416,14 +381,17 @@ public final class GetLaunchConfigurationResult {
         public Builder metadataOptions(GetLaunchConfigurationMetadataOption... metadataOptions) {
             return metadataOptions(List.of(metadataOptions));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder placementTenancy(String placementTenancy) {
             this.placementTenancy = Objects.requireNonNull(placementTenancy);
             return this;
         }
+        @CustomType.Setter
         public Builder rootBlockDevices(List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices) {
             this.rootBlockDevices = Objects.requireNonNull(rootBlockDevices);
             return this;
@@ -431,6 +399,7 @@ public final class GetLaunchConfigurationResult {
         public Builder rootBlockDevices(GetLaunchConfigurationRootBlockDevice... rootBlockDevices) {
             return rootBlockDevices(List.of(rootBlockDevices));
         }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             this.securityGroups = Objects.requireNonNull(securityGroups);
             return this;
@@ -438,26 +407,52 @@ public final class GetLaunchConfigurationResult {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder spotPrice(String spotPrice) {
             this.spotPrice = Objects.requireNonNull(spotPrice);
             return this;
         }
+        @CustomType.Setter
         public Builder userData(String userData) {
             this.userData = Objects.requireNonNull(userData);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcClassicLinkId(String vpcClassicLinkId) {
             this.vpcClassicLinkId = Objects.requireNonNull(vpcClassicLinkId);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcClassicLinkSecurityGroups(List<String> vpcClassicLinkSecurityGroups) {
             this.vpcClassicLinkSecurityGroups = Objects.requireNonNull(vpcClassicLinkSecurityGroups);
             return this;
         }
         public Builder vpcClassicLinkSecurityGroups(String... vpcClassicLinkSecurityGroups) {
             return vpcClassicLinkSecurityGroups(List.of(vpcClassicLinkSecurityGroups));
-        }        public GetLaunchConfigurationResult build() {
-            return new GetLaunchConfigurationResult(arn, associatePublicIpAddress, ebsBlockDevices, ebsOptimized, enableMonitoring, ephemeralBlockDevices, iamInstanceProfile, id, imageId, instanceType, keyName, metadataOptions, name, placementTenancy, rootBlockDevices, securityGroups, spotPrice, userData, vpcClassicLinkId, vpcClassicLinkSecurityGroups);
+        }
+        public GetLaunchConfigurationResult build() {
+            final var o = new GetLaunchConfigurationResult();
+            o.arn = arn;
+            o.associatePublicIpAddress = associatePublicIpAddress;
+            o.ebsBlockDevices = ebsBlockDevices;
+            o.ebsOptimized = ebsOptimized;
+            o.enableMonitoring = enableMonitoring;
+            o.ephemeralBlockDevices = ephemeralBlockDevices;
+            o.iamInstanceProfile = iamInstanceProfile;
+            o.id = id;
+            o.imageId = imageId;
+            o.instanceType = instanceType;
+            o.keyName = keyName;
+            o.metadataOptions = metadataOptions;
+            o.name = name;
+            o.placementTenancy = placementTenancy;
+            o.rootBlockDevices = rootBlockDevices;
+            o.securityGroups = securityGroups;
+            o.spotPrice = spotPrice;
+            o.userData = userData;
+            o.vpcClassicLinkId = vpcClassicLinkId;
+            o.vpcClassicLinkSecurityGroups = vpcClassicLinkSecurityGroups;
+            return o;
         }
     }
 }

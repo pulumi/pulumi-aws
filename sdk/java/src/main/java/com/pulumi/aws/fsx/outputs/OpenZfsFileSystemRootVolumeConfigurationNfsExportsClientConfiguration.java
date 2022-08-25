@@ -14,21 +14,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
      * @return - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
      * 
      */
-    private final String clients;
+    private String clients;
     /**
      * @return -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
      * 
      */
-    private final List<String> options;
+    private List<String> options;
 
-    @CustomType.Constructor
-    private OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(
-        @CustomType.Parameter("clients") String clients,
-        @CustomType.Parameter("options") List<String> options) {
-        this.clients = clients;
-        this.options = options;
-    }
-
+    private OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration() {}
     /**
      * @return - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
      * 
@@ -51,33 +44,35 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
     public static Builder builder(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clients;
         private List<String> options;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clients = defaults.clients;
     	      this.options = defaults.options;
         }
 
+        @CustomType.Setter
         public Builder clients(String clients) {
             this.clients = Objects.requireNonNull(clients);
             return this;
         }
+        @CustomType.Setter
         public Builder options(List<String> options) {
             this.options = Objects.requireNonNull(options);
             return this;
         }
         public Builder options(String... options) {
             return options(List.of(options));
-        }        public OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration build() {
-            return new OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(clients, options);
+        }
+        public OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration build() {
+            final var o = new OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration();
+            o.clients = clients;
+            o.options = options;
+            return o;
         }
     }
 }

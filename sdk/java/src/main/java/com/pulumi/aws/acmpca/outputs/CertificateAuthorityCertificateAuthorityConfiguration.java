@@ -14,28 +14,19 @@ public final class CertificateAuthorityCertificateAuthorityConfiguration {
      * @return Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
      * 
      */
-    private final String keyAlgorithm;
+    private String keyAlgorithm;
     /**
      * @return Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
      * 
      */
-    private final String signingAlgorithm;
+    private String signingAlgorithm;
     /**
      * @return Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
      * 
      */
-    private final CertificateAuthorityCertificateAuthorityConfigurationSubject subject;
+    private CertificateAuthorityCertificateAuthorityConfigurationSubject subject;
 
-    @CustomType.Constructor
-    private CertificateAuthorityCertificateAuthorityConfiguration(
-        @CustomType.Parameter("keyAlgorithm") String keyAlgorithm,
-        @CustomType.Parameter("signingAlgorithm") String signingAlgorithm,
-        @CustomType.Parameter("subject") CertificateAuthorityCertificateAuthorityConfigurationSubject subject) {
-        this.keyAlgorithm = keyAlgorithm;
-        this.signingAlgorithm = signingAlgorithm;
-        this.subject = subject;
-    }
-
+    private CertificateAuthorityCertificateAuthorityConfiguration() {}
     /**
      * @return Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
      * 
@@ -65,16 +56,12 @@ public final class CertificateAuthorityCertificateAuthorityConfiguration {
     public static Builder builder(CertificateAuthorityCertificateAuthorityConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyAlgorithm;
         private String signingAlgorithm;
         private CertificateAuthorityCertificateAuthorityConfigurationSubject subject;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateAuthorityCertificateAuthorityConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyAlgorithm = defaults.keyAlgorithm;
@@ -82,19 +69,27 @@ public final class CertificateAuthorityCertificateAuthorityConfiguration {
     	      this.subject = defaults.subject;
         }
 
+        @CustomType.Setter
         public Builder keyAlgorithm(String keyAlgorithm) {
             this.keyAlgorithm = Objects.requireNonNull(keyAlgorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder signingAlgorithm(String signingAlgorithm) {
             this.signingAlgorithm = Objects.requireNonNull(signingAlgorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder subject(CertificateAuthorityCertificateAuthorityConfigurationSubject subject) {
             this.subject = Objects.requireNonNull(subject);
             return this;
-        }        public CertificateAuthorityCertificateAuthorityConfiguration build() {
-            return new CertificateAuthorityCertificateAuthorityConfiguration(keyAlgorithm, signingAlgorithm, subject);
+        }
+        public CertificateAuthorityCertificateAuthorityConfiguration build() {
+            final var o = new CertificateAuthorityCertificateAuthorityConfiguration();
+            o.keyAlgorithm = keyAlgorithm;
+            o.signingAlgorithm = signingAlgorithm;
+            o.subject = subject;
+            return o;
         }
     }
 }

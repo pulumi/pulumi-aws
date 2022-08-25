@@ -14,7 +14,7 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTuple {
      * @return Specifies where in a web request to look for snippets of malicious SQL code.
      * 
      */
-    private final SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch fieldToMatch;
+    private SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch fieldToMatch;
     /**
      * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
      * If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
@@ -23,16 +23,9 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTuple {
      * for all supported values.
      * 
      */
-    private final String textTransformation;
+    private String textTransformation;
 
-    @CustomType.Constructor
-    private SqlInjectionMatchSetSqlInjectionMatchTuple(
-        @CustomType.Parameter("fieldToMatch") SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch fieldToMatch,
-        @CustomType.Parameter("textTransformation") String textTransformation) {
-        this.fieldToMatch = fieldToMatch;
-        this.textTransformation = textTransformation;
-    }
-
+    private SqlInjectionMatchSetSqlInjectionMatchTuple() {}
     /**
      * @return Specifies where in a web request to look for snippets of malicious SQL code.
      * 
@@ -59,30 +52,32 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTuple {
     public static Builder builder(SqlInjectionMatchSetSqlInjectionMatchTuple defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch fieldToMatch;
         private String textTransformation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlInjectionMatchSetSqlInjectionMatchTuple defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
     	      this.textTransformation = defaults.textTransformation;
         }
 
+        @CustomType.Setter
         public Builder fieldToMatch(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch fieldToMatch) {
             this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
             this.textTransformation = Objects.requireNonNull(textTransformation);
             return this;
-        }        public SqlInjectionMatchSetSqlInjectionMatchTuple build() {
-            return new SqlInjectionMatchSetSqlInjectionMatchTuple(fieldToMatch, textTransformation);
+        }
+        public SqlInjectionMatchSetSqlInjectionMatchTuple build() {
+            final var o = new SqlInjectionMatchSetSqlInjectionMatchTuple();
+            o.fieldToMatch = fieldToMatch;
+            o.textTransformation = textTransformation;
+            return o;
         }
     }
 }

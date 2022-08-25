@@ -16,63 +16,44 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation {
      * @return Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
      * 
      */
-    private final @Nullable String bias;
+    private @Nullable String bias;
     /**
      * @return References to an endpoint.
      * 
      */
-    private final @Nullable String endpointReference;
+    private @Nullable String endpointReference;
     /**
      * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
      * 
      */
-    private final @Nullable Boolean evaluateTargetHealth;
+    private @Nullable Boolean evaluateTargetHealth;
     /**
      * @return If you want to associate a health check with the endpoint or rule.
      * 
      */
-    private final @Nullable String healthCheck;
+    private @Nullable String healthCheck;
     /**
      * @return Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
      * 
      */
-    private final @Nullable String latitude;
+    private @Nullable String latitude;
     /**
      * @return Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
      * 
      */
-    private final @Nullable String longitude;
+    private @Nullable String longitude;
     /**
      * @return Region code for the AWS Region that you created the resource in.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
     /**
      * @return References to a rule.
      * 
      */
-    private final @Nullable String ruleReference;
+    private @Nullable String ruleReference;
 
-    @CustomType.Constructor
-    private GetTrafficPolicyDocumentRuleGeoProximityLocation(
-        @CustomType.Parameter("bias") @Nullable String bias,
-        @CustomType.Parameter("endpointReference") @Nullable String endpointReference,
-        @CustomType.Parameter("evaluateTargetHealth") @Nullable Boolean evaluateTargetHealth,
-        @CustomType.Parameter("healthCheck") @Nullable String healthCheck,
-        @CustomType.Parameter("latitude") @Nullable String latitude,
-        @CustomType.Parameter("longitude") @Nullable String longitude,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("ruleReference") @Nullable String ruleReference) {
-        this.bias = bias;
-        this.endpointReference = endpointReference;
-        this.evaluateTargetHealth = evaluateTargetHealth;
-        this.healthCheck = healthCheck;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.region = region;
-        this.ruleReference = ruleReference;
-    }
-
+    private GetTrafficPolicyDocumentRuleGeoProximityLocation() {}
     /**
      * @return Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
      * 
@@ -137,7 +118,7 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation {
     public static Builder builder(GetTrafficPolicyDocumentRuleGeoProximityLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bias;
         private @Nullable String endpointReference;
@@ -147,11 +128,7 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation {
         private @Nullable String longitude;
         private @Nullable String region;
         private @Nullable String ruleReference;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficPolicyDocumentRuleGeoProximityLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bias = defaults.bias;
@@ -164,39 +141,57 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation {
     	      this.ruleReference = defaults.ruleReference;
         }
 
+        @CustomType.Setter
         public Builder bias(@Nullable String bias) {
             this.bias = bias;
             return this;
         }
+        @CustomType.Setter
         public Builder endpointReference(@Nullable String endpointReference) {
             this.endpointReference = endpointReference;
             return this;
         }
+        @CustomType.Setter
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
             this.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
             this.healthCheck = healthCheck;
             return this;
         }
+        @CustomType.Setter
         public Builder latitude(@Nullable String latitude) {
             this.latitude = latitude;
             return this;
         }
+        @CustomType.Setter
         public Builder longitude(@Nullable String longitude) {
             this.longitude = longitude;
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleReference(@Nullable String ruleReference) {
             this.ruleReference = ruleReference;
             return this;
-        }        public GetTrafficPolicyDocumentRuleGeoProximityLocation build() {
-            return new GetTrafficPolicyDocumentRuleGeoProximityLocation(bias, endpointReference, evaluateTargetHealth, healthCheck, latitude, longitude, region, ruleReference);
+        }
+        public GetTrafficPolicyDocumentRuleGeoProximityLocation build() {
+            final var o = new GetTrafficPolicyDocumentRuleGeoProximityLocation();
+            o.bias = bias;
+            o.endpointReference = endpointReference;
+            o.evaluateTargetHealth = evaluateTargetHealth;
+            o.healthCheck = healthCheck;
+            o.latitude = latitude;
+            o.longitude = longitude;
+            o.region = region;
+            o.ruleReference = ruleReference;
+            return o;
         }
     }
 }

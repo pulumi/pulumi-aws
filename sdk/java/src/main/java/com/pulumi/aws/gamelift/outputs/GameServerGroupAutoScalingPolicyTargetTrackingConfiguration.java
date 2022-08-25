@@ -13,13 +13,9 @@ public final class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
      * @return Desired value to use with a game server group target-based scaling policy.
      * 
      */
-    private final Double targetValue;
+    private Double targetValue;
 
-    @CustomType.Constructor
-    private GameServerGroupAutoScalingPolicyTargetTrackingConfiguration(@CustomType.Parameter("targetValue") Double targetValue) {
-        this.targetValue = targetValue;
-    }
-
+    private GameServerGroupAutoScalingPolicyTargetTrackingConfiguration() {}
     /**
      * @return Desired value to use with a game server group target-based scaling policy.
      * 
@@ -35,24 +31,24 @@ public final class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
     public static Builder builder(GameServerGroupAutoScalingPolicyTargetTrackingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Double targetValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GameServerGroupAutoScalingPolicyTargetTrackingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.targetValue = defaults.targetValue;
         }
 
+        @CustomType.Setter
         public Builder targetValue(Double targetValue) {
             this.targetValue = Objects.requireNonNull(targetValue);
             return this;
-        }        public GameServerGroupAutoScalingPolicyTargetTrackingConfiguration build() {
-            return new GameServerGroupAutoScalingPolicyTargetTrackingConfiguration(targetValue);
+        }
+        public GameServerGroupAutoScalingPolicyTargetTrackingConfiguration build() {
+            final var o = new GameServerGroupAutoScalingPolicyTargetTrackingConfiguration();
+            o.targetValue = targetValue;
+            return o;
         }
     }
 }

@@ -11,17 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOriginRequestPolicyHeadersConfig {
-    private final String headerBehavior;
-    private final List<GetOriginRequestPolicyHeadersConfigHeader> headers;
+    private String headerBehavior;
+    private List<GetOriginRequestPolicyHeadersConfigHeader> headers;
 
-    @CustomType.Constructor
-    private GetOriginRequestPolicyHeadersConfig(
-        @CustomType.Parameter("headerBehavior") String headerBehavior,
-        @CustomType.Parameter("headers") List<GetOriginRequestPolicyHeadersConfigHeader> headers) {
-        this.headerBehavior = headerBehavior;
-        this.headers = headers;
-    }
-
+    private GetOriginRequestPolicyHeadersConfig() {}
     public String headerBehavior() {
         return this.headerBehavior;
     }
@@ -36,33 +29,35 @@ public final class GetOriginRequestPolicyHeadersConfig {
     public static Builder builder(GetOriginRequestPolicyHeadersConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String headerBehavior;
         private List<GetOriginRequestPolicyHeadersConfigHeader> headers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOriginRequestPolicyHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headerBehavior = defaults.headerBehavior;
     	      this.headers = defaults.headers;
         }
 
+        @CustomType.Setter
         public Builder headerBehavior(String headerBehavior) {
             this.headerBehavior = Objects.requireNonNull(headerBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder headers(List<GetOriginRequestPolicyHeadersConfigHeader> headers) {
             this.headers = Objects.requireNonNull(headers);
             return this;
         }
         public Builder headers(GetOriginRequestPolicyHeadersConfigHeader... headers) {
             return headers(List.of(headers));
-        }        public GetOriginRequestPolicyHeadersConfig build() {
-            return new GetOriginRequestPolicyHeadersConfig(headerBehavior, headers);
+        }
+        public GetOriginRequestPolicyHeadersConfig build() {
+            final var o = new GetOriginRequestPolicyHeadersConfig();
+            o.headerBehavior = headerBehavior;
+            o.headers = headers;
+            return o;
         }
     }
 }

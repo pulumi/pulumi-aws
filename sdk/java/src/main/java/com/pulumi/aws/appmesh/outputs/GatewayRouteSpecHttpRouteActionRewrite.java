@@ -16,21 +16,14 @@ public final class GatewayRouteSpecHttpRouteActionRewrite {
      * @return The host name to rewrite.
      * 
      */
-    private final @Nullable GatewayRouteSpecHttpRouteActionRewriteHostname hostname;
+    private @Nullable GatewayRouteSpecHttpRouteActionRewriteHostname hostname;
     /**
      * @return The specified beginning characters to rewrite.
      * 
      */
-    private final @Nullable GatewayRouteSpecHttpRouteActionRewritePrefix prefix;
+    private @Nullable GatewayRouteSpecHttpRouteActionRewritePrefix prefix;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttpRouteActionRewrite(
-        @CustomType.Parameter("hostname") @Nullable GatewayRouteSpecHttpRouteActionRewriteHostname hostname,
-        @CustomType.Parameter("prefix") @Nullable GatewayRouteSpecHttpRouteActionRewritePrefix prefix) {
-        this.hostname = hostname;
-        this.prefix = prefix;
-    }
-
+    private GatewayRouteSpecHttpRouteActionRewrite() {}
     /**
      * @return The host name to rewrite.
      * 
@@ -53,30 +46,32 @@ public final class GatewayRouteSpecHttpRouteActionRewrite {
     public static Builder builder(GatewayRouteSpecHttpRouteActionRewrite defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GatewayRouteSpecHttpRouteActionRewriteHostname hostname;
         private @Nullable GatewayRouteSpecHttpRouteActionRewritePrefix prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttpRouteActionRewrite defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttpRouteActionRewriteHostname hostname) {
             this.hostname = hostname;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable GatewayRouteSpecHttpRouteActionRewritePrefix prefix) {
             this.prefix = prefix;
             return this;
-        }        public GatewayRouteSpecHttpRouteActionRewrite build() {
-            return new GatewayRouteSpecHttpRouteActionRewrite(hostname, prefix);
+        }
+        public GatewayRouteSpecHttpRouteActionRewrite build() {
+            final var o = new GatewayRouteSpecHttpRouteActionRewrite();
+            o.hostname = hostname;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

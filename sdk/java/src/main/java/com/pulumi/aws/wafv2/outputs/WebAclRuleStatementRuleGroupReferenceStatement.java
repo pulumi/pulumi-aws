@@ -16,21 +16,14 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
      * @return The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
      * 
      */
-    private final @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules;
+    private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementRuleGroupReferenceStatement(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("excludedRules") @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules) {
-        this.arn = arn;
-        this.excludedRules = excludedRules;
-    }
-
+    private WebAclRuleStatementRuleGroupReferenceStatement() {}
     /**
      * @return The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
      * 
@@ -53,33 +46,35 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
     public static Builder builder(WebAclRuleStatementRuleGroupReferenceStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementRuleGroupReferenceStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.excludedRules = defaults.excludedRules;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder excludedRules(@Nullable List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules) {
             this.excludedRules = excludedRules;
             return this;
         }
         public Builder excludedRules(WebAclRuleStatementRuleGroupReferenceStatementExcludedRule... excludedRules) {
             return excludedRules(List.of(excludedRules));
-        }        public WebAclRuleStatementRuleGroupReferenceStatement build() {
-            return new WebAclRuleStatementRuleGroupReferenceStatement(arn, excludedRules);
+        }
+        public WebAclRuleStatementRuleGroupReferenceStatement build() {
+            final var o = new WebAclRuleStatementRuleGroupReferenceStatement();
+            o.arn = arn;
+            o.excludedRules = excludedRules;
+            return o;
         }
     }
 }

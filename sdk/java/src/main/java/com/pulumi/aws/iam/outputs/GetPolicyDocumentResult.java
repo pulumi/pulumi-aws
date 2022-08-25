@@ -17,54 +17,33 @@ public final class GetPolicyDocumentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Standard JSON policy document rendered based on the arguments above.
      * 
      */
-    private final String json;
+    private String json;
     /**
      * @deprecated
      * Use the attribute &#34;override_policy_documents&#34; instead.
      * 
      */
     @Deprecated /* Use the attribute ""override_policy_documents"" instead. */
-    private final @Nullable String overrideJson;
-    private final @Nullable List<String> overridePolicyDocuments;
-    private final @Nullable String policyId;
+    private @Nullable String overrideJson;
+    private @Nullable List<String> overridePolicyDocuments;
+    private @Nullable String policyId;
     /**
      * @deprecated
      * Use the attribute &#34;source_policy_documents&#34; instead.
      * 
      */
     @Deprecated /* Use the attribute ""source_policy_documents"" instead. */
-    private final @Nullable String sourceJson;
-    private final @Nullable List<String> sourcePolicyDocuments;
-    private final @Nullable List<GetPolicyDocumentStatement> statements;
-    private final @Nullable String version;
+    private @Nullable String sourceJson;
+    private @Nullable List<String> sourcePolicyDocuments;
+    private @Nullable List<GetPolicyDocumentStatement> statements;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private GetPolicyDocumentResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("json") String json,
-        @CustomType.Parameter("overrideJson") @Nullable String overrideJson,
-        @CustomType.Parameter("overridePolicyDocuments") @Nullable List<String> overridePolicyDocuments,
-        @CustomType.Parameter("policyId") @Nullable String policyId,
-        @CustomType.Parameter("sourceJson") @Nullable String sourceJson,
-        @CustomType.Parameter("sourcePolicyDocuments") @Nullable List<String> sourcePolicyDocuments,
-        @CustomType.Parameter("statements") @Nullable List<GetPolicyDocumentStatement> statements,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.id = id;
-        this.json = json;
-        this.overrideJson = overrideJson;
-        this.overridePolicyDocuments = overridePolicyDocuments;
-        this.policyId = policyId;
-        this.sourceJson = sourceJson;
-        this.sourcePolicyDocuments = sourcePolicyDocuments;
-        this.statements = statements;
-        this.version = version;
-    }
-
+    private GetPolicyDocumentResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -120,7 +99,7 @@ public final class GetPolicyDocumentResult {
     public static Builder builder(GetPolicyDocumentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String json;
@@ -131,11 +110,7 @@ public final class GetPolicyDocumentResult {
         private @Nullable List<String> sourcePolicyDocuments;
         private @Nullable List<GetPolicyDocumentStatement> statements;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyDocumentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -149,18 +124,22 @@ public final class GetPolicyDocumentResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder json(String json) {
             this.json = Objects.requireNonNull(json);
             return this;
         }
+        @CustomType.Setter
         public Builder overrideJson(@Nullable String overrideJson) {
             this.overrideJson = overrideJson;
             return this;
         }
+        @CustomType.Setter
         public Builder overridePolicyDocuments(@Nullable List<String> overridePolicyDocuments) {
             this.overridePolicyDocuments = overridePolicyDocuments;
             return this;
@@ -168,14 +147,17 @@ public final class GetPolicyDocumentResult {
         public Builder overridePolicyDocuments(String... overridePolicyDocuments) {
             return overridePolicyDocuments(List.of(overridePolicyDocuments));
         }
+        @CustomType.Setter
         public Builder policyId(@Nullable String policyId) {
             this.policyId = policyId;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceJson(@Nullable String sourceJson) {
             this.sourceJson = sourceJson;
             return this;
         }
+        @CustomType.Setter
         public Builder sourcePolicyDocuments(@Nullable List<String> sourcePolicyDocuments) {
             this.sourcePolicyDocuments = sourcePolicyDocuments;
             return this;
@@ -183,6 +165,7 @@ public final class GetPolicyDocumentResult {
         public Builder sourcePolicyDocuments(String... sourcePolicyDocuments) {
             return sourcePolicyDocuments(List.of(sourcePolicyDocuments));
         }
+        @CustomType.Setter
         public Builder statements(@Nullable List<GetPolicyDocumentStatement> statements) {
             this.statements = statements;
             return this;
@@ -190,11 +173,23 @@ public final class GetPolicyDocumentResult {
         public Builder statements(GetPolicyDocumentStatement... statements) {
             return statements(List.of(statements));
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public GetPolicyDocumentResult build() {
-            return new GetPolicyDocumentResult(id, json, overrideJson, overridePolicyDocuments, policyId, sourceJson, sourcePolicyDocuments, statements, version);
+        }
+        public GetPolicyDocumentResult build() {
+            final var o = new GetPolicyDocumentResult();
+            o.id = id;
+            o.json = json;
+            o.overrideJson = overrideJson;
+            o.overridePolicyDocuments = overridePolicyDocuments;
+            o.policyId = policyId;
+            o.sourceJson = sourceJson;
+            o.sourcePolicyDocuments = sourcePolicyDocuments;
+            o.statements = statements;
+            o.version = version;
+            return o;
         }
     }
 }

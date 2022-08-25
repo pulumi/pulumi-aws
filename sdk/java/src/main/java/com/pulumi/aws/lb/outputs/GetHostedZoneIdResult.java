@@ -15,20 +15,11 @@ public final class GetHostedZoneIdResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String loadBalancerType;
-    private final @Nullable String region;
+    private String id;
+    private @Nullable String loadBalancerType;
+    private @Nullable String region;
 
-    @CustomType.Constructor
-    private GetHostedZoneIdResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("loadBalancerType") @Nullable String loadBalancerType,
-        @CustomType.Parameter("region") @Nullable String region) {
-        this.id = id;
-        this.loadBalancerType = loadBalancerType;
-        this.region = region;
-    }
-
+    private GetHostedZoneIdResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -50,16 +41,12 @@ public final class GetHostedZoneIdResult {
     public static Builder builder(GetHostedZoneIdResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String loadBalancerType;
         private @Nullable String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetHostedZoneIdResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -67,19 +54,27 @@ public final class GetHostedZoneIdResult {
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancerType(@Nullable String loadBalancerType) {
             this.loadBalancerType = loadBalancerType;
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
-        }        public GetHostedZoneIdResult build() {
-            return new GetHostedZoneIdResult(id, loadBalancerType, region);
+        }
+        public GetHostedZoneIdResult build() {
+            final var o = new GetHostedZoneIdResult();
+            o.id = id;
+            o.loadBalancerType = loadBalancerType;
+            o.region = region;
+            return o;
         }
     }
 }

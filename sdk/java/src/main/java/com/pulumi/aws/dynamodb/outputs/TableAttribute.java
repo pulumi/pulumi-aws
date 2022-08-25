@@ -13,21 +13,14 @@ public final class TableAttribute {
      * @return Name of the index
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private TableAttribute(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.name = name;
-        this.type = type;
-    }
-
+    private TableAttribute() {}
     /**
      * @return Name of the index
      * 
@@ -50,30 +43,32 @@ public final class TableAttribute {
     public static Builder builder(TableAttribute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableAttribute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public TableAttribute build() {
-            return new TableAttribute(name, type);
+        }
+        public TableAttribute build() {
+            final var o = new TableAttribute();
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

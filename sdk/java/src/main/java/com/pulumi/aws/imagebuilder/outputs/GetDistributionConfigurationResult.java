@@ -12,63 +12,44 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationResult {
-    private final String arn;
+    private String arn;
     /**
      * @return Date the distribution configuration was created.
      * 
      */
-    private final String dateCreated;
+    private String dateCreated;
     /**
      * @return Date the distribution configuration was updated.
      * 
      */
-    private final String dateUpdated;
+    private String dateUpdated;
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Set of distributions.
      * 
      */
-    private final List<GetDistributionConfigurationDistribution> distributions;
+    private List<GetDistributionConfigurationDistribution> distributions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Name of the distribution configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Key-value map of resource tags for the distribution configuration.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDistributionConfigurationResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("dateCreated") String dateCreated,
-        @CustomType.Parameter("dateUpdated") String dateUpdated,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("distributions") List<GetDistributionConfigurationDistribution> distributions,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.dateCreated = dateCreated;
-        this.dateUpdated = dateUpdated;
-        this.description = description;
-        this.distributions = distributions;
-        this.id = id;
-        this.name = name;
-        this.tags = tags;
-    }
-
+    private GetDistributionConfigurationResult() {}
     public String arn() {
         return this.arn;
     }
@@ -129,7 +110,7 @@ public final class GetDistributionConfigurationResult {
     public static Builder builder(GetDistributionConfigurationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String dateCreated;
@@ -139,11 +120,7 @@ public final class GetDistributionConfigurationResult {
         private String id;
         private String name;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDistributionConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -156,22 +133,27 @@ public final class GetDistributionConfigurationResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
             this.dateCreated = Objects.requireNonNull(dateCreated);
             return this;
         }
+        @CustomType.Setter
         public Builder dateUpdated(String dateUpdated) {
             this.dateUpdated = Objects.requireNonNull(dateUpdated);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder distributions(List<GetDistributionConfigurationDistribution> distributions) {
             this.distributions = Objects.requireNonNull(distributions);
             return this;
@@ -179,19 +161,32 @@ public final class GetDistributionConfigurationResult {
         public Builder distributions(GetDistributionConfigurationDistribution... distributions) {
             return distributions(List.of(distributions));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetDistributionConfigurationResult build() {
-            return new GetDistributionConfigurationResult(arn, dateCreated, dateUpdated, description, distributions, id, name, tags);
+        }
+        public GetDistributionConfigurationResult build() {
+            final var o = new GetDistributionConfigurationResult();
+            o.arn = arn;
+            o.dateCreated = dateCreated;
+            o.dateUpdated = dateUpdated;
+            o.description = description;
+            o.distributions = distributions;
+            o.id = id;
+            o.name = name;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleHeader {
      * @return The name of the query header to redact. This setting must be provided as lower case characters.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationRedactedFieldSingleHeader(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private WebAclLoggingConfigurationRedactedFieldSingleHeader() {}
     /**
      * @return The name of the query header to redact. This setting must be provided as lower case characters.
      * 
@@ -35,24 +31,24 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleHeader {
     public static Builder builder(WebAclLoggingConfigurationRedactedFieldSingleHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationRedactedFieldSingleHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public WebAclLoggingConfigurationRedactedFieldSingleHeader build() {
-            return new WebAclLoggingConfigurationRedactedFieldSingleHeader(name);
+        }
+        public WebAclLoggingConfigurationRedactedFieldSingleHeader build() {
+            final var o = new WebAclLoggingConfigurationRedactedFieldSingleHeader();
+            o.name = name;
+            return o;
         }
     }
 }

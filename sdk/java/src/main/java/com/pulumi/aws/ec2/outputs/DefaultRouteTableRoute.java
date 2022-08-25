@@ -15,91 +15,64 @@ public final class DefaultRouteTableRoute {
      * @return The CIDR block of the route.
      * 
      */
-    private final @Nullable String cidrBlock;
+    private @Nullable String cidrBlock;
     /**
      * @return The Amazon Resource Name (ARN) of a core network.
      * 
      */
-    private final @Nullable String coreNetworkArn;
+    private @Nullable String coreNetworkArn;
     /**
      * @return The ID of a managed prefix list destination of the route.
      * 
      */
-    private final @Nullable String destinationPrefixListId;
+    private @Nullable String destinationPrefixListId;
     /**
      * @return Identifier of a VPC Egress Only Internet Gateway.
      * 
      */
-    private final @Nullable String egressOnlyGatewayId;
+    private @Nullable String egressOnlyGatewayId;
     /**
      * @return Identifier of a VPC internet gateway or a virtual private gateway.
      * 
      */
-    private final @Nullable String gatewayId;
+    private @Nullable String gatewayId;
     /**
      * @return Identifier of an EC2 instance.
      * 
      */
-    private final @Nullable String instanceId;
+    private @Nullable String instanceId;
     /**
      * @return The Ipv6 CIDR block of the route
      * 
      */
-    private final @Nullable String ipv6CidrBlock;
+    private @Nullable String ipv6CidrBlock;
     /**
      * @return Identifier of a VPC NAT gateway.
      * 
      */
-    private final @Nullable String natGatewayId;
+    private @Nullable String natGatewayId;
     /**
      * @return Identifier of an EC2 network interface.
      * 
      */
-    private final @Nullable String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
     /**
      * @return Identifier of an EC2 Transit Gateway.
      * 
      */
-    private final @Nullable String transitGatewayId;
+    private @Nullable String transitGatewayId;
     /**
      * @return Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
      * 
      */
-    private final @Nullable String vpcEndpointId;
+    private @Nullable String vpcEndpointId;
     /**
      * @return Identifier of a VPC peering connection.
      * 
      */
-    private final @Nullable String vpcPeeringConnectionId;
+    private @Nullable String vpcPeeringConnectionId;
 
-    @CustomType.Constructor
-    private DefaultRouteTableRoute(
-        @CustomType.Parameter("cidrBlock") @Nullable String cidrBlock,
-        @CustomType.Parameter("coreNetworkArn") @Nullable String coreNetworkArn,
-        @CustomType.Parameter("destinationPrefixListId") @Nullable String destinationPrefixListId,
-        @CustomType.Parameter("egressOnlyGatewayId") @Nullable String egressOnlyGatewayId,
-        @CustomType.Parameter("gatewayId") @Nullable String gatewayId,
-        @CustomType.Parameter("instanceId") @Nullable String instanceId,
-        @CustomType.Parameter("ipv6CidrBlock") @Nullable String ipv6CidrBlock,
-        @CustomType.Parameter("natGatewayId") @Nullable String natGatewayId,
-        @CustomType.Parameter("networkInterfaceId") @Nullable String networkInterfaceId,
-        @CustomType.Parameter("transitGatewayId") @Nullable String transitGatewayId,
-        @CustomType.Parameter("vpcEndpointId") @Nullable String vpcEndpointId,
-        @CustomType.Parameter("vpcPeeringConnectionId") @Nullable String vpcPeeringConnectionId) {
-        this.cidrBlock = cidrBlock;
-        this.coreNetworkArn = coreNetworkArn;
-        this.destinationPrefixListId = destinationPrefixListId;
-        this.egressOnlyGatewayId = egressOnlyGatewayId;
-        this.gatewayId = gatewayId;
-        this.instanceId = instanceId;
-        this.ipv6CidrBlock = ipv6CidrBlock;
-        this.natGatewayId = natGatewayId;
-        this.networkInterfaceId = networkInterfaceId;
-        this.transitGatewayId = transitGatewayId;
-        this.vpcEndpointId = vpcEndpointId;
-        this.vpcPeeringConnectionId = vpcPeeringConnectionId;
-    }
-
+    private DefaultRouteTableRoute() {}
     /**
      * @return The CIDR block of the route.
      * 
@@ -192,7 +165,7 @@ public final class DefaultRouteTableRoute {
     public static Builder builder(DefaultRouteTableRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cidrBlock;
         private @Nullable String coreNetworkArn;
@@ -206,11 +179,7 @@ public final class DefaultRouteTableRoute {
         private @Nullable String transitGatewayId;
         private @Nullable String vpcEndpointId;
         private @Nullable String vpcPeeringConnectionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DefaultRouteTableRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidrBlock = defaults.cidrBlock;
@@ -227,55 +196,81 @@ public final class DefaultRouteTableRoute {
     	      this.vpcPeeringConnectionId = defaults.vpcPeeringConnectionId;
         }
 
+        @CustomType.Setter
         public Builder cidrBlock(@Nullable String cidrBlock) {
             this.cidrBlock = cidrBlock;
             return this;
         }
+        @CustomType.Setter
         public Builder coreNetworkArn(@Nullable String coreNetworkArn) {
             this.coreNetworkArn = coreNetworkArn;
             return this;
         }
+        @CustomType.Setter
         public Builder destinationPrefixListId(@Nullable String destinationPrefixListId) {
             this.destinationPrefixListId = destinationPrefixListId;
             return this;
         }
+        @CustomType.Setter
         public Builder egressOnlyGatewayId(@Nullable String egressOnlyGatewayId) {
             this.egressOnlyGatewayId = egressOnlyGatewayId;
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayId(@Nullable String gatewayId) {
             this.gatewayId = gatewayId;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(@Nullable String instanceId) {
             this.instanceId = instanceId;
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6CidrBlock(@Nullable String ipv6CidrBlock) {
             this.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
+        @CustomType.Setter
         public Builder natGatewayId(@Nullable String natGatewayId) {
             this.natGatewayId = natGatewayId;
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayId(@Nullable String transitGatewayId) {
             this.transitGatewayId = transitGatewayId;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
             this.vpcEndpointId = vpcEndpointId;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcPeeringConnectionId(@Nullable String vpcPeeringConnectionId) {
             this.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
-        }        public DefaultRouteTableRoute build() {
-            return new DefaultRouteTableRoute(cidrBlock, coreNetworkArn, destinationPrefixListId, egressOnlyGatewayId, gatewayId, instanceId, ipv6CidrBlock, natGatewayId, networkInterfaceId, transitGatewayId, vpcEndpointId, vpcPeeringConnectionId);
+        }
+        public DefaultRouteTableRoute build() {
+            final var o = new DefaultRouteTableRoute();
+            o.cidrBlock = cidrBlock;
+            o.coreNetworkArn = coreNetworkArn;
+            o.destinationPrefixListId = destinationPrefixListId;
+            o.egressOnlyGatewayId = egressOnlyGatewayId;
+            o.gatewayId = gatewayId;
+            o.instanceId = instanceId;
+            o.ipv6CidrBlock = ipv6CidrBlock;
+            o.natGatewayId = natGatewayId;
+            o.networkInterfaceId = networkInterfaceId;
+            o.transitGatewayId = transitGatewayId;
+            o.vpcEndpointId = vpcEndpointId;
+            o.vpcPeeringConnectionId = vpcPeeringConnectionId;
+            return o;
         }
     }
 }

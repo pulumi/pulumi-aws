@@ -16,21 +16,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehose {
      * @return The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
      * 
      */
-    private final @Nullable String deliveryStream;
+    private @Nullable String deliveryStream;
     /**
      * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private ConnectorLogDeliveryWorkerLogDeliveryFirehose(
-        @CustomType.Parameter("deliveryStream") @Nullable String deliveryStream,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.deliveryStream = deliveryStream;
-        this.enabled = enabled;
-    }
-
+    private ConnectorLogDeliveryWorkerLogDeliveryFirehose() {}
     /**
      * @return The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
      * 
@@ -53,30 +46,32 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehose {
     public static Builder builder(ConnectorLogDeliveryWorkerLogDeliveryFirehose defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deliveryStream;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorLogDeliveryWorkerLogDeliveryFirehose defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deliveryStream = defaults.deliveryStream;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder deliveryStream(@Nullable String deliveryStream) {
             this.deliveryStream = deliveryStream;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public ConnectorLogDeliveryWorkerLogDeliveryFirehose build() {
-            return new ConnectorLogDeliveryWorkerLogDeliveryFirehose(deliveryStream, enabled);
+        }
+        public ConnectorLogDeliveryWorkerLogDeliveryFirehose build() {
+            final var o = new ConnectorLogDeliveryWorkerLogDeliveryFirehose();
+            o.deliveryStream = deliveryStream;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

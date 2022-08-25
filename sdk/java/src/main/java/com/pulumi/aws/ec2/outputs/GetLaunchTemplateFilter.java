@@ -14,21 +14,14 @@ public final class GetLaunchTemplateFilter {
      * @return The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateFilter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private GetLaunchTemplateFilter() {}
     /**
      * @return The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      * 
@@ -51,33 +44,35 @@ public final class GetLaunchTemplateFilter {
     public static Builder builder(GetLaunchTemplateFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetLaunchTemplateFilter build() {
-            return new GetLaunchTemplateFilter(name, values);
+        }
+        public GetLaunchTemplateFilter build() {
+            final var o = new GetLaunchTemplateFilter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

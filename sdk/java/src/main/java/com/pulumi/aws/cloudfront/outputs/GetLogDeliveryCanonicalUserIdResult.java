@@ -15,17 +15,10 @@ public final class GetLogDeliveryCanonicalUserIdResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String region;
+    private String id;
+    private @Nullable String region;
 
-    @CustomType.Constructor
-    private GetLogDeliveryCanonicalUserIdResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("region") @Nullable String region) {
-        this.id = id;
-        this.region = region;
-    }
-
+    private GetLogDeliveryCanonicalUserIdResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -44,30 +37,32 @@ public final class GetLogDeliveryCanonicalUserIdResult {
     public static Builder builder(GetLogDeliveryCanonicalUserIdResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLogDeliveryCanonicalUserIdResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
-        }        public GetLogDeliveryCanonicalUserIdResult build() {
-            return new GetLogDeliveryCanonicalUserIdResult(id, region);
+        }
+        public GetLogDeliveryCanonicalUserIdResult build() {
+            final var o = new GetLogDeliveryCanonicalUserIdResult();
+            o.id = id;
+            o.region = region;
+            return o;
         }
     }
 }

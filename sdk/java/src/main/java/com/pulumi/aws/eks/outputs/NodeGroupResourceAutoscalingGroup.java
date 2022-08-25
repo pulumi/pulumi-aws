@@ -15,13 +15,9 @@ public final class NodeGroupResourceAutoscalingGroup {
      * @return Name of the EC2 Launch Template. Conflicts with `id`.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private NodeGroupResourceAutoscalingGroup(@CustomType.Parameter("name") @Nullable String name) {
-        this.name = name;
-    }
-
+    private NodeGroupResourceAutoscalingGroup() {}
     /**
      * @return Name of the EC2 Launch Template. Conflicts with `id`.
      * 
@@ -37,24 +33,24 @@ public final class NodeGroupResourceAutoscalingGroup {
     public static Builder builder(NodeGroupResourceAutoscalingGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NodeGroupResourceAutoscalingGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public NodeGroupResourceAutoscalingGroup build() {
-            return new NodeGroupResourceAutoscalingGroup(name);
+        }
+        public NodeGroupResourceAutoscalingGroup build() {
+            final var o = new NodeGroupResourceAutoscalingGroup();
+            o.name = name;
+            return o;
         }
     }
 }

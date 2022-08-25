@@ -17,21 +17,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
      * @return Enables or disables data processing.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Array of data processors. More details are given below
      * 
      */
-    private final @Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor> processors;
+    private @Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor> processors;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("processors") @Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor> processors) {
-        this.enabled = enabled;
-        this.processors = processors;
-    }
-
+    private FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration() {}
     /**
      * @return Enables or disables data processing.
      * 
@@ -54,33 +47,35 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
     public static Builder builder(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor> processors;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.processors = defaults.processors;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder processors(@Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor> processors) {
             this.processors = processors;
             return this;
         }
         public Builder processors(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor... processors) {
             return processors(List.of(processors));
-        }        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration build() {
-            return new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration(enabled, processors);
+        }
+        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration build() {
+            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration();
+            o.enabled = enabled;
+            o.processors = processors;
+            return o;
         }
     }
 }

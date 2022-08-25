@@ -16,104 +16,71 @@ public final class GetFaqResult {
      * @return The Amazon Resource Name (ARN) of the FAQ.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The Unix datetime that the faq was created.
      * 
      */
-    private final String createdAt;
+    private String createdAt;
     /**
      * @return The description of the FAQ.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return When the `status` field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    private final String errorMessage;
-    private final String faqId;
+    private String errorMessage;
+    private String faqId;
     /**
      * @return The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
      * 
      */
-    private final String fileFormat;
+    private String fileFormat;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String indexId;
+    private String id;
+    private String indexId;
     /**
      * @return The code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
-    private final String languageCode;
+    private String languageCode;
     /**
      * @return Specifies the name of the FAQ.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The S3 location of the FAQ input data. Detailed below.
      * 
      */
-    private final List<GetFaqS3Path> s3Paths;
+    private List<GetFaqS3Path> s3Paths;
     /**
      * @return The status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Metadata that helps organize the FAQs you create.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The date and time that the FAQ was last updated.
      * 
      */
-    private final String updatedAt;
+    private String updatedAt;
 
-    @CustomType.Constructor
-    private GetFaqResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("createdAt") String createdAt,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("errorMessage") String errorMessage,
-        @CustomType.Parameter("faqId") String faqId,
-        @CustomType.Parameter("fileFormat") String fileFormat,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("indexId") String indexId,
-        @CustomType.Parameter("languageCode") String languageCode,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("s3Paths") List<GetFaqS3Path> s3Paths,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("updatedAt") String updatedAt) {
-        this.arn = arn;
-        this.createdAt = createdAt;
-        this.description = description;
-        this.errorMessage = errorMessage;
-        this.faqId = faqId;
-        this.fileFormat = fileFormat;
-        this.id = id;
-        this.indexId = indexId;
-        this.languageCode = languageCode;
-        this.name = name;
-        this.roleArn = roleArn;
-        this.s3Paths = s3Paths;
-        this.status = status;
-        this.tags = tags;
-        this.updatedAt = updatedAt;
-    }
-
+    private GetFaqResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the FAQ.
      * 
@@ -219,7 +186,7 @@ public final class GetFaqResult {
     public static Builder builder(GetFaqResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String createdAt;
@@ -236,11 +203,7 @@ public final class GetFaqResult {
         private String status;
         private Map<String,String> tags;
         private String updatedAt;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFaqResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -260,50 +223,62 @@ public final class GetFaqResult {
     	      this.updatedAt = defaults.updatedAt;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder createdAt(String createdAt) {
             this.createdAt = Objects.requireNonNull(createdAt);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder errorMessage(String errorMessage) {
             this.errorMessage = Objects.requireNonNull(errorMessage);
             return this;
         }
+        @CustomType.Setter
         public Builder faqId(String faqId) {
             this.faqId = Objects.requireNonNull(faqId);
             return this;
         }
+        @CustomType.Setter
         public Builder fileFormat(String fileFormat) {
             this.fileFormat = Objects.requireNonNull(fileFormat);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder indexId(String indexId) {
             this.indexId = Objects.requireNonNull(indexId);
             return this;
         }
+        @CustomType.Setter
         public Builder languageCode(String languageCode) {
             this.languageCode = Objects.requireNonNull(languageCode);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder s3Paths(List<GetFaqS3Path> s3Paths) {
             this.s3Paths = Objects.requireNonNull(s3Paths);
             return this;
@@ -311,19 +286,39 @@ public final class GetFaqResult {
         public Builder s3Paths(GetFaqS3Path... s3Paths) {
             return s3Paths(List.of(s3Paths));
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
             this.updatedAt = Objects.requireNonNull(updatedAt);
             return this;
-        }        public GetFaqResult build() {
-            return new GetFaqResult(arn, createdAt, description, errorMessage, faqId, fileFormat, id, indexId, languageCode, name, roleArn, s3Paths, status, tags, updatedAt);
+        }
+        public GetFaqResult build() {
+            final var o = new GetFaqResult();
+            o.arn = arn;
+            o.createdAt = createdAt;
+            o.description = description;
+            o.errorMessage = errorMessage;
+            o.faqId = faqId;
+            o.fileFormat = fileFormat;
+            o.id = id;
+            o.indexId = indexId;
+            o.languageCode = languageCode;
+            o.name = name;
+            o.roleArn = roleArn;
+            o.s3Paths = s3Paths;
+            o.status = status;
+            o.tags = tags;
+            o.updatedAt = updatedAt;
+            return o;
         }
     }
 }

@@ -17,21 +17,14 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
      * @return The version of an Automation document to use during task execution.
      * 
      */
-    private final @Nullable String documentVersion;
+    private @Nullable String documentVersion;
     /**
      * @return The parameters for the RUN_COMMAND task execution. Documented below.
      * 
      */
-    private final @Nullable List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter> parameters;
+    private @Nullable List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter> parameters;
 
-    @CustomType.Constructor
-    private MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(
-        @CustomType.Parameter("documentVersion") @Nullable String documentVersion,
-        @CustomType.Parameter("parameters") @Nullable List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter> parameters) {
-        this.documentVersion = documentVersion;
-        this.parameters = parameters;
-    }
-
+    private MaintenanceWindowTaskTaskInvocationParametersAutomationParameters() {}
     /**
      * @return The version of an Automation document to use during task execution.
      * 
@@ -54,33 +47,35 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
     public static Builder builder(MaintenanceWindowTaskTaskInvocationParametersAutomationParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String documentVersion;
         private @Nullable List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceWindowTaskTaskInvocationParametersAutomationParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.documentVersion = defaults.documentVersion;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder documentVersion(@Nullable String documentVersion) {
             this.documentVersion = documentVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter> parameters) {
             this.parameters = parameters;
             return this;
         }
         public Builder parameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter... parameters) {
             return parameters(List.of(parameters));
-        }        public MaintenanceWindowTaskTaskInvocationParametersAutomationParameters build() {
-            return new MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(documentVersion, parameters);
+        }
+        public MaintenanceWindowTaskTaskInvocationParametersAutomationParameters build() {
+            final var o = new MaintenanceWindowTaskTaskInvocationParametersAutomationParameters();
+            o.documentVersion = documentVersion;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class ResolverSyncConfigLambdaConflictHandlerConfig {
      * @return The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
      * 
      */
-    private final @Nullable String lambdaConflictHandlerArn;
+    private @Nullable String lambdaConflictHandlerArn;
 
-    @CustomType.Constructor
-    private ResolverSyncConfigLambdaConflictHandlerConfig(@CustomType.Parameter("lambdaConflictHandlerArn") @Nullable String lambdaConflictHandlerArn) {
-        this.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
-    }
-
+    private ResolverSyncConfigLambdaConflictHandlerConfig() {}
     /**
      * @return The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
      * 
@@ -37,24 +33,24 @@ public final class ResolverSyncConfigLambdaConflictHandlerConfig {
     public static Builder builder(ResolverSyncConfigLambdaConflictHandlerConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String lambdaConflictHandlerArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResolverSyncConfigLambdaConflictHandlerConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lambdaConflictHandlerArn = defaults.lambdaConflictHandlerArn;
         }
 
+        @CustomType.Setter
         public Builder lambdaConflictHandlerArn(@Nullable String lambdaConflictHandlerArn) {
             this.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
             return this;
-        }        public ResolverSyncConfigLambdaConflictHandlerConfig build() {
-            return new ResolverSyncConfigLambdaConflictHandlerConfig(lambdaConflictHandlerArn);
+        }
+        public ResolverSyncConfigLambdaConflictHandlerConfig build() {
+            final var o = new ResolverSyncConfigLambdaConflictHandlerConfig();
+            o.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
+            return o;
         }
     }
 }

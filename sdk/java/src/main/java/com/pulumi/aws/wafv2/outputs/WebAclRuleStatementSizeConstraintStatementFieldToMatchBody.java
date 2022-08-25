@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchBody {
-    @CustomType.Constructor
-    private WebAclRuleStatementSizeConstraintStatementFieldToMatchBody() {
-    }
-
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchBody() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchBody {
     public static Builder builder(WebAclRuleStatementSizeConstraintStatementFieldToMatchBody defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementSizeConstraintStatementFieldToMatchBody defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchBody build() {
-            return new WebAclRuleStatementSizeConstraintStatementFieldToMatchBody();
+            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchBody();
+            return o;
         }
     }
 }

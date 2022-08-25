@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin {
-    private final List<String> items;
+    private List<String> items;
 
-    @CustomType.Constructor
-    private GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin(@CustomType.Parameter("items") List<String> items) {
-        this.items = items;
-    }
-
+    private GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin() {}
     public List<String> items() {
         return this.items;
     }
@@ -28,27 +24,27 @@ public final class GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin {
     public static Builder builder(GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(List<String> items) {
             this.items = Objects.requireNonNull(items);
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin build() {
-            return new GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin(items);
+        }
+        public GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin build() {
+            final var o = new GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin();
+            o.items = items;
+            return o;
         }
     }
 }

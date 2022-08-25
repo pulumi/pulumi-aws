@@ -13,13 +13,9 @@ public final class DataSourceParametersAwsIotAnalytics {
      * @return The name of the data set to which to connect.
      * 
      */
-    private final String dataSetName;
+    private String dataSetName;
 
-    @CustomType.Constructor
-    private DataSourceParametersAwsIotAnalytics(@CustomType.Parameter("dataSetName") String dataSetName) {
-        this.dataSetName = dataSetName;
-    }
-
+    private DataSourceParametersAwsIotAnalytics() {}
     /**
      * @return The name of the data set to which to connect.
      * 
@@ -35,24 +31,24 @@ public final class DataSourceParametersAwsIotAnalytics {
     public static Builder builder(DataSourceParametersAwsIotAnalytics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dataSetName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersAwsIotAnalytics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataSetName = defaults.dataSetName;
         }
 
+        @CustomType.Setter
         public Builder dataSetName(String dataSetName) {
             this.dataSetName = Objects.requireNonNull(dataSetName);
             return this;
-        }        public DataSourceParametersAwsIotAnalytics build() {
-            return new DataSourceParametersAwsIotAnalytics(dataSetName);
+        }
+        public DataSourceParametersAwsIotAnalytics build() {
+            final var o = new DataSourceParametersAwsIotAnalytics();
+            o.dataSetName = dataSetName;
+            return o;
         }
     }
 }

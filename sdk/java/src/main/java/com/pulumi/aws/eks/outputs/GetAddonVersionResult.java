@@ -12,34 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAddonVersionResult {
-    private final String addonName;
+    private String addonName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String kubernetesVersion;
-    private final @Nullable Boolean mostRecent;
+    private String id;
+    private String kubernetesVersion;
+    private @Nullable Boolean mostRecent;
     /**
      * @return The version of the EKS add-on.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private GetAddonVersionResult(
-        @CustomType.Parameter("addonName") String addonName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kubernetesVersion") String kubernetesVersion,
-        @CustomType.Parameter("mostRecent") @Nullable Boolean mostRecent,
-        @CustomType.Parameter("version") String version) {
-        this.addonName = addonName;
-        this.id = id;
-        this.kubernetesVersion = kubernetesVersion;
-        this.mostRecent = mostRecent;
-        this.version = version;
-    }
-
+    private GetAddonVersionResult() {}
     public String addonName() {
         return this.addonName;
     }
@@ -71,18 +58,14 @@ public final class GetAddonVersionResult {
     public static Builder builder(GetAddonVersionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addonName;
         private String id;
         private String kubernetesVersion;
         private @Nullable Boolean mostRecent;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAddonVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addonName = defaults.addonName;
@@ -92,27 +75,39 @@ public final class GetAddonVersionResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder addonName(String addonName) {
             this.addonName = Objects.requireNonNull(addonName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kubernetesVersion(String kubernetesVersion) {
             this.kubernetesVersion = Objects.requireNonNull(kubernetesVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             this.mostRecent = mostRecent;
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetAddonVersionResult build() {
-            return new GetAddonVersionResult(addonName, id, kubernetesVersion, mostRecent, version);
+        }
+        public GetAddonVersionResult build() {
+            final var o = new GetAddonVersionResult();
+            o.addonName = addonName;
+            o.id = id;
+            o.kubernetesVersion = kubernetesVersion;
+            o.mostRecent = mostRecent;
+            o.version = version;
+            return o;
         }
     }
 }

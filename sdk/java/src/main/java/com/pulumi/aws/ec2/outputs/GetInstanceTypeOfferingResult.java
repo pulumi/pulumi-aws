@@ -13,34 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceTypeOfferingResult {
-    private final @Nullable List<GetInstanceTypeOfferingFilter> filters;
+    private @Nullable List<GetInstanceTypeOfferingFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return EC2 Instance Type.
      * 
      */
-    private final String instanceType;
-    private final @Nullable String locationType;
-    private final @Nullable List<String> preferredInstanceTypes;
+    private String instanceType;
+    private @Nullable String locationType;
+    private @Nullable List<String> preferredInstanceTypes;
 
-    @CustomType.Constructor
-    private GetInstanceTypeOfferingResult(
-        @CustomType.Parameter("filters") @Nullable List<GetInstanceTypeOfferingFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("locationType") @Nullable String locationType,
-        @CustomType.Parameter("preferredInstanceTypes") @Nullable List<String> preferredInstanceTypes) {
-        this.filters = filters;
-        this.id = id;
-        this.instanceType = instanceType;
-        this.locationType = locationType;
-        this.preferredInstanceTypes = preferredInstanceTypes;
-    }
-
+    private GetInstanceTypeOfferingResult() {}
     public List<GetInstanceTypeOfferingFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -72,18 +59,14 @@ public final class GetInstanceTypeOfferingResult {
     public static Builder builder(GetInstanceTypeOfferingResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetInstanceTypeOfferingFilter> filters;
         private String id;
         private String instanceType;
         private @Nullable String locationType;
         private @Nullable List<String> preferredInstanceTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypeOfferingResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -93,6 +76,7 @@ public final class GetInstanceTypeOfferingResult {
     	      this.preferredInstanceTypes = defaults.preferredInstanceTypes;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetInstanceTypeOfferingFilter> filters) {
             this.filters = filters;
             return this;
@@ -100,26 +84,37 @@ public final class GetInstanceTypeOfferingResult {
         public Builder filters(GetInstanceTypeOfferingFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder locationType(@Nullable String locationType) {
             this.locationType = locationType;
             return this;
         }
+        @CustomType.Setter
         public Builder preferredInstanceTypes(@Nullable List<String> preferredInstanceTypes) {
             this.preferredInstanceTypes = preferredInstanceTypes;
             return this;
         }
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
-        }        public GetInstanceTypeOfferingResult build() {
-            return new GetInstanceTypeOfferingResult(filters, id, instanceType, locationType, preferredInstanceTypes);
+        }
+        public GetInstanceTypeOfferingResult build() {
+            final var o = new GetInstanceTypeOfferingResult();
+            o.filters = filters;
+            o.id = id;
+            o.instanceType = instanceType;
+            o.locationType = locationType;
+            o.preferredInstanceTypes = preferredInstanceTypes;
+            return o;
         }
     }
 }

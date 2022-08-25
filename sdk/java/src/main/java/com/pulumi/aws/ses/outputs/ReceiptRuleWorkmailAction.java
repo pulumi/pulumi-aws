@@ -16,28 +16,19 @@ public final class ReceiptRuleWorkmailAction {
      * @return The ARN of the WorkMail organization
      * 
      */
-    private final String organizationArn;
+    private String organizationArn;
     /**
      * @return The position of the action in the receipt rule
      * 
      */
-    private final Integer position;
+    private Integer position;
     /**
      * @return The ARN of an SNS topic to notify
      * 
      */
-    private final @Nullable String topicArn;
+    private @Nullable String topicArn;
 
-    @CustomType.Constructor
-    private ReceiptRuleWorkmailAction(
-        @CustomType.Parameter("organizationArn") String organizationArn,
-        @CustomType.Parameter("position") Integer position,
-        @CustomType.Parameter("topicArn") @Nullable String topicArn) {
-        this.organizationArn = organizationArn;
-        this.position = position;
-        this.topicArn = topicArn;
-    }
-
+    private ReceiptRuleWorkmailAction() {}
     /**
      * @return The ARN of the WorkMail organization
      * 
@@ -67,16 +58,12 @@ public final class ReceiptRuleWorkmailAction {
     public static Builder builder(ReceiptRuleWorkmailAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String organizationArn;
         private Integer position;
         private @Nullable String topicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReceiptRuleWorkmailAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.organizationArn = defaults.organizationArn;
@@ -84,19 +71,27 @@ public final class ReceiptRuleWorkmailAction {
     	      this.topicArn = defaults.topicArn;
         }
 
+        @CustomType.Setter
         public Builder organizationArn(String organizationArn) {
             this.organizationArn = Objects.requireNonNull(organizationArn);
             return this;
         }
+        @CustomType.Setter
         public Builder position(Integer position) {
             this.position = Objects.requireNonNull(position);
             return this;
         }
+        @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
             this.topicArn = topicArn;
             return this;
-        }        public ReceiptRuleWorkmailAction build() {
-            return new ReceiptRuleWorkmailAction(organizationArn, position, topicArn);
+        }
+        public ReceiptRuleWorkmailAction build() {
+            final var o = new ReceiptRuleWorkmailAction();
+            o.organizationArn = organizationArn;
+            o.position = position;
+            o.topicArn = topicArn;
+            return o;
         }
     }
 }

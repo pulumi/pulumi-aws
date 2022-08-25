@@ -14,28 +14,19 @@ public final class PatchBaselineSource {
      * @return The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
      * 
      */
-    private final String configuration;
+    private String configuration;
     /**
      * @return The name specified to identify the patch source.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The specific operating system versions a patch repository applies to, such as `&#34;Ubuntu16.04&#34;`, `&#34;AmazonLinux2016.09&#34;`, `&#34;RedhatEnterpriseLinux7.2&#34;` or `&#34;Suse12.7&#34;`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
      * 
      */
-    private final List<String> products;
+    private List<String> products;
 
-    @CustomType.Constructor
-    private PatchBaselineSource(
-        @CustomType.Parameter("configuration") String configuration,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("products") List<String> products) {
-        this.configuration = configuration;
-        this.name = name;
-        this.products = products;
-    }
-
+    private PatchBaselineSource() {}
     /**
      * @return The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
      * 
@@ -65,16 +56,12 @@ public final class PatchBaselineSource {
     public static Builder builder(PatchBaselineSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String configuration;
         private String name;
         private List<String> products;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PatchBaselineSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configuration = defaults.configuration;
@@ -82,22 +69,30 @@ public final class PatchBaselineSource {
     	      this.products = defaults.products;
         }
 
+        @CustomType.Setter
         public Builder configuration(String configuration) {
             this.configuration = Objects.requireNonNull(configuration);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder products(List<String> products) {
             this.products = Objects.requireNonNull(products);
             return this;
         }
         public Builder products(String... products) {
             return products(List.of(products));
-        }        public PatchBaselineSource build() {
-            return new PatchBaselineSource(configuration, name, products);
+        }
+        public PatchBaselineSource build() {
+            final var o = new PatchBaselineSource();
+            o.configuration = configuration;
+            o.name = name;
+            o.products = products;
+            return o;
         }
     }
 }

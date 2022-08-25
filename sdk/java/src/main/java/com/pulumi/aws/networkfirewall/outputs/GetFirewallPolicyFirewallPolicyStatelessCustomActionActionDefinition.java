@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition {
-    private final List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions;
+    private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions;
 
-    @CustomType.Constructor
-    private GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(@CustomType.Parameter("publishMetricActions") List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions) {
-        this.publishMetricActions = publishMetricActions;
-    }
-
+    private GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition() {}
     public List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions() {
         return this.publishMetricActions;
     }
@@ -28,27 +24,27 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDef
     public static Builder builder(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.publishMetricActions = defaults.publishMetricActions;
         }
 
+        @CustomType.Setter
         public Builder publishMetricActions(List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions) {
             this.publishMetricActions = Objects.requireNonNull(publishMetricActions);
             return this;
         }
         public Builder publishMetricActions(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction... publishMetricActions) {
             return publishMetricActions(List.of(publishMetricActions));
-        }        public GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition build() {
-            return new GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(publishMetricActions);
+        }
+        public GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition build() {
+            final var o = new GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition();
+            o.publishMetricActions = publishMetricActions;
+            return o;
         }
     }
 }

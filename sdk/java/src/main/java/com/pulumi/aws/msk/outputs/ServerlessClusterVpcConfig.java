@@ -15,21 +15,14 @@ public final class ServerlessClusterVpcConfig {
      * @return Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
      * 
      */
-    private final @Nullable List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return A list of subnets in at least two different Availability Zones that host your client applications.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
 
-    @CustomType.Constructor
-    private ServerlessClusterVpcConfig(
-        @CustomType.Parameter("securityGroupIds") @Nullable List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-    }
-
+    private ServerlessClusterVpcConfig() {}
     /**
      * @return Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
      * 
@@ -52,21 +45,18 @@ public final class ServerlessClusterVpcConfig {
     public static Builder builder(ServerlessClusterVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> securityGroupIds;
         private List<String> subnetIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerlessClusterVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
             this.securityGroupIds = securityGroupIds;
             return this;
@@ -74,14 +64,19 @@ public final class ServerlessClusterVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
-        }        public ServerlessClusterVpcConfig build() {
-            return new ServerlessClusterVpcConfig(securityGroupIds, subnetIds);
+        }
+        public ServerlessClusterVpcConfig build() {
+            final var o = new ServerlessClusterVpcConfig();
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            return o;
         }
     }
 }

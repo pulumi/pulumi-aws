@@ -18,35 +18,24 @@ public final class RouteSpecHttp2Route {
      * @return The action to take if a match is determined.
      * 
      */
-    private final RouteSpecHttp2RouteAction action;
+    private RouteSpecHttp2RouteAction action;
     /**
      * @return The criteria for determining an gRPC request match.
      * 
      */
-    private final RouteSpecHttp2RouteMatch match;
+    private RouteSpecHttp2RouteMatch match;
     /**
      * @return The retry policy.
      * 
      */
-    private final @Nullable RouteSpecHttp2RouteRetryPolicy retryPolicy;
+    private @Nullable RouteSpecHttp2RouteRetryPolicy retryPolicy;
     /**
      * @return The types of timeouts.
      * 
      */
-    private final @Nullable RouteSpecHttp2RouteTimeout timeout;
+    private @Nullable RouteSpecHttp2RouteTimeout timeout;
 
-    @CustomType.Constructor
-    private RouteSpecHttp2Route(
-        @CustomType.Parameter("action") RouteSpecHttp2RouteAction action,
-        @CustomType.Parameter("match") RouteSpecHttp2RouteMatch match,
-        @CustomType.Parameter("retryPolicy") @Nullable RouteSpecHttp2RouteRetryPolicy retryPolicy,
-        @CustomType.Parameter("timeout") @Nullable RouteSpecHttp2RouteTimeout timeout) {
-        this.action = action;
-        this.match = match;
-        this.retryPolicy = retryPolicy;
-        this.timeout = timeout;
-    }
-
+    private RouteSpecHttp2Route() {}
     /**
      * @return The action to take if a match is determined.
      * 
@@ -83,17 +72,13 @@ public final class RouteSpecHttp2Route {
     public static Builder builder(RouteSpecHttp2Route defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RouteSpecHttp2RouteAction action;
         private RouteSpecHttp2RouteMatch match;
         private @Nullable RouteSpecHttp2RouteRetryPolicy retryPolicy;
         private @Nullable RouteSpecHttp2RouteTimeout timeout;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttp2Route defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -102,23 +87,33 @@ public final class RouteSpecHttp2Route {
     	      this.timeout = defaults.timeout;
         }
 
+        @CustomType.Setter
         public Builder action(RouteSpecHttp2RouteAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder match(RouteSpecHttp2RouteMatch match) {
             this.match = Objects.requireNonNull(match);
             return this;
         }
+        @CustomType.Setter
         public Builder retryPolicy(@Nullable RouteSpecHttp2RouteRetryPolicy retryPolicy) {
             this.retryPolicy = retryPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable RouteSpecHttp2RouteTimeout timeout) {
             this.timeout = timeout;
             return this;
-        }        public RouteSpecHttp2Route build() {
-            return new RouteSpecHttp2Route(action, match, retryPolicy, timeout);
+        }
+        public RouteSpecHttp2Route build() {
+            final var o = new RouteSpecHttp2Route();
+            o.action = action;
+            o.match = match;
+            o.retryPolicy = retryPolicy;
+            o.timeout = timeout;
+            return o;
         }
     }
 }

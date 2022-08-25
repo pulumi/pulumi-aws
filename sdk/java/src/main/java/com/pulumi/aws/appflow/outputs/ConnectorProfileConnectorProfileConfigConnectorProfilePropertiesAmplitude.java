@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude {
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude() {
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude();
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude();
+            return o;
         }
     }
 }

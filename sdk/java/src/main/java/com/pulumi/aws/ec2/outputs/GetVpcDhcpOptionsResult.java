@@ -17,80 +17,55 @@ public final class GetVpcDhcpOptionsResult {
      * @return The ARN of the DHCP Options Set.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return EC2 DHCP Options ID
      * 
      */
-    private final String dhcpOptionsId;
+    private String dhcpOptionsId;
     /**
      * @return The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return List of name servers.
      * 
      */
-    private final List<String> domainNameServers;
-    private final @Nullable List<GetVpcDhcpOptionsFilter> filters;
+    private List<String> domainNameServers;
+    private @Nullable List<GetVpcDhcpOptionsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of NETBIOS name servers.
      * 
      */
-    private final List<String> netbiosNameServers;
+    private List<String> netbiosNameServers;
     /**
      * @return The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
-    private final String netbiosNodeType;
+    private String netbiosNodeType;
     /**
      * @return List of NTP servers.
      * 
      */
-    private final List<String> ntpServers;
+    private List<String> ntpServers;
     /**
      * @return The ID of the AWS account that owns the DHCP options set.
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return A map of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetVpcDhcpOptionsResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("dhcpOptionsId") String dhcpOptionsId,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("domainNameServers") List<String> domainNameServers,
-        @CustomType.Parameter("filters") @Nullable List<GetVpcDhcpOptionsFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("netbiosNameServers") List<String> netbiosNameServers,
-        @CustomType.Parameter("netbiosNodeType") String netbiosNodeType,
-        @CustomType.Parameter("ntpServers") List<String> ntpServers,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.dhcpOptionsId = dhcpOptionsId;
-        this.domainName = domainName;
-        this.domainNameServers = domainNameServers;
-        this.filters = filters;
-        this.id = id;
-        this.netbiosNameServers = netbiosNameServers;
-        this.netbiosNodeType = netbiosNodeType;
-        this.ntpServers = ntpServers;
-        this.ownerId = ownerId;
-        this.tags = tags;
-    }
-
+    private GetVpcDhcpOptionsResult() {}
     /**
      * @return The ARN of the DHCP Options Set.
      * 
@@ -172,7 +147,7 @@ public final class GetVpcDhcpOptionsResult {
     public static Builder builder(GetVpcDhcpOptionsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String dhcpOptionsId;
@@ -185,11 +160,7 @@ public final class GetVpcDhcpOptionsResult {
         private List<String> ntpServers;
         private String ownerId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcDhcpOptionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -205,18 +176,22 @@ public final class GetVpcDhcpOptionsResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder dhcpOptionsId(String dhcpOptionsId) {
             this.dhcpOptionsId = Objects.requireNonNull(dhcpOptionsId);
             return this;
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder domainNameServers(List<String> domainNameServers) {
             this.domainNameServers = Objects.requireNonNull(domainNameServers);
             return this;
@@ -224,6 +199,7 @@ public final class GetVpcDhcpOptionsResult {
         public Builder domainNameServers(String... domainNameServers) {
             return domainNameServers(List.of(domainNameServers));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcDhcpOptionsFilter> filters) {
             this.filters = filters;
             return this;
@@ -231,10 +207,12 @@ public final class GetVpcDhcpOptionsResult {
         public Builder filters(GetVpcDhcpOptionsFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder netbiosNameServers(List<String> netbiosNameServers) {
             this.netbiosNameServers = Objects.requireNonNull(netbiosNameServers);
             return this;
@@ -242,10 +220,12 @@ public final class GetVpcDhcpOptionsResult {
         public Builder netbiosNameServers(String... netbiosNameServers) {
             return netbiosNameServers(List.of(netbiosNameServers));
         }
+        @CustomType.Setter
         public Builder netbiosNodeType(String netbiosNodeType) {
             this.netbiosNodeType = Objects.requireNonNull(netbiosNodeType);
             return this;
         }
+        @CustomType.Setter
         public Builder ntpServers(List<String> ntpServers) {
             this.ntpServers = Objects.requireNonNull(ntpServers);
             return this;
@@ -253,15 +233,30 @@ public final class GetVpcDhcpOptionsResult {
         public Builder ntpServers(String... ntpServers) {
             return ntpServers(List.of(ntpServers));
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetVpcDhcpOptionsResult build() {
-            return new GetVpcDhcpOptionsResult(arn, dhcpOptionsId, domainName, domainNameServers, filters, id, netbiosNameServers, netbiosNodeType, ntpServers, ownerId, tags);
+        }
+        public GetVpcDhcpOptionsResult build() {
+            final var o = new GetVpcDhcpOptionsResult();
+            o.arn = arn;
+            o.dhcpOptionsId = dhcpOptionsId;
+            o.domainName = domainName;
+            o.domainNameServers = domainNameServers;
+            o.filters = filters;
+            o.id = id;
+            o.netbiosNameServers = netbiosNameServers;
+            o.netbiosNodeType = netbiosNodeType;
+            o.ntpServers = ntpServers;
+            o.ownerId = ownerId;
+            o.tags = tags;
+            return o;
         }
     }
 }

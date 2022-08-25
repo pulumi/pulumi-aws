@@ -15,42 +15,29 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirect {
      * @return The host name to use in the redirect request.
      * 
      */
-    private final @Nullable String hostName;
+    private @Nullable String hostName;
     /**
      * @return The HTTP redirect code to use on the response.
      * 
      */
-    private final @Nullable String httpRedirectCode;
+    private @Nullable String httpRedirectCode;
     /**
      * @return Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
     /**
      * @return The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
      * 
      */
-    private final @Nullable String replaceKeyPrefixWith;
+    private @Nullable String replaceKeyPrefixWith;
     /**
      * @return The specific object key to use in the redirect request. For example, redirect request to `error.html`.
      * 
      */
-    private final @Nullable String replaceKeyWith;
+    private @Nullable String replaceKeyWith;
 
-    @CustomType.Constructor
-    private BucketWebsiteConfigurationV2RoutingRuleRedirect(
-        @CustomType.Parameter("hostName") @Nullable String hostName,
-        @CustomType.Parameter("httpRedirectCode") @Nullable String httpRedirectCode,
-        @CustomType.Parameter("protocol") @Nullable String protocol,
-        @CustomType.Parameter("replaceKeyPrefixWith") @Nullable String replaceKeyPrefixWith,
-        @CustomType.Parameter("replaceKeyWith") @Nullable String replaceKeyWith) {
-        this.hostName = hostName;
-        this.httpRedirectCode = httpRedirectCode;
-        this.protocol = protocol;
-        this.replaceKeyPrefixWith = replaceKeyPrefixWith;
-        this.replaceKeyWith = replaceKeyWith;
-    }
-
+    private BucketWebsiteConfigurationV2RoutingRuleRedirect() {}
     /**
      * @return The host name to use in the redirect request.
      * 
@@ -94,18 +81,14 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirect {
     public static Builder builder(BucketWebsiteConfigurationV2RoutingRuleRedirect defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String hostName;
         private @Nullable String httpRedirectCode;
         private @Nullable String protocol;
         private @Nullable String replaceKeyPrefixWith;
         private @Nullable String replaceKeyWith;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketWebsiteConfigurationV2RoutingRuleRedirect defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostName = defaults.hostName;
@@ -115,27 +98,39 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirect {
     	      this.replaceKeyWith = defaults.replaceKeyWith;
         }
 
+        @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
             this.hostName = hostName;
             return this;
         }
+        @CustomType.Setter
         public Builder httpRedirectCode(@Nullable String httpRedirectCode) {
             this.httpRedirectCode = httpRedirectCode;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
         }
+        @CustomType.Setter
         public Builder replaceKeyPrefixWith(@Nullable String replaceKeyPrefixWith) {
             this.replaceKeyPrefixWith = replaceKeyPrefixWith;
             return this;
         }
+        @CustomType.Setter
         public Builder replaceKeyWith(@Nullable String replaceKeyWith) {
             this.replaceKeyWith = replaceKeyWith;
             return this;
-        }        public BucketWebsiteConfigurationV2RoutingRuleRedirect build() {
-            return new BucketWebsiteConfigurationV2RoutingRuleRedirect(hostName, httpRedirectCode, protocol, replaceKeyPrefixWith, replaceKeyWith);
+        }
+        public BucketWebsiteConfigurationV2RoutingRuleRedirect build() {
+            final var o = new BucketWebsiteConfigurationV2RoutingRuleRedirect();
+            o.hostName = hostName;
+            o.httpRedirectCode = httpRedirectCode;
+            o.protocol = protocol;
+            o.replaceKeyPrefixWith = replaceKeyPrefixWith;
+            o.replaceKeyWith = replaceKeyWith;
+            return o;
         }
     }
 }

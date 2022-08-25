@@ -13,30 +13,17 @@ public final class GetLocalDiskResult {
      * @return The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
      * 
      */
-    private final String diskId;
-    private final String diskNode;
-    private final String diskPath;
-    private final String gatewayArn;
+    private String diskId;
+    private String diskNode;
+    private String diskPath;
+    private String gatewayArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetLocalDiskResult(
-        @CustomType.Parameter("diskId") String diskId,
-        @CustomType.Parameter("diskNode") String diskNode,
-        @CustomType.Parameter("diskPath") String diskPath,
-        @CustomType.Parameter("gatewayArn") String gatewayArn,
-        @CustomType.Parameter("id") String id) {
-        this.diskId = diskId;
-        this.diskNode = diskNode;
-        this.diskPath = diskPath;
-        this.gatewayArn = gatewayArn;
-        this.id = id;
-    }
-
+    private GetLocalDiskResult() {}
     /**
      * @return The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
      * 
@@ -68,18 +55,14 @@ public final class GetLocalDiskResult {
     public static Builder builder(GetLocalDiskResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String diskId;
         private String diskNode;
         private String diskPath;
         private String gatewayArn;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLocalDiskResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskId = defaults.diskId;
@@ -89,27 +72,39 @@ public final class GetLocalDiskResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder diskId(String diskId) {
             this.diskId = Objects.requireNonNull(diskId);
             return this;
         }
+        @CustomType.Setter
         public Builder diskNode(String diskNode) {
             this.diskNode = Objects.requireNonNull(diskNode);
             return this;
         }
+        @CustomType.Setter
         public Builder diskPath(String diskPath) {
             this.diskPath = Objects.requireNonNull(diskPath);
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayArn(String gatewayArn) {
             this.gatewayArn = Objects.requireNonNull(gatewayArn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetLocalDiskResult build() {
-            return new GetLocalDiskResult(diskId, diskNode, diskPath, gatewayArn, id);
+        }
+        public GetLocalDiskResult build() {
+            final var o = new GetLocalDiskResult();
+            o.diskId = diskId;
+            o.diskNode = diskNode;
+            o.diskPath = diskPath;
+            o.gatewayArn = gatewayArn;
+            o.id = id;
+            return o;
         }
     }
 }

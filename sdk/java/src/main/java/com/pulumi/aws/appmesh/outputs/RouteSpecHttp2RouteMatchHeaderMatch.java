@@ -16,43 +16,30 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
      * @return The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
      * 
      */
-    private final @Nullable String exact;
+    private @Nullable String exact;
     /**
      * @return The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return The object that specifies the range of numbers that the value sent by the client must be included in.
      * 
      */
-    private final @Nullable RouteSpecHttp2RouteMatchHeaderMatchRange range;
+    private @Nullable RouteSpecHttp2RouteMatchHeaderMatchRange range;
     /**
      * @return The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
      * 
      */
-    private final @Nullable String regex;
+    private @Nullable String regex;
     /**
      * @return The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
      * 
      */
-    private final @Nullable String suffix;
+    private @Nullable String suffix;
 
-    @CustomType.Constructor
-    private RouteSpecHttp2RouteMatchHeaderMatch(
-        @CustomType.Parameter("exact") @Nullable String exact,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("range") @Nullable RouteSpecHttp2RouteMatchHeaderMatchRange range,
-        @CustomType.Parameter("regex") @Nullable String regex,
-        @CustomType.Parameter("suffix") @Nullable String suffix) {
-        this.exact = exact;
-        this.prefix = prefix;
-        this.range = range;
-        this.regex = regex;
-        this.suffix = suffix;
-    }
-
+    private RouteSpecHttp2RouteMatchHeaderMatch() {}
     /**
      * @return The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
      * 
@@ -97,18 +84,14 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
     public static Builder builder(RouteSpecHttp2RouteMatchHeaderMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String exact;
         private @Nullable String prefix;
         private @Nullable RouteSpecHttp2RouteMatchHeaderMatchRange range;
         private @Nullable String regex;
         private @Nullable String suffix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttp2RouteMatchHeaderMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exact = defaults.exact;
@@ -118,27 +101,39 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
     	      this.suffix = defaults.suffix;
         }
 
+        @CustomType.Setter
         public Builder exact(@Nullable String exact) {
             this.exact = exact;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder range(@Nullable RouteSpecHttp2RouteMatchHeaderMatchRange range) {
             this.range = range;
             return this;
         }
+        @CustomType.Setter
         public Builder regex(@Nullable String regex) {
             this.regex = regex;
             return this;
         }
+        @CustomType.Setter
         public Builder suffix(@Nullable String suffix) {
             this.suffix = suffix;
             return this;
-        }        public RouteSpecHttp2RouteMatchHeaderMatch build() {
-            return new RouteSpecHttp2RouteMatchHeaderMatch(exact, prefix, range, regex, suffix);
+        }
+        public RouteSpecHttp2RouteMatchHeaderMatch build() {
+            final var o = new RouteSpecHttp2RouteMatchHeaderMatch();
+            o.exact = exact;
+            o.prefix = prefix;
+            o.range = range;
+            o.regex = regex;
+            o.suffix = suffix;
+            return o;
         }
     }
 }

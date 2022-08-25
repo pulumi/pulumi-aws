@@ -18,32 +18,23 @@ public final class IntentFollowUpPromptPrompt {
      * @return The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
      * 
      */
-    private final Integer maxAttempts;
+    private Integer maxAttempts;
     /**
      * @return A set of messages, each of which provides a message string and its type.
      * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
      * Attributes are documented under message. Must contain between 1 and 15 messages.
      * 
      */
-    private final List<IntentFollowUpPromptPromptMessage> messages;
+    private List<IntentFollowUpPromptPromptMessage> messages;
     /**
      * @return The response card. Amazon Lex will substitute session attributes and
      * slot values into the response card. For more information, see
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
      * 
      */
-    private final @Nullable String responseCard;
+    private @Nullable String responseCard;
 
-    @CustomType.Constructor
-    private IntentFollowUpPromptPrompt(
-        @CustomType.Parameter("maxAttempts") Integer maxAttempts,
-        @CustomType.Parameter("messages") List<IntentFollowUpPromptPromptMessage> messages,
-        @CustomType.Parameter("responseCard") @Nullable String responseCard) {
-        this.maxAttempts = maxAttempts;
-        this.messages = messages;
-        this.responseCard = responseCard;
-    }
-
+    private IntentFollowUpPromptPrompt() {}
     /**
      * @return The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
      * 
@@ -77,16 +68,12 @@ public final class IntentFollowUpPromptPrompt {
     public static Builder builder(IntentFollowUpPromptPrompt defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxAttempts;
         private List<IntentFollowUpPromptPromptMessage> messages;
         private @Nullable String responseCard;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntentFollowUpPromptPrompt defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxAttempts = defaults.maxAttempts;
@@ -94,10 +81,12 @@ public final class IntentFollowUpPromptPrompt {
     	      this.responseCard = defaults.responseCard;
         }
 
+        @CustomType.Setter
         public Builder maxAttempts(Integer maxAttempts) {
             this.maxAttempts = Objects.requireNonNull(maxAttempts);
             return this;
         }
+        @CustomType.Setter
         public Builder messages(List<IntentFollowUpPromptPromptMessage> messages) {
             this.messages = Objects.requireNonNull(messages);
             return this;
@@ -105,11 +94,17 @@ public final class IntentFollowUpPromptPrompt {
         public Builder messages(IntentFollowUpPromptPromptMessage... messages) {
             return messages(List.of(messages));
         }
+        @CustomType.Setter
         public Builder responseCard(@Nullable String responseCard) {
             this.responseCard = responseCard;
             return this;
-        }        public IntentFollowUpPromptPrompt build() {
-            return new IntentFollowUpPromptPrompt(maxAttempts, messages, responseCard);
+        }
+        public IntentFollowUpPromptPrompt build() {
+            final var o = new IntentFollowUpPromptPrompt();
+            o.maxAttempts = maxAttempts;
+            o.messages = messages;
+            o.responseCard = responseCard;
+            return o;
         }
     }
 }

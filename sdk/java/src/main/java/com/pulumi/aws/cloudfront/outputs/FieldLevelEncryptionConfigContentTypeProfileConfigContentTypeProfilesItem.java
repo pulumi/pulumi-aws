@@ -15,28 +15,19 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
      * @return he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
      * 
      */
-    private final String format;
+    private String format;
     /**
      * @return ID of profile to use for field-level encryption query argument-profile mapping
      * 
      */
-    private final @Nullable String profileId;
+    private @Nullable String profileId;
 
-    @CustomType.Constructor
-    private FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("format") String format,
-        @CustomType.Parameter("profileId") @Nullable String profileId) {
-        this.contentType = contentType;
-        this.format = format;
-        this.profileId = profileId;
-    }
-
+    private FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem() {}
     /**
      * @return he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
      * 
@@ -66,16 +57,12 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
     public static Builder builder(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contentType;
         private String format;
         private @Nullable String profileId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
@@ -83,19 +70,27 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
     	      this.profileId = defaults.profileId;
         }
 
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder format(String format) {
             this.format = Objects.requireNonNull(format);
             return this;
         }
+        @CustomType.Setter
         public Builder profileId(@Nullable String profileId) {
             this.profileId = profileId;
             return this;
-        }        public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem build() {
-            return new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(contentType, format, profileId);
+        }
+        public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem build() {
+            final var o = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem();
+            o.contentType = contentType;
+            o.format = format;
+            o.profileId = profileId;
+            return o;
         }
     }
 }

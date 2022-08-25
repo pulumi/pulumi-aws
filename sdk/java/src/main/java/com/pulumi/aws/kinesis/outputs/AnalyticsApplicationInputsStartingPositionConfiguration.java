@@ -15,13 +15,9 @@ public final class AnalyticsApplicationInputsStartingPositionConfiguration {
      * @return The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
      */
-    private final @Nullable String startingPosition;
+    private @Nullable String startingPosition;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationInputsStartingPositionConfiguration(@CustomType.Parameter("startingPosition") @Nullable String startingPosition) {
-        this.startingPosition = startingPosition;
-    }
-
+    private AnalyticsApplicationInputsStartingPositionConfiguration() {}
     /**
      * @return The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
@@ -37,24 +33,24 @@ public final class AnalyticsApplicationInputsStartingPositionConfiguration {
     public static Builder builder(AnalyticsApplicationInputsStartingPositionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String startingPosition;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationInputsStartingPositionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.startingPosition = defaults.startingPosition;
         }
 
+        @CustomType.Setter
         public Builder startingPosition(@Nullable String startingPosition) {
             this.startingPosition = startingPosition;
             return this;
-        }        public AnalyticsApplicationInputsStartingPositionConfiguration build() {
-            return new AnalyticsApplicationInputsStartingPositionConfiguration(startingPosition);
+        }
+        public AnalyticsApplicationInputsStartingPositionConfiguration build() {
+            final var o = new AnalyticsApplicationInputsStartingPositionConfiguration();
+            o.startingPosition = startingPosition;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class BucketIntelligentTieringConfigurationTiering {
      * @return S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
      * 
      */
-    private final String accessTier;
+    private String accessTier;
     /**
      * @return The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
      * 
      */
-    private final Integer days;
+    private Integer days;
 
-    @CustomType.Constructor
-    private BucketIntelligentTieringConfigurationTiering(
-        @CustomType.Parameter("accessTier") String accessTier,
-        @CustomType.Parameter("days") Integer days) {
-        this.accessTier = accessTier;
-        this.days = days;
-    }
-
+    private BucketIntelligentTieringConfigurationTiering() {}
     /**
      * @return S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
      * 
@@ -51,30 +44,32 @@ public final class BucketIntelligentTieringConfigurationTiering {
     public static Builder builder(BucketIntelligentTieringConfigurationTiering defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessTier;
         private Integer days;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketIntelligentTieringConfigurationTiering defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessTier = defaults.accessTier;
     	      this.days = defaults.days;
         }
 
+        @CustomType.Setter
         public Builder accessTier(String accessTier) {
             this.accessTier = Objects.requireNonNull(accessTier);
             return this;
         }
+        @CustomType.Setter
         public Builder days(Integer days) {
             this.days = Objects.requireNonNull(days);
             return this;
-        }        public BucketIntelligentTieringConfigurationTiering build() {
-            return new BucketIntelligentTieringConfigurationTiering(accessTier, days);
+        }
+        public BucketIntelligentTieringConfigurationTiering build() {
+            final var o = new BucketIntelligentTieringConfigurationTiering();
+            o.accessTier = accessTier;
+            o.days = days;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class LifecyclePolicyPolicyDetailsScheduleRetainRule {
      * @return How many snapshots to keep. Must be an integer between `1` and `1000`.
      * 
      */
-    private final @Nullable Integer count;
+    private @Nullable Integer count;
     /**
      * @return The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
     /**
      * @return The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
      * 
      */
-    private final @Nullable String intervalUnit;
+    private @Nullable String intervalUnit;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsScheduleRetainRule(
-        @CustomType.Parameter("count") @Nullable Integer count,
-        @CustomType.Parameter("interval") @Nullable Integer interval,
-        @CustomType.Parameter("intervalUnit") @Nullable String intervalUnit) {
-        this.count = count;
-        this.interval = interval;
-        this.intervalUnit = intervalUnit;
-    }
-
+    private LifecyclePolicyPolicyDetailsScheduleRetainRule() {}
     /**
      * @return How many snapshots to keep. Must be an integer between `1` and `1000`.
      * 
@@ -67,16 +58,12 @@ public final class LifecyclePolicyPolicyDetailsScheduleRetainRule {
     public static Builder builder(LifecyclePolicyPolicyDetailsScheduleRetainRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer count;
         private @Nullable Integer interval;
         private @Nullable String intervalUnit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsScheduleRetainRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -84,19 +71,27 @@ public final class LifecyclePolicyPolicyDetailsScheduleRetainRule {
     	      this.intervalUnit = defaults.intervalUnit;
         }
 
+        @CustomType.Setter
         public Builder count(@Nullable Integer count) {
             this.count = count;
             return this;
         }
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
         }
+        @CustomType.Setter
         public Builder intervalUnit(@Nullable String intervalUnit) {
             this.intervalUnit = intervalUnit;
             return this;
-        }        public LifecyclePolicyPolicyDetailsScheduleRetainRule build() {
-            return new LifecyclePolicyPolicyDetailsScheduleRetainRule(count, interval, intervalUnit);
+        }
+        public LifecyclePolicyPolicyDetailsScheduleRetainRule build() {
+            final var o = new LifecyclePolicyPolicyDetailsScheduleRetainRule();
+            o.count = count;
+            o.interval = interval;
+            o.intervalUnit = intervalUnit;
+            return o;
         }
     }
 }

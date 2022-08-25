@@ -13,28 +13,19 @@ public final class RuleGroupCustomResponseBody {
      * @return The payload of the custom response.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
      * 
      */
-    private final String key;
+    private String key;
 
-    @CustomType.Constructor
-    private RuleGroupCustomResponseBody(
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("key") String key) {
-        this.content = content;
-        this.contentType = contentType;
-        this.key = key;
-    }
-
+    private RuleGroupCustomResponseBody() {}
     /**
      * @return The payload of the custom response.
      * 
@@ -64,16 +55,12 @@ public final class RuleGroupCustomResponseBody {
     public static Builder builder(RuleGroupCustomResponseBody defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String content;
         private String contentType;
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupCustomResponseBody defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
@@ -81,19 +68,27 @@ public final class RuleGroupCustomResponseBody {
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public RuleGroupCustomResponseBody build() {
-            return new RuleGroupCustomResponseBody(content, contentType, key);
+        }
+        public RuleGroupCustomResponseBody build() {
+            final var o = new RuleGroupCustomResponseBody();
+            o.content = content;
+            o.contentType = contentType;
+            o.key = key;
+            return o;
         }
     }
 }

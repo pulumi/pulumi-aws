@@ -15,35 +15,24 @@ public final class AppCustomRule {
      * @return The condition for a URL rewrite or redirect rule, such as a country code.
      * 
      */
-    private final @Nullable String condition;
+    private @Nullable String condition;
     /**
      * @return The source pattern for a URL rewrite or redirect rule.
      * 
      */
-    private final String source;
+    private String source;
     /**
      * @return The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return The target pattern for a URL rewrite or redirect rule.
      * 
      */
-    private final String target;
+    private String target;
 
-    @CustomType.Constructor
-    private AppCustomRule(
-        @CustomType.Parameter("condition") @Nullable String condition,
-        @CustomType.Parameter("source") String source,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("target") String target) {
-        this.condition = condition;
-        this.source = source;
-        this.status = status;
-        this.target = target;
-    }
-
+    private AppCustomRule() {}
     /**
      * @return The condition for a URL rewrite or redirect rule, such as a country code.
      * 
@@ -80,17 +69,13 @@ public final class AppCustomRule {
     public static Builder builder(AppCustomRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String condition;
         private String source;
         private @Nullable String status;
         private String target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppCustomRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.condition = defaults.condition;
@@ -99,23 +84,33 @@ public final class AppCustomRule {
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder condition(@Nullable String condition) {
             this.condition = condition;
             return this;
         }
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder target(String target) {
             this.target = Objects.requireNonNull(target);
             return this;
-        }        public AppCustomRule build() {
-            return new AppCustomRule(condition, source, status, target);
+        }
+        public AppCustomRule build() {
+            final var o = new AppCustomRule();
+            o.condition = condition;
+            o.source = source;
+            o.status = status;
+            o.target = target;
+            return o;
         }
     }
 }

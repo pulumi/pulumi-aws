@@ -13,21 +13,14 @@ public final class DirectoryConfigServiceAccountCredentials {
      * @return User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
      * 
      */
-    private final String accountName;
+    private String accountName;
     /**
      * @return Password for the account.
      * 
      */
-    private final String accountPassword;
+    private String accountPassword;
 
-    @CustomType.Constructor
-    private DirectoryConfigServiceAccountCredentials(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("accountPassword") String accountPassword) {
-        this.accountName = accountName;
-        this.accountPassword = accountPassword;
-    }
-
+    private DirectoryConfigServiceAccountCredentials() {}
     /**
      * @return User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
      * 
@@ -50,30 +43,32 @@ public final class DirectoryConfigServiceAccountCredentials {
     public static Builder builder(DirectoryConfigServiceAccountCredentials defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private String accountPassword;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DirectoryConfigServiceAccountCredentials defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
     	      this.accountPassword = defaults.accountPassword;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder accountPassword(String accountPassword) {
             this.accountPassword = Objects.requireNonNull(accountPassword);
             return this;
-        }        public DirectoryConfigServiceAccountCredentials build() {
-            return new DirectoryConfigServiceAccountCredentials(accountName, accountPassword);
+        }
+        public DirectoryConfigServiceAccountCredentials build() {
+            final var o = new DirectoryConfigServiceAccountCredentials();
+            o.accountName = accountName;
+            o.accountPassword = accountPassword;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class SigningJobDestinationS3 {
      * @return Name of the S3 bucket.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
 
-    @CustomType.Constructor
-    private SigningJobDestinationS3(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("prefix") @Nullable String prefix) {
-        this.bucket = bucket;
-        this.prefix = prefix;
-    }
-
+    private SigningJobDestinationS3() {}
     /**
      * @return Name of the S3 bucket.
      * 
@@ -52,30 +45,32 @@ public final class SigningJobDestinationS3 {
     public static Builder builder(SigningJobDestinationS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private @Nullable String prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SigningJobDestinationS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
-        }        public SigningJobDestinationS3 build() {
-            return new SigningJobDestinationS3(bucket, prefix);
+        }
+        public SigningJobDestinationS3 build() {
+            final var o = new SigningJobDestinationS3();
+            o.bucket = bucket;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

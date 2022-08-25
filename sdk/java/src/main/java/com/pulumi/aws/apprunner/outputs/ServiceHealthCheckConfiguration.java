@@ -16,49 +16,34 @@ public final class ServiceHealthCheckConfiguration {
      * @return The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
      * 
      */
-    private final @Nullable Integer healthyThreshold;
+    private @Nullable Integer healthyThreshold;
     /**
      * @return The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
     /**
      * @return The URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return The IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
     /**
      * @return The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
      * 
      */
-    private final @Nullable Integer timeout;
+    private @Nullable Integer timeout;
     /**
      * @return The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
      * 
      */
-    private final @Nullable Integer unhealthyThreshold;
+    private @Nullable Integer unhealthyThreshold;
 
-    @CustomType.Constructor
-    private ServiceHealthCheckConfiguration(
-        @CustomType.Parameter("healthyThreshold") @Nullable Integer healthyThreshold,
-        @CustomType.Parameter("interval") @Nullable Integer interval,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("protocol") @Nullable String protocol,
-        @CustomType.Parameter("timeout") @Nullable Integer timeout,
-        @CustomType.Parameter("unhealthyThreshold") @Nullable Integer unhealthyThreshold) {
-        this.healthyThreshold = healthyThreshold;
-        this.interval = interval;
-        this.path = path;
-        this.protocol = protocol;
-        this.timeout = timeout;
-        this.unhealthyThreshold = unhealthyThreshold;
-    }
-
+    private ServiceHealthCheckConfiguration() {}
     /**
      * @return The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
      * 
@@ -109,7 +94,7 @@ public final class ServiceHealthCheckConfiguration {
     public static Builder builder(ServiceHealthCheckConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer healthyThreshold;
         private @Nullable Integer interval;
@@ -117,11 +102,7 @@ public final class ServiceHealthCheckConfiguration {
         private @Nullable String protocol;
         private @Nullable Integer timeout;
         private @Nullable Integer unhealthyThreshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceHealthCheckConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.healthyThreshold = defaults.healthyThreshold;
@@ -132,31 +113,45 @@ public final class ServiceHealthCheckConfiguration {
     	      this.unhealthyThreshold = defaults.unhealthyThreshold;
         }
 
+        @CustomType.Setter
         public Builder healthyThreshold(@Nullable Integer healthyThreshold) {
             this.healthyThreshold = healthyThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
             this.timeout = timeout;
             return this;
         }
+        @CustomType.Setter
         public Builder unhealthyThreshold(@Nullable Integer unhealthyThreshold) {
             this.unhealthyThreshold = unhealthyThreshold;
             return this;
-        }        public ServiceHealthCheckConfiguration build() {
-            return new ServiceHealthCheckConfiguration(healthyThreshold, interval, path, protocol, timeout, unhealthyThreshold);
+        }
+        public ServiceHealthCheckConfiguration build() {
+            final var o = new ServiceHealthCheckConfiguration();
+            o.healthyThreshold = healthyThreshold;
+            o.interval = interval;
+            o.path = path;
+            o.protocol = protocol;
+            o.timeout = timeout;
+            o.unhealthyThreshold = unhealthyThreshold;
+            return o;
         }
     }
 }

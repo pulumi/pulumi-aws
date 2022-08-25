@@ -16,21 +16,14 @@ public final class WebAclDefaultAction {
      * @return Specifies that AWS WAF should allow requests by default. See Allow below for details.
      * 
      */
-    private final @Nullable WebAclDefaultActionAllow allow;
+    private @Nullable WebAclDefaultActionAllow allow;
     /**
      * @return Specifies that AWS WAF should block requests by default. See Block below for details.
      * 
      */
-    private final @Nullable WebAclDefaultActionBlock block;
+    private @Nullable WebAclDefaultActionBlock block;
 
-    @CustomType.Constructor
-    private WebAclDefaultAction(
-        @CustomType.Parameter("allow") @Nullable WebAclDefaultActionAllow allow,
-        @CustomType.Parameter("block") @Nullable WebAclDefaultActionBlock block) {
-        this.allow = allow;
-        this.block = block;
-    }
-
+    private WebAclDefaultAction() {}
     /**
      * @return Specifies that AWS WAF should allow requests by default. See Allow below for details.
      * 
@@ -53,30 +46,32 @@ public final class WebAclDefaultAction {
     public static Builder builder(WebAclDefaultAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclDefaultActionAllow allow;
         private @Nullable WebAclDefaultActionBlock block;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclDefaultAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allow = defaults.allow;
     	      this.block = defaults.block;
         }
 
+        @CustomType.Setter
         public Builder allow(@Nullable WebAclDefaultActionAllow allow) {
             this.allow = allow;
             return this;
         }
+        @CustomType.Setter
         public Builder block(@Nullable WebAclDefaultActionBlock block) {
             this.block = block;
             return this;
-        }        public WebAclDefaultAction build() {
-            return new WebAclDefaultAction(allow, block);
+        }
+        public WebAclDefaultAction build() {
+            final var o = new WebAclDefaultAction();
+            o.allow = allow;
+            o.block = block;
+            return o;
         }
     }
 }

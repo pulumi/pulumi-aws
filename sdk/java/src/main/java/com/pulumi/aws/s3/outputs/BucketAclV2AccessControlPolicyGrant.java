@@ -16,21 +16,14 @@ public final class BucketAclV2AccessControlPolicyGrant {
      * @return Configuration block for the person being granted permissions documented below.
      * 
      */
-    private final @Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee;
+    private @Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee;
     /**
      * @return Logging permissions assigned to the grantee for the bucket.
      * 
      */
-    private final String permission;
+    private String permission;
 
-    @CustomType.Constructor
-    private BucketAclV2AccessControlPolicyGrant(
-        @CustomType.Parameter("grantee") @Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee,
-        @CustomType.Parameter("permission") String permission) {
-        this.grantee = grantee;
-        this.permission = permission;
-    }
-
+    private BucketAclV2AccessControlPolicyGrant() {}
     /**
      * @return Configuration block for the person being granted permissions documented below.
      * 
@@ -53,30 +46,32 @@ public final class BucketAclV2AccessControlPolicyGrant {
     public static Builder builder(BucketAclV2AccessControlPolicyGrant defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee;
         private String permission;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketAclV2AccessControlPolicyGrant defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.grantee = defaults.grantee;
     	      this.permission = defaults.permission;
         }
 
+        @CustomType.Setter
         public Builder grantee(@Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee) {
             this.grantee = grantee;
             return this;
         }
+        @CustomType.Setter
         public Builder permission(String permission) {
             this.permission = Objects.requireNonNull(permission);
             return this;
-        }        public BucketAclV2AccessControlPolicyGrant build() {
-            return new BucketAclV2AccessControlPolicyGrant(grantee, permission);
+        }
+        public BucketAclV2AccessControlPolicyGrant build() {
+            final var o = new BucketAclV2AccessControlPolicyGrant();
+            o.grantee = grantee;
+            o.permission = permission;
+            return o;
         }
     }
 }

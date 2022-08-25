@@ -13,29 +13,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackSetInstanceOperationPreferences {
-    private final @Nullable Integer failureToleranceCount;
-    private final @Nullable Integer failureTolerancePercentage;
-    private final @Nullable Integer maxConcurrentCount;
-    private final @Nullable Integer maxConcurrentPercentage;
-    private final @Nullable String regionConcurrencyType;
-    private final @Nullable List<String> regionOrders;
+    private @Nullable Integer failureToleranceCount;
+    private @Nullable Integer failureTolerancePercentage;
+    private @Nullable Integer maxConcurrentCount;
+    private @Nullable Integer maxConcurrentPercentage;
+    private @Nullable String regionConcurrencyType;
+    private @Nullable List<String> regionOrders;
 
-    @CustomType.Constructor
-    private StackSetInstanceOperationPreferences(
-        @CustomType.Parameter("failureToleranceCount") @Nullable Integer failureToleranceCount,
-        @CustomType.Parameter("failureTolerancePercentage") @Nullable Integer failureTolerancePercentage,
-        @CustomType.Parameter("maxConcurrentCount") @Nullable Integer maxConcurrentCount,
-        @CustomType.Parameter("maxConcurrentPercentage") @Nullable Integer maxConcurrentPercentage,
-        @CustomType.Parameter("regionConcurrencyType") @Nullable String regionConcurrencyType,
-        @CustomType.Parameter("regionOrders") @Nullable List<String> regionOrders) {
-        this.failureToleranceCount = failureToleranceCount;
-        this.failureTolerancePercentage = failureTolerancePercentage;
-        this.maxConcurrentCount = maxConcurrentCount;
-        this.maxConcurrentPercentage = maxConcurrentPercentage;
-        this.regionConcurrencyType = regionConcurrencyType;
-        this.regionOrders = regionOrders;
-    }
-
+    private StackSetInstanceOperationPreferences() {}
     public Optional<Integer> failureToleranceCount() {
         return Optional.ofNullable(this.failureToleranceCount);
     }
@@ -62,7 +47,7 @@ public final class StackSetInstanceOperationPreferences {
     public static Builder builder(StackSetInstanceOperationPreferences defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer failureToleranceCount;
         private @Nullable Integer failureTolerancePercentage;
@@ -70,11 +55,7 @@ public final class StackSetInstanceOperationPreferences {
         private @Nullable Integer maxConcurrentPercentage;
         private @Nullable String regionConcurrencyType;
         private @Nullable List<String> regionOrders;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StackSetInstanceOperationPreferences defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.failureToleranceCount = defaults.failureToleranceCount;
@@ -85,34 +66,48 @@ public final class StackSetInstanceOperationPreferences {
     	      this.regionOrders = defaults.regionOrders;
         }
 
+        @CustomType.Setter
         public Builder failureToleranceCount(@Nullable Integer failureToleranceCount) {
             this.failureToleranceCount = failureToleranceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder failureTolerancePercentage(@Nullable Integer failureTolerancePercentage) {
             this.failureTolerancePercentage = failureTolerancePercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder maxConcurrentCount(@Nullable Integer maxConcurrentCount) {
             this.maxConcurrentCount = maxConcurrentCount;
             return this;
         }
+        @CustomType.Setter
         public Builder maxConcurrentPercentage(@Nullable Integer maxConcurrentPercentage) {
             this.maxConcurrentPercentage = maxConcurrentPercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder regionConcurrencyType(@Nullable String regionConcurrencyType) {
             this.regionConcurrencyType = regionConcurrencyType;
             return this;
         }
+        @CustomType.Setter
         public Builder regionOrders(@Nullable List<String> regionOrders) {
             this.regionOrders = regionOrders;
             return this;
         }
         public Builder regionOrders(String... regionOrders) {
             return regionOrders(List.of(regionOrders));
-        }        public StackSetInstanceOperationPreferences build() {
-            return new StackSetInstanceOperationPreferences(failureToleranceCount, failureTolerancePercentage, maxConcurrentCount, maxConcurrentPercentage, regionConcurrencyType, regionOrders);
+        }
+        public StackSetInstanceOperationPreferences build() {
+            final var o = new StackSetInstanceOperationPreferences();
+            o.failureToleranceCount = failureToleranceCount;
+            o.failureTolerancePercentage = failureTolerancePercentage;
+            o.maxConcurrentCount = maxConcurrentCount;
+            o.maxConcurrentPercentage = maxConcurrentPercentage;
+            o.regionConcurrencyType = regionConcurrencyType;
+            o.regionOrders = regionOrders;
+            return o;
         }
     }
 }

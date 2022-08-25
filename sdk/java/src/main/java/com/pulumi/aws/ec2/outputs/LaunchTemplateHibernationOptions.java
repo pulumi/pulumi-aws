@@ -13,13 +13,9 @@ public final class LaunchTemplateHibernationOptions {
      * @return If set to `true`, the launched EC2 instance will hibernation enabled.
      * 
      */
-    private final Boolean configured;
+    private Boolean configured;
 
-    @CustomType.Constructor
-    private LaunchTemplateHibernationOptions(@CustomType.Parameter("configured") Boolean configured) {
-        this.configured = configured;
-    }
-
+    private LaunchTemplateHibernationOptions() {}
     /**
      * @return If set to `true`, the launched EC2 instance will hibernation enabled.
      * 
@@ -35,24 +31,24 @@ public final class LaunchTemplateHibernationOptions {
     public static Builder builder(LaunchTemplateHibernationOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean configured;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateHibernationOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configured = defaults.configured;
         }
 
+        @CustomType.Setter
         public Builder configured(Boolean configured) {
             this.configured = Objects.requireNonNull(configured);
             return this;
-        }        public LaunchTemplateHibernationOptions build() {
-            return new LaunchTemplateHibernationOptions(configured);
+        }
+        public LaunchTemplateHibernationOptions build() {
+            final var o = new LaunchTemplateHibernationOptions();
+            o.configured = configured;
+            return o;
         }
     }
 }

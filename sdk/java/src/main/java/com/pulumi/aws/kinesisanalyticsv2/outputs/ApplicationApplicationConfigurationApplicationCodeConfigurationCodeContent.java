@@ -16,21 +16,14 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
      * @return Information about the Amazon S3 bucket containing the application code.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation s3ContentLocation;
+    private @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation s3ContentLocation;
     /**
      * @return The text-format code for the application.
      * 
      */
-    private final @Nullable String textContent;
+    private @Nullable String textContent;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent(
-        @CustomType.Parameter("s3ContentLocation") @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation s3ContentLocation,
-        @CustomType.Parameter("textContent") @Nullable String textContent) {
-        this.s3ContentLocation = s3ContentLocation;
-        this.textContent = textContent;
-    }
-
+    private ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent() {}
     /**
      * @return Information about the Amazon S3 bucket containing the application code.
      * 
@@ -53,30 +46,32 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     public static Builder builder(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation s3ContentLocation;
         private @Nullable String textContent;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3ContentLocation = defaults.s3ContentLocation;
     	      this.textContent = defaults.textContent;
         }
 
+        @CustomType.Setter
         public Builder s3ContentLocation(@Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation s3ContentLocation) {
             this.s3ContentLocation = s3ContentLocation;
             return this;
         }
+        @CustomType.Setter
         public Builder textContent(@Nullable String textContent) {
             this.textContent = textContent;
             return this;
-        }        public ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent build() {
-            return new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent(s3ContentLocation, textContent);
+        }
+        public ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent build() {
+            final var o = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent();
+            o.s3ContentLocation = s3ContentLocation;
+            o.textContent = textContent;
+            return o;
         }
     }
 }

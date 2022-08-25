@@ -16,28 +16,19 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return The object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
-    private final @Nullable String bucketPrefix;
+    private @Nullable String bucketPrefix;
     /**
      * @return The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig s3OutputFormatConfig;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig s3OutputFormatConfig;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesS3(
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("bucketPrefix") @Nullable String bucketPrefix,
-        @CustomType.Parameter("s3OutputFormatConfig") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig s3OutputFormatConfig) {
-        this.bucketName = bucketName;
-        this.bucketPrefix = bucketPrefix;
-        this.s3OutputFormatConfig = s3OutputFormatConfig;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesS3() {}
     /**
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
@@ -67,16 +58,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketName;
         private @Nullable String bucketPrefix;
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig s3OutputFormatConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -84,19 +71,27 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
     	      this.s3OutputFormatConfig = defaults.s3OutputFormatConfig;
         }
 
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder s3OutputFormatConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig s3OutputFormatConfig) {
             this.s3OutputFormatConfig = s3OutputFormatConfig;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesS3 build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesS3(bucketName, bucketPrefix, s3OutputFormatConfig);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesS3 build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3();
+            o.bucketName = bucketName;
+            o.bucketPrefix = bucketPrefix;
+            o.s3OutputFormatConfig = s3OutputFormatConfig;
+            return o;
         }
     }
 }

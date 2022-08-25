@@ -15,28 +15,19 @@ public final class UserHierarchyStructureHierarchyStructureLevelTwo {
      * @return The Amazon Resource Name (ARN) of the hierarchy level.
      * 
      */
-    private final @Nullable String arn;
+    private @Nullable String arn;
     /**
      * @return The identifier of the hierarchy level.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the user hierarchy level. Must not be more than 50 characters.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private UserHierarchyStructureHierarchyStructureLevelTwo(
-        @CustomType.Parameter("arn") @Nullable String arn,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-    }
-
+    private UserHierarchyStructureHierarchyStructureLevelTwo() {}
     /**
      * @return The Amazon Resource Name (ARN) of the hierarchy level.
      * 
@@ -66,16 +57,12 @@ public final class UserHierarchyStructureHierarchyStructureLevelTwo {
     public static Builder builder(UserHierarchyStructureHierarchyStructureLevelTwo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
         private @Nullable String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserHierarchyStructureHierarchyStructureLevelTwo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -83,19 +70,27 @@ public final class UserHierarchyStructureHierarchyStructureLevelTwo {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(@Nullable String arn) {
             this.arn = arn;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public UserHierarchyStructureHierarchyStructureLevelTwo build() {
-            return new UserHierarchyStructureHierarchyStructureLevelTwo(arn, id, name);
+        }
+        public UserHierarchyStructureHierarchyStructureLevelTwo build() {
+            final var o = new UserHierarchyStructureHierarchyStructureLevelTwo();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

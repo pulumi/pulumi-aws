@@ -17,21 +17,14 @@ public final class AnalyticsApplicationInputsSchemaRecordFormat {
      * See Mapping Parameters below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParameters mappingParameters;
+    private @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParameters mappingParameters;
     /**
      * @return The type of Record Format. Can be `CSV` or `JSON`.
      * 
      */
-    private final @Nullable String recordFormatType;
+    private @Nullable String recordFormatType;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationInputsSchemaRecordFormat(
-        @CustomType.Parameter("mappingParameters") @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParameters mappingParameters,
-        @CustomType.Parameter("recordFormatType") @Nullable String recordFormatType) {
-        this.mappingParameters = mappingParameters;
-        this.recordFormatType = recordFormatType;
-    }
-
+    private AnalyticsApplicationInputsSchemaRecordFormat() {}
     /**
      * @return The Mapping Information for the record format.
      * See Mapping Parameters below for more details.
@@ -55,30 +48,32 @@ public final class AnalyticsApplicationInputsSchemaRecordFormat {
     public static Builder builder(AnalyticsApplicationInputsSchemaRecordFormat defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParameters mappingParameters;
         private @Nullable String recordFormatType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationInputsSchemaRecordFormat defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mappingParameters = defaults.mappingParameters;
     	      this.recordFormatType = defaults.recordFormatType;
         }
 
+        @CustomType.Setter
         public Builder mappingParameters(@Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParameters mappingParameters) {
             this.mappingParameters = mappingParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder recordFormatType(@Nullable String recordFormatType) {
             this.recordFormatType = recordFormatType;
             return this;
-        }        public AnalyticsApplicationInputsSchemaRecordFormat build() {
-            return new AnalyticsApplicationInputsSchemaRecordFormat(mappingParameters, recordFormatType);
+        }
+        public AnalyticsApplicationInputsSchemaRecordFormat build() {
+            final var o = new AnalyticsApplicationInputsSchemaRecordFormat();
+            o.mappingParameters = mappingParameters;
+            o.recordFormatType = recordFormatType;
+            return o;
         }
     }
 }

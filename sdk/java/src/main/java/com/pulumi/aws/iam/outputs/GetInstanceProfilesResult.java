@@ -14,38 +14,25 @@ public final class GetInstanceProfilesResult {
      * @return Set of Amazon Resource Name (ARN) specifying the instance profile.
      * 
      */
-    private final List<String> arns;
+    private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of IAM instance profile names.
      * 
      */
-    private final List<String> names;
+    private List<String> names;
     /**
      * @return Set of IAM instance profile paths.
      * 
      */
-    private final List<String> paths;
-    private final String roleName;
+    private List<String> paths;
+    private String roleName;
 
-    @CustomType.Constructor
-    private GetInstanceProfilesResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("names") List<String> names,
-        @CustomType.Parameter("paths") List<String> paths,
-        @CustomType.Parameter("roleName") String roleName) {
-        this.arns = arns;
-        this.id = id;
-        this.names = names;
-        this.paths = paths;
-        this.roleName = roleName;
-    }
-
+    private GetInstanceProfilesResult() {}
     /**
      * @return Set of Amazon Resource Name (ARN) specifying the instance profile.
      * 
@@ -85,18 +72,14 @@ public final class GetInstanceProfilesResult {
     public static Builder builder(GetInstanceProfilesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private String id;
         private List<String> names;
         private List<String> paths;
         private String roleName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceProfilesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -106,6 +89,7 @@ public final class GetInstanceProfilesResult {
     	      this.roleName = defaults.roleName;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -113,10 +97,12 @@ public final class GetInstanceProfilesResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder names(List<String> names) {
             this.names = Objects.requireNonNull(names);
             return this;
@@ -124,6 +110,7 @@ public final class GetInstanceProfilesResult {
         public Builder names(String... names) {
             return names(List.of(names));
         }
+        @CustomType.Setter
         public Builder paths(List<String> paths) {
             this.paths = Objects.requireNonNull(paths);
             return this;
@@ -131,11 +118,19 @@ public final class GetInstanceProfilesResult {
         public Builder paths(String... paths) {
             return paths(List.of(paths));
         }
+        @CustomType.Setter
         public Builder roleName(String roleName) {
             this.roleName = Objects.requireNonNull(roleName);
             return this;
-        }        public GetInstanceProfilesResult build() {
-            return new GetInstanceProfilesResult(arns, id, names, paths, roleName);
+        }
+        public GetInstanceProfilesResult build() {
+            final var o = new GetInstanceProfilesResult();
+            o.arns = arns;
+            o.id = id;
+            o.names = names;
+            o.paths = paths;
+            o.roleName = roleName;
+            return o;
         }
     }
 }

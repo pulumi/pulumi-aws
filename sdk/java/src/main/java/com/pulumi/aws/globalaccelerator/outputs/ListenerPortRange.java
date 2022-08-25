@@ -15,21 +15,14 @@ public final class ListenerPortRange {
      * @return The first port in the range of ports, inclusive.
      * 
      */
-    private final @Nullable Integer fromPort;
+    private @Nullable Integer fromPort;
     /**
      * @return The last port in the range of ports, inclusive.
      * 
      */
-    private final @Nullable Integer toPort;
+    private @Nullable Integer toPort;
 
-    @CustomType.Constructor
-    private ListenerPortRange(
-        @CustomType.Parameter("fromPort") @Nullable Integer fromPort,
-        @CustomType.Parameter("toPort") @Nullable Integer toPort) {
-        this.fromPort = fromPort;
-        this.toPort = toPort;
-    }
-
+    private ListenerPortRange() {}
     /**
      * @return The first port in the range of ports, inclusive.
      * 
@@ -52,30 +45,32 @@ public final class ListenerPortRange {
     public static Builder builder(ListenerPortRange defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer fromPort;
         private @Nullable Integer toPort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerPortRange defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fromPort = defaults.fromPort;
     	      this.toPort = defaults.toPort;
         }
 
+        @CustomType.Setter
         public Builder fromPort(@Nullable Integer fromPort) {
             this.fromPort = fromPort;
             return this;
         }
+        @CustomType.Setter
         public Builder toPort(@Nullable Integer toPort) {
             this.toPort = toPort;
             return this;
-        }        public ListenerPortRange build() {
-            return new ListenerPortRange(fromPort, toPort);
+        }
+        public ListenerPortRange build() {
+            final var o = new ListenerPortRange();
+            o.fromPort = fromPort;
+            o.toPort = toPort;
+            return o;
         }
     }
 }

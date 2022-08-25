@@ -15,28 +15,19 @@ public final class TopicRuleErrorActionIotEvents {
      * @return The name of the AWS IoT Events input.
      * 
      */
-    private final String inputName;
+    private String inputName;
     /**
      * @return Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
      * 
      */
-    private final @Nullable String messageId;
+    private @Nullable String messageId;
     /**
      * @return The ARN of the IAM role that grants access.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionIotEvents(
-        @CustomType.Parameter("inputName") String inputName,
-        @CustomType.Parameter("messageId") @Nullable String messageId,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.inputName = inputName;
-        this.messageId = messageId;
-        this.roleArn = roleArn;
-    }
-
+    private TopicRuleErrorActionIotEvents() {}
     /**
      * @return The name of the AWS IoT Events input.
      * 
@@ -66,16 +57,12 @@ public final class TopicRuleErrorActionIotEvents {
     public static Builder builder(TopicRuleErrorActionIotEvents defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String inputName;
         private @Nullable String messageId;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionIotEvents defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inputName = defaults.inputName;
@@ -83,19 +70,27 @@ public final class TopicRuleErrorActionIotEvents {
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder inputName(String inputName) {
             this.inputName = Objects.requireNonNull(inputName);
             return this;
         }
+        @CustomType.Setter
         public Builder messageId(@Nullable String messageId) {
             this.messageId = messageId;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public TopicRuleErrorActionIotEvents build() {
-            return new TopicRuleErrorActionIotEvents(inputName, messageId, roleArn);
+        }
+        public TopicRuleErrorActionIotEvents build() {
+            final var o = new TopicRuleErrorActionIotEvents();
+            o.inputName = inputName;
+            o.messageId = messageId;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

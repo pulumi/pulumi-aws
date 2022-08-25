@@ -15,13 +15,9 @@ public final class FeatureGroupOnlineStoreConfigSecurityConfig {
      * @return The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
 
-    @CustomType.Constructor
-    private FeatureGroupOnlineStoreConfigSecurityConfig(@CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId) {
-        this.kmsKeyId = kmsKeyId;
-    }
-
+    private FeatureGroupOnlineStoreConfigSecurityConfig() {}
     /**
      * @return The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
      * 
@@ -37,24 +33,24 @@ public final class FeatureGroupOnlineStoreConfigSecurityConfig {
     public static Builder builder(FeatureGroupOnlineStoreConfigSecurityConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeatureGroupOnlineStoreConfigSecurityConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
-        }        public FeatureGroupOnlineStoreConfigSecurityConfig build() {
-            return new FeatureGroupOnlineStoreConfigSecurityConfig(kmsKeyId);
+        }
+        public FeatureGroupOnlineStoreConfigSecurityConfig build() {
+            final var o = new FeatureGroupOnlineStoreConfigSecurityConfig();
+            o.kmsKeyId = kmsKeyId;
+            return o;
         }
     }
 }

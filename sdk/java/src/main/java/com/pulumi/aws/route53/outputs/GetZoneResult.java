@@ -19,78 +19,49 @@ public final class GetZoneResult {
      * @return The Amazon Resource Name (ARN) of the Hosted Zone.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Caller Reference of the Hosted Zone.
      * 
      */
-    private final String callerReference;
+    private String callerReference;
     /**
      * @return The comment field of the Hosted Zone.
      * 
      */
-    private final String comment;
+    private String comment;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
      * 
      */
-    private final String linkedServiceDescription;
+    private String linkedServiceDescription;
     /**
      * @return The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
      * 
      */
-    private final String linkedServicePrincipal;
-    private final String name;
+    private String linkedServicePrincipal;
+    private String name;
     /**
      * @return The list of DNS name servers for the Hosted Zone.
      * 
      */
-    private final List<String> nameServers;
-    private final @Nullable Boolean privateZone;
+    private List<String> nameServers;
+    private @Nullable Boolean privateZone;
     /**
      * @return The number of Record Set in the Hosted Zone.
      * 
      */
-    private final Integer resourceRecordSetCount;
-    private final Map<String,String> tags;
-    private final String vpcId;
-    private final String zoneId;
+    private Integer resourceRecordSetCount;
+    private Map<String,String> tags;
+    private String vpcId;
+    private String zoneId;
 
-    @CustomType.Constructor
-    private GetZoneResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("callerReference") String callerReference,
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("linkedServiceDescription") String linkedServiceDescription,
-        @CustomType.Parameter("linkedServicePrincipal") String linkedServicePrincipal,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nameServers") List<String> nameServers,
-        @CustomType.Parameter("privateZone") @Nullable Boolean privateZone,
-        @CustomType.Parameter("resourceRecordSetCount") Integer resourceRecordSetCount,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId,
-        @CustomType.Parameter("zoneId") String zoneId) {
-        this.arn = arn;
-        this.callerReference = callerReference;
-        this.comment = comment;
-        this.id = id;
-        this.linkedServiceDescription = linkedServiceDescription;
-        this.linkedServicePrincipal = linkedServicePrincipal;
-        this.name = name;
-        this.nameServers = nameServers;
-        this.privateZone = privateZone;
-        this.resourceRecordSetCount = resourceRecordSetCount;
-        this.tags = tags;
-        this.vpcId = vpcId;
-        this.zoneId = zoneId;
-    }
-
+    private GetZoneResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Hosted Zone.
      * 
@@ -170,7 +141,7 @@ public final class GetZoneResult {
     public static Builder builder(GetZoneResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String callerReference;
@@ -185,11 +156,7 @@ public final class GetZoneResult {
         private Map<String,String> tags;
         private String vpcId;
         private String zoneId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetZoneResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -207,34 +174,42 @@ public final class GetZoneResult {
     	      this.zoneId = defaults.zoneId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder callerReference(String callerReference) {
             this.callerReference = Objects.requireNonNull(callerReference);
             return this;
         }
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder linkedServiceDescription(String linkedServiceDescription) {
             this.linkedServiceDescription = Objects.requireNonNull(linkedServiceDescription);
             return this;
         }
+        @CustomType.Setter
         public Builder linkedServicePrincipal(String linkedServicePrincipal) {
             this.linkedServicePrincipal = Objects.requireNonNull(linkedServicePrincipal);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nameServers(List<String> nameServers) {
             this.nameServers = Objects.requireNonNull(nameServers);
             return this;
@@ -242,27 +217,47 @@ public final class GetZoneResult {
         public Builder nameServers(String... nameServers) {
             return nameServers(List.of(nameServers));
         }
+        @CustomType.Setter
         public Builder privateZone(@Nullable Boolean privateZone) {
             this.privateZone = privateZone;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceRecordSetCount(Integer resourceRecordSetCount) {
             this.resourceRecordSetCount = Objects.requireNonNull(resourceRecordSetCount);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneId(String zoneId) {
             this.zoneId = Objects.requireNonNull(zoneId);
             return this;
-        }        public GetZoneResult build() {
-            return new GetZoneResult(arn, callerReference, comment, id, linkedServiceDescription, linkedServicePrincipal, name, nameServers, privateZone, resourceRecordSetCount, tags, vpcId, zoneId);
+        }
+        public GetZoneResult build() {
+            final var o = new GetZoneResult();
+            o.arn = arn;
+            o.callerReference = callerReference;
+            o.comment = comment;
+            o.id = id;
+            o.linkedServiceDescription = linkedServiceDescription;
+            o.linkedServicePrincipal = linkedServicePrincipal;
+            o.name = name;
+            o.nameServers = nameServers;
+            o.privateZone = privateZone;
+            o.resourceRecordSetCount = resourceRecordSetCount;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            o.zoneId = zoneId;
+            return o;
         }
     }
 }

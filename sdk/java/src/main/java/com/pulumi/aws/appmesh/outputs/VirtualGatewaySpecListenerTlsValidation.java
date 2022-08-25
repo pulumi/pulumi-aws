@@ -16,21 +16,14 @@ public final class VirtualGatewaySpecListenerTlsValidation {
      * @return The SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames;
+    private @Nullable VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames;
     /**
      * @return The TLS validation context trust.
      * 
      */
-    private final VirtualGatewaySpecListenerTlsValidationTrust trust;
+    private VirtualGatewaySpecListenerTlsValidationTrust trust;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerTlsValidation(
-        @CustomType.Parameter("subjectAlternativeNames") @Nullable VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames,
-        @CustomType.Parameter("trust") VirtualGatewaySpecListenerTlsValidationTrust trust) {
-        this.subjectAlternativeNames = subjectAlternativeNames;
-        this.trust = trust;
-    }
-
+    private VirtualGatewaySpecListenerTlsValidation() {}
     /**
      * @return The SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
      * 
@@ -53,30 +46,32 @@ public final class VirtualGatewaySpecListenerTlsValidation {
     public static Builder builder(VirtualGatewaySpecListenerTlsValidation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames;
         private VirtualGatewaySpecListenerTlsValidationTrust trust;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerTlsValidation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subjectAlternativeNames = defaults.subjectAlternativeNames;
     	      this.trust = defaults.trust;
         }
 
+        @CustomType.Setter
         public Builder subjectAlternativeNames(@Nullable VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames) {
             this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
+        @CustomType.Setter
         public Builder trust(VirtualGatewaySpecListenerTlsValidationTrust trust) {
             this.trust = Objects.requireNonNull(trust);
             return this;
-        }        public VirtualGatewaySpecListenerTlsValidation build() {
-            return new VirtualGatewaySpecListenerTlsValidation(subjectAlternativeNames, trust);
+        }
+        public VirtualGatewaySpecListenerTlsValidation build() {
+            final var o = new VirtualGatewaySpecListenerTlsValidation();
+            o.subjectAlternativeNames = subjectAlternativeNames;
+            o.trust = trust;
+            return o;
         }
     }
 }

@@ -13,17 +13,10 @@ public final class GetRuleResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
 
-    @CustomType.Constructor
-    private GetRuleResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetRuleResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -42,30 +35,32 @@ public final class GetRuleResult {
     public static Builder builder(GetRuleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetRuleResult build() {
-            return new GetRuleResult(id, name);
+        }
+        public GetRuleResult build() {
+            final var o = new GetRuleResult();
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

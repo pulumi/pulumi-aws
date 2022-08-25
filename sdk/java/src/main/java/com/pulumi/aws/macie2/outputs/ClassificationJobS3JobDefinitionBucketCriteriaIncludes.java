@@ -15,13 +15,9 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
      * @return An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
      * 
      */
-    private final @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd> ands;
+    private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd> ands;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionBucketCriteriaIncludes(@CustomType.Parameter("ands") @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd> ands) {
-        this.ands = ands;
-    }
-
+    private ClassificationJobS3JobDefinitionBucketCriteriaIncludes() {}
     /**
      * @return An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
      * 
@@ -37,27 +33,27 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
     public static Builder builder(ClassificationJobS3JobDefinitionBucketCriteriaIncludes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd> ands;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionBucketCriteriaIncludes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ands = defaults.ands;
         }
 
+        @CustomType.Setter
         public Builder ands(@Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd> ands) {
             this.ands = ands;
             return this;
         }
         public Builder ands(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd... ands) {
             return ands(List.of(ands));
-        }        public ClassificationJobS3JobDefinitionBucketCriteriaIncludes build() {
-            return new ClassificationJobS3JobDefinitionBucketCriteriaIncludes(ands);
+        }
+        public ClassificationJobS3JobDefinitionBucketCriteriaIncludes build() {
+            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaIncludes();
+            o.ands = ands;
+            return o;
         }
     }
 }

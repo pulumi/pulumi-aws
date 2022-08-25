@@ -15,28 +15,19 @@ public final class VpnConnectionRoute {
      * @return The CIDR block associated with the local subnet of the customer data center.
      * 
      */
-    private final @Nullable String destinationCidrBlock;
+    private @Nullable String destinationCidrBlock;
     /**
      * @return Indicates how the routes were provided.
      * 
      */
-    private final @Nullable String source;
+    private @Nullable String source;
     /**
      * @return The current state of the static route.
      * 
      */
-    private final @Nullable String state;
+    private @Nullable String state;
 
-    @CustomType.Constructor
-    private VpnConnectionRoute(
-        @CustomType.Parameter("destinationCidrBlock") @Nullable String destinationCidrBlock,
-        @CustomType.Parameter("source") @Nullable String source,
-        @CustomType.Parameter("state") @Nullable String state) {
-        this.destinationCidrBlock = destinationCidrBlock;
-        this.source = source;
-        this.state = state;
-    }
-
+    private VpnConnectionRoute() {}
     /**
      * @return The CIDR block associated with the local subnet of the customer data center.
      * 
@@ -66,16 +57,12 @@ public final class VpnConnectionRoute {
     public static Builder builder(VpnConnectionRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String destinationCidrBlock;
         private @Nullable String source;
         private @Nullable String state;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnConnectionRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationCidrBlock = defaults.destinationCidrBlock;
@@ -83,19 +70,27 @@ public final class VpnConnectionRoute {
     	      this.state = defaults.state;
         }
 
+        @CustomType.Setter
         public Builder destinationCidrBlock(@Nullable String destinationCidrBlock) {
             this.destinationCidrBlock = destinationCidrBlock;
             return this;
         }
+        @CustomType.Setter
         public Builder source(@Nullable String source) {
             this.source = source;
             return this;
         }
+        @CustomType.Setter
         public Builder state(@Nullable String state) {
             this.state = state;
             return this;
-        }        public VpnConnectionRoute build() {
-            return new VpnConnectionRoute(destinationCidrBlock, source, state);
+        }
+        public VpnConnectionRoute build() {
+            final var o = new VpnConnectionRoute();
+            o.destinationCidrBlock = destinationCidrBlock;
+            o.source = source;
+            o.state = state;
+            return o;
         }
     }
 }

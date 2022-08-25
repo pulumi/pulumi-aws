@@ -13,28 +13,19 @@ public final class InsightFiltersUserDefinedValue {
      * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
      * 
      */
-    private final String comparison;
+    private String comparison;
     /**
      * @return The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return A date range value for the date filter, provided as an Integer.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private InsightFiltersUserDefinedValue(
-        @CustomType.Parameter("comparison") String comparison,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") String value) {
-        this.comparison = comparison;
-        this.key = key;
-        this.value = value;
-    }
-
+    private InsightFiltersUserDefinedValue() {}
     /**
      * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
      * 
@@ -64,16 +55,12 @@ public final class InsightFiltersUserDefinedValue {
     public static Builder builder(InsightFiltersUserDefinedValue defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comparison;
         private String key;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersUserDefinedValue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparison = defaults.comparison;
@@ -81,19 +68,27 @@ public final class InsightFiltersUserDefinedValue {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder comparison(String comparison) {
             this.comparison = Objects.requireNonNull(comparison);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public InsightFiltersUserDefinedValue build() {
-            return new InsightFiltersUserDefinedValue(comparison, key, value);
+        }
+        public InsightFiltersUserDefinedValue build() {
+            final var o = new InsightFiltersUserDefinedValue();
+            o.comparison = comparison;
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

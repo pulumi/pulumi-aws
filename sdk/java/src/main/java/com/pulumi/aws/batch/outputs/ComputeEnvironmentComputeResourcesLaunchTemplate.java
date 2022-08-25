@@ -15,28 +15,19 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplate {
      * @return ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
      * 
      */
-    private final @Nullable String launchTemplateId;
+    private @Nullable String launchTemplateId;
     /**
      * @return Name of the launch template.
      * 
      */
-    private final @Nullable String launchTemplateName;
+    private @Nullable String launchTemplateName;
     /**
      * @return The version number of the launch template. Default: The default version of the launch template.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private ComputeEnvironmentComputeResourcesLaunchTemplate(
-        @CustomType.Parameter("launchTemplateId") @Nullable String launchTemplateId,
-        @CustomType.Parameter("launchTemplateName") @Nullable String launchTemplateName,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.launchTemplateId = launchTemplateId;
-        this.launchTemplateName = launchTemplateName;
-        this.version = version;
-    }
-
+    private ComputeEnvironmentComputeResourcesLaunchTemplate() {}
     /**
      * @return ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
      * 
@@ -66,16 +57,12 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplate {
     public static Builder builder(ComputeEnvironmentComputeResourcesLaunchTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String launchTemplateId;
         private @Nullable String launchTemplateName;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ComputeEnvironmentComputeResourcesLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.launchTemplateId = defaults.launchTemplateId;
@@ -83,19 +70,27 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplate {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder launchTemplateId(@Nullable String launchTemplateId) {
             this.launchTemplateId = launchTemplateId;
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplateName(@Nullable String launchTemplateName) {
             this.launchTemplateName = launchTemplateName;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public ComputeEnvironmentComputeResourcesLaunchTemplate build() {
-            return new ComputeEnvironmentComputeResourcesLaunchTemplate(launchTemplateId, launchTemplateName, version);
+        }
+        public ComputeEnvironmentComputeResourcesLaunchTemplate build() {
+            final var o = new ComputeEnvironmentComputeResourcesLaunchTemplate();
+            o.launchTemplateId = launchTemplateId;
+            o.launchTemplateName = launchTemplateName;
+            o.version = version;
+            return o;
         }
     }
 }

@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceCreditSpecification {
-    private final String cpuCredits;
+    private String cpuCredits;
 
-    @CustomType.Constructor
-    private GetInstanceCreditSpecification(@CustomType.Parameter("cpuCredits") String cpuCredits) {
-        this.cpuCredits = cpuCredits;
-    }
-
+    private GetInstanceCreditSpecification() {}
     public String cpuCredits() {
         return this.cpuCredits;
     }
@@ -27,24 +23,24 @@ public final class GetInstanceCreditSpecification {
     public static Builder builder(GetInstanceCreditSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cpuCredits;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceCreditSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cpuCredits = defaults.cpuCredits;
         }
 
+        @CustomType.Setter
         public Builder cpuCredits(String cpuCredits) {
             this.cpuCredits = Objects.requireNonNull(cpuCredits);
             return this;
-        }        public GetInstanceCreditSpecification build() {
-            return new GetInstanceCreditSpecification(cpuCredits);
+        }
+        public GetInstanceCreditSpecification build() {
+            final var o = new GetInstanceCreditSpecification();
+            o.cpuCredits = cpuCredits;
+            return o;
         }
     }
 }

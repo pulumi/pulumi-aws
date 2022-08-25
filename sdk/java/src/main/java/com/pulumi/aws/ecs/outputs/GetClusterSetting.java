@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterSetting {
-    private final String name;
-    private final String value;
+    private String name;
+    private String value;
 
-    @CustomType.Constructor
-    private GetClusterSetting(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.value = value;
-    }
-
+    private GetClusterSetting() {}
     public String name() {
         return this.name;
     }
@@ -34,30 +27,32 @@ public final class GetClusterSetting {
     public static Builder builder(GetClusterSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetClusterSetting build() {
-            return new GetClusterSetting(name, value);
+        }
+        public GetClusterSetting build() {
+            final var o = new GetClusterSetting();
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

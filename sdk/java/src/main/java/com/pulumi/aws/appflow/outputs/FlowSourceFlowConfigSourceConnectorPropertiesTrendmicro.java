@@ -13,13 +13,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro(@CustomType.Parameter("object") String object) {
-        this.object = object;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro() {}
     /**
      * @return The object specified in the Veeva flow source.
      * 
@@ -35,24 +31,24 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro(object);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro();
+            o.object = object;
+            return o;
         }
     }
 }

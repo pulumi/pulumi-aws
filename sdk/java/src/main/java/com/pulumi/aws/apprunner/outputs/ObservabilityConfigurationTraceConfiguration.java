@@ -15,13 +15,9 @@ public final class ObservabilityConfigurationTraceConfiguration {
      * @return The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
      * 
      */
-    private final @Nullable String vendor;
+    private @Nullable String vendor;
 
-    @CustomType.Constructor
-    private ObservabilityConfigurationTraceConfiguration(@CustomType.Parameter("vendor") @Nullable String vendor) {
-        this.vendor = vendor;
-    }
-
+    private ObservabilityConfigurationTraceConfiguration() {}
     /**
      * @return The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
      * 
@@ -37,24 +33,24 @@ public final class ObservabilityConfigurationTraceConfiguration {
     public static Builder builder(ObservabilityConfigurationTraceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String vendor;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ObservabilityConfigurationTraceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.vendor = defaults.vendor;
         }
 
+        @CustomType.Setter
         public Builder vendor(@Nullable String vendor) {
             this.vendor = vendor;
             return this;
-        }        public ObservabilityConfigurationTraceConfiguration build() {
-            return new ObservabilityConfigurationTraceConfiguration(vendor);
+        }
+        public ObservabilityConfigurationTraceConfiguration build() {
+            final var o = new ObservabilityConfigurationTraceConfiguration();
+            o.vendor = vendor;
+            return o;
         }
     }
 }

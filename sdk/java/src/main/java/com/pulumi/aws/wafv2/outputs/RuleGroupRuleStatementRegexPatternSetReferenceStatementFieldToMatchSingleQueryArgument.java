@@ -13,13 +13,9 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
      * @return The name of the query header to inspect. This setting must be provided as lower case characters.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument() {}
     /**
      * @return The name of the query header to inspect. This setting must be provided as lower case characters.
      * 
@@ -35,24 +31,24 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
     public static Builder builder(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument build() {
-            return new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(name);
+        }
+        public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument build() {
+            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument();
+            o.name = name;
+            return o;
         }
     }
 }

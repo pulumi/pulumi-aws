@@ -15,21 +15,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
      */
-    private final @Nullable String bucketName;
+    private @Nullable String bucketName;
     /**
      * @return The object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
-    private final @Nullable String bucketPrefix;
+    private @Nullable String bucketPrefix;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig(
-        @CustomType.Parameter("bucketName") @Nullable String bucketName,
-        @CustomType.Parameter("bucketPrefix") @Nullable String bucketPrefix) {
-        this.bucketName = bucketName;
-        this.bucketPrefix = bucketPrefix;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig() {}
     /**
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
@@ -52,30 +45,32 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucketName;
         private @Nullable String bucketPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
     	      this.bucketPrefix = defaults.bucketPrefix;
         }
 
+        @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
             this.bucketName = bucketName;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig(bucketName, bucketPrefix);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig();
+            o.bucketName = bucketName;
+            o.bucketPrefix = bucketPrefix;
+            return o;
         }
     }
 }

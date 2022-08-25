@@ -18,43 +18,30 @@ public final class WebAclRule {
      * @return Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
      * 
      */
-    private final @Nullable WebAclRuleAction action;
+    private @Nullable WebAclRuleAction action;
     /**
      * @return Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
      * 
      */
-    private final @Nullable WebAclRuleOverrideAction overrideAction;
+    private @Nullable WebAclRuleOverrideAction overrideAction;
     /**
      * @return Specifies the order in which the rules in a WebACL are evaluated.
      * Rules with a lower value are evaluated before rules with a higher value.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return ID of the associated WAF (Regional) rule (e.g. `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
      * 
      */
-    private final String ruleId;
+    private String ruleId;
     /**
      * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private WebAclRule(
-        @CustomType.Parameter("action") @Nullable WebAclRuleAction action,
-        @CustomType.Parameter("overrideAction") @Nullable WebAclRuleOverrideAction overrideAction,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("ruleId") String ruleId,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.action = action;
-        this.overrideAction = overrideAction;
-        this.priority = priority;
-        this.ruleId = ruleId;
-        this.type = type;
-    }
-
+    private WebAclRule() {}
     /**
      * @return Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
      * 
@@ -99,18 +86,14 @@ public final class WebAclRule {
     public static Builder builder(WebAclRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleAction action;
         private @Nullable WebAclRuleOverrideAction overrideAction;
         private Integer priority;
         private String ruleId;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -120,27 +103,39 @@ public final class WebAclRule {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable WebAclRuleAction action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder overrideAction(@Nullable WebAclRuleOverrideAction overrideAction) {
             this.overrideAction = overrideAction;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleId(String ruleId) {
             this.ruleId = Objects.requireNonNull(ruleId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public WebAclRule build() {
-            return new WebAclRule(action, overrideAction, priority, ruleId, type);
+        }
+        public WebAclRule build() {
+            final var o = new WebAclRule();
+            o.action = action;
+            o.overrideAction = overrideAction;
+            o.priority = priority;
+            o.ruleId = ruleId;
+            o.type = type;
+            return o;
         }
     }
 }

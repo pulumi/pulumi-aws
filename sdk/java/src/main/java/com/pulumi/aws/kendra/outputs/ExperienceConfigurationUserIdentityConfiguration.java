@@ -13,13 +13,9 @@ public final class ExperienceConfigurationUserIdentityConfiguration {
      * @return The AWS SSO field name that contains the identifiers of your users, such as their emails.
      * 
      */
-    private final String identityAttributeName;
+    private String identityAttributeName;
 
-    @CustomType.Constructor
-    private ExperienceConfigurationUserIdentityConfiguration(@CustomType.Parameter("identityAttributeName") String identityAttributeName) {
-        this.identityAttributeName = identityAttributeName;
-    }
-
+    private ExperienceConfigurationUserIdentityConfiguration() {}
     /**
      * @return The AWS SSO field name that contains the identifiers of your users, such as their emails.
      * 
@@ -35,24 +31,24 @@ public final class ExperienceConfigurationUserIdentityConfiguration {
     public static Builder builder(ExperienceConfigurationUserIdentityConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String identityAttributeName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExperienceConfigurationUserIdentityConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityAttributeName = defaults.identityAttributeName;
         }
 
+        @CustomType.Setter
         public Builder identityAttributeName(String identityAttributeName) {
             this.identityAttributeName = Objects.requireNonNull(identityAttributeName);
             return this;
-        }        public ExperienceConfigurationUserIdentityConfiguration build() {
-            return new ExperienceConfigurationUserIdentityConfiguration(identityAttributeName);
+        }
+        public ExperienceConfigurationUserIdentityConfiguration build() {
+            final var o = new ExperienceConfigurationUserIdentityConfiguration();
+            o.identityAttributeName = identityAttributeName;
+            return o;
         }
     }
 }

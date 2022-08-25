@@ -16,21 +16,14 @@ public final class ConnectorCapacity {
      * @return Information about the auto scaling parameters for the connector. See below.
      * 
      */
-    private final @Nullable ConnectorCapacityAutoscaling autoscaling;
+    private @Nullable ConnectorCapacityAutoscaling autoscaling;
     /**
      * @return Details about a fixed capacity allocated to a connector. See below.
      * 
      */
-    private final @Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity;
+    private @Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity;
 
-    @CustomType.Constructor
-    private ConnectorCapacity(
-        @CustomType.Parameter("autoscaling") @Nullable ConnectorCapacityAutoscaling autoscaling,
-        @CustomType.Parameter("provisionedCapacity") @Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity) {
-        this.autoscaling = autoscaling;
-        this.provisionedCapacity = provisionedCapacity;
-    }
-
+    private ConnectorCapacity() {}
     /**
      * @return Information about the auto scaling parameters for the connector. See below.
      * 
@@ -53,30 +46,32 @@ public final class ConnectorCapacity {
     public static Builder builder(ConnectorCapacity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ConnectorCapacityAutoscaling autoscaling;
         private @Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorCapacity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoscaling = defaults.autoscaling;
     	      this.provisionedCapacity = defaults.provisionedCapacity;
         }
 
+        @CustomType.Setter
         public Builder autoscaling(@Nullable ConnectorCapacityAutoscaling autoscaling) {
             this.autoscaling = autoscaling;
             return this;
         }
+        @CustomType.Setter
         public Builder provisionedCapacity(@Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity) {
             this.provisionedCapacity = provisionedCapacity;
             return this;
-        }        public ConnectorCapacity build() {
-            return new ConnectorCapacity(autoscaling, provisionedCapacity);
+        }
+        public ConnectorCapacity build() {
+            final var o = new ConnectorCapacity();
+            o.autoscaling = autoscaling;
+            o.provisionedCapacity = provisionedCapacity;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class BucketObjectLockConfigurationRuleDefaultRetention {
      * @return The number of days that you want to specify for the default retention period.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
-    private final String mode;
+    private String mode;
     /**
      * @return The number of years that you want to specify for the default retention period.
      * 
      */
-    private final @Nullable Integer years;
+    private @Nullable Integer years;
 
-    @CustomType.Constructor
-    private BucketObjectLockConfigurationRuleDefaultRetention(
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("years") @Nullable Integer years) {
-        this.days = days;
-        this.mode = mode;
-        this.years = years;
-    }
-
+    private BucketObjectLockConfigurationRuleDefaultRetention() {}
     /**
      * @return The number of days that you want to specify for the default retention period.
      * 
@@ -67,16 +58,12 @@ public final class BucketObjectLockConfigurationRuleDefaultRetention {
     public static Builder builder(BucketObjectLockConfigurationRuleDefaultRetention defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
         private String mode;
         private @Nullable Integer years;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketObjectLockConfigurationRuleDefaultRetention defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
@@ -84,19 +71,27 @@ public final class BucketObjectLockConfigurationRuleDefaultRetention {
     	      this.years = defaults.years;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder years(@Nullable Integer years) {
             this.years = years;
             return this;
-        }        public BucketObjectLockConfigurationRuleDefaultRetention build() {
-            return new BucketObjectLockConfigurationRuleDefaultRetention(days, mode, years);
+        }
+        public BucketObjectLockConfigurationRuleDefaultRetention build() {
+            final var o = new BucketObjectLockConfigurationRuleDefaultRetention();
+            o.days = days;
+            o.mode = mode;
+            o.years = years;
+            return o;
         }
     }
 }

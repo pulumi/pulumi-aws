@@ -13,13 +13,9 @@ public final class BucketOwnershipControlsRule {
      * @return Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
      * 
      */
-    private final String objectOwnership;
+    private String objectOwnership;
 
-    @CustomType.Constructor
-    private BucketOwnershipControlsRule(@CustomType.Parameter("objectOwnership") String objectOwnership) {
-        this.objectOwnership = objectOwnership;
-    }
-
+    private BucketOwnershipControlsRule() {}
     /**
      * @return Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
      * 
@@ -35,24 +31,24 @@ public final class BucketOwnershipControlsRule {
     public static Builder builder(BucketOwnershipControlsRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String objectOwnership;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketOwnershipControlsRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.objectOwnership = defaults.objectOwnership;
         }
 
+        @CustomType.Setter
         public Builder objectOwnership(String objectOwnership) {
             this.objectOwnership = Objects.requireNonNull(objectOwnership);
             return this;
-        }        public BucketOwnershipControlsRule build() {
-            return new BucketOwnershipControlsRule(objectOwnership);
+        }
+        public BucketOwnershipControlsRule build() {
+            final var o = new BucketOwnershipControlsRule();
+            o.objectOwnership = objectOwnership;
+            return o;
         }
     }
 }

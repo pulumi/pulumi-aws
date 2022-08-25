@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class ModelVpcConfig {
-    private final List<String> securityGroupIds;
-    private final List<String> subnets;
+    private List<String> securityGroupIds;
+    private List<String> subnets;
 
-    @CustomType.Constructor
-    private ModelVpcConfig(
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnets") List<String> subnets) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnets = subnets;
-    }
-
+    private ModelVpcConfig() {}
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
@@ -35,21 +28,18 @@ public final class ModelVpcConfig {
     public static Builder builder(ModelVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroupIds;
         private List<String> subnets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ModelVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnets = defaults.subnets;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -57,14 +47,19 @@ public final class ModelVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
         }
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
-        }        public ModelVpcConfig build() {
-            return new ModelVpcConfig(securityGroupIds, subnets);
+        }
+        public ModelVpcConfig build() {
+            final var o = new ModelVpcConfig();
+            o.securityGroupIds = securityGroupIds;
+            o.subnets = subnets;
+            return o;
         }
     }
 }

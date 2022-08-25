@@ -16,56 +16,39 @@ public final class FilterFindingCriteriaCriterion {
      * @return List of string values to be evaluated.
      * 
      */
-    private final @Nullable List<String> equals;
+    private @Nullable List<String> equals;
     /**
      * @return The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
      * 
      */
-    private final String field;
+    private String field;
     /**
      * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private final @Nullable String greaterThan;
+    private @Nullable String greaterThan;
     /**
      * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private final @Nullable String greaterThanOrEqual;
+    private @Nullable String greaterThanOrEqual;
     /**
      * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private final @Nullable String lessThan;
+    private @Nullable String lessThan;
     /**
      * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private final @Nullable String lessThanOrEqual;
+    private @Nullable String lessThanOrEqual;
     /**
      * @return List of string values to be evaluated.
      * 
      */
-    private final @Nullable List<String> notEquals;
+    private @Nullable List<String> notEquals;
 
-    @CustomType.Constructor
-    private FilterFindingCriteriaCriterion(
-        @CustomType.Parameter("equals") @Nullable List<String> equals,
-        @CustomType.Parameter("field") String field,
-        @CustomType.Parameter("greaterThan") @Nullable String greaterThan,
-        @CustomType.Parameter("greaterThanOrEqual") @Nullable String greaterThanOrEqual,
-        @CustomType.Parameter("lessThan") @Nullable String lessThan,
-        @CustomType.Parameter("lessThanOrEqual") @Nullable String lessThanOrEqual,
-        @CustomType.Parameter("notEquals") @Nullable List<String> notEquals) {
-        this.equals = equals;
-        this.field = field;
-        this.greaterThan = greaterThan;
-        this.greaterThanOrEqual = greaterThanOrEqual;
-        this.lessThan = lessThan;
-        this.lessThanOrEqual = lessThanOrEqual;
-        this.notEquals = notEquals;
-    }
-
+    private FilterFindingCriteriaCriterion() {}
     /**
      * @return List of string values to be evaluated.
      * 
@@ -123,7 +106,7 @@ public final class FilterFindingCriteriaCriterion {
     public static Builder builder(FilterFindingCriteriaCriterion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> equals;
         private String field;
@@ -132,11 +115,7 @@ public final class FilterFindingCriteriaCriterion {
         private @Nullable String lessThan;
         private @Nullable String lessThanOrEqual;
         private @Nullable List<String> notEquals;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FilterFindingCriteriaCriterion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.equals = defaults.equals;
@@ -148,6 +127,7 @@ public final class FilterFindingCriteriaCriterion {
     	      this.notEquals = defaults.notEquals;
         }
 
+        @CustomType.Setter("equals")
         public Builder equals_(@Nullable List<String> equals) {
             this.equals = equals;
             return this;
@@ -155,34 +135,49 @@ public final class FilterFindingCriteriaCriterion {
         public Builder equals_(String... equals) {
             return equals_(List.of(equals));
         }
+        @CustomType.Setter
         public Builder field(String field) {
             this.field = Objects.requireNonNull(field);
             return this;
         }
+        @CustomType.Setter
         public Builder greaterThan(@Nullable String greaterThan) {
             this.greaterThan = greaterThan;
             return this;
         }
+        @CustomType.Setter
         public Builder greaterThanOrEqual(@Nullable String greaterThanOrEqual) {
             this.greaterThanOrEqual = greaterThanOrEqual;
             return this;
         }
+        @CustomType.Setter
         public Builder lessThan(@Nullable String lessThan) {
             this.lessThan = lessThan;
             return this;
         }
+        @CustomType.Setter
         public Builder lessThanOrEqual(@Nullable String lessThanOrEqual) {
             this.lessThanOrEqual = lessThanOrEqual;
             return this;
         }
+        @CustomType.Setter
         public Builder notEquals(@Nullable List<String> notEquals) {
             this.notEquals = notEquals;
             return this;
         }
         public Builder notEquals(String... notEquals) {
             return notEquals(List.of(notEquals));
-        }        public FilterFindingCriteriaCriterion build() {
-            return new FilterFindingCriteriaCriterion(equals, field, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual, notEquals);
+        }
+        public FilterFindingCriteriaCriterion build() {
+            final var o = new FilterFindingCriteriaCriterion();
+            o.equals = equals;
+            o.field = field;
+            o.greaterThan = greaterThan;
+            o.greaterThanOrEqual = greaterThanOrEqual;
+            o.lessThan = lessThan;
+            o.lessThanOrEqual = lessThanOrEqual;
+            o.notEquals = notEquals;
+            return o;
         }
     }
 }

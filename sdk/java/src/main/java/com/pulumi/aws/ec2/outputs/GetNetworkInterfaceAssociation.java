@@ -13,56 +13,39 @@ public final class GetNetworkInterfaceAssociation {
      * @return The allocation ID.
      * 
      */
-    private final String allocationId;
+    private String allocationId;
     /**
      * @return The association ID.
      * 
      */
-    private final String associationId;
+    private String associationId;
     /**
      * @return The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
      * 
      */
-    private final String carrierIp;
+    private String carrierIp;
     /**
      * @return The customer-owned IP address.
      * 
      */
-    private final String customerOwnedIp;
+    private String customerOwnedIp;
     /**
      * @return The ID of the Elastic IP address owner.
      * 
      */
-    private final String ipOwnerId;
+    private String ipOwnerId;
     /**
      * @return The public DNS name.
      * 
      */
-    private final String publicDnsName;
+    private String publicDnsName;
     /**
      * @return The address of the Elastic IP address bound to the network interface.
      * 
      */
-    private final String publicIp;
+    private String publicIp;
 
-    @CustomType.Constructor
-    private GetNetworkInterfaceAssociation(
-        @CustomType.Parameter("allocationId") String allocationId,
-        @CustomType.Parameter("associationId") String associationId,
-        @CustomType.Parameter("carrierIp") String carrierIp,
-        @CustomType.Parameter("customerOwnedIp") String customerOwnedIp,
-        @CustomType.Parameter("ipOwnerId") String ipOwnerId,
-        @CustomType.Parameter("publicDnsName") String publicDnsName,
-        @CustomType.Parameter("publicIp") String publicIp) {
-        this.allocationId = allocationId;
-        this.associationId = associationId;
-        this.carrierIp = carrierIp;
-        this.customerOwnedIp = customerOwnedIp;
-        this.ipOwnerId = ipOwnerId;
-        this.publicDnsName = publicDnsName;
-        this.publicIp = publicIp;
-    }
-
+    private GetNetworkInterfaceAssociation() {}
     /**
      * @return The allocation ID.
      * 
@@ -120,7 +103,7 @@ public final class GetNetworkInterfaceAssociation {
     public static Builder builder(GetNetworkInterfaceAssociation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String allocationId;
         private String associationId;
@@ -129,11 +112,7 @@ public final class GetNetworkInterfaceAssociation {
         private String ipOwnerId;
         private String publicDnsName;
         private String publicIp;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkInterfaceAssociation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationId = defaults.allocationId;
@@ -145,35 +124,51 @@ public final class GetNetworkInterfaceAssociation {
     	      this.publicIp = defaults.publicIp;
         }
 
+        @CustomType.Setter
         public Builder allocationId(String allocationId) {
             this.allocationId = Objects.requireNonNull(allocationId);
             return this;
         }
+        @CustomType.Setter
         public Builder associationId(String associationId) {
             this.associationId = Objects.requireNonNull(associationId);
             return this;
         }
+        @CustomType.Setter
         public Builder carrierIp(String carrierIp) {
             this.carrierIp = Objects.requireNonNull(carrierIp);
             return this;
         }
+        @CustomType.Setter
         public Builder customerOwnedIp(String customerOwnedIp) {
             this.customerOwnedIp = Objects.requireNonNull(customerOwnedIp);
             return this;
         }
+        @CustomType.Setter
         public Builder ipOwnerId(String ipOwnerId) {
             this.ipOwnerId = Objects.requireNonNull(ipOwnerId);
             return this;
         }
+        @CustomType.Setter
         public Builder publicDnsName(String publicDnsName) {
             this.publicDnsName = Objects.requireNonNull(publicDnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIp(String publicIp) {
             this.publicIp = Objects.requireNonNull(publicIp);
             return this;
-        }        public GetNetworkInterfaceAssociation build() {
-            return new GetNetworkInterfaceAssociation(allocationId, associationId, carrierIp, customerOwnedIp, ipOwnerId, publicDnsName, publicIp);
+        }
+        public GetNetworkInterfaceAssociation build() {
+            final var o = new GetNetworkInterfaceAssociation();
+            o.allocationId = allocationId;
+            o.associationId = associationId;
+            o.carrierIp = carrierIp;
+            o.customerOwnedIp = customerOwnedIp;
+            o.ipOwnerId = ipOwnerId;
+            o.publicDnsName = publicDnsName;
+            o.publicIp = publicIp;
+            return o;
         }
     }
 }

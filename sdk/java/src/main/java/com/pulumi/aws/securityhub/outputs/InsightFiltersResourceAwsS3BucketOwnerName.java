@@ -13,21 +13,14 @@ public final class InsightFiltersResourceAwsS3BucketOwnerName {
      * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
      * 
      */
-    private final String comparison;
+    private String comparison;
     /**
      * @return A date range value for the date filter, provided as an Integer.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private InsightFiltersResourceAwsS3BucketOwnerName(
-        @CustomType.Parameter("comparison") String comparison,
-        @CustomType.Parameter("value") String value) {
-        this.comparison = comparison;
-        this.value = value;
-    }
-
+    private InsightFiltersResourceAwsS3BucketOwnerName() {}
     /**
      * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
      * 
@@ -50,30 +43,32 @@ public final class InsightFiltersResourceAwsS3BucketOwnerName {
     public static Builder builder(InsightFiltersResourceAwsS3BucketOwnerName defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comparison;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersResourceAwsS3BucketOwnerName defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparison = defaults.comparison;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder comparison(String comparison) {
             this.comparison = Objects.requireNonNull(comparison);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public InsightFiltersResourceAwsS3BucketOwnerName build() {
-            return new InsightFiltersResourceAwsS3BucketOwnerName(comparison, value);
+        }
+        public InsightFiltersResourceAwsS3BucketOwnerName build() {
+            final var o = new InsightFiltersResourceAwsS3BucketOwnerName();
+            o.comparison = comparison;
+            o.value = value;
+            return o;
         }
     }
 }

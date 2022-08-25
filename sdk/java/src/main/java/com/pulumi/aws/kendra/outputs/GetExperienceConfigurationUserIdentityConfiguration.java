@@ -13,13 +13,9 @@ public final class GetExperienceConfigurationUserIdentityConfiguration {
      * @return The AWS SSO field name that contains the identifiers of your users, such as their emails.
      * 
      */
-    private final String identityAttributeName;
+    private String identityAttributeName;
 
-    @CustomType.Constructor
-    private GetExperienceConfigurationUserIdentityConfiguration(@CustomType.Parameter("identityAttributeName") String identityAttributeName) {
-        this.identityAttributeName = identityAttributeName;
-    }
-
+    private GetExperienceConfigurationUserIdentityConfiguration() {}
     /**
      * @return The AWS SSO field name that contains the identifiers of your users, such as their emails.
      * 
@@ -35,24 +31,24 @@ public final class GetExperienceConfigurationUserIdentityConfiguration {
     public static Builder builder(GetExperienceConfigurationUserIdentityConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String identityAttributeName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExperienceConfigurationUserIdentityConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityAttributeName = defaults.identityAttributeName;
         }
 
+        @CustomType.Setter
         public Builder identityAttributeName(String identityAttributeName) {
             this.identityAttributeName = Objects.requireNonNull(identityAttributeName);
             return this;
-        }        public GetExperienceConfigurationUserIdentityConfiguration build() {
-            return new GetExperienceConfigurationUserIdentityConfiguration(identityAttributeName);
+        }
+        public GetExperienceConfigurationUserIdentityConfiguration build() {
+            final var o = new GetExperienceConfigurationUserIdentityConfiguration();
+            o.identityAttributeName = identityAttributeName;
+            return o;
         }
     }
 }

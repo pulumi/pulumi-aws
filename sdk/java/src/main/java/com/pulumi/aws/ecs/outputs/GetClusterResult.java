@@ -16,59 +16,40 @@ public final class GetClusterResult {
      * @return The ARN of the ECS Cluster
      * 
      */
-    private final String arn;
-    private final String clusterName;
+    private String arn;
+    private String clusterName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The number of pending tasks for the ECS Cluster
      * 
      */
-    private final Integer pendingTasksCount;
+    private Integer pendingTasksCount;
     /**
      * @return The number of registered container instances for the ECS Cluster
      * 
      */
-    private final Integer registeredContainerInstancesCount;
+    private Integer registeredContainerInstancesCount;
     /**
      * @return The number of running tasks for the ECS Cluster
      * 
      */
-    private final Integer runningTasksCount;
+    private Integer runningTasksCount;
     /**
      * @return The settings associated with the ECS Cluster.
      * 
      */
-    private final List<GetClusterSetting> settings;
+    private List<GetClusterSetting> settings;
     /**
      * @return The status of the ECS Cluster
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetClusterResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("clusterName") String clusterName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("pendingTasksCount") Integer pendingTasksCount,
-        @CustomType.Parameter("registeredContainerInstancesCount") Integer registeredContainerInstancesCount,
-        @CustomType.Parameter("runningTasksCount") Integer runningTasksCount,
-        @CustomType.Parameter("settings") List<GetClusterSetting> settings,
-        @CustomType.Parameter("status") String status) {
-        this.arn = arn;
-        this.clusterName = clusterName;
-        this.id = id;
-        this.pendingTasksCount = pendingTasksCount;
-        this.registeredContainerInstancesCount = registeredContainerInstancesCount;
-        this.runningTasksCount = runningTasksCount;
-        this.settings = settings;
-        this.status = status;
-    }
-
+    private GetClusterResult() {}
     /**
      * @return The ARN of the ECS Cluster
      * 
@@ -129,7 +110,7 @@ public final class GetClusterResult {
     public static Builder builder(GetClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String clusterName;
@@ -139,11 +120,7 @@ public final class GetClusterResult {
         private Integer runningTasksCount;
         private List<GetClusterSetting> settings;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -156,30 +133,37 @@ public final class GetClusterResult {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterName(String clusterName) {
             this.clusterName = Objects.requireNonNull(clusterName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder pendingTasksCount(Integer pendingTasksCount) {
             this.pendingTasksCount = Objects.requireNonNull(pendingTasksCount);
             return this;
         }
+        @CustomType.Setter
         public Builder registeredContainerInstancesCount(Integer registeredContainerInstancesCount) {
             this.registeredContainerInstancesCount = Objects.requireNonNull(registeredContainerInstancesCount);
             return this;
         }
+        @CustomType.Setter
         public Builder runningTasksCount(Integer runningTasksCount) {
             this.runningTasksCount = Objects.requireNonNull(runningTasksCount);
             return this;
         }
+        @CustomType.Setter
         public Builder settings(List<GetClusterSetting> settings) {
             this.settings = Objects.requireNonNull(settings);
             return this;
@@ -187,11 +171,22 @@ public final class GetClusterResult {
         public Builder settings(GetClusterSetting... settings) {
             return settings(List.of(settings));
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetClusterResult build() {
-            return new GetClusterResult(arn, clusterName, id, pendingTasksCount, registeredContainerInstancesCount, runningTasksCount, settings, status);
+        }
+        public GetClusterResult build() {
+            final var o = new GetClusterResult();
+            o.arn = arn;
+            o.clusterName = clusterName;
+            o.id = id;
+            o.pendingTasksCount = pendingTasksCount;
+            o.registeredContainerInstancesCount = registeredContainerInstancesCount;
+            o.runningTasksCount = runningTasksCount;
+            o.settings = settings;
+            o.status = status;
+            return o;
         }
     }
 }

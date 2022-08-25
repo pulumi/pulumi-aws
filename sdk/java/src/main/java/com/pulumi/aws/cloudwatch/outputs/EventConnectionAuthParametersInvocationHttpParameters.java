@@ -17,28 +17,19 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
      * @return Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
      */
-    private final @Nullable List<EventConnectionAuthParametersInvocationHttpParametersBody> bodies;
+    private @Nullable List<EventConnectionAuthParametersInvocationHttpParametersBody> bodies;
     /**
      * @return Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
      */
-    private final @Nullable List<EventConnectionAuthParametersInvocationHttpParametersHeader> headers;
+    private @Nullable List<EventConnectionAuthParametersInvocationHttpParametersHeader> headers;
     /**
      * @return Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
      */
-    private final @Nullable List<EventConnectionAuthParametersInvocationHttpParametersQueryString> queryStrings;
+    private @Nullable List<EventConnectionAuthParametersInvocationHttpParametersQueryString> queryStrings;
 
-    @CustomType.Constructor
-    private EventConnectionAuthParametersInvocationHttpParameters(
-        @CustomType.Parameter("bodies") @Nullable List<EventConnectionAuthParametersInvocationHttpParametersBody> bodies,
-        @CustomType.Parameter("headers") @Nullable List<EventConnectionAuthParametersInvocationHttpParametersHeader> headers,
-        @CustomType.Parameter("queryStrings") @Nullable List<EventConnectionAuthParametersInvocationHttpParametersQueryString> queryStrings) {
-        this.bodies = bodies;
-        this.headers = headers;
-        this.queryStrings = queryStrings;
-    }
-
+    private EventConnectionAuthParametersInvocationHttpParameters() {}
     /**
      * @return Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
@@ -68,16 +59,12 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
     public static Builder builder(EventConnectionAuthParametersInvocationHttpParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<EventConnectionAuthParametersInvocationHttpParametersBody> bodies;
         private @Nullable List<EventConnectionAuthParametersInvocationHttpParametersHeader> headers;
         private @Nullable List<EventConnectionAuthParametersInvocationHttpParametersQueryString> queryStrings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventConnectionAuthParametersInvocationHttpParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bodies = defaults.bodies;
@@ -85,6 +72,7 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
     	      this.queryStrings = defaults.queryStrings;
         }
 
+        @CustomType.Setter
         public Builder bodies(@Nullable List<EventConnectionAuthParametersInvocationHttpParametersBody> bodies) {
             this.bodies = bodies;
             return this;
@@ -92,6 +80,7 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
         public Builder bodies(EventConnectionAuthParametersInvocationHttpParametersBody... bodies) {
             return bodies(List.of(bodies));
         }
+        @CustomType.Setter
         public Builder headers(@Nullable List<EventConnectionAuthParametersInvocationHttpParametersHeader> headers) {
             this.headers = headers;
             return this;
@@ -99,14 +88,20 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
         public Builder headers(EventConnectionAuthParametersInvocationHttpParametersHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder queryStrings(@Nullable List<EventConnectionAuthParametersInvocationHttpParametersQueryString> queryStrings) {
             this.queryStrings = queryStrings;
             return this;
         }
         public Builder queryStrings(EventConnectionAuthParametersInvocationHttpParametersQueryString... queryStrings) {
             return queryStrings(List.of(queryStrings));
-        }        public EventConnectionAuthParametersInvocationHttpParameters build() {
-            return new EventConnectionAuthParametersInvocationHttpParameters(bodies, headers, queryStrings);
+        }
+        public EventConnectionAuthParametersInvocationHttpParameters build() {
+            final var o = new EventConnectionAuthParametersInvocationHttpParameters();
+            o.bodies = bodies;
+            o.headers = headers;
+            o.queryStrings = queryStrings;
+            return o;
         }
     }
 }

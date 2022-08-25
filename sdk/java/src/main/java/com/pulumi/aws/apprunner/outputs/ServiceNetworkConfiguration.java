@@ -15,13 +15,9 @@ public final class ServiceNetworkConfiguration {
      * @return Network configuration settings for outbound message traffic.
      * 
      */
-    private final @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration;
+    private @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration;
 
-    @CustomType.Constructor
-    private ServiceNetworkConfiguration(@CustomType.Parameter("egressConfiguration") @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration) {
-        this.egressConfiguration = egressConfiguration;
-    }
-
+    private ServiceNetworkConfiguration() {}
     /**
      * @return Network configuration settings for outbound message traffic.
      * 
@@ -37,24 +33,24 @@ public final class ServiceNetworkConfiguration {
     public static Builder builder(ServiceNetworkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.egressConfiguration = defaults.egressConfiguration;
         }
 
+        @CustomType.Setter
         public Builder egressConfiguration(@Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration) {
             this.egressConfiguration = egressConfiguration;
             return this;
-        }        public ServiceNetworkConfiguration build() {
-            return new ServiceNetworkConfiguration(egressConfiguration);
+        }
+        public ServiceNetworkConfiguration build() {
+            final var o = new ServiceNetworkConfiguration();
+            o.egressConfiguration = egressConfiguration;
+            return o;
         }
     }
 }

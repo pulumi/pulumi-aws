@@ -16,28 +16,19 @@ public final class InsightFiltersUpdatedAt {
      * @return A configuration block of the date range for the date filter. See date_range below for more details.
      * 
      */
-    private final @Nullable InsightFiltersUpdatedAtDateRange dateRange;
+    private @Nullable InsightFiltersUpdatedAtDateRange dateRange;
     /**
      * @return An end date for the date filter. Required with `start` if `date_range` is not specified.
      * 
      */
-    private final @Nullable String end;
+    private @Nullable String end;
     /**
      * @return A start date for the date filter. Required with `end` if `date_range` is not specified.
      * 
      */
-    private final @Nullable String start;
+    private @Nullable String start;
 
-    @CustomType.Constructor
-    private InsightFiltersUpdatedAt(
-        @CustomType.Parameter("dateRange") @Nullable InsightFiltersUpdatedAtDateRange dateRange,
-        @CustomType.Parameter("end") @Nullable String end,
-        @CustomType.Parameter("start") @Nullable String start) {
-        this.dateRange = dateRange;
-        this.end = end;
-        this.start = start;
-    }
-
+    private InsightFiltersUpdatedAt() {}
     /**
      * @return A configuration block of the date range for the date filter. See date_range below for more details.
      * 
@@ -67,16 +58,12 @@ public final class InsightFiltersUpdatedAt {
     public static Builder builder(InsightFiltersUpdatedAt defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable InsightFiltersUpdatedAtDateRange dateRange;
         private @Nullable String end;
         private @Nullable String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersUpdatedAt defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dateRange = defaults.dateRange;
@@ -84,19 +71,27 @@ public final class InsightFiltersUpdatedAt {
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder dateRange(@Nullable InsightFiltersUpdatedAtDateRange dateRange) {
             this.dateRange = dateRange;
             return this;
         }
+        @CustomType.Setter
         public Builder end(@Nullable String end) {
             this.end = end;
             return this;
         }
+        @CustomType.Setter
         public Builder start(@Nullable String start) {
             this.start = start;
             return this;
-        }        public InsightFiltersUpdatedAt build() {
-            return new InsightFiltersUpdatedAt(dateRange, end, start);
+        }
+        public InsightFiltersUpdatedAt build() {
+            final var o = new InsightFiltersUpdatedAt();
+            o.dateRange = dateRange;
+            o.end = end;
+            o.start = start;
+            return o;
         }
     }
 }

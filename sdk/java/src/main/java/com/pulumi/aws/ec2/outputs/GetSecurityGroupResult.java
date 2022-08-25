@@ -17,36 +17,19 @@ public final class GetSecurityGroupResult {
      * @return The computed ARN of the security group.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The description of the security group.
      * 
      */
-    private final String description;
-    private final @Nullable List<GetSecurityGroupFilter> filters;
-    private final String id;
-    private final String name;
-    private final Map<String,String> tags;
-    private final String vpcId;
+    private String description;
+    private @Nullable List<GetSecurityGroupFilter> filters;
+    private String id;
+    private String name;
+    private Map<String,String> tags;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetSecurityGroupResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("filters") @Nullable List<GetSecurityGroupFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.arn = arn;
-        this.description = description;
-        this.filters = filters;
-        this.id = id;
-        this.name = name;
-        this.tags = tags;
-        this.vpcId = vpcId;
-    }
-
+    private GetSecurityGroupResult() {}
     /**
      * @return The computed ARN of the security group.
      * 
@@ -84,7 +67,7 @@ public final class GetSecurityGroupResult {
     public static Builder builder(GetSecurityGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -93,11 +76,7 @@ public final class GetSecurityGroupResult {
         private String name;
         private Map<String,String> tags;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecurityGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -109,14 +88,17 @@ public final class GetSecurityGroupResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetSecurityGroupFilter> filters) {
             this.filters = filters;
             return this;
@@ -124,23 +106,36 @@ public final class GetSecurityGroupResult {
         public Builder filters(GetSecurityGroupFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetSecurityGroupResult build() {
-            return new GetSecurityGroupResult(arn, description, filters, id, name, tags, vpcId);
+        }
+        public GetSecurityGroupResult build() {
+            final var o = new GetSecurityGroupResult();
+            o.arn = arn;
+            o.description = description;
+            o.filters = filters;
+            o.id = id;
+            o.name = name;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

@@ -14,20 +14,11 @@ public final class GetBotAssociationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
-    private final GetBotAssociationLexBot lexBot;
+    private String id;
+    private String instanceId;
+    private GetBotAssociationLexBot lexBot;
 
-    @CustomType.Constructor
-    private GetBotAssociationResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("lexBot") GetBotAssociationLexBot lexBot) {
-        this.id = id;
-        this.instanceId = instanceId;
-        this.lexBot = lexBot;
-    }
-
+    private GetBotAssociationResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -49,16 +40,12 @@ public final class GetBotAssociationResult {
     public static Builder builder(GetBotAssociationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String instanceId;
         private GetBotAssociationLexBot lexBot;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBotAssociationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -66,19 +53,27 @@ public final class GetBotAssociationResult {
     	      this.lexBot = defaults.lexBot;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder lexBot(GetBotAssociationLexBot lexBot) {
             this.lexBot = Objects.requireNonNull(lexBot);
             return this;
-        }        public GetBotAssociationResult build() {
-            return new GetBotAssociationResult(id, instanceId, lexBot);
+        }
+        public GetBotAssociationResult build() {
+            final var o = new GetBotAssociationResult();
+            o.id = id;
+            o.instanceId = instanceId;
+            o.lexBot = lexBot;
+            return o;
         }
     }
 }

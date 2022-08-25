@@ -17,28 +17,28 @@ public final class GetSecretResult {
      * @return The Amazon Resource Name (ARN) of the secret.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return A description of the secret.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      * 
      */
-    private final String kmsKeyId;
-    private final String name;
+    private String kmsKeyId;
+    private String name;
     /**
      * @return The resource-based policy document that&#39;s attached to the secret.
      * 
      */
-    private final String policy;
+    private String policy;
     /**
      * @return Whether rotation is enabled or not.
      * 
@@ -47,7 +47,7 @@ public final class GetSecretResult {
      * 
      */
     @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
-    private final Boolean rotationEnabled;
+    private Boolean rotationEnabled;
     /**
      * @return Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
      * 
@@ -56,7 +56,7 @@ public final class GetSecretResult {
      * 
      */
     @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
-    private final String rotationLambdaArn;
+    private String rotationLambdaArn;
     /**
      * @return Rotation rules if rotation is enabled.
      * 
@@ -65,37 +65,14 @@ public final class GetSecretResult {
      * 
      */
     @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
-    private final List<GetSecretRotationRule> rotationRules;
+    private List<GetSecretRotationRule> rotationRules;
     /**
      * @return Tags of the secret.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetSecretResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("policy") String policy,
-        @CustomType.Parameter("rotationEnabled") Boolean rotationEnabled,
-        @CustomType.Parameter("rotationLambdaArn") String rotationLambdaArn,
-        @CustomType.Parameter("rotationRules") List<GetSecretRotationRule> rotationRules,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.kmsKeyId = kmsKeyId;
-        this.name = name;
-        this.policy = policy;
-        this.rotationEnabled = rotationEnabled;
-        this.rotationLambdaArn = rotationLambdaArn;
-        this.rotationRules = rotationRules;
-        this.tags = tags;
-    }
-
+    private GetSecretResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the secret.
      * 
@@ -182,7 +159,7 @@ public final class GetSecretResult {
     public static Builder builder(GetSecretResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -194,11 +171,7 @@ public final class GetSecretResult {
         private String rotationLambdaArn;
         private List<GetSecretRotationRule> rotationRules;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecretResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -213,38 +186,47 @@ public final class GetSecretResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder policy(String policy) {
             this.policy = Objects.requireNonNull(policy);
             return this;
         }
+        @CustomType.Setter
         public Builder rotationEnabled(Boolean rotationEnabled) {
             this.rotationEnabled = Objects.requireNonNull(rotationEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder rotationLambdaArn(String rotationLambdaArn) {
             this.rotationLambdaArn = Objects.requireNonNull(rotationLambdaArn);
             return this;
         }
+        @CustomType.Setter
         public Builder rotationRules(List<GetSecretRotationRule> rotationRules) {
             this.rotationRules = Objects.requireNonNull(rotationRules);
             return this;
@@ -252,11 +234,24 @@ public final class GetSecretResult {
         public Builder rotationRules(GetSecretRotationRule... rotationRules) {
             return rotationRules(List.of(rotationRules));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetSecretResult build() {
-            return new GetSecretResult(arn, description, id, kmsKeyId, name, policy, rotationEnabled, rotationLambdaArn, rotationRules, tags);
+        }
+        public GetSecretResult build() {
+            final var o = new GetSecretResult();
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.kmsKeyId = kmsKeyId;
+            o.name = name;
+            o.policy = policy;
+            o.rotationEnabled = rotationEnabled;
+            o.rotationLambdaArn = rotationLambdaArn;
+            o.rotationRules = rotationRules;
+            o.tags = tags;
+            return o;
         }
     }
 }

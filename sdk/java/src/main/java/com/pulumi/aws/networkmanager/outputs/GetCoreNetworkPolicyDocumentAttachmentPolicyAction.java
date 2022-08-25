@@ -16,35 +16,24 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
      * @return Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
      * 
      */
-    private final String associationMethod;
+    private String associationMethod;
     /**
      * @return Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
      * 
      */
-    private final @Nullable Boolean requireAcceptance;
+    private @Nullable Boolean requireAcceptance;
     /**
      * @return The name of the segment.
      * 
      */
-    private final @Nullable String segment;
+    private @Nullable String segment;
     /**
      * @return Maps the attachment to the value of a known key. This is used with the `association_method` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
      * 
      */
-    private final @Nullable String tagValueOfKey;
+    private @Nullable String tagValueOfKey;
 
-    @CustomType.Constructor
-    private GetCoreNetworkPolicyDocumentAttachmentPolicyAction(
-        @CustomType.Parameter("associationMethod") String associationMethod,
-        @CustomType.Parameter("requireAcceptance") @Nullable Boolean requireAcceptance,
-        @CustomType.Parameter("segment") @Nullable String segment,
-        @CustomType.Parameter("tagValueOfKey") @Nullable String tagValueOfKey) {
-        this.associationMethod = associationMethod;
-        this.requireAcceptance = requireAcceptance;
-        this.segment = segment;
-        this.tagValueOfKey = tagValueOfKey;
-    }
-
+    private GetCoreNetworkPolicyDocumentAttachmentPolicyAction() {}
     /**
      * @return Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
      * 
@@ -81,17 +70,13 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
     public static Builder builder(GetCoreNetworkPolicyDocumentAttachmentPolicyAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String associationMethod;
         private @Nullable Boolean requireAcceptance;
         private @Nullable String segment;
         private @Nullable String tagValueOfKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentAttachmentPolicyAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associationMethod = defaults.associationMethod;
@@ -100,23 +85,33 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
     	      this.tagValueOfKey = defaults.tagValueOfKey;
         }
 
+        @CustomType.Setter
         public Builder associationMethod(String associationMethod) {
             this.associationMethod = Objects.requireNonNull(associationMethod);
             return this;
         }
+        @CustomType.Setter
         public Builder requireAcceptance(@Nullable Boolean requireAcceptance) {
             this.requireAcceptance = requireAcceptance;
             return this;
         }
+        @CustomType.Setter
         public Builder segment(@Nullable String segment) {
             this.segment = segment;
             return this;
         }
+        @CustomType.Setter
         public Builder tagValueOfKey(@Nullable String tagValueOfKey) {
             this.tagValueOfKey = tagValueOfKey;
             return this;
-        }        public GetCoreNetworkPolicyDocumentAttachmentPolicyAction build() {
-            return new GetCoreNetworkPolicyDocumentAttachmentPolicyAction(associationMethod, requireAcceptance, segment, tagValueOfKey);
+        }
+        public GetCoreNetworkPolicyDocumentAttachmentPolicyAction build() {
+            final var o = new GetCoreNetworkPolicyDocumentAttachmentPolicyAction();
+            o.associationMethod = associationMethod;
+            o.requireAcceptance = requireAcceptance;
+            o.segment = segment;
+            o.tagValueOfKey = tagValueOfKey;
+            return o;
         }
     }
 }

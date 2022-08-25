@@ -13,13 +13,9 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncry
      * @return Whether the existing objects should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects(@CustomType.Parameter("status") String status) {
-        this.status = status;
-    }
-
+    private BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects() {}
     /**
      * @return Whether the existing objects should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
@@ -35,24 +31,24 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncry
     public static Builder builder(BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects build() {
-            return new BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects(status);
+        }
+        public BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects build() {
+            final var o = new BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects();
+            o.status = status;
+            return o;
         }
     }
 }

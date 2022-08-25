@@ -18,42 +18,29 @@ public final class TopicRuleErrorActionTimestream {
      * @return The name of an Amazon Timestream database.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
      * 
      */
-    private final List<TopicRuleErrorActionTimestreamDimension> dimensions;
+    private List<TopicRuleErrorActionTimestreamDimension> dimensions;
     /**
      * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The name of the database table into which to write the measure records.
      * 
      */
-    private final String tableName;
+    private String tableName;
     /**
      * @return Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
      * 
      */
-    private final @Nullable TopicRuleErrorActionTimestreamTimestamp timestamp;
+    private @Nullable TopicRuleErrorActionTimestreamTimestamp timestamp;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionTimestream(
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("dimensions") List<TopicRuleErrorActionTimestreamDimension> dimensions,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("tableName") String tableName,
-        @CustomType.Parameter("timestamp") @Nullable TopicRuleErrorActionTimestreamTimestamp timestamp) {
-        this.databaseName = databaseName;
-        this.dimensions = dimensions;
-        this.roleArn = roleArn;
-        this.tableName = tableName;
-        this.timestamp = timestamp;
-    }
-
+    private TopicRuleErrorActionTimestream() {}
     /**
      * @return The name of an Amazon Timestream database.
      * 
@@ -97,18 +84,14 @@ public final class TopicRuleErrorActionTimestream {
     public static Builder builder(TopicRuleErrorActionTimestream defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String databaseName;
         private List<TopicRuleErrorActionTimestreamDimension> dimensions;
         private String roleArn;
         private String tableName;
         private @Nullable TopicRuleErrorActionTimestreamTimestamp timestamp;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionTimestream defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.databaseName = defaults.databaseName;
@@ -118,10 +101,12 @@ public final class TopicRuleErrorActionTimestream {
     	      this.timestamp = defaults.timestamp;
         }
 
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder dimensions(List<TopicRuleErrorActionTimestreamDimension> dimensions) {
             this.dimensions = Objects.requireNonNull(dimensions);
             return this;
@@ -129,19 +114,29 @@ public final class TopicRuleErrorActionTimestream {
         public Builder dimensions(TopicRuleErrorActionTimestreamDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             this.tableName = Objects.requireNonNull(tableName);
             return this;
         }
+        @CustomType.Setter
         public Builder timestamp(@Nullable TopicRuleErrorActionTimestreamTimestamp timestamp) {
             this.timestamp = timestamp;
             return this;
-        }        public TopicRuleErrorActionTimestream build() {
-            return new TopicRuleErrorActionTimestream(databaseName, dimensions, roleArn, tableName, timestamp);
+        }
+        public TopicRuleErrorActionTimestream build() {
+            final var o = new TopicRuleErrorActionTimestream();
+            o.databaseName = databaseName;
+            o.dimensions = dimensions;
+            o.roleArn = roleArn;
+            o.tableName = tableName;
+            o.timestamp = timestamp;
+            return o;
         }
     }
 }

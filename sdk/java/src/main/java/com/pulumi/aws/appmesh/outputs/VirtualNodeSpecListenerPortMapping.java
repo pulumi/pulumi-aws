@@ -14,21 +14,14 @@ public final class VirtualNodeSpecListenerPortMapping {
      * @return The port used for the port mapping.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerPortMapping(
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.port = port;
-        this.protocol = protocol;
-    }
-
+    private VirtualNodeSpecListenerPortMapping() {}
     /**
      * @return The port used for the port mapping.
      * 
@@ -51,30 +44,32 @@ public final class VirtualNodeSpecListenerPortMapping {
     public static Builder builder(VirtualNodeSpecListenerPortMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer port;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerPortMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public VirtualNodeSpecListenerPortMapping build() {
-            return new VirtualNodeSpecListenerPortMapping(port, protocol);
+        }
+        public VirtualNodeSpecListenerPortMapping build() {
+            final var o = new VirtualNodeSpecListenerPortMapping();
+            o.port = port;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

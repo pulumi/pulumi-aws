@@ -16,21 +16,14 @@ public final class ResourceSetResourceDnsTargetResourceTargetResource {
      * @return NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
      * 
      */
-    private final @Nullable ResourceSetResourceDnsTargetResourceTargetResourceNlbResource nlbResource;
+    private @Nullable ResourceSetResourceDnsTargetResourceTargetResourceNlbResource nlbResource;
     /**
      * @return Route53 resource a DNS Target Resource record points to.
      * 
      */
-    private final @Nullable ResourceSetResourceDnsTargetResourceTargetResourceR53Resource r53Resource;
+    private @Nullable ResourceSetResourceDnsTargetResourceTargetResourceR53Resource r53Resource;
 
-    @CustomType.Constructor
-    private ResourceSetResourceDnsTargetResourceTargetResource(
-        @CustomType.Parameter("nlbResource") @Nullable ResourceSetResourceDnsTargetResourceTargetResourceNlbResource nlbResource,
-        @CustomType.Parameter("r53Resource") @Nullable ResourceSetResourceDnsTargetResourceTargetResourceR53Resource r53Resource) {
-        this.nlbResource = nlbResource;
-        this.r53Resource = r53Resource;
-    }
-
+    private ResourceSetResourceDnsTargetResourceTargetResource() {}
     /**
      * @return NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
      * 
@@ -53,30 +46,32 @@ public final class ResourceSetResourceDnsTargetResourceTargetResource {
     public static Builder builder(ResourceSetResourceDnsTargetResourceTargetResource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ResourceSetResourceDnsTargetResourceTargetResourceNlbResource nlbResource;
         private @Nullable ResourceSetResourceDnsTargetResourceTargetResourceR53Resource r53Resource;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceSetResourceDnsTargetResourceTargetResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.nlbResource = defaults.nlbResource;
     	      this.r53Resource = defaults.r53Resource;
         }
 
+        @CustomType.Setter
         public Builder nlbResource(@Nullable ResourceSetResourceDnsTargetResourceTargetResourceNlbResource nlbResource) {
             this.nlbResource = nlbResource;
             return this;
         }
+        @CustomType.Setter
         public Builder r53Resource(@Nullable ResourceSetResourceDnsTargetResourceTargetResourceR53Resource r53Resource) {
             this.r53Resource = r53Resource;
             return this;
-        }        public ResourceSetResourceDnsTargetResourceTargetResource build() {
-            return new ResourceSetResourceDnsTargetResourceTargetResource(nlbResource, r53Resource);
+        }
+        public ResourceSetResourceDnsTargetResourceTargetResource build() {
+            final var o = new ResourceSetResourceDnsTargetResourceTargetResource();
+            o.nlbResource = nlbResource;
+            o.r53Resource = r53Resource;
+            return o;
         }
     }
 }

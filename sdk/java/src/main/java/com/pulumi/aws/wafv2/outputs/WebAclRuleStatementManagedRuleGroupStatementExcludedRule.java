@@ -13,13 +13,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementExcludedRule {
      * @return Name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementManagedRuleGroupStatementExcludedRule(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private WebAclRuleStatementManagedRuleGroupStatementExcludedRule() {}
     /**
      * @return Name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
      * 
@@ -35,24 +31,24 @@ public final class WebAclRuleStatementManagedRuleGroupStatementExcludedRule {
     public static Builder builder(WebAclRuleStatementManagedRuleGroupStatementExcludedRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementExcludedRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public WebAclRuleStatementManagedRuleGroupStatementExcludedRule build() {
-            return new WebAclRuleStatementManagedRuleGroupStatementExcludedRule(name);
+        }
+        public WebAclRuleStatementManagedRuleGroupStatementExcludedRule build() {
+            final var o = new WebAclRuleStatementManagedRuleGroupStatementExcludedRule();
+            o.name = name;
+            return o;
         }
     }
 }

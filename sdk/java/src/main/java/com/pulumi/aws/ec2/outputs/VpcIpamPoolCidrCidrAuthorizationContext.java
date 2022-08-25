@@ -15,21 +15,14 @@ public final class VpcIpamPoolCidrCidrAuthorizationContext {
      * @return The plain-text authorization message for the prefix and account.
      * 
      */
-    private final @Nullable String message;
+    private @Nullable String message;
     /**
      * @return The signed authorization message for the prefix and account.
      * 
      */
-    private final @Nullable String signature;
+    private @Nullable String signature;
 
-    @CustomType.Constructor
-    private VpcIpamPoolCidrCidrAuthorizationContext(
-        @CustomType.Parameter("message") @Nullable String message,
-        @CustomType.Parameter("signature") @Nullable String signature) {
-        this.message = message;
-        this.signature = signature;
-    }
-
+    private VpcIpamPoolCidrCidrAuthorizationContext() {}
     /**
      * @return The plain-text authorization message for the prefix and account.
      * 
@@ -52,30 +45,32 @@ public final class VpcIpamPoolCidrCidrAuthorizationContext {
     public static Builder builder(VpcIpamPoolCidrCidrAuthorizationContext defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String message;
         private @Nullable String signature;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpcIpamPoolCidrCidrAuthorizationContext defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.message = defaults.message;
     	      this.signature = defaults.signature;
         }
 
+        @CustomType.Setter
         public Builder message(@Nullable String message) {
             this.message = message;
             return this;
         }
+        @CustomType.Setter
         public Builder signature(@Nullable String signature) {
             this.signature = signature;
             return this;
-        }        public VpcIpamPoolCidrCidrAuthorizationContext build() {
-            return new VpcIpamPoolCidrCidrAuthorizationContext(message, signature);
+        }
+        public VpcIpamPoolCidrCidrAuthorizationContext build() {
+            final var o = new VpcIpamPoolCidrCidrAuthorizationContext();
+            o.message = message;
+            o.signature = signature;
+            return o;
         }
     }
 }

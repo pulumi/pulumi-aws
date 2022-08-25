@@ -13,13 +13,9 @@ public final class RecordLatencyRoutingPolicy {
      * @return An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
      * 
      */
-    private final String region;
+    private String region;
 
-    @CustomType.Constructor
-    private RecordLatencyRoutingPolicy(@CustomType.Parameter("region") String region) {
-        this.region = region;
-    }
-
+    private RecordLatencyRoutingPolicy() {}
     /**
      * @return An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
      * 
@@ -35,24 +31,24 @@ public final class RecordLatencyRoutingPolicy {
     public static Builder builder(RecordLatencyRoutingPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RecordLatencyRoutingPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
-        }        public RecordLatencyRoutingPolicy build() {
-            return new RecordLatencyRoutingPolicy(region);
+        }
+        public RecordLatencyRoutingPolicy build() {
+            final var o = new RecordLatencyRoutingPolicy();
+            o.region = region;
+            return o;
         }
     }
 }

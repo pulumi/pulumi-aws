@@ -13,21 +13,14 @@ public final class BotIntent {
      * @return The name of the intent. Must be less than or equal to 100 characters in length.
      * 
      */
-    private final String intentName;
+    private String intentName;
     /**
      * @return The version of the intent. Must be less than or equal to 64 characters in length.
      * 
      */
-    private final String intentVersion;
+    private String intentVersion;
 
-    @CustomType.Constructor
-    private BotIntent(
-        @CustomType.Parameter("intentName") String intentName,
-        @CustomType.Parameter("intentVersion") String intentVersion) {
-        this.intentName = intentName;
-        this.intentVersion = intentVersion;
-    }
-
+    private BotIntent() {}
     /**
      * @return The name of the intent. Must be less than or equal to 100 characters in length.
      * 
@@ -50,30 +43,32 @@ public final class BotIntent {
     public static Builder builder(BotIntent defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String intentName;
         private String intentVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BotIntent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.intentName = defaults.intentName;
     	      this.intentVersion = defaults.intentVersion;
         }
 
+        @CustomType.Setter
         public Builder intentName(String intentName) {
             this.intentName = Objects.requireNonNull(intentName);
             return this;
         }
+        @CustomType.Setter
         public Builder intentVersion(String intentVersion) {
             this.intentVersion = Objects.requireNonNull(intentVersion);
             return this;
-        }        public BotIntent build() {
-            return new BotIntent(intentName, intentVersion);
+        }
+        public BotIntent build() {
+            final var o = new BotIntent();
+            o.intentName = intentName;
+            o.intentVersion = intentVersion;
+            return o;
         }
     }
 }

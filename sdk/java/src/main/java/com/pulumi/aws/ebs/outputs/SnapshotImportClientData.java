@@ -16,35 +16,24 @@ public final class SnapshotImportClientData {
      * @return A user-defined comment about the disk upload.
      * 
      */
-    private final @Nullable String comment;
+    private @Nullable String comment;
     /**
      * @return The time that the disk upload ends.
      * 
      */
-    private final @Nullable String uploadEnd;
+    private @Nullable String uploadEnd;
     /**
      * @return The size of the uploaded disk image, in GiB.
      * 
      */
-    private final @Nullable Double uploadSize;
+    private @Nullable Double uploadSize;
     /**
      * @return The time that the disk upload starts.
      * 
      */
-    private final @Nullable String uploadStart;
+    private @Nullable String uploadStart;
 
-    @CustomType.Constructor
-    private SnapshotImportClientData(
-        @CustomType.Parameter("comment") @Nullable String comment,
-        @CustomType.Parameter("uploadEnd") @Nullable String uploadEnd,
-        @CustomType.Parameter("uploadSize") @Nullable Double uploadSize,
-        @CustomType.Parameter("uploadStart") @Nullable String uploadStart) {
-        this.comment = comment;
-        this.uploadEnd = uploadEnd;
-        this.uploadSize = uploadSize;
-        this.uploadStart = uploadStart;
-    }
-
+    private SnapshotImportClientData() {}
     /**
      * @return A user-defined comment about the disk upload.
      * 
@@ -81,17 +70,13 @@ public final class SnapshotImportClientData {
     public static Builder builder(SnapshotImportClientData defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String comment;
         private @Nullable String uploadEnd;
         private @Nullable Double uploadSize;
         private @Nullable String uploadStart;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SnapshotImportClientData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -100,23 +85,33 @@ public final class SnapshotImportClientData {
     	      this.uploadStart = defaults.uploadStart;
         }
 
+        @CustomType.Setter
         public Builder comment(@Nullable String comment) {
             this.comment = comment;
             return this;
         }
+        @CustomType.Setter
         public Builder uploadEnd(@Nullable String uploadEnd) {
             this.uploadEnd = uploadEnd;
             return this;
         }
+        @CustomType.Setter
         public Builder uploadSize(@Nullable Double uploadSize) {
             this.uploadSize = uploadSize;
             return this;
         }
+        @CustomType.Setter
         public Builder uploadStart(@Nullable String uploadStart) {
             this.uploadStart = uploadStart;
             return this;
-        }        public SnapshotImportClientData build() {
-            return new SnapshotImportClientData(comment, uploadEnd, uploadSize, uploadStart);
+        }
+        public SnapshotImportClientData build() {
+            final var o = new SnapshotImportClientData();
+            o.comment = comment;
+            o.uploadEnd = uploadEnd;
+            o.uploadSize = uploadSize;
+            o.uploadStart = uploadStart;
+            return o;
         }
     }
 }

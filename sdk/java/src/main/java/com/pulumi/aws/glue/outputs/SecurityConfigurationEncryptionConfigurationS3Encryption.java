@@ -15,21 +15,14 @@ public final class SecurityConfigurationEncryptionConfigurationS3Encryption {
      * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     /**
      * @return Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
      * 
      */
-    private final @Nullable String s3EncryptionMode;
+    private @Nullable String s3EncryptionMode;
 
-    @CustomType.Constructor
-    private SecurityConfigurationEncryptionConfigurationS3Encryption(
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn,
-        @CustomType.Parameter("s3EncryptionMode") @Nullable String s3EncryptionMode) {
-        this.kmsKeyArn = kmsKeyArn;
-        this.s3EncryptionMode = s3EncryptionMode;
-    }
-
+    private SecurityConfigurationEncryptionConfigurationS3Encryption() {}
     /**
      * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
      * 
@@ -52,30 +45,32 @@ public final class SecurityConfigurationEncryptionConfigurationS3Encryption {
     public static Builder builder(SecurityConfigurationEncryptionConfigurationS3Encryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyArn;
         private @Nullable String s3EncryptionMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecurityConfigurationEncryptionConfigurationS3Encryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.s3EncryptionMode = defaults.s3EncryptionMode;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
+        @CustomType.Setter
         public Builder s3EncryptionMode(@Nullable String s3EncryptionMode) {
             this.s3EncryptionMode = s3EncryptionMode;
             return this;
-        }        public SecurityConfigurationEncryptionConfigurationS3Encryption build() {
-            return new SecurityConfigurationEncryptionConfigurationS3Encryption(kmsKeyArn, s3EncryptionMode);
+        }
+        public SecurityConfigurationEncryptionConfigurationS3Encryption build() {
+            final var o = new SecurityConfigurationEncryptionConfigurationS3Encryption();
+            o.kmsKeyArn = kmsKeyArn;
+            o.s3EncryptionMode = s3EncryptionMode;
+            return o;
         }
     }
 }

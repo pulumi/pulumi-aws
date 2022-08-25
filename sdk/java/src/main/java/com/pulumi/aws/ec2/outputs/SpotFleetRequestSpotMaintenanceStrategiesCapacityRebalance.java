@@ -15,13 +15,9 @@ public final class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
      * @return The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
      * 
      */
-    private final @Nullable String replacementStrategy;
+    private @Nullable String replacementStrategy;
 
-    @CustomType.Constructor
-    private SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance(@CustomType.Parameter("replacementStrategy") @Nullable String replacementStrategy) {
-        this.replacementStrategy = replacementStrategy;
-    }
-
+    private SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance() {}
     /**
      * @return The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
      * 
@@ -37,24 +33,24 @@ public final class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
     public static Builder builder(SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String replacementStrategy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.replacementStrategy = defaults.replacementStrategy;
         }
 
+        @CustomType.Setter
         public Builder replacementStrategy(@Nullable String replacementStrategy) {
             this.replacementStrategy = replacementStrategy;
             return this;
-        }        public SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance build() {
-            return new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance(replacementStrategy);
+        }
+        public SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance build() {
+            final var o = new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance();
+            o.replacementStrategy = replacementStrategy;
+            return o;
         }
     }
 }

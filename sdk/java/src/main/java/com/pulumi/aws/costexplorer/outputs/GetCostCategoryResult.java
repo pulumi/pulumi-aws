@@ -13,66 +13,45 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategoryResult {
-    private final String costCategoryArn;
+    private String costCategoryArn;
     /**
      * @return Effective end data of your Cost Category.
      * 
      */
-    private final String effectiveEnd;
+    private String effectiveEnd;
     /**
      * @return Effective state data of your Cost Category.
      * 
      */
-    private final String effectiveStart;
+    private String effectiveStart;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return Rule schema version in this particular Cost Category.
      * 
      */
-    private final String ruleVersion;
+    private String ruleVersion;
     /**
      * @return Configuration block for the `Expression` object used to categorize costs. See below.
      * 
      */
-    private final List<GetCostCategoryRule> rules;
+    private List<GetCostCategoryRule> rules;
     /**
      * @return Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      * 
      */
-    private final List<GetCostCategorySplitChargeRule> splitChargeRules;
+    private List<GetCostCategorySplitChargeRule> splitChargeRules;
     /**
      * @return Resource tags.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetCostCategoryResult(
-        @CustomType.Parameter("costCategoryArn") String costCategoryArn,
-        @CustomType.Parameter("effectiveEnd") String effectiveEnd,
-        @CustomType.Parameter("effectiveStart") String effectiveStart,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("ruleVersion") String ruleVersion,
-        @CustomType.Parameter("rules") List<GetCostCategoryRule> rules,
-        @CustomType.Parameter("splitChargeRules") List<GetCostCategorySplitChargeRule> splitChargeRules,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.costCategoryArn = costCategoryArn;
-        this.effectiveEnd = effectiveEnd;
-        this.effectiveStart = effectiveStart;
-        this.id = id;
-        this.name = name;
-        this.ruleVersion = ruleVersion;
-        this.rules = rules;
-        this.splitChargeRules = splitChargeRules;
-        this.tags = tags;
-    }
-
+    private GetCostCategoryResult() {}
     public String costCategoryArn() {
         return this.costCategoryArn;
     }
@@ -136,7 +115,7 @@ public final class GetCostCategoryResult {
     public static Builder builder(GetCostCategoryResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String costCategoryArn;
         private String effectiveEnd;
@@ -147,11 +126,7 @@ public final class GetCostCategoryResult {
         private List<GetCostCategoryRule> rules;
         private List<GetCostCategorySplitChargeRule> splitChargeRules;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCostCategoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.costCategoryArn = defaults.costCategoryArn;
@@ -165,30 +140,37 @@ public final class GetCostCategoryResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder costCategoryArn(String costCategoryArn) {
             this.costCategoryArn = Objects.requireNonNull(costCategoryArn);
             return this;
         }
+        @CustomType.Setter
         public Builder effectiveEnd(String effectiveEnd) {
             this.effectiveEnd = Objects.requireNonNull(effectiveEnd);
             return this;
         }
+        @CustomType.Setter
         public Builder effectiveStart(String effectiveStart) {
             this.effectiveStart = Objects.requireNonNull(effectiveStart);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleVersion(String ruleVersion) {
             this.ruleVersion = Objects.requireNonNull(ruleVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(List<GetCostCategoryRule> rules) {
             this.rules = Objects.requireNonNull(rules);
             return this;
@@ -196,6 +178,7 @@ public final class GetCostCategoryResult {
         public Builder rules(GetCostCategoryRule... rules) {
             return rules(List.of(rules));
         }
+        @CustomType.Setter
         public Builder splitChargeRules(List<GetCostCategorySplitChargeRule> splitChargeRules) {
             this.splitChargeRules = Objects.requireNonNull(splitChargeRules);
             return this;
@@ -203,11 +186,23 @@ public final class GetCostCategoryResult {
         public Builder splitChargeRules(GetCostCategorySplitChargeRule... splitChargeRules) {
             return splitChargeRules(List.of(splitChargeRules));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetCostCategoryResult build() {
-            return new GetCostCategoryResult(costCategoryArn, effectiveEnd, effectiveStart, id, name, ruleVersion, rules, splitChargeRules, tags);
+        }
+        public GetCostCategoryResult build() {
+            final var o = new GetCostCategoryResult();
+            o.costCategoryArn = costCategoryArn;
+            o.effectiveEnd = effectiveEnd;
+            o.effectiveStart = effectiveStart;
+            o.id = id;
+            o.name = name;
+            o.ruleVersion = ruleVersion;
+            o.rules = rules;
+            o.splitChargeRules = splitChargeRules;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class GetInstanceEnclaveOption {
      * @return Whether Nitro Enclaves are enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetInstanceEnclaveOption(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private GetInstanceEnclaveOption() {}
     /**
      * @return Whether Nitro Enclaves are enabled.
      * 
@@ -35,24 +31,24 @@ public final class GetInstanceEnclaveOption {
     public static Builder builder(GetInstanceEnclaveOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceEnclaveOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetInstanceEnclaveOption build() {
-            return new GetInstanceEnclaveOption(enabled);
+        }
+        public GetInstanceEnclaveOption build() {
+            final var o = new GetInstanceEnclaveOption();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class DataSourceVpcConnectionProperties {
      * @return The Amazon Resource Name (ARN) for the VPC connection.
      * 
      */
-    private final String vpcConnectionArn;
+    private String vpcConnectionArn;
 
-    @CustomType.Constructor
-    private DataSourceVpcConnectionProperties(@CustomType.Parameter("vpcConnectionArn") String vpcConnectionArn) {
-        this.vpcConnectionArn = vpcConnectionArn;
-    }
-
+    private DataSourceVpcConnectionProperties() {}
     /**
      * @return The Amazon Resource Name (ARN) for the VPC connection.
      * 
@@ -35,24 +31,24 @@ public final class DataSourceVpcConnectionProperties {
     public static Builder builder(DataSourceVpcConnectionProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String vpcConnectionArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceVpcConnectionProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.vpcConnectionArn = defaults.vpcConnectionArn;
         }
 
+        @CustomType.Setter
         public Builder vpcConnectionArn(String vpcConnectionArn) {
             this.vpcConnectionArn = Objects.requireNonNull(vpcConnectionArn);
             return this;
-        }        public DataSourceVpcConnectionProperties build() {
-            return new DataSourceVpcConnectionProperties(vpcConnectionArn);
+        }
+        public DataSourceVpcConnectionProperties build() {
+            final var o = new DataSourceVpcConnectionProperties();
+            o.vpcConnectionArn = vpcConnectionArn;
+            return o;
         }
     }
 }

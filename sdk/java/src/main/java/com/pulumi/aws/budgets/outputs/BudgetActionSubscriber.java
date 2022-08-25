@@ -13,21 +13,14 @@ public final class BudgetActionSubscriber {
      * @return The address that AWS sends budget notifications to, either an SNS topic or an email.
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
      * 
      */
-    private final String subscriptionType;
+    private String subscriptionType;
 
-    @CustomType.Constructor
-    private BudgetActionSubscriber(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("subscriptionType") String subscriptionType) {
-        this.address = address;
-        this.subscriptionType = subscriptionType;
-    }
-
+    private BudgetActionSubscriber() {}
     /**
      * @return The address that AWS sends budget notifications to, either an SNS topic or an email.
      * 
@@ -50,30 +43,32 @@ public final class BudgetActionSubscriber {
     public static Builder builder(BudgetActionSubscriber defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private String subscriptionType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetActionSubscriber defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
     	      this.subscriptionType = defaults.subscriptionType;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptionType(String subscriptionType) {
             this.subscriptionType = Objects.requireNonNull(subscriptionType);
             return this;
-        }        public BudgetActionSubscriber build() {
-            return new BudgetActionSubscriber(address, subscriptionType);
+        }
+        public BudgetActionSubscriber build() {
+            final var o = new BudgetActionSubscriber();
+            o.address = address;
+            o.subscriptionType = subscriptionType;
+            return o;
         }
     }
 }

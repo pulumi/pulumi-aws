@@ -13,13 +13,9 @@ public final class VirtualGatewaySpecListenerTlsValidationTrustFile {
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String certificateChain;
+    private String certificateChain;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerTlsValidationTrustFile(@CustomType.Parameter("certificateChain") String certificateChain) {
-        this.certificateChain = certificateChain;
-    }
-
+    private VirtualGatewaySpecListenerTlsValidationTrustFile() {}
     /**
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
@@ -35,24 +31,24 @@ public final class VirtualGatewaySpecListenerTlsValidationTrustFile {
     public static Builder builder(VirtualGatewaySpecListenerTlsValidationTrustFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateChain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerTlsValidationTrustFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateChain = defaults.certificateChain;
         }
 
+        @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
             this.certificateChain = Objects.requireNonNull(certificateChain);
             return this;
-        }        public VirtualGatewaySpecListenerTlsValidationTrustFile build() {
-            return new VirtualGatewaySpecListenerTlsValidationTrustFile(certificateChain);
+        }
+        public VirtualGatewaySpecListenerTlsValidationTrustFile build() {
+            final var o = new VirtualGatewaySpecListenerTlsValidationTrustFile();
+            o.certificateChain = certificateChain;
+            return o;
         }
     }
 }

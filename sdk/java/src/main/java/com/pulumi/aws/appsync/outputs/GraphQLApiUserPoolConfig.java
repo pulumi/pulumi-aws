@@ -15,35 +15,24 @@ public final class GraphQLApiUserPoolConfig {
      * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
-    private final @Nullable String appIdClientRegex;
+    private @Nullable String appIdClientRegex;
     /**
      * @return The AWS region in which the user pool was created.
      * 
      */
-    private final @Nullable String awsRegion;
+    private @Nullable String awsRegion;
     /**
      * @return The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
      * 
      */
-    private final String defaultAction;
+    private String defaultAction;
     /**
      * @return The user pool ID.
      * 
      */
-    private final String userPoolId;
+    private String userPoolId;
 
-    @CustomType.Constructor
-    private GraphQLApiUserPoolConfig(
-        @CustomType.Parameter("appIdClientRegex") @Nullable String appIdClientRegex,
-        @CustomType.Parameter("awsRegion") @Nullable String awsRegion,
-        @CustomType.Parameter("defaultAction") String defaultAction,
-        @CustomType.Parameter("userPoolId") String userPoolId) {
-        this.appIdClientRegex = appIdClientRegex;
-        this.awsRegion = awsRegion;
-        this.defaultAction = defaultAction;
-        this.userPoolId = userPoolId;
-    }
-
+    private GraphQLApiUserPoolConfig() {}
     /**
      * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
@@ -80,17 +69,13 @@ public final class GraphQLApiUserPoolConfig {
     public static Builder builder(GraphQLApiUserPoolConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String appIdClientRegex;
         private @Nullable String awsRegion;
         private String defaultAction;
         private String userPoolId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GraphQLApiUserPoolConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appIdClientRegex = defaults.appIdClientRegex;
@@ -99,23 +84,33 @@ public final class GraphQLApiUserPoolConfig {
     	      this.userPoolId = defaults.userPoolId;
         }
 
+        @CustomType.Setter
         public Builder appIdClientRegex(@Nullable String appIdClientRegex) {
             this.appIdClientRegex = appIdClientRegex;
             return this;
         }
+        @CustomType.Setter
         public Builder awsRegion(@Nullable String awsRegion) {
             this.awsRegion = awsRegion;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
             this.defaultAction = Objects.requireNonNull(defaultAction);
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             this.userPoolId = Objects.requireNonNull(userPoolId);
             return this;
-        }        public GraphQLApiUserPoolConfig build() {
-            return new GraphQLApiUserPoolConfig(appIdClientRegex, awsRegion, defaultAction, userPoolId);
+        }
+        public GraphQLApiUserPoolConfig build() {
+            final var o = new GraphQLApiUserPoolConfig();
+            o.appIdClientRegex = appIdClientRegex;
+            o.awsRegion = awsRegion;
+            o.defaultAction = defaultAction;
+            o.userPoolId = userPoolId;
+            return o;
         }
     }
 }

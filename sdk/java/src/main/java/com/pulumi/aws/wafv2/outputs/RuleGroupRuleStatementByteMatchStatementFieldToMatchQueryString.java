@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString {
-    @CustomType.Constructor
-    private RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString() {
-    }
-
+    private RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStri
     public static Builder builder(RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString build() {
-            return new RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString();
+            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString();
+            return o;
         }
     }
 }

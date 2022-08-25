@@ -13,58 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewaySmbActiveDirectorySettings {
-    private final @Nullable String activeDirectoryStatus;
+    private @Nullable String activeDirectoryStatus;
     /**
      * @return List of IPv4 addresses, NetBIOS names, or host names of your domain server.
      * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
      * 
      */
-    private final @Nullable List<String> domainControllers;
+    private @Nullable List<String> domainControllers;
     /**
      * @return The name of the domain that you want the gateway to join.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
      * computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
      * 
      */
-    private final @Nullable String organizationalUnit;
+    private @Nullable String organizationalUnit;
     /**
      * @return The password of the user who has permission to add the gateway to the Active Directory domain.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
      * 
      */
-    private final @Nullable Integer timeoutInSeconds;
+    private @Nullable Integer timeoutInSeconds;
     /**
      * @return The user name of user who has permission to add the gateway to the Active Directory domain.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private GatewaySmbActiveDirectorySettings(
-        @CustomType.Parameter("activeDirectoryStatus") @Nullable String activeDirectoryStatus,
-        @CustomType.Parameter("domainControllers") @Nullable List<String> domainControllers,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("organizationalUnit") @Nullable String organizationalUnit,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("timeoutInSeconds") @Nullable Integer timeoutInSeconds,
-        @CustomType.Parameter("username") String username) {
-        this.activeDirectoryStatus = activeDirectoryStatus;
-        this.domainControllers = domainControllers;
-        this.domainName = domainName;
-        this.organizationalUnit = organizationalUnit;
-        this.password = password;
-        this.timeoutInSeconds = timeoutInSeconds;
-        this.username = username;
-    }
-
+    private GatewaySmbActiveDirectorySettings() {}
     public Optional<String> activeDirectoryStatus() {
         return Optional.ofNullable(this.activeDirectoryStatus);
     }
@@ -120,7 +103,7 @@ public final class GatewaySmbActiveDirectorySettings {
     public static Builder builder(GatewaySmbActiveDirectorySettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String activeDirectoryStatus;
         private @Nullable List<String> domainControllers;
@@ -129,11 +112,7 @@ public final class GatewaySmbActiveDirectorySettings {
         private String password;
         private @Nullable Integer timeoutInSeconds;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewaySmbActiveDirectorySettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectoryStatus = defaults.activeDirectoryStatus;
@@ -145,10 +124,12 @@ public final class GatewaySmbActiveDirectorySettings {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder activeDirectoryStatus(@Nullable String activeDirectoryStatus) {
             this.activeDirectoryStatus = activeDirectoryStatus;
             return this;
         }
+        @CustomType.Setter
         public Builder domainControllers(@Nullable List<String> domainControllers) {
             this.domainControllers = domainControllers;
             return this;
@@ -156,27 +137,41 @@ public final class GatewaySmbActiveDirectorySettings {
         public Builder domainControllers(String... domainControllers) {
             return domainControllers(List.of(domainControllers));
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder organizationalUnit(@Nullable String organizationalUnit) {
             this.organizationalUnit = organizationalUnit;
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GatewaySmbActiveDirectorySettings build() {
-            return new GatewaySmbActiveDirectorySettings(activeDirectoryStatus, domainControllers, domainName, organizationalUnit, password, timeoutInSeconds, username);
+        }
+        public GatewaySmbActiveDirectorySettings build() {
+            final var o = new GatewaySmbActiveDirectorySettings();
+            o.activeDirectoryStatus = activeDirectoryStatus;
+            o.domainControllers = domainControllers;
+            o.domainName = domainName;
+            o.organizationalUnit = organizationalUnit;
+            o.password = password;
+            o.timeoutInSeconds = timeoutInSeconds;
+            o.username = username;
+            return o;
         }
     }
 }

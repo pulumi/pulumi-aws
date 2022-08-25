@@ -10,35 +10,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateBlockDeviceMappingEb {
-    private final String deleteOnTermination;
-    private final String encrypted;
-    private final Integer iops;
-    private final String kmsKeyId;
-    private final String snapshotId;
-    private final Integer throughput;
-    private final Integer volumeSize;
-    private final String volumeType;
+    private String deleteOnTermination;
+    private String encrypted;
+    private Integer iops;
+    private String kmsKeyId;
+    private String snapshotId;
+    private Integer throughput;
+    private Integer volumeSize;
+    private String volumeType;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateBlockDeviceMappingEb(
-        @CustomType.Parameter("deleteOnTermination") String deleteOnTermination,
-        @CustomType.Parameter("encrypted") String encrypted,
-        @CustomType.Parameter("iops") Integer iops,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("snapshotId") String snapshotId,
-        @CustomType.Parameter("throughput") Integer throughput,
-        @CustomType.Parameter("volumeSize") Integer volumeSize,
-        @CustomType.Parameter("volumeType") String volumeType) {
-        this.deleteOnTermination = deleteOnTermination;
-        this.encrypted = encrypted;
-        this.iops = iops;
-        this.kmsKeyId = kmsKeyId;
-        this.snapshotId = snapshotId;
-        this.throughput = throughput;
-        this.volumeSize = volumeSize;
-        this.volumeType = volumeType;
-    }
-
+    private GetLaunchTemplateBlockDeviceMappingEb() {}
     public String deleteOnTermination() {
         return this.deleteOnTermination;
     }
@@ -71,7 +52,7 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
     public static Builder builder(GetLaunchTemplateBlockDeviceMappingEb defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deleteOnTermination;
         private String encrypted;
@@ -81,11 +62,7 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
         private Integer throughput;
         private Integer volumeSize;
         private String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateBlockDeviceMappingEb defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOnTermination = defaults.deleteOnTermination;
@@ -98,39 +75,57 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder deleteOnTermination(String deleteOnTermination) {
             this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(String encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder iops(Integer iops) {
             this.iops = Objects.requireNonNull(iops);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotId(String snapshotId) {
             this.snapshotId = Objects.requireNonNull(snapshotId);
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(Integer throughput) {
             this.throughput = Objects.requireNonNull(throughput);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(Integer volumeSize) {
             this.volumeSize = Objects.requireNonNull(volumeSize);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(String volumeType) {
             this.volumeType = Objects.requireNonNull(volumeType);
             return this;
-        }        public GetLaunchTemplateBlockDeviceMappingEb build() {
-            return new GetLaunchTemplateBlockDeviceMappingEb(deleteOnTermination, encrypted, iops, kmsKeyId, snapshotId, throughput, volumeSize, volumeType);
+        }
+        public GetLaunchTemplateBlockDeviceMappingEb build() {
+            final var o = new GetLaunchTemplateBlockDeviceMappingEb();
+            o.deleteOnTermination = deleteOnTermination;
+            o.encrypted = encrypted;
+            o.iops = iops;
+            o.kmsKeyId = kmsKeyId;
+            o.snapshotId = snapshotId;
+            o.throughput = throughput;
+            o.volumeSize = volumeSize;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class AppCampaignHook {
      * @return Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
      * 
      */
-    private final @Nullable String lambdaFunctionName;
+    private @Nullable String lambdaFunctionName;
     /**
      * @return What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
      * 
      */
-    private final @Nullable String mode;
+    private @Nullable String mode;
     /**
      * @return Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
      * 
      */
-    private final @Nullable String webUrl;
+    private @Nullable String webUrl;
 
-    @CustomType.Constructor
-    private AppCampaignHook(
-        @CustomType.Parameter("lambdaFunctionName") @Nullable String lambdaFunctionName,
-        @CustomType.Parameter("mode") @Nullable String mode,
-        @CustomType.Parameter("webUrl") @Nullable String webUrl) {
-        this.lambdaFunctionName = lambdaFunctionName;
-        this.mode = mode;
-        this.webUrl = webUrl;
-    }
-
+    private AppCampaignHook() {}
     /**
      * @return Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
      * 
@@ -66,16 +57,12 @@ public final class AppCampaignHook {
     public static Builder builder(AppCampaignHook defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String lambdaFunctionName;
         private @Nullable String mode;
         private @Nullable String webUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppCampaignHook defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lambdaFunctionName = defaults.lambdaFunctionName;
@@ -83,19 +70,27 @@ public final class AppCampaignHook {
     	      this.webUrl = defaults.webUrl;
         }
 
+        @CustomType.Setter
         public Builder lambdaFunctionName(@Nullable String lambdaFunctionName) {
             this.lambdaFunctionName = lambdaFunctionName;
             return this;
         }
+        @CustomType.Setter
         public Builder mode(@Nullable String mode) {
             this.mode = mode;
             return this;
         }
+        @CustomType.Setter
         public Builder webUrl(@Nullable String webUrl) {
             this.webUrl = webUrl;
             return this;
-        }        public AppCampaignHook build() {
-            return new AppCampaignHook(lambdaFunctionName, mode, webUrl);
+        }
+        public AppCampaignHook build() {
+            final var o = new AppCampaignHook();
+            o.lambdaFunctionName = lambdaFunctionName;
+            o.mode = mode;
+            o.webUrl = webUrl;
+            return o;
         }
     }
 }

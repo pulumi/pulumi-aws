@@ -16,21 +16,14 @@ public final class VirtualNodeSpecListenerTlsValidationTrust {
      * @return The TLS validation context trust for a local file certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTlsValidationTrustFile file;
+    private @Nullable VirtualNodeSpecListenerTlsValidationTrustFile file;
     /**
      * @return The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTlsValidationTrustSds sds;
+    private @Nullable VirtualNodeSpecListenerTlsValidationTrustSds sds;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTlsValidationTrust(
-        @CustomType.Parameter("file") @Nullable VirtualNodeSpecListenerTlsValidationTrustFile file,
-        @CustomType.Parameter("sds") @Nullable VirtualNodeSpecListenerTlsValidationTrustSds sds) {
-        this.file = file;
-        this.sds = sds;
-    }
-
+    private VirtualNodeSpecListenerTlsValidationTrust() {}
     /**
      * @return The TLS validation context trust for a local file certificate.
      * 
@@ -53,30 +46,32 @@ public final class VirtualNodeSpecListenerTlsValidationTrust {
     public static Builder builder(VirtualNodeSpecListenerTlsValidationTrust defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecListenerTlsValidationTrustFile file;
         private @Nullable VirtualNodeSpecListenerTlsValidationTrustSds sds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTlsValidationTrust defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.file = defaults.file;
     	      this.sds = defaults.sds;
         }
 
+        @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecListenerTlsValidationTrustFile file) {
             this.file = file;
             return this;
         }
+        @CustomType.Setter
         public Builder sds(@Nullable VirtualNodeSpecListenerTlsValidationTrustSds sds) {
             this.sds = sds;
             return this;
-        }        public VirtualNodeSpecListenerTlsValidationTrust build() {
-            return new VirtualNodeSpecListenerTlsValidationTrust(file, sds);
+        }
+        public VirtualNodeSpecListenerTlsValidationTrust build() {
+            final var o = new VirtualNodeSpecListenerTlsValidationTrust();
+            o.file = file;
+            o.sds = sds;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetPipelineDefinitionParameterObjectAttribute {
      * @return Field identifier.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    private final String stringValue;
+    private String stringValue;
 
-    @CustomType.Constructor
-    private GetPipelineDefinitionParameterObjectAttribute(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("stringValue") String stringValue) {
-        this.key = key;
-        this.stringValue = stringValue;
-    }
-
+    private GetPipelineDefinitionParameterObjectAttribute() {}
     /**
      * @return Field identifier.
      * 
@@ -50,30 +43,32 @@ public final class GetPipelineDefinitionParameterObjectAttribute {
     public static Builder builder(GetPipelineDefinitionParameterObjectAttribute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String stringValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPipelineDefinitionParameterObjectAttribute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.stringValue = defaults.stringValue;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder stringValue(String stringValue) {
             this.stringValue = Objects.requireNonNull(stringValue);
             return this;
-        }        public GetPipelineDefinitionParameterObjectAttribute build() {
-            return new GetPipelineDefinitionParameterObjectAttribute(key, stringValue);
+        }
+        public GetPipelineDefinitionParameterObjectAttribute build() {
+            final var o = new GetPipelineDefinitionParameterObjectAttribute();
+            o.key = key;
+            o.stringValue = stringValue;
+            return o;
         }
     }
 }

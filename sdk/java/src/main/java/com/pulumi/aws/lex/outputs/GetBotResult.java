@@ -18,126 +18,89 @@ public final class GetBotResult {
      * @return The ARN of the bot.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Checksum of the bot used to identify a specific revision of the bot&#39;s `$LATEST` version.
      * 
      */
-    private final String checksum;
+    private String checksum;
     /**
      * @return Specifies if this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
      * 
      */
-    private final Boolean childDirected;
+    private Boolean childDirected;
     /**
      * @return The date that the bot was created.
      * 
      */
-    private final String createdDate;
+    private String createdDate;
     /**
      * @return A description of the bot.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
      * 
      */
-    private final Boolean detectSentiment;
+    private Boolean detectSentiment;
     /**
      * @return Set to true if natural language understanding improvements are enabled.
      * 
      */
-    private final Boolean enableModelImprovements;
+    private Boolean enableModelImprovements;
     /**
      * @return If the `status` is `FAILED`, the reason why the bot failed to build.
      * 
      */
-    private final String failureReason;
+    private String failureReason;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
      * 
      */
-    private final Integer idleSessionTtlInSeconds;
+    private Integer idleSessionTtlInSeconds;
     /**
      * @return The date that the bot was updated.
      * 
      */
-    private final String lastUpdatedDate;
+    private String lastUpdatedDate;
     /**
      * @return Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
      * 
      */
-    private final String locale;
+    private String locale;
     /**
      * @return The name of the bot, case sensitive.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
      * 
      */
-    private final Double nluIntentConfidenceThreshold;
+    private Double nluIntentConfidenceThreshold;
     /**
      * @return The status of the bot.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The version of the bot. For a new bot, the version is always `$LATEST`.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
     /**
      * @return The Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
      * 
      */
-    private final String voiceId;
+    private String voiceId;
 
-    @CustomType.Constructor
-    private GetBotResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("checksum") String checksum,
-        @CustomType.Parameter("childDirected") Boolean childDirected,
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("detectSentiment") Boolean detectSentiment,
-        @CustomType.Parameter("enableModelImprovements") Boolean enableModelImprovements,
-        @CustomType.Parameter("failureReason") String failureReason,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("idleSessionTtlInSeconds") Integer idleSessionTtlInSeconds,
-        @CustomType.Parameter("lastUpdatedDate") String lastUpdatedDate,
-        @CustomType.Parameter("locale") String locale,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nluIntentConfidenceThreshold") Double nluIntentConfidenceThreshold,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("version") @Nullable String version,
-        @CustomType.Parameter("voiceId") String voiceId) {
-        this.arn = arn;
-        this.checksum = checksum;
-        this.childDirected = childDirected;
-        this.createdDate = createdDate;
-        this.description = description;
-        this.detectSentiment = detectSentiment;
-        this.enableModelImprovements = enableModelImprovements;
-        this.failureReason = failureReason;
-        this.id = id;
-        this.idleSessionTtlInSeconds = idleSessionTtlInSeconds;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.locale = locale;
-        this.name = name;
-        this.nluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
-        this.status = status;
-        this.version = version;
-        this.voiceId = voiceId;
-    }
-
+    private GetBotResult() {}
     /**
      * @return The ARN of the bot.
      * 
@@ -265,7 +228,7 @@ public final class GetBotResult {
     public static Builder builder(GetBotResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String checksum;
@@ -284,11 +247,7 @@ public final class GetBotResult {
         private String status;
         private @Nullable String version;
         private String voiceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBotResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -310,75 +269,111 @@ public final class GetBotResult {
     	      this.voiceId = defaults.voiceId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder checksum(String checksum) {
             this.checksum = Objects.requireNonNull(checksum);
             return this;
         }
+        @CustomType.Setter
         public Builder childDirected(Boolean childDirected) {
             this.childDirected = Objects.requireNonNull(childDirected);
             return this;
         }
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder detectSentiment(Boolean detectSentiment) {
             this.detectSentiment = Objects.requireNonNull(detectSentiment);
             return this;
         }
+        @CustomType.Setter
         public Builder enableModelImprovements(Boolean enableModelImprovements) {
             this.enableModelImprovements = Objects.requireNonNull(enableModelImprovements);
             return this;
         }
+        @CustomType.Setter
         public Builder failureReason(String failureReason) {
             this.failureReason = Objects.requireNonNull(failureReason);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder idleSessionTtlInSeconds(Integer idleSessionTtlInSeconds) {
             this.idleSessionTtlInSeconds = Objects.requireNonNull(idleSessionTtlInSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
             this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
             return this;
         }
+        @CustomType.Setter
         public Builder locale(String locale) {
             this.locale = Objects.requireNonNull(locale);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nluIntentConfidenceThreshold(Double nluIntentConfidenceThreshold) {
             this.nluIntentConfidenceThreshold = Objects.requireNonNull(nluIntentConfidenceThreshold);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
         }
+        @CustomType.Setter
         public Builder voiceId(String voiceId) {
             this.voiceId = Objects.requireNonNull(voiceId);
             return this;
-        }        public GetBotResult build() {
-            return new GetBotResult(arn, checksum, childDirected, createdDate, description, detectSentiment, enableModelImprovements, failureReason, id, idleSessionTtlInSeconds, lastUpdatedDate, locale, name, nluIntentConfidenceThreshold, status, version, voiceId);
+        }
+        public GetBotResult build() {
+            final var o = new GetBotResult();
+            o.arn = arn;
+            o.checksum = checksum;
+            o.childDirected = childDirected;
+            o.createdDate = createdDate;
+            o.description = description;
+            o.detectSentiment = detectSentiment;
+            o.enableModelImprovements = enableModelImprovements;
+            o.failureReason = failureReason;
+            o.id = id;
+            o.idleSessionTtlInSeconds = idleSessionTtlInSeconds;
+            o.lastUpdatedDate = lastUpdatedDate;
+            o.locale = locale;
+            o.name = name;
+            o.nluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
+            o.status = status;
+            o.version = version;
+            o.voiceId = voiceId;
+            return o;
         }
     }
 }

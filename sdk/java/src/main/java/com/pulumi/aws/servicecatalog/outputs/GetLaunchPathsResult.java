@@ -13,31 +13,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchPathsResult {
-    private final @Nullable String acceptLanguage;
+    private @Nullable String acceptLanguage;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String productId;
+    private String id;
+    private String productId;
     /**
      * @return Block with information about the launch path. See details below.
      * 
      */
-    private final List<GetLaunchPathsSummary> summaries;
+    private List<GetLaunchPathsSummary> summaries;
 
-    @CustomType.Constructor
-    private GetLaunchPathsResult(
-        @CustomType.Parameter("acceptLanguage") @Nullable String acceptLanguage,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("productId") String productId,
-        @CustomType.Parameter("summaries") List<GetLaunchPathsSummary> summaries) {
-        this.acceptLanguage = acceptLanguage;
-        this.id = id;
-        this.productId = productId;
-        this.summaries = summaries;
-    }
-
+    private GetLaunchPathsResult() {}
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
@@ -66,17 +55,13 @@ public final class GetLaunchPathsResult {
     public static Builder builder(GetLaunchPathsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
         private String id;
         private String productId;
         private List<GetLaunchPathsSummary> summaries;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchPathsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceptLanguage = defaults.acceptLanguage;
@@ -85,26 +70,36 @@ public final class GetLaunchPathsResult {
     	      this.summaries = defaults.summaries;
         }
 
+        @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
             this.acceptLanguage = acceptLanguage;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder productId(String productId) {
             this.productId = Objects.requireNonNull(productId);
             return this;
         }
+        @CustomType.Setter
         public Builder summaries(List<GetLaunchPathsSummary> summaries) {
             this.summaries = Objects.requireNonNull(summaries);
             return this;
         }
         public Builder summaries(GetLaunchPathsSummary... summaries) {
             return summaries(List.of(summaries));
-        }        public GetLaunchPathsResult build() {
-            return new GetLaunchPathsResult(acceptLanguage, id, productId, summaries);
+        }
+        public GetLaunchPathsResult build() {
+            final var o = new GetLaunchPathsResult();
+            o.acceptLanguage = acceptLanguage;
+            o.id = id;
+            o.productId = productId;
+            o.summaries = summaries;
+            return o;
         }
     }
 }

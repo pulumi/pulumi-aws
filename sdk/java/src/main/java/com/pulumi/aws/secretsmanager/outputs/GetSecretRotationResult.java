@@ -16,38 +16,25 @@ public final class GetSecretRotationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ARN of the secret.
      * 
      */
-    private final Boolean rotationEnabled;
+    private Boolean rotationEnabled;
     /**
      * @return The decrypted part of the protected secret information that was originally provided as a string.
      * 
      */
-    private final String rotationLambdaArn;
+    private String rotationLambdaArn;
     /**
      * @return The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      * 
      */
-    private final List<GetSecretRotationRotationRule> rotationRules;
-    private final String secretId;
+    private List<GetSecretRotationRotationRule> rotationRules;
+    private String secretId;
 
-    @CustomType.Constructor
-    private GetSecretRotationResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("rotationEnabled") Boolean rotationEnabled,
-        @CustomType.Parameter("rotationLambdaArn") String rotationLambdaArn,
-        @CustomType.Parameter("rotationRules") List<GetSecretRotationRotationRule> rotationRules,
-        @CustomType.Parameter("secretId") String secretId) {
-        this.id = id;
-        this.rotationEnabled = rotationEnabled;
-        this.rotationLambdaArn = rotationLambdaArn;
-        this.rotationRules = rotationRules;
-        this.secretId = secretId;
-    }
-
+    private GetSecretRotationResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -87,18 +74,14 @@ public final class GetSecretRotationResult {
     public static Builder builder(GetSecretRotationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private Boolean rotationEnabled;
         private String rotationLambdaArn;
         private List<GetSecretRotationRotationRule> rotationRules;
         private String secretId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecretRotationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -108,18 +91,22 @@ public final class GetSecretRotationResult {
     	      this.secretId = defaults.secretId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder rotationEnabled(Boolean rotationEnabled) {
             this.rotationEnabled = Objects.requireNonNull(rotationEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder rotationLambdaArn(String rotationLambdaArn) {
             this.rotationLambdaArn = Objects.requireNonNull(rotationLambdaArn);
             return this;
         }
+        @CustomType.Setter
         public Builder rotationRules(List<GetSecretRotationRotationRule> rotationRules) {
             this.rotationRules = Objects.requireNonNull(rotationRules);
             return this;
@@ -127,11 +114,19 @@ public final class GetSecretRotationResult {
         public Builder rotationRules(GetSecretRotationRotationRule... rotationRules) {
             return rotationRules(List.of(rotationRules));
         }
+        @CustomType.Setter
         public Builder secretId(String secretId) {
             this.secretId = Objects.requireNonNull(secretId);
             return this;
-        }        public GetSecretRotationResult build() {
-            return new GetSecretRotationResult(id, rotationEnabled, rotationLambdaArn, rotationRules, secretId);
+        }
+        public GetSecretRotationResult build() {
+            final var o = new GetSecretRotationResult();
+            o.id = id;
+            o.rotationEnabled = rotationEnabled;
+            o.rotationLambdaArn = rotationLambdaArn;
+            o.rotationRules = rotationRules;
+            o.secretId = secretId;
+            return o;
         }
     }
 }

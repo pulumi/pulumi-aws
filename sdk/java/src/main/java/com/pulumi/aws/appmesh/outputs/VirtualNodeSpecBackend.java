@@ -13,13 +13,9 @@ public final class VirtualNodeSpecBackend {
      * @return Specifies a virtual service to use as a backend for a virtual node.
      * 
      */
-    private final VirtualNodeSpecBackendVirtualService virtualService;
+    private VirtualNodeSpecBackendVirtualService virtualService;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackend(@CustomType.Parameter("virtualService") VirtualNodeSpecBackendVirtualService virtualService) {
-        this.virtualService = virtualService;
-    }
-
+    private VirtualNodeSpecBackend() {}
     /**
      * @return Specifies a virtual service to use as a backend for a virtual node.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecBackend {
     public static Builder builder(VirtualNodeSpecBackend defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualNodeSpecBackendVirtualService virtualService;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackend defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualService = defaults.virtualService;
         }
 
+        @CustomType.Setter
         public Builder virtualService(VirtualNodeSpecBackendVirtualService virtualService) {
             this.virtualService = Objects.requireNonNull(virtualService);
             return this;
-        }        public VirtualNodeSpecBackend build() {
-            return new VirtualNodeSpecBackend(virtualService);
+        }
+        public VirtualNodeSpecBackend build() {
+            final var o = new VirtualNodeSpecBackend();
+            o.virtualService = virtualService;
+            return o;
         }
     }
 }

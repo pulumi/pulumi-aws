@@ -16,28 +16,19 @@ public final class GraphQLApiLogConfig {
      * @return Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
      * 
      */
-    private final String cloudwatchLogsRoleArn;
+    private String cloudwatchLogsRoleArn;
     /**
      * @return Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
      * 
      */
-    private final @Nullable Boolean excludeVerboseContent;
+    private @Nullable Boolean excludeVerboseContent;
     /**
      * @return Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
      * 
      */
-    private final String fieldLogLevel;
+    private String fieldLogLevel;
 
-    @CustomType.Constructor
-    private GraphQLApiLogConfig(
-        @CustomType.Parameter("cloudwatchLogsRoleArn") String cloudwatchLogsRoleArn,
-        @CustomType.Parameter("excludeVerboseContent") @Nullable Boolean excludeVerboseContent,
-        @CustomType.Parameter("fieldLogLevel") String fieldLogLevel) {
-        this.cloudwatchLogsRoleArn = cloudwatchLogsRoleArn;
-        this.excludeVerboseContent = excludeVerboseContent;
-        this.fieldLogLevel = fieldLogLevel;
-    }
-
+    private GraphQLApiLogConfig() {}
     /**
      * @return Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
      * 
@@ -67,16 +58,12 @@ public final class GraphQLApiLogConfig {
     public static Builder builder(GraphQLApiLogConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cloudwatchLogsRoleArn;
         private @Nullable Boolean excludeVerboseContent;
         private String fieldLogLevel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GraphQLApiLogConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogsRoleArn = defaults.cloudwatchLogsRoleArn;
@@ -84,19 +71,27 @@ public final class GraphQLApiLogConfig {
     	      this.fieldLogLevel = defaults.fieldLogLevel;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLogsRoleArn(String cloudwatchLogsRoleArn) {
             this.cloudwatchLogsRoleArn = Objects.requireNonNull(cloudwatchLogsRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder excludeVerboseContent(@Nullable Boolean excludeVerboseContent) {
             this.excludeVerboseContent = excludeVerboseContent;
             return this;
         }
+        @CustomType.Setter
         public Builder fieldLogLevel(String fieldLogLevel) {
             this.fieldLogLevel = Objects.requireNonNull(fieldLogLevel);
             return this;
-        }        public GraphQLApiLogConfig build() {
-            return new GraphQLApiLogConfig(cloudwatchLogsRoleArn, excludeVerboseContent, fieldLogLevel);
+        }
+        public GraphQLApiLogConfig build() {
+            final var o = new GraphQLApiLogConfig();
+            o.cloudwatchLogsRoleArn = cloudwatchLogsRoleArn;
+            o.excludeVerboseContent = excludeVerboseContent;
+            o.fieldLogLevel = fieldLogLevel;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class FleetRuntimeConfigurationServerProcess {
      * @return Number of server processes using this configuration to run concurrently on an instance.
      * 
      */
-    private final Integer concurrentExecutions;
+    private Integer concurrentExecutions;
     /**
      * @return Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
      * 
      */
-    private final String launchPath;
+    private String launchPath;
     /**
      * @return Optional list of parameters to pass to the server executable on launch.
      * 
      */
-    private final @Nullable String parameters;
+    private @Nullable String parameters;
 
-    @CustomType.Constructor
-    private FleetRuntimeConfigurationServerProcess(
-        @CustomType.Parameter("concurrentExecutions") Integer concurrentExecutions,
-        @CustomType.Parameter("launchPath") String launchPath,
-        @CustomType.Parameter("parameters") @Nullable String parameters) {
-        this.concurrentExecutions = concurrentExecutions;
-        this.launchPath = launchPath;
-        this.parameters = parameters;
-    }
-
+    private FleetRuntimeConfigurationServerProcess() {}
     /**
      * @return Number of server processes using this configuration to run concurrently on an instance.
      * 
@@ -67,16 +58,12 @@ public final class FleetRuntimeConfigurationServerProcess {
     public static Builder builder(FleetRuntimeConfigurationServerProcess defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer concurrentExecutions;
         private String launchPath;
         private @Nullable String parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetRuntimeConfigurationServerProcess defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.concurrentExecutions = defaults.concurrentExecutions;
@@ -84,19 +71,27 @@ public final class FleetRuntimeConfigurationServerProcess {
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder concurrentExecutions(Integer concurrentExecutions) {
             this.concurrentExecutions = Objects.requireNonNull(concurrentExecutions);
             return this;
         }
+        @CustomType.Setter
         public Builder launchPath(String launchPath) {
             this.launchPath = Objects.requireNonNull(launchPath);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable String parameters) {
             this.parameters = parameters;
             return this;
-        }        public FleetRuntimeConfigurationServerProcess build() {
-            return new FleetRuntimeConfigurationServerProcess(concurrentExecutions, launchPath, parameters);
+        }
+        public FleetRuntimeConfigurationServerProcess build() {
+            final var o = new FleetRuntimeConfigurationServerProcess();
+            o.concurrentExecutions = concurrentExecutions;
+            o.launchPath = launchPath;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

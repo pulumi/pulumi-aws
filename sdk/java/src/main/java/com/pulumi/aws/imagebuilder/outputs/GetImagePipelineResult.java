@@ -14,133 +14,94 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImagePipelineResult {
-    private final String arn;
+    private String arn;
     /**
      * @return Amazon Resource Name (ARN) of the container recipe.
      * 
      */
-    private final String containerRecipeArn;
+    private String containerRecipeArn;
     /**
      * @return Date the image pipeline was created.
      * 
      */
-    private final String dateCreated;
+    private String dateCreated;
     /**
      * @return Date the image pipeline was last run.
      * 
      */
-    private final String dateLastRun;
+    private String dateLastRun;
     /**
      * @return Date the image pipeline will run next.
      * 
      */
-    private final String dateNextRun;
+    private String dateNextRun;
     /**
      * @return Date the image pipeline was updated.
      * 
      */
-    private final String dateUpdated;
+    private String dateUpdated;
     /**
      * @return Description of the image pipeline.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      * 
      */
-    private final String distributionConfigurationArn;
+    private String distributionConfigurationArn;
     /**
      * @return Whether additional information about the image being created is collected.
      * 
      */
-    private final Boolean enhancedImageMetadataEnabled;
+    private Boolean enhancedImageMetadataEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    private final String imageRecipeArn;
+    private String imageRecipeArn;
     /**
      * @return List of an object with image tests configuration.
      * 
      */
-    private final List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations;
+    private List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations;
     /**
      * @return Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      * 
      */
-    private final String infrastructureConfigurationArn;
+    private String infrastructureConfigurationArn;
     /**
      * @return Name of the image pipeline.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Platform of the image pipeline.
      * 
      */
-    private final String platform;
+    private String platform;
     /**
      * @return List of an object with schedule settings.
      * 
      */
-    private final List<GetImagePipelineSchedule> schedules;
+    private List<GetImagePipelineSchedule> schedules;
     /**
      * @return Status of the image pipeline.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Key-value map of resource tags for the image pipeline.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetImagePipelineResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("containerRecipeArn") String containerRecipeArn,
-        @CustomType.Parameter("dateCreated") String dateCreated,
-        @CustomType.Parameter("dateLastRun") String dateLastRun,
-        @CustomType.Parameter("dateNextRun") String dateNextRun,
-        @CustomType.Parameter("dateUpdated") String dateUpdated,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("distributionConfigurationArn") String distributionConfigurationArn,
-        @CustomType.Parameter("enhancedImageMetadataEnabled") Boolean enhancedImageMetadataEnabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageRecipeArn") String imageRecipeArn,
-        @CustomType.Parameter("imageTestsConfigurations") List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations,
-        @CustomType.Parameter("infrastructureConfigurationArn") String infrastructureConfigurationArn,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("platform") String platform,
-        @CustomType.Parameter("schedules") List<GetImagePipelineSchedule> schedules,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.containerRecipeArn = containerRecipeArn;
-        this.dateCreated = dateCreated;
-        this.dateLastRun = dateLastRun;
-        this.dateNextRun = dateNextRun;
-        this.dateUpdated = dateUpdated;
-        this.description = description;
-        this.distributionConfigurationArn = distributionConfigurationArn;
-        this.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
-        this.id = id;
-        this.imageRecipeArn = imageRecipeArn;
-        this.imageTestsConfigurations = imageTestsConfigurations;
-        this.infrastructureConfigurationArn = infrastructureConfigurationArn;
-        this.name = name;
-        this.platform = platform;
-        this.schedules = schedules;
-        this.status = status;
-        this.tags = tags;
-    }
-
+    private GetImagePipelineResult() {}
     public String arn() {
         return this.arn;
     }
@@ -271,7 +232,7 @@ public final class GetImagePipelineResult {
     public static Builder builder(GetImagePipelineResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String containerRecipeArn;
@@ -291,11 +252,7 @@ public final class GetImagePipelineResult {
         private List<GetImagePipelineSchedule> schedules;
         private String status;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImagePipelineResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -318,50 +275,62 @@ public final class GetImagePipelineResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder containerRecipeArn(String containerRecipeArn) {
             this.containerRecipeArn = Objects.requireNonNull(containerRecipeArn);
             return this;
         }
+        @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
             this.dateCreated = Objects.requireNonNull(dateCreated);
             return this;
         }
+        @CustomType.Setter
         public Builder dateLastRun(String dateLastRun) {
             this.dateLastRun = Objects.requireNonNull(dateLastRun);
             return this;
         }
+        @CustomType.Setter
         public Builder dateNextRun(String dateNextRun) {
             this.dateNextRun = Objects.requireNonNull(dateNextRun);
             return this;
         }
+        @CustomType.Setter
         public Builder dateUpdated(String dateUpdated) {
             this.dateUpdated = Objects.requireNonNull(dateUpdated);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder distributionConfigurationArn(String distributionConfigurationArn) {
             this.distributionConfigurationArn = Objects.requireNonNull(distributionConfigurationArn);
             return this;
         }
+        @CustomType.Setter
         public Builder enhancedImageMetadataEnabled(Boolean enhancedImageMetadataEnabled) {
             this.enhancedImageMetadataEnabled = Objects.requireNonNull(enhancedImageMetadataEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageRecipeArn(String imageRecipeArn) {
             this.imageRecipeArn = Objects.requireNonNull(imageRecipeArn);
             return this;
         }
+        @CustomType.Setter
         public Builder imageTestsConfigurations(List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations) {
             this.imageTestsConfigurations = Objects.requireNonNull(imageTestsConfigurations);
             return this;
@@ -369,18 +338,22 @@ public final class GetImagePipelineResult {
         public Builder imageTestsConfigurations(GetImagePipelineImageTestsConfiguration... imageTestsConfigurations) {
             return imageTestsConfigurations(List.of(imageTestsConfigurations));
         }
+        @CustomType.Setter
         public Builder infrastructureConfigurationArn(String infrastructureConfigurationArn) {
             this.infrastructureConfigurationArn = Objects.requireNonNull(infrastructureConfigurationArn);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder platform(String platform) {
             this.platform = Objects.requireNonNull(platform);
             return this;
         }
+        @CustomType.Setter
         public Builder schedules(List<GetImagePipelineSchedule> schedules) {
             this.schedules = Objects.requireNonNull(schedules);
             return this;
@@ -388,15 +361,37 @@ public final class GetImagePipelineResult {
         public Builder schedules(GetImagePipelineSchedule... schedules) {
             return schedules(List.of(schedules));
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetImagePipelineResult build() {
-            return new GetImagePipelineResult(arn, containerRecipeArn, dateCreated, dateLastRun, dateNextRun, dateUpdated, description, distributionConfigurationArn, enhancedImageMetadataEnabled, id, imageRecipeArn, imageTestsConfigurations, infrastructureConfigurationArn, name, platform, schedules, status, tags);
+        }
+        public GetImagePipelineResult build() {
+            final var o = new GetImagePipelineResult();
+            o.arn = arn;
+            o.containerRecipeArn = containerRecipeArn;
+            o.dateCreated = dateCreated;
+            o.dateLastRun = dateLastRun;
+            o.dateNextRun = dateNextRun;
+            o.dateUpdated = dateUpdated;
+            o.description = description;
+            o.distributionConfigurationArn = distributionConfigurationArn;
+            o.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
+            o.id = id;
+            o.imageRecipeArn = imageRecipeArn;
+            o.imageTestsConfigurations = imageTestsConfigurations;
+            o.infrastructureConfigurationArn = infrastructureConfigurationArn;
+            o.name = name;
+            o.platform = platform;
+            o.schedules = schedules;
+            o.status = status;
+            o.tags = tags;
+            return o;
         }
     }
 }

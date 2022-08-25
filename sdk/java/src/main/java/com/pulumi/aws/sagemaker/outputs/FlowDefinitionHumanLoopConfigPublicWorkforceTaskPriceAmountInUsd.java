@@ -15,28 +15,19 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountIn
      * @return The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
      * 
      */
-    private final @Nullable Integer cents;
+    private @Nullable Integer cents;
     /**
      * @return The whole number of dollars in the amount. Valid value range between `0` and `2`.
      * 
      */
-    private final @Nullable Integer dollars;
+    private @Nullable Integer dollars;
     /**
      * @return Fractions of a cent, in tenths. Valid value range between `0` and `9`.
      * 
      */
-    private final @Nullable Integer tenthFractionsOfACent;
+    private @Nullable Integer tenthFractionsOfACent;
 
-    @CustomType.Constructor
-    private FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd(
-        @CustomType.Parameter("cents") @Nullable Integer cents,
-        @CustomType.Parameter("dollars") @Nullable Integer dollars,
-        @CustomType.Parameter("tenthFractionsOfACent") @Nullable Integer tenthFractionsOfACent) {
-        this.cents = cents;
-        this.dollars = dollars;
-        this.tenthFractionsOfACent = tenthFractionsOfACent;
-    }
-
+    private FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd() {}
     /**
      * @return The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
      * 
@@ -66,16 +57,12 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountIn
     public static Builder builder(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer cents;
         private @Nullable Integer dollars;
         private @Nullable Integer tenthFractionsOfACent;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cents = defaults.cents;
@@ -83,19 +70,27 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountIn
     	      this.tenthFractionsOfACent = defaults.tenthFractionsOfACent;
         }
 
+        @CustomType.Setter
         public Builder cents(@Nullable Integer cents) {
             this.cents = cents;
             return this;
         }
+        @CustomType.Setter
         public Builder dollars(@Nullable Integer dollars) {
             this.dollars = dollars;
             return this;
         }
+        @CustomType.Setter
         public Builder tenthFractionsOfACent(@Nullable Integer tenthFractionsOfACent) {
             this.tenthFractionsOfACent = tenthFractionsOfACent;
             return this;
-        }        public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd build() {
-            return new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd(cents, dollars, tenthFractionsOfACent);
+        }
+        public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd build() {
+            final var o = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd();
+            o.cents = cents;
+            o.dollars = dollars;
+            o.tenthFractionsOfACent = tenthFractionsOfACent;
+            return o;
         }
     }
 }

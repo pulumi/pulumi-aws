@@ -11,17 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EnvironmentLastUpdatedError {
-    private final @Nullable String errorCode;
-    private final @Nullable String errorMessage;
+    private @Nullable String errorCode;
+    private @Nullable String errorMessage;
 
-    @CustomType.Constructor
-    private EnvironmentLastUpdatedError(
-        @CustomType.Parameter("errorCode") @Nullable String errorCode,
-        @CustomType.Parameter("errorMessage") @Nullable String errorMessage) {
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
-    }
-
+    private EnvironmentLastUpdatedError() {}
     public Optional<String> errorCode() {
         return Optional.ofNullable(this.errorCode);
     }
@@ -36,30 +29,32 @@ public final class EnvironmentLastUpdatedError {
     public static Builder builder(EnvironmentLastUpdatedError defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String errorCode;
         private @Nullable String errorMessage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EnvironmentLastUpdatedError defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.errorCode = defaults.errorCode;
     	      this.errorMessage = defaults.errorMessage;
         }
 
+        @CustomType.Setter
         public Builder errorCode(@Nullable String errorCode) {
             this.errorCode = errorCode;
             return this;
         }
+        @CustomType.Setter
         public Builder errorMessage(@Nullable String errorMessage) {
             this.errorMessage = errorMessage;
             return this;
-        }        public EnvironmentLastUpdatedError build() {
-            return new EnvironmentLastUpdatedError(errorCode, errorMessage);
+        }
+        public EnvironmentLastUpdatedError build() {
+            final var o = new EnvironmentLastUpdatedError();
+            o.errorCode = errorCode;
+            o.errorMessage = errorMessage;
+            return o;
         }
     }
 }

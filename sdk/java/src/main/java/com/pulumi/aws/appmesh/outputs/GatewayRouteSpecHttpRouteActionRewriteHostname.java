@@ -13,13 +13,9 @@ public final class GatewayRouteSpecHttpRouteActionRewriteHostname {
      * @return The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private final String defaultTargetHostname;
+    private String defaultTargetHostname;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttpRouteActionRewriteHostname(@CustomType.Parameter("defaultTargetHostname") String defaultTargetHostname) {
-        this.defaultTargetHostname = defaultTargetHostname;
-    }
-
+    private GatewayRouteSpecHttpRouteActionRewriteHostname() {}
     /**
      * @return The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
      * 
@@ -35,24 +31,24 @@ public final class GatewayRouteSpecHttpRouteActionRewriteHostname {
     public static Builder builder(GatewayRouteSpecHttpRouteActionRewriteHostname defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String defaultTargetHostname;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttpRouteActionRewriteHostname defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultTargetHostname = defaults.defaultTargetHostname;
         }
 
+        @CustomType.Setter
         public Builder defaultTargetHostname(String defaultTargetHostname) {
             this.defaultTargetHostname = Objects.requireNonNull(defaultTargetHostname);
             return this;
-        }        public GatewayRouteSpecHttpRouteActionRewriteHostname build() {
-            return new GatewayRouteSpecHttpRouteActionRewriteHostname(defaultTargetHostname);
+        }
+        public GatewayRouteSpecHttpRouteActionRewriteHostname build() {
+            final var o = new GatewayRouteSpecHttpRouteActionRewriteHostname();
+            o.defaultTargetHostname = defaultTargetHostname;
+            return o;
         }
     }
 }

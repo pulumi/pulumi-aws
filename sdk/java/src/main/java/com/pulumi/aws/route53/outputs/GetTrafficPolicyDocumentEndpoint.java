@@ -15,35 +15,24 @@ public final class GetTrafficPolicyDocumentEndpoint {
      * @return ID of a rule you want to assign.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Region code for the AWS Region that you created the resource in.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
     /**
      * @return Type of the rule.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Value of the `type`.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private GetTrafficPolicyDocumentEndpoint(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.id = id;
-        this.region = region;
-        this.type = type;
-        this.value = value;
-    }
-
+    private GetTrafficPolicyDocumentEndpoint() {}
     /**
      * @return ID of a rule you want to assign.
      * 
@@ -80,17 +69,13 @@ public final class GetTrafficPolicyDocumentEndpoint {
     public static Builder builder(GetTrafficPolicyDocumentEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String region;
         private @Nullable String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficPolicyDocumentEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -99,23 +84,33 @@ public final class GetTrafficPolicyDocumentEndpoint {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public GetTrafficPolicyDocumentEndpoint build() {
-            return new GetTrafficPolicyDocumentEndpoint(id, region, type, value);
+        }
+        public GetTrafficPolicyDocumentEndpoint build() {
+            final var o = new GetTrafficPolicyDocumentEndpoint();
+            o.id = id;
+            o.region = region;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

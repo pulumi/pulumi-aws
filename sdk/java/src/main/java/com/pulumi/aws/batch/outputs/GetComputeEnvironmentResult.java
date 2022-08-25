@@ -14,73 +14,50 @@ public final class GetComputeEnvironmentResult {
      * @return The ARN of the compute environment.
      * 
      */
-    private final String arn;
-    private final String computeEnvironmentName;
+    private String arn;
+    private String computeEnvironmentName;
     /**
      * @return The ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
-    private final String ecsClusterArn;
+    private String ecsClusterArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
-    private final String serviceRole;
+    private String serviceRole;
     /**
      * @return The state of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
      * 
      */
-    private final String state;
+    private String state;
     /**
      * @return The current status of the compute environment (for example, `CREATING` or `VALID`).
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return A short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
-    private final String statusReason;
+    private String statusReason;
     /**
      * @return Key-value map of resource tags
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetComputeEnvironmentResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("computeEnvironmentName") String computeEnvironmentName,
-        @CustomType.Parameter("ecsClusterArn") String ecsClusterArn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("serviceRole") String serviceRole,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("statusReason") String statusReason,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type) {
-        this.arn = arn;
-        this.computeEnvironmentName = computeEnvironmentName;
-        this.ecsClusterArn = ecsClusterArn;
-        this.id = id;
-        this.serviceRole = serviceRole;
-        this.state = state;
-        this.status = status;
-        this.statusReason = statusReason;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private GetComputeEnvironmentResult() {}
     /**
      * @return The ARN of the compute environment.
      * 
@@ -155,7 +132,7 @@ public final class GetComputeEnvironmentResult {
     public static Builder builder(GetComputeEnvironmentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String computeEnvironmentName;
@@ -167,11 +144,7 @@ public final class GetComputeEnvironmentResult {
         private String statusReason;
         private Map<String,String> tags;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetComputeEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -186,47 +159,69 @@ public final class GetComputeEnvironmentResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder computeEnvironmentName(String computeEnvironmentName) {
             this.computeEnvironmentName = Objects.requireNonNull(computeEnvironmentName);
             return this;
         }
+        @CustomType.Setter
         public Builder ecsClusterArn(String ecsClusterArn) {
             this.ecsClusterArn = Objects.requireNonNull(ecsClusterArn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
             this.serviceRole = Objects.requireNonNull(serviceRole);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder statusReason(String statusReason) {
             this.statusReason = Objects.requireNonNull(statusReason);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetComputeEnvironmentResult build() {
-            return new GetComputeEnvironmentResult(arn, computeEnvironmentName, ecsClusterArn, id, serviceRole, state, status, statusReason, tags, type);
+        }
+        public GetComputeEnvironmentResult build() {
+            final var o = new GetComputeEnvironmentResult();
+            o.arn = arn;
+            o.computeEnvironmentName = computeEnvironmentName;
+            o.ecsClusterArn = ecsClusterArn;
+            o.id = id;
+            o.serviceRole = serviceRole;
+            o.state = state;
+            o.status = status;
+            o.statusReason = statusReason;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

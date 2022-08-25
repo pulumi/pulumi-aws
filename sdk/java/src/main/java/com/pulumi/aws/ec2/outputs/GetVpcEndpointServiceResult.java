@@ -19,103 +19,68 @@ public final class GetVpcEndpointServiceResult {
      * @return Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      * 
      */
-    private final Boolean acceptanceRequired;
+    private Boolean acceptanceRequired;
     /**
      * @return The Amazon Resource Name (ARN) of the VPC endpoint service.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The Availability Zones in which the service is available.
      * 
      */
-    private final List<String> availabilityZones;
+    private List<String> availabilityZones;
     /**
      * @return The DNS names for the service.
      * 
      */
-    private final List<String> baseEndpointDnsNames;
-    private final @Nullable List<GetVpcEndpointServiceFilter> filters;
+    private List<String> baseEndpointDnsNames;
+    private @Nullable List<GetVpcEndpointServiceFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Whether or not the service manages its VPC endpoints - `true` or `false`.
      * 
      */
-    private final Boolean managesVpcEndpoints;
+    private Boolean managesVpcEndpoints;
     /**
      * @return The AWS account ID of the service owner or `amazon`.
      * 
      */
-    private final String owner;
+    private String owner;
     /**
      * @return The private DNS name for the service.
      * 
      */
-    private final String privateDnsName;
-    private final @Nullable String service;
+    private String privateDnsName;
+    private @Nullable String service;
     /**
      * @return The ID of the endpoint service.
      * 
      */
-    private final String serviceId;
-    private final String serviceName;
-    private final String serviceType;
+    private String serviceId;
+    private String serviceName;
+    private String serviceType;
     /**
      * @return The supported IP address types.
      * 
      */
-    private final List<String> supportedIpAddressTypes;
+    private List<String> supportedIpAddressTypes;
     /**
      * @return A map of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Whether or not the service supports endpoint policies - `true` or `false`.
      * 
      */
-    private final Boolean vpcEndpointPolicySupported;
+    private Boolean vpcEndpointPolicySupported;
 
-    @CustomType.Constructor
-    private GetVpcEndpointServiceResult(
-        @CustomType.Parameter("acceptanceRequired") Boolean acceptanceRequired,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("availabilityZones") List<String> availabilityZones,
-        @CustomType.Parameter("baseEndpointDnsNames") List<String> baseEndpointDnsNames,
-        @CustomType.Parameter("filters") @Nullable List<GetVpcEndpointServiceFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("managesVpcEndpoints") Boolean managesVpcEndpoints,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("privateDnsName") String privateDnsName,
-        @CustomType.Parameter("service") @Nullable String service,
-        @CustomType.Parameter("serviceId") String serviceId,
-        @CustomType.Parameter("serviceName") String serviceName,
-        @CustomType.Parameter("serviceType") String serviceType,
-        @CustomType.Parameter("supportedIpAddressTypes") List<String> supportedIpAddressTypes,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcEndpointPolicySupported") Boolean vpcEndpointPolicySupported) {
-        this.acceptanceRequired = acceptanceRequired;
-        this.arn = arn;
-        this.availabilityZones = availabilityZones;
-        this.baseEndpointDnsNames = baseEndpointDnsNames;
-        this.filters = filters;
-        this.id = id;
-        this.managesVpcEndpoints = managesVpcEndpoints;
-        this.owner = owner;
-        this.privateDnsName = privateDnsName;
-        this.service = service;
-        this.serviceId = serviceId;
-        this.serviceName = serviceName;
-        this.serviceType = serviceType;
-        this.supportedIpAddressTypes = supportedIpAddressTypes;
-        this.tags = tags;
-        this.vpcEndpointPolicySupported = vpcEndpointPolicySupported;
-    }
-
+    private GetVpcEndpointServiceResult() {}
     /**
      * @return Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      * 
@@ -220,7 +185,7 @@ public final class GetVpcEndpointServiceResult {
     public static Builder builder(GetVpcEndpointServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean acceptanceRequired;
         private String arn;
@@ -238,11 +203,7 @@ public final class GetVpcEndpointServiceResult {
         private List<String> supportedIpAddressTypes;
         private Map<String,String> tags;
         private Boolean vpcEndpointPolicySupported;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcEndpointServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceptanceRequired = defaults.acceptanceRequired;
@@ -263,14 +224,17 @@ public final class GetVpcEndpointServiceResult {
     	      this.vpcEndpointPolicySupported = defaults.vpcEndpointPolicySupported;
         }
 
+        @CustomType.Setter
         public Builder acceptanceRequired(Boolean acceptanceRequired) {
             this.acceptanceRequired = Objects.requireNonNull(acceptanceRequired);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
             this.availabilityZones = Objects.requireNonNull(availabilityZones);
             return this;
@@ -278,6 +242,7 @@ public final class GetVpcEndpointServiceResult {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder baseEndpointDnsNames(List<String> baseEndpointDnsNames) {
             this.baseEndpointDnsNames = Objects.requireNonNull(baseEndpointDnsNames);
             return this;
@@ -285,6 +250,7 @@ public final class GetVpcEndpointServiceResult {
         public Builder baseEndpointDnsNames(String... baseEndpointDnsNames) {
             return baseEndpointDnsNames(List.of(baseEndpointDnsNames));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcEndpointServiceFilter> filters) {
             this.filters = filters;
             return this;
@@ -292,38 +258,47 @@ public final class GetVpcEndpointServiceResult {
         public Builder filters(GetVpcEndpointServiceFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder managesVpcEndpoints(Boolean managesVpcEndpoints) {
             this.managesVpcEndpoints = Objects.requireNonNull(managesVpcEndpoints);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder privateDnsName(String privateDnsName) {
             this.privateDnsName = Objects.requireNonNull(privateDnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder service(@Nullable String service) {
             this.service = service;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceId(String serviceId) {
             this.serviceId = Objects.requireNonNull(serviceId);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceType(String serviceType) {
             this.serviceType = Objects.requireNonNull(serviceType);
             return this;
         }
+        @CustomType.Setter
         public Builder supportedIpAddressTypes(List<String> supportedIpAddressTypes) {
             this.supportedIpAddressTypes = Objects.requireNonNull(supportedIpAddressTypes);
             return this;
@@ -331,15 +306,35 @@ public final class GetVpcEndpointServiceResult {
         public Builder supportedIpAddressTypes(String... supportedIpAddressTypes) {
             return supportedIpAddressTypes(List.of(supportedIpAddressTypes));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcEndpointPolicySupported(Boolean vpcEndpointPolicySupported) {
             this.vpcEndpointPolicySupported = Objects.requireNonNull(vpcEndpointPolicySupported);
             return this;
-        }        public GetVpcEndpointServiceResult build() {
-            return new GetVpcEndpointServiceResult(acceptanceRequired, arn, availabilityZones, baseEndpointDnsNames, filters, id, managesVpcEndpoints, owner, privateDnsName, service, serviceId, serviceName, serviceType, supportedIpAddressTypes, tags, vpcEndpointPolicySupported);
+        }
+        public GetVpcEndpointServiceResult build() {
+            final var o = new GetVpcEndpointServiceResult();
+            o.acceptanceRequired = acceptanceRequired;
+            o.arn = arn;
+            o.availabilityZones = availabilityZones;
+            o.baseEndpointDnsNames = baseEndpointDnsNames;
+            o.filters = filters;
+            o.id = id;
+            o.managesVpcEndpoints = managesVpcEndpoints;
+            o.owner = owner;
+            o.privateDnsName = privateDnsName;
+            o.service = service;
+            o.serviceId = serviceId;
+            o.serviceName = serviceName;
+            o.serviceType = serviceType;
+            o.supportedIpAddressTypes = supportedIpAddressTypes;
+            o.tags = tags;
+            o.vpcEndpointPolicySupported = vpcEndpointPolicySupported;
+            return o;
         }
     }
 }

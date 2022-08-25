@@ -15,45 +15,30 @@ public final class GetAclResult {
      * @return ARN of the ACL.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The minimum engine version supported by the ACL.
      * 
      */
-    private final String minimumEngineVersion;
-    private final String name;
+    private String minimumEngineVersion;
+    private String name;
     /**
      * @return A map of tags assigned to the ACL.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Set of MemoryDB user names included in this ACL.
      * 
      */
-    private final List<String> userNames;
+    private List<String> userNames;
 
-    @CustomType.Constructor
-    private GetAclResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("minimumEngineVersion") String minimumEngineVersion,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("userNames") List<String> userNames) {
-        this.arn = arn;
-        this.id = id;
-        this.minimumEngineVersion = minimumEngineVersion;
-        this.name = name;
-        this.tags = tags;
-        this.userNames = userNames;
-    }
-
+    private GetAclResult() {}
     /**
      * @return ARN of the ACL.
      * 
@@ -100,7 +85,7 @@ public final class GetAclResult {
     public static Builder builder(GetAclResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
@@ -108,11 +93,7 @@ public final class GetAclResult {
         private String name;
         private Map<String,String> tags;
         private List<String> userNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAclResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -123,34 +104,48 @@ public final class GetAclResult {
     	      this.userNames = defaults.userNames;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumEngineVersion(String minimumEngineVersion) {
             this.minimumEngineVersion = Objects.requireNonNull(minimumEngineVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder userNames(List<String> userNames) {
             this.userNames = Objects.requireNonNull(userNames);
             return this;
         }
         public Builder userNames(String... userNames) {
             return userNames(List.of(userNames));
-        }        public GetAclResult build() {
-            return new GetAclResult(arn, id, minimumEngineVersion, name, tags, userNames);
+        }
+        public GetAclResult build() {
+            final var o = new GetAclResult();
+            o.arn = arn;
+            o.id = id;
+            o.minimumEngineVersion = minimumEngineVersion;
+            o.name = name;
+            o.tags = tags;
+            o.userNames = userNames;
+            return o;
         }
     }
 }

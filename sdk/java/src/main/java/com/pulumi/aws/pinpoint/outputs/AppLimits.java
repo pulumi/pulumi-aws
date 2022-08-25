@@ -15,35 +15,24 @@ public final class AppLimits {
      * @return The maximum number of messages that the campaign can send daily.
      * 
      */
-    private final @Nullable Integer daily;
+    private @Nullable Integer daily;
     /**
      * @return The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
      * 
      */
-    private final @Nullable Integer maximumDuration;
+    private @Nullable Integer maximumDuration;
     /**
      * @return The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
      * 
      */
-    private final @Nullable Integer messagesPerSecond;
+    private @Nullable Integer messagesPerSecond;
     /**
      * @return The maximum total number of messages that the campaign can send.
      * 
      */
-    private final @Nullable Integer total;
+    private @Nullable Integer total;
 
-    @CustomType.Constructor
-    private AppLimits(
-        @CustomType.Parameter("daily") @Nullable Integer daily,
-        @CustomType.Parameter("maximumDuration") @Nullable Integer maximumDuration,
-        @CustomType.Parameter("messagesPerSecond") @Nullable Integer messagesPerSecond,
-        @CustomType.Parameter("total") @Nullable Integer total) {
-        this.daily = daily;
-        this.maximumDuration = maximumDuration;
-        this.messagesPerSecond = messagesPerSecond;
-        this.total = total;
-    }
-
+    private AppLimits() {}
     /**
      * @return The maximum number of messages that the campaign can send daily.
      * 
@@ -80,17 +69,13 @@ public final class AppLimits {
     public static Builder builder(AppLimits defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer daily;
         private @Nullable Integer maximumDuration;
         private @Nullable Integer messagesPerSecond;
         private @Nullable Integer total;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppLimits defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.daily = defaults.daily;
@@ -99,23 +84,33 @@ public final class AppLimits {
     	      this.total = defaults.total;
         }
 
+        @CustomType.Setter
         public Builder daily(@Nullable Integer daily) {
             this.daily = daily;
             return this;
         }
+        @CustomType.Setter
         public Builder maximumDuration(@Nullable Integer maximumDuration) {
             this.maximumDuration = maximumDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder messagesPerSecond(@Nullable Integer messagesPerSecond) {
             this.messagesPerSecond = messagesPerSecond;
             return this;
         }
+        @CustomType.Setter
         public Builder total(@Nullable Integer total) {
             this.total = total;
             return this;
-        }        public AppLimits build() {
-            return new AppLimits(daily, maximumDuration, messagesPerSecond, total);
+        }
+        public AppLimits build() {
+            final var o = new AppLimits();
+            o.daily = daily;
+            o.maximumDuration = maximumDuration;
+            o.messagesPerSecond = messagesPerSecond;
+            o.total = total;
+            return o;
         }
     }
 }

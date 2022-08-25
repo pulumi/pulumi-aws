@@ -13,13 +13,9 @@ public final class GetVirtualServiceSpecProviderVirtualRouter {
      * @return The name of the virtual router that is acting as a service provider.
      * 
      */
-    private final String virtualRouterName;
+    private String virtualRouterName;
 
-    @CustomType.Constructor
-    private GetVirtualServiceSpecProviderVirtualRouter(@CustomType.Parameter("virtualRouterName") String virtualRouterName) {
-        this.virtualRouterName = virtualRouterName;
-    }
-
+    private GetVirtualServiceSpecProviderVirtualRouter() {}
     /**
      * @return The name of the virtual router that is acting as a service provider.
      * 
@@ -35,24 +31,24 @@ public final class GetVirtualServiceSpecProviderVirtualRouter {
     public static Builder builder(GetVirtualServiceSpecProviderVirtualRouter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String virtualRouterName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualServiceSpecProviderVirtualRouter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualRouterName = defaults.virtualRouterName;
         }
 
+        @CustomType.Setter
         public Builder virtualRouterName(String virtualRouterName) {
             this.virtualRouterName = Objects.requireNonNull(virtualRouterName);
             return this;
-        }        public GetVirtualServiceSpecProviderVirtualRouter build() {
-            return new GetVirtualServiceSpecProviderVirtualRouter(virtualRouterName);
+        }
+        public GetVirtualServiceSpecProviderVirtualRouter build() {
+            final var o = new GetVirtualServiceSpecProviderVirtualRouter();
+            o.virtualRouterName = virtualRouterName;
+            return o;
         }
     }
 }

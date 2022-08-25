@@ -15,13 +15,9 @@ public final class FlowSourceFlowConfigIncrementalPullConfig {
      * @return A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
      * 
      */
-    private final @Nullable String datetimeTypeFieldName;
+    private @Nullable String datetimeTypeFieldName;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigIncrementalPullConfig(@CustomType.Parameter("datetimeTypeFieldName") @Nullable String datetimeTypeFieldName) {
-        this.datetimeTypeFieldName = datetimeTypeFieldName;
-    }
-
+    private FlowSourceFlowConfigIncrementalPullConfig() {}
     /**
      * @return A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
      * 
@@ -37,24 +33,24 @@ public final class FlowSourceFlowConfigIncrementalPullConfig {
     public static Builder builder(FlowSourceFlowConfigIncrementalPullConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String datetimeTypeFieldName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigIncrementalPullConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.datetimeTypeFieldName = defaults.datetimeTypeFieldName;
         }
 
+        @CustomType.Setter
         public Builder datetimeTypeFieldName(@Nullable String datetimeTypeFieldName) {
             this.datetimeTypeFieldName = datetimeTypeFieldName;
             return this;
-        }        public FlowSourceFlowConfigIncrementalPullConfig build() {
-            return new FlowSourceFlowConfigIncrementalPullConfig(datetimeTypeFieldName);
+        }
+        public FlowSourceFlowConfigIncrementalPullConfig build() {
+            final var o = new FlowSourceFlowConfigIncrementalPullConfig();
+            o.datetimeTypeFieldName = datetimeTypeFieldName;
+            return o;
         }
     }
 }

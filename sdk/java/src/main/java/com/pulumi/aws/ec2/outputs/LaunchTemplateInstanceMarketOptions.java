@@ -16,21 +16,14 @@ public final class LaunchTemplateInstanceMarketOptions {
      * @return The market type. Can be `spot`.
      * 
      */
-    private final @Nullable String marketType;
+    private @Nullable String marketType;
     /**
      * @return The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
      * 
      */
-    private final @Nullable LaunchTemplateInstanceMarketOptionsSpotOptions spotOptions;
+    private @Nullable LaunchTemplateInstanceMarketOptionsSpotOptions spotOptions;
 
-    @CustomType.Constructor
-    private LaunchTemplateInstanceMarketOptions(
-        @CustomType.Parameter("marketType") @Nullable String marketType,
-        @CustomType.Parameter("spotOptions") @Nullable LaunchTemplateInstanceMarketOptionsSpotOptions spotOptions) {
-        this.marketType = marketType;
-        this.spotOptions = spotOptions;
-    }
-
+    private LaunchTemplateInstanceMarketOptions() {}
     /**
      * @return The market type. Can be `spot`.
      * 
@@ -53,30 +46,32 @@ public final class LaunchTemplateInstanceMarketOptions {
     public static Builder builder(LaunchTemplateInstanceMarketOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String marketType;
         private @Nullable LaunchTemplateInstanceMarketOptionsSpotOptions spotOptions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateInstanceMarketOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.marketType = defaults.marketType;
     	      this.spotOptions = defaults.spotOptions;
         }
 
+        @CustomType.Setter
         public Builder marketType(@Nullable String marketType) {
             this.marketType = marketType;
             return this;
         }
+        @CustomType.Setter
         public Builder spotOptions(@Nullable LaunchTemplateInstanceMarketOptionsSpotOptions spotOptions) {
             this.spotOptions = spotOptions;
             return this;
-        }        public LaunchTemplateInstanceMarketOptions build() {
-            return new LaunchTemplateInstanceMarketOptions(marketType, spotOptions);
+        }
+        public LaunchTemplateInstanceMarketOptions build() {
+            final var o = new LaunchTemplateInstanceMarketOptions();
+            o.marketType = marketType;
+            o.spotOptions = spotOptions;
+            return o;
         }
     }
 }

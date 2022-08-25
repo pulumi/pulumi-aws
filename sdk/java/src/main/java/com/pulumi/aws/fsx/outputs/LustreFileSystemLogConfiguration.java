@@ -15,21 +15,14 @@ public final class LustreFileSystemLogConfiguration {
      * @return The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
      * 
      */
-    private final @Nullable String destination;
+    private @Nullable String destination;
     /**
      * @return Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
      * 
      */
-    private final @Nullable String level;
+    private @Nullable String level;
 
-    @CustomType.Constructor
-    private LustreFileSystemLogConfiguration(
-        @CustomType.Parameter("destination") @Nullable String destination,
-        @CustomType.Parameter("level") @Nullable String level) {
-        this.destination = destination;
-        this.level = level;
-    }
-
+    private LustreFileSystemLogConfiguration() {}
     /**
      * @return The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
      * 
@@ -52,30 +45,32 @@ public final class LustreFileSystemLogConfiguration {
     public static Builder builder(LustreFileSystemLogConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String destination;
         private @Nullable String level;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LustreFileSystemLogConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destination = defaults.destination;
     	      this.level = defaults.level;
         }
 
+        @CustomType.Setter
         public Builder destination(@Nullable String destination) {
             this.destination = destination;
             return this;
         }
+        @CustomType.Setter
         public Builder level(@Nullable String level) {
             this.level = level;
             return this;
-        }        public LustreFileSystemLogConfiguration build() {
-            return new LustreFileSystemLogConfiguration(destination, level);
+        }
+        public LustreFileSystemLogConfiguration build() {
+            final var o = new LustreFileSystemLogConfiguration();
+            o.destination = destination;
+            o.level = level;
+            return o;
         }
     }
 }

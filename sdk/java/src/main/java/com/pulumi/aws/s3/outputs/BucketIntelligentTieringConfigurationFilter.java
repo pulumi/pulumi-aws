@@ -16,21 +16,14 @@ public final class BucketIntelligentTieringConfigurationFilter {
      * @return An object key name prefix that identifies the subset of objects to which the configuration applies.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return All of these tags must exist in the object&#39;s tag set in order for the configuration to apply.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private BucketIntelligentTieringConfigurationFilter(
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.prefix = prefix;
-        this.tags = tags;
-    }
-
+    private BucketIntelligentTieringConfigurationFilter() {}
     /**
      * @return An object key name prefix that identifies the subset of objects to which the configuration applies.
      * 
@@ -53,30 +46,32 @@ public final class BucketIntelligentTieringConfigurationFilter {
     public static Builder builder(BucketIntelligentTieringConfigurationFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String prefix;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketIntelligentTieringConfigurationFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prefix = defaults.prefix;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public BucketIntelligentTieringConfigurationFilter build() {
-            return new BucketIntelligentTieringConfigurationFilter(prefix, tags);
+        }
+        public BucketIntelligentTieringConfigurationFilter build() {
+            final var o = new BucketIntelligentTieringConfigurationFilter();
+            o.prefix = prefix;
+            o.tags = tags;
+            return o;
         }
     }
 }

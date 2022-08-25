@@ -15,21 +15,14 @@ public final class GroupInsightsConfiguration {
      * @return Specifies whether insights are enabled.
      * 
      */
-    private final Boolean insightsEnabled;
+    private Boolean insightsEnabled;
     /**
      * @return Specifies whether insight notifications are enabled.
      * 
      */
-    private final @Nullable Boolean notificationsEnabled;
+    private @Nullable Boolean notificationsEnabled;
 
-    @CustomType.Constructor
-    private GroupInsightsConfiguration(
-        @CustomType.Parameter("insightsEnabled") Boolean insightsEnabled,
-        @CustomType.Parameter("notificationsEnabled") @Nullable Boolean notificationsEnabled) {
-        this.insightsEnabled = insightsEnabled;
-        this.notificationsEnabled = notificationsEnabled;
-    }
-
+    private GroupInsightsConfiguration() {}
     /**
      * @return Specifies whether insights are enabled.
      * 
@@ -52,30 +45,32 @@ public final class GroupInsightsConfiguration {
     public static Builder builder(GroupInsightsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean insightsEnabled;
         private @Nullable Boolean notificationsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupInsightsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.insightsEnabled = defaults.insightsEnabled;
     	      this.notificationsEnabled = defaults.notificationsEnabled;
         }
 
+        @CustomType.Setter
         public Builder insightsEnabled(Boolean insightsEnabled) {
             this.insightsEnabled = Objects.requireNonNull(insightsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder notificationsEnabled(@Nullable Boolean notificationsEnabled) {
             this.notificationsEnabled = notificationsEnabled;
             return this;
-        }        public GroupInsightsConfiguration build() {
-            return new GroupInsightsConfiguration(insightsEnabled, notificationsEnabled);
+        }
+        public GroupInsightsConfiguration build() {
+            final var o = new GroupInsightsConfiguration();
+            o.insightsEnabled = insightsEnabled;
+            o.notificationsEnabled = notificationsEnabled;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
      * @return The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
      * 
      */
-    private final String predefinedLoadMetricType;
+    private String predefinedLoadMetricType;
     /**
      * @return Identifies the resource associated with the metric type.
      * 
      */
-    private final @Nullable String resourceLabel;
+    private @Nullable String resourceLabel;
 
-    @CustomType.Constructor
-    private ScalingPlanScalingInstructionPredefinedLoadMetricSpecification(
-        @CustomType.Parameter("predefinedLoadMetricType") String predefinedLoadMetricType,
-        @CustomType.Parameter("resourceLabel") @Nullable String resourceLabel) {
-        this.predefinedLoadMetricType = predefinedLoadMetricType;
-        this.resourceLabel = resourceLabel;
-    }
-
+    private ScalingPlanScalingInstructionPredefinedLoadMetricSpecification() {}
     /**
      * @return The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
      * 
@@ -52,30 +45,32 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
     public static Builder builder(ScalingPlanScalingInstructionPredefinedLoadMetricSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String predefinedLoadMetricType;
         private @Nullable String resourceLabel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScalingPlanScalingInstructionPredefinedLoadMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.predefinedLoadMetricType = defaults.predefinedLoadMetricType;
     	      this.resourceLabel = defaults.resourceLabel;
         }
 
+        @CustomType.Setter
         public Builder predefinedLoadMetricType(String predefinedLoadMetricType) {
             this.predefinedLoadMetricType = Objects.requireNonNull(predefinedLoadMetricType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceLabel(@Nullable String resourceLabel) {
             this.resourceLabel = resourceLabel;
             return this;
-        }        public ScalingPlanScalingInstructionPredefinedLoadMetricSpecification build() {
-            return new ScalingPlanScalingInstructionPredefinedLoadMetricSpecification(predefinedLoadMetricType, resourceLabel);
+        }
+        public ScalingPlanScalingInstructionPredefinedLoadMetricSpecification build() {
+            final var o = new ScalingPlanScalingInstructionPredefinedLoadMetricSpecification();
+            o.predefinedLoadMetricType = predefinedLoadMetricType;
+            o.resourceLabel = resourceLabel;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class RuleSourceCustomPolicyDetails {
      * @return The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
      * 
      */
-    private final @Nullable Boolean enableDebugLogDelivery;
+    private @Nullable Boolean enableDebugLogDelivery;
     /**
      * @return The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
      * 
      */
-    private final String policyRuntime;
+    private String policyRuntime;
     /**
      * @return The policy definition containing the logic for your Config Custom Policy rule.
      * 
      */
-    private final String policyText;
+    private String policyText;
 
-    @CustomType.Constructor
-    private RuleSourceCustomPolicyDetails(
-        @CustomType.Parameter("enableDebugLogDelivery") @Nullable Boolean enableDebugLogDelivery,
-        @CustomType.Parameter("policyRuntime") String policyRuntime,
-        @CustomType.Parameter("policyText") String policyText) {
-        this.enableDebugLogDelivery = enableDebugLogDelivery;
-        this.policyRuntime = policyRuntime;
-        this.policyText = policyText;
-    }
-
+    private RuleSourceCustomPolicyDetails() {}
     /**
      * @return The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
      * 
@@ -67,16 +58,12 @@ public final class RuleSourceCustomPolicyDetails {
     public static Builder builder(RuleSourceCustomPolicyDetails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enableDebugLogDelivery;
         private String policyRuntime;
         private String policyText;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleSourceCustomPolicyDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableDebugLogDelivery = defaults.enableDebugLogDelivery;
@@ -84,19 +71,27 @@ public final class RuleSourceCustomPolicyDetails {
     	      this.policyText = defaults.policyText;
         }
 
+        @CustomType.Setter
         public Builder enableDebugLogDelivery(@Nullable Boolean enableDebugLogDelivery) {
             this.enableDebugLogDelivery = enableDebugLogDelivery;
             return this;
         }
+        @CustomType.Setter
         public Builder policyRuntime(String policyRuntime) {
             this.policyRuntime = Objects.requireNonNull(policyRuntime);
             return this;
         }
+        @CustomType.Setter
         public Builder policyText(String policyText) {
             this.policyText = Objects.requireNonNull(policyText);
             return this;
-        }        public RuleSourceCustomPolicyDetails build() {
-            return new RuleSourceCustomPolicyDetails(enableDebugLogDelivery, policyRuntime, policyText);
+        }
+        public RuleSourceCustomPolicyDetails build() {
+            final var o = new RuleSourceCustomPolicyDetails();
+            o.enableDebugLogDelivery = enableDebugLogDelivery;
+            o.policyRuntime = policyRuntime;
+            o.policyText = policyText;
+            return o;
         }
     }
 }

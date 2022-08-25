@@ -13,13 +13,9 @@ public final class VirtualNodeSpecListenerTlsCertificateAcm {
      * @return The Amazon Resource Name (ARN) for the certificate.
      * 
      */
-    private final String certificateArn;
+    private String certificateArn;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTlsCertificateAcm(@CustomType.Parameter("certificateArn") String certificateArn) {
-        this.certificateArn = certificateArn;
-    }
-
+    private VirtualNodeSpecListenerTlsCertificateAcm() {}
     /**
      * @return The Amazon Resource Name (ARN) for the certificate.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecListenerTlsCertificateAcm {
     public static Builder builder(VirtualNodeSpecListenerTlsCertificateAcm defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTlsCertificateAcm defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateArn = defaults.certificateArn;
         }
 
+        @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
             this.certificateArn = Objects.requireNonNull(certificateArn);
             return this;
-        }        public VirtualNodeSpecListenerTlsCertificateAcm build() {
-            return new VirtualNodeSpecListenerTlsCertificateAcm(certificateArn);
+        }
+        public VirtualNodeSpecListenerTlsCertificateAcm build() {
+            final var o = new VirtualNodeSpecListenerTlsCertificateAcm();
+            o.certificateArn = certificateArn;
+            return o;
         }
     }
 }

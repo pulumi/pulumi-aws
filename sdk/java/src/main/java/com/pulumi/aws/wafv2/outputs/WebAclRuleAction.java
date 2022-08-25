@@ -18,35 +18,24 @@ public final class WebAclRuleAction {
      * @return Instructs AWS WAF to allow the web request. See Allow below for details.
      * 
      */
-    private final @Nullable WebAclRuleActionAllow allow;
+    private @Nullable WebAclRuleActionAllow allow;
     /**
      * @return Instructs AWS WAF to block the web request. See Block below for details.
      * 
      */
-    private final @Nullable WebAclRuleActionBlock block;
+    private @Nullable WebAclRuleActionBlock block;
     /**
      * @return Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
      * 
      */
-    private final @Nullable WebAclRuleActionCaptcha captcha;
+    private @Nullable WebAclRuleActionCaptcha captcha;
     /**
      * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
      * 
      */
-    private final @Nullable WebAclRuleActionCount count;
+    private @Nullable WebAclRuleActionCount count;
 
-    @CustomType.Constructor
-    private WebAclRuleAction(
-        @CustomType.Parameter("allow") @Nullable WebAclRuleActionAllow allow,
-        @CustomType.Parameter("block") @Nullable WebAclRuleActionBlock block,
-        @CustomType.Parameter("captcha") @Nullable WebAclRuleActionCaptcha captcha,
-        @CustomType.Parameter("count") @Nullable WebAclRuleActionCount count) {
-        this.allow = allow;
-        this.block = block;
-        this.captcha = captcha;
-        this.count = count;
-    }
-
+    private WebAclRuleAction() {}
     /**
      * @return Instructs AWS WAF to allow the web request. See Allow below for details.
      * 
@@ -83,17 +72,13 @@ public final class WebAclRuleAction {
     public static Builder builder(WebAclRuleAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleActionAllow allow;
         private @Nullable WebAclRuleActionBlock block;
         private @Nullable WebAclRuleActionCaptcha captcha;
         private @Nullable WebAclRuleActionCount count;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allow = defaults.allow;
@@ -102,23 +87,33 @@ public final class WebAclRuleAction {
     	      this.count = defaults.count;
         }
 
+        @CustomType.Setter
         public Builder allow(@Nullable WebAclRuleActionAllow allow) {
             this.allow = allow;
             return this;
         }
+        @CustomType.Setter
         public Builder block(@Nullable WebAclRuleActionBlock block) {
             this.block = block;
             return this;
         }
+        @CustomType.Setter
         public Builder captcha(@Nullable WebAclRuleActionCaptcha captcha) {
             this.captcha = captcha;
             return this;
         }
+        @CustomType.Setter
         public Builder count(@Nullable WebAclRuleActionCount count) {
             this.count = count;
             return this;
-        }        public WebAclRuleAction build() {
-            return new WebAclRuleAction(allow, block, captcha, count);
+        }
+        public WebAclRuleAction build() {
+            final var o = new WebAclRuleAction();
+            o.allow = allow;
+            o.block = block;
+            o.captcha = captcha;
+            o.count = count;
+            return o;
         }
     }
 }

@@ -13,38 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceDynamodbConfig {
-    private final @Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig;
+    private @Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig;
     /**
      * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
     /**
      * @return Name of the DynamoDB table.
      * 
      */
-    private final String tableName;
+    private String tableName;
     /**
      * @return Set to `true` to use Amazon Cognito credentials with this data source.
      * 
      */
-    private final @Nullable Boolean useCallerCredentials;
-    private final @Nullable Boolean versioned;
+    private @Nullable Boolean useCallerCredentials;
+    private @Nullable Boolean versioned;
 
-    @CustomType.Constructor
-    private DataSourceDynamodbConfig(
-        @CustomType.Parameter("deltaSyncConfig") @Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("tableName") String tableName,
-        @CustomType.Parameter("useCallerCredentials") @Nullable Boolean useCallerCredentials,
-        @CustomType.Parameter("versioned") @Nullable Boolean versioned) {
-        this.deltaSyncConfig = deltaSyncConfig;
-        this.region = region;
-        this.tableName = tableName;
-        this.useCallerCredentials = useCallerCredentials;
-        this.versioned = versioned;
-    }
-
+    private DataSourceDynamodbConfig() {}
     public Optional<DataSourceDynamodbConfigDeltaSyncConfig> deltaSyncConfig() {
         return Optional.ofNullable(this.deltaSyncConfig);
     }
@@ -80,18 +67,14 @@ public final class DataSourceDynamodbConfig {
     public static Builder builder(DataSourceDynamodbConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig;
         private @Nullable String region;
         private String tableName;
         private @Nullable Boolean useCallerCredentials;
         private @Nullable Boolean versioned;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceDynamodbConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deltaSyncConfig = defaults.deltaSyncConfig;
@@ -101,27 +84,39 @@ public final class DataSourceDynamodbConfig {
     	      this.versioned = defaults.versioned;
         }
 
+        @CustomType.Setter
         public Builder deltaSyncConfig(@Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig) {
             this.deltaSyncConfig = deltaSyncConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             this.tableName = Objects.requireNonNull(tableName);
             return this;
         }
+        @CustomType.Setter
         public Builder useCallerCredentials(@Nullable Boolean useCallerCredentials) {
             this.useCallerCredentials = useCallerCredentials;
             return this;
         }
+        @CustomType.Setter
         public Builder versioned(@Nullable Boolean versioned) {
             this.versioned = versioned;
             return this;
-        }        public DataSourceDynamodbConfig build() {
-            return new DataSourceDynamodbConfig(deltaSyncConfig, region, tableName, useCallerCredentials, versioned);
+        }
+        public DataSourceDynamodbConfig build() {
+            final var o = new DataSourceDynamodbConfig();
+            o.deltaSyncConfig = deltaSyncConfig;
+            o.region = region;
+            o.tableName = tableName;
+            o.useCallerCredentials = useCallerCredentials;
+            o.versioned = versioned;
+            return o;
         }
     }
 }

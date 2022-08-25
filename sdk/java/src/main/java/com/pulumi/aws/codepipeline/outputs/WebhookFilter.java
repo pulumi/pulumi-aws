@@ -13,21 +13,14 @@ public final class WebhookFilter {
      * @return The [JSON path](https://github.com/json-path/JsonPath) to filter on.
      * 
      */
-    private final String jsonPath;
+    private String jsonPath;
     /**
      * @return The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
      * 
      */
-    private final String matchEquals;
+    private String matchEquals;
 
-    @CustomType.Constructor
-    private WebhookFilter(
-        @CustomType.Parameter("jsonPath") String jsonPath,
-        @CustomType.Parameter("matchEquals") String matchEquals) {
-        this.jsonPath = jsonPath;
-        this.matchEquals = matchEquals;
-    }
-
+    private WebhookFilter() {}
     /**
      * @return The [JSON path](https://github.com/json-path/JsonPath) to filter on.
      * 
@@ -50,30 +43,32 @@ public final class WebhookFilter {
     public static Builder builder(WebhookFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String jsonPath;
         private String matchEquals;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebhookFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.jsonPath = defaults.jsonPath;
     	      this.matchEquals = defaults.matchEquals;
         }
 
+        @CustomType.Setter
         public Builder jsonPath(String jsonPath) {
             this.jsonPath = Objects.requireNonNull(jsonPath);
             return this;
         }
+        @CustomType.Setter
         public Builder matchEquals(String matchEquals) {
             this.matchEquals = Objects.requireNonNull(matchEquals);
             return this;
-        }        public WebhookFilter build() {
-            return new WebhookFilter(jsonPath, matchEquals);
+        }
+        public WebhookFilter build() {
+            final var o = new WebhookFilter();
+            o.jsonPath = jsonPath;
+            o.matchEquals = matchEquals;
+            return o;
         }
     }
 }

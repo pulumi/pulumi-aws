@@ -15,13 +15,9 @@ public final class FleetOnDemandOptions {
      * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
      * 
      */
-    private final @Nullable String allocationStrategy;
+    private @Nullable String allocationStrategy;
 
-    @CustomType.Constructor
-    private FleetOnDemandOptions(@CustomType.Parameter("allocationStrategy") @Nullable String allocationStrategy) {
-        this.allocationStrategy = allocationStrategy;
-    }
-
+    private FleetOnDemandOptions() {}
     /**
      * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
      * 
@@ -37,24 +33,24 @@ public final class FleetOnDemandOptions {
     public static Builder builder(FleetOnDemandOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String allocationStrategy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetOnDemandOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationStrategy = defaults.allocationStrategy;
         }
 
+        @CustomType.Setter
         public Builder allocationStrategy(@Nullable String allocationStrategy) {
             this.allocationStrategy = allocationStrategy;
             return this;
-        }        public FleetOnDemandOptions build() {
-            return new FleetOnDemandOptions(allocationStrategy);
+        }
+        public FleetOnDemandOptions build() {
+            final var o = new FleetOnDemandOptions();
+            o.allocationStrategy = allocationStrategy;
+            return o;
         }
     }
 }

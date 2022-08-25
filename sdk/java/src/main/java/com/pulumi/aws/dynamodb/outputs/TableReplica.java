@@ -16,35 +16,24 @@ public final class TableReplica {
      * @return ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     /**
      * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
-    private final @Nullable Boolean pointInTimeRecovery;
+    private @Nullable Boolean pointInTimeRecovery;
     /**
      * @return Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
      * 
      */
-    private final @Nullable Boolean propagateTags;
+    private @Nullable Boolean propagateTags;
     /**
      * @return Region name of the replica.
      * 
      */
-    private final String regionName;
+    private String regionName;
 
-    @CustomType.Constructor
-    private TableReplica(
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn,
-        @CustomType.Parameter("pointInTimeRecovery") @Nullable Boolean pointInTimeRecovery,
-        @CustomType.Parameter("propagateTags") @Nullable Boolean propagateTags,
-        @CustomType.Parameter("regionName") String regionName) {
-        this.kmsKeyArn = kmsKeyArn;
-        this.pointInTimeRecovery = pointInTimeRecovery;
-        this.propagateTags = propagateTags;
-        this.regionName = regionName;
-    }
-
+    private TableReplica() {}
     /**
      * @return ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
      * 
@@ -81,17 +70,13 @@ public final class TableReplica {
     public static Builder builder(TableReplica defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyArn;
         private @Nullable Boolean pointInTimeRecovery;
         private @Nullable Boolean propagateTags;
         private String regionName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableReplica defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyArn = defaults.kmsKeyArn;
@@ -100,23 +85,33 @@ public final class TableReplica {
     	      this.regionName = defaults.regionName;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
+        @CustomType.Setter
         public Builder pointInTimeRecovery(@Nullable Boolean pointInTimeRecovery) {
             this.pointInTimeRecovery = pointInTimeRecovery;
             return this;
         }
+        @CustomType.Setter
         public Builder propagateTags(@Nullable Boolean propagateTags) {
             this.propagateTags = propagateTags;
             return this;
         }
+        @CustomType.Setter
         public Builder regionName(String regionName) {
             this.regionName = Objects.requireNonNull(regionName);
             return this;
-        }        public TableReplica build() {
-            return new TableReplica(kmsKeyArn, pointInTimeRecovery, propagateTags, regionName);
+        }
+        public TableReplica build() {
+            final var o = new TableReplica();
+            o.kmsKeyArn = kmsKeyArn;
+            o.pointInTimeRecovery = pointInTimeRecovery;
+            o.propagateTags = propagateTags;
+            o.regionName = regionName;
+            return o;
         }
     }
 }

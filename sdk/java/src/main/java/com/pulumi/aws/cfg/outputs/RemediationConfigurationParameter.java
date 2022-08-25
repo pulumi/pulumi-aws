@@ -16,35 +16,24 @@ public final class RemediationConfigurationParameter {
      * @return Name of the attribute.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Value is dynamic and changes at run-time.
      * 
      */
-    private final @Nullable String resourceValue;
+    private @Nullable String resourceValue;
     /**
      * @return Value is static and does not change at run-time.
      * 
      */
-    private final @Nullable String staticValue;
+    private @Nullable String staticValue;
     /**
      * @return List of static values.
      * 
      */
-    private final @Nullable List<String> staticValues;
+    private @Nullable List<String> staticValues;
 
-    @CustomType.Constructor
-    private RemediationConfigurationParameter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceValue") @Nullable String resourceValue,
-        @CustomType.Parameter("staticValue") @Nullable String staticValue,
-        @CustomType.Parameter("staticValues") @Nullable List<String> staticValues) {
-        this.name = name;
-        this.resourceValue = resourceValue;
-        this.staticValue = staticValue;
-        this.staticValues = staticValues;
-    }
-
+    private RemediationConfigurationParameter() {}
     /**
      * @return Name of the attribute.
      * 
@@ -81,17 +70,13 @@ public final class RemediationConfigurationParameter {
     public static Builder builder(RemediationConfigurationParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable String resourceValue;
         private @Nullable String staticValue;
         private @Nullable List<String> staticValues;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RemediationConfigurationParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -100,26 +85,36 @@ public final class RemediationConfigurationParameter {
     	      this.staticValues = defaults.staticValues;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceValue(@Nullable String resourceValue) {
             this.resourceValue = resourceValue;
             return this;
         }
+        @CustomType.Setter
         public Builder staticValue(@Nullable String staticValue) {
             this.staticValue = staticValue;
             return this;
         }
+        @CustomType.Setter
         public Builder staticValues(@Nullable List<String> staticValues) {
             this.staticValues = staticValues;
             return this;
         }
         public Builder staticValues(String... staticValues) {
             return staticValues(List.of(staticValues));
-        }        public RemediationConfigurationParameter build() {
-            return new RemediationConfigurationParameter(name, resourceValue, staticValue, staticValues);
+        }
+        public RemediationConfigurationParameter build() {
+            final var o = new RemediationConfigurationParameter();
+            o.name = name;
+            o.resourceValue = resourceValue;
+            o.staticValue = staticValue;
+            o.staticValues = staticValues;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class GetSerialConsoleAccessResult {
      * @return Whether or not serial console access is enabled. Returns as `true` or `false`.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetSerialConsoleAccessResult(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("id") String id) {
-        this.enabled = enabled;
-        this.id = id;
-    }
-
+    private GetSerialConsoleAccessResult() {}
     /**
      * @return Whether or not serial console access is enabled. Returns as `true` or `false`.
      * 
@@ -51,30 +44,32 @@ public final class GetSerialConsoleAccessResult {
     public static Builder builder(GetSerialConsoleAccessResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSerialConsoleAccessResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetSerialConsoleAccessResult build() {
-            return new GetSerialConsoleAccessResult(enabled, id);
+        }
+        public GetSerialConsoleAccessResult build() {
+            final var o = new GetSerialConsoleAccessResult();
+            o.enabled = enabled;
+            o.id = id;
+            return o;
         }
     }
 }

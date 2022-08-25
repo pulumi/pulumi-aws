@@ -13,13 +13,9 @@ public final class GetCodeSigningConfigPolicy {
      * @return Code signing configuration policy for deployment validation failure.
      * 
      */
-    private final String untrustedArtifactOnDeployment;
+    private String untrustedArtifactOnDeployment;
 
-    @CustomType.Constructor
-    private GetCodeSigningConfigPolicy(@CustomType.Parameter("untrustedArtifactOnDeployment") String untrustedArtifactOnDeployment) {
-        this.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
-    }
-
+    private GetCodeSigningConfigPolicy() {}
     /**
      * @return Code signing configuration policy for deployment validation failure.
      * 
@@ -35,24 +31,24 @@ public final class GetCodeSigningConfigPolicy {
     public static Builder builder(GetCodeSigningConfigPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String untrustedArtifactOnDeployment;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCodeSigningConfigPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.untrustedArtifactOnDeployment = defaults.untrustedArtifactOnDeployment;
         }
 
+        @CustomType.Setter
         public Builder untrustedArtifactOnDeployment(String untrustedArtifactOnDeployment) {
             this.untrustedArtifactOnDeployment = Objects.requireNonNull(untrustedArtifactOnDeployment);
             return this;
-        }        public GetCodeSigningConfigPolicy build() {
-            return new GetCodeSigningConfigPolicy(untrustedArtifactOnDeployment);
+        }
+        public GetCodeSigningConfigPolicy build() {
+            final var o = new GetCodeSigningConfigPolicy();
+            o.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
+            return o;
         }
     }
 }

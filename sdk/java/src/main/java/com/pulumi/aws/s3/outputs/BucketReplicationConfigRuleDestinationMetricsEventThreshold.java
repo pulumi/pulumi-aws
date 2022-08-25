@@ -13,13 +13,9 @@ public final class BucketReplicationConfigRuleDestinationMetricsEventThreshold {
      * @return Time in minutes. Valid values: `15`.
      * 
      */
-    private final Integer minutes;
+    private Integer minutes;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleDestinationMetricsEventThreshold(@CustomType.Parameter("minutes") Integer minutes) {
-        this.minutes = minutes;
-    }
-
+    private BucketReplicationConfigRuleDestinationMetricsEventThreshold() {}
     /**
      * @return Time in minutes. Valid values: `15`.
      * 
@@ -35,24 +31,24 @@ public final class BucketReplicationConfigRuleDestinationMetricsEventThreshold {
     public static Builder builder(BucketReplicationConfigRuleDestinationMetricsEventThreshold defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer minutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleDestinationMetricsEventThreshold defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.minutes = defaults.minutes;
         }
 
+        @CustomType.Setter
         public Builder minutes(Integer minutes) {
             this.minutes = Objects.requireNonNull(minutes);
             return this;
-        }        public BucketReplicationConfigRuleDestinationMetricsEventThreshold build() {
-            return new BucketReplicationConfigRuleDestinationMetricsEventThreshold(minutes);
+        }
+        public BucketReplicationConfigRuleDestinationMetricsEventThreshold build() {
+            final var o = new BucketReplicationConfigRuleDestinationMetricsEventThreshold();
+            o.minutes = minutes;
+            return o;
         }
     }
 }

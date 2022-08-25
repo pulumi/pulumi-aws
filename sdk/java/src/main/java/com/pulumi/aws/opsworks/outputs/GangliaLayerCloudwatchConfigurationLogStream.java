@@ -12,44 +12,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GangliaLayerCloudwatchConfigurationLogStream {
-    private final @Nullable Integer batchCount;
-    private final @Nullable Integer batchSize;
-    private final @Nullable Integer bufferDuration;
-    private final @Nullable String datetimeFormat;
-    private final @Nullable String encoding;
-    private final String file;
-    private final @Nullable String fileFingerprintLines;
-    private final @Nullable String initialPosition;
-    private final String logGroupName;
-    private final @Nullable String multilineStartPattern;
-    private final @Nullable String timeZone;
+    private @Nullable Integer batchCount;
+    private @Nullable Integer batchSize;
+    private @Nullable Integer bufferDuration;
+    private @Nullable String datetimeFormat;
+    private @Nullable String encoding;
+    private String file;
+    private @Nullable String fileFingerprintLines;
+    private @Nullable String initialPosition;
+    private String logGroupName;
+    private @Nullable String multilineStartPattern;
+    private @Nullable String timeZone;
 
-    @CustomType.Constructor
-    private GangliaLayerCloudwatchConfigurationLogStream(
-        @CustomType.Parameter("batchCount") @Nullable Integer batchCount,
-        @CustomType.Parameter("batchSize") @Nullable Integer batchSize,
-        @CustomType.Parameter("bufferDuration") @Nullable Integer bufferDuration,
-        @CustomType.Parameter("datetimeFormat") @Nullable String datetimeFormat,
-        @CustomType.Parameter("encoding") @Nullable String encoding,
-        @CustomType.Parameter("file") String file,
-        @CustomType.Parameter("fileFingerprintLines") @Nullable String fileFingerprintLines,
-        @CustomType.Parameter("initialPosition") @Nullable String initialPosition,
-        @CustomType.Parameter("logGroupName") String logGroupName,
-        @CustomType.Parameter("multilineStartPattern") @Nullable String multilineStartPattern,
-        @CustomType.Parameter("timeZone") @Nullable String timeZone) {
-        this.batchCount = batchCount;
-        this.batchSize = batchSize;
-        this.bufferDuration = bufferDuration;
-        this.datetimeFormat = datetimeFormat;
-        this.encoding = encoding;
-        this.file = file;
-        this.fileFingerprintLines = fileFingerprintLines;
-        this.initialPosition = initialPosition;
-        this.logGroupName = logGroupName;
-        this.multilineStartPattern = multilineStartPattern;
-        this.timeZone = timeZone;
-    }
-
+    private GangliaLayerCloudwatchConfigurationLogStream() {}
     public Optional<Integer> batchCount() {
         return Optional.ofNullable(this.batchCount);
     }
@@ -91,7 +66,7 @@ public final class GangliaLayerCloudwatchConfigurationLogStream {
     public static Builder builder(GangliaLayerCloudwatchConfigurationLogStream defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer batchCount;
         private @Nullable Integer batchSize;
@@ -104,11 +79,7 @@ public final class GangliaLayerCloudwatchConfigurationLogStream {
         private String logGroupName;
         private @Nullable String multilineStartPattern;
         private @Nullable String timeZone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GangliaLayerCloudwatchConfigurationLogStream defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.batchCount = defaults.batchCount;
@@ -124,51 +95,75 @@ public final class GangliaLayerCloudwatchConfigurationLogStream {
     	      this.timeZone = defaults.timeZone;
         }
 
+        @CustomType.Setter
         public Builder batchCount(@Nullable Integer batchCount) {
             this.batchCount = batchCount;
             return this;
         }
+        @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
             this.batchSize = batchSize;
             return this;
         }
+        @CustomType.Setter
         public Builder bufferDuration(@Nullable Integer bufferDuration) {
             this.bufferDuration = bufferDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder datetimeFormat(@Nullable String datetimeFormat) {
             this.datetimeFormat = datetimeFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
             this.encoding = encoding;
             return this;
         }
+        @CustomType.Setter
         public Builder file(String file) {
             this.file = Objects.requireNonNull(file);
             return this;
         }
+        @CustomType.Setter
         public Builder fileFingerprintLines(@Nullable String fileFingerprintLines) {
             this.fileFingerprintLines = fileFingerprintLines;
             return this;
         }
+        @CustomType.Setter
         public Builder initialPosition(@Nullable String initialPosition) {
             this.initialPosition = initialPosition;
             return this;
         }
+        @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
             this.logGroupName = Objects.requireNonNull(logGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder multilineStartPattern(@Nullable String multilineStartPattern) {
             this.multilineStartPattern = multilineStartPattern;
             return this;
         }
+        @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
             this.timeZone = timeZone;
             return this;
-        }        public GangliaLayerCloudwatchConfigurationLogStream build() {
-            return new GangliaLayerCloudwatchConfigurationLogStream(batchCount, batchSize, bufferDuration, datetimeFormat, encoding, file, fileFingerprintLines, initialPosition, logGroupName, multilineStartPattern, timeZone);
+        }
+        public GangliaLayerCloudwatchConfigurationLogStream build() {
+            final var o = new GangliaLayerCloudwatchConfigurationLogStream();
+            o.batchCount = batchCount;
+            o.batchSize = batchSize;
+            o.bufferDuration = bufferDuration;
+            o.datetimeFormat = datetimeFormat;
+            o.encoding = encoding;
+            o.file = file;
+            o.fileFingerprintLines = fileFingerprintLines;
+            o.initialPosition = initialPosition;
+            o.logGroupName = logGroupName;
+            o.multilineStartPattern = multilineStartPattern;
+            o.timeZone = timeZone;
+            return o;
         }
     }
 }

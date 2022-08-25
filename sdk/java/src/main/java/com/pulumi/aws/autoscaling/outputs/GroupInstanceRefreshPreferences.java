@@ -18,38 +18,25 @@ public final class GroupInstanceRefreshPreferences {
      * @return The number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
      */
-    private final @Nullable String checkpointDelay;
+    private @Nullable String checkpointDelay;
     /**
      * @return List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
      * 
      */
-    private final @Nullable List<Integer> checkpointPercentages;
+    private @Nullable List<Integer> checkpointPercentages;
     /**
      * @return The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
      * 
      */
-    private final @Nullable String instanceWarmup;
+    private @Nullable String instanceWarmup;
     /**
      * @return The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
      * 
      */
-    private final @Nullable Integer minHealthyPercentage;
-    private final @Nullable Boolean skipMatching;
+    private @Nullable Integer minHealthyPercentage;
+    private @Nullable Boolean skipMatching;
 
-    @CustomType.Constructor
-    private GroupInstanceRefreshPreferences(
-        @CustomType.Parameter("checkpointDelay") @Nullable String checkpointDelay,
-        @CustomType.Parameter("checkpointPercentages") @Nullable List<Integer> checkpointPercentages,
-        @CustomType.Parameter("instanceWarmup") @Nullable String instanceWarmup,
-        @CustomType.Parameter("minHealthyPercentage") @Nullable Integer minHealthyPercentage,
-        @CustomType.Parameter("skipMatching") @Nullable Boolean skipMatching) {
-        this.checkpointDelay = checkpointDelay;
-        this.checkpointPercentages = checkpointPercentages;
-        this.instanceWarmup = instanceWarmup;
-        this.minHealthyPercentage = minHealthyPercentage;
-        this.skipMatching = skipMatching;
-    }
-
+    private GroupInstanceRefreshPreferences() {}
     /**
      * @return The number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
@@ -89,18 +76,14 @@ public final class GroupInstanceRefreshPreferences {
     public static Builder builder(GroupInstanceRefreshPreferences defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String checkpointDelay;
         private @Nullable List<Integer> checkpointPercentages;
         private @Nullable String instanceWarmup;
         private @Nullable Integer minHealthyPercentage;
         private @Nullable Boolean skipMatching;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupInstanceRefreshPreferences defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.checkpointDelay = defaults.checkpointDelay;
@@ -110,10 +93,12 @@ public final class GroupInstanceRefreshPreferences {
     	      this.skipMatching = defaults.skipMatching;
         }
 
+        @CustomType.Setter
         public Builder checkpointDelay(@Nullable String checkpointDelay) {
             this.checkpointDelay = checkpointDelay;
             return this;
         }
+        @CustomType.Setter
         public Builder checkpointPercentages(@Nullable List<Integer> checkpointPercentages) {
             this.checkpointPercentages = checkpointPercentages;
             return this;
@@ -121,19 +106,29 @@ public final class GroupInstanceRefreshPreferences {
         public Builder checkpointPercentages(Integer... checkpointPercentages) {
             return checkpointPercentages(List.of(checkpointPercentages));
         }
+        @CustomType.Setter
         public Builder instanceWarmup(@Nullable String instanceWarmup) {
             this.instanceWarmup = instanceWarmup;
             return this;
         }
+        @CustomType.Setter
         public Builder minHealthyPercentage(@Nullable Integer minHealthyPercentage) {
             this.minHealthyPercentage = minHealthyPercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder skipMatching(@Nullable Boolean skipMatching) {
             this.skipMatching = skipMatching;
             return this;
-        }        public GroupInstanceRefreshPreferences build() {
-            return new GroupInstanceRefreshPreferences(checkpointDelay, checkpointPercentages, instanceWarmup, minHealthyPercentage, skipMatching);
+        }
+        public GroupInstanceRefreshPreferences build() {
+            final var o = new GroupInstanceRefreshPreferences();
+            o.checkpointDelay = checkpointDelay;
+            o.checkpointPercentages = checkpointPercentages;
+            o.instanceWarmup = instanceWarmup;
+            o.minHealthyPercentage = minHealthyPercentage;
+            o.skipMatching = skipMatching;
+            return o;
         }
     }
 }

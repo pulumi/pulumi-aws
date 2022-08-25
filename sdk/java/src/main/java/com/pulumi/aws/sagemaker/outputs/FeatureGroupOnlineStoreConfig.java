@@ -16,21 +16,14 @@ public final class FeatureGroupOnlineStoreConfig {
      * @return Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
      * 
      */
-    private final @Nullable Boolean enableOnlineStore;
+    private @Nullable Boolean enableOnlineStore;
     /**
      * @return Security config for at-rest encryption of your OnlineStore. See Security Config Below.
      * 
      */
-    private final @Nullable FeatureGroupOnlineStoreConfigSecurityConfig securityConfig;
+    private @Nullable FeatureGroupOnlineStoreConfigSecurityConfig securityConfig;
 
-    @CustomType.Constructor
-    private FeatureGroupOnlineStoreConfig(
-        @CustomType.Parameter("enableOnlineStore") @Nullable Boolean enableOnlineStore,
-        @CustomType.Parameter("securityConfig") @Nullable FeatureGroupOnlineStoreConfigSecurityConfig securityConfig) {
-        this.enableOnlineStore = enableOnlineStore;
-        this.securityConfig = securityConfig;
-    }
-
+    private FeatureGroupOnlineStoreConfig() {}
     /**
      * @return Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
      * 
@@ -53,30 +46,32 @@ public final class FeatureGroupOnlineStoreConfig {
     public static Builder builder(FeatureGroupOnlineStoreConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enableOnlineStore;
         private @Nullable FeatureGroupOnlineStoreConfigSecurityConfig securityConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeatureGroupOnlineStoreConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableOnlineStore = defaults.enableOnlineStore;
     	      this.securityConfig = defaults.securityConfig;
         }
 
+        @CustomType.Setter
         public Builder enableOnlineStore(@Nullable Boolean enableOnlineStore) {
             this.enableOnlineStore = enableOnlineStore;
             return this;
         }
+        @CustomType.Setter
         public Builder securityConfig(@Nullable FeatureGroupOnlineStoreConfigSecurityConfig securityConfig) {
             this.securityConfig = securityConfig;
             return this;
-        }        public FeatureGroupOnlineStoreConfig build() {
-            return new FeatureGroupOnlineStoreConfig(enableOnlineStore, securityConfig);
+        }
+        public FeatureGroupOnlineStoreConfig build() {
+            final var o = new FeatureGroupOnlineStoreConfig();
+            o.enableOnlineStore = enableOnlineStore;
+            o.securityConfig = securityConfig;
+            return o;
         }
     }
 }

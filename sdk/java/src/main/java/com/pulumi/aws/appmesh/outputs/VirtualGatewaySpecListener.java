@@ -18,35 +18,24 @@ public final class VirtualGatewaySpecListener {
      * @return The connection pool information for the listener.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerConnectionPool connectionPool;
+    private @Nullable VirtualGatewaySpecListenerConnectionPool connectionPool;
     /**
      * @return The health check information for the listener.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerHealthCheck healthCheck;
+    private @Nullable VirtualGatewaySpecListenerHealthCheck healthCheck;
     /**
      * @return The port mapping information for the listener.
      * 
      */
-    private final VirtualGatewaySpecListenerPortMapping portMapping;
+    private VirtualGatewaySpecListenerPortMapping portMapping;
     /**
      * @return The Transport Layer Security (TLS) properties for the listener
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerTls tls;
+    private @Nullable VirtualGatewaySpecListenerTls tls;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListener(
-        @CustomType.Parameter("connectionPool") @Nullable VirtualGatewaySpecListenerConnectionPool connectionPool,
-        @CustomType.Parameter("healthCheck") @Nullable VirtualGatewaySpecListenerHealthCheck healthCheck,
-        @CustomType.Parameter("portMapping") VirtualGatewaySpecListenerPortMapping portMapping,
-        @CustomType.Parameter("tls") @Nullable VirtualGatewaySpecListenerTls tls) {
-        this.connectionPool = connectionPool;
-        this.healthCheck = healthCheck;
-        this.portMapping = portMapping;
-        this.tls = tls;
-    }
-
+    private VirtualGatewaySpecListener() {}
     /**
      * @return The connection pool information for the listener.
      * 
@@ -83,17 +72,13 @@ public final class VirtualGatewaySpecListener {
     public static Builder builder(VirtualGatewaySpecListener defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecListenerConnectionPool connectionPool;
         private @Nullable VirtualGatewaySpecListenerHealthCheck healthCheck;
         private VirtualGatewaySpecListenerPortMapping portMapping;
         private @Nullable VirtualGatewaySpecListenerTls tls;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListener defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionPool = defaults.connectionPool;
@@ -102,23 +87,33 @@ public final class VirtualGatewaySpecListener {
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
         public Builder connectionPool(@Nullable VirtualGatewaySpecListenerConnectionPool connectionPool) {
             this.connectionPool = connectionPool;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheck(@Nullable VirtualGatewaySpecListenerHealthCheck healthCheck) {
             this.healthCheck = healthCheck;
             return this;
         }
+        @CustomType.Setter
         public Builder portMapping(VirtualGatewaySpecListenerPortMapping portMapping) {
             this.portMapping = Objects.requireNonNull(portMapping);
             return this;
         }
+        @CustomType.Setter
         public Builder tls(@Nullable VirtualGatewaySpecListenerTls tls) {
             this.tls = tls;
             return this;
-        }        public VirtualGatewaySpecListener build() {
-            return new VirtualGatewaySpecListener(connectionPool, healthCheck, portMapping, tls);
+        }
+        public VirtualGatewaySpecListener build() {
+            final var o = new VirtualGatewaySpecListener();
+            o.connectionPool = connectionPool;
+            o.healthCheck = healthCheck;
+            o.portMapping = portMapping;
+            o.tls = tls;
+            return o;
         }
     }
 }

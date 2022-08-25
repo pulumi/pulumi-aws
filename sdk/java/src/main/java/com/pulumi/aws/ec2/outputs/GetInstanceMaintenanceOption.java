@@ -13,13 +13,9 @@ public final class GetInstanceMaintenanceOption {
      * @return The automatic recovery behavior of the instance.
      * 
      */
-    private final String autoRecovery;
+    private String autoRecovery;
 
-    @CustomType.Constructor
-    private GetInstanceMaintenanceOption(@CustomType.Parameter("autoRecovery") String autoRecovery) {
-        this.autoRecovery = autoRecovery;
-    }
-
+    private GetInstanceMaintenanceOption() {}
     /**
      * @return The automatic recovery behavior of the instance.
      * 
@@ -35,24 +31,24 @@ public final class GetInstanceMaintenanceOption {
     public static Builder builder(GetInstanceMaintenanceOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String autoRecovery;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceMaintenanceOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRecovery = defaults.autoRecovery;
         }
 
+        @CustomType.Setter
         public Builder autoRecovery(String autoRecovery) {
             this.autoRecovery = Objects.requireNonNull(autoRecovery);
             return this;
-        }        public GetInstanceMaintenanceOption build() {
-            return new GetInstanceMaintenanceOption(autoRecovery);
+        }
+        public GetInstanceMaintenanceOption build() {
+            final var o = new GetInstanceMaintenanceOption();
+            o.autoRecovery = autoRecovery;
+            return o;
         }
     }
 }

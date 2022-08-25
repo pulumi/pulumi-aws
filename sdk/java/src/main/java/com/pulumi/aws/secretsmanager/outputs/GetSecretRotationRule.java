@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecretRotationRule {
-    private final Integer automaticallyAfterDays;
+    private Integer automaticallyAfterDays;
 
-    @CustomType.Constructor
-    private GetSecretRotationRule(@CustomType.Parameter("automaticallyAfterDays") Integer automaticallyAfterDays) {
-        this.automaticallyAfterDays = automaticallyAfterDays;
-    }
-
+    private GetSecretRotationRule() {}
     public Integer automaticallyAfterDays() {
         return this.automaticallyAfterDays;
     }
@@ -27,24 +23,24 @@ public final class GetSecretRotationRule {
     public static Builder builder(GetSecretRotationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer automaticallyAfterDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecretRotationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automaticallyAfterDays = defaults.automaticallyAfterDays;
         }
 
+        @CustomType.Setter
         public Builder automaticallyAfterDays(Integer automaticallyAfterDays) {
             this.automaticallyAfterDays = Objects.requireNonNull(automaticallyAfterDays);
             return this;
-        }        public GetSecretRotationRule build() {
-            return new GetSecretRotationRule(automaticallyAfterDays);
+        }
+        public GetSecretRotationRule build() {
+            final var o = new GetSecretRotationRule();
+            o.automaticallyAfterDays = automaticallyAfterDays;
+            return o;
         }
     }
 }

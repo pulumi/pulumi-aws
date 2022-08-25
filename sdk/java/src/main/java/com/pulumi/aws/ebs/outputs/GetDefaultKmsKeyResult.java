@@ -13,21 +13,14 @@ public final class GetDefaultKmsKeyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Amazon Resource Name (ARN) of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
      * 
      */
-    private final String keyArn;
+    private String keyArn;
 
-    @CustomType.Constructor
-    private GetDefaultKmsKeyResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyArn") String keyArn) {
-        this.id = id;
-        this.keyArn = keyArn;
-    }
-
+    private GetDefaultKmsKeyResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -50,30 +43,32 @@ public final class GetDefaultKmsKeyResult {
     public static Builder builder(GetDefaultKmsKeyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String keyArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDefaultKmsKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.keyArn = defaults.keyArn;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyArn(String keyArn) {
             this.keyArn = Objects.requireNonNull(keyArn);
             return this;
-        }        public GetDefaultKmsKeyResult build() {
-            return new GetDefaultKmsKeyResult(id, keyArn);
+        }
+        public GetDefaultKmsKeyResult build() {
+            final var o = new GetDefaultKmsKeyResult();
+            o.id = id;
+            o.keyArn = keyArn;
+            return o;
         }
     }
 }

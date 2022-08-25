@@ -13,24 +13,15 @@ public final class GetClusterAuthResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The token to use to authenticate with the cluster.
      * 
      */
-    private final String token;
+    private String token;
 
-    @CustomType.Constructor
-    private GetClusterAuthResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("token") String token) {
-        this.id = id;
-        this.name = name;
-        this.token = token;
-    }
-
+    private GetClusterAuthResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -56,16 +47,12 @@ public final class GetClusterAuthResult {
     public static Builder builder(GetClusterAuthResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private String token;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterAuthResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -73,19 +60,27 @@ public final class GetClusterAuthResult {
     	      this.token = defaults.token;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder token(String token) {
             this.token = Objects.requireNonNull(token);
             return this;
-        }        public GetClusterAuthResult build() {
-            return new GetClusterAuthResult(id, name, token);
+        }
+        public GetClusterAuthResult build() {
+            final var o = new GetClusterAuthResult();
+            o.id = id;
+            o.name = name;
+            o.token = token;
+            return o;
         }
     }
 }

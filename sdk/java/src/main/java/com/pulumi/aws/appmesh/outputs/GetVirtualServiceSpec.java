@@ -14,13 +14,9 @@ public final class GetVirtualServiceSpec {
      * @return The App Mesh object that is acting as the provider for a virtual service.
      * 
      */
-    private final List<GetVirtualServiceSpecProvider> providers;
+    private List<GetVirtualServiceSpecProvider> providers;
 
-    @CustomType.Constructor
-    private GetVirtualServiceSpec(@CustomType.Parameter("providers") List<GetVirtualServiceSpecProvider> providers) {
-        this.providers = providers;
-    }
-
+    private GetVirtualServiceSpec() {}
     /**
      * @return The App Mesh object that is acting as the provider for a virtual service.
      * 
@@ -36,27 +32,27 @@ public final class GetVirtualServiceSpec {
     public static Builder builder(GetVirtualServiceSpec defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetVirtualServiceSpecProvider> providers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualServiceSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.providers = defaults.providers;
         }
 
+        @CustomType.Setter
         public Builder providers(List<GetVirtualServiceSpecProvider> providers) {
             this.providers = Objects.requireNonNull(providers);
             return this;
         }
         public Builder providers(GetVirtualServiceSpecProvider... providers) {
             return providers(List.of(providers));
-        }        public GetVirtualServiceSpec build() {
-            return new GetVirtualServiceSpec(providers);
+        }
+        public GetVirtualServiceSpec build() {
+            final var o = new GetVirtualServiceSpec();
+            o.providers = providers;
+            return o;
         }
     }
 }

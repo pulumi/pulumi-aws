@@ -15,21 +15,14 @@ public final class AppQuietTime {
      * @return The default end time for quiet time in ISO 8601 format. Required if `start` is set
      * 
      */
-    private final @Nullable String end;
+    private @Nullable String end;
     /**
      * @return The default start time for quiet time in ISO 8601 format. Required if `end` is set
      * 
      */
-    private final @Nullable String start;
+    private @Nullable String start;
 
-    @CustomType.Constructor
-    private AppQuietTime(
-        @CustomType.Parameter("end") @Nullable String end,
-        @CustomType.Parameter("start") @Nullable String start) {
-        this.end = end;
-        this.start = start;
-    }
-
+    private AppQuietTime() {}
     /**
      * @return The default end time for quiet time in ISO 8601 format. Required if `start` is set
      * 
@@ -52,30 +45,32 @@ public final class AppQuietTime {
     public static Builder builder(AppQuietTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String end;
         private @Nullable String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppQuietTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.end = defaults.end;
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder end(@Nullable String end) {
             this.end = end;
             return this;
         }
+        @CustomType.Setter
         public Builder start(@Nullable String start) {
             this.start = start;
             return this;
-        }        public AppQuietTime build() {
-            return new AppQuietTime(end, start);
+        }
+        public AppQuietTime build() {
+            final var o = new AppQuietTime();
+            o.end = end;
+            o.start = start;
+            return o;
         }
     }
 }

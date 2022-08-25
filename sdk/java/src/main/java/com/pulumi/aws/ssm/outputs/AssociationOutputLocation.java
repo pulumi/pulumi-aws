@@ -15,28 +15,19 @@ public final class AssociationOutputLocation {
      * @return The S3 bucket name.
      * 
      */
-    private final String s3BucketName;
+    private String s3BucketName;
     /**
      * @return The S3 bucket prefix. Results stored in the root if not configured.
      * 
      */
-    private final @Nullable String s3KeyPrefix;
+    private @Nullable String s3KeyPrefix;
     /**
      * @return The S3 bucket region.
      * 
      */
-    private final @Nullable String s3Region;
+    private @Nullable String s3Region;
 
-    @CustomType.Constructor
-    private AssociationOutputLocation(
-        @CustomType.Parameter("s3BucketName") String s3BucketName,
-        @CustomType.Parameter("s3KeyPrefix") @Nullable String s3KeyPrefix,
-        @CustomType.Parameter("s3Region") @Nullable String s3Region) {
-        this.s3BucketName = s3BucketName;
-        this.s3KeyPrefix = s3KeyPrefix;
-        this.s3Region = s3Region;
-    }
-
+    private AssociationOutputLocation() {}
     /**
      * @return The S3 bucket name.
      * 
@@ -66,16 +57,12 @@ public final class AssociationOutputLocation {
     public static Builder builder(AssociationOutputLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String s3BucketName;
         private @Nullable String s3KeyPrefix;
         private @Nullable String s3Region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AssociationOutputLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3BucketName = defaults.s3BucketName;
@@ -83,19 +70,27 @@ public final class AssociationOutputLocation {
     	      this.s3Region = defaults.s3Region;
         }
 
+        @CustomType.Setter
         public Builder s3BucketName(String s3BucketName) {
             this.s3BucketName = Objects.requireNonNull(s3BucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder s3KeyPrefix(@Nullable String s3KeyPrefix) {
             this.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder s3Region(@Nullable String s3Region) {
             this.s3Region = s3Region;
             return this;
-        }        public AssociationOutputLocation build() {
-            return new AssociationOutputLocation(s3BucketName, s3KeyPrefix, s3Region);
+        }
+        public AssociationOutputLocation build() {
+            final var o = new AssociationOutputLocation();
+            o.s3BucketName = s3BucketName;
+            o.s3KeyPrefix = s3KeyPrefix;
+            o.s3Region = s3Region;
+            return o;
         }
     }
 }

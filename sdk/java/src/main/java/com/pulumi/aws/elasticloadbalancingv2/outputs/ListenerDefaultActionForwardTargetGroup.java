@@ -16,21 +16,14 @@ public final class ListenerDefaultActionForwardTargetGroup {
      * @return ARN of the target group.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Weight. The range is 0 to 999.
      * 
      */
-    private final @Nullable Integer weight;
+    private @Nullable Integer weight;
 
-    @CustomType.Constructor
-    private ListenerDefaultActionForwardTargetGroup(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("weight") @Nullable Integer weight) {
-        this.arn = arn;
-        this.weight = weight;
-    }
-
+    private ListenerDefaultActionForwardTargetGroup() {}
     /**
      * @return ARN of the target group.
      * 
@@ -53,30 +46,32 @@ public final class ListenerDefaultActionForwardTargetGroup {
     public static Builder builder(ListenerDefaultActionForwardTargetGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private @Nullable Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerDefaultActionForwardTargetGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder weight(@Nullable Integer weight) {
             this.weight = weight;
             return this;
-        }        public ListenerDefaultActionForwardTargetGroup build() {
-            return new ListenerDefaultActionForwardTargetGroup(arn, weight);
+        }
+        public ListenerDefaultActionForwardTargetGroup build() {
+            final var o = new ListenerDefaultActionForwardTargetGroup();
+            o.arn = arn;
+            o.weight = weight;
+            return o;
         }
     }
 }

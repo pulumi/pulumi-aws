@@ -15,21 +15,14 @@ public final class IntentDialogCodeHook {
      * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
      * 
      */
-    private final String messageVersion;
+    private String messageVersion;
     /**
      * @return The Amazon Resource Name (ARN) of the Lambda function.
      * 
      */
-    private final String uri;
+    private String uri;
 
-    @CustomType.Constructor
-    private IntentDialogCodeHook(
-        @CustomType.Parameter("messageVersion") String messageVersion,
-        @CustomType.Parameter("uri") String uri) {
-        this.messageVersion = messageVersion;
-        this.uri = uri;
-    }
-
+    private IntentDialogCodeHook() {}
     /**
      * @return The version of the request-response that you want Amazon Lex to use
      * to invoke your Lambda function. For more information, see
@@ -54,30 +47,32 @@ public final class IntentDialogCodeHook {
     public static Builder builder(IntentDialogCodeHook defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String messageVersion;
         private String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntentDialogCodeHook defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.messageVersion = defaults.messageVersion;
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder messageVersion(String messageVersion) {
             this.messageVersion = Objects.requireNonNull(messageVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
-        }        public IntentDialogCodeHook build() {
-            return new IntentDialogCodeHook(messageVersion, uri);
+        }
+        public IntentDialogCodeHook build() {
+            final var o = new IntentDialogCodeHook();
+            o.messageVersion = messageVersion;
+            o.uri = uri;
+            return o;
         }
     }
 }

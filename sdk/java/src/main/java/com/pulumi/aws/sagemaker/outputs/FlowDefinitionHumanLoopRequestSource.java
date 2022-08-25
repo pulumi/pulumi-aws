@@ -13,13 +13,9 @@ public final class FlowDefinitionHumanLoopRequestSource {
      * @return Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
      * 
      */
-    private final String awsManagedHumanLoopRequestSource;
+    private String awsManagedHumanLoopRequestSource;
 
-    @CustomType.Constructor
-    private FlowDefinitionHumanLoopRequestSource(@CustomType.Parameter("awsManagedHumanLoopRequestSource") String awsManagedHumanLoopRequestSource) {
-        this.awsManagedHumanLoopRequestSource = awsManagedHumanLoopRequestSource;
-    }
-
+    private FlowDefinitionHumanLoopRequestSource() {}
     /**
      * @return Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
      * 
@@ -35,24 +31,24 @@ public final class FlowDefinitionHumanLoopRequestSource {
     public static Builder builder(FlowDefinitionHumanLoopRequestSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String awsManagedHumanLoopRequestSource;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDefinitionHumanLoopRequestSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsManagedHumanLoopRequestSource = defaults.awsManagedHumanLoopRequestSource;
         }
 
+        @CustomType.Setter
         public Builder awsManagedHumanLoopRequestSource(String awsManagedHumanLoopRequestSource) {
             this.awsManagedHumanLoopRequestSource = Objects.requireNonNull(awsManagedHumanLoopRequestSource);
             return this;
-        }        public FlowDefinitionHumanLoopRequestSource build() {
-            return new FlowDefinitionHumanLoopRequestSource(awsManagedHumanLoopRequestSource);
+        }
+        public FlowDefinitionHumanLoopRequestSource build() {
+            final var o = new FlowDefinitionHumanLoopRequestSource();
+            o.awsManagedHumanLoopRequestSource = awsManagedHumanLoopRequestSource;
+            return o;
         }
     }
 }

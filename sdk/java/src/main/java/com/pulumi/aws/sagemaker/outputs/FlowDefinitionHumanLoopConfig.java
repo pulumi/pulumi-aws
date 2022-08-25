@@ -18,70 +18,49 @@ public final class FlowDefinitionHumanLoopConfig {
      * @return The Amazon Resource Name (ARN) of the human task user interface.
      * 
      */
-    private final String humanTaskUiArn;
+    private String humanTaskUiArn;
     /**
      * @return Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
      * 
      */
-    private final @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice publicWorkforceTaskPrice;
+    private @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice publicWorkforceTaskPrice;
     /**
      * @return The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
      * 
      */
-    private final @Nullable Integer taskAvailabilityLifetimeInSeconds;
+    private @Nullable Integer taskAvailabilityLifetimeInSeconds;
     /**
      * @return The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
      * 
      */
-    private final Integer taskCount;
+    private Integer taskCount;
     /**
      * @return A description for the human worker task.
      * 
      */
-    private final String taskDescription;
+    private String taskDescription;
     /**
      * @return An array of keywords used to describe the task so that workers can discover the task.
      * 
      */
-    private final @Nullable List<String> taskKeywords;
+    private @Nullable List<String> taskKeywords;
     /**
      * @return The amount of time that a worker has to complete a task. The default value is `3600` seconds.
      * 
      */
-    private final @Nullable Integer taskTimeLimitInSeconds;
+    private @Nullable Integer taskTimeLimitInSeconds;
     /**
      * @return A title for the human worker task.
      * 
      */
-    private final String taskTitle;
+    private String taskTitle;
     /**
      * @return The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
      * 
      */
-    private final String workteamArn;
+    private String workteamArn;
 
-    @CustomType.Constructor
-    private FlowDefinitionHumanLoopConfig(
-        @CustomType.Parameter("humanTaskUiArn") String humanTaskUiArn,
-        @CustomType.Parameter("publicWorkforceTaskPrice") @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice publicWorkforceTaskPrice,
-        @CustomType.Parameter("taskAvailabilityLifetimeInSeconds") @Nullable Integer taskAvailabilityLifetimeInSeconds,
-        @CustomType.Parameter("taskCount") Integer taskCount,
-        @CustomType.Parameter("taskDescription") String taskDescription,
-        @CustomType.Parameter("taskKeywords") @Nullable List<String> taskKeywords,
-        @CustomType.Parameter("taskTimeLimitInSeconds") @Nullable Integer taskTimeLimitInSeconds,
-        @CustomType.Parameter("taskTitle") String taskTitle,
-        @CustomType.Parameter("workteamArn") String workteamArn) {
-        this.humanTaskUiArn = humanTaskUiArn;
-        this.publicWorkforceTaskPrice = publicWorkforceTaskPrice;
-        this.taskAvailabilityLifetimeInSeconds = taskAvailabilityLifetimeInSeconds;
-        this.taskCount = taskCount;
-        this.taskDescription = taskDescription;
-        this.taskKeywords = taskKeywords;
-        this.taskTimeLimitInSeconds = taskTimeLimitInSeconds;
-        this.taskTitle = taskTitle;
-        this.workteamArn = workteamArn;
-    }
-
+    private FlowDefinitionHumanLoopConfig() {}
     /**
      * @return The Amazon Resource Name (ARN) of the human task user interface.
      * 
@@ -153,7 +132,7 @@ public final class FlowDefinitionHumanLoopConfig {
     public static Builder builder(FlowDefinitionHumanLoopConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String humanTaskUiArn;
         private @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice publicWorkforceTaskPrice;
@@ -164,11 +143,7 @@ public final class FlowDefinitionHumanLoopConfig {
         private @Nullable Integer taskTimeLimitInSeconds;
         private String taskTitle;
         private String workteamArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDefinitionHumanLoopConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.humanTaskUiArn = defaults.humanTaskUiArn;
@@ -182,26 +157,32 @@ public final class FlowDefinitionHumanLoopConfig {
     	      this.workteamArn = defaults.workteamArn;
         }
 
+        @CustomType.Setter
         public Builder humanTaskUiArn(String humanTaskUiArn) {
             this.humanTaskUiArn = Objects.requireNonNull(humanTaskUiArn);
             return this;
         }
+        @CustomType.Setter
         public Builder publicWorkforceTaskPrice(@Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice publicWorkforceTaskPrice) {
             this.publicWorkforceTaskPrice = publicWorkforceTaskPrice;
             return this;
         }
+        @CustomType.Setter
         public Builder taskAvailabilityLifetimeInSeconds(@Nullable Integer taskAvailabilityLifetimeInSeconds) {
             this.taskAvailabilityLifetimeInSeconds = taskAvailabilityLifetimeInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder taskCount(Integer taskCount) {
             this.taskCount = Objects.requireNonNull(taskCount);
             return this;
         }
+        @CustomType.Setter
         public Builder taskDescription(String taskDescription) {
             this.taskDescription = Objects.requireNonNull(taskDescription);
             return this;
         }
+        @CustomType.Setter
         public Builder taskKeywords(@Nullable List<String> taskKeywords) {
             this.taskKeywords = taskKeywords;
             return this;
@@ -209,19 +190,33 @@ public final class FlowDefinitionHumanLoopConfig {
         public Builder taskKeywords(String... taskKeywords) {
             return taskKeywords(List.of(taskKeywords));
         }
+        @CustomType.Setter
         public Builder taskTimeLimitInSeconds(@Nullable Integer taskTimeLimitInSeconds) {
             this.taskTimeLimitInSeconds = taskTimeLimitInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder taskTitle(String taskTitle) {
             this.taskTitle = Objects.requireNonNull(taskTitle);
             return this;
         }
+        @CustomType.Setter
         public Builder workteamArn(String workteamArn) {
             this.workteamArn = Objects.requireNonNull(workteamArn);
             return this;
-        }        public FlowDefinitionHumanLoopConfig build() {
-            return new FlowDefinitionHumanLoopConfig(humanTaskUiArn, publicWorkforceTaskPrice, taskAvailabilityLifetimeInSeconds, taskCount, taskDescription, taskKeywords, taskTimeLimitInSeconds, taskTitle, workteamArn);
+        }
+        public FlowDefinitionHumanLoopConfig build() {
+            final var o = new FlowDefinitionHumanLoopConfig();
+            o.humanTaskUiArn = humanTaskUiArn;
+            o.publicWorkforceTaskPrice = publicWorkforceTaskPrice;
+            o.taskAvailabilityLifetimeInSeconds = taskAvailabilityLifetimeInSeconds;
+            o.taskCount = taskCount;
+            o.taskDescription = taskDescription;
+            o.taskKeywords = taskKeywords;
+            o.taskTimeLimitInSeconds = taskTimeLimitInSeconds;
+            o.taskTitle = taskTitle;
+            o.workteamArn = workteamArn;
+            return o;
         }
     }
 }

@@ -15,56 +15,39 @@ public final class GetClusterVpcConfig {
      * @return The cluster security group that was created by Amazon EKS for the cluster.
      * 
      */
-    private final String clusterSecurityGroupId;
+    private String clusterSecurityGroupId;
     /**
      * @return Indicates whether or not the Amazon EKS private API server endpoint is enabled.
      * 
      */
-    private final Boolean endpointPrivateAccess;
+    private Boolean endpointPrivateAccess;
     /**
      * @return Indicates whether or not the Amazon EKS public API server endpoint is enabled.
      * 
      */
-    private final Boolean endpointPublicAccess;
+    private Boolean endpointPublicAccess;
     /**
      * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
      * 
      */
-    private final List<String> publicAccessCidrs;
+    private List<String> publicAccessCidrs;
     /**
      * @return List of security group IDs
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return List of subnet IDs
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return The VPC associated with your cluster.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetClusterVpcConfig(
-        @CustomType.Parameter("clusterSecurityGroupId") String clusterSecurityGroupId,
-        @CustomType.Parameter("endpointPrivateAccess") Boolean endpointPrivateAccess,
-        @CustomType.Parameter("endpointPublicAccess") Boolean endpointPublicAccess,
-        @CustomType.Parameter("publicAccessCidrs") List<String> publicAccessCidrs,
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.clusterSecurityGroupId = clusterSecurityGroupId;
-        this.endpointPrivateAccess = endpointPrivateAccess;
-        this.endpointPublicAccess = endpointPublicAccess;
-        this.publicAccessCidrs = publicAccessCidrs;
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private GetClusterVpcConfig() {}
     /**
      * @return The cluster security group that was created by Amazon EKS for the cluster.
      * 
@@ -122,7 +105,7 @@ public final class GetClusterVpcConfig {
     public static Builder builder(GetClusterVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clusterSecurityGroupId;
         private Boolean endpointPrivateAccess;
@@ -131,11 +114,7 @@ public final class GetClusterVpcConfig {
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterSecurityGroupId = defaults.clusterSecurityGroupId;
@@ -147,18 +126,22 @@ public final class GetClusterVpcConfig {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder clusterSecurityGroupId(String clusterSecurityGroupId) {
             this.clusterSecurityGroupId = Objects.requireNonNull(clusterSecurityGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder endpointPrivateAccess(Boolean endpointPrivateAccess) {
             this.endpointPrivateAccess = Objects.requireNonNull(endpointPrivateAccess);
             return this;
         }
+        @CustomType.Setter
         public Builder endpointPublicAccess(Boolean endpointPublicAccess) {
             this.endpointPublicAccess = Objects.requireNonNull(endpointPublicAccess);
             return this;
         }
+        @CustomType.Setter
         public Builder publicAccessCidrs(List<String> publicAccessCidrs) {
             this.publicAccessCidrs = Objects.requireNonNull(publicAccessCidrs);
             return this;
@@ -166,6 +149,7 @@ public final class GetClusterVpcConfig {
         public Builder publicAccessCidrs(String... publicAccessCidrs) {
             return publicAccessCidrs(List.of(publicAccessCidrs));
         }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -173,6 +157,7 @@ public final class GetClusterVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -180,11 +165,21 @@ public final class GetClusterVpcConfig {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetClusterVpcConfig build() {
-            return new GetClusterVpcConfig(clusterSecurityGroupId, endpointPrivateAccess, endpointPublicAccess, publicAccessCidrs, securityGroupIds, subnetIds, vpcId);
+        }
+        public GetClusterVpcConfig build() {
+            final var o = new GetClusterVpcConfig();
+            o.clusterSecurityGroupId = clusterSecurityGroupId;
+            o.endpointPrivateAccess = endpointPrivateAccess;
+            o.endpointPublicAccess = endpointPublicAccess;
+            o.publicAccessCidrs = publicAccessCidrs;
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

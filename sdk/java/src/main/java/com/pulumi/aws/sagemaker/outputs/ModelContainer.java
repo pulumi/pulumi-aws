@@ -17,50 +17,35 @@ public final class ModelContainer {
      * @return The DNS host name for the container.
      * 
      */
-    private final @Nullable String containerHostname;
+    private @Nullable String containerHostname;
     /**
      * @return Environment variables for the Docker container.
      * A list of key value pairs.
      * 
      */
-    private final @Nullable Map<String,String> environment;
+    private @Nullable Map<String,String> environment;
     /**
      * @return The registry path where the inference code image is stored in Amazon ECR.
      * 
      */
-    private final String image;
+    private String image;
     /**
      * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
      * 
      */
-    private final @Nullable ModelContainerImageConfig imageConfig;
+    private @Nullable ModelContainerImageConfig imageConfig;
     /**
      * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
      * 
      */
-    private final @Nullable String mode;
+    private @Nullable String mode;
     /**
      * @return The URL for the S3 location where model artifacts are stored.
      * 
      */
-    private final @Nullable String modelDataUrl;
+    private @Nullable String modelDataUrl;
 
-    @CustomType.Constructor
-    private ModelContainer(
-        @CustomType.Parameter("containerHostname") @Nullable String containerHostname,
-        @CustomType.Parameter("environment") @Nullable Map<String,String> environment,
-        @CustomType.Parameter("image") String image,
-        @CustomType.Parameter("imageConfig") @Nullable ModelContainerImageConfig imageConfig,
-        @CustomType.Parameter("mode") @Nullable String mode,
-        @CustomType.Parameter("modelDataUrl") @Nullable String modelDataUrl) {
-        this.containerHostname = containerHostname;
-        this.environment = environment;
-        this.image = image;
-        this.imageConfig = imageConfig;
-        this.mode = mode;
-        this.modelDataUrl = modelDataUrl;
-    }
-
+    private ModelContainer() {}
     /**
      * @return The DNS host name for the container.
      * 
@@ -112,7 +97,7 @@ public final class ModelContainer {
     public static Builder builder(ModelContainer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String containerHostname;
         private @Nullable Map<String,String> environment;
@@ -120,11 +105,7 @@ public final class ModelContainer {
         private @Nullable ModelContainerImageConfig imageConfig;
         private @Nullable String mode;
         private @Nullable String modelDataUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ModelContainer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerHostname = defaults.containerHostname;
@@ -135,31 +116,45 @@ public final class ModelContainer {
     	      this.modelDataUrl = defaults.modelDataUrl;
         }
 
+        @CustomType.Setter
         public Builder containerHostname(@Nullable String containerHostname) {
             this.containerHostname = containerHostname;
             return this;
         }
+        @CustomType.Setter
         public Builder environment(@Nullable Map<String,String> environment) {
             this.environment = environment;
             return this;
         }
+        @CustomType.Setter
         public Builder image(String image) {
             this.image = Objects.requireNonNull(image);
             return this;
         }
+        @CustomType.Setter
         public Builder imageConfig(@Nullable ModelContainerImageConfig imageConfig) {
             this.imageConfig = imageConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder mode(@Nullable String mode) {
             this.mode = mode;
             return this;
         }
+        @CustomType.Setter
         public Builder modelDataUrl(@Nullable String modelDataUrl) {
             this.modelDataUrl = modelDataUrl;
             return this;
-        }        public ModelContainer build() {
-            return new ModelContainer(containerHostname, environment, image, imageConfig, mode, modelDataUrl);
+        }
+        public ModelContainer build() {
+            final var o = new ModelContainer();
+            o.containerHostname = containerHostname;
+            o.environment = environment;
+            o.image = image;
+            o.imageConfig = imageConfig;
+            o.mode = mode;
+            o.modelDataUrl = modelDataUrl;
+            return o;
         }
     }
 }

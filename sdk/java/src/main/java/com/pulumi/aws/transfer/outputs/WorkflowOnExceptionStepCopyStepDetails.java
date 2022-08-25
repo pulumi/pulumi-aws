@@ -16,35 +16,24 @@ public final class WorkflowOnExceptionStepCopyStepDetails {
      * @return Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
      * 
      */
-    private final @Nullable WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation destinationFileLocation;
+    private @Nullable WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation destinationFileLocation;
     /**
      * @return The name of the step, used as an identifier.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
      * 
      */
-    private final @Nullable String overwriteExisting;
+    private @Nullable String overwriteExisting;
     /**
      * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
      * 
      */
-    private final @Nullable String sourceFileLocation;
+    private @Nullable String sourceFileLocation;
 
-    @CustomType.Constructor
-    private WorkflowOnExceptionStepCopyStepDetails(
-        @CustomType.Parameter("destinationFileLocation") @Nullable WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation destinationFileLocation,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("overwriteExisting") @Nullable String overwriteExisting,
-        @CustomType.Parameter("sourceFileLocation") @Nullable String sourceFileLocation) {
-        this.destinationFileLocation = destinationFileLocation;
-        this.name = name;
-        this.overwriteExisting = overwriteExisting;
-        this.sourceFileLocation = sourceFileLocation;
-    }
-
+    private WorkflowOnExceptionStepCopyStepDetails() {}
     /**
      * @return Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
      * 
@@ -81,17 +70,13 @@ public final class WorkflowOnExceptionStepCopyStepDetails {
     public static Builder builder(WorkflowOnExceptionStepCopyStepDetails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation destinationFileLocation;
         private @Nullable String name;
         private @Nullable String overwriteExisting;
         private @Nullable String sourceFileLocation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowOnExceptionStepCopyStepDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationFileLocation = defaults.destinationFileLocation;
@@ -100,23 +85,33 @@ public final class WorkflowOnExceptionStepCopyStepDetails {
     	      this.sourceFileLocation = defaults.sourceFileLocation;
         }
 
+        @CustomType.Setter
         public Builder destinationFileLocation(@Nullable WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation destinationFileLocation) {
             this.destinationFileLocation = destinationFileLocation;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder overwriteExisting(@Nullable String overwriteExisting) {
             this.overwriteExisting = overwriteExisting;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceFileLocation(@Nullable String sourceFileLocation) {
             this.sourceFileLocation = sourceFileLocation;
             return this;
-        }        public WorkflowOnExceptionStepCopyStepDetails build() {
-            return new WorkflowOnExceptionStepCopyStepDetails(destinationFileLocation, name, overwriteExisting, sourceFileLocation);
+        }
+        public WorkflowOnExceptionStepCopyStepDetails build() {
+            final var o = new WorkflowOnExceptionStepCopyStepDetails();
+            o.destinationFileLocation = destinationFileLocation;
+            o.name = name;
+            o.overwriteExisting = overwriteExisting;
+            o.sourceFileLocation = sourceFileLocation;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class ClassifierGrokClassifier {
      * @return An identifier of the data format that the classifier matches.
      * 
      */
-    private final String classification;
+    private String classification;
     /**
      * @return Custom grok patterns used by this classifier.
      * 
      */
-    private final @Nullable String customPatterns;
+    private @Nullable String customPatterns;
     /**
      * @return The grok pattern used by this classifier.
      * 
      */
-    private final String grokPattern;
+    private String grokPattern;
 
-    @CustomType.Constructor
-    private ClassifierGrokClassifier(
-        @CustomType.Parameter("classification") String classification,
-        @CustomType.Parameter("customPatterns") @Nullable String customPatterns,
-        @CustomType.Parameter("grokPattern") String grokPattern) {
-        this.classification = classification;
-        this.customPatterns = customPatterns;
-        this.grokPattern = grokPattern;
-    }
-
+    private ClassifierGrokClassifier() {}
     /**
      * @return An identifier of the data format that the classifier matches.
      * 
@@ -66,16 +57,12 @@ public final class ClassifierGrokClassifier {
     public static Builder builder(ClassifierGrokClassifier defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String classification;
         private @Nullable String customPatterns;
         private String grokPattern;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassifierGrokClassifier defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.classification = defaults.classification;
@@ -83,19 +70,27 @@ public final class ClassifierGrokClassifier {
     	      this.grokPattern = defaults.grokPattern;
         }
 
+        @CustomType.Setter
         public Builder classification(String classification) {
             this.classification = Objects.requireNonNull(classification);
             return this;
         }
+        @CustomType.Setter
         public Builder customPatterns(@Nullable String customPatterns) {
             this.customPatterns = customPatterns;
             return this;
         }
+        @CustomType.Setter
         public Builder grokPattern(String grokPattern) {
             this.grokPattern = Objects.requireNonNull(grokPattern);
             return this;
-        }        public ClassifierGrokClassifier build() {
-            return new ClassifierGrokClassifier(classification, customPatterns, grokPattern);
+        }
+        public ClassifierGrokClassifier build() {
+            final var o = new ClassifierGrokClassifier();
+            o.classification = classification;
+            o.customPatterns = customPatterns;
+            o.grokPattern = grokPattern;
+            return o;
         }
     }
 }

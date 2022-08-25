@@ -16,63 +16,44 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
      * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return A user-defined string describing the segment action.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
      * 
      */
-    private final @Nullable List<String> destinationCidrBlocks;
+    private @Nullable List<String> destinationCidrBlocks;
     /**
      * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
      * 
      */
-    private final @Nullable List<String> destinations;
+    private @Nullable List<String> destinations;
     /**
      * @return A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
      * 
      */
-    private final @Nullable String mode;
+    private @Nullable String mode;
     /**
      * @return The name of the segment.
      * 
      */
-    private final String segment;
+    private String segment;
     /**
      * @return A set subtraction of segments to not share with.
      * 
      */
-    private final @Nullable List<String> shareWithExcepts;
+    private @Nullable List<String> shareWithExcepts;
     /**
      * @return A list of strings to share with. Must be a substring is all segments. Valid values include: `[&#34;*&#34;]` or `[&#34;&lt;segment-names&gt;&#34;]`.
      * 
      */
-    private final @Nullable List<String> shareWiths;
+    private @Nullable List<String> shareWiths;
 
-    @CustomType.Constructor
-    private GetCoreNetworkPolicyDocumentSegmentAction(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("destinationCidrBlocks") @Nullable List<String> destinationCidrBlocks,
-        @CustomType.Parameter("destinations") @Nullable List<String> destinations,
-        @CustomType.Parameter("mode") @Nullable String mode,
-        @CustomType.Parameter("segment") String segment,
-        @CustomType.Parameter("shareWithExcepts") @Nullable List<String> shareWithExcepts,
-        @CustomType.Parameter("shareWiths") @Nullable List<String> shareWiths) {
-        this.action = action;
-        this.description = description;
-        this.destinationCidrBlocks = destinationCidrBlocks;
-        this.destinations = destinations;
-        this.mode = mode;
-        this.segment = segment;
-        this.shareWithExcepts = shareWithExcepts;
-        this.shareWiths = shareWiths;
-    }
-
+    private GetCoreNetworkPolicyDocumentSegmentAction() {}
     /**
      * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
@@ -137,7 +118,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
     public static Builder builder(GetCoreNetworkPolicyDocumentSegmentAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private @Nullable String description;
@@ -147,11 +128,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         private String segment;
         private @Nullable List<String> shareWithExcepts;
         private @Nullable List<String> shareWiths;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentSegmentAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -164,14 +141,17 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
     	      this.shareWiths = defaults.shareWiths;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder destinationCidrBlocks(@Nullable List<String> destinationCidrBlocks) {
             this.destinationCidrBlocks = destinationCidrBlocks;
             return this;
@@ -179,6 +159,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         public Builder destinationCidrBlocks(String... destinationCidrBlocks) {
             return destinationCidrBlocks(List.of(destinationCidrBlocks));
         }
+        @CustomType.Setter
         public Builder destinations(@Nullable List<String> destinations) {
             this.destinations = destinations;
             return this;
@@ -186,14 +167,17 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         public Builder destinations(String... destinations) {
             return destinations(List.of(destinations));
         }
+        @CustomType.Setter
         public Builder mode(@Nullable String mode) {
             this.mode = mode;
             return this;
         }
+        @CustomType.Setter
         public Builder segment(String segment) {
             this.segment = Objects.requireNonNull(segment);
             return this;
         }
+        @CustomType.Setter
         public Builder shareWithExcepts(@Nullable List<String> shareWithExcepts) {
             this.shareWithExcepts = shareWithExcepts;
             return this;
@@ -201,14 +185,25 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         public Builder shareWithExcepts(String... shareWithExcepts) {
             return shareWithExcepts(List.of(shareWithExcepts));
         }
+        @CustomType.Setter
         public Builder shareWiths(@Nullable List<String> shareWiths) {
             this.shareWiths = shareWiths;
             return this;
         }
         public Builder shareWiths(String... shareWiths) {
             return shareWiths(List.of(shareWiths));
-        }        public GetCoreNetworkPolicyDocumentSegmentAction build() {
-            return new GetCoreNetworkPolicyDocumentSegmentAction(action, description, destinationCidrBlocks, destinations, mode, segment, shareWithExcepts, shareWiths);
+        }
+        public GetCoreNetworkPolicyDocumentSegmentAction build() {
+            final var o = new GetCoreNetworkPolicyDocumentSegmentAction();
+            o.action = action;
+            o.description = description;
+            o.destinationCidrBlocks = destinationCidrBlocks;
+            o.destinations = destinations;
+            o.mode = mode;
+            o.segment = segment;
+            o.shareWithExcepts = shareWithExcepts;
+            o.shareWiths = shareWiths;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class VpcEndpointDnsEntry {
      * @return The DNS name.
      * 
      */
-    private final @Nullable String dnsName;
+    private @Nullable String dnsName;
     /**
      * @return The ID of the private hosted zone.
      * 
      */
-    private final @Nullable String hostedZoneId;
+    private @Nullable String hostedZoneId;
 
-    @CustomType.Constructor
-    private VpcEndpointDnsEntry(
-        @CustomType.Parameter("dnsName") @Nullable String dnsName,
-        @CustomType.Parameter("hostedZoneId") @Nullable String hostedZoneId) {
-        this.dnsName = dnsName;
-        this.hostedZoneId = hostedZoneId;
-    }
-
+    private VpcEndpointDnsEntry() {}
     /**
      * @return The DNS name.
      * 
@@ -52,30 +45,32 @@ public final class VpcEndpointDnsEntry {
     public static Builder builder(VpcEndpointDnsEntry defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dnsName;
         private @Nullable String hostedZoneId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpcEndpointDnsEntry defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsName = defaults.dnsName;
     	      this.hostedZoneId = defaults.hostedZoneId;
         }
 
+        @CustomType.Setter
         public Builder dnsName(@Nullable String dnsName) {
             this.dnsName = dnsName;
             return this;
         }
+        @CustomType.Setter
         public Builder hostedZoneId(@Nullable String hostedZoneId) {
             this.hostedZoneId = hostedZoneId;
             return this;
-        }        public VpcEndpointDnsEntry build() {
-            return new VpcEndpointDnsEntry(dnsName, hostedZoneId);
+        }
+        public VpcEndpointDnsEntry build() {
+            final var o = new VpcEndpointDnsEntry();
+            o.dnsName = dnsName;
+            o.hostedZoneId = hostedZoneId;
+            return o;
         }
     }
 }

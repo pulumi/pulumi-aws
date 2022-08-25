@@ -14,21 +14,14 @@ public final class ConnectorProfileConnectorProfileConfig {
      * @return The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
      * 
      */
-    private final ConnectorProfileConnectorProfileConfigConnectorProfileCredentials connectorProfileCredentials;
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentials connectorProfileCredentials;
     /**
      * @return The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
      * 
      */
-    private final ConnectorProfileConnectorProfileConfigConnectorProfileProperties connectorProfileProperties;
+    private ConnectorProfileConnectorProfileConfigConnectorProfileProperties connectorProfileProperties;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfig(
-        @CustomType.Parameter("connectorProfileCredentials") ConnectorProfileConnectorProfileConfigConnectorProfileCredentials connectorProfileCredentials,
-        @CustomType.Parameter("connectorProfileProperties") ConnectorProfileConnectorProfileConfigConnectorProfileProperties connectorProfileProperties) {
-        this.connectorProfileCredentials = connectorProfileCredentials;
-        this.connectorProfileProperties = connectorProfileProperties;
-    }
-
+    private ConnectorProfileConnectorProfileConfig() {}
     /**
      * @return The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
      * 
@@ -51,30 +44,32 @@ public final class ConnectorProfileConnectorProfileConfig {
     public static Builder builder(ConnectorProfileConnectorProfileConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ConnectorProfileConnectorProfileConfigConnectorProfileCredentials connectorProfileCredentials;
         private ConnectorProfileConnectorProfileConfigConnectorProfileProperties connectorProfileProperties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectorProfileCredentials = defaults.connectorProfileCredentials;
     	      this.connectorProfileProperties = defaults.connectorProfileProperties;
         }
 
+        @CustomType.Setter
         public Builder connectorProfileCredentials(ConnectorProfileConnectorProfileConfigConnectorProfileCredentials connectorProfileCredentials) {
             this.connectorProfileCredentials = Objects.requireNonNull(connectorProfileCredentials);
             return this;
         }
+        @CustomType.Setter
         public Builder connectorProfileProperties(ConnectorProfileConnectorProfileConfigConnectorProfileProperties connectorProfileProperties) {
             this.connectorProfileProperties = Objects.requireNonNull(connectorProfileProperties);
             return this;
-        }        public ConnectorProfileConnectorProfileConfig build() {
-            return new ConnectorProfileConnectorProfileConfig(connectorProfileCredentials, connectorProfileProperties);
+        }
+        public ConnectorProfileConnectorProfileConfig build() {
+            final var o = new ConnectorProfileConnectorProfileConfig();
+            o.connectorProfileCredentials = connectorProfileCredentials;
+            o.connectorProfileProperties = connectorProfileProperties;
+            return o;
         }
     }
 }

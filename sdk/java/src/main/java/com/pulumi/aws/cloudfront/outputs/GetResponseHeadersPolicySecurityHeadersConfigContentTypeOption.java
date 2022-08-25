@@ -13,13 +13,9 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptio
      * @return A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private final Boolean override;
+    private Boolean override;
 
-    @CustomType.Constructor
-    private GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption(@CustomType.Parameter("override") Boolean override) {
-        this.override = override;
-    }
-
+    private GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption() {}
     /**
      * @return A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
@@ -35,24 +31,24 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptio
     public static Builder builder(GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean override;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.override = defaults.override;
         }
 
+        @CustomType.Setter
         public Builder override(Boolean override) {
             this.override = Objects.requireNonNull(override);
             return this;
-        }        public GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption build() {
-            return new GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption(override);
+        }
+        public GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption build() {
+            final var o = new GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption();
+            o.override = override;
+            return o;
         }
     }
 }

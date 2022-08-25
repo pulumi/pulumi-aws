@@ -13,21 +13,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
-    private final String apiKey;
+    private String apiKey;
     /**
      * @return Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
      * 
      */
-    private final String applicationKey;
+    private String applicationKey;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog(
-        @CustomType.Parameter("apiKey") String apiKey,
-        @CustomType.Parameter("applicationKey") String applicationKey) {
-        this.apiKey = apiKey;
-        this.applicationKey = applicationKey;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog() {}
     /**
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
@@ -50,30 +43,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiKey;
         private String applicationKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
     	      this.applicationKey = defaults.applicationKey;
         }
 
+        @CustomType.Setter
         public Builder apiKey(String apiKey) {
             this.apiKey = Objects.requireNonNull(apiKey);
             return this;
         }
+        @CustomType.Setter
         public Builder applicationKey(String applicationKey) {
             this.applicationKey = Objects.requireNonNull(applicationKey);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog(apiKey, applicationKey);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog();
+            o.apiKey = apiKey;
+            o.applicationKey = applicationKey;
+            return o;
         }
     }
 }

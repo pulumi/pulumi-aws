@@ -20,125 +20,86 @@ public final class GetNodeGroupResult {
      * @return Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
      * 
      */
-    private final String amiType;
+    private String amiType;
     /**
      * @return Amazon Resource Name (ARN) of the EKS Node Group.
      * 
      */
-    private final String arn;
-    private final String clusterName;
+    private String arn;
+    private String clusterName;
     /**
      * @return Disk size in GiB for worker nodes.
      * 
      */
-    private final Integer diskSize;
+    private Integer diskSize;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of instance types associated with the EKS Node Group.
      * 
      */
-    private final List<String> instanceTypes;
+    private List<String> instanceTypes;
     /**
      * @return Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      * 
      */
-    private final Map<String,String> labels;
-    private final String nodeGroupName;
+    private Map<String,String> labels;
+    private String nodeGroupName;
     /**
      * @return Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
-    private final String nodeRoleArn;
+    private String nodeRoleArn;
     /**
      * @return AMI version of the EKS Node Group.
      * 
      */
-    private final String releaseVersion;
+    private String releaseVersion;
     /**
      * @return Configuration block with remote access settings.
      * 
      */
-    private final List<GetNodeGroupRemoteAccess> remoteAccesses;
+    private List<GetNodeGroupRemoteAccess> remoteAccesses;
     /**
      * @return List of objects containing information about underlying resources.
      * 
      */
-    private final List<GetNodeGroupResource> resources;
+    private List<GetNodeGroupResource> resources;
     /**
      * @return Configuration block with scaling settings.
      * 
      */
-    private final List<GetNodeGroupScalingConfig> scalingConfigs;
+    private List<GetNodeGroupScalingConfig> scalingConfigs;
     /**
      * @return Status of the EKS Node Group.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Identifiers of EC2 Subnets to associate with the EKS Node Group.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return Key-value map of resource tags.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return List of objects containing information about taints applied to the nodes in the EKS Node Group.
      * 
      */
-    private final List<GetNodeGroupTaint> taints;
+    private List<GetNodeGroupTaint> taints;
     /**
      * @return Kubernetes version.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private GetNodeGroupResult(
-        @CustomType.Parameter("amiType") String amiType,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("clusterName") String clusterName,
-        @CustomType.Parameter("diskSize") Integer diskSize,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceTypes") List<String> instanceTypes,
-        @CustomType.Parameter("labels") Map<String,String> labels,
-        @CustomType.Parameter("nodeGroupName") String nodeGroupName,
-        @CustomType.Parameter("nodeRoleArn") String nodeRoleArn,
-        @CustomType.Parameter("releaseVersion") String releaseVersion,
-        @CustomType.Parameter("remoteAccesses") List<GetNodeGroupRemoteAccess> remoteAccesses,
-        @CustomType.Parameter("resources") List<GetNodeGroupResource> resources,
-        @CustomType.Parameter("scalingConfigs") List<GetNodeGroupScalingConfig> scalingConfigs,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("taints") List<GetNodeGroupTaint> taints,
-        @CustomType.Parameter("version") String version) {
-        this.amiType = amiType;
-        this.arn = arn;
-        this.clusterName = clusterName;
-        this.diskSize = diskSize;
-        this.id = id;
-        this.instanceTypes = instanceTypes;
-        this.labels = labels;
-        this.nodeGroupName = nodeGroupName;
-        this.nodeRoleArn = nodeRoleArn;
-        this.releaseVersion = releaseVersion;
-        this.remoteAccesses = remoteAccesses;
-        this.resources = resources;
-        this.scalingConfigs = scalingConfigs;
-        this.status = status;
-        this.subnetIds = subnetIds;
-        this.tags = tags;
-        this.taints = taints;
-        this.version = version;
-    }
-
+    private GetNodeGroupResult() {}
     /**
      * @return Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
      * 
@@ -265,7 +226,7 @@ public final class GetNodeGroupResult {
     public static Builder builder(GetNodeGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String amiType;
         private String arn;
@@ -285,11 +246,7 @@ public final class GetNodeGroupResult {
         private Map<String,String> tags;
         private List<GetNodeGroupTaint> taints;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNodeGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amiType = defaults.amiType;
@@ -312,26 +269,32 @@ public final class GetNodeGroupResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder amiType(String amiType) {
             this.amiType = Objects.requireNonNull(amiType);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterName(String clusterName) {
             this.clusterName = Objects.requireNonNull(clusterName);
             return this;
         }
+        @CustomType.Setter
         public Builder diskSize(Integer diskSize) {
             this.diskSize = Objects.requireNonNull(diskSize);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceTypes(List<String> instanceTypes) {
             this.instanceTypes = Objects.requireNonNull(instanceTypes);
             return this;
@@ -339,22 +302,27 @@ public final class GetNodeGroupResult {
         public Builder instanceTypes(String... instanceTypes) {
             return instanceTypes(List.of(instanceTypes));
         }
+        @CustomType.Setter
         public Builder labels(Map<String,String> labels) {
             this.labels = Objects.requireNonNull(labels);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeGroupName(String nodeGroupName) {
             this.nodeGroupName = Objects.requireNonNull(nodeGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeRoleArn(String nodeRoleArn) {
             this.nodeRoleArn = Objects.requireNonNull(nodeRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder releaseVersion(String releaseVersion) {
             this.releaseVersion = Objects.requireNonNull(releaseVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder remoteAccesses(List<GetNodeGroupRemoteAccess> remoteAccesses) {
             this.remoteAccesses = Objects.requireNonNull(remoteAccesses);
             return this;
@@ -362,6 +330,7 @@ public final class GetNodeGroupResult {
         public Builder remoteAccesses(GetNodeGroupRemoteAccess... remoteAccesses) {
             return remoteAccesses(List.of(remoteAccesses));
         }
+        @CustomType.Setter
         public Builder resources(List<GetNodeGroupResource> resources) {
             this.resources = Objects.requireNonNull(resources);
             return this;
@@ -369,6 +338,7 @@ public final class GetNodeGroupResult {
         public Builder resources(GetNodeGroupResource... resources) {
             return resources(List.of(resources));
         }
+        @CustomType.Setter
         public Builder scalingConfigs(List<GetNodeGroupScalingConfig> scalingConfigs) {
             this.scalingConfigs = Objects.requireNonNull(scalingConfigs);
             return this;
@@ -376,10 +346,12 @@ public final class GetNodeGroupResult {
         public Builder scalingConfigs(GetNodeGroupScalingConfig... scalingConfigs) {
             return scalingConfigs(List.of(scalingConfigs));
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -387,10 +359,12 @@ public final class GetNodeGroupResult {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder taints(List<GetNodeGroupTaint> taints) {
             this.taints = Objects.requireNonNull(taints);
             return this;
@@ -398,11 +372,32 @@ public final class GetNodeGroupResult {
         public Builder taints(GetNodeGroupTaint... taints) {
             return taints(List.of(taints));
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetNodeGroupResult build() {
-            return new GetNodeGroupResult(amiType, arn, clusterName, diskSize, id, instanceTypes, labels, nodeGroupName, nodeRoleArn, releaseVersion, remoteAccesses, resources, scalingConfigs, status, subnetIds, tags, taints, version);
+        }
+        public GetNodeGroupResult build() {
+            final var o = new GetNodeGroupResult();
+            o.amiType = amiType;
+            o.arn = arn;
+            o.clusterName = clusterName;
+            o.diskSize = diskSize;
+            o.id = id;
+            o.instanceTypes = instanceTypes;
+            o.labels = labels;
+            o.nodeGroupName = nodeGroupName;
+            o.nodeRoleArn = nodeRoleArn;
+            o.releaseVersion = releaseVersion;
+            o.remoteAccesses = remoteAccesses;
+            o.resources = resources;
+            o.scalingConfigs = scalingConfigs;
+            o.status = status;
+            o.subnetIds = subnetIds;
+            o.tags = tags;
+            o.taints = taints;
+            o.version = version;
+            return o;
         }
     }
 }

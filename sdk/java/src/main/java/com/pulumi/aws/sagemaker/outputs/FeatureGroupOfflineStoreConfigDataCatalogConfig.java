@@ -15,28 +15,19 @@ public final class FeatureGroupOfflineStoreConfigDataCatalogConfig {
      * @return The name of the Glue table catalog.
      * 
      */
-    private final @Nullable String catalog;
+    private @Nullable String catalog;
     /**
      * @return The name of the Glue table database.
      * 
      */
-    private final @Nullable String database;
+    private @Nullable String database;
     /**
      * @return The name of the Glue table.
      * 
      */
-    private final @Nullable String tableName;
+    private @Nullable String tableName;
 
-    @CustomType.Constructor
-    private FeatureGroupOfflineStoreConfigDataCatalogConfig(
-        @CustomType.Parameter("catalog") @Nullable String catalog,
-        @CustomType.Parameter("database") @Nullable String database,
-        @CustomType.Parameter("tableName") @Nullable String tableName) {
-        this.catalog = catalog;
-        this.database = database;
-        this.tableName = tableName;
-    }
-
+    private FeatureGroupOfflineStoreConfigDataCatalogConfig() {}
     /**
      * @return The name of the Glue table catalog.
      * 
@@ -66,16 +57,12 @@ public final class FeatureGroupOfflineStoreConfigDataCatalogConfig {
     public static Builder builder(FeatureGroupOfflineStoreConfigDataCatalogConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String catalog;
         private @Nullable String database;
         private @Nullable String tableName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeatureGroupOfflineStoreConfigDataCatalogConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalog = defaults.catalog;
@@ -83,19 +70,27 @@ public final class FeatureGroupOfflineStoreConfigDataCatalogConfig {
     	      this.tableName = defaults.tableName;
         }
 
+        @CustomType.Setter
         public Builder catalog(@Nullable String catalog) {
             this.catalog = catalog;
             return this;
         }
+        @CustomType.Setter
         public Builder database(@Nullable String database) {
             this.database = database;
             return this;
         }
+        @CustomType.Setter
         public Builder tableName(@Nullable String tableName) {
             this.tableName = tableName;
             return this;
-        }        public FeatureGroupOfflineStoreConfigDataCatalogConfig build() {
-            return new FeatureGroupOfflineStoreConfigDataCatalogConfig(catalog, database, tableName);
+        }
+        public FeatureGroupOfflineStoreConfigDataCatalogConfig build() {
+            final var o = new FeatureGroupOfflineStoreConfigDataCatalogConfig();
+            o.catalog = catalog;
+            o.database = database;
+            o.tableName = tableName;
+            return o;
         }
     }
 }

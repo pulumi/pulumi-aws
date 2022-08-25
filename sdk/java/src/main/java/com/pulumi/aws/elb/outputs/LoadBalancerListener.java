@@ -16,45 +16,32 @@ public final class LoadBalancerListener {
      * @return The port on the instance to route to
      * 
      */
-    private final Integer instancePort;
+    private Integer instancePort;
     /**
      * @return The protocol to use to the instance. Valid
      * values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
      * 
      */
-    private final String instanceProtocol;
+    private String instanceProtocol;
     /**
      * @return The port to listen on for the load balancer
      * 
      */
-    private final Integer lbPort;
+    private Integer lbPort;
     /**
      * @return The protocol to listen on. Valid values are `HTTP`,
      * `HTTPS`, `TCP`, or `SSL`
      * 
      */
-    private final String lbProtocol;
+    private String lbProtocol;
     /**
      * @return The ARN of an SSL certificate you have
      * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
      * 
      */
-    private final @Nullable String sslCertificateId;
+    private @Nullable String sslCertificateId;
 
-    @CustomType.Constructor
-    private LoadBalancerListener(
-        @CustomType.Parameter("instancePort") Integer instancePort,
-        @CustomType.Parameter("instanceProtocol") String instanceProtocol,
-        @CustomType.Parameter("lbPort") Integer lbPort,
-        @CustomType.Parameter("lbProtocol") String lbProtocol,
-        @CustomType.Parameter("sslCertificateId") @Nullable String sslCertificateId) {
-        this.instancePort = instancePort;
-        this.instanceProtocol = instanceProtocol;
-        this.lbPort = lbPort;
-        this.lbProtocol = lbProtocol;
-        this.sslCertificateId = sslCertificateId;
-    }
-
+    private LoadBalancerListener() {}
     /**
      * @return The port on the instance to route to
      * 
@@ -101,18 +88,14 @@ public final class LoadBalancerListener {
     public static Builder builder(LoadBalancerListener defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer instancePort;
         private String instanceProtocol;
         private Integer lbPort;
         private String lbProtocol;
         private @Nullable String sslCertificateId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LoadBalancerListener defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instancePort = defaults.instancePort;
@@ -122,27 +105,39 @@ public final class LoadBalancerListener {
     	      this.sslCertificateId = defaults.sslCertificateId;
         }
 
+        @CustomType.Setter
         public Builder instancePort(Integer instancePort) {
             this.instancePort = Objects.requireNonNull(instancePort);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceProtocol(String instanceProtocol) {
             this.instanceProtocol = Objects.requireNonNull(instanceProtocol);
             return this;
         }
+        @CustomType.Setter
         public Builder lbPort(Integer lbPort) {
             this.lbPort = Objects.requireNonNull(lbPort);
             return this;
         }
+        @CustomType.Setter
         public Builder lbProtocol(String lbProtocol) {
             this.lbProtocol = Objects.requireNonNull(lbProtocol);
             return this;
         }
+        @CustomType.Setter
         public Builder sslCertificateId(@Nullable String sslCertificateId) {
             this.sslCertificateId = sslCertificateId;
             return this;
-        }        public LoadBalancerListener build() {
-            return new LoadBalancerListener(instancePort, instanceProtocol, lbPort, lbProtocol, sslCertificateId);
+        }
+        public LoadBalancerListener build() {
+            final var o = new LoadBalancerListener();
+            o.instancePort = instancePort;
+            o.instanceProtocol = instanceProtocol;
+            o.lbPort = lbPort;
+            o.lbProtocol = lbProtocol;
+            o.sslCertificateId = sslCertificateId;
+            return o;
         }
     }
 }

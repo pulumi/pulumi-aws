@@ -10,23 +10,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworkInterfaceAttachment {
-    private final String attachmentId;
-    private final Integer deviceIndex;
-    private final String instanceId;
-    private final String instanceOwnerId;
+    private String attachmentId;
+    private Integer deviceIndex;
+    private String instanceId;
+    private String instanceOwnerId;
 
-    @CustomType.Constructor
-    private GetNetworkInterfaceAttachment(
-        @CustomType.Parameter("attachmentId") String attachmentId,
-        @CustomType.Parameter("deviceIndex") Integer deviceIndex,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("instanceOwnerId") String instanceOwnerId) {
-        this.attachmentId = attachmentId;
-        this.deviceIndex = deviceIndex;
-        this.instanceId = instanceId;
-        this.instanceOwnerId = instanceOwnerId;
-    }
-
+    private GetNetworkInterfaceAttachment() {}
     public String attachmentId() {
         return this.attachmentId;
     }
@@ -47,17 +36,13 @@ public final class GetNetworkInterfaceAttachment {
     public static Builder builder(GetNetworkInterfaceAttachment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String attachmentId;
         private Integer deviceIndex;
         private String instanceId;
         private String instanceOwnerId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkInterfaceAttachment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attachmentId = defaults.attachmentId;
@@ -66,23 +51,33 @@ public final class GetNetworkInterfaceAttachment {
     	      this.instanceOwnerId = defaults.instanceOwnerId;
         }
 
+        @CustomType.Setter
         public Builder attachmentId(String attachmentId) {
             this.attachmentId = Objects.requireNonNull(attachmentId);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceIndex(Integer deviceIndex) {
             this.deviceIndex = Objects.requireNonNull(deviceIndex);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceOwnerId(String instanceOwnerId) {
             this.instanceOwnerId = Objects.requireNonNull(instanceOwnerId);
             return this;
-        }        public GetNetworkInterfaceAttachment build() {
-            return new GetNetworkInterfaceAttachment(attachmentId, deviceIndex, instanceId, instanceOwnerId);
+        }
+        public GetNetworkInterfaceAttachment build() {
+            final var o = new GetNetworkInterfaceAttachment();
+            o.attachmentId = attachmentId;
+            o.deviceIndex = deviceIndex;
+            o.instanceId = instanceId;
+            o.instanceOwnerId = instanceOwnerId;
+            return o;
         }
     }
 }

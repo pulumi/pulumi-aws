@@ -16,21 +16,14 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAnd {
      * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
      * 
      */
-    private final @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm simpleScopeTerm;
+    private @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm simpleScopeTerm;
     /**
      * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
      * 
      */
-    private final @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm tagScopeTerm;
+    private @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm tagScopeTerm;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionScopingIncludesAnd(
-        @CustomType.Parameter("simpleScopeTerm") @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm simpleScopeTerm,
-        @CustomType.Parameter("tagScopeTerm") @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm tagScopeTerm) {
-        this.simpleScopeTerm = simpleScopeTerm;
-        this.tagScopeTerm = tagScopeTerm;
-    }
-
+    private ClassificationJobS3JobDefinitionScopingIncludesAnd() {}
     /**
      * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
      * 
@@ -53,30 +46,32 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAnd {
     public static Builder builder(ClassificationJobS3JobDefinitionScopingIncludesAnd defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm simpleScopeTerm;
         private @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm tagScopeTerm;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionScopingIncludesAnd defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.simpleScopeTerm = defaults.simpleScopeTerm;
     	      this.tagScopeTerm = defaults.tagScopeTerm;
         }
 
+        @CustomType.Setter
         public Builder simpleScopeTerm(@Nullable ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm simpleScopeTerm) {
             this.simpleScopeTerm = simpleScopeTerm;
             return this;
         }
+        @CustomType.Setter
         public Builder tagScopeTerm(@Nullable ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm tagScopeTerm) {
             this.tagScopeTerm = tagScopeTerm;
             return this;
-        }        public ClassificationJobS3JobDefinitionScopingIncludesAnd build() {
-            return new ClassificationJobS3JobDefinitionScopingIncludesAnd(simpleScopeTerm, tagScopeTerm);
+        }
+        public ClassificationJobS3JobDefinitionScopingIncludesAnd build() {
+            final var o = new ClassificationJobS3JobDefinitionScopingIncludesAnd();
+            o.simpleScopeTerm = simpleScopeTerm;
+            o.tagScopeTerm = tagScopeTerm;
+            return o;
         }
     }
 }

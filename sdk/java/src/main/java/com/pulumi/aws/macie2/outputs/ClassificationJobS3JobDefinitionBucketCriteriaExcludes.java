@@ -15,13 +15,9 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludes {
      * @return An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
      * 
      */
-    private final @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd> ands;
+    private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd> ands;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionBucketCriteriaExcludes(@CustomType.Parameter("ands") @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd> ands) {
-        this.ands = ands;
-    }
-
+    private ClassificationJobS3JobDefinitionBucketCriteriaExcludes() {}
     /**
      * @return An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
      * 
@@ -37,27 +33,27 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludes {
     public static Builder builder(ClassificationJobS3JobDefinitionBucketCriteriaExcludes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd> ands;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionBucketCriteriaExcludes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ands = defaults.ands;
         }
 
+        @CustomType.Setter
         public Builder ands(@Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd> ands) {
             this.ands = ands;
             return this;
         }
         public Builder ands(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd... ands) {
             return ands(List.of(ands));
-        }        public ClassificationJobS3JobDefinitionBucketCriteriaExcludes build() {
-            return new ClassificationJobS3JobDefinitionBucketCriteriaExcludes(ands);
+        }
+        public ClassificationJobS3JobDefinitionBucketCriteriaExcludes build() {
+            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaExcludes();
+            o.ands = ands;
+            return o;
         }
     }
 }

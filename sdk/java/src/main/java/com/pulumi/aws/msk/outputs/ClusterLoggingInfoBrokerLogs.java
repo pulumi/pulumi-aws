@@ -13,20 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterLoggingInfoBrokerLogs {
-    private final @Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs cloudwatchLogs;
-    private final @Nullable ClusterLoggingInfoBrokerLogsFirehose firehose;
-    private final @Nullable ClusterLoggingInfoBrokerLogsS3 s3;
+    private @Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs cloudwatchLogs;
+    private @Nullable ClusterLoggingInfoBrokerLogsFirehose firehose;
+    private @Nullable ClusterLoggingInfoBrokerLogsS3 s3;
 
-    @CustomType.Constructor
-    private ClusterLoggingInfoBrokerLogs(
-        @CustomType.Parameter("cloudwatchLogs") @Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs cloudwatchLogs,
-        @CustomType.Parameter("firehose") @Nullable ClusterLoggingInfoBrokerLogsFirehose firehose,
-        @CustomType.Parameter("s3") @Nullable ClusterLoggingInfoBrokerLogsS3 s3) {
-        this.cloudwatchLogs = cloudwatchLogs;
-        this.firehose = firehose;
-        this.s3 = s3;
-    }
-
+    private ClusterLoggingInfoBrokerLogs() {}
     public Optional<ClusterLoggingInfoBrokerLogsCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
@@ -44,16 +35,12 @@ public final class ClusterLoggingInfoBrokerLogs {
     public static Builder builder(ClusterLoggingInfoBrokerLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs cloudwatchLogs;
         private @Nullable ClusterLoggingInfoBrokerLogsFirehose firehose;
         private @Nullable ClusterLoggingInfoBrokerLogsS3 s3;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterLoggingInfoBrokerLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogs = defaults.cloudwatchLogs;
@@ -61,19 +48,27 @@ public final class ClusterLoggingInfoBrokerLogs {
     	      this.s3 = defaults.s3;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs cloudwatchLogs) {
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder firehose(@Nullable ClusterLoggingInfoBrokerLogsFirehose firehose) {
             this.firehose = firehose;
             return this;
         }
+        @CustomType.Setter
         public Builder s3(@Nullable ClusterLoggingInfoBrokerLogsS3 s3) {
             this.s3 = s3;
             return this;
-        }        public ClusterLoggingInfoBrokerLogs build() {
-            return new ClusterLoggingInfoBrokerLogs(cloudwatchLogs, firehose, s3);
+        }
+        public ClusterLoggingInfoBrokerLogs build() {
+            final var o = new ClusterLoggingInfoBrokerLogs();
+            o.cloudwatchLogs = cloudwatchLogs;
+            o.firehose = firehose;
+            o.s3 = s3;
+            return o;
         }
     }
 }

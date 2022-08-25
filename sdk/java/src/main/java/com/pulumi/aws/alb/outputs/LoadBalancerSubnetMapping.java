@@ -15,38 +15,25 @@ public final class LoadBalancerSubnetMapping {
      * @return The allocation ID of the Elastic IP address.
      * 
      */
-    private final @Nullable String allocationId;
+    private @Nullable String allocationId;
     /**
      * @return An ipv6 address within the subnet to assign to the internet-facing load balancer.
      * 
      */
-    private final @Nullable String ipv6Address;
-    private final @Nullable String outpostId;
+    private @Nullable String ipv6Address;
+    private @Nullable String outpostId;
     /**
      * @return A private ipv4 address within the subnet to assign to the internal-facing load balancer.
      * 
      */
-    private final @Nullable String privateIpv4Address;
+    private @Nullable String privateIpv4Address;
     /**
      * @return The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private LoadBalancerSubnetMapping(
-        @CustomType.Parameter("allocationId") @Nullable String allocationId,
-        @CustomType.Parameter("ipv6Address") @Nullable String ipv6Address,
-        @CustomType.Parameter("outpostId") @Nullable String outpostId,
-        @CustomType.Parameter("privateIpv4Address") @Nullable String privateIpv4Address,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.allocationId = allocationId;
-        this.ipv6Address = ipv6Address;
-        this.outpostId = outpostId;
-        this.privateIpv4Address = privateIpv4Address;
-        this.subnetId = subnetId;
-    }
-
+    private LoadBalancerSubnetMapping() {}
     /**
      * @return The allocation ID of the Elastic IP address.
      * 
@@ -86,18 +73,14 @@ public final class LoadBalancerSubnetMapping {
     public static Builder builder(LoadBalancerSubnetMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String allocationId;
         private @Nullable String ipv6Address;
         private @Nullable String outpostId;
         private @Nullable String privateIpv4Address;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LoadBalancerSubnetMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationId = defaults.allocationId;
@@ -107,27 +90,39 @@ public final class LoadBalancerSubnetMapping {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder allocationId(@Nullable String allocationId) {
             this.allocationId = allocationId;
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6Address(@Nullable String ipv6Address) {
             this.ipv6Address = ipv6Address;
             return this;
         }
+        @CustomType.Setter
         public Builder outpostId(@Nullable String outpostId) {
             this.outpostId = outpostId;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpv4Address(@Nullable String privateIpv4Address) {
             this.privateIpv4Address = privateIpv4Address;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public LoadBalancerSubnetMapping build() {
-            return new LoadBalancerSubnetMapping(allocationId, ipv6Address, outpostId, privateIpv4Address, subnetId);
+        }
+        public LoadBalancerSubnetMapping build() {
+            final var o = new LoadBalancerSubnetMapping();
+            o.allocationId = allocationId;
+            o.ipv6Address = ipv6Address;
+            o.outpostId = outpostId;
+            o.privateIpv4Address = privateIpv4Address;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

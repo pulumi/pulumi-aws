@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus {
-    private final Double max;
-    private final Double min;
+    private Double max;
+    private Double min;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus(
-        @CustomType.Parameter("max") Double max,
-        @CustomType.Parameter("min") Double min) {
-        this.max = max;
-        this.min = min;
-    }
-
+    private GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus() {}
     public Double max() {
         return this.max;
     }
@@ -34,30 +27,32 @@ public final class GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus {
     public static Builder builder(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Double max;
         private Double min;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.max = defaults.max;
     	      this.min = defaults.min;
         }
 
+        @CustomType.Setter
         public Builder max(Double max) {
             this.max = Objects.requireNonNull(max);
             return this;
         }
+        @CustomType.Setter
         public Builder min(Double min) {
             this.min = Objects.requireNonNull(min);
             return this;
-        }        public GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus build() {
-            return new GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus(max, min);
+        }
+        public GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus build() {
+            final var o = new GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus();
+            o.max = max;
+            o.min = min;
+            return o;
         }
     }
 }

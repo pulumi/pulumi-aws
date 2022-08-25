@@ -14,21 +14,14 @@ public final class GetInfrastructureConfigurationInstanceMetadataOption {
      * @return Number of hops that an instance can traverse to reach its destonation.
      * 
      */
-    private final Integer httpPutResponseHopLimit;
+    private Integer httpPutResponseHopLimit;
     /**
      * @return Whether a signed token is required for instance metadata retrieval requests.
      * 
      */
-    private final String httpTokens;
+    private String httpTokens;
 
-    @CustomType.Constructor
-    private GetInfrastructureConfigurationInstanceMetadataOption(
-        @CustomType.Parameter("httpPutResponseHopLimit") Integer httpPutResponseHopLimit,
-        @CustomType.Parameter("httpTokens") String httpTokens) {
-        this.httpPutResponseHopLimit = httpPutResponseHopLimit;
-        this.httpTokens = httpTokens;
-    }
-
+    private GetInfrastructureConfigurationInstanceMetadataOption() {}
     /**
      * @return Number of hops that an instance can traverse to reach its destonation.
      * 
@@ -51,30 +44,32 @@ public final class GetInfrastructureConfigurationInstanceMetadataOption {
     public static Builder builder(GetInfrastructureConfigurationInstanceMetadataOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer httpPutResponseHopLimit;
         private String httpTokens;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInfrastructureConfigurationInstanceMetadataOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpPutResponseHopLimit = defaults.httpPutResponseHopLimit;
     	      this.httpTokens = defaults.httpTokens;
         }
 
+        @CustomType.Setter
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
             this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder httpTokens(String httpTokens) {
             this.httpTokens = Objects.requireNonNull(httpTokens);
             return this;
-        }        public GetInfrastructureConfigurationInstanceMetadataOption build() {
-            return new GetInfrastructureConfigurationInstanceMetadataOption(httpPutResponseHopLimit, httpTokens);
+        }
+        public GetInfrastructureConfigurationInstanceMetadataOption build() {
+            final var o = new GetInfrastructureConfigurationInstanceMetadataOption();
+            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            o.httpTokens = httpTokens;
+            return o;
         }
     }
 }

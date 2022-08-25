@@ -13,13 +13,9 @@ public final class UserPoolUsernameConfiguration {
      * @return Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
      * 
      */
-    private final Boolean caseSensitive;
+    private Boolean caseSensitive;
 
-    @CustomType.Constructor
-    private UserPoolUsernameConfiguration(@CustomType.Parameter("caseSensitive") Boolean caseSensitive) {
-        this.caseSensitive = caseSensitive;
-    }
-
+    private UserPoolUsernameConfiguration() {}
     /**
      * @return Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
      * 
@@ -35,24 +31,24 @@ public final class UserPoolUsernameConfiguration {
     public static Builder builder(UserPoolUsernameConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean caseSensitive;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolUsernameConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caseSensitive = defaults.caseSensitive;
         }
 
+        @CustomType.Setter
         public Builder caseSensitive(Boolean caseSensitive) {
             this.caseSensitive = Objects.requireNonNull(caseSensitive);
             return this;
-        }        public UserPoolUsernameConfiguration build() {
-            return new UserPoolUsernameConfiguration(caseSensitive);
+        }
+        public UserPoolUsernameConfiguration build() {
+            final var o = new UserPoolUsernameConfiguration();
+            o.caseSensitive = caseSensitive;
+            return o;
         }
     }
 }

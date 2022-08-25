@@ -13,42 +13,29 @@ public final class GetOrganizationNonMasterAccount {
      * @return ARN of the root
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Email of the account
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return Identifier of the root
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the policy type
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The status of the policy type as it relates to the associated root
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetOrganizationNonMasterAccount(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("status") String status) {
-        this.arn = arn;
-        this.email = email;
-        this.id = id;
-        this.name = name;
-        this.status = status;
-    }
-
+    private GetOrganizationNonMasterAccount() {}
     /**
      * @return ARN of the root
      * 
@@ -92,18 +79,14 @@ public final class GetOrganizationNonMasterAccount {
     public static Builder builder(GetOrganizationNonMasterAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String email;
         private String id;
         private String name;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrganizationNonMasterAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -113,27 +96,39 @@ public final class GetOrganizationNonMasterAccount {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetOrganizationNonMasterAccount build() {
-            return new GetOrganizationNonMasterAccount(arn, email, id, name, status);
+        }
+        public GetOrganizationNonMasterAccount build() {
+            final var o = new GetOrganizationNonMasterAccount();
+            o.arn = arn;
+            o.email = email;
+            o.id = id;
+            o.name = name;
+            o.status = status;
+            return o;
         }
     }
 }

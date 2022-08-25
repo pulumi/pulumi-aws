@@ -16,35 +16,24 @@ public final class BucketV2Grant {
      * @return Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
      * 
      */
-    private final List<String> permissions;
+    private List<String> permissions;
     /**
      * @return Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Uri address to grant for. Used only when `type` is `Group`.
      * 
      */
-    private final @Nullable String uri;
+    private @Nullable String uri;
 
-    @CustomType.Constructor
-    private BucketV2Grant(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("permissions") List<String> permissions,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("uri") @Nullable String uri) {
-        this.id = id;
-        this.permissions = permissions;
-        this.type = type;
-        this.uri = uri;
-    }
-
+    private BucketV2Grant() {}
     /**
      * @return Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
      * 
@@ -81,17 +70,13 @@ public final class BucketV2Grant {
     public static Builder builder(BucketV2Grant defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private List<String> permissions;
         private String type;
         private @Nullable String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2Grant defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -100,10 +85,12 @@ public final class BucketV2Grant {
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(List<String> permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
@@ -111,15 +98,23 @@ public final class BucketV2Grant {
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder uri(@Nullable String uri) {
             this.uri = uri;
             return this;
-        }        public BucketV2Grant build() {
-            return new BucketV2Grant(id, permissions, type, uri);
+        }
+        public BucketV2Grant build() {
+            final var o = new BucketV2Grant();
+            o.id = id;
+            o.permissions = permissions;
+            o.type = type;
+            o.uri = uri;
+            return o;
         }
     }
 }

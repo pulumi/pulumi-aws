@@ -17,44 +17,27 @@ public final class GetUserResult {
      * @return A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
      * 
      */
-    private final @Nullable String accessString;
-    private final @Nullable String engine;
+    private @Nullable String accessString;
+    private @Nullable String engine;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean noPasswordRequired;
-    private final @Nullable List<String> passwords;
+    private String id;
+    private @Nullable Boolean noPasswordRequired;
+    private @Nullable List<String> passwords;
     /**
      * @return The identifier for the user.
      * 
      */
-    private final String userId;
+    private String userId;
     /**
      * @return The user name of the user.
      * 
      */
-    private final @Nullable String userName;
+    private @Nullable String userName;
 
-    @CustomType.Constructor
-    private GetUserResult(
-        @CustomType.Parameter("accessString") @Nullable String accessString,
-        @CustomType.Parameter("engine") @Nullable String engine,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("noPasswordRequired") @Nullable Boolean noPasswordRequired,
-        @CustomType.Parameter("passwords") @Nullable List<String> passwords,
-        @CustomType.Parameter("userId") String userId,
-        @CustomType.Parameter("userName") @Nullable String userName) {
-        this.accessString = accessString;
-        this.engine = engine;
-        this.id = id;
-        this.noPasswordRequired = noPasswordRequired;
-        this.passwords = passwords;
-        this.userId = userId;
-        this.userName = userName;
-    }
-
+    private GetUserResult() {}
     /**
      * @return A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
      * 
@@ -100,7 +83,7 @@ public final class GetUserResult {
     public static Builder builder(GetUserResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessString;
         private @Nullable String engine;
@@ -109,11 +92,7 @@ public final class GetUserResult {
         private @Nullable List<String> passwords;
         private String userId;
         private @Nullable String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessString = defaults.accessString;
@@ -125,22 +104,27 @@ public final class GetUserResult {
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder accessString(@Nullable String accessString) {
             this.accessString = accessString;
             return this;
         }
+        @CustomType.Setter
         public Builder engine(@Nullable String engine) {
             this.engine = engine;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder noPasswordRequired(@Nullable Boolean noPasswordRequired) {
             this.noPasswordRequired = noPasswordRequired;
             return this;
         }
+        @CustomType.Setter
         public Builder passwords(@Nullable List<String> passwords) {
             this.passwords = passwords;
             return this;
@@ -148,15 +132,26 @@ public final class GetUserResult {
         public Builder passwords(String... passwords) {
             return passwords(List.of(passwords));
         }
+        @CustomType.Setter
         public Builder userId(String userId) {
             this.userId = Objects.requireNonNull(userId);
             return this;
         }
+        @CustomType.Setter
         public Builder userName(@Nullable String userName) {
             this.userName = userName;
             return this;
-        }        public GetUserResult build() {
-            return new GetUserResult(accessString, engine, id, noPasswordRequired, passwords, userId, userName);
+        }
+        public GetUserResult build() {
+            final var o = new GetUserResult();
+            o.accessString = accessString;
+            o.engine = engine;
+            o.id = id;
+            o.noPasswordRequired = noPasswordRequired;
+            o.passwords = passwords;
+            o.userId = userId;
+            o.userName = userName;
+            return o;
         }
     }
 }

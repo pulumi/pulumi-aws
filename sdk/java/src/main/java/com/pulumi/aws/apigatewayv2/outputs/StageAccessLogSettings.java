@@ -13,21 +13,14 @@ public final class StageAccessLogSettings {
      * @return The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
      * 
      */
-    private final String destinationArn;
+    private String destinationArn;
     /**
      * @return A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
      * 
      */
-    private final String format;
+    private String format;
 
-    @CustomType.Constructor
-    private StageAccessLogSettings(
-        @CustomType.Parameter("destinationArn") String destinationArn,
-        @CustomType.Parameter("format") String format) {
-        this.destinationArn = destinationArn;
-        this.format = format;
-    }
-
+    private StageAccessLogSettings() {}
     /**
      * @return The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
      * 
@@ -50,30 +43,32 @@ public final class StageAccessLogSettings {
     public static Builder builder(StageAccessLogSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destinationArn;
         private String format;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StageAccessLogSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationArn = defaults.destinationArn;
     	      this.format = defaults.format;
         }
 
+        @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
             this.destinationArn = Objects.requireNonNull(destinationArn);
             return this;
         }
+        @CustomType.Setter
         public Builder format(String format) {
             this.format = Objects.requireNonNull(format);
             return this;
-        }        public StageAccessLogSettings build() {
-            return new StageAccessLogSettings(destinationArn, format);
+        }
+        public StageAccessLogSettings build() {
+            final var o = new StageAccessLogSettings();
+            o.destinationArn = destinationArn;
+            o.format = format;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetCanonicalUserIdResult {
      * @return The human-friendly name linked to the canonical user ID. The bucket owner&#39;s display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetCanonicalUserIdResult(
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id) {
-        this.displayName = displayName;
-        this.id = id;
-    }
-
+    private GetCanonicalUserIdResult() {}
     /**
      * @return The human-friendly name linked to the canonical user ID. The bucket owner&#39;s display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
      * 
@@ -50,30 +43,32 @@ public final class GetCanonicalUserIdResult {
     public static Builder builder(GetCanonicalUserIdResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String displayName;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCanonicalUserIdResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetCanonicalUserIdResult build() {
-            return new GetCanonicalUserIdResult(displayName, id);
+        }
+        public GetCanonicalUserIdResult build() {
+            final var o = new GetCanonicalUserIdResult();
+            o.displayName = displayName;
+            o.id = id;
+            return o;
         }
     }
 }

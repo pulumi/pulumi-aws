@@ -15,21 +15,14 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
      * @return The Amazon Resource Name (ARN) of the AWS Lambda function.
      * 
      */
-    private final String functionArn;
+    private String functionArn;
     /**
      * @return Additional JSON that provides supplemental data to the Lambda function used to transform objects.
      * 
      */
-    private final @Nullable String functionPayload;
+    private @Nullable String functionPayload;
 
-    @CustomType.Constructor
-    private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda(
-        @CustomType.Parameter("functionArn") String functionArn,
-        @CustomType.Parameter("functionPayload") @Nullable String functionPayload) {
-        this.functionArn = functionArn;
-        this.functionPayload = functionPayload;
-    }
-
+    private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda() {}
     /**
      * @return The Amazon Resource Name (ARN) of the AWS Lambda function.
      * 
@@ -52,30 +45,32 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
     public static Builder builder(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String functionArn;
         private @Nullable String functionPayload;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functionArn = defaults.functionArn;
     	      this.functionPayload = defaults.functionPayload;
         }
 
+        @CustomType.Setter
         public Builder functionArn(String functionArn) {
             this.functionArn = Objects.requireNonNull(functionArn);
             return this;
         }
+        @CustomType.Setter
         public Builder functionPayload(@Nullable String functionPayload) {
             this.functionPayload = functionPayload;
             return this;
-        }        public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda build() {
-            return new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda(functionArn, functionPayload);
+        }
+        public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda build() {
+            final var o = new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda();
+            o.functionArn = functionArn;
+            o.functionPayload = functionPayload;
+            return o;
         }
     }
 }

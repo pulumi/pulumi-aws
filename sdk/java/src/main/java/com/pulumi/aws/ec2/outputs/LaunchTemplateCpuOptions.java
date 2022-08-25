@@ -15,22 +15,15 @@ public final class LaunchTemplateCpuOptions {
      * @return The number of CPU cores for the instance.
      * 
      */
-    private final @Nullable Integer coreCount;
+    private @Nullable Integer coreCount;
     /**
      * @return The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
      * Otherwise, specify the default value of 2.
      * 
      */
-    private final @Nullable Integer threadsPerCore;
+    private @Nullable Integer threadsPerCore;
 
-    @CustomType.Constructor
-    private LaunchTemplateCpuOptions(
-        @CustomType.Parameter("coreCount") @Nullable Integer coreCount,
-        @CustomType.Parameter("threadsPerCore") @Nullable Integer threadsPerCore) {
-        this.coreCount = coreCount;
-        this.threadsPerCore = threadsPerCore;
-    }
-
+    private LaunchTemplateCpuOptions() {}
     /**
      * @return The number of CPU cores for the instance.
      * 
@@ -54,30 +47,32 @@ public final class LaunchTemplateCpuOptions {
     public static Builder builder(LaunchTemplateCpuOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer coreCount;
         private @Nullable Integer threadsPerCore;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateCpuOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.coreCount = defaults.coreCount;
     	      this.threadsPerCore = defaults.threadsPerCore;
         }
 
+        @CustomType.Setter
         public Builder coreCount(@Nullable Integer coreCount) {
             this.coreCount = coreCount;
             return this;
         }
+        @CustomType.Setter
         public Builder threadsPerCore(@Nullable Integer threadsPerCore) {
             this.threadsPerCore = threadsPerCore;
             return this;
-        }        public LaunchTemplateCpuOptions build() {
-            return new LaunchTemplateCpuOptions(coreCount, threadsPerCore);
+        }
+        public LaunchTemplateCpuOptions build() {
+            final var o = new LaunchTemplateCpuOptions();
+            o.coreCount = coreCount;
+            o.threadsPerCore = threadsPerCore;
+            return o;
         }
     }
 }

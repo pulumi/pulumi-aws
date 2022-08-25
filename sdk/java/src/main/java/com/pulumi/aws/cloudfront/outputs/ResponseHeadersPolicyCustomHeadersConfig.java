@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResponseHeadersPolicyCustomHeadersConfig {
-    private final @Nullable List<ResponseHeadersPolicyCustomHeadersConfigItem> items;
+    private @Nullable List<ResponseHeadersPolicyCustomHeadersConfigItem> items;
 
-    @CustomType.Constructor
-    private ResponseHeadersPolicyCustomHeadersConfig(@CustomType.Parameter("items") @Nullable List<ResponseHeadersPolicyCustomHeadersConfigItem> items) {
-        this.items = items;
-    }
-
+    private ResponseHeadersPolicyCustomHeadersConfig() {}
     public List<ResponseHeadersPolicyCustomHeadersConfigItem> items() {
         return this.items == null ? List.of() : this.items;
     }
@@ -29,27 +25,27 @@ public final class ResponseHeadersPolicyCustomHeadersConfig {
     public static Builder builder(ResponseHeadersPolicyCustomHeadersConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ResponseHeadersPolicyCustomHeadersConfigItem> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponseHeadersPolicyCustomHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(@Nullable List<ResponseHeadersPolicyCustomHeadersConfigItem> items) {
             this.items = items;
             return this;
         }
         public Builder items(ResponseHeadersPolicyCustomHeadersConfigItem... items) {
             return items(List.of(items));
-        }        public ResponseHeadersPolicyCustomHeadersConfig build() {
-            return new ResponseHeadersPolicyCustomHeadersConfig(items);
+        }
+        public ResponseHeadersPolicyCustomHeadersConfig build() {
+            final var o = new ResponseHeadersPolicyCustomHeadersConfig();
+            o.items = items;
+            return o;
         }
     }
 }

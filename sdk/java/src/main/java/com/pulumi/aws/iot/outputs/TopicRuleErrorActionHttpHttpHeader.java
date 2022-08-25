@@ -13,21 +13,14 @@ public final class TopicRuleErrorActionHttpHttpHeader {
      * @return The name of the HTTP header.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The value of the HTTP header.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionHttpHttpHeader(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") String value) {
-        this.key = key;
-        this.value = value;
-    }
-
+    private TopicRuleErrorActionHttpHttpHeader() {}
     /**
      * @return The name of the HTTP header.
      * 
@@ -50,30 +43,32 @@ public final class TopicRuleErrorActionHttpHttpHeader {
     public static Builder builder(TopicRuleErrorActionHttpHttpHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionHttpHttpHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public TopicRuleErrorActionHttpHttpHeader build() {
-            return new TopicRuleErrorActionHttpHttpHeader(key, value);
+        }
+        public TopicRuleErrorActionHttpHttpHeader build() {
+            final var o = new TopicRuleErrorActionHttpHttpHeader();
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class DataSourceCredentialsCredentialPair {
      * @return Password, maximum length of 1024 characters.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return User name, maximum length of 64 characters.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private DataSourceCredentialsCredentialPair(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.username = username;
-    }
-
+    private DataSourceCredentialsCredentialPair() {}
     /**
      * @return Password, maximum length of 1024 characters.
      * 
@@ -50,30 +43,32 @@ public final class DataSourceCredentialsCredentialPair {
     public static Builder builder(DataSourceCredentialsCredentialPair defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceCredentialsCredentialPair defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public DataSourceCredentialsCredentialPair build() {
-            return new DataSourceCredentialsCredentialPair(password, username);
+        }
+        public DataSourceCredentialsCredentialPair build() {
+            final var o = new DataSourceCredentialsCredentialPair();
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

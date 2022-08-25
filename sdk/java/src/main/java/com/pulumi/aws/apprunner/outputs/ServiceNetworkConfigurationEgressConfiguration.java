@@ -15,21 +15,14 @@ public final class ServiceNetworkConfigurationEgressConfiguration {
      * @return The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
      * 
      */
-    private final @Nullable String egressType;
+    private @Nullable String egressType;
     /**
      * @return The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
      * 
      */
-    private final @Nullable String vpcConnectorArn;
+    private @Nullable String vpcConnectorArn;
 
-    @CustomType.Constructor
-    private ServiceNetworkConfigurationEgressConfiguration(
-        @CustomType.Parameter("egressType") @Nullable String egressType,
-        @CustomType.Parameter("vpcConnectorArn") @Nullable String vpcConnectorArn) {
-        this.egressType = egressType;
-        this.vpcConnectorArn = vpcConnectorArn;
-    }
-
+    private ServiceNetworkConfigurationEgressConfiguration() {}
     /**
      * @return The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
      * 
@@ -52,30 +45,32 @@ public final class ServiceNetworkConfigurationEgressConfiguration {
     public static Builder builder(ServiceNetworkConfigurationEgressConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String egressType;
         private @Nullable String vpcConnectorArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceNetworkConfigurationEgressConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.egressType = defaults.egressType;
     	      this.vpcConnectorArn = defaults.vpcConnectorArn;
         }
 
+        @CustomType.Setter
         public Builder egressType(@Nullable String egressType) {
             this.egressType = egressType;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcConnectorArn(@Nullable String vpcConnectorArn) {
             this.vpcConnectorArn = vpcConnectorArn;
             return this;
-        }        public ServiceNetworkConfigurationEgressConfiguration build() {
-            return new ServiceNetworkConfigurationEgressConfiguration(egressType, vpcConnectorArn);
+        }
+        public ServiceNetworkConfigurationEgressConfiguration build() {
+            final var o = new ServiceNetworkConfigurationEgressConfiguration();
+            o.egressType = egressType;
+            o.vpcConnectorArn = vpcConnectorArn;
+            return o;
         }
     }
 }

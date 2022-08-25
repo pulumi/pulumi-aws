@@ -17,24 +17,15 @@ public final class GetDelegatedAdministratorsResult {
      * @return The list of delegated administrators in your organization, which have the following attributes:
      * 
      */
-    private final List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators;
+    private List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String servicePrincipal;
+    private String id;
+    private @Nullable String servicePrincipal;
 
-    @CustomType.Constructor
-    private GetDelegatedAdministratorsResult(
-        @CustomType.Parameter("delegatedAdministrators") List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("servicePrincipal") @Nullable String servicePrincipal) {
-        this.delegatedAdministrators = delegatedAdministrators;
-        this.id = id;
-        this.servicePrincipal = servicePrincipal;
-    }
-
+    private GetDelegatedAdministratorsResult() {}
     /**
      * @return The list of delegated administrators in your organization, which have the following attributes:
      * 
@@ -60,16 +51,12 @@ public final class GetDelegatedAdministratorsResult {
     public static Builder builder(GetDelegatedAdministratorsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators;
         private String id;
         private @Nullable String servicePrincipal;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDelegatedAdministratorsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.delegatedAdministrators = defaults.delegatedAdministrators;
@@ -77,6 +64,7 @@ public final class GetDelegatedAdministratorsResult {
     	      this.servicePrincipal = defaults.servicePrincipal;
         }
 
+        @CustomType.Setter
         public Builder delegatedAdministrators(List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators) {
             this.delegatedAdministrators = Objects.requireNonNull(delegatedAdministrators);
             return this;
@@ -84,15 +72,22 @@ public final class GetDelegatedAdministratorsResult {
         public Builder delegatedAdministrators(GetDelegatedAdministratorsDelegatedAdministrator... delegatedAdministrators) {
             return delegatedAdministrators(List.of(delegatedAdministrators));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder servicePrincipal(@Nullable String servicePrincipal) {
             this.servicePrincipal = servicePrincipal;
             return this;
-        }        public GetDelegatedAdministratorsResult build() {
-            return new GetDelegatedAdministratorsResult(delegatedAdministrators, id, servicePrincipal);
+        }
+        public GetDelegatedAdministratorsResult build() {
+            final var o = new GetDelegatedAdministratorsResult();
+            o.delegatedAdministrators = delegatedAdministrators;
+            o.id = id;
+            o.servicePrincipal = servicePrincipal;
+            return o;
         }
     }
 }

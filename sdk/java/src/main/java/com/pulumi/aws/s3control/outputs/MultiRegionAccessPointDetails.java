@@ -14,20 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiRegionAccessPointDetails {
-    private final String name;
-    private final @Nullable MultiRegionAccessPointDetailsPublicAccessBlock publicAccessBlock;
-    private final List<MultiRegionAccessPointDetailsRegion> regions;
+    private String name;
+    private @Nullable MultiRegionAccessPointDetailsPublicAccessBlock publicAccessBlock;
+    private List<MultiRegionAccessPointDetailsRegion> regions;
 
-    @CustomType.Constructor
-    private MultiRegionAccessPointDetails(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicAccessBlock") @Nullable MultiRegionAccessPointDetailsPublicAccessBlock publicAccessBlock,
-        @CustomType.Parameter("regions") List<MultiRegionAccessPointDetailsRegion> regions) {
-        this.name = name;
-        this.publicAccessBlock = publicAccessBlock;
-        this.regions = regions;
-    }
-
+    private MultiRegionAccessPointDetails() {}
     public String name() {
         return this.name;
     }
@@ -45,16 +36,12 @@ public final class MultiRegionAccessPointDetails {
     public static Builder builder(MultiRegionAccessPointDetails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable MultiRegionAccessPointDetailsPublicAccessBlock publicAccessBlock;
         private List<MultiRegionAccessPointDetailsRegion> regions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MultiRegionAccessPointDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -62,22 +49,30 @@ public final class MultiRegionAccessPointDetails {
     	      this.regions = defaults.regions;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicAccessBlock(@Nullable MultiRegionAccessPointDetailsPublicAccessBlock publicAccessBlock) {
             this.publicAccessBlock = publicAccessBlock;
             return this;
         }
+        @CustomType.Setter
         public Builder regions(List<MultiRegionAccessPointDetailsRegion> regions) {
             this.regions = Objects.requireNonNull(regions);
             return this;
         }
         public Builder regions(MultiRegionAccessPointDetailsRegion... regions) {
             return regions(List.of(regions));
-        }        public MultiRegionAccessPointDetails build() {
-            return new MultiRegionAccessPointDetails(name, publicAccessBlock, regions);
+        }
+        public MultiRegionAccessPointDetails build() {
+            final var o = new MultiRegionAccessPointDetails();
+            o.name = name;
+            o.publicAccessBlock = publicAccessBlock;
+            o.regions = regions;
+            return o;
         }
     }
 }

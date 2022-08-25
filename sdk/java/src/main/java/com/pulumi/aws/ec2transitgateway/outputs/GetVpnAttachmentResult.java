@@ -14,34 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpnAttachmentResult {
-    private final @Nullable List<GetVpnAttachmentFilter> filters;
+    private @Nullable List<GetVpnAttachmentFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Key-value tags for the EC2 Transit Gateway VPN Attachment
      * 
      */
-    private final Map<String,String> tags;
-    private final @Nullable String transitGatewayId;
-    private final @Nullable String vpnConnectionId;
+    private Map<String,String> tags;
+    private @Nullable String transitGatewayId;
+    private @Nullable String vpnConnectionId;
 
-    @CustomType.Constructor
-    private GetVpnAttachmentResult(
-        @CustomType.Parameter("filters") @Nullable List<GetVpnAttachmentFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("transitGatewayId") @Nullable String transitGatewayId,
-        @CustomType.Parameter("vpnConnectionId") @Nullable String vpnConnectionId) {
-        this.filters = filters;
-        this.id = id;
-        this.tags = tags;
-        this.transitGatewayId = transitGatewayId;
-        this.vpnConnectionId = vpnConnectionId;
-    }
-
+    private GetVpnAttachmentResult() {}
     public List<GetVpnAttachmentFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -73,18 +60,14 @@ public final class GetVpnAttachmentResult {
     public static Builder builder(GetVpnAttachmentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetVpnAttachmentFilter> filters;
         private String id;
         private Map<String,String> tags;
         private @Nullable String transitGatewayId;
         private @Nullable String vpnConnectionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpnAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -94,6 +77,7 @@ public final class GetVpnAttachmentResult {
     	      this.vpnConnectionId = defaults.vpnConnectionId;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVpnAttachmentFilter> filters) {
             this.filters = filters;
             return this;
@@ -101,23 +85,34 @@ public final class GetVpnAttachmentResult {
         public Builder filters(GetVpnAttachmentFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayId(@Nullable String transitGatewayId) {
             this.transitGatewayId = transitGatewayId;
             return this;
         }
+        @CustomType.Setter
         public Builder vpnConnectionId(@Nullable String vpnConnectionId) {
             this.vpnConnectionId = vpnConnectionId;
             return this;
-        }        public GetVpnAttachmentResult build() {
-            return new GetVpnAttachmentResult(filters, id, tags, transitGatewayId, vpnConnectionId);
+        }
+        public GetVpnAttachmentResult build() {
+            final var o = new GetVpnAttachmentResult();
+            o.filters = filters;
+            o.id = id;
+            o.tags = tags;
+            o.transitGatewayId = transitGatewayId;
+            o.vpnConnectionId = vpnConnectionId;
+            return o;
         }
     }
 }

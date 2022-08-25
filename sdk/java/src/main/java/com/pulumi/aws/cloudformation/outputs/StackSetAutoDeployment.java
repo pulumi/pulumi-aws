@@ -15,21 +15,14 @@ public final class StackSetAutoDeployment {
      * @return Whether or not auto-deployment is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Whether or not to retain stacks when the account is removed.
      * 
      */
-    private final @Nullable Boolean retainStacksOnAccountRemoval;
+    private @Nullable Boolean retainStacksOnAccountRemoval;
 
-    @CustomType.Constructor
-    private StackSetAutoDeployment(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("retainStacksOnAccountRemoval") @Nullable Boolean retainStacksOnAccountRemoval) {
-        this.enabled = enabled;
-        this.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
-    }
-
+    private StackSetAutoDeployment() {}
     /**
      * @return Whether or not auto-deployment is enabled.
      * 
@@ -52,30 +45,32 @@ public final class StackSetAutoDeployment {
     public static Builder builder(StackSetAutoDeployment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Boolean retainStacksOnAccountRemoval;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StackSetAutoDeployment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.retainStacksOnAccountRemoval = defaults.retainStacksOnAccountRemoval;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder retainStacksOnAccountRemoval(@Nullable Boolean retainStacksOnAccountRemoval) {
             this.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
             return this;
-        }        public StackSetAutoDeployment build() {
-            return new StackSetAutoDeployment(enabled, retainStacksOnAccountRemoval);
+        }
+        public StackSetAutoDeployment build() {
+            final var o = new StackSetAutoDeployment();
+            o.enabled = enabled;
+            o.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
+            return o;
         }
     }
 }

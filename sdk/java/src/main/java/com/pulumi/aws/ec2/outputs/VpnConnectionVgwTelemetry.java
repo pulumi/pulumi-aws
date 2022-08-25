@@ -16,49 +16,34 @@ public final class VpnConnectionVgwTelemetry {
      * @return The number of accepted routes.
      * 
      */
-    private final @Nullable Integer acceptedRouteCount;
+    private @Nullable Integer acceptedRouteCount;
     /**
      * @return The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
      * 
      */
-    private final @Nullable String certificateArn;
+    private @Nullable String certificateArn;
     /**
      * @return The date and time of the last change in status.
      * 
      */
-    private final @Nullable String lastStatusChange;
+    private @Nullable String lastStatusChange;
     /**
      * @return The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
      * 
      */
-    private final @Nullable String outsideIpAddress;
+    private @Nullable String outsideIpAddress;
     /**
      * @return The status of the VPN tunnel.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return If an error occurs, a description of the error.
      * 
      */
-    private final @Nullable String statusMessage;
+    private @Nullable String statusMessage;
 
-    @CustomType.Constructor
-    private VpnConnectionVgwTelemetry(
-        @CustomType.Parameter("acceptedRouteCount") @Nullable Integer acceptedRouteCount,
-        @CustomType.Parameter("certificateArn") @Nullable String certificateArn,
-        @CustomType.Parameter("lastStatusChange") @Nullable String lastStatusChange,
-        @CustomType.Parameter("outsideIpAddress") @Nullable String outsideIpAddress,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("statusMessage") @Nullable String statusMessage) {
-        this.acceptedRouteCount = acceptedRouteCount;
-        this.certificateArn = certificateArn;
-        this.lastStatusChange = lastStatusChange;
-        this.outsideIpAddress = outsideIpAddress;
-        this.status = status;
-        this.statusMessage = statusMessage;
-    }
-
+    private VpnConnectionVgwTelemetry() {}
     /**
      * @return The number of accepted routes.
      * 
@@ -109,7 +94,7 @@ public final class VpnConnectionVgwTelemetry {
     public static Builder builder(VpnConnectionVgwTelemetry defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer acceptedRouteCount;
         private @Nullable String certificateArn;
@@ -117,11 +102,7 @@ public final class VpnConnectionVgwTelemetry {
         private @Nullable String outsideIpAddress;
         private @Nullable String status;
         private @Nullable String statusMessage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnConnectionVgwTelemetry defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceptedRouteCount = defaults.acceptedRouteCount;
@@ -132,31 +113,45 @@ public final class VpnConnectionVgwTelemetry {
     	      this.statusMessage = defaults.statusMessage;
         }
 
+        @CustomType.Setter
         public Builder acceptedRouteCount(@Nullable Integer acceptedRouteCount) {
             this.acceptedRouteCount = acceptedRouteCount;
             return this;
         }
+        @CustomType.Setter
         public Builder certificateArn(@Nullable String certificateArn) {
             this.certificateArn = certificateArn;
             return this;
         }
+        @CustomType.Setter
         public Builder lastStatusChange(@Nullable String lastStatusChange) {
             this.lastStatusChange = lastStatusChange;
             return this;
         }
+        @CustomType.Setter
         public Builder outsideIpAddress(@Nullable String outsideIpAddress) {
             this.outsideIpAddress = outsideIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder statusMessage(@Nullable String statusMessage) {
             this.statusMessage = statusMessage;
             return this;
-        }        public VpnConnectionVgwTelemetry build() {
-            return new VpnConnectionVgwTelemetry(acceptedRouteCount, certificateArn, lastStatusChange, outsideIpAddress, status, statusMessage);
+        }
+        public VpnConnectionVgwTelemetry build() {
+            final var o = new VpnConnectionVgwTelemetry();
+            o.acceptedRouteCount = acceptedRouteCount;
+            o.certificateArn = certificateArn;
+            o.lastStatusChange = lastStatusChange;
+            o.outsideIpAddress = outsideIpAddress;
+            o.status = status;
+            o.statusMessage = statusMessage;
+            return o;
         }
     }
 }

@@ -18,83 +18,58 @@ public final class GetDistributionResult {
      * @return A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
      * 
      */
-    private final List<String> aliases;
+    private List<String> aliases;
     /**
      * @return The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The domain name corresponding to the distribution. For
      * example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
-    private final String domainName;
-    private final Boolean enabled;
+    private String domainName;
+    private Boolean enabled;
     /**
      * @return The current version of the distribution&#39;s information. For example:
      * `E2QWRUHAPOMQZL`.
      * 
      */
-    private final String etag;
+    private String etag;
     /**
      * @return The CloudFront Route 53 zone ID that can be used to
      * route an [Alias Resource Record Set][7] to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
-    private final String hostedZoneId;
+    private String hostedZoneId;
     /**
      * @return The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The number of invalidation batches
      * currently in progress.
      * 
      */
-    private final Integer inProgressValidationBatches;
+    private Integer inProgressValidationBatches;
     /**
      * @return The date and time the distribution was last modified.
      * 
      */
-    private final String lastModifiedTime;
+    private String lastModifiedTime;
     /**
      * @return The current status of the distribution. `Deployed` if the
      * distribution&#39;s information is fully propagated throughout the Amazon
      * CloudFront system.
      * 
      */
-    private final String status;
-    private final @Nullable Map<String,String> tags;
+    private String status;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDistributionResult(
-        @CustomType.Parameter("aliases") List<String> aliases,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("etag") String etag,
-        @CustomType.Parameter("hostedZoneId") String hostedZoneId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("inProgressValidationBatches") Integer inProgressValidationBatches,
-        @CustomType.Parameter("lastModifiedTime") String lastModifiedTime,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.aliases = aliases;
-        this.arn = arn;
-        this.domainName = domainName;
-        this.enabled = enabled;
-        this.etag = etag;
-        this.hostedZoneId = hostedZoneId;
-        this.id = id;
-        this.inProgressValidationBatches = inProgressValidationBatches;
-        this.lastModifiedTime = lastModifiedTime;
-        this.status = status;
-        this.tags = tags;
-    }
-
+    private GetDistributionResult() {}
     /**
      * @return A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
      * 
@@ -179,7 +154,7 @@ public final class GetDistributionResult {
     public static Builder builder(GetDistributionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> aliases;
         private String arn;
@@ -192,11 +167,7 @@ public final class GetDistributionResult {
         private String lastModifiedTime;
         private String status;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDistributionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aliases = defaults.aliases;
@@ -212,6 +183,7 @@ public final class GetDistributionResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder aliases(List<String> aliases) {
             this.aliases = Objects.requireNonNull(aliases);
             return this;
@@ -219,47 +191,70 @@ public final class GetDistributionResult {
         public Builder aliases(String... aliases) {
             return aliases(List.of(aliases));
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder etag(String etag) {
             this.etag = Objects.requireNonNull(etag);
             return this;
         }
+        @CustomType.Setter
         public Builder hostedZoneId(String hostedZoneId) {
             this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder inProgressValidationBatches(Integer inProgressValidationBatches) {
             this.inProgressValidationBatches = Objects.requireNonNull(inProgressValidationBatches);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModifiedTime(String lastModifiedTime) {
             this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetDistributionResult build() {
-            return new GetDistributionResult(aliases, arn, domainName, enabled, etag, hostedZoneId, id, inProgressValidationBatches, lastModifiedTime, status, tags);
+        }
+        public GetDistributionResult build() {
+            final var o = new GetDistributionResult();
+            o.aliases = aliases;
+            o.arn = arn;
+            o.domainName = domainName;
+            o.enabled = enabled;
+            o.etag = etag;
+            o.hostedZoneId = hostedZoneId;
+            o.id = id;
+            o.inProgressValidationBatches = inProgressValidationBatches;
+            o.lastModifiedTime = lastModifiedTime;
+            o.status = status;
+            o.tags = tags;
+            return o;
         }
     }
 }

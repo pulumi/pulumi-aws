@@ -14,42 +14,29 @@ public final class GetWorkspaceWorkspaceProperty {
      * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
      * 
      */
-    private final String computeTypeName;
+    private String computeTypeName;
     /**
      * @return The size of the root volume.
      * 
      */
-    private final Integer rootVolumeSizeGib;
+    private Integer rootVolumeSizeGib;
     /**
      * @return The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
      * 
      */
-    private final String runningMode;
+    private String runningMode;
     /**
      * @return The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
      * 
      */
-    private final Integer runningModeAutoStopTimeoutInMinutes;
+    private Integer runningModeAutoStopTimeoutInMinutes;
     /**
      * @return The size of the user storage.
      * 
      */
-    private final Integer userVolumeSizeGib;
+    private Integer userVolumeSizeGib;
 
-    @CustomType.Constructor
-    private GetWorkspaceWorkspaceProperty(
-        @CustomType.Parameter("computeTypeName") String computeTypeName,
-        @CustomType.Parameter("rootVolumeSizeGib") Integer rootVolumeSizeGib,
-        @CustomType.Parameter("runningMode") String runningMode,
-        @CustomType.Parameter("runningModeAutoStopTimeoutInMinutes") Integer runningModeAutoStopTimeoutInMinutes,
-        @CustomType.Parameter("userVolumeSizeGib") Integer userVolumeSizeGib) {
-        this.computeTypeName = computeTypeName;
-        this.rootVolumeSizeGib = rootVolumeSizeGib;
-        this.runningMode = runningMode;
-        this.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
-        this.userVolumeSizeGib = userVolumeSizeGib;
-    }
-
+    private GetWorkspaceWorkspaceProperty() {}
     /**
      * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
      * 
@@ -93,18 +80,14 @@ public final class GetWorkspaceWorkspaceProperty {
     public static Builder builder(GetWorkspaceWorkspaceProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String computeTypeName;
         private Integer rootVolumeSizeGib;
         private String runningMode;
         private Integer runningModeAutoStopTimeoutInMinutes;
         private Integer userVolumeSizeGib;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWorkspaceWorkspaceProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.computeTypeName = defaults.computeTypeName;
@@ -114,27 +97,39 @@ public final class GetWorkspaceWorkspaceProperty {
     	      this.userVolumeSizeGib = defaults.userVolumeSizeGib;
         }
 
+        @CustomType.Setter
         public Builder computeTypeName(String computeTypeName) {
             this.computeTypeName = Objects.requireNonNull(computeTypeName);
             return this;
         }
+        @CustomType.Setter
         public Builder rootVolumeSizeGib(Integer rootVolumeSizeGib) {
             this.rootVolumeSizeGib = Objects.requireNonNull(rootVolumeSizeGib);
             return this;
         }
+        @CustomType.Setter
         public Builder runningMode(String runningMode) {
             this.runningMode = Objects.requireNonNull(runningMode);
             return this;
         }
+        @CustomType.Setter
         public Builder runningModeAutoStopTimeoutInMinutes(Integer runningModeAutoStopTimeoutInMinutes) {
             this.runningModeAutoStopTimeoutInMinutes = Objects.requireNonNull(runningModeAutoStopTimeoutInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder userVolumeSizeGib(Integer userVolumeSizeGib) {
             this.userVolumeSizeGib = Objects.requireNonNull(userVolumeSizeGib);
             return this;
-        }        public GetWorkspaceWorkspaceProperty build() {
-            return new GetWorkspaceWorkspaceProperty(computeTypeName, rootVolumeSizeGib, runningMode, runningModeAutoStopTimeoutInMinutes, userVolumeSizeGib);
+        }
+        public GetWorkspaceWorkspaceProperty build() {
+            final var o = new GetWorkspaceWorkspaceProperty();
+            o.computeTypeName = computeTypeName;
+            o.rootVolumeSizeGib = rootVolumeSizeGib;
+            o.runningMode = runningMode;
+            o.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
+            o.userVolumeSizeGib = userVolumeSizeGib;
+            return o;
         }
     }
 }

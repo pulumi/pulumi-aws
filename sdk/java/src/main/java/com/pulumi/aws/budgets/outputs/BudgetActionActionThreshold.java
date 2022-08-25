@@ -14,21 +14,14 @@ public final class BudgetActionActionThreshold {
      * @return The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
      * 
      */
-    private final String actionThresholdType;
+    private String actionThresholdType;
     /**
      * @return The threshold of a notification.
      * 
      */
-    private final Double actionThresholdValue;
+    private Double actionThresholdValue;
 
-    @CustomType.Constructor
-    private BudgetActionActionThreshold(
-        @CustomType.Parameter("actionThresholdType") String actionThresholdType,
-        @CustomType.Parameter("actionThresholdValue") Double actionThresholdValue) {
-        this.actionThresholdType = actionThresholdType;
-        this.actionThresholdValue = actionThresholdValue;
-    }
-
+    private BudgetActionActionThreshold() {}
     /**
      * @return The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
      * 
@@ -51,30 +44,32 @@ public final class BudgetActionActionThreshold {
     public static Builder builder(BudgetActionActionThreshold defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionThresholdType;
         private Double actionThresholdValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetActionActionThreshold defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionThresholdType = defaults.actionThresholdType;
     	      this.actionThresholdValue = defaults.actionThresholdValue;
         }
 
+        @CustomType.Setter
         public Builder actionThresholdType(String actionThresholdType) {
             this.actionThresholdType = Objects.requireNonNull(actionThresholdType);
             return this;
         }
+        @CustomType.Setter
         public Builder actionThresholdValue(Double actionThresholdValue) {
             this.actionThresholdValue = Objects.requireNonNull(actionThresholdValue);
             return this;
-        }        public BudgetActionActionThreshold build() {
-            return new BudgetActionActionThreshold(actionThresholdType, actionThresholdValue);
+        }
+        public BudgetActionActionThreshold build() {
+            final var o = new BudgetActionActionThreshold();
+            o.actionThresholdType = actionThresholdType;
+            o.actionThresholdValue = actionThresholdValue;
+            return o;
         }
     }
 }

@@ -16,49 +16,34 @@ public final class RoutingProfileQueueConfig {
      * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
-    private final String channel;
+    private String channel;
     /**
      * @return Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
      * 
      */
-    private final Integer delay;
+    private Integer delay;
     /**
      * @return Specifies the order in which contacts are to be handled for the queue.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return Specifies the ARN for the queue.
      * 
      */
-    private final @Nullable String queueArn;
+    private @Nullable String queueArn;
     /**
      * @return Specifies the identifier for the queue.
      * 
      */
-    private final String queueId;
+    private String queueId;
     /**
      * @return Specifies the name for the queue.
      * 
      */
-    private final @Nullable String queueName;
+    private @Nullable String queueName;
 
-    @CustomType.Constructor
-    private RoutingProfileQueueConfig(
-        @CustomType.Parameter("channel") String channel,
-        @CustomType.Parameter("delay") Integer delay,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("queueArn") @Nullable String queueArn,
-        @CustomType.Parameter("queueId") String queueId,
-        @CustomType.Parameter("queueName") @Nullable String queueName) {
-        this.channel = channel;
-        this.delay = delay;
-        this.priority = priority;
-        this.queueArn = queueArn;
-        this.queueId = queueId;
-        this.queueName = queueName;
-    }
-
+    private RoutingProfileQueueConfig() {}
     /**
      * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
@@ -109,7 +94,7 @@ public final class RoutingProfileQueueConfig {
     public static Builder builder(RoutingProfileQueueConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String channel;
         private Integer delay;
@@ -117,11 +102,7 @@ public final class RoutingProfileQueueConfig {
         private @Nullable String queueArn;
         private String queueId;
         private @Nullable String queueName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RoutingProfileQueueConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.channel = defaults.channel;
@@ -132,31 +113,45 @@ public final class RoutingProfileQueueConfig {
     	      this.queueName = defaults.queueName;
         }
 
+        @CustomType.Setter
         public Builder channel(String channel) {
             this.channel = Objects.requireNonNull(channel);
             return this;
         }
+        @CustomType.Setter
         public Builder delay(Integer delay) {
             this.delay = Objects.requireNonNull(delay);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder queueArn(@Nullable String queueArn) {
             this.queueArn = queueArn;
             return this;
         }
+        @CustomType.Setter
         public Builder queueId(String queueId) {
             this.queueId = Objects.requireNonNull(queueId);
             return this;
         }
+        @CustomType.Setter
         public Builder queueName(@Nullable String queueName) {
             this.queueName = queueName;
             return this;
-        }        public RoutingProfileQueueConfig build() {
-            return new RoutingProfileQueueConfig(channel, delay, priority, queueArn, queueId, queueName);
+        }
+        public RoutingProfileQueueConfig build() {
+            final var o = new RoutingProfileQueueConfig();
+            o.channel = channel;
+            o.delay = delay;
+            o.priority = priority;
+            o.queueArn = queueArn;
+            o.queueId = queueId;
+            o.queueName = queueName;
+            return o;
         }
     }
 }

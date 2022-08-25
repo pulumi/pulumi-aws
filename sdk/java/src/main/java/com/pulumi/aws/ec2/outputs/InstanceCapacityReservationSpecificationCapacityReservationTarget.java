@@ -15,21 +15,14 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
      * @return The ID of the Capacity Reservation in which to run the instance.
      * 
      */
-    private final @Nullable String capacityReservationId;
+    private @Nullable String capacityReservationId;
     /**
      * @return The ARN of the Capacity Reservation resource group in which to run the instance.
      * 
      */
-    private final @Nullable String capacityReservationResourceGroupArn;
+    private @Nullable String capacityReservationResourceGroupArn;
 
-    @CustomType.Constructor
-    private InstanceCapacityReservationSpecificationCapacityReservationTarget(
-        @CustomType.Parameter("capacityReservationId") @Nullable String capacityReservationId,
-        @CustomType.Parameter("capacityReservationResourceGroupArn") @Nullable String capacityReservationResourceGroupArn) {
-        this.capacityReservationId = capacityReservationId;
-        this.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
-    }
-
+    private InstanceCapacityReservationSpecificationCapacityReservationTarget() {}
     /**
      * @return The ID of the Capacity Reservation in which to run the instance.
      * 
@@ -52,30 +45,32 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
     public static Builder builder(InstanceCapacityReservationSpecificationCapacityReservationTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String capacityReservationId;
         private @Nullable String capacityReservationResourceGroupArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceCapacityReservationSpecificationCapacityReservationTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityReservationId = defaults.capacityReservationId;
     	      this.capacityReservationResourceGroupArn = defaults.capacityReservationResourceGroupArn;
         }
 
+        @CustomType.Setter
         public Builder capacityReservationId(@Nullable String capacityReservationId) {
             this.capacityReservationId = capacityReservationId;
             return this;
         }
+        @CustomType.Setter
         public Builder capacityReservationResourceGroupArn(@Nullable String capacityReservationResourceGroupArn) {
             this.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
             return this;
-        }        public InstanceCapacityReservationSpecificationCapacityReservationTarget build() {
-            return new InstanceCapacityReservationSpecificationCapacityReservationTarget(capacityReservationId, capacityReservationResourceGroupArn);
+        }
+        public InstanceCapacityReservationSpecificationCapacityReservationTarget build() {
+            final var o = new InstanceCapacityReservationSpecificationCapacityReservationTarget();
+            o.capacityReservationId = capacityReservationId;
+            o.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
+            return o;
         }
     }
 }

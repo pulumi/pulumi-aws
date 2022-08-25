@@ -13,13 +13,9 @@ public final class ClusterLoggingInfo {
      * @return Configuration block for Broker Logs settings for logging info. See below.
      * 
      */
-    private final ClusterLoggingInfoBrokerLogs brokerLogs;
+    private ClusterLoggingInfoBrokerLogs brokerLogs;
 
-    @CustomType.Constructor
-    private ClusterLoggingInfo(@CustomType.Parameter("brokerLogs") ClusterLoggingInfoBrokerLogs brokerLogs) {
-        this.brokerLogs = brokerLogs;
-    }
-
+    private ClusterLoggingInfo() {}
     /**
      * @return Configuration block for Broker Logs settings for logging info. See below.
      * 
@@ -35,24 +31,24 @@ public final class ClusterLoggingInfo {
     public static Builder builder(ClusterLoggingInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ClusterLoggingInfoBrokerLogs brokerLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterLoggingInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.brokerLogs = defaults.brokerLogs;
         }
 
+        @CustomType.Setter
         public Builder brokerLogs(ClusterLoggingInfoBrokerLogs brokerLogs) {
             this.brokerLogs = Objects.requireNonNull(brokerLogs);
             return this;
-        }        public ClusterLoggingInfo build() {
-            return new ClusterLoggingInfo(brokerLogs);
+        }
+        public ClusterLoggingInfo build() {
+            final var o = new ClusterLoggingInfo();
+            o.brokerLogs = brokerLogs;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class RouteRequestParameter {
      * @return Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
      * 
      */
-    private final String requestParameterKey;
+    private String requestParameterKey;
     /**
      * @return Boolean whether or not the parameter is required.
      * 
      */
-    private final Boolean required;
+    private Boolean required;
 
-    @CustomType.Constructor
-    private RouteRequestParameter(
-        @CustomType.Parameter("requestParameterKey") String requestParameterKey,
-        @CustomType.Parameter("required") Boolean required) {
-        this.requestParameterKey = requestParameterKey;
-        this.required = required;
-    }
-
+    private RouteRequestParameter() {}
     /**
      * @return Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
      * 
@@ -51,30 +44,32 @@ public final class RouteRequestParameter {
     public static Builder builder(RouteRequestParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String requestParameterKey;
         private Boolean required;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteRequestParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.requestParameterKey = defaults.requestParameterKey;
     	      this.required = defaults.required;
         }
 
+        @CustomType.Setter
         public Builder requestParameterKey(String requestParameterKey) {
             this.requestParameterKey = Objects.requireNonNull(requestParameterKey);
             return this;
         }
+        @CustomType.Setter
         public Builder required(Boolean required) {
             this.required = Objects.requireNonNull(required);
             return this;
-        }        public RouteRequestParameter build() {
-            return new RouteRequestParameter(requestParameterKey, required);
+        }
+        public RouteRequestParameter build() {
+            final var o = new RouteRequestParameter();
+            o.requestParameterKey = requestParameterKey;
+            o.required = required;
+            return o;
         }
     }
 }

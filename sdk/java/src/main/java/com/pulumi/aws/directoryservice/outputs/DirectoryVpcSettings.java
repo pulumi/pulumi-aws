@@ -11,28 +11,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DirectoryVpcSettings {
-    private final @Nullable List<String> availabilityZones;
+    private @Nullable List<String> availabilityZones;
     /**
      * @return The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return The identifier of the VPC that the directory is in.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private DirectoryVpcSettings(
-        @CustomType.Parameter("availabilityZones") @Nullable List<String> availabilityZones,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.availabilityZones = availabilityZones;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private DirectoryVpcSettings() {}
     public List<String> availabilityZones() {
         return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
@@ -58,16 +49,12 @@ public final class DirectoryVpcSettings {
     public static Builder builder(DirectoryVpcSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> availabilityZones;
         private List<String> subnetIds;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DirectoryVpcSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZones = defaults.availabilityZones;
@@ -75,6 +62,7 @@ public final class DirectoryVpcSettings {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder availabilityZones(@Nullable List<String> availabilityZones) {
             this.availabilityZones = availabilityZones;
             return this;
@@ -82,6 +70,7 @@ public final class DirectoryVpcSettings {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -89,11 +78,17 @@ public final class DirectoryVpcSettings {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public DirectoryVpcSettings build() {
-            return new DirectoryVpcSettings(availabilityZones, subnetIds, vpcId);
+        }
+        public DirectoryVpcSettings build() {
+            final var o = new DirectoryVpcSettings();
+            o.availabilityZones = availabilityZones;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class ConnectorKafkaClusterClientAuthentication {
      * @return The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
      * 
      */
-    private final @Nullable String authenticationType;
+    private @Nullable String authenticationType;
 
-    @CustomType.Constructor
-    private ConnectorKafkaClusterClientAuthentication(@CustomType.Parameter("authenticationType") @Nullable String authenticationType) {
-        this.authenticationType = authenticationType;
-    }
-
+    private ConnectorKafkaClusterClientAuthentication() {}
     /**
      * @return The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
      * 
@@ -37,24 +33,24 @@ public final class ConnectorKafkaClusterClientAuthentication {
     public static Builder builder(ConnectorKafkaClusterClientAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String authenticationType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorKafkaClusterClientAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationType = defaults.authenticationType;
         }
 
+        @CustomType.Setter
         public Builder authenticationType(@Nullable String authenticationType) {
             this.authenticationType = authenticationType;
             return this;
-        }        public ConnectorKafkaClusterClientAuthentication build() {
-            return new ConnectorKafkaClusterClientAuthentication(authenticationType);
+        }
+        public ConnectorKafkaClusterClientAuthentication build() {
+            final var o = new ConnectorKafkaClusterClientAuthentication();
+            o.authenticationType = authenticationType;
+            return o;
         }
     }
 }

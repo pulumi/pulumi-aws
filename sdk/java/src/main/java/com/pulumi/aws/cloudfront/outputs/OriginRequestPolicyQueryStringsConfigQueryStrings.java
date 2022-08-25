@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OriginRequestPolicyQueryStringsConfigQueryStrings {
-    private final @Nullable List<String> items;
+    private @Nullable List<String> items;
 
-    @CustomType.Constructor
-    private OriginRequestPolicyQueryStringsConfigQueryStrings(@CustomType.Parameter("items") @Nullable List<String> items) {
-        this.items = items;
-    }
-
+    private OriginRequestPolicyQueryStringsConfigQueryStrings() {}
     public List<String> items() {
         return this.items == null ? List.of() : this.items;
     }
@@ -29,27 +25,27 @@ public final class OriginRequestPolicyQueryStringsConfigQueryStrings {
     public static Builder builder(OriginRequestPolicyQueryStringsConfigQueryStrings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OriginRequestPolicyQueryStringsConfigQueryStrings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
             this.items = items;
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public OriginRequestPolicyQueryStringsConfigQueryStrings build() {
-            return new OriginRequestPolicyQueryStringsConfigQueryStrings(items);
+        }
+        public OriginRequestPolicyQueryStringsConfigQueryStrings build() {
+            final var o = new OriginRequestPolicyQueryStringsConfigQueryStrings();
+            o.items = items;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
      * @return The criteria for determining a SAN&#39;s match.
      * 
      */
-    private final VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch match;
+    private VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch match;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(@CustomType.Parameter("match") VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch match) {
-        this.match = match;
-    }
-
+    private VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames() {}
     /**
      * @return The criteria for determining a SAN&#39;s match.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
     public static Builder builder(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch match;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.match = defaults.match;
         }
 
+        @CustomType.Setter
         public Builder match(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch match) {
             this.match = Objects.requireNonNull(match);
             return this;
-        }        public VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames build() {
-            return new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(match);
+        }
+        public VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames build() {
+            final var o = new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames();
+            o.match = match;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class WebAclRuleActionCount {
      * @return Defines custom handling for the web request. See Custom Request Handling below for details.
      * 
      */
-    private final @Nullable WebAclRuleActionCountCustomRequestHandling customRequestHandling;
+    private @Nullable WebAclRuleActionCountCustomRequestHandling customRequestHandling;
 
-    @CustomType.Constructor
-    private WebAclRuleActionCount(@CustomType.Parameter("customRequestHandling") @Nullable WebAclRuleActionCountCustomRequestHandling customRequestHandling) {
-        this.customRequestHandling = customRequestHandling;
-    }
-
+    private WebAclRuleActionCount() {}
     /**
      * @return Defines custom handling for the web request. See Custom Request Handling below for details.
      * 
@@ -37,24 +33,24 @@ public final class WebAclRuleActionCount {
     public static Builder builder(WebAclRuleActionCount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleActionCountCustomRequestHandling customRequestHandling;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleActionCount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customRequestHandling = defaults.customRequestHandling;
         }
 
+        @CustomType.Setter
         public Builder customRequestHandling(@Nullable WebAclRuleActionCountCustomRequestHandling customRequestHandling) {
             this.customRequestHandling = customRequestHandling;
             return this;
-        }        public WebAclRuleActionCount build() {
-            return new WebAclRuleActionCount(customRequestHandling);
+        }
+        public WebAclRuleActionCount build() {
+            final var o = new WebAclRuleActionCount();
+            o.customRequestHandling = customRequestHandling;
+            return o;
         }
     }
 }

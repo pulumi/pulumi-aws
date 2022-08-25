@@ -16,42 +16,29 @@ public final class ArchiveRuleFilter {
      * @return Contains comparator.
      * 
      */
-    private final @Nullable List<String> contains;
+    private @Nullable List<String> contains;
     /**
      * @return The filter criteria.
      * 
      */
-    private final String criteria;
+    private String criteria;
     /**
      * @return Equals comparator.
      * 
      */
-    private final @Nullable List<String> eqs;
+    private @Nullable List<String> eqs;
     /**
      * @return Boolean comparator.
      * 
      */
-    private final @Nullable String exists;
+    private @Nullable String exists;
     /**
      * @return Not Equals comparator.
      * 
      */
-    private final @Nullable List<String> neqs;
+    private @Nullable List<String> neqs;
 
-    @CustomType.Constructor
-    private ArchiveRuleFilter(
-        @CustomType.Parameter("contains") @Nullable List<String> contains,
-        @CustomType.Parameter("criteria") String criteria,
-        @CustomType.Parameter("eqs") @Nullable List<String> eqs,
-        @CustomType.Parameter("exists") @Nullable String exists,
-        @CustomType.Parameter("neqs") @Nullable List<String> neqs) {
-        this.contains = contains;
-        this.criteria = criteria;
-        this.eqs = eqs;
-        this.exists = exists;
-        this.neqs = neqs;
-    }
-
+    private ArchiveRuleFilter() {}
     /**
      * @return Contains comparator.
      * 
@@ -95,18 +82,14 @@ public final class ArchiveRuleFilter {
     public static Builder builder(ArchiveRuleFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> contains;
         private String criteria;
         private @Nullable List<String> eqs;
         private @Nullable String exists;
         private @Nullable List<String> neqs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ArchiveRuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contains = defaults.contains;
@@ -116,6 +99,7 @@ public final class ArchiveRuleFilter {
     	      this.neqs = defaults.neqs;
         }
 
+        @CustomType.Setter
         public Builder contains(@Nullable List<String> contains) {
             this.contains = contains;
             return this;
@@ -123,10 +107,12 @@ public final class ArchiveRuleFilter {
         public Builder contains(String... contains) {
             return contains(List.of(contains));
         }
+        @CustomType.Setter
         public Builder criteria(String criteria) {
             this.criteria = Objects.requireNonNull(criteria);
             return this;
         }
+        @CustomType.Setter
         public Builder eqs(@Nullable List<String> eqs) {
             this.eqs = eqs;
             return this;
@@ -134,18 +120,27 @@ public final class ArchiveRuleFilter {
         public Builder eqs(String... eqs) {
             return eqs(List.of(eqs));
         }
+        @CustomType.Setter
         public Builder exists(@Nullable String exists) {
             this.exists = exists;
             return this;
         }
+        @CustomType.Setter
         public Builder neqs(@Nullable List<String> neqs) {
             this.neqs = neqs;
             return this;
         }
         public Builder neqs(String... neqs) {
             return neqs(List.of(neqs));
-        }        public ArchiveRuleFilter build() {
-            return new ArchiveRuleFilter(contains, criteria, eqs, exists, neqs);
+        }
+        public ArchiveRuleFilter build() {
+            final var o = new ArchiveRuleFilter();
+            o.contains = contains;
+            o.criteria = criteria;
+            o.eqs = eqs;
+            o.exists = exists;
+            o.neqs = neqs;
+            return o;
         }
     }
 }

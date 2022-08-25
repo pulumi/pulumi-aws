@@ -15,28 +15,19 @@ public final class RecordGeolocationRoutingPolicy {
      * @return A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
      * 
      */
-    private final @Nullable String continent;
+    private @Nullable String continent;
     /**
      * @return A two-character country code or `*` to indicate a default resource record set.
      * 
      */
-    private final @Nullable String country;
+    private @Nullable String country;
     /**
      * @return A subdivision code for a country.
      * 
      */
-    private final @Nullable String subdivision;
+    private @Nullable String subdivision;
 
-    @CustomType.Constructor
-    private RecordGeolocationRoutingPolicy(
-        @CustomType.Parameter("continent") @Nullable String continent,
-        @CustomType.Parameter("country") @Nullable String country,
-        @CustomType.Parameter("subdivision") @Nullable String subdivision) {
-        this.continent = continent;
-        this.country = country;
-        this.subdivision = subdivision;
-    }
-
+    private RecordGeolocationRoutingPolicy() {}
     /**
      * @return A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
      * 
@@ -66,16 +57,12 @@ public final class RecordGeolocationRoutingPolicy {
     public static Builder builder(RecordGeolocationRoutingPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String continent;
         private @Nullable String country;
         private @Nullable String subdivision;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RecordGeolocationRoutingPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.continent = defaults.continent;
@@ -83,19 +70,27 @@ public final class RecordGeolocationRoutingPolicy {
     	      this.subdivision = defaults.subdivision;
         }
 
+        @CustomType.Setter
         public Builder continent(@Nullable String continent) {
             this.continent = continent;
             return this;
         }
+        @CustomType.Setter
         public Builder country(@Nullable String country) {
             this.country = country;
             return this;
         }
+        @CustomType.Setter
         public Builder subdivision(@Nullable String subdivision) {
             this.subdivision = subdivision;
             return this;
-        }        public RecordGeolocationRoutingPolicy build() {
-            return new RecordGeolocationRoutingPolicy(continent, country, subdivision);
+        }
+        public RecordGeolocationRoutingPolicy build() {
+            final var o = new RecordGeolocationRoutingPolicy();
+            o.continent = continent;
+            o.country = country;
+            o.subdivision = subdivision;
+            return o;
         }
     }
 }

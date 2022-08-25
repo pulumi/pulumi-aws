@@ -19,21 +19,21 @@ public final class DistributionViewerCertificate {
      * certificate must be in  US-EAST-1.
      * 
      */
-    private final @Nullable String acmCertificateArn;
+    private @Nullable String acmCertificateArn;
     /**
      * @return `true` if you want viewers to use HTTPS
      * to request your objects and you&#39;re using the CloudFront domain name for your
      * distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
      * 
      */
-    private final @Nullable Boolean cloudfrontDefaultCertificate;
+    private @Nullable Boolean cloudfrontDefaultCertificate;
     /**
      * @return The IAM certificate identifier of the custom viewer
      * certificate for this distribution if you are using a custom domain. Specify
      * this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
      * 
      */
-    private final @Nullable String iamCertificateId;
+    private @Nullable String iamCertificateId;
     /**
      * @return The minimum version of the SSL protocol that
      * you want CloudFront to use for HTTPS connections. Can only be set if
@@ -49,23 +49,10 @@ public final class DistributionViewerCertificate {
      * must be specified.
      * 
      */
-    private final @Nullable String minimumProtocolVersion;
-    private final @Nullable String sslSupportMethod;
+    private @Nullable String minimumProtocolVersion;
+    private @Nullable String sslSupportMethod;
 
-    @CustomType.Constructor
-    private DistributionViewerCertificate(
-        @CustomType.Parameter("acmCertificateArn") @Nullable String acmCertificateArn,
-        @CustomType.Parameter("cloudfrontDefaultCertificate") @Nullable Boolean cloudfrontDefaultCertificate,
-        @CustomType.Parameter("iamCertificateId") @Nullable String iamCertificateId,
-        @CustomType.Parameter("minimumProtocolVersion") @Nullable String minimumProtocolVersion,
-        @CustomType.Parameter("sslSupportMethod") @Nullable String sslSupportMethod) {
-        this.acmCertificateArn = acmCertificateArn;
-        this.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
-        this.iamCertificateId = iamCertificateId;
-        this.minimumProtocolVersion = minimumProtocolVersion;
-        this.sslSupportMethod = sslSupportMethod;
-    }
-
+    private DistributionViewerCertificate() {}
     /**
      * @return The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
      * certificate that you wish to use with this distribution. Specify this,
@@ -123,18 +110,14 @@ public final class DistributionViewerCertificate {
     public static Builder builder(DistributionViewerCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String acmCertificateArn;
         private @Nullable Boolean cloudfrontDefaultCertificate;
         private @Nullable String iamCertificateId;
         private @Nullable String minimumProtocolVersion;
         private @Nullable String sslSupportMethod;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionViewerCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acmCertificateArn = defaults.acmCertificateArn;
@@ -144,27 +127,39 @@ public final class DistributionViewerCertificate {
     	      this.sslSupportMethod = defaults.sslSupportMethod;
         }
 
+        @CustomType.Setter
         public Builder acmCertificateArn(@Nullable String acmCertificateArn) {
             this.acmCertificateArn = acmCertificateArn;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudfrontDefaultCertificate(@Nullable Boolean cloudfrontDefaultCertificate) {
             this.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
             return this;
         }
+        @CustomType.Setter
         public Builder iamCertificateId(@Nullable String iamCertificateId) {
             this.iamCertificateId = iamCertificateId;
             return this;
         }
+        @CustomType.Setter
         public Builder minimumProtocolVersion(@Nullable String minimumProtocolVersion) {
             this.minimumProtocolVersion = minimumProtocolVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder sslSupportMethod(@Nullable String sslSupportMethod) {
             this.sslSupportMethod = sslSupportMethod;
             return this;
-        }        public DistributionViewerCertificate build() {
-            return new DistributionViewerCertificate(acmCertificateArn, cloudfrontDefaultCertificate, iamCertificateId, minimumProtocolVersion, sslSupportMethod);
+        }
+        public DistributionViewerCertificate build() {
+            final var o = new DistributionViewerCertificate();
+            o.acmCertificateArn = acmCertificateArn;
+            o.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
+            o.iamCertificateId = iamCertificateId;
+            o.minimumProtocolVersion = minimumProtocolVersion;
+            o.sslSupportMethod = sslSupportMethod;
+            return o;
         }
     }
 }

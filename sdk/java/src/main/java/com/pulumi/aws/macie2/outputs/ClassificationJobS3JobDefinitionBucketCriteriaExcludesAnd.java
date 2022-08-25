@@ -16,21 +16,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd {
      * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
      * 
      */
-    private final @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion simpleCriterion;
+    private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion simpleCriterion;
     /**
      * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
      * 
      */
-    private final @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion tagCriterion;
+    private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion tagCriterion;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd(
-        @CustomType.Parameter("simpleCriterion") @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion simpleCriterion,
-        @CustomType.Parameter("tagCriterion") @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion tagCriterion) {
-        this.simpleCriterion = simpleCriterion;
-        this.tagCriterion = tagCriterion;
-    }
-
+    private ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd() {}
     /**
      * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
      * 
@@ -53,30 +46,32 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd {
     public static Builder builder(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion simpleCriterion;
         private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion tagCriterion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.simpleCriterion = defaults.simpleCriterion;
     	      this.tagCriterion = defaults.tagCriterion;
         }
 
+        @CustomType.Setter
         public Builder simpleCriterion(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion simpleCriterion) {
             this.simpleCriterion = simpleCriterion;
             return this;
         }
+        @CustomType.Setter
         public Builder tagCriterion(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion tagCriterion) {
             this.tagCriterion = tagCriterion;
             return this;
-        }        public ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd build() {
-            return new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd(simpleCriterion, tagCriterion);
+        }
+        public ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd build() {
+            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd();
+            o.simpleCriterion = simpleCriterion;
+            o.tagCriterion = tagCriterion;
+            return o;
         }
     }
 }

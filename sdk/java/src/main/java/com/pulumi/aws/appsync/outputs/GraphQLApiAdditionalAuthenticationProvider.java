@@ -18,35 +18,24 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
      * @return The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
-    private final String authenticationType;
+    private String authenticationType;
     /**
      * @return Nested argument containing Lambda authorizer configuration. Defined below.
      * 
      */
-    private final @Nullable GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig lambdaAuthorizerConfig;
+    private @Nullable GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig lambdaAuthorizerConfig;
     /**
      * @return Nested argument containing OpenID Connect configuration. Defined below.
      * 
      */
-    private final @Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig;
+    private @Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig;
     /**
      * @return The Amazon Cognito User Pool configuration. Defined below.
      * 
      */
-    private final @Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig;
+    private @Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig;
 
-    @CustomType.Constructor
-    private GraphQLApiAdditionalAuthenticationProvider(
-        @CustomType.Parameter("authenticationType") String authenticationType,
-        @CustomType.Parameter("lambdaAuthorizerConfig") @Nullable GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig lambdaAuthorizerConfig,
-        @CustomType.Parameter("openidConnectConfig") @Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig,
-        @CustomType.Parameter("userPoolConfig") @Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig) {
-        this.authenticationType = authenticationType;
-        this.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
-        this.openidConnectConfig = openidConnectConfig;
-        this.userPoolConfig = userPoolConfig;
-    }
-
+    private GraphQLApiAdditionalAuthenticationProvider() {}
     /**
      * @return The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
@@ -83,17 +72,13 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
     public static Builder builder(GraphQLApiAdditionalAuthenticationProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authenticationType;
         private @Nullable GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig lambdaAuthorizerConfig;
         private @Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig;
         private @Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GraphQLApiAdditionalAuthenticationProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationType = defaults.authenticationType;
@@ -102,23 +87,33 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
     	      this.userPoolConfig = defaults.userPoolConfig;
         }
 
+        @CustomType.Setter
         public Builder authenticationType(String authenticationType) {
             this.authenticationType = Objects.requireNonNull(authenticationType);
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaAuthorizerConfig(@Nullable GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig lambdaAuthorizerConfig) {
             this.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder openidConnectConfig(@Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig) {
             this.openidConnectConfig = openidConnectConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolConfig(@Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig) {
             this.userPoolConfig = userPoolConfig;
             return this;
-        }        public GraphQLApiAdditionalAuthenticationProvider build() {
-            return new GraphQLApiAdditionalAuthenticationProvider(authenticationType, lambdaAuthorizerConfig, openidConnectConfig, userPoolConfig);
+        }
+        public GraphQLApiAdditionalAuthenticationProvider build() {
+            final var o = new GraphQLApiAdditionalAuthenticationProvider();
+            o.authenticationType = authenticationType;
+            o.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
+            o.openidConnectConfig = openidConnectConfig;
+            o.userPoolConfig = userPoolConfig;
+            return o;
         }
     }
 }

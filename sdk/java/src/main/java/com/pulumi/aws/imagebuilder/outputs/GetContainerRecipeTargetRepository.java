@@ -13,21 +13,14 @@ public final class GetContainerRecipeTargetRepository {
      * @return Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
      * 
      */
-    private final String repositoryName;
+    private String repositoryName;
     /**
      * @return Service in which this image is registered.
      * 
      */
-    private final String service;
+    private String service;
 
-    @CustomType.Constructor
-    private GetContainerRecipeTargetRepository(
-        @CustomType.Parameter("repositoryName") String repositoryName,
-        @CustomType.Parameter("service") String service) {
-        this.repositoryName = repositoryName;
-        this.service = service;
-    }
-
+    private GetContainerRecipeTargetRepository() {}
     /**
      * @return Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
      * 
@@ -50,30 +43,32 @@ public final class GetContainerRecipeTargetRepository {
     public static Builder builder(GetContainerRecipeTargetRepository defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String repositoryName;
         private String service;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetContainerRecipeTargetRepository defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.repositoryName = defaults.repositoryName;
     	      this.service = defaults.service;
         }
 
+        @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
             this.repositoryName = Objects.requireNonNull(repositoryName);
             return this;
         }
+        @CustomType.Setter
         public Builder service(String service) {
             this.service = Objects.requireNonNull(service);
             return this;
-        }        public GetContainerRecipeTargetRepository build() {
-            return new GetContainerRecipeTargetRepository(repositoryName, service);
+        }
+        public GetContainerRecipeTargetRepository build() {
+            final var o = new GetContainerRecipeTargetRepository();
+            o.repositoryName = repositoryName;
+            o.service = service;
+            return o;
         }
     }
 }

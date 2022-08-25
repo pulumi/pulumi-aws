@@ -15,28 +15,19 @@ public final class ProjectLogsConfigCloudwatchLogs {
      * @return Group name of the logs in CloudWatch Logs.
      * 
      */
-    private final @Nullable String groupName;
+    private @Nullable String groupName;
     /**
      * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return Stream name of the logs in CloudWatch Logs.
      * 
      */
-    private final @Nullable String streamName;
+    private @Nullable String streamName;
 
-    @CustomType.Constructor
-    private ProjectLogsConfigCloudwatchLogs(
-        @CustomType.Parameter("groupName") @Nullable String groupName,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("streamName") @Nullable String streamName) {
-        this.groupName = groupName;
-        this.status = status;
-        this.streamName = streamName;
-    }
-
+    private ProjectLogsConfigCloudwatchLogs() {}
     /**
      * @return Group name of the logs in CloudWatch Logs.
      * 
@@ -66,16 +57,12 @@ public final class ProjectLogsConfigCloudwatchLogs {
     public static Builder builder(ProjectLogsConfigCloudwatchLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String groupName;
         private @Nullable String status;
         private @Nullable String streamName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectLogsConfigCloudwatchLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groupName = defaults.groupName;
@@ -83,19 +70,27 @@ public final class ProjectLogsConfigCloudwatchLogs {
     	      this.streamName = defaults.streamName;
         }
 
+        @CustomType.Setter
         public Builder groupName(@Nullable String groupName) {
             this.groupName = groupName;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder streamName(@Nullable String streamName) {
             this.streamName = streamName;
             return this;
-        }        public ProjectLogsConfigCloudwatchLogs build() {
-            return new ProjectLogsConfigCloudwatchLogs(groupName, status, streamName);
+        }
+        public ProjectLogsConfigCloudwatchLogs build() {
+            final var o = new ProjectLogsConfigCloudwatchLogs();
+            o.groupName = groupName;
+            o.status = status;
+            o.streamName = streamName;
+            return o;
         }
     }
 }

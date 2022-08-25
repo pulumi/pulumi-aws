@@ -14,21 +14,14 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingC
      * @return A KMS key ARN that is used to encrypt the connection password.
      * 
      */
-    private final String awsKmsKeyId;
+    private String awsKmsKeyId;
     /**
      * @return When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
      * 
      */
-    private final Boolean returnConnectionPasswordEncrypted;
+    private Boolean returnConnectionPasswordEncrypted;
 
-    @CustomType.Constructor
-    private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption(
-        @CustomType.Parameter("awsKmsKeyId") String awsKmsKeyId,
-        @CustomType.Parameter("returnConnectionPasswordEncrypted") Boolean returnConnectionPasswordEncrypted) {
-        this.awsKmsKeyId = awsKmsKeyId;
-        this.returnConnectionPasswordEncrypted = returnConnectionPasswordEncrypted;
-    }
-
+    private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption() {}
     /**
      * @return A KMS key ARN that is used to encrypt the connection password.
      * 
@@ -51,30 +44,32 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingC
     public static Builder builder(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String awsKmsKeyId;
         private Boolean returnConnectionPasswordEncrypted;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsKmsKeyId = defaults.awsKmsKeyId;
     	      this.returnConnectionPasswordEncrypted = defaults.returnConnectionPasswordEncrypted;
         }
 
+        @CustomType.Setter
         public Builder awsKmsKeyId(String awsKmsKeyId) {
             this.awsKmsKeyId = Objects.requireNonNull(awsKmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder returnConnectionPasswordEncrypted(Boolean returnConnectionPasswordEncrypted) {
             this.returnConnectionPasswordEncrypted = Objects.requireNonNull(returnConnectionPasswordEncrypted);
             return this;
-        }        public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption build() {
-            return new GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption(awsKmsKeyId, returnConnectionPasswordEncrypted);
+        }
+        public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption build() {
+            final var o = new GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption();
+            o.awsKmsKeyId = awsKmsKeyId;
+            o.returnConnectionPasswordEncrypted = returnConnectionPasswordEncrypted;
+            return o;
         }
     }
 }

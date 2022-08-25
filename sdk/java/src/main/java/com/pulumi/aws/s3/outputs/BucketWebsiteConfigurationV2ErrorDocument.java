@@ -13,13 +13,9 @@ public final class BucketWebsiteConfigurationV2ErrorDocument {
      * @return The object key name to use when a 4XX class error occurs.
      * 
      */
-    private final String key;
+    private String key;
 
-    @CustomType.Constructor
-    private BucketWebsiteConfigurationV2ErrorDocument(@CustomType.Parameter("key") String key) {
-        this.key = key;
-    }
-
+    private BucketWebsiteConfigurationV2ErrorDocument() {}
     /**
      * @return The object key name to use when a 4XX class error occurs.
      * 
@@ -35,24 +31,24 @@ public final class BucketWebsiteConfigurationV2ErrorDocument {
     public static Builder builder(BucketWebsiteConfigurationV2ErrorDocument defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketWebsiteConfigurationV2ErrorDocument defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public BucketWebsiteConfigurationV2ErrorDocument build() {
-            return new BucketWebsiteConfigurationV2ErrorDocument(key);
+        }
+        public BucketWebsiteConfigurationV2ErrorDocument build() {
+            final var o = new BucketWebsiteConfigurationV2ErrorDocument();
+            o.key = key;
+            return o;
         }
     }
 }

@@ -13,34 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDevicesResult {
-    private final String globalNetworkId;
+    private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The IDs of the devices.
      * 
      */
-    private final List<String> ids;
-    private final @Nullable String siteId;
-    private final @Nullable Map<String,String> tags;
+    private List<String> ids;
+    private @Nullable String siteId;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDevicesResult(
-        @CustomType.Parameter("globalNetworkId") String globalNetworkId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("siteId") @Nullable String siteId,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.globalNetworkId = globalNetworkId;
-        this.id = id;
-        this.ids = ids;
-        this.siteId = siteId;
-        this.tags = tags;
-    }
-
+    private GetDevicesResult() {}
     public String globalNetworkId() {
         return this.globalNetworkId;
     }
@@ -72,18 +59,14 @@ public final class GetDevicesResult {
     public static Builder builder(GetDevicesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String globalNetworkId;
         private String id;
         private List<String> ids;
         private @Nullable String siteId;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDevicesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.globalNetworkId = defaults.globalNetworkId;
@@ -93,14 +76,17 @@ public final class GetDevicesResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
             this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -108,15 +94,24 @@ public final class GetDevicesResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder siteId(@Nullable String siteId) {
             this.siteId = siteId;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetDevicesResult build() {
-            return new GetDevicesResult(globalNetworkId, id, ids, siteId, tags);
+        }
+        public GetDevicesResult build() {
+            final var o = new GetDevicesResult();
+            o.globalNetworkId = globalNetworkId;
+            o.id = id;
+            o.ids = ids;
+            o.siteId = siteId;
+            o.tags = tags;
+            return o;
         }
     }
 }

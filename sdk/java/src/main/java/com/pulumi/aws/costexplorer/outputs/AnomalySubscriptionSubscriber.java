@@ -13,21 +13,14 @@ public final class AnomalySubscriptionSubscriber {
      * @return The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return The type of subscription. Valid Values: `SNS` | `EMAIL`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private AnomalySubscriptionSubscriber(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("type") String type) {
-        this.address = address;
-        this.type = type;
-    }
-
+    private AnomalySubscriptionSubscriber() {}
     /**
      * @return The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
      * 
@@ -50,30 +43,32 @@ public final class AnomalySubscriptionSubscriber {
     public static Builder builder(AnomalySubscriptionSubscriber defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnomalySubscriptionSubscriber defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public AnomalySubscriptionSubscriber build() {
-            return new AnomalySubscriptionSubscriber(address, type);
+        }
+        public AnomalySubscriptionSubscriber build() {
+            final var o = new AnomalySubscriptionSubscriber();
+            o.address = address;
+            o.type = type;
+            return o;
         }
     }
 }

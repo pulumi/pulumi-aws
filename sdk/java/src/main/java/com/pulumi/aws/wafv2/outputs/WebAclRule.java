@@ -22,56 +22,39 @@ public final class WebAclRule {
      * @return Action that AWS WAF should take on a web request when it matches the rule&#39;s statement. This is used only for rules whose **statements do not reference a rule group**. See Action below for details.
      * 
      */
-    private final @Nullable WebAclRuleAction action;
+    private @Nullable WebAclRuleAction action;
     /**
      * @return Friendly name of the rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See Override Action below for details.
      * 
      */
-    private final @Nullable WebAclRuleOverrideAction overrideAction;
+    private @Nullable WebAclRuleOverrideAction overrideAction;
     /**
      * @return If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
      * 
      */
-    private final @Nullable List<WebAclRuleRuleLabel> ruleLabels;
+    private @Nullable List<WebAclRuleRuleLabel> ruleLabels;
     /**
      * @return The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
      * 
      */
-    private final WebAclRuleStatement statement;
+    private WebAclRuleStatement statement;
     /**
      * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      * 
      */
-    private final WebAclRuleVisibilityConfig visibilityConfig;
+    private WebAclRuleVisibilityConfig visibilityConfig;
 
-    @CustomType.Constructor
-    private WebAclRule(
-        @CustomType.Parameter("action") @Nullable WebAclRuleAction action,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("overrideAction") @Nullable WebAclRuleOverrideAction overrideAction,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("ruleLabels") @Nullable List<WebAclRuleRuleLabel> ruleLabels,
-        @CustomType.Parameter("statement") WebAclRuleStatement statement,
-        @CustomType.Parameter("visibilityConfig") WebAclRuleVisibilityConfig visibilityConfig) {
-        this.action = action;
-        this.name = name;
-        this.overrideAction = overrideAction;
-        this.priority = priority;
-        this.ruleLabels = ruleLabels;
-        this.statement = statement;
-        this.visibilityConfig = visibilityConfig;
-    }
-
+    private WebAclRule() {}
     /**
      * @return Action that AWS WAF should take on a web request when it matches the rule&#39;s statement. This is used only for rules whose **statements do not reference a rule group**. See Action below for details.
      * 
@@ -129,7 +112,7 @@ public final class WebAclRule {
     public static Builder builder(WebAclRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleAction action;
         private String name;
@@ -138,11 +121,7 @@ public final class WebAclRule {
         private @Nullable List<WebAclRuleRuleLabel> ruleLabels;
         private WebAclRuleStatement statement;
         private WebAclRuleVisibilityConfig visibilityConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -154,22 +133,27 @@ public final class WebAclRule {
     	      this.visibilityConfig = defaults.visibilityConfig;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable WebAclRuleAction action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder overrideAction(@Nullable WebAclRuleOverrideAction overrideAction) {
             this.overrideAction = overrideAction;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleLabels(@Nullable List<WebAclRuleRuleLabel> ruleLabels) {
             this.ruleLabels = ruleLabels;
             return this;
@@ -177,15 +161,26 @@ public final class WebAclRule {
         public Builder ruleLabels(WebAclRuleRuleLabel... ruleLabels) {
             return ruleLabels(List.of(ruleLabels));
         }
+        @CustomType.Setter
         public Builder statement(WebAclRuleStatement statement) {
             this.statement = Objects.requireNonNull(statement);
             return this;
         }
+        @CustomType.Setter
         public Builder visibilityConfig(WebAclRuleVisibilityConfig visibilityConfig) {
             this.visibilityConfig = Objects.requireNonNull(visibilityConfig);
             return this;
-        }        public WebAclRule build() {
-            return new WebAclRule(action, name, overrideAction, priority, ruleLabels, statement, visibilityConfig);
+        }
+        public WebAclRule build() {
+            final var o = new WebAclRule();
+            o.action = action;
+            o.name = name;
+            o.overrideAction = overrideAction;
+            o.priority = priority;
+            o.ruleLabels = ruleLabels;
+            o.statement = statement;
+            o.visibilityConfig = visibilityConfig;
+            return o;
         }
     }
 }

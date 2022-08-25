@@ -15,21 +15,14 @@ public final class FileSystemLifecyclePolicy {
      * @return Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
      * 
      */
-    private final @Nullable String transitionToIa;
+    private @Nullable String transitionToIa;
     /**
      * @return Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
      * 
      */
-    private final @Nullable String transitionToPrimaryStorageClass;
+    private @Nullable String transitionToPrimaryStorageClass;
 
-    @CustomType.Constructor
-    private FileSystemLifecyclePolicy(
-        @CustomType.Parameter("transitionToIa") @Nullable String transitionToIa,
-        @CustomType.Parameter("transitionToPrimaryStorageClass") @Nullable String transitionToPrimaryStorageClass) {
-        this.transitionToIa = transitionToIa;
-        this.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
-    }
-
+    private FileSystemLifecyclePolicy() {}
     /**
      * @return Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
      * 
@@ -52,30 +45,32 @@ public final class FileSystemLifecyclePolicy {
     public static Builder builder(FileSystemLifecyclePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String transitionToIa;
         private @Nullable String transitionToPrimaryStorageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FileSystemLifecyclePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.transitionToIa = defaults.transitionToIa;
     	      this.transitionToPrimaryStorageClass = defaults.transitionToPrimaryStorageClass;
         }
 
+        @CustomType.Setter
         public Builder transitionToIa(@Nullable String transitionToIa) {
             this.transitionToIa = transitionToIa;
             return this;
         }
+        @CustomType.Setter
         public Builder transitionToPrimaryStorageClass(@Nullable String transitionToPrimaryStorageClass) {
             this.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
             return this;
-        }        public FileSystemLifecyclePolicy build() {
-            return new FileSystemLifecyclePolicy(transitionToIa, transitionToPrimaryStorageClass);
+        }
+        public FileSystemLifecyclePolicy build() {
+            final var o = new FileSystemLifecyclePolicy();
+            o.transitionToIa = transitionToIa;
+            o.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
+            return o;
         }
     }
 }

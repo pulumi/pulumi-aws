@@ -19,51 +19,36 @@ public final class AnalyticsApplicationOutput {
      * @return The ARN of the Kinesis Analytics Application.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
      * See Kinesis Firehose below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationOutputKinesisFirehose kinesisFirehose;
+    private @Nullable AnalyticsApplicationOutputKinesisFirehose kinesisFirehose;
     /**
      * @return The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
      * See Kinesis Stream below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationOutputKinesisStream kinesisStream;
+    private @Nullable AnalyticsApplicationOutputKinesisStream kinesisStream;
     /**
      * @return The Lambda function destination. See Lambda below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationOutputLambda lambda;
+    private @Nullable AnalyticsApplicationOutputLambda lambda;
     /**
      * @return The Name of the in-application stream.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Schema format of the data written to the destination. See Destination Schema below for more details.
      * 
      */
-    private final AnalyticsApplicationOutputSchema schema;
+    private AnalyticsApplicationOutputSchema schema;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationOutput(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("kinesisFirehose") @Nullable AnalyticsApplicationOutputKinesisFirehose kinesisFirehose,
-        @CustomType.Parameter("kinesisStream") @Nullable AnalyticsApplicationOutputKinesisStream kinesisStream,
-        @CustomType.Parameter("lambda") @Nullable AnalyticsApplicationOutputLambda lambda,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schema") AnalyticsApplicationOutputSchema schema) {
-        this.id = id;
-        this.kinesisFirehose = kinesisFirehose;
-        this.kinesisStream = kinesisStream;
-        this.lambda = lambda;
-        this.name = name;
-        this.schema = schema;
-    }
-
+    private AnalyticsApplicationOutput() {}
     /**
      * @return The ARN of the Kinesis Analytics Application.
      * 
@@ -116,7 +101,7 @@ public final class AnalyticsApplicationOutput {
     public static Builder builder(AnalyticsApplicationOutput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable AnalyticsApplicationOutputKinesisFirehose kinesisFirehose;
@@ -124,11 +109,7 @@ public final class AnalyticsApplicationOutput {
         private @Nullable AnalyticsApplicationOutputLambda lambda;
         private String name;
         private AnalyticsApplicationOutputSchema schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -139,31 +120,45 @@ public final class AnalyticsApplicationOutput {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisFirehose(@Nullable AnalyticsApplicationOutputKinesisFirehose kinesisFirehose) {
             this.kinesisFirehose = kinesisFirehose;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisStream(@Nullable AnalyticsApplicationOutputKinesisStream kinesisStream) {
             this.kinesisStream = kinesisStream;
             return this;
         }
+        @CustomType.Setter
         public Builder lambda(@Nullable AnalyticsApplicationOutputLambda lambda) {
             this.lambda = lambda;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(AnalyticsApplicationOutputSchema schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public AnalyticsApplicationOutput build() {
-            return new AnalyticsApplicationOutput(id, kinesisFirehose, kinesisStream, lambda, name, schema);
+        }
+        public AnalyticsApplicationOutput build() {
+            final var o = new AnalyticsApplicationOutput();
+            o.id = id;
+            o.kinesisFirehose = kinesisFirehose;
+            o.kinesisStream = kinesisStream;
+            o.lambda = lambda;
+            o.name = name;
+            o.schema = schema;
+            return o;
         }
     }
 }

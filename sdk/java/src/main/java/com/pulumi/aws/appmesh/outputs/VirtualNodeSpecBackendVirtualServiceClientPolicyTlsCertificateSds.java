@@ -13,13 +13,9 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
      * @return The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
-    private final String secretName;
+    private String secretName;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(@CustomType.Parameter("secretName") String secretName) {
-        this.secretName = secretName;
-    }
-
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds() {}
     /**
      * @return The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
     public static Builder builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String secretName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretName = defaults.secretName;
         }
 
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
-        }        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds build() {
-            return new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(secretName);
+        }
+        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds build() {
+            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds();
+            o.secretName = secretName;
+            return o;
         }
     }
 }

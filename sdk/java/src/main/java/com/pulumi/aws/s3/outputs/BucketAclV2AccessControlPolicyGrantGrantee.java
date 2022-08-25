@@ -15,42 +15,29 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
      * @return The display name of the owner.
      * 
      */
-    private final @Nullable String displayName;
+    private @Nullable String displayName;
     /**
      * @return Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
      * 
      */
-    private final @Nullable String emailAddress;
+    private @Nullable String emailAddress;
     /**
      * @return The canonical user ID of the grantee.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return URI of the grantee group.
      * 
      */
-    private final @Nullable String uri;
+    private @Nullable String uri;
 
-    @CustomType.Constructor
-    private BucketAclV2AccessControlPolicyGrantGrantee(
-        @CustomType.Parameter("displayName") @Nullable String displayName,
-        @CustomType.Parameter("emailAddress") @Nullable String emailAddress,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("uri") @Nullable String uri) {
-        this.displayName = displayName;
-        this.emailAddress = emailAddress;
-        this.id = id;
-        this.type = type;
-        this.uri = uri;
-    }
-
+    private BucketAclV2AccessControlPolicyGrantGrantee() {}
     /**
      * @return The display name of the owner.
      * 
@@ -94,18 +81,14 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
     public static Builder builder(BucketAclV2AccessControlPolicyGrantGrantee defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String displayName;
         private @Nullable String emailAddress;
         private @Nullable String id;
         private String type;
         private @Nullable String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketAclV2AccessControlPolicyGrantGrantee defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
@@ -115,27 +98,39 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
             this.displayName = displayName;
             return this;
         }
+        @CustomType.Setter
         public Builder emailAddress(@Nullable String emailAddress) {
             this.emailAddress = emailAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder uri(@Nullable String uri) {
             this.uri = uri;
             return this;
-        }        public BucketAclV2AccessControlPolicyGrantGrantee build() {
-            return new BucketAclV2AccessControlPolicyGrantGrantee(displayName, emailAddress, id, type, uri);
+        }
+        public BucketAclV2AccessControlPolicyGrantGrantee build() {
+            final var o = new BucketAclV2AccessControlPolicyGrantGrantee();
+            o.displayName = displayName;
+            o.emailAddress = emailAddress;
+            o.id = id;
+            o.type = type;
+            o.uri = uri;
+            return o;
         }
     }
 }

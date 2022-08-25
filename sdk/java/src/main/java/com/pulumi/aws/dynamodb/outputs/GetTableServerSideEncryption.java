@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableServerSideEncryption {
-    private final Boolean enabled;
-    private final String kmsKeyArn;
+    private Boolean enabled;
+    private String kmsKeyArn;
 
-    @CustomType.Constructor
-    private GetTableServerSideEncryption(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("kmsKeyArn") String kmsKeyArn) {
-        this.enabled = enabled;
-        this.kmsKeyArn = kmsKeyArn;
-    }
-
+    private GetTableServerSideEncryption() {}
     public Boolean enabled() {
         return this.enabled;
     }
@@ -35,30 +28,32 @@ public final class GetTableServerSideEncryption {
     public static Builder builder(GetTableServerSideEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String kmsKeyArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTableServerSideEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
             this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
             return this;
-        }        public GetTableServerSideEncryption build() {
-            return new GetTableServerSideEncryption(enabled, kmsKeyArn);
+        }
+        public GetTableServerSideEncryption build() {
+            final var o = new GetTableServerSideEncryption();
+            o.enabled = enabled;
+            o.kmsKeyArn = kmsKeyArn;
+            return o;
         }
     }
 }

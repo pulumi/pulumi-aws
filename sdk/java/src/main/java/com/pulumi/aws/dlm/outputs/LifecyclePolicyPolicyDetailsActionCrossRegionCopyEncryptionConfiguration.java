@@ -16,21 +16,14 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
      * @return The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
      * 
      */
-    private final @Nullable String cmkArn;
+    private @Nullable String cmkArn;
     /**
      * @return To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
      * 
      */
-    private final @Nullable Boolean encrypted;
+    private @Nullable Boolean encrypted;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration(
-        @CustomType.Parameter("cmkArn") @Nullable String cmkArn,
-        @CustomType.Parameter("encrypted") @Nullable Boolean encrypted) {
-        this.cmkArn = cmkArn;
-        this.encrypted = encrypted;
-    }
-
+    private LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration() {}
     /**
      * @return The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
      * 
@@ -53,30 +46,32 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
     public static Builder builder(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cmkArn;
         private @Nullable Boolean encrypted;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cmkArn = defaults.cmkArn;
     	      this.encrypted = defaults.encrypted;
         }
 
+        @CustomType.Setter
         public Builder cmkArn(@Nullable String cmkArn) {
             this.cmkArn = cmkArn;
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
             this.encrypted = encrypted;
             return this;
-        }        public LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration build() {
-            return new LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration(cmkArn, encrypted);
+        }
+        public LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration build() {
+            final var o = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration();
+            o.cmkArn = cmkArn;
+            o.encrypted = encrypted;
+            return o;
         }
     }
 }

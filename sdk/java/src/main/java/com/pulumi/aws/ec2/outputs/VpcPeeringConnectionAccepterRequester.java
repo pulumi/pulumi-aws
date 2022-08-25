@@ -16,30 +16,21 @@ public final class VpcPeeringConnectionAccepterRequester {
      * with the peer VPC over the VPC Peering Connection.
      * 
      */
-    private final @Nullable Boolean allowClassicLinkToRemoteVpc;
+    private @Nullable Boolean allowClassicLinkToRemoteVpc;
     /**
      * @return Indicates whether a local VPC can resolve public DNS hostnames to
      * private IP addresses when queried from instances in a peer VPC.
      * 
      */
-    private final @Nullable Boolean allowRemoteVpcDnsResolution;
+    private @Nullable Boolean allowRemoteVpcDnsResolution;
     /**
      * @return Indicates whether a local VPC can communicate with a ClassicLink
      * connection in the peer VPC over the VPC Peering Connection.
      * 
      */
-    private final @Nullable Boolean allowVpcToRemoteClassicLink;
+    private @Nullable Boolean allowVpcToRemoteClassicLink;
 
-    @CustomType.Constructor
-    private VpcPeeringConnectionAccepterRequester(
-        @CustomType.Parameter("allowClassicLinkToRemoteVpc") @Nullable Boolean allowClassicLinkToRemoteVpc,
-        @CustomType.Parameter("allowRemoteVpcDnsResolution") @Nullable Boolean allowRemoteVpcDnsResolution,
-        @CustomType.Parameter("allowVpcToRemoteClassicLink") @Nullable Boolean allowVpcToRemoteClassicLink) {
-        this.allowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
-        this.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-        this.allowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
-    }
-
+    private VpcPeeringConnectionAccepterRequester() {}
     /**
      * @return Indicates whether a local ClassicLink connection can communicate
      * with the peer VPC over the VPC Peering Connection.
@@ -72,16 +63,12 @@ public final class VpcPeeringConnectionAccepterRequester {
     public static Builder builder(VpcPeeringConnectionAccepterRequester defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowClassicLinkToRemoteVpc;
         private @Nullable Boolean allowRemoteVpcDnsResolution;
         private @Nullable Boolean allowVpcToRemoteClassicLink;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpcPeeringConnectionAccepterRequester defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowClassicLinkToRemoteVpc = defaults.allowClassicLinkToRemoteVpc;
@@ -89,19 +76,27 @@ public final class VpcPeeringConnectionAccepterRequester {
     	      this.allowVpcToRemoteClassicLink = defaults.allowVpcToRemoteClassicLink;
         }
 
+        @CustomType.Setter
         public Builder allowClassicLinkToRemoteVpc(@Nullable Boolean allowClassicLinkToRemoteVpc) {
             this.allowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
             return this;
         }
+        @CustomType.Setter
         public Builder allowRemoteVpcDnsResolution(@Nullable Boolean allowRemoteVpcDnsResolution) {
             this.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
             return this;
         }
+        @CustomType.Setter
         public Builder allowVpcToRemoteClassicLink(@Nullable Boolean allowVpcToRemoteClassicLink) {
             this.allowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
             return this;
-        }        public VpcPeeringConnectionAccepterRequester build() {
-            return new VpcPeeringConnectionAccepterRequester(allowClassicLinkToRemoteVpc, allowRemoteVpcDnsResolution, allowVpcToRemoteClassicLink);
+        }
+        public VpcPeeringConnectionAccepterRequester build() {
+            final var o = new VpcPeeringConnectionAccepterRequester();
+            o.allowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
+            o.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
+            o.allowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
+            return o;
         }
     }
 }

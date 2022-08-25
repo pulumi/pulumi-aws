@@ -15,38 +15,38 @@ public final class GetIntentResult {
      * @return The ARN of the Lex intent.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Checksum identifying the version of the intent that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the intent.
      * 
      */
-    private final String checksum;
+    private String checksum;
     /**
      * @return The date when the intent version was created.
      * 
      */
-    private final String createdDate;
+    private String createdDate;
     /**
      * @return A description of the intent.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The date when the $LATEST version of this intent was updated.
      * 
      */
-    private final String lastUpdatedDate;
+    private String lastUpdatedDate;
     /**
      * @return The name of the intent, not case sensitive.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A unique identifier for the built-in intent to base this
      * intent on. To find the signature for an intent, see
@@ -54,35 +54,14 @@ public final class GetIntentResult {
      * in the Alexa Skills Kit.
      * 
      */
-    private final String parentIntentSignature;
+    private String parentIntentSignature;
     /**
      * @return The version of the bot.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private GetIntentResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("checksum") String checksum,
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastUpdatedDate") String lastUpdatedDate,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parentIntentSignature") String parentIntentSignature,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.arn = arn;
-        this.checksum = checksum;
-        this.createdDate = createdDate;
-        this.description = description;
-        this.id = id;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.name = name;
-        this.parentIntentSignature = parentIntentSignature;
-        this.version = version;
-    }
-
+    private GetIntentResult() {}
     /**
      * @return The ARN of the Lex intent.
      * 
@@ -158,7 +137,7 @@ public final class GetIntentResult {
     public static Builder builder(GetIntentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String checksum;
@@ -169,11 +148,7 @@ public final class GetIntentResult {
         private String name;
         private String parentIntentSignature;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIntentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -187,43 +162,63 @@ public final class GetIntentResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder checksum(String checksum) {
             this.checksum = Objects.requireNonNull(checksum);
             return this;
         }
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
             this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parentIntentSignature(String parentIntentSignature) {
             this.parentIntentSignature = Objects.requireNonNull(parentIntentSignature);
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public GetIntentResult build() {
-            return new GetIntentResult(arn, checksum, createdDate, description, id, lastUpdatedDate, name, parentIntentSignature, version);
+        }
+        public GetIntentResult build() {
+            final var o = new GetIntentResult();
+            o.arn = arn;
+            o.checksum = checksum;
+            o.createdDate = createdDate;
+            o.description = description;
+            o.id = id;
+            o.lastUpdatedDate = lastUpdatedDate;
+            o.name = name;
+            o.parentIntentSignature = parentIntentSignature;
+            o.version = version;
+            return o;
         }
     }
 }

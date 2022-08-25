@@ -16,35 +16,24 @@ public final class EventTargetBatchTarget {
      * @return The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
      * 
      */
-    private final @Nullable Integer arraySize;
+    private @Nullable Integer arraySize;
     /**
      * @return The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
      * 
      */
-    private final @Nullable Integer jobAttempts;
+    private @Nullable Integer jobAttempts;
     /**
      * @return The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
      * 
      */
-    private final String jobDefinition;
+    private String jobDefinition;
     /**
      * @return The name to use for this execution of the job, if the target is an AWS Batch job.
      * 
      */
-    private final String jobName;
+    private String jobName;
 
-    @CustomType.Constructor
-    private EventTargetBatchTarget(
-        @CustomType.Parameter("arraySize") @Nullable Integer arraySize,
-        @CustomType.Parameter("jobAttempts") @Nullable Integer jobAttempts,
-        @CustomType.Parameter("jobDefinition") String jobDefinition,
-        @CustomType.Parameter("jobName") String jobName) {
-        this.arraySize = arraySize;
-        this.jobAttempts = jobAttempts;
-        this.jobDefinition = jobDefinition;
-        this.jobName = jobName;
-    }
-
+    private EventTargetBatchTarget() {}
     /**
      * @return The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
      * 
@@ -81,17 +70,13 @@ public final class EventTargetBatchTarget {
     public static Builder builder(EventTargetBatchTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer arraySize;
         private @Nullable Integer jobAttempts;
         private String jobDefinition;
         private String jobName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventTargetBatchTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arraySize = defaults.arraySize;
@@ -100,23 +85,33 @@ public final class EventTargetBatchTarget {
     	      this.jobName = defaults.jobName;
         }
 
+        @CustomType.Setter
         public Builder arraySize(@Nullable Integer arraySize) {
             this.arraySize = arraySize;
             return this;
         }
+        @CustomType.Setter
         public Builder jobAttempts(@Nullable Integer jobAttempts) {
             this.jobAttempts = jobAttempts;
             return this;
         }
+        @CustomType.Setter
         public Builder jobDefinition(String jobDefinition) {
             this.jobDefinition = Objects.requireNonNull(jobDefinition);
             return this;
         }
+        @CustomType.Setter
         public Builder jobName(String jobName) {
             this.jobName = Objects.requireNonNull(jobName);
             return this;
-        }        public EventTargetBatchTarget build() {
-            return new EventTargetBatchTarget(arraySize, jobAttempts, jobDefinition, jobName);
+        }
+        public EventTargetBatchTarget build() {
+            final var o = new EventTargetBatchTarget();
+            o.arraySize = arraySize;
+            o.jobAttempts = jobAttempts;
+            o.jobDefinition = jobDefinition;
+            o.jobName = jobName;
+            return o;
         }
     }
 }

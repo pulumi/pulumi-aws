@@ -15,21 +15,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
      * @return Maximum.
      * 
      */
-    private final @Nullable Double max;
+    private @Nullable Double max;
     /**
      * @return Minimum.
      * 
      */
-    private final @Nullable Double min;
+    private @Nullable Double min;
 
-    @CustomType.Constructor
-    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu(
-        @CustomType.Parameter("max") @Nullable Double max,
-        @CustomType.Parameter("min") @Nullable Double min) {
-        this.max = max;
-        this.min = min;
-    }
-
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu() {}
     /**
      * @return Maximum.
      * 
@@ -52,30 +45,32 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     public static Builder builder(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Double max;
         private @Nullable Double min;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.max = defaults.max;
     	      this.min = defaults.min;
         }
 
+        @CustomType.Setter
         public Builder max(@Nullable Double max) {
             this.max = max;
             return this;
         }
+        @CustomType.Setter
         public Builder min(@Nullable Double min) {
             this.min = min;
             return this;
-        }        public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu build() {
-            return new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu(max, min);
+        }
+        public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu build() {
+            final var o = new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu();
+            o.max = max;
+            o.min = min;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class TableComment {
      * @return A description of the table.
      * 
      */
-    private final @Nullable String message;
+    private @Nullable String message;
 
-    @CustomType.Constructor
-    private TableComment(@CustomType.Parameter("message") @Nullable String message) {
-        this.message = message;
-    }
-
+    private TableComment() {}
     /**
      * @return A description of the table.
      * 
@@ -37,24 +33,24 @@ public final class TableComment {
     public static Builder builder(TableComment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String message;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableComment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.message = defaults.message;
         }
 
+        @CustomType.Setter
         public Builder message(@Nullable String message) {
             this.message = message;
             return this;
-        }        public TableComment build() {
-            return new TableComment(message);
+        }
+        public TableComment build() {
+            final var o = new TableComment();
+            o.message = message;
+            return o;
         }
     }
 }

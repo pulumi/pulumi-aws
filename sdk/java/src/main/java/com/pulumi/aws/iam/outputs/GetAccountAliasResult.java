@@ -13,21 +13,14 @@ public final class GetAccountAliasResult {
      * @return The alias associated with the AWS account.
      * 
      */
-    private final String accountAlias;
+    private String accountAlias;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetAccountAliasResult(
-        @CustomType.Parameter("accountAlias") String accountAlias,
-        @CustomType.Parameter("id") String id) {
-        this.accountAlias = accountAlias;
-        this.id = id;
-    }
-
+    private GetAccountAliasResult() {}
     /**
      * @return The alias associated with the AWS account.
      * 
@@ -50,30 +43,32 @@ public final class GetAccountAliasResult {
     public static Builder builder(GetAccountAliasResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountAlias;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountAliasResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountAlias = defaults.accountAlias;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder accountAlias(String accountAlias) {
             this.accountAlias = Objects.requireNonNull(accountAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetAccountAliasResult build() {
-            return new GetAccountAliasResult(accountAlias, id);
+        }
+        public GetAccountAliasResult build() {
+            final var o = new GetAccountAliasResult();
+            o.accountAlias = accountAlias;
+            o.id = id;
+            return o;
         }
     }
 }

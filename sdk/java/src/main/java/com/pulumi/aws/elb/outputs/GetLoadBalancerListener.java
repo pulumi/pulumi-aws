@@ -10,26 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerListener {
-    private final Integer instancePort;
-    private final String instanceProtocol;
-    private final Integer lbPort;
-    private final String lbProtocol;
-    private final String sslCertificateId;
+    private Integer instancePort;
+    private String instanceProtocol;
+    private Integer lbPort;
+    private String lbProtocol;
+    private String sslCertificateId;
 
-    @CustomType.Constructor
-    private GetLoadBalancerListener(
-        @CustomType.Parameter("instancePort") Integer instancePort,
-        @CustomType.Parameter("instanceProtocol") String instanceProtocol,
-        @CustomType.Parameter("lbPort") Integer lbPort,
-        @CustomType.Parameter("lbProtocol") String lbProtocol,
-        @CustomType.Parameter("sslCertificateId") String sslCertificateId) {
-        this.instancePort = instancePort;
-        this.instanceProtocol = instanceProtocol;
-        this.lbPort = lbPort;
-        this.lbProtocol = lbProtocol;
-        this.sslCertificateId = sslCertificateId;
-    }
-
+    private GetLoadBalancerListener() {}
     public Integer instancePort() {
         return this.instancePort;
     }
@@ -53,18 +40,14 @@ public final class GetLoadBalancerListener {
     public static Builder builder(GetLoadBalancerListener defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer instancePort;
         private String instanceProtocol;
         private Integer lbPort;
         private String lbProtocol;
         private String sslCertificateId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLoadBalancerListener defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instancePort = defaults.instancePort;
@@ -74,27 +57,39 @@ public final class GetLoadBalancerListener {
     	      this.sslCertificateId = defaults.sslCertificateId;
         }
 
+        @CustomType.Setter
         public Builder instancePort(Integer instancePort) {
             this.instancePort = Objects.requireNonNull(instancePort);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceProtocol(String instanceProtocol) {
             this.instanceProtocol = Objects.requireNonNull(instanceProtocol);
             return this;
         }
+        @CustomType.Setter
         public Builder lbPort(Integer lbPort) {
             this.lbPort = Objects.requireNonNull(lbPort);
             return this;
         }
+        @CustomType.Setter
         public Builder lbProtocol(String lbProtocol) {
             this.lbProtocol = Objects.requireNonNull(lbProtocol);
             return this;
         }
+        @CustomType.Setter
         public Builder sslCertificateId(String sslCertificateId) {
             this.sslCertificateId = Objects.requireNonNull(sslCertificateId);
             return this;
-        }        public GetLoadBalancerListener build() {
-            return new GetLoadBalancerListener(instancePort, instanceProtocol, lbPort, lbProtocol, sslCertificateId);
+        }
+        public GetLoadBalancerListener build() {
+            final var o = new GetLoadBalancerListener();
+            o.instancePort = instancePort;
+            o.instanceProtocol = instanceProtocol;
+            o.lbPort = lbPort;
+            o.lbProtocol = lbProtocol;
+            o.sslCertificateId = sslCertificateId;
+            return o;
         }
     }
 }

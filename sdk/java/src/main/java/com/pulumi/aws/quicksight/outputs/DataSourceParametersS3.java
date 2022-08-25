@@ -13,13 +13,9 @@ public final class DataSourceParametersS3 {
      * @return An object containing the S3 location of the S3 manifest file.
      * 
      */
-    private final DataSourceParametersS3ManifestFileLocation manifestFileLocation;
+    private DataSourceParametersS3ManifestFileLocation manifestFileLocation;
 
-    @CustomType.Constructor
-    private DataSourceParametersS3(@CustomType.Parameter("manifestFileLocation") DataSourceParametersS3ManifestFileLocation manifestFileLocation) {
-        this.manifestFileLocation = manifestFileLocation;
-    }
-
+    private DataSourceParametersS3() {}
     /**
      * @return An object containing the S3 location of the S3 manifest file.
      * 
@@ -35,24 +31,24 @@ public final class DataSourceParametersS3 {
     public static Builder builder(DataSourceParametersS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private DataSourceParametersS3ManifestFileLocation manifestFileLocation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.manifestFileLocation = defaults.manifestFileLocation;
         }
 
+        @CustomType.Setter
         public Builder manifestFileLocation(DataSourceParametersS3ManifestFileLocation manifestFileLocation) {
             this.manifestFileLocation = Objects.requireNonNull(manifestFileLocation);
             return this;
-        }        public DataSourceParametersS3 build() {
-            return new DataSourceParametersS3(manifestFileLocation);
+        }
+        public DataSourceParametersS3 build() {
+            final var o = new DataSourceParametersS3();
+            o.manifestFileLocation = manifestFileLocation;
+            return o;
         }
     }
 }

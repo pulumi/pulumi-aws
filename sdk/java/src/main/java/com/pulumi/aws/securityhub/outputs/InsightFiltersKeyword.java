@@ -13,13 +13,9 @@ public final class InsightFiltersKeyword {
      * @return A value for the keyword.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private InsightFiltersKeyword(@CustomType.Parameter("value") String value) {
-        this.value = value;
-    }
-
+    private InsightFiltersKeyword() {}
     /**
      * @return A value for the keyword.
      * 
@@ -35,24 +31,24 @@ public final class InsightFiltersKeyword {
     public static Builder builder(InsightFiltersKeyword defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersKeyword defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public InsightFiltersKeyword build() {
-            return new InsightFiltersKeyword(value);
+        }
+        public InsightFiltersKeyword build() {
+            final var o = new InsightFiltersKeyword();
+            o.value = value;
+            return o;
         }
     }
 }

@@ -9,20 +9,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSigningProfileRevocationRecord {
-    private final String revocationEffectiveFrom;
-    private final String revokedAt;
-    private final String revokedBy;
+    private String revocationEffectiveFrom;
+    private String revokedAt;
+    private String revokedBy;
 
-    @CustomType.Constructor
-    private GetSigningProfileRevocationRecord(
-        @CustomType.Parameter("revocationEffectiveFrom") String revocationEffectiveFrom,
-        @CustomType.Parameter("revokedAt") String revokedAt,
-        @CustomType.Parameter("revokedBy") String revokedBy) {
-        this.revocationEffectiveFrom = revocationEffectiveFrom;
-        this.revokedAt = revokedAt;
-        this.revokedBy = revokedBy;
-    }
-
+    private GetSigningProfileRevocationRecord() {}
     public String revocationEffectiveFrom() {
         return this.revocationEffectiveFrom;
     }
@@ -40,16 +31,12 @@ public final class GetSigningProfileRevocationRecord {
     public static Builder builder(GetSigningProfileRevocationRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String revocationEffectiveFrom;
         private String revokedAt;
         private String revokedBy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSigningProfileRevocationRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.revocationEffectiveFrom = defaults.revocationEffectiveFrom;
@@ -57,19 +44,27 @@ public final class GetSigningProfileRevocationRecord {
     	      this.revokedBy = defaults.revokedBy;
         }
 
+        @CustomType.Setter
         public Builder revocationEffectiveFrom(String revocationEffectiveFrom) {
             this.revocationEffectiveFrom = Objects.requireNonNull(revocationEffectiveFrom);
             return this;
         }
+        @CustomType.Setter
         public Builder revokedAt(String revokedAt) {
             this.revokedAt = Objects.requireNonNull(revokedAt);
             return this;
         }
+        @CustomType.Setter
         public Builder revokedBy(String revokedBy) {
             this.revokedBy = Objects.requireNonNull(revokedBy);
             return this;
-        }        public GetSigningProfileRevocationRecord build() {
-            return new GetSigningProfileRevocationRecord(revocationEffectiveFrom, revokedAt, revokedBy);
+        }
+        public GetSigningProfileRevocationRecord build() {
+            final var o = new GetSigningProfileRevocationRecord();
+            o.revocationEffectiveFrom = revocationEffectiveFrom;
+            o.revokedAt = revokedAt;
+            o.revokedBy = revokedBy;
+            return o;
         }
     }
 }

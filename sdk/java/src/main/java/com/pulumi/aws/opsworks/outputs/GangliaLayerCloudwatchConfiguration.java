@@ -13,17 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GangliaLayerCloudwatchConfiguration {
-    private final @Nullable Boolean enabled;
-    private final @Nullable List<GangliaLayerCloudwatchConfigurationLogStream> logStreams;
+    private @Nullable Boolean enabled;
+    private @Nullable List<GangliaLayerCloudwatchConfigurationLogStream> logStreams;
 
-    @CustomType.Constructor
-    private GangliaLayerCloudwatchConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("logStreams") @Nullable List<GangliaLayerCloudwatchConfigurationLogStream> logStreams) {
-        this.enabled = enabled;
-        this.logStreams = logStreams;
-    }
-
+    private GangliaLayerCloudwatchConfiguration() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -38,33 +31,35 @@ public final class GangliaLayerCloudwatchConfiguration {
     public static Builder builder(GangliaLayerCloudwatchConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<GangliaLayerCloudwatchConfigurationLogStream> logStreams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GangliaLayerCloudwatchConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.logStreams = defaults.logStreams;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder logStreams(@Nullable List<GangliaLayerCloudwatchConfigurationLogStream> logStreams) {
             this.logStreams = logStreams;
             return this;
         }
         public Builder logStreams(GangliaLayerCloudwatchConfigurationLogStream... logStreams) {
             return logStreams(List.of(logStreams));
-        }        public GangliaLayerCloudwatchConfiguration build() {
-            return new GangliaLayerCloudwatchConfiguration(enabled, logStreams);
+        }
+        public GangliaLayerCloudwatchConfiguration build() {
+            final var o = new GangliaLayerCloudwatchConfiguration();
+            o.enabled = enabled;
+            o.logStreams = logStreams;
+            return o;
         }
     }
 }

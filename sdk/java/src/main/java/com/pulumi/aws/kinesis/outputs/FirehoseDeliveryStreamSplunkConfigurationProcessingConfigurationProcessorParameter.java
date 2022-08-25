@@ -13,21 +13,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
      * @return Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
      * 
      */
-    private final String parameterName;
+    private String parameterName;
     /**
      * @return Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
      * 
      */
-    private final String parameterValue;
+    private String parameterValue;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter(
-        @CustomType.Parameter("parameterName") String parameterName,
-        @CustomType.Parameter("parameterValue") String parameterValue) {
-        this.parameterName = parameterName;
-        this.parameterValue = parameterValue;
-    }
-
+    private FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter() {}
     /**
      * @return Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
      * 
@@ -50,30 +43,32 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
     public static Builder builder(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String parameterName;
         private String parameterValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameterName = defaults.parameterName;
     	      this.parameterValue = defaults.parameterValue;
         }
 
+        @CustomType.Setter
         public Builder parameterName(String parameterName) {
             this.parameterName = Objects.requireNonNull(parameterName);
             return this;
         }
+        @CustomType.Setter
         public Builder parameterValue(String parameterValue) {
             this.parameterValue = Objects.requireNonNull(parameterValue);
             return this;
-        }        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter build() {
-            return new FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter(parameterName, parameterValue);
+        }
+        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter build() {
+            final var o = new FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter();
+            o.parameterName = parameterName;
+            o.parameterValue = parameterValue;
+            return o;
         }
     }
 }

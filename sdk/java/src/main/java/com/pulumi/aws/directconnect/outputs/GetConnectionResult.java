@@ -14,66 +14,45 @@ public final class GetConnectionResult {
      * @return The ARN of the connection.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    private final String awsDevice;
+    private String awsDevice;
     /**
      * @return The bandwidth of the connection.
      * 
      */
-    private final String bandwidth;
+    private String bandwidth;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The AWS Direct Connect location where the connection is located.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The ID of the AWS account that owns the connection.
      * 
      */
-    private final String ownerAccountId;
+    private String ownerAccountId;
     /**
      * @return The name of the service provider associated with the connection.
      * 
      */
-    private final String providerName;
+    private String providerName;
     /**
      * @return A map of tags for the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetConnectionResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("awsDevice") String awsDevice,
-        @CustomType.Parameter("bandwidth") String bandwidth,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("ownerAccountId") String ownerAccountId,
-        @CustomType.Parameter("providerName") String providerName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.awsDevice = awsDevice;
-        this.bandwidth = bandwidth;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.ownerAccountId = ownerAccountId;
-        this.providerName = providerName;
-        this.tags = tags;
-    }
-
+    private GetConnectionResult() {}
     /**
      * @return The ARN of the connection.
      * 
@@ -141,7 +120,7 @@ public final class GetConnectionResult {
     public static Builder builder(GetConnectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String awsDevice;
@@ -152,11 +131,7 @@ public final class GetConnectionResult {
         private String ownerAccountId;
         private String providerName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -170,43 +145,63 @@ public final class GetConnectionResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder awsDevice(String awsDevice) {
             this.awsDevice = Objects.requireNonNull(awsDevice);
             return this;
         }
+        @CustomType.Setter
         public Builder bandwidth(String bandwidth) {
             this.bandwidth = Objects.requireNonNull(bandwidth);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerAccountId(String ownerAccountId) {
             this.ownerAccountId = Objects.requireNonNull(ownerAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder providerName(String providerName) {
             this.providerName = Objects.requireNonNull(providerName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetConnectionResult build() {
-            return new GetConnectionResult(arn, awsDevice, bandwidth, id, location, name, ownerAccountId, providerName, tags);
+        }
+        public GetConnectionResult build() {
+            final var o = new GetConnectionResult();
+            o.arn = arn;
+            o.awsDevice = awsDevice;
+            o.bandwidth = bandwidth;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.ownerAccountId = ownerAccountId;
+            o.providerName = providerName;
+            o.tags = tags;
+            return o;
         }
     }
 }

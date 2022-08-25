@@ -15,28 +15,19 @@ public final class RuleSourceSourceDetail {
      * @return The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
      * 
      */
-    private final @Nullable String eventSource;
+    private @Nullable String eventSource;
     /**
      * @return The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
      * 
      */
-    private final @Nullable String maximumExecutionFrequency;
+    private @Nullable String maximumExecutionFrequency;
     /**
      * @return The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
      * 
      */
-    private final @Nullable String messageType;
+    private @Nullable String messageType;
 
-    @CustomType.Constructor
-    private RuleSourceSourceDetail(
-        @CustomType.Parameter("eventSource") @Nullable String eventSource,
-        @CustomType.Parameter("maximumExecutionFrequency") @Nullable String maximumExecutionFrequency,
-        @CustomType.Parameter("messageType") @Nullable String messageType) {
-        this.eventSource = eventSource;
-        this.maximumExecutionFrequency = maximumExecutionFrequency;
-        this.messageType = messageType;
-    }
-
+    private RuleSourceSourceDetail() {}
     /**
      * @return The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
      * 
@@ -66,16 +57,12 @@ public final class RuleSourceSourceDetail {
     public static Builder builder(RuleSourceSourceDetail defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String eventSource;
         private @Nullable String maximumExecutionFrequency;
         private @Nullable String messageType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleSourceSourceDetail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventSource = defaults.eventSource;
@@ -83,19 +70,27 @@ public final class RuleSourceSourceDetail {
     	      this.messageType = defaults.messageType;
         }
 
+        @CustomType.Setter
         public Builder eventSource(@Nullable String eventSource) {
             this.eventSource = eventSource;
             return this;
         }
+        @CustomType.Setter
         public Builder maximumExecutionFrequency(@Nullable String maximumExecutionFrequency) {
             this.maximumExecutionFrequency = maximumExecutionFrequency;
             return this;
         }
+        @CustomType.Setter
         public Builder messageType(@Nullable String messageType) {
             this.messageType = messageType;
             return this;
-        }        public RuleSourceSourceDetail build() {
-            return new RuleSourceSourceDetail(eventSource, maximumExecutionFrequency, messageType);
+        }
+        public RuleSourceSourceDetail build() {
+            final var o = new RuleSourceSourceDetail();
+            o.eventSource = eventSource;
+            o.maximumExecutionFrequency = maximumExecutionFrequency;
+            o.messageType = messageType;
+            return o;
         }
     }
 }

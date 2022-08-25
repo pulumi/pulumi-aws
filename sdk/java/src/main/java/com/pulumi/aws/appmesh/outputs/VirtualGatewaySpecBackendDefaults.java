@@ -15,13 +15,9 @@ public final class VirtualGatewaySpecBackendDefaults {
      * @return The default client policy for virtual gateway backends.
      * 
      */
-    private final @Nullable VirtualGatewaySpecBackendDefaultsClientPolicy clientPolicy;
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicy clientPolicy;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaults(@CustomType.Parameter("clientPolicy") @Nullable VirtualGatewaySpecBackendDefaultsClientPolicy clientPolicy) {
-        this.clientPolicy = clientPolicy;
-    }
-
+    private VirtualGatewaySpecBackendDefaults() {}
     /**
      * @return The default client policy for virtual gateway backends.
      * 
@@ -37,24 +33,24 @@ public final class VirtualGatewaySpecBackendDefaults {
     public static Builder builder(VirtualGatewaySpecBackendDefaults defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicy clientPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaults defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientPolicy = defaults.clientPolicy;
         }
 
+        @CustomType.Setter
         public Builder clientPolicy(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicy clientPolicy) {
             this.clientPolicy = clientPolicy;
             return this;
-        }        public VirtualGatewaySpecBackendDefaults build() {
-            return new VirtualGatewaySpecBackendDefaults(clientPolicy);
+        }
+        public VirtualGatewaySpecBackendDefaults build() {
+            final var o = new VirtualGatewaySpecBackendDefaults();
+            o.clientPolicy = clientPolicy;
+            return o;
         }
     }
 }

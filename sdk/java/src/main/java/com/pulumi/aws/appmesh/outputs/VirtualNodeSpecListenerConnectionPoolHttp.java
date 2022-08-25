@@ -15,21 +15,14 @@ public final class VirtualNodeSpecListenerConnectionPoolHttp {
      * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
      * 
      */
-    private final Integer maxConnections;
+    private Integer maxConnections;
     /**
      * @return Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
      * 
      */
-    private final @Nullable Integer maxPendingRequests;
+    private @Nullable Integer maxPendingRequests;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerConnectionPoolHttp(
-        @CustomType.Parameter("maxConnections") Integer maxConnections,
-        @CustomType.Parameter("maxPendingRequests") @Nullable Integer maxPendingRequests) {
-        this.maxConnections = maxConnections;
-        this.maxPendingRequests = maxPendingRequests;
-    }
-
+    private VirtualNodeSpecListenerConnectionPoolHttp() {}
     /**
      * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
      * 
@@ -52,30 +45,32 @@ public final class VirtualNodeSpecListenerConnectionPoolHttp {
     public static Builder builder(VirtualNodeSpecListenerConnectionPoolHttp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxConnections;
         private @Nullable Integer maxPendingRequests;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerConnectionPoolHttp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxConnections = defaults.maxConnections;
     	      this.maxPendingRequests = defaults.maxPendingRequests;
         }
 
+        @CustomType.Setter
         public Builder maxConnections(Integer maxConnections) {
             this.maxConnections = Objects.requireNonNull(maxConnections);
             return this;
         }
+        @CustomType.Setter
         public Builder maxPendingRequests(@Nullable Integer maxPendingRequests) {
             this.maxPendingRequests = maxPendingRequests;
             return this;
-        }        public VirtualNodeSpecListenerConnectionPoolHttp build() {
-            return new VirtualNodeSpecListenerConnectionPoolHttp(maxConnections, maxPendingRequests);
+        }
+        public VirtualNodeSpecListenerConnectionPoolHttp build() {
+            final var o = new VirtualNodeSpecListenerConnectionPoolHttp();
+            o.maxConnections = maxConnections;
+            o.maxPendingRequests = maxPendingRequests;
+            return o;
         }
     }
 }

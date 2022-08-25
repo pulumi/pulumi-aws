@@ -12,38 +12,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSchedulingPolicyResult {
-    private final String arn;
-    private final List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies;
+    private String arn;
+    private List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the name of the scheduling policy.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Key-value map of resource tags
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetSchedulingPolicyResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("fairSharePolicies") List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.fairSharePolicies = fairSharePolicies;
-        this.id = id;
-        this.name = name;
-        this.tags = tags;
-    }
-
+    private GetSchedulingPolicyResult() {}
     public String arn() {
         return this.arn;
     }
@@ -79,18 +66,14 @@ public final class GetSchedulingPolicyResult {
     public static Builder builder(GetSchedulingPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies;
         private String id;
         private String name;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSchedulingPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -100,10 +83,12 @@ public final class GetSchedulingPolicyResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder fairSharePolicies(List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies) {
             this.fairSharePolicies = Objects.requireNonNull(fairSharePolicies);
             return this;
@@ -111,19 +96,29 @@ public final class GetSchedulingPolicyResult {
         public Builder fairSharePolicies(GetSchedulingPolicyFairSharePolicy... fairSharePolicies) {
             return fairSharePolicies(List.of(fairSharePolicies));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetSchedulingPolicyResult build() {
-            return new GetSchedulingPolicyResult(arn, fairSharePolicies, id, name, tags);
+        }
+        public GetSchedulingPolicyResult build() {
+            final var o = new GetSchedulingPolicyResult();
+            o.arn = arn;
+            o.fairSharePolicies = fairSharePolicies;
+            o.id = id;
+            o.name = name;
+            o.tags = tags;
+            return o;
         }
     }
 }

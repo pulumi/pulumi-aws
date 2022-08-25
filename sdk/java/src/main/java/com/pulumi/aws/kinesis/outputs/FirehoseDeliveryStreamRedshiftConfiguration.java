@@ -19,91 +19,64 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below
      * 
      */
-    private final @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
+    private @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
      * @return The jdbcurl of the redshift cluster.
      * 
      */
-    private final String clusterJdbcurl;
+    private String clusterJdbcurl;
     /**
      * @return Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
      * 
      */
-    private final @Nullable String copyOptions;
+    private @Nullable String copyOptions;
     /**
      * @return The data table columns that will be targeted by the copy command.
      * 
      */
-    private final @Nullable String dataTableColumns;
+    private @Nullable String dataTableColumns;
     /**
      * @return The name of the table in the redshift cluster that the s3 bucket will copy to.
      * 
      */
-    private final String dataTableName;
+    private String dataTableName;
     /**
      * @return The password for the username above.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The data processing configuration.  More details are given below.
      * 
      */
-    private final @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration;
+    private @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration;
     /**
      * @return The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
      * 
      */
-    private final @Nullable Integer retryDuration;
+    private @Nullable Integer retryDuration;
     /**
      * @return The arn of the role the stream assumes.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
      * 
      */
-    private final @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration;
+    private @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration;
     /**
      * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
      * 
      */
-    private final @Nullable String s3BackupMode;
+    private @Nullable String s3BackupMode;
     /**
      * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamRedshiftConfiguration(
-        @CustomType.Parameter("cloudwatchLoggingOptions") @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-        @CustomType.Parameter("clusterJdbcurl") String clusterJdbcurl,
-        @CustomType.Parameter("copyOptions") @Nullable String copyOptions,
-        @CustomType.Parameter("dataTableColumns") @Nullable String dataTableColumns,
-        @CustomType.Parameter("dataTableName") String dataTableName,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("processingConfiguration") @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration,
-        @CustomType.Parameter("retryDuration") @Nullable Integer retryDuration,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("s3BackupConfiguration") @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration,
-        @CustomType.Parameter("s3BackupMode") @Nullable String s3BackupMode,
-        @CustomType.Parameter("username") String username) {
-        this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-        this.clusterJdbcurl = clusterJdbcurl;
-        this.copyOptions = copyOptions;
-        this.dataTableColumns = dataTableColumns;
-        this.dataTableName = dataTableName;
-        this.password = password;
-        this.processingConfiguration = processingConfiguration;
-        this.retryDuration = retryDuration;
-        this.roleArn = roleArn;
-        this.s3BackupConfiguration = s3BackupConfiguration;
-        this.s3BackupMode = s3BackupMode;
-        this.username = username;
-    }
-
+    private FirehoseDeliveryStreamRedshiftConfiguration() {}
     /**
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below
      * 
@@ -196,7 +169,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
     public static Builder builder(FirehoseDeliveryStreamRedshiftConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
         private String clusterJdbcurl;
@@ -210,11 +183,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         private @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration;
         private @Nullable String s3BackupMode;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamRedshiftConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLoggingOptions = defaults.cloudwatchLoggingOptions;
@@ -231,55 +200,81 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
+        @CustomType.Setter
         public Builder clusterJdbcurl(String clusterJdbcurl) {
             this.clusterJdbcurl = Objects.requireNonNull(clusterJdbcurl);
             return this;
         }
+        @CustomType.Setter
         public Builder copyOptions(@Nullable String copyOptions) {
             this.copyOptions = copyOptions;
             return this;
         }
+        @CustomType.Setter
         public Builder dataTableColumns(@Nullable String dataTableColumns) {
             this.dataTableColumns = dataTableColumns;
             return this;
         }
+        @CustomType.Setter
         public Builder dataTableName(String dataTableName) {
             this.dataTableName = Objects.requireNonNull(dataTableName);
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration) {
             this.processingConfiguration = processingConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
             this.retryDuration = retryDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder s3BackupConfiguration(@Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration) {
             this.s3BackupConfiguration = s3BackupConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
             this.s3BackupMode = s3BackupMode;
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public FirehoseDeliveryStreamRedshiftConfiguration build() {
-            return new FirehoseDeliveryStreamRedshiftConfiguration(cloudwatchLoggingOptions, clusterJdbcurl, copyOptions, dataTableColumns, dataTableName, password, processingConfiguration, retryDuration, roleArn, s3BackupConfiguration, s3BackupMode, username);
+        }
+        public FirehoseDeliveryStreamRedshiftConfiguration build() {
+            final var o = new FirehoseDeliveryStreamRedshiftConfiguration();
+            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            o.clusterJdbcurl = clusterJdbcurl;
+            o.copyOptions = copyOptions;
+            o.dataTableColumns = dataTableColumns;
+            o.dataTableName = dataTableName;
+            o.password = password;
+            o.processingConfiguration = processingConfiguration;
+            o.retryDuration = retryDuration;
+            o.roleArn = roleArn;
+            o.s3BackupConfiguration = s3BackupConfiguration;
+            o.s3BackupMode = s3BackupMode;
+            o.username = username;
+            return o;
         }
     }
 }

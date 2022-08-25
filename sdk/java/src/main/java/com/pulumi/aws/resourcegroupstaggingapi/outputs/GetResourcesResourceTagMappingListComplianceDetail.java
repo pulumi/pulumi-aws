@@ -17,20 +17,11 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
      * * ` non_compliant_keys  ` - Set of non-compliant tag keys.
      * 
      */
-    private final Boolean complianceStatus;
-    private final List<String> keysWithNoncompliantValues;
-    private final List<String> nonCompliantKeys;
+    private Boolean complianceStatus;
+    private List<String> keysWithNoncompliantValues;
+    private List<String> nonCompliantKeys;
 
-    @CustomType.Constructor
-    private GetResourcesResourceTagMappingListComplianceDetail(
-        @CustomType.Parameter("complianceStatus") Boolean complianceStatus,
-        @CustomType.Parameter("keysWithNoncompliantValues") List<String> keysWithNoncompliantValues,
-        @CustomType.Parameter("nonCompliantKeys") List<String> nonCompliantKeys) {
-        this.complianceStatus = complianceStatus;
-        this.keysWithNoncompliantValues = keysWithNoncompliantValues;
-        this.nonCompliantKeys = nonCompliantKeys;
-    }
-
+    private GetResourcesResourceTagMappingListComplianceDetail() {}
     /**
      * @return Whether the resource is compliant.
      * * ` keys_with_noncompliant_values  ` - Set of tag keys with non-compliant tag values.
@@ -54,16 +45,12 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
     public static Builder builder(GetResourcesResourceTagMappingListComplianceDetail defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean complianceStatus;
         private List<String> keysWithNoncompliantValues;
         private List<String> nonCompliantKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourcesResourceTagMappingListComplianceDetail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.complianceStatus = defaults.complianceStatus;
@@ -71,10 +58,12 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
     	      this.nonCompliantKeys = defaults.nonCompliantKeys;
         }
 
+        @CustomType.Setter
         public Builder complianceStatus(Boolean complianceStatus) {
             this.complianceStatus = Objects.requireNonNull(complianceStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder keysWithNoncompliantValues(List<String> keysWithNoncompliantValues) {
             this.keysWithNoncompliantValues = Objects.requireNonNull(keysWithNoncompliantValues);
             return this;
@@ -82,14 +71,20 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
         public Builder keysWithNoncompliantValues(String... keysWithNoncompliantValues) {
             return keysWithNoncompliantValues(List.of(keysWithNoncompliantValues));
         }
+        @CustomType.Setter
         public Builder nonCompliantKeys(List<String> nonCompliantKeys) {
             this.nonCompliantKeys = Objects.requireNonNull(nonCompliantKeys);
             return this;
         }
         public Builder nonCompliantKeys(String... nonCompliantKeys) {
             return nonCompliantKeys(List.of(nonCompliantKeys));
-        }        public GetResourcesResourceTagMappingListComplianceDetail build() {
-            return new GetResourcesResourceTagMappingListComplianceDetail(complianceStatus, keysWithNoncompliantValues, nonCompliantKeys);
+        }
+        public GetResourcesResourceTagMappingListComplianceDetail build() {
+            final var o = new GetResourcesResourceTagMappingListComplianceDetail();
+            o.complianceStatus = complianceStatus;
+            o.keysWithNoncompliantValues = keysWithNoncompliantValues;
+            o.nonCompliantKeys = nonCompliantKeys;
+            return o;
         }
     }
 }

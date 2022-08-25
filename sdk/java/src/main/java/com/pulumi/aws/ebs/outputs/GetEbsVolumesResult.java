@@ -13,32 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEbsVolumesResult {
-    private final @Nullable List<GetEbsVolumesFilter> filters;
+    private @Nullable List<GetEbsVolumesFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A set of all the EBS Volume IDs found. This data source will fail if
      * no volumes match the provided criteria.
      * 
      */
-    private final List<String> ids;
-    private final @Nullable Map<String,String> tags;
+    private List<String> ids;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetEbsVolumesResult(
-        @CustomType.Parameter("filters") @Nullable List<GetEbsVolumesFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.filters = filters;
-        this.id = id;
-        this.ids = ids;
-        this.tags = tags;
-    }
-
+    private GetEbsVolumesResult() {}
     public List<GetEbsVolumesFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -68,17 +57,13 @@ public final class GetEbsVolumesResult {
     public static Builder builder(GetEbsVolumesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetEbsVolumesFilter> filters;
         private String id;
         private List<String> ids;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEbsVolumesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -87,6 +72,7 @@ public final class GetEbsVolumesResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetEbsVolumesFilter> filters) {
             this.filters = filters;
             return this;
@@ -94,10 +80,12 @@ public final class GetEbsVolumesResult {
         public Builder filters(GetEbsVolumesFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -105,11 +93,18 @@ public final class GetEbsVolumesResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetEbsVolumesResult build() {
-            return new GetEbsVolumesResult(filters, id, ids, tags);
+        }
+        public GetEbsVolumesResult build() {
+            final var o = new GetEbsVolumesResult();
+            o.filters = filters;
+            o.id = id;
+            o.ids = ids;
+            o.tags = tags;
+            return o;
         }
     }
 }

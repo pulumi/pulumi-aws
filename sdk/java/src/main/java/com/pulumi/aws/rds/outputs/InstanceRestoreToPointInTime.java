@@ -16,42 +16,29 @@ public final class InstanceRestoreToPointInTime {
      * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
      * 
      */
-    private final @Nullable String restoreTime;
+    private @Nullable String restoreTime;
     /**
      * @return The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
      * 
      */
-    private final @Nullable String sourceDbInstanceAutomatedBackupsArn;
+    private @Nullable String sourceDbInstanceAutomatedBackupsArn;
     /**
      * @return The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
      * 
      */
-    private final @Nullable String sourceDbInstanceIdentifier;
+    private @Nullable String sourceDbInstanceIdentifier;
     /**
      * @return The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
      * 
      */
-    private final @Nullable String sourceDbiResourceId;
+    private @Nullable String sourceDbiResourceId;
     /**
      * @return A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
      * 
      */
-    private final @Nullable Boolean useLatestRestorableTime;
+    private @Nullable Boolean useLatestRestorableTime;
 
-    @CustomType.Constructor
-    private InstanceRestoreToPointInTime(
-        @CustomType.Parameter("restoreTime") @Nullable String restoreTime,
-        @CustomType.Parameter("sourceDbInstanceAutomatedBackupsArn") @Nullable String sourceDbInstanceAutomatedBackupsArn,
-        @CustomType.Parameter("sourceDbInstanceIdentifier") @Nullable String sourceDbInstanceIdentifier,
-        @CustomType.Parameter("sourceDbiResourceId") @Nullable String sourceDbiResourceId,
-        @CustomType.Parameter("useLatestRestorableTime") @Nullable Boolean useLatestRestorableTime) {
-        this.restoreTime = restoreTime;
-        this.sourceDbInstanceAutomatedBackupsArn = sourceDbInstanceAutomatedBackupsArn;
-        this.sourceDbInstanceIdentifier = sourceDbInstanceIdentifier;
-        this.sourceDbiResourceId = sourceDbiResourceId;
-        this.useLatestRestorableTime = useLatestRestorableTime;
-    }
-
+    private InstanceRestoreToPointInTime() {}
     /**
      * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
      * 
@@ -95,18 +82,14 @@ public final class InstanceRestoreToPointInTime {
     public static Builder builder(InstanceRestoreToPointInTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String restoreTime;
         private @Nullable String sourceDbInstanceAutomatedBackupsArn;
         private @Nullable String sourceDbInstanceIdentifier;
         private @Nullable String sourceDbiResourceId;
         private @Nullable Boolean useLatestRestorableTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceRestoreToPointInTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.restoreTime = defaults.restoreTime;
@@ -116,27 +99,39 @@ public final class InstanceRestoreToPointInTime {
     	      this.useLatestRestorableTime = defaults.useLatestRestorableTime;
         }
 
+        @CustomType.Setter
         public Builder restoreTime(@Nullable String restoreTime) {
             this.restoreTime = restoreTime;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceDbInstanceAutomatedBackupsArn(@Nullable String sourceDbInstanceAutomatedBackupsArn) {
             this.sourceDbInstanceAutomatedBackupsArn = sourceDbInstanceAutomatedBackupsArn;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceDbInstanceIdentifier(@Nullable String sourceDbInstanceIdentifier) {
             this.sourceDbInstanceIdentifier = sourceDbInstanceIdentifier;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceDbiResourceId(@Nullable String sourceDbiResourceId) {
             this.sourceDbiResourceId = sourceDbiResourceId;
             return this;
         }
+        @CustomType.Setter
         public Builder useLatestRestorableTime(@Nullable Boolean useLatestRestorableTime) {
             this.useLatestRestorableTime = useLatestRestorableTime;
             return this;
-        }        public InstanceRestoreToPointInTime build() {
-            return new InstanceRestoreToPointInTime(restoreTime, sourceDbInstanceAutomatedBackupsArn, sourceDbInstanceIdentifier, sourceDbiResourceId, useLatestRestorableTime);
+        }
+        public InstanceRestoreToPointInTime build() {
+            final var o = new InstanceRestoreToPointInTime();
+            o.restoreTime = restoreTime;
+            o.sourceDbInstanceAutomatedBackupsArn = sourceDbInstanceAutomatedBackupsArn;
+            o.sourceDbInstanceIdentifier = sourceDbInstanceIdentifier;
+            o.sourceDbiResourceId = sourceDbiResourceId;
+            o.useLatestRestorableTime = useLatestRestorableTime;
+            return o;
         }
     }
 }

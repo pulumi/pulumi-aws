@@ -10,20 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class RulePredicate {
-    private final String dataId;
-    private final Boolean negated;
-    private final String type;
+    private String dataId;
+    private Boolean negated;
+    private String type;
 
-    @CustomType.Constructor
-    private RulePredicate(
-        @CustomType.Parameter("dataId") String dataId,
-        @CustomType.Parameter("negated") Boolean negated,
-        @CustomType.Parameter("type") String type) {
-        this.dataId = dataId;
-        this.negated = negated;
-        this.type = type;
-    }
-
+    private RulePredicate() {}
     public String dataId() {
         return this.dataId;
     }
@@ -41,16 +32,12 @@ public final class RulePredicate {
     public static Builder builder(RulePredicate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dataId;
         private Boolean negated;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulePredicate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataId = defaults.dataId;
@@ -58,19 +45,27 @@ public final class RulePredicate {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder dataId(String dataId) {
             this.dataId = Objects.requireNonNull(dataId);
             return this;
         }
+        @CustomType.Setter
         public Builder negated(Boolean negated) {
             this.negated = Objects.requireNonNull(negated);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public RulePredicate build() {
-            return new RulePredicate(dataId, negated, type);
+        }
+        public RulePredicate build() {
+            final var o = new RulePredicate();
+            o.dataId = dataId;
+            o.negated = negated;
+            o.type = type;
+            return o;
         }
     }
 }

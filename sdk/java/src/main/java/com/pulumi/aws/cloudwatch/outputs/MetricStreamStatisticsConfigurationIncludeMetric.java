@@ -13,21 +13,14 @@ public final class MetricStreamStatisticsConfigurationIncludeMetric {
      * @return The name of the metric.
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return The namespace of the metric.
      * 
      */
-    private final String namespace;
+    private String namespace;
 
-    @CustomType.Constructor
-    private MetricStreamStatisticsConfigurationIncludeMetric(
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("namespace") String namespace) {
-        this.metricName = metricName;
-        this.namespace = namespace;
-    }
-
+    private MetricStreamStatisticsConfigurationIncludeMetric() {}
     /**
      * @return The name of the metric.
      * 
@@ -50,30 +43,32 @@ public final class MetricStreamStatisticsConfigurationIncludeMetric {
     public static Builder builder(MetricStreamStatisticsConfigurationIncludeMetric defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String metricName;
         private String namespace;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MetricStreamStatisticsConfigurationIncludeMetric defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricName = defaults.metricName;
     	      this.namespace = defaults.namespace;
         }
 
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
-        }        public MetricStreamStatisticsConfigurationIncludeMetric build() {
-            return new MetricStreamStatisticsConfigurationIncludeMetric(metricName, namespace);
+        }
+        public MetricStreamStatisticsConfigurationIncludeMetric build() {
+            final var o = new MetricStreamStatisticsConfigurationIncludeMetric();
+            o.metricName = metricName;
+            o.namespace = namespace;
+            return o;
         }
     }
 }

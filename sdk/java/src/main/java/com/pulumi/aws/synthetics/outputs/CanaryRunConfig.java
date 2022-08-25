@@ -18,35 +18,24 @@ public final class CanaryRunConfig {
      * @return Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
      * 
      */
-    private final @Nullable Boolean activeTracing;
+    private @Nullable Boolean activeTracing;
     /**
      * @return Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
      * 
      */
-    private final @Nullable Map<String,String> environmentVariables;
+    private @Nullable Map<String,String> environmentVariables;
     /**
      * @return Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
      * 
      */
-    private final @Nullable Integer memoryInMb;
+    private @Nullable Integer memoryInMb;
     /**
      * @return Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
      * 
      */
-    private final @Nullable Integer timeoutInSeconds;
+    private @Nullable Integer timeoutInSeconds;
 
-    @CustomType.Constructor
-    private CanaryRunConfig(
-        @CustomType.Parameter("activeTracing") @Nullable Boolean activeTracing,
-        @CustomType.Parameter("environmentVariables") @Nullable Map<String,String> environmentVariables,
-        @CustomType.Parameter("memoryInMb") @Nullable Integer memoryInMb,
-        @CustomType.Parameter("timeoutInSeconds") @Nullable Integer timeoutInSeconds) {
-        this.activeTracing = activeTracing;
-        this.environmentVariables = environmentVariables;
-        this.memoryInMb = memoryInMb;
-        this.timeoutInSeconds = timeoutInSeconds;
-    }
-
+    private CanaryRunConfig() {}
     /**
      * @return Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
      * 
@@ -83,17 +72,13 @@ public final class CanaryRunConfig {
     public static Builder builder(CanaryRunConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean activeTracing;
         private @Nullable Map<String,String> environmentVariables;
         private @Nullable Integer memoryInMb;
         private @Nullable Integer timeoutInSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CanaryRunConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeTracing = defaults.activeTracing;
@@ -102,23 +87,33 @@ public final class CanaryRunConfig {
     	      this.timeoutInSeconds = defaults.timeoutInSeconds;
         }
 
+        @CustomType.Setter
         public Builder activeTracing(@Nullable Boolean activeTracing) {
             this.activeTracing = activeTracing;
             return this;
         }
+        @CustomType.Setter
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
             this.environmentVariables = environmentVariables;
             return this;
         }
+        @CustomType.Setter
         public Builder memoryInMb(@Nullable Integer memoryInMb) {
             this.memoryInMb = memoryInMb;
             return this;
         }
+        @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
-        }        public CanaryRunConfig build() {
-            return new CanaryRunConfig(activeTracing, environmentVariables, memoryInMb, timeoutInSeconds);
+        }
+        public CanaryRunConfig build() {
+            final var o = new CanaryRunConfig();
+            o.activeTracing = activeTracing;
+            o.environmentVariables = environmentVariables;
+            o.memoryInMb = memoryInMb;
+            o.timeoutInSeconds = timeoutInSeconds;
+            return o;
         }
     }
 }

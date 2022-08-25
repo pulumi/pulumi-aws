@@ -12,20 +12,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyMultiRegionConfiguration {
-    private final String multiRegionKeyType;
-    private final List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys;
-    private final List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys;
+    private String multiRegionKeyType;
+    private List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys;
+    private List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys;
 
-    @CustomType.Constructor
-    private GetKeyMultiRegionConfiguration(
-        @CustomType.Parameter("multiRegionKeyType") String multiRegionKeyType,
-        @CustomType.Parameter("primaryKeys") List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys,
-        @CustomType.Parameter("replicaKeys") List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys) {
-        this.multiRegionKeyType = multiRegionKeyType;
-        this.primaryKeys = primaryKeys;
-        this.replicaKeys = replicaKeys;
-    }
-
+    private GetKeyMultiRegionConfiguration() {}
     public String multiRegionKeyType() {
         return this.multiRegionKeyType;
     }
@@ -43,16 +34,12 @@ public final class GetKeyMultiRegionConfiguration {
     public static Builder builder(GetKeyMultiRegionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String multiRegionKeyType;
         private List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys;
         private List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKeyMultiRegionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.multiRegionKeyType = defaults.multiRegionKeyType;
@@ -60,10 +47,12 @@ public final class GetKeyMultiRegionConfiguration {
     	      this.replicaKeys = defaults.replicaKeys;
         }
 
+        @CustomType.Setter
         public Builder multiRegionKeyType(String multiRegionKeyType) {
             this.multiRegionKeyType = Objects.requireNonNull(multiRegionKeyType);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKeys(List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys) {
             this.primaryKeys = Objects.requireNonNull(primaryKeys);
             return this;
@@ -71,14 +60,20 @@ public final class GetKeyMultiRegionConfiguration {
         public Builder primaryKeys(GetKeyMultiRegionConfigurationPrimaryKey... primaryKeys) {
             return primaryKeys(List.of(primaryKeys));
         }
+        @CustomType.Setter
         public Builder replicaKeys(List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys) {
             this.replicaKeys = Objects.requireNonNull(replicaKeys);
             return this;
         }
         public Builder replicaKeys(GetKeyMultiRegionConfigurationReplicaKey... replicaKeys) {
             return replicaKeys(List.of(replicaKeys));
-        }        public GetKeyMultiRegionConfiguration build() {
-            return new GetKeyMultiRegionConfiguration(multiRegionKeyType, primaryKeys, replicaKeys);
+        }
+        public GetKeyMultiRegionConfiguration build() {
+            final var o = new GetKeyMultiRegionConfiguration();
+            o.multiRegionKeyType = multiRegionKeyType;
+            o.primaryKeys = primaryKeys;
+            o.replicaKeys = replicaKeys;
+            return o;
         }
     }
 }

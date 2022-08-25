@@ -15,35 +15,24 @@ public final class CustomDomainAssociationCertificateValidationRecord {
      * @return The certificate CNAME record name.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return The record type, always `CNAME`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return The certificate CNAME record value.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private CustomDomainAssociationCertificateValidationRecord(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.name = name;
-        this.status = status;
-        this.type = type;
-        this.value = value;
-    }
-
+    private CustomDomainAssociationCertificateValidationRecord() {}
     /**
      * @return The certificate CNAME record name.
      * 
@@ -80,17 +69,13 @@ public final class CustomDomainAssociationCertificateValidationRecord {
     public static Builder builder(CustomDomainAssociationCertificateValidationRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String status;
         private @Nullable String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CustomDomainAssociationCertificateValidationRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -99,23 +84,33 @@ public final class CustomDomainAssociationCertificateValidationRecord {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public CustomDomainAssociationCertificateValidationRecord build() {
-            return new CustomDomainAssociationCertificateValidationRecord(name, status, type, value);
+        }
+        public CustomDomainAssociationCertificateValidationRecord build() {
+            final var o = new CustomDomainAssociationCertificateValidationRecord();
+            o.name = name;
+            o.status = status;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

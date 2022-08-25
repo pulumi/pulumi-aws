@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
-    @CustomType.Constructor
-    private RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath() {
-    }
-
+    private RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
     public static Builder builder(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath build() {
-            return new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath();
+            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath();
+            return o;
         }
     }
 }

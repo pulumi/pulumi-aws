@@ -13,13 +13,9 @@ public final class FsxOpenZfsFileSystemProtocol {
      * @return Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
      * 
      */
-    private final FsxOpenZfsFileSystemProtocolNfs nfs;
+    private FsxOpenZfsFileSystemProtocolNfs nfs;
 
-    @CustomType.Constructor
-    private FsxOpenZfsFileSystemProtocol(@CustomType.Parameter("nfs") FsxOpenZfsFileSystemProtocolNfs nfs) {
-        this.nfs = nfs;
-    }
-
+    private FsxOpenZfsFileSystemProtocol() {}
     /**
      * @return Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
      * 
@@ -35,24 +31,24 @@ public final class FsxOpenZfsFileSystemProtocol {
     public static Builder builder(FsxOpenZfsFileSystemProtocol defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private FsxOpenZfsFileSystemProtocolNfs nfs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FsxOpenZfsFileSystemProtocol defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.nfs = defaults.nfs;
         }
 
+        @CustomType.Setter
         public Builder nfs(FsxOpenZfsFileSystemProtocolNfs nfs) {
             this.nfs = Objects.requireNonNull(nfs);
             return this;
-        }        public FsxOpenZfsFileSystemProtocol build() {
-            return new FsxOpenZfsFileSystemProtocol(nfs);
+        }
+        public FsxOpenZfsFileSystemProtocol build() {
+            final var o = new FsxOpenZfsFileSystemProtocol();
+            o.nfs = nfs;
+            return o;
         }
     }
 }

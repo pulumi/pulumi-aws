@@ -16,21 +16,14 @@ public final class ApplicationInitialCapacity {
      * @return The initial capacity configuration per worker.
      * 
      */
-    private final @Nullable ApplicationInitialCapacityInitialCapacityConfig initialCapacityConfig;
+    private @Nullable ApplicationInitialCapacityInitialCapacityConfig initialCapacityConfig;
     /**
      * @return The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
      * 
      */
-    private final String initialCapacityType;
+    private String initialCapacityType;
 
-    @CustomType.Constructor
-    private ApplicationInitialCapacity(
-        @CustomType.Parameter("initialCapacityConfig") @Nullable ApplicationInitialCapacityInitialCapacityConfig initialCapacityConfig,
-        @CustomType.Parameter("initialCapacityType") String initialCapacityType) {
-        this.initialCapacityConfig = initialCapacityConfig;
-        this.initialCapacityType = initialCapacityType;
-    }
-
+    private ApplicationInitialCapacity() {}
     /**
      * @return The initial capacity configuration per worker.
      * 
@@ -53,30 +46,32 @@ public final class ApplicationInitialCapacity {
     public static Builder builder(ApplicationInitialCapacity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ApplicationInitialCapacityInitialCapacityConfig initialCapacityConfig;
         private String initialCapacityType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationInitialCapacity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.initialCapacityConfig = defaults.initialCapacityConfig;
     	      this.initialCapacityType = defaults.initialCapacityType;
         }
 
+        @CustomType.Setter
         public Builder initialCapacityConfig(@Nullable ApplicationInitialCapacityInitialCapacityConfig initialCapacityConfig) {
             this.initialCapacityConfig = initialCapacityConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder initialCapacityType(String initialCapacityType) {
             this.initialCapacityType = Objects.requireNonNull(initialCapacityType);
             return this;
-        }        public ApplicationInitialCapacity build() {
-            return new ApplicationInitialCapacity(initialCapacityConfig, initialCapacityType);
+        }
+        public ApplicationInitialCapacity build() {
+            final var o = new ApplicationInitialCapacity();
+            o.initialCapacityConfig = initialCapacityConfig;
+            o.initialCapacityType = initialCapacityType;
+            return o;
         }
     }
 }

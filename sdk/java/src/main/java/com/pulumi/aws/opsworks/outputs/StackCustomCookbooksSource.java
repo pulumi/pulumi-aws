@@ -15,49 +15,34 @@ public final class StackCustomCookbooksSource {
      * @return Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return For sources that are version-aware, the revision to use.
      * 
      */
-    private final @Nullable String revision;
+    private @Nullable String revision;
     /**
      * @return SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
      * 
      */
-    private final @Nullable String sshKey;
+    private @Nullable String sshKey;
     /**
      * @return The type of source to use. For example, &#34;archive&#34;.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The URL where the cookbooks resource can be found.
      * 
      */
-    private final String url;
+    private String url;
     /**
      * @return Username to use when authenticating to the source.
      * 
      */
-    private final @Nullable String username;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private StackCustomCookbooksSource(
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("revision") @Nullable String revision,
-        @CustomType.Parameter("sshKey") @Nullable String sshKey,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("url") String url,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.password = password;
-        this.revision = revision;
-        this.sshKey = sshKey;
-        this.type = type;
-        this.url = url;
-        this.username = username;
-    }
-
+    private StackCustomCookbooksSource() {}
     /**
      * @return Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
      * 
@@ -108,7 +93,7 @@ public final class StackCustomCookbooksSource {
     public static Builder builder(StackCustomCookbooksSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String password;
         private @Nullable String revision;
@@ -116,11 +101,7 @@ public final class StackCustomCookbooksSource {
         private String type;
         private String url;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StackCustomCookbooksSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
@@ -131,31 +112,45 @@ public final class StackCustomCookbooksSource {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder revision(@Nullable String revision) {
             this.revision = revision;
             return this;
         }
+        @CustomType.Setter
         public Builder sshKey(@Nullable String sshKey) {
             this.sshKey = sshKey;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public StackCustomCookbooksSource build() {
-            return new StackCustomCookbooksSource(password, revision, sshKey, type, url, username);
+        }
+        public StackCustomCookbooksSource build() {
+            final var o = new StackCustomCookbooksSource();
+            o.password = password;
+            o.revision = revision;
+            o.sshKey = sshKey;
+            o.type = type;
+            o.url = url;
+            o.username = username;
+            return o;
         }
     }
 }

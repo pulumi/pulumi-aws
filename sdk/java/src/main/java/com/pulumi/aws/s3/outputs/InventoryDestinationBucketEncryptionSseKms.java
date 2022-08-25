@@ -13,13 +13,9 @@ public final class InventoryDestinationBucketEncryptionSseKms {
      * @return The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
      * 
      */
-    private final String keyId;
+    private String keyId;
 
-    @CustomType.Constructor
-    private InventoryDestinationBucketEncryptionSseKms(@CustomType.Parameter("keyId") String keyId) {
-        this.keyId = keyId;
-    }
-
+    private InventoryDestinationBucketEncryptionSseKms() {}
     /**
      * @return The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
      * 
@@ -35,24 +31,24 @@ public final class InventoryDestinationBucketEncryptionSseKms {
     public static Builder builder(InventoryDestinationBucketEncryptionSseKms defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InventoryDestinationBucketEncryptionSseKms defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyId = defaults.keyId;
         }
 
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
-        }        public InventoryDestinationBucketEncryptionSseKms build() {
-            return new InventoryDestinationBucketEncryptionSseKms(keyId);
+        }
+        public InventoryDestinationBucketEncryptionSseKms build() {
+            final var o = new InventoryDestinationBucketEncryptionSseKms();
+            o.keyId = keyId;
+            return o;
         }
     }
 }

@@ -17,56 +17,39 @@ public final class TableGlobalSecondaryIndex {
      * @return Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
      */
-    private final String hashKey;
+    private String hashKey;
     /**
      * @return Name of the index
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
-    private final @Nullable List<String> nonKeyAttributes;
+    private @Nullable List<String> nonKeyAttributes;
     /**
      * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
      * 
      */
-    private final String projectionType;
+    private String projectionType;
     /**
      * @return Name of the range key.
      * 
      */
-    private final @Nullable String rangeKey;
+    private @Nullable String rangeKey;
     /**
      * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
-    private final @Nullable Integer readCapacity;
+    private @Nullable Integer readCapacity;
     /**
      * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
-    private final @Nullable Integer writeCapacity;
+    private @Nullable Integer writeCapacity;
 
-    @CustomType.Constructor
-    private TableGlobalSecondaryIndex(
-        @CustomType.Parameter("hashKey") String hashKey,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nonKeyAttributes") @Nullable List<String> nonKeyAttributes,
-        @CustomType.Parameter("projectionType") String projectionType,
-        @CustomType.Parameter("rangeKey") @Nullable String rangeKey,
-        @CustomType.Parameter("readCapacity") @Nullable Integer readCapacity,
-        @CustomType.Parameter("writeCapacity") @Nullable Integer writeCapacity) {
-        this.hashKey = hashKey;
-        this.name = name;
-        this.nonKeyAttributes = nonKeyAttributes;
-        this.projectionType = projectionType;
-        this.rangeKey = rangeKey;
-        this.readCapacity = readCapacity;
-        this.writeCapacity = writeCapacity;
-    }
-
+    private TableGlobalSecondaryIndex() {}
     /**
      * @return Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
@@ -124,7 +107,7 @@ public final class TableGlobalSecondaryIndex {
     public static Builder builder(TableGlobalSecondaryIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hashKey;
         private String name;
@@ -133,11 +116,7 @@ public final class TableGlobalSecondaryIndex {
         private @Nullable String rangeKey;
         private @Nullable Integer readCapacity;
         private @Nullable Integer writeCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableGlobalSecondaryIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hashKey = defaults.hashKey;
@@ -149,14 +128,17 @@ public final class TableGlobalSecondaryIndex {
     	      this.writeCapacity = defaults.writeCapacity;
         }
 
+        @CustomType.Setter
         public Builder hashKey(String hashKey) {
             this.hashKey = Objects.requireNonNull(hashKey);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nonKeyAttributes(@Nullable List<String> nonKeyAttributes) {
             this.nonKeyAttributes = nonKeyAttributes;
             return this;
@@ -164,23 +146,36 @@ public final class TableGlobalSecondaryIndex {
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
             return nonKeyAttributes(List.of(nonKeyAttributes));
         }
+        @CustomType.Setter
         public Builder projectionType(String projectionType) {
             this.projectionType = Objects.requireNonNull(projectionType);
             return this;
         }
+        @CustomType.Setter
         public Builder rangeKey(@Nullable String rangeKey) {
             this.rangeKey = rangeKey;
             return this;
         }
+        @CustomType.Setter
         public Builder readCapacity(@Nullable Integer readCapacity) {
             this.readCapacity = readCapacity;
             return this;
         }
+        @CustomType.Setter
         public Builder writeCapacity(@Nullable Integer writeCapacity) {
             this.writeCapacity = writeCapacity;
             return this;
-        }        public TableGlobalSecondaryIndex build() {
-            return new TableGlobalSecondaryIndex(hashKey, name, nonKeyAttributes, projectionType, rangeKey, readCapacity, writeCapacity);
+        }
+        public TableGlobalSecondaryIndex build() {
+            final var o = new TableGlobalSecondaryIndex();
+            o.hashKey = hashKey;
+            o.name = name;
+            o.nonKeyAttributes = nonKeyAttributes;
+            o.projectionType = projectionType;
+            o.rangeKey = rangeKey;
+            o.readCapacity = readCapacity;
+            o.writeCapacity = writeCapacity;
+            return o;
         }
     }
 }

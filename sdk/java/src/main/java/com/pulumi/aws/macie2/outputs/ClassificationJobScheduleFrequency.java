@@ -17,28 +17,19 @@ public final class ClassificationJobScheduleFrequency {
      * @return Specifies a daily recurrence pattern for running the job.
      * 
      */
-    private final @Nullable Boolean dailySchedule;
+    private @Nullable Boolean dailySchedule;
     /**
      * @return Specifies a monthly recurrence pattern for running the job.
      * 
      */
-    private final @Nullable Integer monthlySchedule;
+    private @Nullable Integer monthlySchedule;
     /**
      * @return Specifies a weekly recurrence pattern for running the job.
      * 
      */
-    private final @Nullable String weeklySchedule;
+    private @Nullable String weeklySchedule;
 
-    @CustomType.Constructor
-    private ClassificationJobScheduleFrequency(
-        @CustomType.Parameter("dailySchedule") @Nullable Boolean dailySchedule,
-        @CustomType.Parameter("monthlySchedule") @Nullable Integer monthlySchedule,
-        @CustomType.Parameter("weeklySchedule") @Nullable String weeklySchedule) {
-        this.dailySchedule = dailySchedule;
-        this.monthlySchedule = monthlySchedule;
-        this.weeklySchedule = weeklySchedule;
-    }
-
+    private ClassificationJobScheduleFrequency() {}
     /**
      * @return Specifies a daily recurrence pattern for running the job.
      * 
@@ -68,16 +59,12 @@ public final class ClassificationJobScheduleFrequency {
     public static Builder builder(ClassificationJobScheduleFrequency defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean dailySchedule;
         private @Nullable Integer monthlySchedule;
         private @Nullable String weeklySchedule;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobScheduleFrequency defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dailySchedule = defaults.dailySchedule;
@@ -85,19 +72,27 @@ public final class ClassificationJobScheduleFrequency {
     	      this.weeklySchedule = defaults.weeklySchedule;
         }
 
+        @CustomType.Setter
         public Builder dailySchedule(@Nullable Boolean dailySchedule) {
             this.dailySchedule = dailySchedule;
             return this;
         }
+        @CustomType.Setter
         public Builder monthlySchedule(@Nullable Integer monthlySchedule) {
             this.monthlySchedule = monthlySchedule;
             return this;
         }
+        @CustomType.Setter
         public Builder weeklySchedule(@Nullable String weeklySchedule) {
             this.weeklySchedule = weeklySchedule;
             return this;
-        }        public ClassificationJobScheduleFrequency build() {
-            return new ClassificationJobScheduleFrequency(dailySchedule, monthlySchedule, weeklySchedule);
+        }
+        public ClassificationJobScheduleFrequency build() {
+            final var o = new ClassificationJobScheduleFrequency();
+            o.dailySchedule = dailySchedule;
+            o.monthlySchedule = monthlySchedule;
+            o.weeklySchedule = weeklySchedule;
+            return o;
         }
     }
 }

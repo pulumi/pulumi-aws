@@ -13,13 +13,9 @@ public final class GatewayRouteSpecHttp2RouteActionTargetVirtualService {
      * @return The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String virtualServiceName;
+    private String virtualServiceName;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttp2RouteActionTargetVirtualService(@CustomType.Parameter("virtualServiceName") String virtualServiceName) {
-        this.virtualServiceName = virtualServiceName;
-    }
-
+    private GatewayRouteSpecHttp2RouteActionTargetVirtualService() {}
     /**
      * @return The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
      * 
@@ -35,24 +31,24 @@ public final class GatewayRouteSpecHttp2RouteActionTargetVirtualService {
     public static Builder builder(GatewayRouteSpecHttp2RouteActionTargetVirtualService defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String virtualServiceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttp2RouteActionTargetVirtualService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualServiceName = defaults.virtualServiceName;
         }
 
+        @CustomType.Setter
         public Builder virtualServiceName(String virtualServiceName) {
             this.virtualServiceName = Objects.requireNonNull(virtualServiceName);
             return this;
-        }        public GatewayRouteSpecHttp2RouteActionTargetVirtualService build() {
-            return new GatewayRouteSpecHttp2RouteActionTargetVirtualService(virtualServiceName);
+        }
+        public GatewayRouteSpecHttp2RouteActionTargetVirtualService build() {
+            final var o = new GatewayRouteSpecHttp2RouteActionTargetVirtualService();
+            o.virtualServiceName = virtualServiceName;
+            return o;
         }
     }
 }

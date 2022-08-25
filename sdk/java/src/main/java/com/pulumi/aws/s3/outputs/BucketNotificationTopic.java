@@ -16,42 +16,29 @@ public final class BucketNotificationTopic {
      * @return [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
      * 
      */
-    private final List<String> events;
+    private List<String> events;
     /**
      * @return Object key name prefix.
      * 
      */
-    private final @Nullable String filterPrefix;
+    private @Nullable String filterPrefix;
     /**
      * @return Object key name suffix.
      * 
      */
-    private final @Nullable String filterSuffix;
+    private @Nullable String filterSuffix;
     /**
      * @return Unique identifier for each of the notification configurations.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return SNS topic ARN.
      * 
      */
-    private final String topicArn;
+    private String topicArn;
 
-    @CustomType.Constructor
-    private BucketNotificationTopic(
-        @CustomType.Parameter("events") List<String> events,
-        @CustomType.Parameter("filterPrefix") @Nullable String filterPrefix,
-        @CustomType.Parameter("filterSuffix") @Nullable String filterSuffix,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("topicArn") String topicArn) {
-        this.events = events;
-        this.filterPrefix = filterPrefix;
-        this.filterSuffix = filterSuffix;
-        this.id = id;
-        this.topicArn = topicArn;
-    }
-
+    private BucketNotificationTopic() {}
     /**
      * @return [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
      * 
@@ -95,18 +82,14 @@ public final class BucketNotificationTopic {
     public static Builder builder(BucketNotificationTopic defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> events;
         private @Nullable String filterPrefix;
         private @Nullable String filterSuffix;
         private @Nullable String id;
         private String topicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketNotificationTopic defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.events = defaults.events;
@@ -116,6 +99,7 @@ public final class BucketNotificationTopic {
     	      this.topicArn = defaults.topicArn;
         }
 
+        @CustomType.Setter
         public Builder events(List<String> events) {
             this.events = Objects.requireNonNull(events);
             return this;
@@ -123,23 +107,34 @@ public final class BucketNotificationTopic {
         public Builder events(String... events) {
             return events(List.of(events));
         }
+        @CustomType.Setter
         public Builder filterPrefix(@Nullable String filterPrefix) {
             this.filterPrefix = filterPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder filterSuffix(@Nullable String filterSuffix) {
             this.filterSuffix = filterSuffix;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder topicArn(String topicArn) {
             this.topicArn = Objects.requireNonNull(topicArn);
             return this;
-        }        public BucketNotificationTopic build() {
-            return new BucketNotificationTopic(events, filterPrefix, filterSuffix, id, topicArn);
+        }
+        public BucketNotificationTopic build() {
+            final var o = new BucketNotificationTopic();
+            o.events = events;
+            o.filterPrefix = filterPrefix;
+            o.filterSuffix = filterSuffix;
+            o.id = id;
+            o.topicArn = topicArn;
+            return o;
         }
     }
 }

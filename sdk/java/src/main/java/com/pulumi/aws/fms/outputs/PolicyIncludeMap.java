@@ -15,21 +15,14 @@ public final class PolicyIncludeMap {
      * @return A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
      * 
      */
-    private final @Nullable List<String> accounts;
+    private @Nullable List<String> accounts;
     /**
      * @return A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
      * 
      */
-    private final @Nullable List<String> orgunits;
+    private @Nullable List<String> orgunits;
 
-    @CustomType.Constructor
-    private PolicyIncludeMap(
-        @CustomType.Parameter("accounts") @Nullable List<String> accounts,
-        @CustomType.Parameter("orgunits") @Nullable List<String> orgunits) {
-        this.accounts = accounts;
-        this.orgunits = orgunits;
-    }
-
+    private PolicyIncludeMap() {}
     /**
      * @return A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
      * 
@@ -52,21 +45,18 @@ public final class PolicyIncludeMap {
     public static Builder builder(PolicyIncludeMap defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> accounts;
         private @Nullable List<String> orgunits;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyIncludeMap defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accounts = defaults.accounts;
     	      this.orgunits = defaults.orgunits;
         }
 
+        @CustomType.Setter
         public Builder accounts(@Nullable List<String> accounts) {
             this.accounts = accounts;
             return this;
@@ -74,14 +64,19 @@ public final class PolicyIncludeMap {
         public Builder accounts(String... accounts) {
             return accounts(List.of(accounts));
         }
+        @CustomType.Setter
         public Builder orgunits(@Nullable List<String> orgunits) {
             this.orgunits = orgunits;
             return this;
         }
         public Builder orgunits(String... orgunits) {
             return orgunits(List.of(orgunits));
-        }        public PolicyIncludeMap build() {
-            return new PolicyIncludeMap(accounts, orgunits);
+        }
+        public PolicyIncludeMap build() {
+            final var o = new PolicyIncludeMap();
+            o.accounts = accounts;
+            o.orgunits = orgunits;
+            return o;
         }
     }
 }

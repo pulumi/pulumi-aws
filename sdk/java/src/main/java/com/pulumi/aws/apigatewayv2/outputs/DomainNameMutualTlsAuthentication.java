@@ -15,21 +15,14 @@ public final class DomainNameMutualTlsAuthentication {
      * @return Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
      * 
      */
-    private final String truststoreUri;
+    private String truststoreUri;
     /**
      * @return Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
      * 
      */
-    private final @Nullable String truststoreVersion;
+    private @Nullable String truststoreVersion;
 
-    @CustomType.Constructor
-    private DomainNameMutualTlsAuthentication(
-        @CustomType.Parameter("truststoreUri") String truststoreUri,
-        @CustomType.Parameter("truststoreVersion") @Nullable String truststoreVersion) {
-        this.truststoreUri = truststoreUri;
-        this.truststoreVersion = truststoreVersion;
-    }
-
+    private DomainNameMutualTlsAuthentication() {}
     /**
      * @return Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
      * 
@@ -52,30 +45,32 @@ public final class DomainNameMutualTlsAuthentication {
     public static Builder builder(DomainNameMutualTlsAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String truststoreUri;
         private @Nullable String truststoreVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainNameMutualTlsAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.truststoreUri = defaults.truststoreUri;
     	      this.truststoreVersion = defaults.truststoreVersion;
         }
 
+        @CustomType.Setter
         public Builder truststoreUri(String truststoreUri) {
             this.truststoreUri = Objects.requireNonNull(truststoreUri);
             return this;
         }
+        @CustomType.Setter
         public Builder truststoreVersion(@Nullable String truststoreVersion) {
             this.truststoreVersion = truststoreVersion;
             return this;
-        }        public DomainNameMutualTlsAuthentication build() {
-            return new DomainNameMutualTlsAuthentication(truststoreUri, truststoreVersion);
+        }
+        public DomainNameMutualTlsAuthentication build() {
+            final var o = new DomainNameMutualTlsAuthentication();
+            o.truststoreUri = truststoreUri;
+            o.truststoreVersion = truststoreVersion;
+            return o;
         }
     }
 }

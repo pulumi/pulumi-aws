@@ -16,28 +16,19 @@ public final class BucketLifecycleConfigurationV2RuleTransition {
      * @return The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
      * 
      */
-    private final @Nullable String date;
+    private @Nullable String date;
     /**
      * @return The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
      * 
      */
-    private final String storageClass;
+    private String storageClass;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationV2RuleTransition(
-        @CustomType.Parameter("date") @Nullable String date,
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("storageClass") String storageClass) {
-        this.date = date;
-        this.days = days;
-        this.storageClass = storageClass;
-    }
-
+    private BucketLifecycleConfigurationV2RuleTransition() {}
     /**
      * @return The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
      * 
@@ -67,16 +58,12 @@ public final class BucketLifecycleConfigurationV2RuleTransition {
     public static Builder builder(BucketLifecycleConfigurationV2RuleTransition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String date;
         private @Nullable Integer days;
         private String storageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleTransition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.date = defaults.date;
@@ -84,19 +71,27 @@ public final class BucketLifecycleConfigurationV2RuleTransition {
     	      this.storageClass = defaults.storageClass;
         }
 
+        @CustomType.Setter
         public Builder date(@Nullable String date) {
             this.date = date;
             return this;
         }
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder storageClass(String storageClass) {
             this.storageClass = Objects.requireNonNull(storageClass);
             return this;
-        }        public BucketLifecycleConfigurationV2RuleTransition build() {
-            return new BucketLifecycleConfigurationV2RuleTransition(date, days, storageClass);
+        }
+        public BucketLifecycleConfigurationV2RuleTransition build() {
+            final var o = new BucketLifecycleConfigurationV2RuleTransition();
+            o.date = date;
+            o.days = days;
+            o.storageClass = storageClass;
+            return o;
         }
     }
 }

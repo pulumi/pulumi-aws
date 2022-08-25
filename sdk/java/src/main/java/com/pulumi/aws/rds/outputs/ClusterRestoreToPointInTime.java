@@ -16,36 +16,25 @@ public final class ClusterRestoreToPointInTime {
      * @return Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
      * 
      */
-    private final @Nullable String restoreToTime;
+    private @Nullable String restoreToTime;
     /**
      * @return Type of restore to be performed.
      * Valid options are `full-copy` (default) and `copy-on-write`.
      * 
      */
-    private final @Nullable String restoreType;
+    private @Nullable String restoreType;
     /**
      * @return The identifier of the source database cluster from which to restore.
      * 
      */
-    private final String sourceClusterIdentifier;
+    private String sourceClusterIdentifier;
     /**
      * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
      * 
      */
-    private final @Nullable Boolean useLatestRestorableTime;
+    private @Nullable Boolean useLatestRestorableTime;
 
-    @CustomType.Constructor
-    private ClusterRestoreToPointInTime(
-        @CustomType.Parameter("restoreToTime") @Nullable String restoreToTime,
-        @CustomType.Parameter("restoreType") @Nullable String restoreType,
-        @CustomType.Parameter("sourceClusterIdentifier") String sourceClusterIdentifier,
-        @CustomType.Parameter("useLatestRestorableTime") @Nullable Boolean useLatestRestorableTime) {
-        this.restoreToTime = restoreToTime;
-        this.restoreType = restoreType;
-        this.sourceClusterIdentifier = sourceClusterIdentifier;
-        this.useLatestRestorableTime = useLatestRestorableTime;
-    }
-
+    private ClusterRestoreToPointInTime() {}
     /**
      * @return Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
      * 
@@ -83,17 +72,13 @@ public final class ClusterRestoreToPointInTime {
     public static Builder builder(ClusterRestoreToPointInTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String restoreToTime;
         private @Nullable String restoreType;
         private String sourceClusterIdentifier;
         private @Nullable Boolean useLatestRestorableTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterRestoreToPointInTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.restoreToTime = defaults.restoreToTime;
@@ -102,23 +87,33 @@ public final class ClusterRestoreToPointInTime {
     	      this.useLatestRestorableTime = defaults.useLatestRestorableTime;
         }
 
+        @CustomType.Setter
         public Builder restoreToTime(@Nullable String restoreToTime) {
             this.restoreToTime = restoreToTime;
             return this;
         }
+        @CustomType.Setter
         public Builder restoreType(@Nullable String restoreType) {
             this.restoreType = restoreType;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceClusterIdentifier(String sourceClusterIdentifier) {
             this.sourceClusterIdentifier = Objects.requireNonNull(sourceClusterIdentifier);
             return this;
         }
+        @CustomType.Setter
         public Builder useLatestRestorableTime(@Nullable Boolean useLatestRestorableTime) {
             this.useLatestRestorableTime = useLatestRestorableTime;
             return this;
-        }        public ClusterRestoreToPointInTime build() {
-            return new ClusterRestoreToPointInTime(restoreToTime, restoreType, sourceClusterIdentifier, useLatestRestorableTime);
+        }
+        public ClusterRestoreToPointInTime build() {
+            final var o = new ClusterRestoreToPointInTime();
+            o.restoreToTime = restoreToTime;
+            o.restoreType = restoreType;
+            o.sourceClusterIdentifier = sourceClusterIdentifier;
+            o.useLatestRestorableTime = useLatestRestorableTime;
+            return o;
         }
     }
 }

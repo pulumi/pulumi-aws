@@ -17,108 +17,75 @@ public final class GetDomainNameResult {
      * @return ARN of the found custom domain name.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
      * 
      */
-    private final String certificateArn;
+    private String certificateArn;
     /**
      * @return Name of the certificate that is used by edge-optimized endpoint for this domain name.
      * 
      */
-    private final String certificateName;
+    private String certificateName;
     /**
      * @return Upload date associated with the domain certificate.
      * 
      */
-    private final String certificateUploadDate;
+    private String certificateUploadDate;
     /**
      * @return Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
      * 
      */
-    private final String cloudfrontDomainName;
+    private String cloudfrontDomainName;
     /**
      * @return For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
      * 
      */
-    private final String cloudfrontZoneId;
-    private final String domainName;
+    private String cloudfrontZoneId;
+    private String domainName;
     /**
      * @return List of objects with the endpoint configuration of this domain name.
      * 
      */
-    private final List<GetDomainNameEndpointConfiguration> endpointConfigurations;
+    private List<GetDomainNameEndpointConfiguration> endpointConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return ARN for an AWS-managed certificate that is used for validating the regional domain name.
      * 
      */
-    private final String regionalCertificateArn;
+    private String regionalCertificateArn;
     /**
      * @return User-friendly name of the certificate that is used by regional endpoint for this domain name.
      * 
      */
-    private final String regionalCertificateName;
+    private String regionalCertificateName;
     /**
      * @return Hostname for the custom domain&#39;s regional endpoint.
      * 
      */
-    private final String regionalDomainName;
+    private String regionalDomainName;
     /**
      * @return Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      * 
      */
-    private final String regionalZoneId;
+    private String regionalZoneId;
     /**
      * @return Security policy for the domain name.
      * 
      */
-    private final String securityPolicy;
+    private String securityPolicy;
     /**
      * @return Key-value map of tags for the resource.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDomainNameResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("certificateArn") String certificateArn,
-        @CustomType.Parameter("certificateName") String certificateName,
-        @CustomType.Parameter("certificateUploadDate") String certificateUploadDate,
-        @CustomType.Parameter("cloudfrontDomainName") String cloudfrontDomainName,
-        @CustomType.Parameter("cloudfrontZoneId") String cloudfrontZoneId,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("endpointConfigurations") List<GetDomainNameEndpointConfiguration> endpointConfigurations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("regionalCertificateArn") String regionalCertificateArn,
-        @CustomType.Parameter("regionalCertificateName") String regionalCertificateName,
-        @CustomType.Parameter("regionalDomainName") String regionalDomainName,
-        @CustomType.Parameter("regionalZoneId") String regionalZoneId,
-        @CustomType.Parameter("securityPolicy") String securityPolicy,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.arn = arn;
-        this.certificateArn = certificateArn;
-        this.certificateName = certificateName;
-        this.certificateUploadDate = certificateUploadDate;
-        this.cloudfrontDomainName = cloudfrontDomainName;
-        this.cloudfrontZoneId = cloudfrontZoneId;
-        this.domainName = domainName;
-        this.endpointConfigurations = endpointConfigurations;
-        this.id = id;
-        this.regionalCertificateArn = regionalCertificateArn;
-        this.regionalCertificateName = regionalCertificateName;
-        this.regionalDomainName = regionalDomainName;
-        this.regionalZoneId = regionalZoneId;
-        this.securityPolicy = securityPolicy;
-        this.tags = tags;
-    }
-
+    private GetDomainNameResult() {}
     /**
      * @return ARN of the found custom domain name.
      * 
@@ -228,7 +195,7 @@ public final class GetDomainNameResult {
     public static Builder builder(GetDomainNameResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String certificateArn;
@@ -245,11 +212,7 @@ public final class GetDomainNameResult {
         private String regionalZoneId;
         private String securityPolicy;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainNameResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -269,34 +232,42 @@ public final class GetDomainNameResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
             this.certificateArn = Objects.requireNonNull(certificateArn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateName(String certificateName) {
             this.certificateName = Objects.requireNonNull(certificateName);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateUploadDate(String certificateUploadDate) {
             this.certificateUploadDate = Objects.requireNonNull(certificateUploadDate);
             return this;
         }
+        @CustomType.Setter
         public Builder cloudfrontDomainName(String cloudfrontDomainName) {
             this.cloudfrontDomainName = Objects.requireNonNull(cloudfrontDomainName);
             return this;
         }
+        @CustomType.Setter
         public Builder cloudfrontZoneId(String cloudfrontZoneId) {
             this.cloudfrontZoneId = Objects.requireNonNull(cloudfrontZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder endpointConfigurations(List<GetDomainNameEndpointConfiguration> endpointConfigurations) {
             this.endpointConfigurations = Objects.requireNonNull(endpointConfigurations);
             return this;
@@ -304,35 +275,59 @@ public final class GetDomainNameResult {
         public Builder endpointConfigurations(GetDomainNameEndpointConfiguration... endpointConfigurations) {
             return endpointConfigurations(List.of(endpointConfigurations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder regionalCertificateArn(String regionalCertificateArn) {
             this.regionalCertificateArn = Objects.requireNonNull(regionalCertificateArn);
             return this;
         }
+        @CustomType.Setter
         public Builder regionalCertificateName(String regionalCertificateName) {
             this.regionalCertificateName = Objects.requireNonNull(regionalCertificateName);
             return this;
         }
+        @CustomType.Setter
         public Builder regionalDomainName(String regionalDomainName) {
             this.regionalDomainName = Objects.requireNonNull(regionalDomainName);
             return this;
         }
+        @CustomType.Setter
         public Builder regionalZoneId(String regionalZoneId) {
             this.regionalZoneId = Objects.requireNonNull(regionalZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder securityPolicy(String securityPolicy) {
             this.securityPolicy = Objects.requireNonNull(securityPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetDomainNameResult build() {
-            return new GetDomainNameResult(arn, certificateArn, certificateName, certificateUploadDate, cloudfrontDomainName, cloudfrontZoneId, domainName, endpointConfigurations, id, regionalCertificateArn, regionalCertificateName, regionalDomainName, regionalZoneId, securityPolicy, tags);
+        }
+        public GetDomainNameResult build() {
+            final var o = new GetDomainNameResult();
+            o.arn = arn;
+            o.certificateArn = certificateArn;
+            o.certificateName = certificateName;
+            o.certificateUploadDate = certificateUploadDate;
+            o.cloudfrontDomainName = cloudfrontDomainName;
+            o.cloudfrontZoneId = cloudfrontZoneId;
+            o.domainName = domainName;
+            o.endpointConfigurations = endpointConfigurations;
+            o.id = id;
+            o.regionalCertificateArn = regionalCertificateArn;
+            o.regionalCertificateName = regionalCertificateName;
+            o.regionalDomainName = regionalDomainName;
+            o.regionalZoneId = regionalZoneId;
+            o.securityPolicy = securityPolicy;
+            o.tags = tags;
+            return o;
         }
     }
 }

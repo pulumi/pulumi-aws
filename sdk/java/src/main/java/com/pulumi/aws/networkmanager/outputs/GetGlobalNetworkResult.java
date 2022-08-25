@@ -14,38 +14,25 @@ public final class GetGlobalNetworkResult {
      * @return The ARN of the global network.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The description of the global network.
      * 
      */
-    private final String description;
-    private final String globalNetworkId;
+    private String description;
+    private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A map of resource tags.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetGlobalNetworkResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("globalNetworkId") String globalNetworkId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.description = description;
-        this.globalNetworkId = globalNetworkId;
-        this.id = id;
-        this.tags = tags;
-    }
-
+    private GetGlobalNetworkResult() {}
     /**
      * @return The ARN of the global network.
      * 
@@ -85,18 +72,14 @@ public final class GetGlobalNetworkResult {
     public static Builder builder(GetGlobalNetworkResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
         private String globalNetworkId;
         private String id;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGlobalNetworkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -106,27 +89,39 @@ public final class GetGlobalNetworkResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
             this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetGlobalNetworkResult build() {
-            return new GetGlobalNetworkResult(arn, description, globalNetworkId, id, tags);
+        }
+        public GetGlobalNetworkResult build() {
+            final var o = new GetGlobalNetworkResult();
+            o.arn = arn;
+            o.description = description;
+            o.globalNetworkId = globalNetworkId;
+            o.id = id;
+            o.tags = tags;
+            return o;
         }
     }
 }

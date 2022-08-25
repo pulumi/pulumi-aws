@@ -13,28 +13,19 @@ public final class EventPermissionCondition {
      * @return Key for the condition. Valid values: `aws:PrincipalOrgID`.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Type of condition. Value values: `StringEquals`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Value for the key.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private EventPermissionCondition(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.key = key;
-        this.type = type;
-        this.value = value;
-    }
-
+    private EventPermissionCondition() {}
     /**
      * @return Key for the condition. Valid values: `aws:PrincipalOrgID`.
      * 
@@ -64,16 +55,12 @@ public final class EventPermissionCondition {
     public static Builder builder(EventPermissionCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventPermissionCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -81,19 +68,27 @@ public final class EventPermissionCondition {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public EventPermissionCondition build() {
-            return new EventPermissionCondition(key, type, value);
+        }
+        public EventPermissionCondition build() {
+            final var o = new EventPermissionCondition();
+            o.key = key;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -16,49 +16,34 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
      * @return A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
      * 
      */
-    private final List<String> dnsIps;
+    private List<String> dnsIps;
     /**
      * @return The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
      * 
      */
-    private final @Nullable String fileSystemAdministratorsGroup;
+    private @Nullable String fileSystemAdministratorsGroup;
     /**
      * @return The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
      * 
      */
-    private final @Nullable String organizationalUnitDistinguishedName;
+    private @Nullable String organizationalUnitDistinguishedName;
     /**
      * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private WindowsFileSystemSelfManagedActiveDirectory(
-        @CustomType.Parameter("dnsIps") List<String> dnsIps,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("fileSystemAdministratorsGroup") @Nullable String fileSystemAdministratorsGroup,
-        @CustomType.Parameter("organizationalUnitDistinguishedName") @Nullable String organizationalUnitDistinguishedName,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.dnsIps = dnsIps;
-        this.domainName = domainName;
-        this.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
-        this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-        this.password = password;
-        this.username = username;
-    }
-
+    private WindowsFileSystemSelfManagedActiveDirectory() {}
     /**
      * @return A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
      * 
@@ -109,7 +94,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
     public static Builder builder(WindowsFileSystemSelfManagedActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> dnsIps;
         private String domainName;
@@ -117,11 +102,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
         private @Nullable String organizationalUnitDistinguishedName;
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsFileSystemSelfManagedActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsIps = defaults.dnsIps;
@@ -132,6 +113,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder dnsIps(List<String> dnsIps) {
             this.dnsIps = Objects.requireNonNull(dnsIps);
             return this;
@@ -139,27 +121,40 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
         public Builder dnsIps(String... dnsIps) {
             return dnsIps(List.of(dnsIps));
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemAdministratorsGroup(@Nullable String fileSystemAdministratorsGroup) {
             this.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder organizationalUnitDistinguishedName(@Nullable String organizationalUnitDistinguishedName) {
             this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public WindowsFileSystemSelfManagedActiveDirectory build() {
-            return new WindowsFileSystemSelfManagedActiveDirectory(dnsIps, domainName, fileSystemAdministratorsGroup, organizationalUnitDistinguishedName, password, username);
+        }
+        public WindowsFileSystemSelfManagedActiveDirectory build() {
+            final var o = new WindowsFileSystemSelfManagedActiveDirectory();
+            o.dnsIps = dnsIps;
+            o.domainName = domainName;
+            o.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
+            o.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

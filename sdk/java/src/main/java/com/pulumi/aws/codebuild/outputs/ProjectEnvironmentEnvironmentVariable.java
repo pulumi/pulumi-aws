@@ -15,28 +15,19 @@ public final class ProjectEnvironmentEnvironmentVariable {
      * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Environment variable&#39;s value.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ProjectEnvironmentEnvironmentVariable(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.type = type;
-        this.value = value;
-    }
-
+    private ProjectEnvironmentEnvironmentVariable() {}
     /**
      * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      * 
@@ -66,16 +57,12 @@ public final class ProjectEnvironmentEnvironmentVariable {
     public static Builder builder(ProjectEnvironmentEnvironmentVariable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectEnvironmentEnvironmentVariable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -83,19 +70,27 @@ public final class ProjectEnvironmentEnvironmentVariable {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ProjectEnvironmentEnvironmentVariable build() {
-            return new ProjectEnvironmentEnvironmentVariable(name, type, value);
+        }
+        public ProjectEnvironmentEnvironmentVariable build() {
+            final var o = new ProjectEnvironmentEnvironmentVariable();
+            o.name = name;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

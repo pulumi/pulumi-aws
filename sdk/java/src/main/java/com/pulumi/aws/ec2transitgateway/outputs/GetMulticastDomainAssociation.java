@@ -13,21 +13,14 @@ public final class GetMulticastDomainAssociation {
      * @return The ID of the subnet associated with the transit gateway multicast domain.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
     /**
      * @return The ID of the transit gateway attachment.
      * 
      */
-    private final String transitGatewayAttachmentId;
+    private String transitGatewayAttachmentId;
 
-    @CustomType.Constructor
-    private GetMulticastDomainAssociation(
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("transitGatewayAttachmentId") String transitGatewayAttachmentId) {
-        this.subnetId = subnetId;
-        this.transitGatewayAttachmentId = transitGatewayAttachmentId;
-    }
-
+    private GetMulticastDomainAssociation() {}
     /**
      * @return The ID of the subnet associated with the transit gateway multicast domain.
      * 
@@ -50,30 +43,32 @@ public final class GetMulticastDomainAssociation {
     public static Builder builder(GetMulticastDomainAssociation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String subnetId;
         private String transitGatewayAttachmentId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMulticastDomainAssociation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subnetId = defaults.subnetId;
     	      this.transitGatewayAttachmentId = defaults.transitGatewayAttachmentId;
         }
 
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
             return this;
-        }        public GetMulticastDomainAssociation build() {
-            return new GetMulticastDomainAssociation(subnetId, transitGatewayAttachmentId);
+        }
+        public GetMulticastDomainAssociation build() {
+            final var o = new GetMulticastDomainAssociation();
+            o.subnetId = subnetId;
+            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            return o;
         }
     }
 }

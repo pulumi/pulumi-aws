@@ -18,49 +18,34 @@ public final class ExperimentTemplateAction {
      * @return ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
      * 
      */
-    private final String actionId;
+    private String actionId;
     /**
      * @return Description of the action.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Friendly name given to the target.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Parameter(s) for the action, if applicable. See below.
      * 
      */
-    private final @Nullable List<ExperimentTemplateActionParameter> parameters;
+    private @Nullable List<ExperimentTemplateActionParameter> parameters;
     /**
      * @return Set of action names that must complete before this action can be executed.
      * 
      */
-    private final @Nullable List<String> startAfters;
+    private @Nullable List<String> startAfters;
     /**
      * @return Action&#39;s target, if applicable. See below.
      * 
      */
-    private final @Nullable ExperimentTemplateActionTarget target;
+    private @Nullable ExperimentTemplateActionTarget target;
 
-    @CustomType.Constructor
-    private ExperimentTemplateAction(
-        @CustomType.Parameter("actionId") String actionId,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable List<ExperimentTemplateActionParameter> parameters,
-        @CustomType.Parameter("startAfters") @Nullable List<String> startAfters,
-        @CustomType.Parameter("target") @Nullable ExperimentTemplateActionTarget target) {
-        this.actionId = actionId;
-        this.description = description;
-        this.name = name;
-        this.parameters = parameters;
-        this.startAfters = startAfters;
-        this.target = target;
-    }
-
+    private ExperimentTemplateAction() {}
     /**
      * @return ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
      * 
@@ -111,7 +96,7 @@ public final class ExperimentTemplateAction {
     public static Builder builder(ExperimentTemplateAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionId;
         private @Nullable String description;
@@ -119,11 +104,7 @@ public final class ExperimentTemplateAction {
         private @Nullable List<ExperimentTemplateActionParameter> parameters;
         private @Nullable List<String> startAfters;
         private @Nullable ExperimentTemplateActionTarget target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExperimentTemplateAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionId = defaults.actionId;
@@ -134,18 +115,22 @@ public final class ExperimentTemplateAction {
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder actionId(String actionId) {
             this.actionId = Objects.requireNonNull(actionId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<ExperimentTemplateActionParameter> parameters) {
             this.parameters = parameters;
             return this;
@@ -153,6 +138,7 @@ public final class ExperimentTemplateAction {
         public Builder parameters(ExperimentTemplateActionParameter... parameters) {
             return parameters(List.of(parameters));
         }
+        @CustomType.Setter
         public Builder startAfters(@Nullable List<String> startAfters) {
             this.startAfters = startAfters;
             return this;
@@ -160,11 +146,20 @@ public final class ExperimentTemplateAction {
         public Builder startAfters(String... startAfters) {
             return startAfters(List.of(startAfters));
         }
+        @CustomType.Setter
         public Builder target(@Nullable ExperimentTemplateActionTarget target) {
             this.target = target;
             return this;
-        }        public ExperimentTemplateAction build() {
-            return new ExperimentTemplateAction(actionId, description, name, parameters, startAfters, target);
+        }
+        public ExperimentTemplateAction build() {
+            final var o = new ExperimentTemplateAction();
+            o.actionId = actionId;
+            o.description = description;
+            o.name = name;
+            o.parameters = parameters;
+            o.startAfters = startAfters;
+            o.target = target;
+            return o;
         }
     }
 }

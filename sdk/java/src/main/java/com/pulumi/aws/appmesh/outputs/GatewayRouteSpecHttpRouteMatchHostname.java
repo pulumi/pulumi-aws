@@ -15,21 +15,14 @@ public final class GatewayRouteSpecHttpRouteMatchHostname {
      * @return The exact host name to match on.
      * 
      */
-    private final @Nullable String exact;
+    private @Nullable String exact;
     /**
      * @return The specified ending characters of the host name to match on.
      * 
      */
-    private final @Nullable String suffix;
+    private @Nullable String suffix;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttpRouteMatchHostname(
-        @CustomType.Parameter("exact") @Nullable String exact,
-        @CustomType.Parameter("suffix") @Nullable String suffix) {
-        this.exact = exact;
-        this.suffix = suffix;
-    }
-
+    private GatewayRouteSpecHttpRouteMatchHostname() {}
     /**
      * @return The exact host name to match on.
      * 
@@ -52,30 +45,32 @@ public final class GatewayRouteSpecHttpRouteMatchHostname {
     public static Builder builder(GatewayRouteSpecHttpRouteMatchHostname defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String exact;
         private @Nullable String suffix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttpRouteMatchHostname defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exact = defaults.exact;
     	      this.suffix = defaults.suffix;
         }
 
+        @CustomType.Setter
         public Builder exact(@Nullable String exact) {
             this.exact = exact;
             return this;
         }
+        @CustomType.Setter
         public Builder suffix(@Nullable String suffix) {
             this.suffix = suffix;
             return this;
-        }        public GatewayRouteSpecHttpRouteMatchHostname build() {
-            return new GatewayRouteSpecHttpRouteMatchHostname(exact, suffix);
+        }
+        public GatewayRouteSpecHttpRouteMatchHostname build() {
+            final var o = new GatewayRouteSpecHttpRouteMatchHostname();
+            o.exact = exact;
+            o.suffix = suffix;
+            return o;
         }
     }
 }

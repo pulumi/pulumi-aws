@@ -15,13 +15,9 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipal {
      * @return An identifier for the Lake Formation principal.
      * 
      */
-    private final @Nullable String dataLakePrincipalIdentifier;
+    private @Nullable String dataLakePrincipalIdentifier;
 
-    @CustomType.Constructor
-    private CatalogDatabaseCreateTableDefaultPermissionPrincipal(@CustomType.Parameter("dataLakePrincipalIdentifier") @Nullable String dataLakePrincipalIdentifier) {
-        this.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
-    }
-
+    private CatalogDatabaseCreateTableDefaultPermissionPrincipal() {}
     /**
      * @return An identifier for the Lake Formation principal.
      * 
@@ -37,24 +33,24 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipal {
     public static Builder builder(CatalogDatabaseCreateTableDefaultPermissionPrincipal defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dataLakePrincipalIdentifier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogDatabaseCreateTableDefaultPermissionPrincipal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataLakePrincipalIdentifier = defaults.dataLakePrincipalIdentifier;
         }
 
+        @CustomType.Setter
         public Builder dataLakePrincipalIdentifier(@Nullable String dataLakePrincipalIdentifier) {
             this.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
             return this;
-        }        public CatalogDatabaseCreateTableDefaultPermissionPrincipal build() {
-            return new CatalogDatabaseCreateTableDefaultPermissionPrincipal(dataLakePrincipalIdentifier);
+        }
+        public CatalogDatabaseCreateTableDefaultPermissionPrincipal build() {
+            final var o = new CatalogDatabaseCreateTableDefaultPermissionPrincipal();
+            o.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
+            return o;
         }
     }
 }

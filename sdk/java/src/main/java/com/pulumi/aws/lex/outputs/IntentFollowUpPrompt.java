@@ -14,23 +14,16 @@ public final class IntentFollowUpPrompt {
      * @return Prompts for information from the user. Attributes are documented under prompt.
      * 
      */
-    private final IntentFollowUpPromptPrompt prompt;
+    private IntentFollowUpPromptPrompt prompt;
     /**
      * @return If the user answers &#34;no&#34; to the question defined in the prompt field,
      * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
      * documented below under statement.
      * 
      */
-    private final IntentFollowUpPromptRejectionStatement rejectionStatement;
+    private IntentFollowUpPromptRejectionStatement rejectionStatement;
 
-    @CustomType.Constructor
-    private IntentFollowUpPrompt(
-        @CustomType.Parameter("prompt") IntentFollowUpPromptPrompt prompt,
-        @CustomType.Parameter("rejectionStatement") IntentFollowUpPromptRejectionStatement rejectionStatement) {
-        this.prompt = prompt;
-        this.rejectionStatement = rejectionStatement;
-    }
-
+    private IntentFollowUpPrompt() {}
     /**
      * @return Prompts for information from the user. Attributes are documented under prompt.
      * 
@@ -55,30 +48,32 @@ public final class IntentFollowUpPrompt {
     public static Builder builder(IntentFollowUpPrompt defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private IntentFollowUpPromptPrompt prompt;
         private IntentFollowUpPromptRejectionStatement rejectionStatement;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntentFollowUpPrompt defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prompt = defaults.prompt;
     	      this.rejectionStatement = defaults.rejectionStatement;
         }
 
+        @CustomType.Setter
         public Builder prompt(IntentFollowUpPromptPrompt prompt) {
             this.prompt = Objects.requireNonNull(prompt);
             return this;
         }
+        @CustomType.Setter
         public Builder rejectionStatement(IntentFollowUpPromptRejectionStatement rejectionStatement) {
             this.rejectionStatement = Objects.requireNonNull(rejectionStatement);
             return this;
-        }        public IntentFollowUpPrompt build() {
-            return new IntentFollowUpPrompt(prompt, rejectionStatement);
+        }
+        public IntentFollowUpPrompt build() {
+            final var o = new IntentFollowUpPrompt();
+            o.prompt = prompt;
+            o.rejectionStatement = rejectionStatement;
+            return o;
         }
     }
 }

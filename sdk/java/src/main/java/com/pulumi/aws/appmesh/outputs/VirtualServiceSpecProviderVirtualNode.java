@@ -13,13 +13,9 @@ public final class VirtualServiceSpecProviderVirtualNode {
      * @return The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String virtualNodeName;
+    private String virtualNodeName;
 
-    @CustomType.Constructor
-    private VirtualServiceSpecProviderVirtualNode(@CustomType.Parameter("virtualNodeName") String virtualNodeName) {
-        this.virtualNodeName = virtualNodeName;
-    }
-
+    private VirtualServiceSpecProviderVirtualNode() {}
     /**
      * @return The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
      * 
@@ -35,24 +31,24 @@ public final class VirtualServiceSpecProviderVirtualNode {
     public static Builder builder(VirtualServiceSpecProviderVirtualNode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String virtualNodeName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualServiceSpecProviderVirtualNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualNodeName = defaults.virtualNodeName;
         }
 
+        @CustomType.Setter
         public Builder virtualNodeName(String virtualNodeName) {
             this.virtualNodeName = Objects.requireNonNull(virtualNodeName);
             return this;
-        }        public VirtualServiceSpecProviderVirtualNode build() {
-            return new VirtualServiceSpecProviderVirtualNode(virtualNodeName);
+        }
+        public VirtualServiceSpecProviderVirtualNode build() {
+            final var o = new VirtualServiceSpecProviderVirtualNode();
+            o.virtualNodeName = virtualNodeName;
+            return o;
         }
     }
 }

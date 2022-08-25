@@ -18,28 +18,19 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
      * 
      */
-    private final List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns;
+    private List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns;
     /**
      * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
      * 
      */
-    private final @Nullable String recordEncoding;
+    private @Nullable String recordEncoding;
     /**
      * @return Specifies the format of the records on the streaming source.
      * 
      */
-    private final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat;
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema(
-        @CustomType.Parameter("recordColumns") List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns,
-        @CustomType.Parameter("recordEncoding") @Nullable String recordEncoding,
-        @CustomType.Parameter("recordFormat") ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat) {
-        this.recordColumns = recordColumns;
-        this.recordEncoding = recordEncoding;
-        this.recordFormat = recordFormat;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema() {}
     /**
      * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
      * 
@@ -69,16 +60,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns;
         private @Nullable String recordEncoding;
         private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordColumns = defaults.recordColumns;
@@ -86,6 +73,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     	      this.recordFormat = defaults.recordFormat;
         }
 
+        @CustomType.Setter
         public Builder recordColumns(List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns) {
             this.recordColumns = Objects.requireNonNull(recordColumns);
             return this;
@@ -93,15 +81,22 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         public Builder recordColumns(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn... recordColumns) {
             return recordColumns(List.of(recordColumns));
         }
+        @CustomType.Setter
         public Builder recordEncoding(@Nullable String recordEncoding) {
             this.recordEncoding = recordEncoding;
             return this;
         }
+        @CustomType.Setter
         public Builder recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat) {
             this.recordFormat = Objects.requireNonNull(recordFormat);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema(recordColumns, recordEncoding, recordFormat);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema();
+            o.recordColumns = recordColumns;
+            o.recordEncoding = recordEncoding;
+            o.recordFormat = recordFormat;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfig {
      * @return The Amazon Resource Name (ARN) of the delivery stream.
      * 
      */
-    private final String firehoseArn;
+    private String firehoseArn;
 
-    @CustomType.Constructor
-    private InstanceStorageConfigStorageConfigKinesisFirehoseConfig(@CustomType.Parameter("firehoseArn") String firehoseArn) {
-        this.firehoseArn = firehoseArn;
-    }
-
+    private InstanceStorageConfigStorageConfigKinesisFirehoseConfig() {}
     /**
      * @return The Amazon Resource Name (ARN) of the delivery stream.
      * 
@@ -35,24 +31,24 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfig {
     public static Builder builder(InstanceStorageConfigStorageConfigKinesisFirehoseConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String firehoseArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceStorageConfigStorageConfigKinesisFirehoseConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.firehoseArn = defaults.firehoseArn;
         }
 
+        @CustomType.Setter
         public Builder firehoseArn(String firehoseArn) {
             this.firehoseArn = Objects.requireNonNull(firehoseArn);
             return this;
-        }        public InstanceStorageConfigStorageConfigKinesisFirehoseConfig build() {
-            return new InstanceStorageConfigStorageConfigKinesisFirehoseConfig(firehoseArn);
+        }
+        public InstanceStorageConfigStorageConfigKinesisFirehoseConfig build() {
+            final var o = new InstanceStorageConfigStorageConfigKinesisFirehoseConfig();
+            o.firehoseArn = firehoseArn;
+            return o;
         }
     }
 }

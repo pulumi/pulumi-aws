@@ -15,24 +15,15 @@ public final class GetSchedulingPolicyFairSharePolicy {
      * @return A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
-    private final Integer computeReservation;
-    private final Integer shareDecaySeconds;
+    private Integer computeReservation;
+    private Integer shareDecaySeconds;
     /**
      * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
      * 
      */
-    private final List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
+    private List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
 
-    @CustomType.Constructor
-    private GetSchedulingPolicyFairSharePolicy(
-        @CustomType.Parameter("computeReservation") Integer computeReservation,
-        @CustomType.Parameter("shareDecaySeconds") Integer shareDecaySeconds,
-        @CustomType.Parameter("shareDistributions") List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions) {
-        this.computeReservation = computeReservation;
-        this.shareDecaySeconds = shareDecaySeconds;
-        this.shareDistributions = shareDistributions;
-    }
-
+    private GetSchedulingPolicyFairSharePolicy() {}
     /**
      * @return A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
@@ -58,16 +49,12 @@ public final class GetSchedulingPolicyFairSharePolicy {
     public static Builder builder(GetSchedulingPolicyFairSharePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer computeReservation;
         private Integer shareDecaySeconds;
         private List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSchedulingPolicyFairSharePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.computeReservation = defaults.computeReservation;
@@ -75,22 +62,30 @@ public final class GetSchedulingPolicyFairSharePolicy {
     	      this.shareDistributions = defaults.shareDistributions;
         }
 
+        @CustomType.Setter
         public Builder computeReservation(Integer computeReservation) {
             this.computeReservation = Objects.requireNonNull(computeReservation);
             return this;
         }
+        @CustomType.Setter
         public Builder shareDecaySeconds(Integer shareDecaySeconds) {
             this.shareDecaySeconds = Objects.requireNonNull(shareDecaySeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder shareDistributions(List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions) {
             this.shareDistributions = Objects.requireNonNull(shareDistributions);
             return this;
         }
         public Builder shareDistributions(GetSchedulingPolicyFairSharePolicyShareDistribution... shareDistributions) {
             return shareDistributions(List.of(shareDistributions));
-        }        public GetSchedulingPolicyFairSharePolicy build() {
-            return new GetSchedulingPolicyFairSharePolicy(computeReservation, shareDecaySeconds, shareDistributions);
+        }
+        public GetSchedulingPolicyFairSharePolicy build() {
+            final var o = new GetSchedulingPolicyFairSharePolicy();
+            o.computeReservation = computeReservation;
+            o.shareDecaySeconds = shareDecaySeconds;
+            o.shareDistributions = shareDistributions;
+            return o;
         }
     }
 }

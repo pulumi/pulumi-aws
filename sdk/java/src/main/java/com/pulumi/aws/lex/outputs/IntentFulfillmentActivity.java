@@ -17,22 +17,15 @@ public final class IntentFulfillmentActivity {
      * Required if type is CodeHook. Attributes are documented under code_hook.
      * 
      */
-    private final @Nullable IntentFulfillmentActivityCodeHook codeHook;
+    private @Nullable IntentFulfillmentActivityCodeHook codeHook;
     /**
      * @return How the intent should be fulfilled, either by running a Lambda function or by
      * returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private IntentFulfillmentActivity(
-        @CustomType.Parameter("codeHook") @Nullable IntentFulfillmentActivityCodeHook codeHook,
-        @CustomType.Parameter("type") String type) {
-        this.codeHook = codeHook;
-        this.type = type;
-    }
-
+    private IntentFulfillmentActivity() {}
     /**
      * @return A description of the Lambda function that is run to fulfill the intent.
      * Required if type is CodeHook. Attributes are documented under code_hook.
@@ -57,30 +50,32 @@ public final class IntentFulfillmentActivity {
     public static Builder builder(IntentFulfillmentActivity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable IntentFulfillmentActivityCodeHook codeHook;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntentFulfillmentActivity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.codeHook = defaults.codeHook;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder codeHook(@Nullable IntentFulfillmentActivityCodeHook codeHook) {
             this.codeHook = codeHook;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public IntentFulfillmentActivity build() {
-            return new IntentFulfillmentActivity(codeHook, type);
+        }
+        public IntentFulfillmentActivity build() {
+            final var o = new IntentFulfillmentActivity();
+            o.codeHook = codeHook;
+            o.type = type;
+            return o;
         }
     }
 }

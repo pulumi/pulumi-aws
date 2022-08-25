@@ -16,49 +16,34 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
      * @return The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
      * 
      */
-    private final @Nullable Integer healthyThreshold;
+    private @Nullable Integer healthyThreshold;
     /**
      * @return The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
      * 
      */
-    private final @Nullable Integer intervalSeconds;
+    private @Nullable Integer intervalSeconds;
     /**
      * @return The path on the container on which to perform the health check. Defaults to &#34;/&#34;.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
      * 
      */
-    private final @Nullable String successCodes;
+    private @Nullable String successCodes;
     /**
      * @return The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
      * 
      */
-    private final @Nullable Integer timeoutSeconds;
+    private @Nullable Integer timeoutSeconds;
     /**
      * @return The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
      * 
      */
-    private final @Nullable Integer unhealthyThreshold;
+    private @Nullable Integer unhealthyThreshold;
 
-    @CustomType.Constructor
-    private ContainerServiceDeploymentVersionPublicEndpointHealthCheck(
-        @CustomType.Parameter("healthyThreshold") @Nullable Integer healthyThreshold,
-        @CustomType.Parameter("intervalSeconds") @Nullable Integer intervalSeconds,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("successCodes") @Nullable String successCodes,
-        @CustomType.Parameter("timeoutSeconds") @Nullable Integer timeoutSeconds,
-        @CustomType.Parameter("unhealthyThreshold") @Nullable Integer unhealthyThreshold) {
-        this.healthyThreshold = healthyThreshold;
-        this.intervalSeconds = intervalSeconds;
-        this.path = path;
-        this.successCodes = successCodes;
-        this.timeoutSeconds = timeoutSeconds;
-        this.unhealthyThreshold = unhealthyThreshold;
-    }
-
+    private ContainerServiceDeploymentVersionPublicEndpointHealthCheck() {}
     /**
      * @return The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
      * 
@@ -109,7 +94,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
     public static Builder builder(ContainerServiceDeploymentVersionPublicEndpointHealthCheck defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer healthyThreshold;
         private @Nullable Integer intervalSeconds;
@@ -117,11 +102,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
         private @Nullable String successCodes;
         private @Nullable Integer timeoutSeconds;
         private @Nullable Integer unhealthyThreshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContainerServiceDeploymentVersionPublicEndpointHealthCheck defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.healthyThreshold = defaults.healthyThreshold;
@@ -132,31 +113,45 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
     	      this.unhealthyThreshold = defaults.unhealthyThreshold;
         }
 
+        @CustomType.Setter
         public Builder healthyThreshold(@Nullable Integer healthyThreshold) {
             this.healthyThreshold = healthyThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder intervalSeconds(@Nullable Integer intervalSeconds) {
             this.intervalSeconds = intervalSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder successCodes(@Nullable String successCodes) {
             this.successCodes = successCodes;
             return this;
         }
+        @CustomType.Setter
         public Builder timeoutSeconds(@Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder unhealthyThreshold(@Nullable Integer unhealthyThreshold) {
             this.unhealthyThreshold = unhealthyThreshold;
             return this;
-        }        public ContainerServiceDeploymentVersionPublicEndpointHealthCheck build() {
-            return new ContainerServiceDeploymentVersionPublicEndpointHealthCheck(healthyThreshold, intervalSeconds, path, successCodes, timeoutSeconds, unhealthyThreshold);
+        }
+        public ContainerServiceDeploymentVersionPublicEndpointHealthCheck build() {
+            final var o = new ContainerServiceDeploymentVersionPublicEndpointHealthCheck();
+            o.healthyThreshold = healthyThreshold;
+            o.intervalSeconds = intervalSeconds;
+            o.path = path;
+            o.successCodes = successCodes;
+            o.timeoutSeconds = timeoutSeconds;
+            o.unhealthyThreshold = unhealthyThreshold;
+            return o;
         }
     }
 }

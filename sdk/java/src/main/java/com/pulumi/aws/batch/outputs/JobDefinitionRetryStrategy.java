@@ -17,21 +17,14 @@ public final class JobDefinitionRetryStrategy {
      * @return The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
      * 
      */
-    private final @Nullable Integer attempts;
+    private @Nullable Integer attempts;
     /**
      * @return The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
      * 
      */
-    private final @Nullable List<JobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits;
+    private @Nullable List<JobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits;
 
-    @CustomType.Constructor
-    private JobDefinitionRetryStrategy(
-        @CustomType.Parameter("attempts") @Nullable Integer attempts,
-        @CustomType.Parameter("evaluateOnExits") @Nullable List<JobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits) {
-        this.attempts = attempts;
-        this.evaluateOnExits = evaluateOnExits;
-    }
-
+    private JobDefinitionRetryStrategy() {}
     /**
      * @return The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
      * 
@@ -54,33 +47,35 @@ public final class JobDefinitionRetryStrategy {
     public static Builder builder(JobDefinitionRetryStrategy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer attempts;
         private @Nullable List<JobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(JobDefinitionRetryStrategy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attempts = defaults.attempts;
     	      this.evaluateOnExits = defaults.evaluateOnExits;
         }
 
+        @CustomType.Setter
         public Builder attempts(@Nullable Integer attempts) {
             this.attempts = attempts;
             return this;
         }
+        @CustomType.Setter
         public Builder evaluateOnExits(@Nullable List<JobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits) {
             this.evaluateOnExits = evaluateOnExits;
             return this;
         }
         public Builder evaluateOnExits(JobDefinitionRetryStrategyEvaluateOnExit... evaluateOnExits) {
             return evaluateOnExits(List.of(evaluateOnExits));
-        }        public JobDefinitionRetryStrategy build() {
-            return new JobDefinitionRetryStrategy(attempts, evaluateOnExits);
+        }
+        public JobDefinitionRetryStrategy build() {
+            final var o = new JobDefinitionRetryStrategy();
+            o.attempts = attempts;
+            o.evaluateOnExits = evaluateOnExits;
+            return o;
         }
     }
 }

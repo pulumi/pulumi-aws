@@ -14,59 +14,40 @@ public final class GetTaskDefinitionResult {
      * @return The ARN of the task definition
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The family of this task definition
      * 
      */
-    private final String family;
+    private String family;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Docker networking mode to use for the containers in this task.
      * 
      */
-    private final String networkMode;
+    private String networkMode;
     /**
      * @return The revision of this task definition
      * 
      */
-    private final Integer revision;
+    private Integer revision;
     /**
      * @return The status of this task definition
      * 
      */
-    private final String status;
-    private final String taskDefinition;
+    private String status;
+    private String taskDefinition;
     /**
      * @return The ARN of the IAM role that containers in this task can assume
      * 
      */
-    private final String taskRoleArn;
+    private String taskRoleArn;
 
-    @CustomType.Constructor
-    private GetTaskDefinitionResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("family") String family,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("networkMode") String networkMode,
-        @CustomType.Parameter("revision") Integer revision,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("taskDefinition") String taskDefinition,
-        @CustomType.Parameter("taskRoleArn") String taskRoleArn) {
-        this.arn = arn;
-        this.family = family;
-        this.id = id;
-        this.networkMode = networkMode;
-        this.revision = revision;
-        this.status = status;
-        this.taskDefinition = taskDefinition;
-        this.taskRoleArn = taskRoleArn;
-    }
-
+    private GetTaskDefinitionResult() {}
     /**
      * @return The ARN of the task definition
      * 
@@ -127,7 +108,7 @@ public final class GetTaskDefinitionResult {
     public static Builder builder(GetTaskDefinitionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String family;
@@ -137,11 +118,7 @@ public final class GetTaskDefinitionResult {
         private String status;
         private String taskDefinition;
         private String taskRoleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTaskDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -154,39 +131,57 @@ public final class GetTaskDefinitionResult {
     	      this.taskRoleArn = defaults.taskRoleArn;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder family(String family) {
             this.family = Objects.requireNonNull(family);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder networkMode(String networkMode) {
             this.networkMode = Objects.requireNonNull(networkMode);
             return this;
         }
+        @CustomType.Setter
         public Builder revision(Integer revision) {
             this.revision = Objects.requireNonNull(revision);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder taskDefinition(String taskDefinition) {
             this.taskDefinition = Objects.requireNonNull(taskDefinition);
             return this;
         }
+        @CustomType.Setter
         public Builder taskRoleArn(String taskRoleArn) {
             this.taskRoleArn = Objects.requireNonNull(taskRoleArn);
             return this;
-        }        public GetTaskDefinitionResult build() {
-            return new GetTaskDefinitionResult(arn, family, id, networkMode, revision, status, taskDefinition, taskRoleArn);
+        }
+        public GetTaskDefinitionResult build() {
+            final var o = new GetTaskDefinitionResult();
+            o.arn = arn;
+            o.family = family;
+            o.id = id;
+            o.networkMode = networkMode;
+            o.revision = revision;
+            o.status = status;
+            o.taskDefinition = taskDefinition;
+            o.taskRoleArn = taskRoleArn;
+            return o;
         }
     }
 }

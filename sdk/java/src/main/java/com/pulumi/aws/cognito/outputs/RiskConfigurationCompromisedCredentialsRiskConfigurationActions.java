@@ -13,13 +13,9 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfigurationActio
      * @return The event action. Valid values are `BLOCK` or `NO_ACTION`.
      * 
      */
-    private final String eventAction;
+    private String eventAction;
 
-    @CustomType.Constructor
-    private RiskConfigurationCompromisedCredentialsRiskConfigurationActions(@CustomType.Parameter("eventAction") String eventAction) {
-        this.eventAction = eventAction;
-    }
-
+    private RiskConfigurationCompromisedCredentialsRiskConfigurationActions() {}
     /**
      * @return The event action. Valid values are `BLOCK` or `NO_ACTION`.
      * 
@@ -35,24 +31,24 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfigurationActio
     public static Builder builder(RiskConfigurationCompromisedCredentialsRiskConfigurationActions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String eventAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RiskConfigurationCompromisedCredentialsRiskConfigurationActions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventAction = defaults.eventAction;
         }
 
+        @CustomType.Setter
         public Builder eventAction(String eventAction) {
             this.eventAction = Objects.requireNonNull(eventAction);
             return this;
-        }        public RiskConfigurationCompromisedCredentialsRiskConfigurationActions build() {
-            return new RiskConfigurationCompromisedCredentialsRiskConfigurationActions(eventAction);
+        }
+        public RiskConfigurationCompromisedCredentialsRiskConfigurationActions build() {
+            final var o = new RiskConfigurationCompromisedCredentialsRiskConfigurationActions();
+            o.eventAction = eventAction;
+            return o;
         }
     }
 }

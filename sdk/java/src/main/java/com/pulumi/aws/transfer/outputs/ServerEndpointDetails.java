@@ -16,42 +16,29 @@ public final class ServerEndpointDetails {
      * @return A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server&#39;s endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
      * 
      */
-    private final @Nullable List<String> addressAllocationIds;
+    private @Nullable List<String> addressAllocationIds;
     /**
      * @return A list of security groups IDs that are available to attach to your server&#39;s endpoint. If no security groups are specified, the VPC&#39;s default security groups are automatically assigned to your endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
      * 
      */
-    private final @Nullable List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpoint_type` is set to `VPC`.
      * 
      */
-    private final @Nullable List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return The ID of the VPC endpoint. This property can only be used when `endpoint_type` is set to `VPC_ENDPOINT`
      * 
      */
-    private final @Nullable String vpcEndpointId;
+    private @Nullable String vpcEndpointId;
     /**
      * @return The VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
      * 
      */
-    private final @Nullable String vpcId;
+    private @Nullable String vpcId;
 
-    @CustomType.Constructor
-    private ServerEndpointDetails(
-        @CustomType.Parameter("addressAllocationIds") @Nullable List<String> addressAllocationIds,
-        @CustomType.Parameter("securityGroupIds") @Nullable List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") @Nullable List<String> subnetIds,
-        @CustomType.Parameter("vpcEndpointId") @Nullable String vpcEndpointId,
-        @CustomType.Parameter("vpcId") @Nullable String vpcId) {
-        this.addressAllocationIds = addressAllocationIds;
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcEndpointId = vpcEndpointId;
-        this.vpcId = vpcId;
-    }
-
+    private ServerEndpointDetails() {}
     /**
      * @return A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server&#39;s endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
      * 
@@ -95,18 +82,14 @@ public final class ServerEndpointDetails {
     public static Builder builder(ServerEndpointDetails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> addressAllocationIds;
         private @Nullable List<String> securityGroupIds;
         private @Nullable List<String> subnetIds;
         private @Nullable String vpcEndpointId;
         private @Nullable String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerEndpointDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressAllocationIds = defaults.addressAllocationIds;
@@ -116,6 +99,7 @@ public final class ServerEndpointDetails {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder addressAllocationIds(@Nullable List<String> addressAllocationIds) {
             this.addressAllocationIds = addressAllocationIds;
             return this;
@@ -123,6 +107,7 @@ public final class ServerEndpointDetails {
         public Builder addressAllocationIds(String... addressAllocationIds) {
             return addressAllocationIds(List.of(addressAllocationIds));
         }
+        @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
             this.securityGroupIds = securityGroupIds;
             return this;
@@ -130,6 +115,7 @@ public final class ServerEndpointDetails {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
             this.subnetIds = subnetIds;
             return this;
@@ -137,15 +123,24 @@ public final class ServerEndpointDetails {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
             this.vpcEndpointId = vpcEndpointId;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
             this.vpcId = vpcId;
             return this;
-        }        public ServerEndpointDetails build() {
-            return new ServerEndpointDetails(addressAllocationIds, securityGroupIds, subnetIds, vpcEndpointId, vpcId);
+        }
+        public ServerEndpointDetails build() {
+            final var o = new ServerEndpointDetails();
+            o.addressAllocationIds = addressAllocationIds;
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcEndpointId = vpcEndpointId;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

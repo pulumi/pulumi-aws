@@ -15,28 +15,19 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
      * @return Set of tags that are attached to the container distribution configuration.
      * 
      */
-    private final List<String> containerTags;
+    private List<String> containerTags;
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Set of destination repositories for the container distribution configuration.
      * 
      */
-    private final List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories;
+    private List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories;
 
-    @CustomType.Constructor
-    private GetDistributionConfigurationDistributionContainerDistributionConfiguration(
-        @CustomType.Parameter("containerTags") List<String> containerTags,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("targetRepositories") List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories) {
-        this.containerTags = containerTags;
-        this.description = description;
-        this.targetRepositories = targetRepositories;
-    }
-
+    private GetDistributionConfigurationDistributionContainerDistributionConfiguration() {}
     /**
      * @return Set of tags that are attached to the container distribution configuration.
      * 
@@ -66,16 +57,12 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
     public static Builder builder(GetDistributionConfigurationDistributionContainerDistributionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> containerTags;
         private String description;
         private List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDistributionConfigurationDistributionContainerDistributionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerTags = defaults.containerTags;
@@ -83,6 +70,7 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
     	      this.targetRepositories = defaults.targetRepositories;
         }
 
+        @CustomType.Setter
         public Builder containerTags(List<String> containerTags) {
             this.containerTags = Objects.requireNonNull(containerTags);
             return this;
@@ -90,18 +78,25 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
         public Builder containerTags(String... containerTags) {
             return containerTags(List.of(containerTags));
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder targetRepositories(List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories) {
             this.targetRepositories = Objects.requireNonNull(targetRepositories);
             return this;
         }
         public Builder targetRepositories(GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository... targetRepositories) {
             return targetRepositories(List.of(targetRepositories));
-        }        public GetDistributionConfigurationDistributionContainerDistributionConfiguration build() {
-            return new GetDistributionConfigurationDistributionContainerDistributionConfiguration(containerTags, description, targetRepositories);
+        }
+        public GetDistributionConfigurationDistributionContainerDistributionConfiguration build() {
+            final var o = new GetDistributionConfigurationDistributionContainerDistributionConfiguration();
+            o.containerTags = containerTags;
+            o.description = description;
+            o.targetRepositories = targetRepositories;
+            return o;
         }
     }
 }

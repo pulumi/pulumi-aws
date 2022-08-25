@@ -16,28 +16,19 @@ public final class AcceleratorAttributes {
      * @return Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
      * 
      */
-    private final @Nullable Boolean flowLogsEnabled;
+    private @Nullable Boolean flowLogsEnabled;
     /**
      * @return The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
      * 
      */
-    private final @Nullable String flowLogsS3Bucket;
+    private @Nullable String flowLogsS3Bucket;
     /**
      * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
      * 
      */
-    private final @Nullable String flowLogsS3Prefix;
+    private @Nullable String flowLogsS3Prefix;
 
-    @CustomType.Constructor
-    private AcceleratorAttributes(
-        @CustomType.Parameter("flowLogsEnabled") @Nullable Boolean flowLogsEnabled,
-        @CustomType.Parameter("flowLogsS3Bucket") @Nullable String flowLogsS3Bucket,
-        @CustomType.Parameter("flowLogsS3Prefix") @Nullable String flowLogsS3Prefix) {
-        this.flowLogsEnabled = flowLogsEnabled;
-        this.flowLogsS3Bucket = flowLogsS3Bucket;
-        this.flowLogsS3Prefix = flowLogsS3Prefix;
-    }
-
+    private AcceleratorAttributes() {}
     /**
      * @return Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
      * 
@@ -67,16 +58,12 @@ public final class AcceleratorAttributes {
     public static Builder builder(AcceleratorAttributes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean flowLogsEnabled;
         private @Nullable String flowLogsS3Bucket;
         private @Nullable String flowLogsS3Prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AcceleratorAttributes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.flowLogsEnabled = defaults.flowLogsEnabled;
@@ -84,19 +71,27 @@ public final class AcceleratorAttributes {
     	      this.flowLogsS3Prefix = defaults.flowLogsS3Prefix;
         }
 
+        @CustomType.Setter
         public Builder flowLogsEnabled(@Nullable Boolean flowLogsEnabled) {
             this.flowLogsEnabled = flowLogsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder flowLogsS3Bucket(@Nullable String flowLogsS3Bucket) {
             this.flowLogsS3Bucket = flowLogsS3Bucket;
             return this;
         }
+        @CustomType.Setter
         public Builder flowLogsS3Prefix(@Nullable String flowLogsS3Prefix) {
             this.flowLogsS3Prefix = flowLogsS3Prefix;
             return this;
-        }        public AcceleratorAttributes build() {
-            return new AcceleratorAttributes(flowLogsEnabled, flowLogsS3Bucket, flowLogsS3Prefix);
+        }
+        public AcceleratorAttributes build() {
+            final var o = new AcceleratorAttributes();
+            o.flowLogsEnabled = flowLogsEnabled;
+            o.flowLogsS3Bucket = flowLogsS3Bucket;
+            o.flowLogsS3Prefix = flowLogsS3Prefix;
+            return o;
         }
     }
 }

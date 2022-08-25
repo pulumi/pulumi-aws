@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOriginRequestPolicyQueryStringsConfigQueryString {
-    private final List<String> items;
+    private List<String> items;
 
-    @CustomType.Constructor
-    private GetOriginRequestPolicyQueryStringsConfigQueryString(@CustomType.Parameter("items") List<String> items) {
-        this.items = items;
-    }
-
+    private GetOriginRequestPolicyQueryStringsConfigQueryString() {}
     public List<String> items() {
         return this.items;
     }
@@ -28,27 +24,27 @@ public final class GetOriginRequestPolicyQueryStringsConfigQueryString {
     public static Builder builder(GetOriginRequestPolicyQueryStringsConfigQueryString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOriginRequestPolicyQueryStringsConfigQueryString defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(List<String> items) {
             this.items = Objects.requireNonNull(items);
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public GetOriginRequestPolicyQueryStringsConfigQueryString build() {
-            return new GetOriginRequestPolicyQueryStringsConfigQueryString(items);
+        }
+        public GetOriginRequestPolicyQueryStringsConfigQueryString build() {
+            final var o = new GetOriginRequestPolicyQueryStringsConfigQueryString();
+            o.items = items;
+            return o;
         }
     }
 }

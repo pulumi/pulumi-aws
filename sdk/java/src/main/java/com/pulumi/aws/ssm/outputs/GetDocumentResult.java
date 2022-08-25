@@ -15,44 +15,27 @@ public final class GetDocumentResult {
      * @return The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The contents of the document.
      * 
      */
-    private final String content;
-    private final @Nullable String documentFormat;
+    private String content;
+    private @Nullable String documentFormat;
     /**
      * @return The type of the document.
      * 
      */
-    private final String documentType;
-    private final @Nullable String documentVersion;
+    private String documentType;
+    private @Nullable String documentVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
 
-    @CustomType.Constructor
-    private GetDocumentResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("documentFormat") @Nullable String documentFormat,
-        @CustomType.Parameter("documentType") String documentType,
-        @CustomType.Parameter("documentVersion") @Nullable String documentVersion,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.arn = arn;
-        this.content = content;
-        this.documentFormat = documentFormat;
-        this.documentType = documentType;
-        this.documentVersion = documentVersion;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetDocumentResult() {}
     /**
      * @return The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
      * 
@@ -98,7 +81,7 @@ public final class GetDocumentResult {
     public static Builder builder(GetDocumentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String content;
@@ -107,11 +90,7 @@ public final class GetDocumentResult {
         private @Nullable String documentVersion;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDocumentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -123,35 +102,51 @@ public final class GetDocumentResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder documentFormat(@Nullable String documentFormat) {
             this.documentFormat = documentFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder documentType(String documentType) {
             this.documentType = Objects.requireNonNull(documentType);
             return this;
         }
+        @CustomType.Setter
         public Builder documentVersion(@Nullable String documentVersion) {
             this.documentVersion = documentVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetDocumentResult build() {
-            return new GetDocumentResult(arn, content, documentFormat, documentType, documentVersion, id, name);
+        }
+        public GetDocumentResult build() {
+            final var o = new GetDocumentResult();
+            o.arn = arn;
+            o.content = content;
+            o.documentFormat = documentFormat;
+            o.documentType = documentType;
+            o.documentVersion = documentVersion;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

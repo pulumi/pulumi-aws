@@ -13,41 +13,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocalGatewayResult {
-    private final @Nullable List<GetLocalGatewayFilter> filters;
-    private final String id;
+    private @Nullable List<GetLocalGatewayFilter> filters;
+    private String id;
     /**
      * @return Amazon Resource Name (ARN) of Outpost
      * 
      */
-    private final String outpostArn;
+    private String outpostArn;
     /**
      * @return AWS account identifier that owns the Local Gateway.
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return State of the local gateway.
      * 
      */
-    private final String state;
-    private final Map<String,String> tags;
+    private String state;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetLocalGatewayResult(
-        @CustomType.Parameter("filters") @Nullable List<GetLocalGatewayFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("outpostArn") String outpostArn,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.filters = filters;
-        this.id = id;
-        this.outpostArn = outpostArn;
-        this.ownerId = ownerId;
-        this.state = state;
-        this.tags = tags;
-    }
-
+    private GetLocalGatewayResult() {}
     public List<GetLocalGatewayFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -86,7 +71,7 @@ public final class GetLocalGatewayResult {
     public static Builder builder(GetLocalGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetLocalGatewayFilter> filters;
         private String id;
@@ -94,11 +79,7 @@ public final class GetLocalGatewayResult {
         private String ownerId;
         private String state;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLocalGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -109,6 +90,7 @@ public final class GetLocalGatewayResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetLocalGatewayFilter> filters) {
             this.filters = filters;
             return this;
@@ -116,27 +98,40 @@ public final class GetLocalGatewayResult {
         public Builder filters(GetLocalGatewayFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
             this.outpostArn = Objects.requireNonNull(outpostArn);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetLocalGatewayResult build() {
-            return new GetLocalGatewayResult(filters, id, outpostArn, ownerId, state, tags);
+        }
+        public GetLocalGatewayResult build() {
+            final var o = new GetLocalGatewayResult();
+            o.filters = filters;
+            o.id = id;
+            o.outpostArn = outpostArn;
+            o.ownerId = ownerId;
+            o.state = state;
+            o.tags = tags;
+            return o;
         }
     }
 }

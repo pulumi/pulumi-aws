@@ -13,13 +13,9 @@ public final class VirtualServiceSpecProviderVirtualRouter {
      * @return The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String virtualRouterName;
+    private String virtualRouterName;
 
-    @CustomType.Constructor
-    private VirtualServiceSpecProviderVirtualRouter(@CustomType.Parameter("virtualRouterName") String virtualRouterName) {
-        this.virtualRouterName = virtualRouterName;
-    }
-
+    private VirtualServiceSpecProviderVirtualRouter() {}
     /**
      * @return The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
      * 
@@ -35,24 +31,24 @@ public final class VirtualServiceSpecProviderVirtualRouter {
     public static Builder builder(VirtualServiceSpecProviderVirtualRouter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String virtualRouterName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualServiceSpecProviderVirtualRouter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualRouterName = defaults.virtualRouterName;
         }
 
+        @CustomType.Setter
         public Builder virtualRouterName(String virtualRouterName) {
             this.virtualRouterName = Objects.requireNonNull(virtualRouterName);
             return this;
-        }        public VirtualServiceSpecProviderVirtualRouter build() {
-            return new VirtualServiceSpecProviderVirtualRouter(virtualRouterName);
+        }
+        public VirtualServiceSpecProviderVirtualRouter build() {
+            final var o = new VirtualServiceSpecProviderVirtualRouter();
+            o.virtualRouterName = virtualRouterName;
+            return o;
         }
     }
 }

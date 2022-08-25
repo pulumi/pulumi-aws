@@ -16,42 +16,29 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The credentials used to access protected Zendesk resources.
      * 
      */
-    private final @Nullable String accessToken;
+    private @Nullable String accessToken;
     /**
      * @return The identifier for the desired client.
      * 
      */
-    private final @Nullable String clientId;
+    private @Nullable String clientId;
     /**
      * @return The client secret used by the OAuth client to authenticate to the authorization server.
      * 
      */
-    private final @Nullable String clientSecret;
+    private @Nullable String clientSecret;
     /**
      * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest oauthRequest;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest oauthRequest;
     /**
      * @return The refresh token used to refresh expired access token.
      * 
      */
-    private final @Nullable String refreshToken;
+    private @Nullable String refreshToken;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2(
-        @CustomType.Parameter("accessToken") @Nullable String accessToken,
-        @CustomType.Parameter("clientId") @Nullable String clientId,
-        @CustomType.Parameter("clientSecret") @Nullable String clientSecret,
-        @CustomType.Parameter("oauthRequest") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest oauthRequest,
-        @CustomType.Parameter("refreshToken") @Nullable String refreshToken) {
-        this.accessToken = accessToken;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.oauthRequest = oauthRequest;
-        this.refreshToken = refreshToken;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2() {}
     /**
      * @return The credentials used to access protected Zendesk resources.
      * 
@@ -95,18 +82,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessToken;
         private @Nullable String clientId;
         private @Nullable String clientSecret;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest oauthRequest;
         private @Nullable String refreshToken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
@@ -116,27 +99,39 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     	      this.refreshToken = defaults.refreshToken;
         }
 
+        @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
             this.accessToken = accessToken;
             return this;
         }
+        @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
             this.clientId = clientId;
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
             this.clientSecret = clientSecret;
             return this;
         }
+        @CustomType.Setter
         public Builder oauthRequest(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest oauthRequest) {
             this.oauthRequest = oauthRequest;
             return this;
         }
+        @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
             this.refreshToken = refreshToken;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2(accessToken, clientId, clientSecret, oauthRequest, refreshToken);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2();
+            o.accessToken = accessToken;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.oauthRequest = oauthRequest;
+            o.refreshToken = refreshToken;
+            return o;
         }
     }
 }

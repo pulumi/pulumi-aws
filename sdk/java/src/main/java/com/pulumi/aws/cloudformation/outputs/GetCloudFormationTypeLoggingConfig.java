@@ -13,21 +13,14 @@ public final class GetCloudFormationTypeLoggingConfig {
      * @return Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type&#39;s handlers.
      * 
      */
-    private final String logGroupName;
+    private String logGroupName;
     /**
      * @return Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
      * 
      */
-    private final String logRoleArn;
+    private String logRoleArn;
 
-    @CustomType.Constructor
-    private GetCloudFormationTypeLoggingConfig(
-        @CustomType.Parameter("logGroupName") String logGroupName,
-        @CustomType.Parameter("logRoleArn") String logRoleArn) {
-        this.logGroupName = logGroupName;
-        this.logRoleArn = logRoleArn;
-    }
-
+    private GetCloudFormationTypeLoggingConfig() {}
     /**
      * @return Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type&#39;s handlers.
      * 
@@ -50,30 +43,32 @@ public final class GetCloudFormationTypeLoggingConfig {
     public static Builder builder(GetCloudFormationTypeLoggingConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String logGroupName;
         private String logRoleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCloudFormationTypeLoggingConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logGroupName = defaults.logGroupName;
     	      this.logRoleArn = defaults.logRoleArn;
         }
 
+        @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
             this.logGroupName = Objects.requireNonNull(logGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder logRoleArn(String logRoleArn) {
             this.logRoleArn = Objects.requireNonNull(logRoleArn);
             return this;
-        }        public GetCloudFormationTypeLoggingConfig build() {
-            return new GetCloudFormationTypeLoggingConfig(logGroupName, logRoleArn);
+        }
+        public GetCloudFormationTypeLoggingConfig build() {
+            final var o = new GetCloudFormationTypeLoggingConfig();
+            o.logGroupName = logGroupName;
+            o.logRoleArn = logRoleArn;
+            return o;
         }
     }
 }

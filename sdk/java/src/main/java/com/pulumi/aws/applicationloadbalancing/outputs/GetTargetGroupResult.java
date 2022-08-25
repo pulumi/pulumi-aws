@@ -14,72 +14,31 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTargetGroupResult {
-    private final String arn;
-    private final String arnSuffix;
-    private final Boolean connectionTermination;
-    private final Integer deregistrationDelay;
-    private final GetTargetGroupHealthCheck healthCheck;
+    private String arn;
+    private String arnSuffix;
+    private Boolean connectionTermination;
+    private Integer deregistrationDelay;
+    private GetTargetGroupHealthCheck healthCheck;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final Boolean lambdaMultiValueHeadersEnabled;
-    private final String loadBalancingAlgorithmType;
-    private final String name;
-    private final Integer port;
-    private final String preserveClientIp;
-    private final String protocol;
-    private final String protocolVersion;
-    private final Boolean proxyProtocolV2;
-    private final Integer slowStart;
-    private final GetTargetGroupStickiness stickiness;
-    private final Map<String,String> tags;
-    private final String targetType;
-    private final String vpcId;
+    private String id;
+    private Boolean lambdaMultiValueHeadersEnabled;
+    private String loadBalancingAlgorithmType;
+    private String name;
+    private Integer port;
+    private String preserveClientIp;
+    private String protocol;
+    private String protocolVersion;
+    private Boolean proxyProtocolV2;
+    private Integer slowStart;
+    private GetTargetGroupStickiness stickiness;
+    private Map<String,String> tags;
+    private String targetType;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetTargetGroupResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("arnSuffix") String arnSuffix,
-        @CustomType.Parameter("connectionTermination") Boolean connectionTermination,
-        @CustomType.Parameter("deregistrationDelay") Integer deregistrationDelay,
-        @CustomType.Parameter("healthCheck") GetTargetGroupHealthCheck healthCheck,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lambdaMultiValueHeadersEnabled") Boolean lambdaMultiValueHeadersEnabled,
-        @CustomType.Parameter("loadBalancingAlgorithmType") String loadBalancingAlgorithmType,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("preserveClientIp") String preserveClientIp,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("protocolVersion") String protocolVersion,
-        @CustomType.Parameter("proxyProtocolV2") Boolean proxyProtocolV2,
-        @CustomType.Parameter("slowStart") Integer slowStart,
-        @CustomType.Parameter("stickiness") GetTargetGroupStickiness stickiness,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("targetType") String targetType,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.arn = arn;
-        this.arnSuffix = arnSuffix;
-        this.connectionTermination = connectionTermination;
-        this.deregistrationDelay = deregistrationDelay;
-        this.healthCheck = healthCheck;
-        this.id = id;
-        this.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
-        this.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
-        this.name = name;
-        this.port = port;
-        this.preserveClientIp = preserveClientIp;
-        this.protocol = protocol;
-        this.protocolVersion = protocolVersion;
-        this.proxyProtocolV2 = proxyProtocolV2;
-        this.slowStart = slowStart;
-        this.stickiness = stickiness;
-        this.tags = tags;
-        this.targetType = targetType;
-        this.vpcId = vpcId;
-    }
-
+    private GetTargetGroupResult() {}
     public String arn() {
         return this.arn;
     }
@@ -149,7 +108,7 @@ public final class GetTargetGroupResult {
     public static Builder builder(GetTargetGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String arnSuffix;
@@ -170,11 +129,7 @@ public final class GetTargetGroupResult {
         private Map<String,String> tags;
         private String targetType;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTargetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -198,83 +153,123 @@ public final class GetTargetGroupResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder arnSuffix(String arnSuffix) {
             this.arnSuffix = Objects.requireNonNull(arnSuffix);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionTermination(Boolean connectionTermination) {
             this.connectionTermination = Objects.requireNonNull(connectionTermination);
             return this;
         }
+        @CustomType.Setter
         public Builder deregistrationDelay(Integer deregistrationDelay) {
             this.deregistrationDelay = Objects.requireNonNull(deregistrationDelay);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheck(GetTargetGroupHealthCheck healthCheck) {
             this.healthCheck = Objects.requireNonNull(healthCheck);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaMultiValueHeadersEnabled(Boolean lambdaMultiValueHeadersEnabled) {
             this.lambdaMultiValueHeadersEnabled = Objects.requireNonNull(lambdaMultiValueHeadersEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancingAlgorithmType(String loadBalancingAlgorithmType) {
             this.loadBalancingAlgorithmType = Objects.requireNonNull(loadBalancingAlgorithmType);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder preserveClientIp(String preserveClientIp) {
             this.preserveClientIp = Objects.requireNonNull(preserveClientIp);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder protocolVersion(String protocolVersion) {
             this.protocolVersion = Objects.requireNonNull(protocolVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder proxyProtocolV2(Boolean proxyProtocolV2) {
             this.proxyProtocolV2 = Objects.requireNonNull(proxyProtocolV2);
             return this;
         }
+        @CustomType.Setter
         public Builder slowStart(Integer slowStart) {
             this.slowStart = Objects.requireNonNull(slowStart);
             return this;
         }
+        @CustomType.Setter
         public Builder stickiness(GetTargetGroupStickiness stickiness) {
             this.stickiness = Objects.requireNonNull(stickiness);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder targetType(String targetType) {
             this.targetType = Objects.requireNonNull(targetType);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetTargetGroupResult build() {
-            return new GetTargetGroupResult(arn, arnSuffix, connectionTermination, deregistrationDelay, healthCheck, id, lambdaMultiValueHeadersEnabled, loadBalancingAlgorithmType, name, port, preserveClientIp, protocol, protocolVersion, proxyProtocolV2, slowStart, stickiness, tags, targetType, vpcId);
+        }
+        public GetTargetGroupResult build() {
+            final var o = new GetTargetGroupResult();
+            o.arn = arn;
+            o.arnSuffix = arnSuffix;
+            o.connectionTermination = connectionTermination;
+            o.deregistrationDelay = deregistrationDelay;
+            o.healthCheck = healthCheck;
+            o.id = id;
+            o.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
+            o.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            o.name = name;
+            o.port = port;
+            o.preserveClientIp = preserveClientIp;
+            o.protocol = protocol;
+            o.protocolVersion = protocolVersion;
+            o.proxyProtocolV2 = proxyProtocolV2;
+            o.slowStart = slowStart;
+            o.stickiness = stickiness;
+            o.tags = tags;
+            o.targetType = targetType;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

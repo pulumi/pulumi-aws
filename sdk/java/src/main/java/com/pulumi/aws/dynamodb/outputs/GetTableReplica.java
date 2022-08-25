@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableReplica {
-    private final String kmsKeyArn;
-    private final String regionName;
+    private String kmsKeyArn;
+    private String regionName;
 
-    @CustomType.Constructor
-    private GetTableReplica(
-        @CustomType.Parameter("kmsKeyArn") String kmsKeyArn,
-        @CustomType.Parameter("regionName") String regionName) {
-        this.kmsKeyArn = kmsKeyArn;
-        this.regionName = regionName;
-    }
-
+    private GetTableReplica() {}
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
@@ -34,30 +27,32 @@ public final class GetTableReplica {
     public static Builder builder(GetTableReplica defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String kmsKeyArn;
         private String regionName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTableReplica defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.regionName = defaults.regionName;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
             this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
             return this;
         }
+        @CustomType.Setter
         public Builder regionName(String regionName) {
             this.regionName = Objects.requireNonNull(regionName);
             return this;
-        }        public GetTableReplica build() {
-            return new GetTableReplica(kmsKeyArn, regionName);
+        }
+        public GetTableReplica build() {
+            final var o = new GetTableReplica();
+            o.kmsKeyArn = kmsKeyArn;
+            o.regionName = regionName;
+            return o;
         }
     }
 }

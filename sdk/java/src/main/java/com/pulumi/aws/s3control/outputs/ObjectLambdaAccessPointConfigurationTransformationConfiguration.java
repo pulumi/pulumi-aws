@@ -15,21 +15,14 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
      * @return The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
      * 
      */
-    private final List<String> actions;
+    private List<String> actions;
     /**
      * @return The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
      * 
      */
-    private final ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation contentTransformation;
+    private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation contentTransformation;
 
-    @CustomType.Constructor
-    private ObjectLambdaAccessPointConfigurationTransformationConfiguration(
-        @CustomType.Parameter("actions") List<String> actions,
-        @CustomType.Parameter("contentTransformation") ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation contentTransformation) {
-        this.actions = actions;
-        this.contentTransformation = contentTransformation;
-    }
-
+    private ObjectLambdaAccessPointConfigurationTransformationConfiguration() {}
     /**
      * @return The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
      * 
@@ -52,21 +45,18 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
     public static Builder builder(ObjectLambdaAccessPointConfigurationTransformationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> actions;
         private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation contentTransformation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ObjectLambdaAccessPointConfigurationTransformationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.contentTransformation = defaults.contentTransformation;
         }
 
+        @CustomType.Setter
         public Builder actions(List<String> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -74,11 +64,16 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation contentTransformation) {
             this.contentTransformation = Objects.requireNonNull(contentTransformation);
             return this;
-        }        public ObjectLambdaAccessPointConfigurationTransformationConfiguration build() {
-            return new ObjectLambdaAccessPointConfigurationTransformationConfiguration(actions, contentTransformation);
+        }
+        public ObjectLambdaAccessPointConfigurationTransformationConfiguration build() {
+            final var o = new ObjectLambdaAccessPointConfigurationTransformationConfiguration();
+            o.actions = actions;
+            o.contentTransformation = contentTransformation;
+            return o;
         }
     }
 }

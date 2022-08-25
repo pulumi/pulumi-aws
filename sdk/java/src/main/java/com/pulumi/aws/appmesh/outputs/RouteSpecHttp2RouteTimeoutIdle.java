@@ -14,21 +14,14 @@ public final class RouteSpecHttp2RouteTimeoutIdle {
      * @return The unit of time. Valid values: `ms`, `s`.
      * 
      */
-    private final String unit;
+    private String unit;
     /**
      * @return The number of time units. Minimum value of `0`.
      * 
      */
-    private final Integer value;
+    private Integer value;
 
-    @CustomType.Constructor
-    private RouteSpecHttp2RouteTimeoutIdle(
-        @CustomType.Parameter("unit") String unit,
-        @CustomType.Parameter("value") Integer value) {
-        this.unit = unit;
-        this.value = value;
-    }
-
+    private RouteSpecHttp2RouteTimeoutIdle() {}
     /**
      * @return The unit of time. Valid values: `ms`, `s`.
      * 
@@ -51,30 +44,32 @@ public final class RouteSpecHttp2RouteTimeoutIdle {
     public static Builder builder(RouteSpecHttp2RouteTimeoutIdle defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String unit;
         private Integer value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttp2RouteTimeoutIdle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.unit = defaults.unit;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder unit(String unit) {
             this.unit = Objects.requireNonNull(unit);
             return this;
         }
+        @CustomType.Setter
         public Builder value(Integer value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public RouteSpecHttp2RouteTimeoutIdle build() {
-            return new RouteSpecHttp2RouteTimeoutIdle(unit, value);
+        }
+        public RouteSpecHttp2RouteTimeoutIdle build() {
+            final var o = new RouteSpecHttp2RouteTimeoutIdle();
+            o.unit = unit;
+            o.value = value;
+            return o;
         }
     }
 }

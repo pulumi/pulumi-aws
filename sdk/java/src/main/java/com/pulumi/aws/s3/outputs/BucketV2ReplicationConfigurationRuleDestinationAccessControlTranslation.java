@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation {
-    private final String owner;
+    private String owner;
 
-    @CustomType.Constructor
-    private BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation(@CustomType.Parameter("owner") String owner) {
-        this.owner = owner;
-    }
-
+    private BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation() {}
     public String owner() {
         return this.owner;
     }
@@ -27,24 +23,24 @@ public final class BucketV2ReplicationConfigurationRuleDestinationAccessControlT
     public static Builder builder(BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String owner;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.owner = defaults.owner;
         }
 
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
-        }        public BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation build() {
-            return new BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation(owner);
+        }
+        public BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation build() {
+            final var o = new BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation();
+            o.owner = owner;
+            return o;
         }
     }
 }

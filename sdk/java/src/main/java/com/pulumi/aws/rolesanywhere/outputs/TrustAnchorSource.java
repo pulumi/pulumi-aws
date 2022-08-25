@@ -14,21 +14,14 @@ public final class TrustAnchorSource {
      * @return The data denoting the source of trust, documented below
      * 
      */
-    private final TrustAnchorSourceSourceData sourceData;
+    private TrustAnchorSourceSourceData sourceData;
     /**
      * @return The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
      * 
      */
-    private final String sourceType;
+    private String sourceType;
 
-    @CustomType.Constructor
-    private TrustAnchorSource(
-        @CustomType.Parameter("sourceData") TrustAnchorSourceSourceData sourceData,
-        @CustomType.Parameter("sourceType") String sourceType) {
-        this.sourceData = sourceData;
-        this.sourceType = sourceType;
-    }
-
+    private TrustAnchorSource() {}
     /**
      * @return The data denoting the source of trust, documented below
      * 
@@ -51,30 +44,32 @@ public final class TrustAnchorSource {
     public static Builder builder(TrustAnchorSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private TrustAnchorSourceSourceData sourceData;
         private String sourceType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrustAnchorSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sourceData = defaults.sourceData;
     	      this.sourceType = defaults.sourceType;
         }
 
+        @CustomType.Setter
         public Builder sourceData(TrustAnchorSourceSourceData sourceData) {
             this.sourceData = Objects.requireNonNull(sourceData);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceType(String sourceType) {
             this.sourceType = Objects.requireNonNull(sourceType);
             return this;
-        }        public TrustAnchorSource build() {
-            return new TrustAnchorSource(sourceData, sourceType);
+        }
+        public TrustAnchorSource build() {
+            final var o = new TrustAnchorSource();
+            o.sourceData = sourceData;
+            o.sourceType = sourceType;
+            return o;
         }
     }
 }

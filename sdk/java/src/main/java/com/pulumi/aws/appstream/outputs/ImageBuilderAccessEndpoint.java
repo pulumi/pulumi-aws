@@ -15,21 +15,14 @@ public final class ImageBuilderAccessEndpoint {
      * @return Type of interface endpoint.
      * 
      */
-    private final String endpointType;
+    private String endpointType;
     /**
      * @return Identifier (ID) of the VPC in which the interface endpoint is used.
      * 
      */
-    private final @Nullable String vpceId;
+    private @Nullable String vpceId;
 
-    @CustomType.Constructor
-    private ImageBuilderAccessEndpoint(
-        @CustomType.Parameter("endpointType") String endpointType,
-        @CustomType.Parameter("vpceId") @Nullable String vpceId) {
-        this.endpointType = endpointType;
-        this.vpceId = vpceId;
-    }
-
+    private ImageBuilderAccessEndpoint() {}
     /**
      * @return Type of interface endpoint.
      * 
@@ -52,30 +45,32 @@ public final class ImageBuilderAccessEndpoint {
     public static Builder builder(ImageBuilderAccessEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpointType;
         private @Nullable String vpceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ImageBuilderAccessEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointType = defaults.endpointType;
     	      this.vpceId = defaults.vpceId;
         }
 
+        @CustomType.Setter
         public Builder endpointType(String endpointType) {
             this.endpointType = Objects.requireNonNull(endpointType);
             return this;
         }
+        @CustomType.Setter
         public Builder vpceId(@Nullable String vpceId) {
             this.vpceId = vpceId;
             return this;
-        }        public ImageBuilderAccessEndpoint build() {
-            return new ImageBuilderAccessEndpoint(endpointType, vpceId);
+        }
+        public ImageBuilderAccessEndpoint build() {
+            final var o = new ImageBuilderAccessEndpoint();
+            o.endpointType = endpointType;
+            o.vpceId = vpceId;
+            return o;
         }
     }
 }

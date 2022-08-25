@@ -16,42 +16,29 @@ public final class PolicyPredictiveScalingConfiguration {
      * @return Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
      * 
      */
-    private final @Nullable String maxCapacityBreachBehavior;
+    private @Nullable String maxCapacityBreachBehavior;
     /**
      * @return The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
      * 
      */
-    private final @Nullable String maxCapacityBuffer;
+    private @Nullable String maxCapacityBuffer;
     /**
      * @return This structure includes the metrics and target utilization to use for predictive scaling.
      * 
      */
-    private final PolicyPredictiveScalingConfigurationMetricSpecification metricSpecification;
+    private PolicyPredictiveScalingConfigurationMetricSpecification metricSpecification;
     /**
      * @return The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
      * 
      */
-    private final @Nullable String mode;
+    private @Nullable String mode;
     /**
      * @return The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
      * 
      */
-    private final @Nullable String schedulingBufferTime;
+    private @Nullable String schedulingBufferTime;
 
-    @CustomType.Constructor
-    private PolicyPredictiveScalingConfiguration(
-        @CustomType.Parameter("maxCapacityBreachBehavior") @Nullable String maxCapacityBreachBehavior,
-        @CustomType.Parameter("maxCapacityBuffer") @Nullable String maxCapacityBuffer,
-        @CustomType.Parameter("metricSpecification") PolicyPredictiveScalingConfigurationMetricSpecification metricSpecification,
-        @CustomType.Parameter("mode") @Nullable String mode,
-        @CustomType.Parameter("schedulingBufferTime") @Nullable String schedulingBufferTime) {
-        this.maxCapacityBreachBehavior = maxCapacityBreachBehavior;
-        this.maxCapacityBuffer = maxCapacityBuffer;
-        this.metricSpecification = metricSpecification;
-        this.mode = mode;
-        this.schedulingBufferTime = schedulingBufferTime;
-    }
-
+    private PolicyPredictiveScalingConfiguration() {}
     /**
      * @return Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
      * 
@@ -95,18 +82,14 @@ public final class PolicyPredictiveScalingConfiguration {
     public static Builder builder(PolicyPredictiveScalingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String maxCapacityBreachBehavior;
         private @Nullable String maxCapacityBuffer;
         private PolicyPredictiveScalingConfigurationMetricSpecification metricSpecification;
         private @Nullable String mode;
         private @Nullable String schedulingBufferTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyPredictiveScalingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxCapacityBreachBehavior = defaults.maxCapacityBreachBehavior;
@@ -116,27 +99,39 @@ public final class PolicyPredictiveScalingConfiguration {
     	      this.schedulingBufferTime = defaults.schedulingBufferTime;
         }
 
+        @CustomType.Setter
         public Builder maxCapacityBreachBehavior(@Nullable String maxCapacityBreachBehavior) {
             this.maxCapacityBreachBehavior = maxCapacityBreachBehavior;
             return this;
         }
+        @CustomType.Setter
         public Builder maxCapacityBuffer(@Nullable String maxCapacityBuffer) {
             this.maxCapacityBuffer = maxCapacityBuffer;
             return this;
         }
+        @CustomType.Setter
         public Builder metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecification metricSpecification) {
             this.metricSpecification = Objects.requireNonNull(metricSpecification);
             return this;
         }
+        @CustomType.Setter
         public Builder mode(@Nullable String mode) {
             this.mode = mode;
             return this;
         }
+        @CustomType.Setter
         public Builder schedulingBufferTime(@Nullable String schedulingBufferTime) {
             this.schedulingBufferTime = schedulingBufferTime;
             return this;
-        }        public PolicyPredictiveScalingConfiguration build() {
-            return new PolicyPredictiveScalingConfiguration(maxCapacityBreachBehavior, maxCapacityBuffer, metricSpecification, mode, schedulingBufferTime);
+        }
+        public PolicyPredictiveScalingConfiguration build() {
+            final var o = new PolicyPredictiveScalingConfiguration();
+            o.maxCapacityBreachBehavior = maxCapacityBreachBehavior;
+            o.maxCapacityBuffer = maxCapacityBuffer;
+            o.metricSpecification = metricSpecification;
+            o.mode = mode;
+            o.schedulingBufferTime = schedulingBufferTime;
+            return o;
         }
     }
 }

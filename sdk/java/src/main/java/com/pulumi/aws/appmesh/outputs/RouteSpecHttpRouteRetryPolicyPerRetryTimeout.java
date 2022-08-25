@@ -14,21 +14,14 @@ public final class RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
      * @return Retry unit. Valid values: `ms`, `s`.
      * 
      */
-    private final String unit;
+    private String unit;
     /**
      * @return Retry value.
      * 
      */
-    private final Integer value;
+    private Integer value;
 
-    @CustomType.Constructor
-    private RouteSpecHttpRouteRetryPolicyPerRetryTimeout(
-        @CustomType.Parameter("unit") String unit,
-        @CustomType.Parameter("value") Integer value) {
-        this.unit = unit;
-        this.value = value;
-    }
-
+    private RouteSpecHttpRouteRetryPolicyPerRetryTimeout() {}
     /**
      * @return Retry unit. Valid values: `ms`, `s`.
      * 
@@ -51,30 +44,32 @@ public final class RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
     public static Builder builder(RouteSpecHttpRouteRetryPolicyPerRetryTimeout defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String unit;
         private Integer value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttpRouteRetryPolicyPerRetryTimeout defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.unit = defaults.unit;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder unit(String unit) {
             this.unit = Objects.requireNonNull(unit);
             return this;
         }
+        @CustomType.Setter
         public Builder value(Integer value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public RouteSpecHttpRouteRetryPolicyPerRetryTimeout build() {
-            return new RouteSpecHttpRouteRetryPolicyPerRetryTimeout(unit, value);
+        }
+        public RouteSpecHttpRouteRetryPolicyPerRetryTimeout build() {
+            final var o = new RouteSpecHttpRouteRetryPolicyPerRetryTimeout();
+            o.unit = unit;
+            o.value = value;
+            return o;
         }
     }
 }

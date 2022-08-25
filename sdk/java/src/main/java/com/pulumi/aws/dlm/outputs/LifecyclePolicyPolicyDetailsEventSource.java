@@ -14,21 +14,14 @@ public final class LifecyclePolicyPolicyDetailsEventSource {
      * @return Information about the event. See the `parameters` configuration block.
      * 
      */
-    private final LifecyclePolicyPolicyDetailsEventSourceParameters parameters;
+    private LifecyclePolicyPolicyDetailsEventSourceParameters parameters;
     /**
      * @return The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsEventSource(
-        @CustomType.Parameter("parameters") LifecyclePolicyPolicyDetailsEventSourceParameters parameters,
-        @CustomType.Parameter("type") String type) {
-        this.parameters = parameters;
-        this.type = type;
-    }
-
+    private LifecyclePolicyPolicyDetailsEventSource() {}
     /**
      * @return Information about the event. See the `parameters` configuration block.
      * 
@@ -51,30 +44,32 @@ public final class LifecyclePolicyPolicyDetailsEventSource {
     public static Builder builder(LifecyclePolicyPolicyDetailsEventSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private LifecyclePolicyPolicyDetailsEventSourceParameters parameters;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsEventSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameters = defaults.parameters;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder parameters(LifecyclePolicyPolicyDetailsEventSourceParameters parameters) {
             this.parameters = Objects.requireNonNull(parameters);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public LifecyclePolicyPolicyDetailsEventSource build() {
-            return new LifecyclePolicyPolicyDetailsEventSource(parameters, type);
+        }
+        public LifecyclePolicyPolicyDetailsEventSource build() {
+            final var o = new LifecyclePolicyPolicyDetailsEventSource();
+            o.parameters = parameters;
+            o.type = type;
+            return o;
         }
     }
 }

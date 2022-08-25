@@ -16,35 +16,24 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtection {
      * @return A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
      * 
      */
-    private final @Nullable Boolean modeBlock;
+    private @Nullable Boolean modeBlock;
     /**
      * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private final Boolean override;
+    private Boolean override;
     /**
      * @return A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
      * 
      */
-    private final Boolean protection;
+    private Boolean protection;
     /**
      * @return A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
      * 
      */
-    private final @Nullable String reportUri;
+    private @Nullable String reportUri;
 
-    @CustomType.Constructor
-    private ResponseHeadersPolicySecurityHeadersConfigXssProtection(
-        @CustomType.Parameter("modeBlock") @Nullable Boolean modeBlock,
-        @CustomType.Parameter("override") Boolean override,
-        @CustomType.Parameter("protection") Boolean protection,
-        @CustomType.Parameter("reportUri") @Nullable String reportUri) {
-        this.modeBlock = modeBlock;
-        this.override = override;
-        this.protection = protection;
-        this.reportUri = reportUri;
-    }
-
+    private ResponseHeadersPolicySecurityHeadersConfigXssProtection() {}
     /**
      * @return A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
      * 
@@ -81,17 +70,13 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtection {
     public static Builder builder(ResponseHeadersPolicySecurityHeadersConfigXssProtection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean modeBlock;
         private Boolean override;
         private Boolean protection;
         private @Nullable String reportUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponseHeadersPolicySecurityHeadersConfigXssProtection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.modeBlock = defaults.modeBlock;
@@ -100,23 +85,33 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtection {
     	      this.reportUri = defaults.reportUri;
         }
 
+        @CustomType.Setter
         public Builder modeBlock(@Nullable Boolean modeBlock) {
             this.modeBlock = modeBlock;
             return this;
         }
+        @CustomType.Setter
         public Builder override(Boolean override) {
             this.override = Objects.requireNonNull(override);
             return this;
         }
+        @CustomType.Setter
         public Builder protection(Boolean protection) {
             this.protection = Objects.requireNonNull(protection);
             return this;
         }
+        @CustomType.Setter
         public Builder reportUri(@Nullable String reportUri) {
             this.reportUri = reportUri;
             return this;
-        }        public ResponseHeadersPolicySecurityHeadersConfigXssProtection build() {
-            return new ResponseHeadersPolicySecurityHeadersConfigXssProtection(modeBlock, override, protection, reportUri);
+        }
+        public ResponseHeadersPolicySecurityHeadersConfigXssProtection build() {
+            final var o = new ResponseHeadersPolicySecurityHeadersConfigXssProtection();
+            o.modeBlock = modeBlock;
+            o.override = override;
+            o.protection = protection;
+            o.reportUri = reportUri;
+            return o;
         }
     }
 }

@@ -18,56 +18,39 @@ public final class EndpointConfigurationProductionVariant {
      * @return The size of the Elastic Inference (EI) instance to use for the production variant.
      * 
      */
-    private final @Nullable String acceleratorType;
+    private @Nullable String acceleratorType;
     /**
      * @return Initial number of instances used for auto-scaling.
      * 
      */
-    private final @Nullable Integer initialInstanceCount;
+    private @Nullable Integer initialInstanceCount;
     /**
      * @return Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
      * 
      */
-    private final @Nullable Double initialVariantWeight;
+    private @Nullable Double initialVariantWeight;
     /**
      * @return The type of instance to start.
      * 
      */
-    private final @Nullable String instanceType;
+    private @Nullable String instanceType;
     /**
      * @return The name of the model to use.
      * 
      */
-    private final String modelName;
+    private String modelName;
     /**
      * @return Specifies configuration for how an endpoint performs asynchronous inference.
      * 
      */
-    private final @Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig;
+    private @Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig;
     /**
      * @return The name of the variant. If omitted, this provider will assign a random, unique name.
      * 
      */
-    private final @Nullable String variantName;
+    private @Nullable String variantName;
 
-    @CustomType.Constructor
-    private EndpointConfigurationProductionVariant(
-        @CustomType.Parameter("acceleratorType") @Nullable String acceleratorType,
-        @CustomType.Parameter("initialInstanceCount") @Nullable Integer initialInstanceCount,
-        @CustomType.Parameter("initialVariantWeight") @Nullable Double initialVariantWeight,
-        @CustomType.Parameter("instanceType") @Nullable String instanceType,
-        @CustomType.Parameter("modelName") String modelName,
-        @CustomType.Parameter("serverlessConfig") @Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig,
-        @CustomType.Parameter("variantName") @Nullable String variantName) {
-        this.acceleratorType = acceleratorType;
-        this.initialInstanceCount = initialInstanceCount;
-        this.initialVariantWeight = initialVariantWeight;
-        this.instanceType = instanceType;
-        this.modelName = modelName;
-        this.serverlessConfig = serverlessConfig;
-        this.variantName = variantName;
-    }
-
+    private EndpointConfigurationProductionVariant() {}
     /**
      * @return The size of the Elastic Inference (EI) instance to use for the production variant.
      * 
@@ -125,7 +108,7 @@ public final class EndpointConfigurationProductionVariant {
     public static Builder builder(EndpointConfigurationProductionVariant defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceleratorType;
         private @Nullable Integer initialInstanceCount;
@@ -134,11 +117,7 @@ public final class EndpointConfigurationProductionVariant {
         private String modelName;
         private @Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig;
         private @Nullable String variantName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConfigurationProductionVariant defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceleratorType = defaults.acceleratorType;
@@ -150,35 +129,51 @@ public final class EndpointConfigurationProductionVariant {
     	      this.variantName = defaults.variantName;
         }
 
+        @CustomType.Setter
         public Builder acceleratorType(@Nullable String acceleratorType) {
             this.acceleratorType = acceleratorType;
             return this;
         }
+        @CustomType.Setter
         public Builder initialInstanceCount(@Nullable Integer initialInstanceCount) {
             this.initialInstanceCount = initialInstanceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder initialVariantWeight(@Nullable Double initialVariantWeight) {
             this.initialVariantWeight = initialVariantWeight;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
             this.instanceType = instanceType;
             return this;
         }
+        @CustomType.Setter
         public Builder modelName(String modelName) {
             this.modelName = Objects.requireNonNull(modelName);
             return this;
         }
+        @CustomType.Setter
         public Builder serverlessConfig(@Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig) {
             this.serverlessConfig = serverlessConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder variantName(@Nullable String variantName) {
             this.variantName = variantName;
             return this;
-        }        public EndpointConfigurationProductionVariant build() {
-            return new EndpointConfigurationProductionVariant(acceleratorType, initialInstanceCount, initialVariantWeight, instanceType, modelName, serverlessConfig, variantName);
+        }
+        public EndpointConfigurationProductionVariant build() {
+            final var o = new EndpointConfigurationProductionVariant();
+            o.acceleratorType = acceleratorType;
+            o.initialInstanceCount = initialInstanceCount;
+            o.initialVariantWeight = initialVariantWeight;
+            o.instanceType = instanceType;
+            o.modelName = modelName;
+            o.serverlessConfig = serverlessConfig;
+            o.variantName = variantName;
+            return o;
         }
     }
 }

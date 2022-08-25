@@ -17,35 +17,24 @@ public final class FleetSpotOptions {
      * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
      * 
      */
-    private final @Nullable String allocationStrategy;
+    private @Nullable String allocationStrategy;
     /**
      * @return Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
      * 
      */
-    private final @Nullable String instanceInterruptionBehavior;
+    private @Nullable String instanceInterruptionBehavior;
     /**
      * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
      * 
      */
-    private final @Nullable Integer instancePoolsToUseCount;
+    private @Nullable Integer instancePoolsToUseCount;
     /**
      * @return Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      * 
      */
-    private final @Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies;
+    private @Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies;
 
-    @CustomType.Constructor
-    private FleetSpotOptions(
-        @CustomType.Parameter("allocationStrategy") @Nullable String allocationStrategy,
-        @CustomType.Parameter("instanceInterruptionBehavior") @Nullable String instanceInterruptionBehavior,
-        @CustomType.Parameter("instancePoolsToUseCount") @Nullable Integer instancePoolsToUseCount,
-        @CustomType.Parameter("maintenanceStrategies") @Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies) {
-        this.allocationStrategy = allocationStrategy;
-        this.instanceInterruptionBehavior = instanceInterruptionBehavior;
-        this.instancePoolsToUseCount = instancePoolsToUseCount;
-        this.maintenanceStrategies = maintenanceStrategies;
-    }
-
+    private FleetSpotOptions() {}
     /**
      * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
      * 
@@ -82,17 +71,13 @@ public final class FleetSpotOptions {
     public static Builder builder(FleetSpotOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String allocationStrategy;
         private @Nullable String instanceInterruptionBehavior;
         private @Nullable Integer instancePoolsToUseCount;
         private @Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetSpotOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationStrategy = defaults.allocationStrategy;
@@ -101,23 +86,33 @@ public final class FleetSpotOptions {
     	      this.maintenanceStrategies = defaults.maintenanceStrategies;
         }
 
+        @CustomType.Setter
         public Builder allocationStrategy(@Nullable String allocationStrategy) {
             this.allocationStrategy = allocationStrategy;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceInterruptionBehavior(@Nullable String instanceInterruptionBehavior) {
             this.instanceInterruptionBehavior = instanceInterruptionBehavior;
             return this;
         }
+        @CustomType.Setter
         public Builder instancePoolsToUseCount(@Nullable Integer instancePoolsToUseCount) {
             this.instancePoolsToUseCount = instancePoolsToUseCount;
             return this;
         }
+        @CustomType.Setter
         public Builder maintenanceStrategies(@Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies) {
             this.maintenanceStrategies = maintenanceStrategies;
             return this;
-        }        public FleetSpotOptions build() {
-            return new FleetSpotOptions(allocationStrategy, instanceInterruptionBehavior, instancePoolsToUseCount, maintenanceStrategies);
+        }
+        public FleetSpotOptions build() {
+            final var o = new FleetSpotOptions();
+            o.allocationStrategy = allocationStrategy;
+            o.instanceInterruptionBehavior = instanceInterruptionBehavior;
+            o.instancePoolsToUseCount = instancePoolsToUseCount;
+            o.maintenanceStrategies = maintenanceStrategies;
+            return o;
         }
     }
 }

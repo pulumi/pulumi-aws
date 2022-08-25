@@ -17,21 +17,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigur
      * @return Enables or disables data processing.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Array of data processors. More details are given below
      * 
      */
-    private final @Nullable List<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor> processors;
+    private @Nullable List<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor> processors;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("processors") @Nullable List<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor> processors) {
-        this.enabled = enabled;
-        this.processors = processors;
-    }
-
+    private FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration() {}
     /**
      * @return Enables or disables data processing.
      * 
@@ -54,33 +47,35 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigur
     public static Builder builder(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor> processors;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.processors = defaults.processors;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder processors(@Nullable List<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor> processors) {
             this.processors = processors;
             return this;
         }
         public Builder processors(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor... processors) {
             return processors(List.of(processors));
-        }        public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration build() {
-            return new FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration(enabled, processors);
+        }
+        public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration build() {
+            final var o = new FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration();
+            o.enabled = enabled;
+            o.processors = processors;
+            return o;
         }
     }
 }

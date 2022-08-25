@@ -14,28 +14,19 @@ public final class FieldLevelEncryptionProfileEncryptionEntitiesItem {
      * @return Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
      * 
      */
-    private final FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns fieldPatterns;
+    private FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns fieldPatterns;
     /**
      * @return The provider associated with the public key being used for encryption.
      * 
      */
-    private final String providerId;
+    private String providerId;
     /**
      * @return The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
      * 
      */
-    private final String publicKeyId;
+    private String publicKeyId;
 
-    @CustomType.Constructor
-    private FieldLevelEncryptionProfileEncryptionEntitiesItem(
-        @CustomType.Parameter("fieldPatterns") FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns fieldPatterns,
-        @CustomType.Parameter("providerId") String providerId,
-        @CustomType.Parameter("publicKeyId") String publicKeyId) {
-        this.fieldPatterns = fieldPatterns;
-        this.providerId = providerId;
-        this.publicKeyId = publicKeyId;
-    }
-
+    private FieldLevelEncryptionProfileEncryptionEntitiesItem() {}
     /**
      * @return Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
      * 
@@ -65,16 +56,12 @@ public final class FieldLevelEncryptionProfileEncryptionEntitiesItem {
     public static Builder builder(FieldLevelEncryptionProfileEncryptionEntitiesItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns fieldPatterns;
         private String providerId;
         private String publicKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FieldLevelEncryptionProfileEncryptionEntitiesItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldPatterns = defaults.fieldPatterns;
@@ -82,19 +69,27 @@ public final class FieldLevelEncryptionProfileEncryptionEntitiesItem {
     	      this.publicKeyId = defaults.publicKeyId;
         }
 
+        @CustomType.Setter
         public Builder fieldPatterns(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns fieldPatterns) {
             this.fieldPatterns = Objects.requireNonNull(fieldPatterns);
             return this;
         }
+        @CustomType.Setter
         public Builder providerId(String providerId) {
             this.providerId = Objects.requireNonNull(providerId);
             return this;
         }
+        @CustomType.Setter
         public Builder publicKeyId(String publicKeyId) {
             this.publicKeyId = Objects.requireNonNull(publicKeyId);
             return this;
-        }        public FieldLevelEncryptionProfileEncryptionEntitiesItem build() {
-            return new FieldLevelEncryptionProfileEncryptionEntitiesItem(fieldPatterns, providerId, publicKeyId);
+        }
+        public FieldLevelEncryptionProfileEncryptionEntitiesItem build() {
+            final var o = new FieldLevelEncryptionProfileEncryptionEntitiesItem();
+            o.fieldPatterns = fieldPatterns;
+            o.providerId = providerId;
+            o.publicKeyId = publicKeyId;
+            return o;
         }
     }
 }

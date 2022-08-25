@@ -13,13 +13,9 @@ public final class DataSourceSslProperties {
      * @return A Boolean option to control whether SSL should be disabled.
      * 
      */
-    private final Boolean disableSsl;
+    private Boolean disableSsl;
 
-    @CustomType.Constructor
-    private DataSourceSslProperties(@CustomType.Parameter("disableSsl") Boolean disableSsl) {
-        this.disableSsl = disableSsl;
-    }
-
+    private DataSourceSslProperties() {}
     /**
      * @return A Boolean option to control whether SSL should be disabled.
      * 
@@ -35,24 +31,24 @@ public final class DataSourceSslProperties {
     public static Builder builder(DataSourceSslProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean disableSsl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceSslProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disableSsl = defaults.disableSsl;
         }
 
+        @CustomType.Setter
         public Builder disableSsl(Boolean disableSsl) {
             this.disableSsl = Objects.requireNonNull(disableSsl);
             return this;
-        }        public DataSourceSslProperties build() {
-            return new DataSourceSslProperties(disableSsl);
+        }
+        public DataSourceSslProperties build() {
+            final var o = new DataSourceSslProperties();
+            o.disableSsl = disableSsl;
+            return o;
         }
     }
 }

@@ -14,13 +14,9 @@ public final class WebAclRuleStatementNotStatement {
      * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
      */
-    private final List<WebAclRuleStatementNotStatementStatement> statements;
+    private List<WebAclRuleStatementNotStatementStatement> statements;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementNotStatement(@CustomType.Parameter("statements") List<WebAclRuleStatementNotStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private WebAclRuleStatementNotStatement() {}
     /**
      * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclRuleStatementNotStatement {
     public static Builder builder(WebAclRuleStatementNotStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclRuleStatementNotStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<WebAclRuleStatementNotStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(WebAclRuleStatementNotStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public WebAclRuleStatementNotStatement build() {
-            return new WebAclRuleStatementNotStatement(statements);
+        }
+        public WebAclRuleStatementNotStatement build() {
+            final var o = new WebAclRuleStatementNotStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

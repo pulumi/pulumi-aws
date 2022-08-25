@@ -17,21 +17,14 @@ public final class DistributionTrustedKeyGroup {
      * @return A flag that specifies whether Origin Shield is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return List of nested attributes for each trusted signer
      * 
      */
-    private final @Nullable List<DistributionTrustedKeyGroupItem> items;
+    private @Nullable List<DistributionTrustedKeyGroupItem> items;
 
-    @CustomType.Constructor
-    private DistributionTrustedKeyGroup(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("items") @Nullable List<DistributionTrustedKeyGroupItem> items) {
-        this.enabled = enabled;
-        this.items = items;
-    }
-
+    private DistributionTrustedKeyGroup() {}
     /**
      * @return A flag that specifies whether Origin Shield is enabled.
      * 
@@ -54,33 +47,35 @@ public final class DistributionTrustedKeyGroup {
     public static Builder builder(DistributionTrustedKeyGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<DistributionTrustedKeyGroupItem> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionTrustedKeyGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder items(@Nullable List<DistributionTrustedKeyGroupItem> items) {
             this.items = items;
             return this;
         }
         public Builder items(DistributionTrustedKeyGroupItem... items) {
             return items(List.of(items));
-        }        public DistributionTrustedKeyGroup build() {
-            return new DistributionTrustedKeyGroup(enabled, items);
+        }
+        public DistributionTrustedKeyGroup build() {
+            final var o = new DistributionTrustedKeyGroup();
+            o.enabled = enabled;
+            o.items = items;
+            return o;
         }
     }
 }

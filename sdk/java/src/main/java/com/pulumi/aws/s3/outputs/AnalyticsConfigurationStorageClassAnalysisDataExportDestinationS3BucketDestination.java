@@ -15,35 +15,24 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
      * @return The account ID that owns the destination bucket.
      * 
      */
-    private final @Nullable String bucketAccountId;
+    private @Nullable String bucketAccountId;
     /**
      * @return The ARN of the destination bucket.
      * 
      */
-    private final String bucketArn;
+    private String bucketArn;
     /**
      * @return The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
      * 
      */
-    private final @Nullable String format;
+    private @Nullable String format;
     /**
      * @return Object prefix for filtering.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
 
-    @CustomType.Constructor
-    private AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination(
-        @CustomType.Parameter("bucketAccountId") @Nullable String bucketAccountId,
-        @CustomType.Parameter("bucketArn") String bucketArn,
-        @CustomType.Parameter("format") @Nullable String format,
-        @CustomType.Parameter("prefix") @Nullable String prefix) {
-        this.bucketAccountId = bucketAccountId;
-        this.bucketArn = bucketArn;
-        this.format = format;
-        this.prefix = prefix;
-    }
-
+    private AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination() {}
     /**
      * @return The account ID that owns the destination bucket.
      * 
@@ -80,17 +69,13 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
     public static Builder builder(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucketAccountId;
         private String bucketArn;
         private @Nullable String format;
         private @Nullable String prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketAccountId = defaults.bucketAccountId;
@@ -99,23 +84,33 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder bucketAccountId(@Nullable String bucketAccountId) {
             this.bucketAccountId = bucketAccountId;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
             this.bucketArn = Objects.requireNonNull(bucketArn);
             return this;
         }
+        @CustomType.Setter
         public Builder format(@Nullable String format) {
             this.format = format;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
-        }        public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination build() {
-            return new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination(bucketAccountId, bucketArn, format, prefix);
+        }
+        public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination build() {
+            final var o = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination();
+            o.bucketAccountId = bucketAccountId;
+            o.bucketArn = bucketArn;
+            o.format = format;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

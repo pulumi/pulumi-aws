@@ -18,49 +18,34 @@ public final class WorkgroupConfiguration {
      * @return Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
      * 
      */
-    private final @Nullable Integer bytesScannedCutoffPerQuery;
+    private @Nullable Integer bytesScannedCutoffPerQuery;
     /**
      * @return Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enforceWorkgroupConfiguration;
+    private @Nullable Boolean enforceWorkgroupConfiguration;
     /**
      * @return Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
      * 
      */
-    private final @Nullable WorkgroupConfigurationEngineVersion engineVersion;
+    private @Nullable WorkgroupConfigurationEngineVersion engineVersion;
     /**
      * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean publishCloudwatchMetricsEnabled;
+    private @Nullable Boolean publishCloudwatchMetricsEnabled;
     /**
      * @return If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
      * 
      */
-    private final @Nullable Boolean requesterPaysEnabled;
+    private @Nullable Boolean requesterPaysEnabled;
     /**
      * @return Configuration block with result settings. See Result Configuration below.
      * 
      */
-    private final @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration;
+    private @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration;
 
-    @CustomType.Constructor
-    private WorkgroupConfiguration(
-        @CustomType.Parameter("bytesScannedCutoffPerQuery") @Nullable Integer bytesScannedCutoffPerQuery,
-        @CustomType.Parameter("enforceWorkgroupConfiguration") @Nullable Boolean enforceWorkgroupConfiguration,
-        @CustomType.Parameter("engineVersion") @Nullable WorkgroupConfigurationEngineVersion engineVersion,
-        @CustomType.Parameter("publishCloudwatchMetricsEnabled") @Nullable Boolean publishCloudwatchMetricsEnabled,
-        @CustomType.Parameter("requesterPaysEnabled") @Nullable Boolean requesterPaysEnabled,
-        @CustomType.Parameter("resultConfiguration") @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration) {
-        this.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
-        this.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
-        this.engineVersion = engineVersion;
-        this.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
-        this.requesterPaysEnabled = requesterPaysEnabled;
-        this.resultConfiguration = resultConfiguration;
-    }
-
+    private WorkgroupConfiguration() {}
     /**
      * @return Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
      * 
@@ -111,7 +96,7 @@ public final class WorkgroupConfiguration {
     public static Builder builder(WorkgroupConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer bytesScannedCutoffPerQuery;
         private @Nullable Boolean enforceWorkgroupConfiguration;
@@ -119,11 +104,7 @@ public final class WorkgroupConfiguration {
         private @Nullable Boolean publishCloudwatchMetricsEnabled;
         private @Nullable Boolean requesterPaysEnabled;
         private @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkgroupConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bytesScannedCutoffPerQuery = defaults.bytesScannedCutoffPerQuery;
@@ -134,31 +115,45 @@ public final class WorkgroupConfiguration {
     	      this.resultConfiguration = defaults.resultConfiguration;
         }
 
+        @CustomType.Setter
         public Builder bytesScannedCutoffPerQuery(@Nullable Integer bytesScannedCutoffPerQuery) {
             this.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
             return this;
         }
+        @CustomType.Setter
         public Builder enforceWorkgroupConfiguration(@Nullable Boolean enforceWorkgroupConfiguration) {
             this.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder engineVersion(@Nullable WorkgroupConfigurationEngineVersion engineVersion) {
             this.engineVersion = engineVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder publishCloudwatchMetricsEnabled(@Nullable Boolean publishCloudwatchMetricsEnabled) {
             this.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder requesterPaysEnabled(@Nullable Boolean requesterPaysEnabled) {
             this.requesterPaysEnabled = requesterPaysEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder resultConfiguration(@Nullable WorkgroupConfigurationResultConfiguration resultConfiguration) {
             this.resultConfiguration = resultConfiguration;
             return this;
-        }        public WorkgroupConfiguration build() {
-            return new WorkgroupConfiguration(bytesScannedCutoffPerQuery, enforceWorkgroupConfiguration, engineVersion, publishCloudwatchMetricsEnabled, requesterPaysEnabled, resultConfiguration);
+        }
+        public WorkgroupConfiguration build() {
+            final var o = new WorkgroupConfiguration();
+            o.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
+            o.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
+            o.engineVersion = engineVersion;
+            o.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
+            o.requesterPaysEnabled = requesterPaysEnabled;
+            o.resultConfiguration = resultConfiguration;
+            return o;
         }
     }
 }

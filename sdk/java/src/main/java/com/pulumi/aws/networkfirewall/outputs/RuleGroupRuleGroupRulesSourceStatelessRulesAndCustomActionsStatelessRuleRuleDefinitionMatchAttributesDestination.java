@@ -13,13 +13,9 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
      * @return An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
      * 
      */
-    private final String addressDefinition;
+    private String addressDefinition;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination(@CustomType.Parameter("addressDefinition") String addressDefinition) {
-        this.addressDefinition = addressDefinition;
-    }
-
+    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination() {}
     /**
      * @return An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
      * 
@@ -35,24 +31,24 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
     public static Builder builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addressDefinition;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressDefinition = defaults.addressDefinition;
         }
 
+        @CustomType.Setter
         public Builder addressDefinition(String addressDefinition) {
             this.addressDefinition = Objects.requireNonNull(addressDefinition);
             return this;
-        }        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination build() {
-            return new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination(addressDefinition);
+        }
+        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination build() {
+            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination();
+            o.addressDefinition = addressDefinition;
+            return o;
         }
     }
 }

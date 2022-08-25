@@ -15,13 +15,9 @@ public final class RouteSpecTcpRouteAction {
      * You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
-    private final List<RouteSpecTcpRouteActionWeightedTarget> weightedTargets;
+    private List<RouteSpecTcpRouteActionWeightedTarget> weightedTargets;
 
-    @CustomType.Constructor
-    private RouteSpecTcpRouteAction(@CustomType.Parameter("weightedTargets") List<RouteSpecTcpRouteActionWeightedTarget> weightedTargets) {
-        this.weightedTargets = weightedTargets;
-    }
-
+    private RouteSpecTcpRouteAction() {}
     /**
      * @return The targets that traffic is routed to when a request matches the route.
      * You can specify one or more targets and their relative weights with which to distribute traffic.
@@ -38,27 +34,27 @@ public final class RouteSpecTcpRouteAction {
     public static Builder builder(RouteSpecTcpRouteAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<RouteSpecTcpRouteActionWeightedTarget> weightedTargets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecTcpRouteAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.weightedTargets = defaults.weightedTargets;
         }
 
+        @CustomType.Setter
         public Builder weightedTargets(List<RouteSpecTcpRouteActionWeightedTarget> weightedTargets) {
             this.weightedTargets = Objects.requireNonNull(weightedTargets);
             return this;
         }
         public Builder weightedTargets(RouteSpecTcpRouteActionWeightedTarget... weightedTargets) {
             return weightedTargets(List.of(weightedTargets));
-        }        public RouteSpecTcpRouteAction build() {
-            return new RouteSpecTcpRouteAction(weightedTargets);
+        }
+        public RouteSpecTcpRouteAction build() {
+            final var o = new RouteSpecTcpRouteAction();
+            o.weightedTargets = weightedTargets;
+            return o;
         }
     }
 }

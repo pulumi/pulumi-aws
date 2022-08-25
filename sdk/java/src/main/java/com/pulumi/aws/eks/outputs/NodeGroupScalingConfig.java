@@ -13,28 +13,19 @@ public final class NodeGroupScalingConfig {
      * @return Desired number of worker nodes.
      * 
      */
-    private final Integer desiredSize;
+    private Integer desiredSize;
     /**
      * @return Maximum number of worker nodes.
      * 
      */
-    private final Integer maxSize;
+    private Integer maxSize;
     /**
      * @return Minimum number of worker nodes.
      * 
      */
-    private final Integer minSize;
+    private Integer minSize;
 
-    @CustomType.Constructor
-    private NodeGroupScalingConfig(
-        @CustomType.Parameter("desiredSize") Integer desiredSize,
-        @CustomType.Parameter("maxSize") Integer maxSize,
-        @CustomType.Parameter("minSize") Integer minSize) {
-        this.desiredSize = desiredSize;
-        this.maxSize = maxSize;
-        this.minSize = minSize;
-    }
-
+    private NodeGroupScalingConfig() {}
     /**
      * @return Desired number of worker nodes.
      * 
@@ -64,16 +55,12 @@ public final class NodeGroupScalingConfig {
     public static Builder builder(NodeGroupScalingConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer desiredSize;
         private Integer maxSize;
         private Integer minSize;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NodeGroupScalingConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.desiredSize = defaults.desiredSize;
@@ -81,19 +68,27 @@ public final class NodeGroupScalingConfig {
     	      this.minSize = defaults.minSize;
         }
 
+        @CustomType.Setter
         public Builder desiredSize(Integer desiredSize) {
             this.desiredSize = Objects.requireNonNull(desiredSize);
             return this;
         }
+        @CustomType.Setter
         public Builder maxSize(Integer maxSize) {
             this.maxSize = Objects.requireNonNull(maxSize);
             return this;
         }
+        @CustomType.Setter
         public Builder minSize(Integer minSize) {
             this.minSize = Objects.requireNonNull(minSize);
             return this;
-        }        public NodeGroupScalingConfig build() {
-            return new NodeGroupScalingConfig(desiredSize, maxSize, minSize);
+        }
+        public NodeGroupScalingConfig build() {
+            final var o = new NodeGroupScalingConfig();
+            o.desiredSize = desiredSize;
+            o.maxSize = maxSize;
+            o.minSize = minSize;
+            return o;
         }
     }
 }

@@ -16,22 +16,15 @@ public final class CertificateAuthorityRevocationConfiguration {
      * @return Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
      * 
      */
-    private final @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration;
+    private @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration;
     /**
      * @return Nested argument containing configuration of
      * the custom OCSP responder endpoint. Defined below.
      * 
      */
-    private final @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration;
+    private @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration;
 
-    @CustomType.Constructor
-    private CertificateAuthorityRevocationConfiguration(
-        @CustomType.Parameter("crlConfiguration") @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration,
-        @CustomType.Parameter("ocspConfiguration") @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration) {
-        this.crlConfiguration = crlConfiguration;
-        this.ocspConfiguration = ocspConfiguration;
-    }
-
+    private CertificateAuthorityRevocationConfiguration() {}
     /**
      * @return Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
      * 
@@ -55,30 +48,32 @@ public final class CertificateAuthorityRevocationConfiguration {
     public static Builder builder(CertificateAuthorityRevocationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration;
         private @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateAuthorityRevocationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.crlConfiguration = defaults.crlConfiguration;
     	      this.ocspConfiguration = defaults.ocspConfiguration;
         }
 
+        @CustomType.Setter
         public Builder crlConfiguration(@Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration) {
             this.crlConfiguration = crlConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder ocspConfiguration(@Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration) {
             this.ocspConfiguration = ocspConfiguration;
             return this;
-        }        public CertificateAuthorityRevocationConfiguration build() {
-            return new CertificateAuthorityRevocationConfiguration(crlConfiguration, ocspConfiguration);
+        }
+        public CertificateAuthorityRevocationConfiguration build() {
+            final var o = new CertificateAuthorityRevocationConfiguration();
+            o.crlConfiguration = crlConfiguration;
+            o.ocspConfiguration = ocspConfiguration;
+            return o;
         }
     }
 }

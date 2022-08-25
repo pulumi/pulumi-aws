@@ -15,40 +15,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResourcesResult {
-    private final @Nullable Boolean excludeCompliantResources;
+    private @Nullable Boolean excludeCompliantResources;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean includeComplianceDetails;
-    private final @Nullable List<String> resourceArnLists;
+    private String id;
+    private @Nullable Boolean includeComplianceDetails;
+    private @Nullable List<String> resourceArnLists;
     /**
      * @return List of objects matching the search criteria.
      * 
      */
-    private final List<GetResourcesResourceTagMappingList> resourceTagMappingLists;
-    private final @Nullable List<String> resourceTypeFilters;
-    private final @Nullable List<GetResourcesTagFilter> tagFilters;
+    private List<GetResourcesResourceTagMappingList> resourceTagMappingLists;
+    private @Nullable List<String> resourceTypeFilters;
+    private @Nullable List<GetResourcesTagFilter> tagFilters;
 
-    @CustomType.Constructor
-    private GetResourcesResult(
-        @CustomType.Parameter("excludeCompliantResources") @Nullable Boolean excludeCompliantResources,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("includeComplianceDetails") @Nullable Boolean includeComplianceDetails,
-        @CustomType.Parameter("resourceArnLists") @Nullable List<String> resourceArnLists,
-        @CustomType.Parameter("resourceTagMappingLists") List<GetResourcesResourceTagMappingList> resourceTagMappingLists,
-        @CustomType.Parameter("resourceTypeFilters") @Nullable List<String> resourceTypeFilters,
-        @CustomType.Parameter("tagFilters") @Nullable List<GetResourcesTagFilter> tagFilters) {
-        this.excludeCompliantResources = excludeCompliantResources;
-        this.id = id;
-        this.includeComplianceDetails = includeComplianceDetails;
-        this.resourceArnLists = resourceArnLists;
-        this.resourceTagMappingLists = resourceTagMappingLists;
-        this.resourceTypeFilters = resourceTypeFilters;
-        this.tagFilters = tagFilters;
-    }
-
+    private GetResourcesResult() {}
     public Optional<Boolean> excludeCompliantResources() {
         return Optional.ofNullable(this.excludeCompliantResources);
     }
@@ -86,7 +69,7 @@ public final class GetResourcesResult {
     public static Builder builder(GetResourcesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean excludeCompliantResources;
         private String id;
@@ -95,11 +78,7 @@ public final class GetResourcesResult {
         private List<GetResourcesResourceTagMappingList> resourceTagMappingLists;
         private @Nullable List<String> resourceTypeFilters;
         private @Nullable List<GetResourcesTagFilter> tagFilters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourcesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludeCompliantResources = defaults.excludeCompliantResources;
@@ -111,18 +90,22 @@ public final class GetResourcesResult {
     	      this.tagFilters = defaults.tagFilters;
         }
 
+        @CustomType.Setter
         public Builder excludeCompliantResources(@Nullable Boolean excludeCompliantResources) {
             this.excludeCompliantResources = excludeCompliantResources;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder includeComplianceDetails(@Nullable Boolean includeComplianceDetails) {
             this.includeComplianceDetails = includeComplianceDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceArnLists(@Nullable List<String> resourceArnLists) {
             this.resourceArnLists = resourceArnLists;
             return this;
@@ -130,6 +113,7 @@ public final class GetResourcesResult {
         public Builder resourceArnLists(String... resourceArnLists) {
             return resourceArnLists(List.of(resourceArnLists));
         }
+        @CustomType.Setter
         public Builder resourceTagMappingLists(List<GetResourcesResourceTagMappingList> resourceTagMappingLists) {
             this.resourceTagMappingLists = Objects.requireNonNull(resourceTagMappingLists);
             return this;
@@ -137,6 +121,7 @@ public final class GetResourcesResult {
         public Builder resourceTagMappingLists(GetResourcesResourceTagMappingList... resourceTagMappingLists) {
             return resourceTagMappingLists(List.of(resourceTagMappingLists));
         }
+        @CustomType.Setter
         public Builder resourceTypeFilters(@Nullable List<String> resourceTypeFilters) {
             this.resourceTypeFilters = resourceTypeFilters;
             return this;
@@ -144,14 +129,24 @@ public final class GetResourcesResult {
         public Builder resourceTypeFilters(String... resourceTypeFilters) {
             return resourceTypeFilters(List.of(resourceTypeFilters));
         }
+        @CustomType.Setter
         public Builder tagFilters(@Nullable List<GetResourcesTagFilter> tagFilters) {
             this.tagFilters = tagFilters;
             return this;
         }
         public Builder tagFilters(GetResourcesTagFilter... tagFilters) {
             return tagFilters(List.of(tagFilters));
-        }        public GetResourcesResult build() {
-            return new GetResourcesResult(excludeCompliantResources, id, includeComplianceDetails, resourceArnLists, resourceTagMappingLists, resourceTypeFilters, tagFilters);
+        }
+        public GetResourcesResult build() {
+            final var o = new GetResourcesResult();
+            o.excludeCompliantResources = excludeCompliantResources;
+            o.id = id;
+            o.includeComplianceDetails = includeComplianceDetails;
+            o.resourceArnLists = resourceArnLists;
+            o.resourceTagMappingLists = resourceTagMappingLists;
+            o.resourceTypeFilters = resourceTypeFilters;
+            o.tagFilters = tagFilters;
+            return o;
         }
     }
 }

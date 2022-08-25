@@ -13,13 +13,9 @@ public final class GetMeshSpecEgressFilter {
      * @return The egress filter type.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetMeshSpecEgressFilter(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private GetMeshSpecEgressFilter() {}
     /**
      * @return The egress filter type.
      * 
@@ -35,24 +31,24 @@ public final class GetMeshSpecEgressFilter {
     public static Builder builder(GetMeshSpecEgressFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMeshSpecEgressFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetMeshSpecEgressFilter build() {
-            return new GetMeshSpecEgressFilter(type);
+        }
+        public GetMeshSpecEgressFilter build() {
+            final var o = new GetMeshSpecEgressFilter();
+            o.type = type;
+            return o;
         }
     }
 }

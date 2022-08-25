@@ -13,13 +13,9 @@ public final class GetQuickConnectQuickConnectConfigPhoneConfig {
      * @return Specifies the phone number in in E.164 format.
      * 
      */
-    private final String phoneNumber;
+    private String phoneNumber;
 
-    @CustomType.Constructor
-    private GetQuickConnectQuickConnectConfigPhoneConfig(@CustomType.Parameter("phoneNumber") String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
+    private GetQuickConnectQuickConnectConfigPhoneConfig() {}
     /**
      * @return Specifies the phone number in in E.164 format.
      * 
@@ -35,24 +31,24 @@ public final class GetQuickConnectQuickConnectConfigPhoneConfig {
     public static Builder builder(GetQuickConnectQuickConnectConfigPhoneConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String phoneNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetQuickConnectQuickConnectConfigPhoneConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.phoneNumber = defaults.phoneNumber;
         }
 
+        @CustomType.Setter
         public Builder phoneNumber(String phoneNumber) {
             this.phoneNumber = Objects.requireNonNull(phoneNumber);
             return this;
-        }        public GetQuickConnectQuickConnectConfigPhoneConfig build() {
-            return new GetQuickConnectQuickConnectConfigPhoneConfig(phoneNumber);
+        }
+        public GetQuickConnectQuickConnectConfigPhoneConfig build() {
+            final var o = new GetQuickConnectQuickConnectConfigPhoneConfig();
+            o.phoneNumber = phoneNumber;
+            return o;
         }
     }
 }

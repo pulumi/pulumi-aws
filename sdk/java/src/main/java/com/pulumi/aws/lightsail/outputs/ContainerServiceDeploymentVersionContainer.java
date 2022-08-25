@@ -16,42 +16,29 @@ public final class ContainerServiceDeploymentVersionContainer {
      * @return The launch command for the container. A list of string.
      * 
      */
-    private final @Nullable List<String> commands;
+    private @Nullable List<String> commands;
     /**
      * @return The name for the container.
      * 
      */
-    private final String containerName;
+    private String containerName;
     /**
      * @return A key-value map of the environment variables of the container.
      * 
      */
-    private final @Nullable Map<String,String> environment;
+    private @Nullable Map<String,String> environment;
     /**
      * @return The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
      * 
      */
-    private final String image;
+    private String image;
     /**
      * @return A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
      * 
      */
-    private final @Nullable Map<String,String> ports;
+    private @Nullable Map<String,String> ports;
 
-    @CustomType.Constructor
-    private ContainerServiceDeploymentVersionContainer(
-        @CustomType.Parameter("commands") @Nullable List<String> commands,
-        @CustomType.Parameter("containerName") String containerName,
-        @CustomType.Parameter("environment") @Nullable Map<String,String> environment,
-        @CustomType.Parameter("image") String image,
-        @CustomType.Parameter("ports") @Nullable Map<String,String> ports) {
-        this.commands = commands;
-        this.containerName = containerName;
-        this.environment = environment;
-        this.image = image;
-        this.ports = ports;
-    }
-
+    private ContainerServiceDeploymentVersionContainer() {}
     /**
      * @return The launch command for the container. A list of string.
      * 
@@ -95,18 +82,14 @@ public final class ContainerServiceDeploymentVersionContainer {
     public static Builder builder(ContainerServiceDeploymentVersionContainer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> commands;
         private String containerName;
         private @Nullable Map<String,String> environment;
         private String image;
         private @Nullable Map<String,String> ports;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContainerServiceDeploymentVersionContainer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commands = defaults.commands;
@@ -116,6 +99,7 @@ public final class ContainerServiceDeploymentVersionContainer {
     	      this.ports = defaults.ports;
         }
 
+        @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
             this.commands = commands;
             return this;
@@ -123,23 +107,34 @@ public final class ContainerServiceDeploymentVersionContainer {
         public Builder commands(String... commands) {
             return commands(List.of(commands));
         }
+        @CustomType.Setter
         public Builder containerName(String containerName) {
             this.containerName = Objects.requireNonNull(containerName);
             return this;
         }
+        @CustomType.Setter
         public Builder environment(@Nullable Map<String,String> environment) {
             this.environment = environment;
             return this;
         }
+        @CustomType.Setter
         public Builder image(String image) {
             this.image = Objects.requireNonNull(image);
             return this;
         }
+        @CustomType.Setter
         public Builder ports(@Nullable Map<String,String> ports) {
             this.ports = ports;
             return this;
-        }        public ContainerServiceDeploymentVersionContainer build() {
-            return new ContainerServiceDeploymentVersionContainer(commands, containerName, environment, image, ports);
+        }
+        public ContainerServiceDeploymentVersionContainer build() {
+            final var o = new ContainerServiceDeploymentVersionContainer();
+            o.commands = commands;
+            o.containerName = containerName;
+            o.environment = environment;
+            o.image = image;
+            o.ports = ports;
+            return o;
         }
     }
 }

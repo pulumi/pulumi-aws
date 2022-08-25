@@ -14,48 +14,31 @@ public final class GetIpSetResult {
      * @return An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
      * 
      */
-    private final List<String> addresses;
+    private List<String> addresses;
     /**
      * @return The Amazon Resource Name (ARN) of the entity.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The description of the set that helps with identification.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The IP address version of the set.
      * 
      */
-    private final String ipAddressVersion;
-    private final String name;
-    private final String scope;
+    private String ipAddressVersion;
+    private String name;
+    private String scope;
 
-    @CustomType.Constructor
-    private GetIpSetResult(
-        @CustomType.Parameter("addresses") List<String> addresses,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddressVersion") String ipAddressVersion,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("scope") String scope) {
-        this.addresses = addresses;
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.ipAddressVersion = ipAddressVersion;
-        this.name = name;
-        this.scope = scope;
-    }
-
+    private GetIpSetResult() {}
     /**
      * @return An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
      * 
@@ -105,7 +88,7 @@ public final class GetIpSetResult {
     public static Builder builder(GetIpSetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> addresses;
         private String arn;
@@ -114,11 +97,7 @@ public final class GetIpSetResult {
         private String ipAddressVersion;
         private String name;
         private String scope;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIpSetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addresses = defaults.addresses;
@@ -130,6 +109,7 @@ public final class GetIpSetResult {
     	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
         public Builder addresses(List<String> addresses) {
             this.addresses = Objects.requireNonNull(addresses);
             return this;
@@ -137,31 +117,46 @@ public final class GetIpSetResult {
         public Builder addresses(String... addresses) {
             return addresses(List.of(addresses));
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddressVersion(String ipAddressVersion) {
             this.ipAddressVersion = Objects.requireNonNull(ipAddressVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(String scope) {
             this.scope = Objects.requireNonNull(scope);
             return this;
-        }        public GetIpSetResult build() {
-            return new GetIpSetResult(addresses, arn, description, id, ipAddressVersion, name, scope);
+        }
+        public GetIpSetResult build() {
+            final var o = new GetIpSetResult();
+            o.addresses = addresses;
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.ipAddressVersion = ipAddressVersion;
+            o.name = name;
+            o.scope = scope;
+            return o;
         }
     }
 }

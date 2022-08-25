@@ -16,28 +16,19 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return The object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
-    private final @Nullable String bucketPrefix;
+    private @Nullable String bucketPrefix;
     /**
      * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesS3(
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("bucketPrefix") @Nullable String bucketPrefix,
-        @CustomType.Parameter("s3InputFormatConfig") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig) {
-        this.bucketName = bucketName;
-        this.bucketPrefix = bucketPrefix;
-        this.s3InputFormatConfig = s3InputFormatConfig;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesS3() {}
     /**
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
@@ -67,16 +58,12 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketName;
         private @Nullable String bucketPrefix;
         private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -84,19 +71,27 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
     	      this.s3InputFormatConfig = defaults.s3InputFormatConfig;
         }
 
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder s3InputFormatConfig(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig) {
             this.s3InputFormatConfig = s3InputFormatConfig;
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesS3 build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesS3(bucketName, bucketPrefix, s3InputFormatConfig);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesS3 build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesS3();
+            o.bucketName = bucketName;
+            o.bucketPrefix = bucketPrefix;
+            o.s3InputFormatConfig = s3InputFormatConfig;
+            return o;
         }
     }
 }

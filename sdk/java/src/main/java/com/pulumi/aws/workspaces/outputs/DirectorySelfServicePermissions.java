@@ -15,42 +15,29 @@ public final class DirectorySelfServicePermissions {
      * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
      * 
      */
-    private final @Nullable Boolean changeComputeType;
+    private @Nullable Boolean changeComputeType;
     /**
      * @return Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
      * 
      */
-    private final @Nullable Boolean increaseVolumeSize;
+    private @Nullable Boolean increaseVolumeSize;
     /**
      * @return Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
      * 
      */
-    private final @Nullable Boolean rebuildWorkspace;
+    private @Nullable Boolean rebuildWorkspace;
     /**
      * @return Whether WorkSpaces directory users can restart their workspace. Default `true`.
      * 
      */
-    private final @Nullable Boolean restartWorkspace;
+    private @Nullable Boolean restartWorkspace;
     /**
      * @return Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
      * 
      */
-    private final @Nullable Boolean switchRunningMode;
+    private @Nullable Boolean switchRunningMode;
 
-    @CustomType.Constructor
-    private DirectorySelfServicePermissions(
-        @CustomType.Parameter("changeComputeType") @Nullable Boolean changeComputeType,
-        @CustomType.Parameter("increaseVolumeSize") @Nullable Boolean increaseVolumeSize,
-        @CustomType.Parameter("rebuildWorkspace") @Nullable Boolean rebuildWorkspace,
-        @CustomType.Parameter("restartWorkspace") @Nullable Boolean restartWorkspace,
-        @CustomType.Parameter("switchRunningMode") @Nullable Boolean switchRunningMode) {
-        this.changeComputeType = changeComputeType;
-        this.increaseVolumeSize = increaseVolumeSize;
-        this.rebuildWorkspace = rebuildWorkspace;
-        this.restartWorkspace = restartWorkspace;
-        this.switchRunningMode = switchRunningMode;
-    }
-
+    private DirectorySelfServicePermissions() {}
     /**
      * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
      * 
@@ -94,18 +81,14 @@ public final class DirectorySelfServicePermissions {
     public static Builder builder(DirectorySelfServicePermissions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean changeComputeType;
         private @Nullable Boolean increaseVolumeSize;
         private @Nullable Boolean rebuildWorkspace;
         private @Nullable Boolean restartWorkspace;
         private @Nullable Boolean switchRunningMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DirectorySelfServicePermissions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.changeComputeType = defaults.changeComputeType;
@@ -115,27 +98,39 @@ public final class DirectorySelfServicePermissions {
     	      this.switchRunningMode = defaults.switchRunningMode;
         }
 
+        @CustomType.Setter
         public Builder changeComputeType(@Nullable Boolean changeComputeType) {
             this.changeComputeType = changeComputeType;
             return this;
         }
+        @CustomType.Setter
         public Builder increaseVolumeSize(@Nullable Boolean increaseVolumeSize) {
             this.increaseVolumeSize = increaseVolumeSize;
             return this;
         }
+        @CustomType.Setter
         public Builder rebuildWorkspace(@Nullable Boolean rebuildWorkspace) {
             this.rebuildWorkspace = rebuildWorkspace;
             return this;
         }
+        @CustomType.Setter
         public Builder restartWorkspace(@Nullable Boolean restartWorkspace) {
             this.restartWorkspace = restartWorkspace;
             return this;
         }
+        @CustomType.Setter
         public Builder switchRunningMode(@Nullable Boolean switchRunningMode) {
             this.switchRunningMode = switchRunningMode;
             return this;
-        }        public DirectorySelfServicePermissions build() {
-            return new DirectorySelfServicePermissions(changeComputeType, increaseVolumeSize, rebuildWorkspace, restartWorkspace, switchRunningMode);
+        }
+        public DirectorySelfServicePermissions build() {
+            final var o = new DirectorySelfServicePermissions();
+            o.changeComputeType = changeComputeType;
+            o.increaseVolumeSize = increaseVolumeSize;
+            o.rebuildWorkspace = rebuildWorkspace;
+            o.restartWorkspace = restartWorkspace;
+            o.switchRunningMode = switchRunningMode;
+            return o;
         }
     }
 }

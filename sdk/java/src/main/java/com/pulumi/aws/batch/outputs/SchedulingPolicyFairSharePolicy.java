@@ -17,24 +17,15 @@ public final class SchedulingPolicyFairSharePolicy {
      * @return A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
-    private final @Nullable Integer computeReservation;
-    private final @Nullable Integer shareDecaySeconds;
+    private @Nullable Integer computeReservation;
+    private @Nullable Integer shareDecaySeconds;
     /**
      * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
      * 
      */
-    private final @Nullable List<SchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
+    private @Nullable List<SchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
 
-    @CustomType.Constructor
-    private SchedulingPolicyFairSharePolicy(
-        @CustomType.Parameter("computeReservation") @Nullable Integer computeReservation,
-        @CustomType.Parameter("shareDecaySeconds") @Nullable Integer shareDecaySeconds,
-        @CustomType.Parameter("shareDistributions") @Nullable List<SchedulingPolicyFairSharePolicyShareDistribution> shareDistributions) {
-        this.computeReservation = computeReservation;
-        this.shareDecaySeconds = shareDecaySeconds;
-        this.shareDistributions = shareDistributions;
-    }
-
+    private SchedulingPolicyFairSharePolicy() {}
     /**
      * @return A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
@@ -60,16 +51,12 @@ public final class SchedulingPolicyFairSharePolicy {
     public static Builder builder(SchedulingPolicyFairSharePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer computeReservation;
         private @Nullable Integer shareDecaySeconds;
         private @Nullable List<SchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SchedulingPolicyFairSharePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.computeReservation = defaults.computeReservation;
@@ -77,22 +64,30 @@ public final class SchedulingPolicyFairSharePolicy {
     	      this.shareDistributions = defaults.shareDistributions;
         }
 
+        @CustomType.Setter
         public Builder computeReservation(@Nullable Integer computeReservation) {
             this.computeReservation = computeReservation;
             return this;
         }
+        @CustomType.Setter
         public Builder shareDecaySeconds(@Nullable Integer shareDecaySeconds) {
             this.shareDecaySeconds = shareDecaySeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder shareDistributions(@Nullable List<SchedulingPolicyFairSharePolicyShareDistribution> shareDistributions) {
             this.shareDistributions = shareDistributions;
             return this;
         }
         public Builder shareDistributions(SchedulingPolicyFairSharePolicyShareDistribution... shareDistributions) {
             return shareDistributions(List.of(shareDistributions));
-        }        public SchedulingPolicyFairSharePolicy build() {
-            return new SchedulingPolicyFairSharePolicy(computeReservation, shareDecaySeconds, shareDistributions);
+        }
+        public SchedulingPolicyFairSharePolicy build() {
+            final var o = new SchedulingPolicyFairSharePolicy();
+            o.computeReservation = computeReservation;
+            o.shareDecaySeconds = shareDecaySeconds;
+            o.shareDistributions = shareDistributions;
+            return o;
         }
     }
 }

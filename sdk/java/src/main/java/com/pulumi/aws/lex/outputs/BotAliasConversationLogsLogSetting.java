@@ -15,42 +15,29 @@ public final class BotAliasConversationLogsLogSetting {
      * @return The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
      * 
      */
-    private final String destination;
+    private String destination;
     /**
      * @return The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     /**
      * @return The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
      * 
      */
-    private final String logType;
+    private String logType;
     /**
      * @return The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
     /**
      * @return The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
      * 
      */
-    private final @Nullable String resourcePrefix;
+    private @Nullable String resourcePrefix;
 
-    @CustomType.Constructor
-    private BotAliasConversationLogsLogSetting(
-        @CustomType.Parameter("destination") String destination,
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn,
-        @CustomType.Parameter("logType") String logType,
-        @CustomType.Parameter("resourceArn") String resourceArn,
-        @CustomType.Parameter("resourcePrefix") @Nullable String resourcePrefix) {
-        this.destination = destination;
-        this.kmsKeyArn = kmsKeyArn;
-        this.logType = logType;
-        this.resourceArn = resourceArn;
-        this.resourcePrefix = resourcePrefix;
-    }
-
+    private BotAliasConversationLogsLogSetting() {}
     /**
      * @return The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
      * 
@@ -94,18 +81,14 @@ public final class BotAliasConversationLogsLogSetting {
     public static Builder builder(BotAliasConversationLogsLogSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destination;
         private @Nullable String kmsKeyArn;
         private String logType;
         private String resourceArn;
         private @Nullable String resourcePrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BotAliasConversationLogsLogSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destination = defaults.destination;
@@ -115,27 +98,39 @@ public final class BotAliasConversationLogsLogSetting {
     	      this.resourcePrefix = defaults.resourcePrefix;
         }
 
+        @CustomType.Setter
         public Builder destination(String destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
+        @CustomType.Setter
         public Builder logType(String logType) {
             this.logType = Objects.requireNonNull(logType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
         }
+        @CustomType.Setter
         public Builder resourcePrefix(@Nullable String resourcePrefix) {
             this.resourcePrefix = resourcePrefix;
             return this;
-        }        public BotAliasConversationLogsLogSetting build() {
-            return new BotAliasConversationLogsLogSetting(destination, kmsKeyArn, logType, resourceArn, resourcePrefix);
+        }
+        public BotAliasConversationLogsLogSetting build() {
+            final var o = new BotAliasConversationLogsLogSetting();
+            o.destination = destination;
+            o.kmsKeyArn = kmsKeyArn;
+            o.logType = logType;
+            o.resourceArn = resourceArn;
+            o.resourcePrefix = resourcePrefix;
+            return o;
         }
     }
 }

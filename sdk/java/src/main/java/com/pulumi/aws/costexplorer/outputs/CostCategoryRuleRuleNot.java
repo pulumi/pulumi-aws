@@ -17,24 +17,15 @@ public final class CostCategoryRuleRuleNot {
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
      */
-    private final @Nullable CostCategoryRuleRuleNotCostCategory costCategory;
+    private @Nullable CostCategoryRuleRuleNotCostCategory costCategory;
     /**
      * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
-    private final @Nullable CostCategoryRuleRuleNotDimension dimension;
-    private final @Nullable CostCategoryRuleRuleNotTags tags;
+    private @Nullable CostCategoryRuleRuleNotDimension dimension;
+    private @Nullable CostCategoryRuleRuleNotTags tags;
 
-    @CustomType.Constructor
-    private CostCategoryRuleRuleNot(
-        @CustomType.Parameter("costCategory") @Nullable CostCategoryRuleRuleNotCostCategory costCategory,
-        @CustomType.Parameter("dimension") @Nullable CostCategoryRuleRuleNotDimension dimension,
-        @CustomType.Parameter("tags") @Nullable CostCategoryRuleRuleNotTags tags) {
-        this.costCategory = costCategory;
-        this.dimension = dimension;
-        this.tags = tags;
-    }
-
+    private CostCategoryRuleRuleNot() {}
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
@@ -60,16 +51,12 @@ public final class CostCategoryRuleRuleNot {
     public static Builder builder(CostCategoryRuleRuleNot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable CostCategoryRuleRuleNotCostCategory costCategory;
         private @Nullable CostCategoryRuleRuleNotDimension dimension;
         private @Nullable CostCategoryRuleRuleNotTags tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CostCategoryRuleRuleNot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.costCategory = defaults.costCategory;
@@ -77,19 +64,27 @@ public final class CostCategoryRuleRuleNot {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder costCategory(@Nullable CostCategoryRuleRuleNotCostCategory costCategory) {
             this.costCategory = costCategory;
             return this;
         }
+        @CustomType.Setter
         public Builder dimension(@Nullable CostCategoryRuleRuleNotDimension dimension) {
             this.dimension = dimension;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable CostCategoryRuleRuleNotTags tags) {
             this.tags = tags;
             return this;
-        }        public CostCategoryRuleRuleNot build() {
-            return new CostCategoryRuleRuleNot(costCategory, dimension, tags);
+        }
+        public CostCategoryRuleRuleNot build() {
+            final var o = new CostCategoryRuleRuleNot();
+            o.costCategory = costCategory;
+            o.dimension = dimension;
+            o.tags = tags;
+            return o;
         }
     }
 }

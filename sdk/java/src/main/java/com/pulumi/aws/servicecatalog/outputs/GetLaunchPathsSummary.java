@@ -16,35 +16,24 @@ public final class GetLaunchPathsSummary {
      * @return Block for constraints on the portfolio-product relationship. See details below.
      * 
      */
-    private final List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries;
+    private List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries;
     /**
      * @return Name of the portfolio to which the path was assigned.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Identifier of the product path.
      * 
      */
-    private final String pathId;
+    private String pathId;
     /**
      * @return Tags associated with this product path.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetLaunchPathsSummary(
-        @CustomType.Parameter("constraintSummaries") List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("pathId") String pathId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.constraintSummaries = constraintSummaries;
-        this.name = name;
-        this.pathId = pathId;
-        this.tags = tags;
-    }
-
+    private GetLaunchPathsSummary() {}
     /**
      * @return Block for constraints on the portfolio-product relationship. See details below.
      * 
@@ -81,17 +70,13 @@ public final class GetLaunchPathsSummary {
     public static Builder builder(GetLaunchPathsSummary defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries;
         private String name;
         private String pathId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchPathsSummary defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.constraintSummaries = defaults.constraintSummaries;
@@ -100,6 +85,7 @@ public final class GetLaunchPathsSummary {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder constraintSummaries(List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries) {
             this.constraintSummaries = Objects.requireNonNull(constraintSummaries);
             return this;
@@ -107,19 +93,28 @@ public final class GetLaunchPathsSummary {
         public Builder constraintSummaries(GetLaunchPathsSummaryConstraintSummary... constraintSummaries) {
             return constraintSummaries(List.of(constraintSummaries));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder pathId(String pathId) {
             this.pathId = Objects.requireNonNull(pathId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetLaunchPathsSummary build() {
-            return new GetLaunchPathsSummary(constraintSummaries, name, pathId, tags);
+        }
+        public GetLaunchPathsSummary build() {
+            final var o = new GetLaunchPathsSummary();
+            o.constraintSummaries = constraintSummaries;
+            o.name = name;
+            o.pathId = pathId;
+            o.tags = tags;
+            return o;
         }
     }
 }

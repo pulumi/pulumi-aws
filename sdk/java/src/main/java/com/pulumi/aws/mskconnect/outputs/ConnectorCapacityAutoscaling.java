@@ -17,42 +17,29 @@ public final class ConnectorCapacityAutoscaling {
      * @return The maximum number of workers allocated to the connector.
      * 
      */
-    private final Integer maxWorkerCount;
+    private Integer maxWorkerCount;
     /**
      * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
      * 
      */
-    private final @Nullable Integer mcuCount;
+    private @Nullable Integer mcuCount;
     /**
      * @return The minimum number of workers allocated to the connector.
      * 
      */
-    private final Integer minWorkerCount;
+    private Integer minWorkerCount;
     /**
      * @return The scale-in policy for the connector. See below.
      * 
      */
-    private final @Nullable ConnectorCapacityAutoscalingScaleInPolicy scaleInPolicy;
+    private @Nullable ConnectorCapacityAutoscalingScaleInPolicy scaleInPolicy;
     /**
      * @return The scale-out policy for the connector. See below.
      * 
      */
-    private final @Nullable ConnectorCapacityAutoscalingScaleOutPolicy scaleOutPolicy;
+    private @Nullable ConnectorCapacityAutoscalingScaleOutPolicy scaleOutPolicy;
 
-    @CustomType.Constructor
-    private ConnectorCapacityAutoscaling(
-        @CustomType.Parameter("maxWorkerCount") Integer maxWorkerCount,
-        @CustomType.Parameter("mcuCount") @Nullable Integer mcuCount,
-        @CustomType.Parameter("minWorkerCount") Integer minWorkerCount,
-        @CustomType.Parameter("scaleInPolicy") @Nullable ConnectorCapacityAutoscalingScaleInPolicy scaleInPolicy,
-        @CustomType.Parameter("scaleOutPolicy") @Nullable ConnectorCapacityAutoscalingScaleOutPolicy scaleOutPolicy) {
-        this.maxWorkerCount = maxWorkerCount;
-        this.mcuCount = mcuCount;
-        this.minWorkerCount = minWorkerCount;
-        this.scaleInPolicy = scaleInPolicy;
-        this.scaleOutPolicy = scaleOutPolicy;
-    }
-
+    private ConnectorCapacityAutoscaling() {}
     /**
      * @return The maximum number of workers allocated to the connector.
      * 
@@ -96,18 +83,14 @@ public final class ConnectorCapacityAutoscaling {
     public static Builder builder(ConnectorCapacityAutoscaling defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxWorkerCount;
         private @Nullable Integer mcuCount;
         private Integer minWorkerCount;
         private @Nullable ConnectorCapacityAutoscalingScaleInPolicy scaleInPolicy;
         private @Nullable ConnectorCapacityAutoscalingScaleOutPolicy scaleOutPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorCapacityAutoscaling defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxWorkerCount = defaults.maxWorkerCount;
@@ -117,27 +100,39 @@ public final class ConnectorCapacityAutoscaling {
     	      this.scaleOutPolicy = defaults.scaleOutPolicy;
         }
 
+        @CustomType.Setter
         public Builder maxWorkerCount(Integer maxWorkerCount) {
             this.maxWorkerCount = Objects.requireNonNull(maxWorkerCount);
             return this;
         }
+        @CustomType.Setter
         public Builder mcuCount(@Nullable Integer mcuCount) {
             this.mcuCount = mcuCount;
             return this;
         }
+        @CustomType.Setter
         public Builder minWorkerCount(Integer minWorkerCount) {
             this.minWorkerCount = Objects.requireNonNull(minWorkerCount);
             return this;
         }
+        @CustomType.Setter
         public Builder scaleInPolicy(@Nullable ConnectorCapacityAutoscalingScaleInPolicy scaleInPolicy) {
             this.scaleInPolicy = scaleInPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder scaleOutPolicy(@Nullable ConnectorCapacityAutoscalingScaleOutPolicy scaleOutPolicy) {
             this.scaleOutPolicy = scaleOutPolicy;
             return this;
-        }        public ConnectorCapacityAutoscaling build() {
-            return new ConnectorCapacityAutoscaling(maxWorkerCount, mcuCount, minWorkerCount, scaleInPolicy, scaleOutPolicy);
+        }
+        public ConnectorCapacityAutoscaling build() {
+            final var o = new ConnectorCapacityAutoscaling();
+            o.maxWorkerCount = maxWorkerCount;
+            o.mcuCount = mcuCount;
+            o.minWorkerCount = minWorkerCount;
+            o.scaleInPolicy = scaleInPolicy;
+            o.scaleOutPolicy = scaleOutPolicy;
+            return o;
         }
     }
 }

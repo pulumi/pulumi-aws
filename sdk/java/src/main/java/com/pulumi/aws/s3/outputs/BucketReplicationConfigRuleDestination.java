@@ -19,56 +19,39 @@ public final class BucketReplicationConfigRuleDestination {
      * @return A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
      * 
      */
-    private final @Nullable BucketReplicationConfigRuleDestinationAccessControlTranslation accessControlTranslation;
+    private @Nullable BucketReplicationConfigRuleDestinationAccessControlTranslation accessControlTranslation;
     /**
      * @return The Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
-    private final @Nullable String account;
+    private @Nullable String account;
     /**
      * @return The ARN of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return A configuration block that provides information about encryption documented below. If `source_selection_criteria` is specified, you must specify this element.
      * 
      */
-    private final @Nullable BucketReplicationConfigRuleDestinationEncryptionConfiguration encryptionConfiguration;
+    private @Nullable BucketReplicationConfigRuleDestinationEncryptionConfiguration encryptionConfiguration;
     /**
      * @return A configuration block that specifies replication metrics-related settings enabling replication metrics and events documented below.
      * 
      */
-    private final @Nullable BucketReplicationConfigRuleDestinationMetrics metrics;
+    private @Nullable BucketReplicationConfigRuleDestinationMetrics metrics;
     /**
      * @return A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
      * 
      */
-    private final @Nullable BucketReplicationConfigRuleDestinationReplicationTime replicationTime;
+    private @Nullable BucketReplicationConfigRuleDestinationReplicationTime replicationTime;
     /**
      * @return The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
      * 
      */
-    private final @Nullable String storageClass;
+    private @Nullable String storageClass;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleDestination(
-        @CustomType.Parameter("accessControlTranslation") @Nullable BucketReplicationConfigRuleDestinationAccessControlTranslation accessControlTranslation,
-        @CustomType.Parameter("account") @Nullable String account,
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("encryptionConfiguration") @Nullable BucketReplicationConfigRuleDestinationEncryptionConfiguration encryptionConfiguration,
-        @CustomType.Parameter("metrics") @Nullable BucketReplicationConfigRuleDestinationMetrics metrics,
-        @CustomType.Parameter("replicationTime") @Nullable BucketReplicationConfigRuleDestinationReplicationTime replicationTime,
-        @CustomType.Parameter("storageClass") @Nullable String storageClass) {
-        this.accessControlTranslation = accessControlTranslation;
-        this.account = account;
-        this.bucket = bucket;
-        this.encryptionConfiguration = encryptionConfiguration;
-        this.metrics = metrics;
-        this.replicationTime = replicationTime;
-        this.storageClass = storageClass;
-    }
-
+    private BucketReplicationConfigRuleDestination() {}
     /**
      * @return A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
      * 
@@ -126,7 +109,7 @@ public final class BucketReplicationConfigRuleDestination {
     public static Builder builder(BucketReplicationConfigRuleDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketReplicationConfigRuleDestinationAccessControlTranslation accessControlTranslation;
         private @Nullable String account;
@@ -135,11 +118,7 @@ public final class BucketReplicationConfigRuleDestination {
         private @Nullable BucketReplicationConfigRuleDestinationMetrics metrics;
         private @Nullable BucketReplicationConfigRuleDestinationReplicationTime replicationTime;
         private @Nullable String storageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessControlTranslation = defaults.accessControlTranslation;
@@ -151,35 +130,51 @@ public final class BucketReplicationConfigRuleDestination {
     	      this.storageClass = defaults.storageClass;
         }
 
+        @CustomType.Setter
         public Builder accessControlTranslation(@Nullable BucketReplicationConfigRuleDestinationAccessControlTranslation accessControlTranslation) {
             this.accessControlTranslation = accessControlTranslation;
             return this;
         }
+        @CustomType.Setter
         public Builder account(@Nullable String account) {
             this.account = account;
             return this;
         }
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionConfiguration(@Nullable BucketReplicationConfigRuleDestinationEncryptionConfiguration encryptionConfiguration) {
             this.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder metrics(@Nullable BucketReplicationConfigRuleDestinationMetrics metrics) {
             this.metrics = metrics;
             return this;
         }
+        @CustomType.Setter
         public Builder replicationTime(@Nullable BucketReplicationConfigRuleDestinationReplicationTime replicationTime) {
             this.replicationTime = replicationTime;
             return this;
         }
+        @CustomType.Setter
         public Builder storageClass(@Nullable String storageClass) {
             this.storageClass = storageClass;
             return this;
-        }        public BucketReplicationConfigRuleDestination build() {
-            return new BucketReplicationConfigRuleDestination(accessControlTranslation, account, bucket, encryptionConfiguration, metrics, replicationTime, storageClass);
+        }
+        public BucketReplicationConfigRuleDestination build() {
+            final var o = new BucketReplicationConfigRuleDestination();
+            o.accessControlTranslation = accessControlTranslation;
+            o.account = account;
+            o.bucket = bucket;
+            o.encryptionConfiguration = encryptionConfiguration;
+            o.metrics = metrics;
+            o.replicationTime = replicationTime;
+            o.storageClass = storageClass;
+            return o;
         }
     }
 }

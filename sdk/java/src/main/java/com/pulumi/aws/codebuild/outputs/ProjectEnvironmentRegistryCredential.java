@@ -13,21 +13,14 @@ public final class ProjectEnvironmentRegistryCredential {
      * @return ARN or name of credentials created using AWS Secrets Manager.
      * 
      */
-    private final String credential;
+    private String credential;
     /**
      * @return Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
      * 
      */
-    private final String credentialProvider;
+    private String credentialProvider;
 
-    @CustomType.Constructor
-    private ProjectEnvironmentRegistryCredential(
-        @CustomType.Parameter("credential") String credential,
-        @CustomType.Parameter("credentialProvider") String credentialProvider) {
-        this.credential = credential;
-        this.credentialProvider = credentialProvider;
-    }
-
+    private ProjectEnvironmentRegistryCredential() {}
     /**
      * @return ARN or name of credentials created using AWS Secrets Manager.
      * 
@@ -50,30 +43,32 @@ public final class ProjectEnvironmentRegistryCredential {
     public static Builder builder(ProjectEnvironmentRegistryCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String credential;
         private String credentialProvider;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectEnvironmentRegistryCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.credential = defaults.credential;
     	      this.credentialProvider = defaults.credentialProvider;
         }
 
+        @CustomType.Setter
         public Builder credential(String credential) {
             this.credential = Objects.requireNonNull(credential);
             return this;
         }
+        @CustomType.Setter
         public Builder credentialProvider(String credentialProvider) {
             this.credentialProvider = Objects.requireNonNull(credentialProvider);
             return this;
-        }        public ProjectEnvironmentRegistryCredential build() {
-            return new ProjectEnvironmentRegistryCredential(credential, credentialProvider);
+        }
+        public ProjectEnvironmentRegistryCredential build() {
+            final var o = new ProjectEnvironmentRegistryCredential();
+            o.credential = credential;
+            o.credentialProvider = credentialProvider;
+            return o;
         }
     }
 }

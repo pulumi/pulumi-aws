@@ -16,35 +16,24 @@ public final class SnapshotImportDiskContainer {
      * @return The description of the disk image being imported.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The format of the disk image being imported. One of `VHD` or `VMDK`.
      * 
      */
-    private final String format;
+    private String format;
     /**
      * @return The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
      * 
      */
-    private final @Nullable String url;
+    private @Nullable String url;
     /**
      * @return The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
      * 
      */
-    private final @Nullable SnapshotImportDiskContainerUserBucket userBucket;
+    private @Nullable SnapshotImportDiskContainerUserBucket userBucket;
 
-    @CustomType.Constructor
-    private SnapshotImportDiskContainer(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("format") String format,
-        @CustomType.Parameter("url") @Nullable String url,
-        @CustomType.Parameter("userBucket") @Nullable SnapshotImportDiskContainerUserBucket userBucket) {
-        this.description = description;
-        this.format = format;
-        this.url = url;
-        this.userBucket = userBucket;
-    }
-
+    private SnapshotImportDiskContainer() {}
     /**
      * @return The description of the disk image being imported.
      * 
@@ -81,17 +70,13 @@ public final class SnapshotImportDiskContainer {
     public static Builder builder(SnapshotImportDiskContainer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String format;
         private @Nullable String url;
         private @Nullable SnapshotImportDiskContainerUserBucket userBucket;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SnapshotImportDiskContainer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -100,23 +85,33 @@ public final class SnapshotImportDiskContainer {
     	      this.userBucket = defaults.userBucket;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder format(String format) {
             this.format = Objects.requireNonNull(format);
             return this;
         }
+        @CustomType.Setter
         public Builder url(@Nullable String url) {
             this.url = url;
             return this;
         }
+        @CustomType.Setter
         public Builder userBucket(@Nullable SnapshotImportDiskContainerUserBucket userBucket) {
             this.userBucket = userBucket;
             return this;
-        }        public SnapshotImportDiskContainer build() {
-            return new SnapshotImportDiskContainer(description, format, url, userBucket);
+        }
+        public SnapshotImportDiskContainer build() {
+            final var o = new SnapshotImportDiskContainer();
+            o.description = description;
+            o.format = format;
+            o.url = url;
+            o.userBucket = userBucket;
+            return o;
         }
     }
 }

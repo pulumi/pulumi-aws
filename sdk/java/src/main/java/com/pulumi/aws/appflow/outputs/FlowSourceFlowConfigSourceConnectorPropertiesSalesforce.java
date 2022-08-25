@@ -16,28 +16,19 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
      * @return The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
      */
-    private final @Nullable Boolean enableDynamicFieldUpdate;
+    private @Nullable Boolean enableDynamicFieldUpdate;
     /**
      * @return Indicates whether Amazon AppFlow includes deleted files in the flow run.
      * 
      */
-    private final @Nullable Boolean includeDeletedRecords;
+    private @Nullable Boolean includeDeletedRecords;
     /**
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(
-        @CustomType.Parameter("enableDynamicFieldUpdate") @Nullable Boolean enableDynamicFieldUpdate,
-        @CustomType.Parameter("includeDeletedRecords") @Nullable Boolean includeDeletedRecords,
-        @CustomType.Parameter("object") String object) {
-        this.enableDynamicFieldUpdate = enableDynamicFieldUpdate;
-        this.includeDeletedRecords = includeDeletedRecords;
-        this.object = object;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesSalesforce() {}
     /**
      * @return The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
@@ -67,16 +58,12 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesSalesforce defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enableDynamicFieldUpdate;
         private @Nullable Boolean includeDeletedRecords;
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesSalesforce defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableDynamicFieldUpdate = defaults.enableDynamicFieldUpdate;
@@ -84,19 +71,27 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder enableDynamicFieldUpdate(@Nullable Boolean enableDynamicFieldUpdate) {
             this.enableDynamicFieldUpdate = enableDynamicFieldUpdate;
             return this;
         }
+        @CustomType.Setter
         public Builder includeDeletedRecords(@Nullable Boolean includeDeletedRecords) {
             this.includeDeletedRecords = includeDeletedRecords;
             return this;
         }
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesSalesforce build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(enableDynamicFieldUpdate, includeDeletedRecords, object);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesSalesforce build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforce();
+            o.enableDynamicFieldUpdate = enableDynamicFieldUpdate;
+            o.includeDeletedRecords = includeDeletedRecords;
+            o.object = object;
+            return o;
         }
     }
 }

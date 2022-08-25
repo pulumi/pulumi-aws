@@ -13,21 +13,14 @@ public final class AnalyticsApplicationOutputKinesisFirehose {
      * @return The ARN of the Kinesis Firehose delivery stream.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
     /**
      * @return The ARN of the IAM Role used to access the stream.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationOutputKinesisFirehose(
-        @CustomType.Parameter("resourceArn") String resourceArn,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.resourceArn = resourceArn;
-        this.roleArn = roleArn;
-    }
-
+    private AnalyticsApplicationOutputKinesisFirehose() {}
     /**
      * @return The ARN of the Kinesis Firehose delivery stream.
      * 
@@ -50,30 +43,32 @@ public final class AnalyticsApplicationOutputKinesisFirehose {
     public static Builder builder(AnalyticsApplicationOutputKinesisFirehose defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resourceArn;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationOutputKinesisFirehose defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceArn = defaults.resourceArn;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public AnalyticsApplicationOutputKinesisFirehose build() {
-            return new AnalyticsApplicationOutputKinesisFirehose(resourceArn, roleArn);
+        }
+        public AnalyticsApplicationOutputKinesisFirehose build() {
+            final var o = new AnalyticsApplicationOutputKinesisFirehose();
+            o.resourceArn = resourceArn;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

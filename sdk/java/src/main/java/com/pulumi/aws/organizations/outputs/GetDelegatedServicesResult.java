@@ -11,28 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDelegatedServicesResult {
-    private final String accountId;
+    private String accountId;
     /**
      * @return The services for which the account is a delegated administrator, which have the following attributes:
      * 
      */
-    private final List<GetDelegatedServicesDelegatedService> delegatedServices;
+    private List<GetDelegatedServicesDelegatedService> delegatedServices;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetDelegatedServicesResult(
-        @CustomType.Parameter("accountId") String accountId,
-        @CustomType.Parameter("delegatedServices") List<GetDelegatedServicesDelegatedService> delegatedServices,
-        @CustomType.Parameter("id") String id) {
-        this.accountId = accountId;
-        this.delegatedServices = delegatedServices;
-        this.id = id;
-    }
-
+    private GetDelegatedServicesResult() {}
     public String accountId() {
         return this.accountId;
     }
@@ -58,16 +49,12 @@ public final class GetDelegatedServicesResult {
     public static Builder builder(GetDelegatedServicesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountId;
         private List<GetDelegatedServicesDelegatedService> delegatedServices;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDelegatedServicesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
@@ -75,10 +62,12 @@ public final class GetDelegatedServicesResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder accountId(String accountId) {
             this.accountId = Objects.requireNonNull(accountId);
             return this;
         }
+        @CustomType.Setter
         public Builder delegatedServices(List<GetDelegatedServicesDelegatedService> delegatedServices) {
             this.delegatedServices = Objects.requireNonNull(delegatedServices);
             return this;
@@ -86,11 +75,17 @@ public final class GetDelegatedServicesResult {
         public Builder delegatedServices(GetDelegatedServicesDelegatedService... delegatedServices) {
             return delegatedServices(List.of(delegatedServices));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetDelegatedServicesResult build() {
-            return new GetDelegatedServicesResult(accountId, delegatedServices, id);
+        }
+        public GetDelegatedServicesResult build() {
+            final var o = new GetDelegatedServicesResult();
+            o.accountId = accountId;
+            o.delegatedServices = delegatedServices;
+            o.id = id;
+            return o;
         }
     }
 }

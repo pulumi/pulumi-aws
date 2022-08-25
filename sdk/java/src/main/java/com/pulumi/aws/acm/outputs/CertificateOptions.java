@@ -15,13 +15,9 @@ public final class CertificateOptions {
      * @return Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
      * 
      */
-    private final @Nullable String certificateTransparencyLoggingPreference;
+    private @Nullable String certificateTransparencyLoggingPreference;
 
-    @CustomType.Constructor
-    private CertificateOptions(@CustomType.Parameter("certificateTransparencyLoggingPreference") @Nullable String certificateTransparencyLoggingPreference) {
-        this.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
-    }
-
+    private CertificateOptions() {}
     /**
      * @return Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
      * 
@@ -37,24 +33,24 @@ public final class CertificateOptions {
     public static Builder builder(CertificateOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateTransparencyLoggingPreference;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateTransparencyLoggingPreference = defaults.certificateTransparencyLoggingPreference;
         }
 
+        @CustomType.Setter
         public Builder certificateTransparencyLoggingPreference(@Nullable String certificateTransparencyLoggingPreference) {
             this.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
             return this;
-        }        public CertificateOptions build() {
-            return new CertificateOptions(certificateTransparencyLoggingPreference);
+        }
+        public CertificateOptions build() {
+            final var o = new CertificateOptions();
+            o.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
+            return o;
         }
     }
 }

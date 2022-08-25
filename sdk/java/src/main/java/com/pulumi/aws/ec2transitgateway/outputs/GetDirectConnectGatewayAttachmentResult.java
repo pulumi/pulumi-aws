@@ -14,34 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectConnectGatewayAttachmentResult {
-    private final @Nullable String dxGatewayId;
-    private final @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters;
+    private @Nullable String dxGatewayId;
+    private @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Attachment
      * 
      */
-    private final Map<String,String> tags;
-    private final @Nullable String transitGatewayId;
+    private Map<String,String> tags;
+    private @Nullable String transitGatewayId;
 
-    @CustomType.Constructor
-    private GetDirectConnectGatewayAttachmentResult(
-        @CustomType.Parameter("dxGatewayId") @Nullable String dxGatewayId,
-        @CustomType.Parameter("filters") @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("transitGatewayId") @Nullable String transitGatewayId) {
-        this.dxGatewayId = dxGatewayId;
-        this.filters = filters;
-        this.id = id;
-        this.tags = tags;
-        this.transitGatewayId = transitGatewayId;
-    }
-
+    private GetDirectConnectGatewayAttachmentResult() {}
     public Optional<String> dxGatewayId() {
         return Optional.ofNullable(this.dxGatewayId);
     }
@@ -73,18 +60,14 @@ public final class GetDirectConnectGatewayAttachmentResult {
     public static Builder builder(GetDirectConnectGatewayAttachmentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dxGatewayId;
         private @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters;
         private String id;
         private Map<String,String> tags;
         private @Nullable String transitGatewayId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDirectConnectGatewayAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dxGatewayId = defaults.dxGatewayId;
@@ -94,10 +77,12 @@ public final class GetDirectConnectGatewayAttachmentResult {
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
 
+        @CustomType.Setter
         public Builder dxGatewayId(@Nullable String dxGatewayId) {
             this.dxGatewayId = dxGatewayId;
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetDirectConnectGatewayAttachmentFilter> filters) {
             this.filters = filters;
             return this;
@@ -105,19 +90,29 @@ public final class GetDirectConnectGatewayAttachmentResult {
         public Builder filters(GetDirectConnectGatewayAttachmentFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayId(@Nullable String transitGatewayId) {
             this.transitGatewayId = transitGatewayId;
             return this;
-        }        public GetDirectConnectGatewayAttachmentResult build() {
-            return new GetDirectConnectGatewayAttachmentResult(dxGatewayId, filters, id, tags, transitGatewayId);
+        }
+        public GetDirectConnectGatewayAttachmentResult build() {
+            final var o = new GetDirectConnectGatewayAttachmentResult();
+            o.dxGatewayId = dxGatewayId;
+            o.filters = filters;
+            o.id = id;
+            o.tags = tags;
+            o.transitGatewayId = transitGatewayId;
+            return o;
         }
     }
 }

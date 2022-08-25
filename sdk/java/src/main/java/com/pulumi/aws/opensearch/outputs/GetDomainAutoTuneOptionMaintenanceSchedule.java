@@ -15,28 +15,19 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
      * @return A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
      * 
      */
-    private final String cronExpressionForRecurrence;
+    private String cronExpressionForRecurrence;
     /**
      * @return Configuration block for the duration of the Auto-Tune maintenance window.
      * 
      */
-    private final List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations;
+    private List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations;
     /**
      * @return Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private final String startAt;
+    private String startAt;
 
-    @CustomType.Constructor
-    private GetDomainAutoTuneOptionMaintenanceSchedule(
-        @CustomType.Parameter("cronExpressionForRecurrence") String cronExpressionForRecurrence,
-        @CustomType.Parameter("durations") List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations,
-        @CustomType.Parameter("startAt") String startAt) {
-        this.cronExpressionForRecurrence = cronExpressionForRecurrence;
-        this.durations = durations;
-        this.startAt = startAt;
-    }
-
+    private GetDomainAutoTuneOptionMaintenanceSchedule() {}
     /**
      * @return A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
      * 
@@ -66,16 +57,12 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
     public static Builder builder(GetDomainAutoTuneOptionMaintenanceSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cronExpressionForRecurrence;
         private List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations;
         private String startAt;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainAutoTuneOptionMaintenanceSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cronExpressionForRecurrence = defaults.cronExpressionForRecurrence;
@@ -83,10 +70,12 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
     	      this.startAt = defaults.startAt;
         }
 
+        @CustomType.Setter
         public Builder cronExpressionForRecurrence(String cronExpressionForRecurrence) {
             this.cronExpressionForRecurrence = Objects.requireNonNull(cronExpressionForRecurrence);
             return this;
         }
+        @CustomType.Setter
         public Builder durations(List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations) {
             this.durations = Objects.requireNonNull(durations);
             return this;
@@ -94,11 +83,17 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
         public Builder durations(GetDomainAutoTuneOptionMaintenanceScheduleDuration... durations) {
             return durations(List.of(durations));
         }
+        @CustomType.Setter
         public Builder startAt(String startAt) {
             this.startAt = Objects.requireNonNull(startAt);
             return this;
-        }        public GetDomainAutoTuneOptionMaintenanceSchedule build() {
-            return new GetDomainAutoTuneOptionMaintenanceSchedule(cronExpressionForRecurrence, durations, startAt);
+        }
+        public GetDomainAutoTuneOptionMaintenanceSchedule build() {
+            final var o = new GetDomainAutoTuneOptionMaintenanceSchedule();
+            o.cronExpressionForRecurrence = cronExpressionForRecurrence;
+            o.durations = durations;
+            o.startAt = startAt;
+            return o;
         }
     }
 }

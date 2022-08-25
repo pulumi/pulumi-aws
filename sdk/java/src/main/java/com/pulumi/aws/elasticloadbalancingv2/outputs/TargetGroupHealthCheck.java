@@ -17,70 +17,49 @@ public final class TargetGroupHealthCheck {
      * @return Boolean to enable / disable `stickiness`. Default is `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
      * 
      */
-    private final @Nullable Integer healthyThreshold;
+    private @Nullable Integer healthyThreshold;
     /**
      * @return Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
     /**
      * @return Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
      * 
      */
-    private final @Nullable String matcher;
+    private @Nullable String matcher;
     /**
      * @return Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
      * 
      */
-    private final @Nullable String port;
+    private @Nullable String port;
     /**
      * @return Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
     /**
      * @return Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
      * 
      */
-    private final @Nullable Integer timeout;
+    private @Nullable Integer timeout;
     /**
      * @return Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
      * 
      */
-    private final @Nullable Integer unhealthyThreshold;
+    private @Nullable Integer unhealthyThreshold;
 
-    @CustomType.Constructor
-    private TargetGroupHealthCheck(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("healthyThreshold") @Nullable Integer healthyThreshold,
-        @CustomType.Parameter("interval") @Nullable Integer interval,
-        @CustomType.Parameter("matcher") @Nullable String matcher,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("port") @Nullable String port,
-        @CustomType.Parameter("protocol") @Nullable String protocol,
-        @CustomType.Parameter("timeout") @Nullable Integer timeout,
-        @CustomType.Parameter("unhealthyThreshold") @Nullable Integer unhealthyThreshold) {
-        this.enabled = enabled;
-        this.healthyThreshold = healthyThreshold;
-        this.interval = interval;
-        this.matcher = matcher;
-        this.path = path;
-        this.port = port;
-        this.protocol = protocol;
-        this.timeout = timeout;
-        this.unhealthyThreshold = unhealthyThreshold;
-    }
-
+    private TargetGroupHealthCheck() {}
     /**
      * @return Boolean to enable / disable `stickiness`. Default is `true`.
      * 
@@ -152,7 +131,7 @@ public final class TargetGroupHealthCheck {
     public static Builder builder(TargetGroupHealthCheck defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Integer healthyThreshold;
@@ -163,11 +142,7 @@ public final class TargetGroupHealthCheck {
         private @Nullable String protocol;
         private @Nullable Integer timeout;
         private @Nullable Integer unhealthyThreshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TargetGroupHealthCheck defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -181,43 +156,63 @@ public final class TargetGroupHealthCheck {
     	      this.unhealthyThreshold = defaults.unhealthyThreshold;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder healthyThreshold(@Nullable Integer healthyThreshold) {
             this.healthyThreshold = healthyThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
         }
+        @CustomType.Setter
         public Builder matcher(@Nullable String matcher) {
             this.matcher = matcher;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable String port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
             this.timeout = timeout;
             return this;
         }
+        @CustomType.Setter
         public Builder unhealthyThreshold(@Nullable Integer unhealthyThreshold) {
             this.unhealthyThreshold = unhealthyThreshold;
             return this;
-        }        public TargetGroupHealthCheck build() {
-            return new TargetGroupHealthCheck(enabled, healthyThreshold, interval, matcher, path, port, protocol, timeout, unhealthyThreshold);
+        }
+        public TargetGroupHealthCheck build() {
+            final var o = new TargetGroupHealthCheck();
+            o.enabled = enabled;
+            o.healthyThreshold = healthyThreshold;
+            o.interval = interval;
+            o.matcher = matcher;
+            o.path = path;
+            o.port = port;
+            o.protocol = protocol;
+            o.timeout = timeout;
+            o.unhealthyThreshold = unhealthyThreshold;
+            return o;
         }
     }
 }

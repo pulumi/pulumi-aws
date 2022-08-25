@@ -15,28 +15,19 @@ public final class NotificationRuleTarget {
      * @return The ARN of notification rule target. For example, a SNS Topic ARN.
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return The type of the notification target. Default value is `SNS`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private NotificationRuleTarget(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.address = address;
-        this.status = status;
-        this.type = type;
-    }
-
+    private NotificationRuleTarget() {}
     /**
      * @return The ARN of notification rule target. For example, a SNS Topic ARN.
      * 
@@ -66,16 +57,12 @@ public final class NotificationRuleTarget {
     public static Builder builder(NotificationRuleTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private @Nullable String status;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationRuleTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -83,19 +70,27 @@ public final class NotificationRuleTarget {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public NotificationRuleTarget build() {
-            return new NotificationRuleTarget(address, status, type);
+        }
+        public NotificationRuleTarget build() {
+            final var o = new NotificationRuleTarget();
+            o.address = address;
+            o.status = status;
+            o.type = type;
+            return o;
         }
     }
 }

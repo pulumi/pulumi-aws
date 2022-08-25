@@ -17,24 +17,15 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
      * @return The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
      * 
      */
-    private final @Nullable Integer asn;
+    private @Nullable Integer asn;
     /**
      * @return The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
      * 
      */
-    private final @Nullable List<String> insideCidrBlocks;
-    private final String location;
+    private @Nullable List<String> insideCidrBlocks;
+    private String location;
 
-    @CustomType.Constructor
-    private GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation(
-        @CustomType.Parameter("asn") @Nullable Integer asn,
-        @CustomType.Parameter("insideCidrBlocks") @Nullable List<String> insideCidrBlocks,
-        @CustomType.Parameter("location") String location) {
-        this.asn = asn;
-        this.insideCidrBlocks = insideCidrBlocks;
-        this.location = location;
-    }
-
+    private GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation() {}
     /**
      * @return The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
      * 
@@ -60,16 +51,12 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
     public static Builder builder(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer asn;
         private @Nullable List<String> insideCidrBlocks;
         private String location;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asn = defaults.asn;
@@ -77,10 +64,12 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
     	      this.location = defaults.location;
         }
 
+        @CustomType.Setter
         public Builder asn(@Nullable Integer asn) {
             this.asn = asn;
             return this;
         }
+        @CustomType.Setter
         public Builder insideCidrBlocks(@Nullable List<String> insideCidrBlocks) {
             this.insideCidrBlocks = insideCidrBlocks;
             return this;
@@ -88,11 +77,17 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
-        }        public GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation build() {
-            return new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation(asn, insideCidrBlocks, location);
+        }
+        public GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation build() {
+            final var o = new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation();
+            o.asn = asn;
+            o.insideCidrBlocks = insideCidrBlocks;
+            o.location = location;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class ConfgurationSetDeliveryOptions {
      * @return Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can&#39;t be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
      * 
      */
-    private final @Nullable String tlsPolicy;
+    private @Nullable String tlsPolicy;
 
-    @CustomType.Constructor
-    private ConfgurationSetDeliveryOptions(@CustomType.Parameter("tlsPolicy") @Nullable String tlsPolicy) {
-        this.tlsPolicy = tlsPolicy;
-    }
-
+    private ConfgurationSetDeliveryOptions() {}
     /**
      * @return Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can&#39;t be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
      * 
@@ -37,24 +33,24 @@ public final class ConfgurationSetDeliveryOptions {
     public static Builder builder(ConfgurationSetDeliveryOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String tlsPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfgurationSetDeliveryOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.tlsPolicy = defaults.tlsPolicy;
         }
 
+        @CustomType.Setter
         public Builder tlsPolicy(@Nullable String tlsPolicy) {
             this.tlsPolicy = tlsPolicy;
             return this;
-        }        public ConfgurationSetDeliveryOptions build() {
-            return new ConfgurationSetDeliveryOptions(tlsPolicy);
+        }
+        public ConfgurationSetDeliveryOptions build() {
+            final var o = new ConfgurationSetDeliveryOptions();
+            o.tlsPolicy = tlsPolicy;
+            return o;
         }
     }
 }

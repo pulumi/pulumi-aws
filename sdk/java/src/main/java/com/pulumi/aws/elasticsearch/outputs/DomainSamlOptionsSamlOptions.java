@@ -18,56 +18,39 @@ public final class DomainSamlOptionsSamlOptions {
      * @return Whether SAML authentication is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Information from your identity provider.
      * 
      */
-    private final @Nullable DomainSamlOptionsSamlOptionsIdp idp;
+    private @Nullable DomainSamlOptionsSamlOptionsIdp idp;
     /**
      * @return This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
      * 
      */
-    private final @Nullable String masterBackendRole;
+    private @Nullable String masterBackendRole;
     /**
      * @return This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
      * 
      */
-    private final @Nullable String masterUserName;
+    private @Nullable String masterUserName;
     /**
      * @return Element of the SAML assertion to use for backend roles. Default is roles.
      * 
      */
-    private final @Nullable String rolesKey;
+    private @Nullable String rolesKey;
     /**
      * @return Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
      * 
      */
-    private final @Nullable Integer sessionTimeoutMinutes;
+    private @Nullable Integer sessionTimeoutMinutes;
     /**
      * @return Custom SAML attribute to use for user names. Default is an empty string - `&#34;&#34;`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
      * 
      */
-    private final @Nullable String subjectKey;
+    private @Nullable String subjectKey;
 
-    @CustomType.Constructor
-    private DomainSamlOptionsSamlOptions(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("idp") @Nullable DomainSamlOptionsSamlOptionsIdp idp,
-        @CustomType.Parameter("masterBackendRole") @Nullable String masterBackendRole,
-        @CustomType.Parameter("masterUserName") @Nullable String masterUserName,
-        @CustomType.Parameter("rolesKey") @Nullable String rolesKey,
-        @CustomType.Parameter("sessionTimeoutMinutes") @Nullable Integer sessionTimeoutMinutes,
-        @CustomType.Parameter("subjectKey") @Nullable String subjectKey) {
-        this.enabled = enabled;
-        this.idp = idp;
-        this.masterBackendRole = masterBackendRole;
-        this.masterUserName = masterUserName;
-        this.rolesKey = rolesKey;
-        this.sessionTimeoutMinutes = sessionTimeoutMinutes;
-        this.subjectKey = subjectKey;
-    }
-
+    private DomainSamlOptionsSamlOptions() {}
     /**
      * @return Whether SAML authentication is enabled.
      * 
@@ -125,7 +108,7 @@ public final class DomainSamlOptionsSamlOptions {
     public static Builder builder(DomainSamlOptionsSamlOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable DomainSamlOptionsSamlOptionsIdp idp;
@@ -134,11 +117,7 @@ public final class DomainSamlOptionsSamlOptions {
         private @Nullable String rolesKey;
         private @Nullable Integer sessionTimeoutMinutes;
         private @Nullable String subjectKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainSamlOptionsSamlOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -150,35 +129,51 @@ public final class DomainSamlOptionsSamlOptions {
     	      this.subjectKey = defaults.subjectKey;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder idp(@Nullable DomainSamlOptionsSamlOptionsIdp idp) {
             this.idp = idp;
             return this;
         }
+        @CustomType.Setter
         public Builder masterBackendRole(@Nullable String masterBackendRole) {
             this.masterBackendRole = masterBackendRole;
             return this;
         }
+        @CustomType.Setter
         public Builder masterUserName(@Nullable String masterUserName) {
             this.masterUserName = masterUserName;
             return this;
         }
+        @CustomType.Setter
         public Builder rolesKey(@Nullable String rolesKey) {
             this.rolesKey = rolesKey;
             return this;
         }
+        @CustomType.Setter
         public Builder sessionTimeoutMinutes(@Nullable Integer sessionTimeoutMinutes) {
             this.sessionTimeoutMinutes = sessionTimeoutMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder subjectKey(@Nullable String subjectKey) {
             this.subjectKey = subjectKey;
             return this;
-        }        public DomainSamlOptionsSamlOptions build() {
-            return new DomainSamlOptionsSamlOptions(enabled, idp, masterBackendRole, masterUserName, rolesKey, sessionTimeoutMinutes, subjectKey);
+        }
+        public DomainSamlOptionsSamlOptions build() {
+            final var o = new DomainSamlOptionsSamlOptions();
+            o.enabled = enabled;
+            o.idp = idp;
+            o.masterBackendRole = masterBackendRole;
+            o.masterUserName = masterUserName;
+            o.rolesKey = rolesKey;
+            o.sessionTimeoutMinutes = sessionTimeoutMinutes;
+            o.subjectKey = subjectKey;
+            return o;
         }
     }
 }

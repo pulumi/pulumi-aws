@@ -12,21 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperienceConfiguration {
-    private final @Nullable ExperienceConfigurationContentSourceConfiguration contentSourceConfiguration;
+    private @Nullable ExperienceConfigurationContentSourceConfiguration contentSourceConfiguration;
     /**
      * @return The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
      * 
      */
-    private final @Nullable ExperienceConfigurationUserIdentityConfiguration userIdentityConfiguration;
+    private @Nullable ExperienceConfigurationUserIdentityConfiguration userIdentityConfiguration;
 
-    @CustomType.Constructor
-    private ExperienceConfiguration(
-        @CustomType.Parameter("contentSourceConfiguration") @Nullable ExperienceConfigurationContentSourceConfiguration contentSourceConfiguration,
-        @CustomType.Parameter("userIdentityConfiguration") @Nullable ExperienceConfigurationUserIdentityConfiguration userIdentityConfiguration) {
-        this.contentSourceConfiguration = contentSourceConfiguration;
-        this.userIdentityConfiguration = userIdentityConfiguration;
-    }
-
+    private ExperienceConfiguration() {}
     public Optional<ExperienceConfigurationContentSourceConfiguration> contentSourceConfiguration() {
         return Optional.ofNullable(this.contentSourceConfiguration);
     }
@@ -45,30 +38,32 @@ public final class ExperienceConfiguration {
     public static Builder builder(ExperienceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ExperienceConfigurationContentSourceConfiguration contentSourceConfiguration;
         private @Nullable ExperienceConfigurationUserIdentityConfiguration userIdentityConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExperienceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentSourceConfiguration = defaults.contentSourceConfiguration;
     	      this.userIdentityConfiguration = defaults.userIdentityConfiguration;
         }
 
+        @CustomType.Setter
         public Builder contentSourceConfiguration(@Nullable ExperienceConfigurationContentSourceConfiguration contentSourceConfiguration) {
             this.contentSourceConfiguration = contentSourceConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder userIdentityConfiguration(@Nullable ExperienceConfigurationUserIdentityConfiguration userIdentityConfiguration) {
             this.userIdentityConfiguration = userIdentityConfiguration;
             return this;
-        }        public ExperienceConfiguration build() {
-            return new ExperienceConfiguration(contentSourceConfiguration, userIdentityConfiguration);
+        }
+        public ExperienceConfiguration build() {
+            final var o = new ExperienceConfiguration();
+            o.contentSourceConfiguration = contentSourceConfiguration;
+            o.userIdentityConfiguration = userIdentityConfiguration;
+            return o;
         }
     }
 }

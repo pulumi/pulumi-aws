@@ -15,13 +15,9 @@ public final class EventSourceMappingFilterCriteria {
      * @return A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
      * 
      */
-    private final @Nullable List<EventSourceMappingFilterCriteriaFilter> filters;
+    private @Nullable List<EventSourceMappingFilterCriteriaFilter> filters;
 
-    @CustomType.Constructor
-    private EventSourceMappingFilterCriteria(@CustomType.Parameter("filters") @Nullable List<EventSourceMappingFilterCriteriaFilter> filters) {
-        this.filters = filters;
-    }
-
+    private EventSourceMappingFilterCriteria() {}
     /**
      * @return A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
      * 
@@ -37,27 +33,27 @@ public final class EventSourceMappingFilterCriteria {
     public static Builder builder(EventSourceMappingFilterCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<EventSourceMappingFilterCriteriaFilter> filters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSourceMappingFilterCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<EventSourceMappingFilterCriteriaFilter> filters) {
             this.filters = filters;
             return this;
         }
         public Builder filters(EventSourceMappingFilterCriteriaFilter... filters) {
             return filters(List.of(filters));
-        }        public EventSourceMappingFilterCriteria build() {
-            return new EventSourceMappingFilterCriteria(filters);
+        }
+        public EventSourceMappingFilterCriteria build() {
+            final var o = new EventSourceMappingFilterCriteria();
+            o.filters = filters;
+            return o;
         }
     }
 }

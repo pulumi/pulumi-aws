@@ -12,28 +12,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EnvironmentLoggingConfigurationWebserverLogs {
-    private final @Nullable String cloudWatchLogGroupArn;
+    private @Nullable String cloudWatchLogGroupArn;
     /**
      * @return Enabling or disabling the collection of logs
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
      * 
      */
-    private final @Nullable String logLevel;
+    private @Nullable String logLevel;
 
-    @CustomType.Constructor
-    private EnvironmentLoggingConfigurationWebserverLogs(
-        @CustomType.Parameter("cloudWatchLogGroupArn") @Nullable String cloudWatchLogGroupArn,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("logLevel") @Nullable String logLevel) {
-        this.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
-        this.enabled = enabled;
-        this.logLevel = logLevel;
-    }
-
+    private EnvironmentLoggingConfigurationWebserverLogs() {}
     public Optional<String> cloudWatchLogGroupArn() {
         return Optional.ofNullable(this.cloudWatchLogGroupArn);
     }
@@ -59,16 +50,12 @@ public final class EnvironmentLoggingConfigurationWebserverLogs {
     public static Builder builder(EnvironmentLoggingConfigurationWebserverLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cloudWatchLogGroupArn;
         private @Nullable Boolean enabled;
         private @Nullable String logLevel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EnvironmentLoggingConfigurationWebserverLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudWatchLogGroupArn = defaults.cloudWatchLogGroupArn;
@@ -76,19 +63,27 @@ public final class EnvironmentLoggingConfigurationWebserverLogs {
     	      this.logLevel = defaults.logLevel;
         }
 
+        @CustomType.Setter
         public Builder cloudWatchLogGroupArn(@Nullable String cloudWatchLogGroupArn) {
             this.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder logLevel(@Nullable String logLevel) {
             this.logLevel = logLevel;
             return this;
-        }        public EnvironmentLoggingConfigurationWebserverLogs build() {
-            return new EnvironmentLoggingConfigurationWebserverLogs(cloudWatchLogGroupArn, enabled, logLevel);
+        }
+        public EnvironmentLoggingConfigurationWebserverLogs build() {
+            final var o = new EnvironmentLoggingConfigurationWebserverLogs();
+            o.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
+            o.enabled = enabled;
+            o.logLevel = logLevel;
+            return o;
         }
     }
 }

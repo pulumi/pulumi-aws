@@ -19,70 +19,49 @@ public final class GetPolicyDocumentStatement {
      * @return List of actions that this statement either allows or denies. For example, `[&#34;ec2:RunInstances&#34;, &#34;s3:*&#34;]`.
      * 
      */
-    private final @Nullable List<String> actions;
+    private @Nullable List<String> actions;
     /**
      * @return Configuration block for a condition. Detailed below.
      * 
      */
-    private final @Nullable List<GetPolicyDocumentStatementCondition> conditions;
+    private @Nullable List<GetPolicyDocumentStatementCondition> conditions;
     /**
      * @return Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
-    private final @Nullable String effect;
+    private @Nullable String effect;
     /**
      * @return List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
      * 
      */
-    private final @Nullable List<String> notActions;
+    private @Nullable List<String> notActions;
     /**
      * @return Like `principals` except these are principals that the statement does *not* apply to.
      * 
      */
-    private final @Nullable List<GetPolicyDocumentStatementNotPrincipal> notPrincipals;
+    private @Nullable List<GetPolicyDocumentStatementNotPrincipal> notPrincipals;
     /**
      * @return List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
      * 
      */
-    private final @Nullable List<String> notResources;
+    private @Nullable List<String> notResources;
     /**
      * @return Configuration block for principals. Detailed below.
      * 
      */
-    private final @Nullable List<GetPolicyDocumentStatementPrincipal> principals;
+    private @Nullable List<GetPolicyDocumentStatementPrincipal> principals;
     /**
      * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
      * 
      */
-    private final @Nullable List<String> resources;
+    private @Nullable List<String> resources;
     /**
      * @return Sid (statement ID) is an identifier for a policy statement.
      * 
      */
-    private final @Nullable String sid;
+    private @Nullable String sid;
 
-    @CustomType.Constructor
-    private GetPolicyDocumentStatement(
-        @CustomType.Parameter("actions") @Nullable List<String> actions,
-        @CustomType.Parameter("conditions") @Nullable List<GetPolicyDocumentStatementCondition> conditions,
-        @CustomType.Parameter("effect") @Nullable String effect,
-        @CustomType.Parameter("notActions") @Nullable List<String> notActions,
-        @CustomType.Parameter("notPrincipals") @Nullable List<GetPolicyDocumentStatementNotPrincipal> notPrincipals,
-        @CustomType.Parameter("notResources") @Nullable List<String> notResources,
-        @CustomType.Parameter("principals") @Nullable List<GetPolicyDocumentStatementPrincipal> principals,
-        @CustomType.Parameter("resources") @Nullable List<String> resources,
-        @CustomType.Parameter("sid") @Nullable String sid) {
-        this.actions = actions;
-        this.conditions = conditions;
-        this.effect = effect;
-        this.notActions = notActions;
-        this.notPrincipals = notPrincipals;
-        this.notResources = notResources;
-        this.principals = principals;
-        this.resources = resources;
-        this.sid = sid;
-    }
-
+    private GetPolicyDocumentStatement() {}
     /**
      * @return List of actions that this statement either allows or denies. For example, `[&#34;ec2:RunInstances&#34;, &#34;s3:*&#34;]`.
      * 
@@ -154,7 +133,7 @@ public final class GetPolicyDocumentStatement {
     public static Builder builder(GetPolicyDocumentStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> actions;
         private @Nullable List<GetPolicyDocumentStatementCondition> conditions;
@@ -165,11 +144,7 @@ public final class GetPolicyDocumentStatement {
         private @Nullable List<GetPolicyDocumentStatementPrincipal> principals;
         private @Nullable List<String> resources;
         private @Nullable String sid;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyDocumentStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -183,6 +158,7 @@ public final class GetPolicyDocumentStatement {
     	      this.sid = defaults.sid;
         }
 
+        @CustomType.Setter
         public Builder actions(@Nullable List<String> actions) {
             this.actions = actions;
             return this;
@@ -190,6 +166,7 @@ public final class GetPolicyDocumentStatement {
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder conditions(@Nullable List<GetPolicyDocumentStatementCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -197,10 +174,12 @@ public final class GetPolicyDocumentStatement {
         public Builder conditions(GetPolicyDocumentStatementCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder effect(@Nullable String effect) {
             this.effect = effect;
             return this;
         }
+        @CustomType.Setter
         public Builder notActions(@Nullable List<String> notActions) {
             this.notActions = notActions;
             return this;
@@ -208,6 +187,7 @@ public final class GetPolicyDocumentStatement {
         public Builder notActions(String... notActions) {
             return notActions(List.of(notActions));
         }
+        @CustomType.Setter
         public Builder notPrincipals(@Nullable List<GetPolicyDocumentStatementNotPrincipal> notPrincipals) {
             this.notPrincipals = notPrincipals;
             return this;
@@ -215,6 +195,7 @@ public final class GetPolicyDocumentStatement {
         public Builder notPrincipals(GetPolicyDocumentStatementNotPrincipal... notPrincipals) {
             return notPrincipals(List.of(notPrincipals));
         }
+        @CustomType.Setter
         public Builder notResources(@Nullable List<String> notResources) {
             this.notResources = notResources;
             return this;
@@ -222,6 +203,7 @@ public final class GetPolicyDocumentStatement {
         public Builder notResources(String... notResources) {
             return notResources(List.of(notResources));
         }
+        @CustomType.Setter
         public Builder principals(@Nullable List<GetPolicyDocumentStatementPrincipal> principals) {
             this.principals = principals;
             return this;
@@ -229,6 +211,7 @@ public final class GetPolicyDocumentStatement {
         public Builder principals(GetPolicyDocumentStatementPrincipal... principals) {
             return principals(List.of(principals));
         }
+        @CustomType.Setter
         public Builder resources(@Nullable List<String> resources) {
             this.resources = resources;
             return this;
@@ -236,11 +219,23 @@ public final class GetPolicyDocumentStatement {
         public Builder resources(String... resources) {
             return resources(List.of(resources));
         }
+        @CustomType.Setter
         public Builder sid(@Nullable String sid) {
             this.sid = sid;
             return this;
-        }        public GetPolicyDocumentStatement build() {
-            return new GetPolicyDocumentStatement(actions, conditions, effect, notActions, notPrincipals, notResources, principals, resources, sid);
+        }
+        public GetPolicyDocumentStatement build() {
+            final var o = new GetPolicyDocumentStatement();
+            o.actions = actions;
+            o.conditions = conditions;
+            o.effect = effect;
+            o.notActions = notActions;
+            o.notPrincipals = notPrincipals;
+            o.notResources = notResources;
+            o.principals = principals;
+            o.resources = resources;
+            o.sid = sid;
+            return o;
         }
     }
 }

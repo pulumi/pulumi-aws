@@ -16,28 +16,19 @@ public final class CatalogTableStorageDescriptorSkewedInfo {
      * @return List of names of columns that contain skewed values.
      * 
      */
-    private final @Nullable List<String> skewedColumnNames;
+    private @Nullable List<String> skewedColumnNames;
     /**
      * @return List of values that appear so frequently as to be considered skewed.
      * 
      */
-    private final @Nullable Map<String,String> skewedColumnValueLocationMaps;
+    private @Nullable Map<String,String> skewedColumnValueLocationMaps;
     /**
      * @return Map of skewed values to the columns that contain them.
      * 
      */
-    private final @Nullable List<String> skewedColumnValues;
+    private @Nullable List<String> skewedColumnValues;
 
-    @CustomType.Constructor
-    private CatalogTableStorageDescriptorSkewedInfo(
-        @CustomType.Parameter("skewedColumnNames") @Nullable List<String> skewedColumnNames,
-        @CustomType.Parameter("skewedColumnValueLocationMaps") @Nullable Map<String,String> skewedColumnValueLocationMaps,
-        @CustomType.Parameter("skewedColumnValues") @Nullable List<String> skewedColumnValues) {
-        this.skewedColumnNames = skewedColumnNames;
-        this.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
-        this.skewedColumnValues = skewedColumnValues;
-    }
-
+    private CatalogTableStorageDescriptorSkewedInfo() {}
     /**
      * @return List of names of columns that contain skewed values.
      * 
@@ -67,16 +58,12 @@ public final class CatalogTableStorageDescriptorSkewedInfo {
     public static Builder builder(CatalogTableStorageDescriptorSkewedInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> skewedColumnNames;
         private @Nullable Map<String,String> skewedColumnValueLocationMaps;
         private @Nullable List<String> skewedColumnValues;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogTableStorageDescriptorSkewedInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.skewedColumnNames = defaults.skewedColumnNames;
@@ -84,6 +71,7 @@ public final class CatalogTableStorageDescriptorSkewedInfo {
     	      this.skewedColumnValues = defaults.skewedColumnValues;
         }
 
+        @CustomType.Setter
         public Builder skewedColumnNames(@Nullable List<String> skewedColumnNames) {
             this.skewedColumnNames = skewedColumnNames;
             return this;
@@ -91,18 +79,25 @@ public final class CatalogTableStorageDescriptorSkewedInfo {
         public Builder skewedColumnNames(String... skewedColumnNames) {
             return skewedColumnNames(List.of(skewedColumnNames));
         }
+        @CustomType.Setter
         public Builder skewedColumnValueLocationMaps(@Nullable Map<String,String> skewedColumnValueLocationMaps) {
             this.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
             return this;
         }
+        @CustomType.Setter
         public Builder skewedColumnValues(@Nullable List<String> skewedColumnValues) {
             this.skewedColumnValues = skewedColumnValues;
             return this;
         }
         public Builder skewedColumnValues(String... skewedColumnValues) {
             return skewedColumnValues(List.of(skewedColumnValues));
-        }        public CatalogTableStorageDescriptorSkewedInfo build() {
-            return new CatalogTableStorageDescriptorSkewedInfo(skewedColumnNames, skewedColumnValueLocationMaps, skewedColumnValues);
+        }
+        public CatalogTableStorageDescriptorSkewedInfo build() {
+            final var o = new CatalogTableStorageDescriptorSkewedInfo();
+            o.skewedColumnNames = skewedColumnNames;
+            o.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
+            o.skewedColumnValues = skewedColumnValues;
+            return o;
         }
     }
 }

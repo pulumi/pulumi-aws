@@ -14,13 +14,9 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatement {
      * @return The statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
      */
-    private final List<RuleGroupRuleStatementNotStatementStatementNotStatementStatement> statements;
+    private List<RuleGroupRuleStatementNotStatementStatementNotStatementStatement> statements;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementNotStatementStatementNotStatement(@CustomType.Parameter("statements") List<RuleGroupRuleStatementNotStatementStatementNotStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private RuleGroupRuleStatementNotStatementStatementNotStatement() {}
     /**
      * @return The statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatement {
     public static Builder builder(RuleGroupRuleStatementNotStatementStatementNotStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<RuleGroupRuleStatementNotStatementStatementNotStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementNotStatementStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<RuleGroupRuleStatementNotStatementStatementNotStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(RuleGroupRuleStatementNotStatementStatementNotStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public RuleGroupRuleStatementNotStatementStatementNotStatement build() {
-            return new RuleGroupRuleStatementNotStatementStatementNotStatement(statements);
+        }
+        public RuleGroupRuleStatementNotStatementStatementNotStatement build() {
+            final var o = new RuleGroupRuleStatementNotStatementStatementNotStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

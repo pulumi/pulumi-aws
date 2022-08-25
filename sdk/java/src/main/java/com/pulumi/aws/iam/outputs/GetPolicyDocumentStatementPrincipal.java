@@ -14,21 +14,14 @@ public final class GetPolicyDocumentStatementPrincipal {
      * @return List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
      * 
      */
-    private final List<String> identifiers;
+    private List<String> identifiers;
     /**
      * @return Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetPolicyDocumentStatementPrincipal(
-        @CustomType.Parameter("identifiers") List<String> identifiers,
-        @CustomType.Parameter("type") String type) {
-        this.identifiers = identifiers;
-        this.type = type;
-    }
-
+    private GetPolicyDocumentStatementPrincipal() {}
     /**
      * @return List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
      * 
@@ -51,21 +44,18 @@ public final class GetPolicyDocumentStatementPrincipal {
     public static Builder builder(GetPolicyDocumentStatementPrincipal defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identifiers;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyDocumentStatementPrincipal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identifiers = defaults.identifiers;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identifiers(List<String> identifiers) {
             this.identifiers = Objects.requireNonNull(identifiers);
             return this;
@@ -73,11 +63,16 @@ public final class GetPolicyDocumentStatementPrincipal {
         public Builder identifiers(String... identifiers) {
             return identifiers(List.of(identifiers));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetPolicyDocumentStatementPrincipal build() {
-            return new GetPolicyDocumentStatementPrincipal(identifiers, type);
+        }
+        public GetPolicyDocumentStatementPrincipal build() {
+            final var o = new GetPolicyDocumentStatementPrincipal();
+            o.identifiers = identifiers;
+            o.type = type;
+            return o;
         }
     }
 }

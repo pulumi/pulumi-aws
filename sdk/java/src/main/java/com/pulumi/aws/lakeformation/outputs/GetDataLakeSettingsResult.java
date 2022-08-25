@@ -18,45 +18,30 @@ public final class GetDataLakeSettingsResult {
      * @return List of ARNs of AWS Lake Formation principals (IAM users or roles).
      * 
      */
-    private final List<String> admins;
-    private final @Nullable String catalogId;
+    private List<String> admins;
+    private @Nullable String catalogId;
     /**
      * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      * 
      */
-    private final List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions;
+    private List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions;
     /**
      * @return Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      * 
      */
-    private final List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
+    private List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      */
-    private final List<String> trustedResourceOwners;
+    private List<String> trustedResourceOwners;
 
-    @CustomType.Constructor
-    private GetDataLakeSettingsResult(
-        @CustomType.Parameter("admins") List<String> admins,
-        @CustomType.Parameter("catalogId") @Nullable String catalogId,
-        @CustomType.Parameter("createDatabaseDefaultPermissions") List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions,
-        @CustomType.Parameter("createTableDefaultPermissions") List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("trustedResourceOwners") List<String> trustedResourceOwners) {
-        this.admins = admins;
-        this.catalogId = catalogId;
-        this.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
-        this.createTableDefaultPermissions = createTableDefaultPermissions;
-        this.id = id;
-        this.trustedResourceOwners = trustedResourceOwners;
-    }
-
+    private GetDataLakeSettingsResult() {}
     /**
      * @return List of ARNs of AWS Lake Formation principals (IAM users or roles).
      * 
@@ -103,7 +88,7 @@ public final class GetDataLakeSettingsResult {
     public static Builder builder(GetDataLakeSettingsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> admins;
         private @Nullable String catalogId;
@@ -111,11 +96,7 @@ public final class GetDataLakeSettingsResult {
         private List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
         private String id;
         private List<String> trustedResourceOwners;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDataLakeSettingsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.admins = defaults.admins;
@@ -126,6 +107,7 @@ public final class GetDataLakeSettingsResult {
     	      this.trustedResourceOwners = defaults.trustedResourceOwners;
         }
 
+        @CustomType.Setter
         public Builder admins(List<String> admins) {
             this.admins = Objects.requireNonNull(admins);
             return this;
@@ -133,10 +115,12 @@ public final class GetDataLakeSettingsResult {
         public Builder admins(String... admins) {
             return admins(List.of(admins));
         }
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
         }
+        @CustomType.Setter
         public Builder createDatabaseDefaultPermissions(List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions) {
             this.createDatabaseDefaultPermissions = Objects.requireNonNull(createDatabaseDefaultPermissions);
             return this;
@@ -144,6 +128,7 @@ public final class GetDataLakeSettingsResult {
         public Builder createDatabaseDefaultPermissions(GetDataLakeSettingsCreateDatabaseDefaultPermission... createDatabaseDefaultPermissions) {
             return createDatabaseDefaultPermissions(List.of(createDatabaseDefaultPermissions));
         }
+        @CustomType.Setter
         public Builder createTableDefaultPermissions(List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions) {
             this.createTableDefaultPermissions = Objects.requireNonNull(createTableDefaultPermissions);
             return this;
@@ -151,18 +136,28 @@ public final class GetDataLakeSettingsResult {
         public Builder createTableDefaultPermissions(GetDataLakeSettingsCreateTableDefaultPermission... createTableDefaultPermissions) {
             return createTableDefaultPermissions(List.of(createTableDefaultPermissions));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder trustedResourceOwners(List<String> trustedResourceOwners) {
             this.trustedResourceOwners = Objects.requireNonNull(trustedResourceOwners);
             return this;
         }
         public Builder trustedResourceOwners(String... trustedResourceOwners) {
             return trustedResourceOwners(List.of(trustedResourceOwners));
-        }        public GetDataLakeSettingsResult build() {
-            return new GetDataLakeSettingsResult(admins, catalogId, createDatabaseDefaultPermissions, createTableDefaultPermissions, id, trustedResourceOwners);
+        }
+        public GetDataLakeSettingsResult build() {
+            final var o = new GetDataLakeSettingsResult();
+            o.admins = admins;
+            o.catalogId = catalogId;
+            o.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
+            o.createTableDefaultPermissions = createTableDefaultPermissions;
+            o.id = id;
+            o.trustedResourceOwners = trustedResourceOwners;
+            return o;
         }
     }
 }

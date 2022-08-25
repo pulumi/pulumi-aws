@@ -16,105 +16,74 @@ public final class RegisteredDomainRegistrantContact {
      * @return First line of the contact&#39;s address.
      * 
      */
-    private final @Nullable String addressLine1;
+    private @Nullable String addressLine1;
     /**
      * @return Second line of contact&#39;s address, if any.
      * 
      */
-    private final @Nullable String addressLine2;
+    private @Nullable String addressLine2;
     /**
      * @return The city of the contact&#39;s address.
      * 
      */
-    private final @Nullable String city;
+    private @Nullable String city;
     /**
      * @return Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
      * 
      */
-    private final @Nullable String contactType;
+    private @Nullable String contactType;
     /**
      * @return Code for the country of the contact&#39;s address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
      * 
      */
-    private final @Nullable String countryCode;
+    private @Nullable String countryCode;
     /**
      * @return Email address of the contact.
      * 
      */
-    private final @Nullable String email;
+    private @Nullable String email;
     /**
      * @return A key-value map of parameters required by certain top-level domains.
      * 
      */
-    private final @Nullable Map<String,String> extraParams;
+    private @Nullable Map<String,String> extraParams;
     /**
      * @return Fax number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
      * 
      */
-    private final @Nullable String fax;
+    private @Nullable String fax;
     /**
      * @return First name of contact.
      * 
      */
-    private final @Nullable String firstName;
+    private @Nullable String firstName;
     /**
      * @return Last name of contact.
      * 
      */
-    private final @Nullable String lastName;
+    private @Nullable String lastName;
     /**
      * @return Name of the organization for contact types other than `PERSON`.
      * 
      */
-    private final @Nullable String organizationName;
+    private @Nullable String organizationName;
     /**
      * @return The phone number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
      * 
      */
-    private final @Nullable String phoneNumber;
+    private @Nullable String phoneNumber;
     /**
      * @return The state or province of the contact&#39;s city.
      * 
      */
-    private final @Nullable String state;
+    private @Nullable String state;
     /**
      * @return The zip or postal code of the contact&#39;s address.
      * 
      */
-    private final @Nullable String zipCode;
+    private @Nullable String zipCode;
 
-    @CustomType.Constructor
-    private RegisteredDomainRegistrantContact(
-        @CustomType.Parameter("addressLine1") @Nullable String addressLine1,
-        @CustomType.Parameter("addressLine2") @Nullable String addressLine2,
-        @CustomType.Parameter("city") @Nullable String city,
-        @CustomType.Parameter("contactType") @Nullable String contactType,
-        @CustomType.Parameter("countryCode") @Nullable String countryCode,
-        @CustomType.Parameter("email") @Nullable String email,
-        @CustomType.Parameter("extraParams") @Nullable Map<String,String> extraParams,
-        @CustomType.Parameter("fax") @Nullable String fax,
-        @CustomType.Parameter("firstName") @Nullable String firstName,
-        @CustomType.Parameter("lastName") @Nullable String lastName,
-        @CustomType.Parameter("organizationName") @Nullable String organizationName,
-        @CustomType.Parameter("phoneNumber") @Nullable String phoneNumber,
-        @CustomType.Parameter("state") @Nullable String state,
-        @CustomType.Parameter("zipCode") @Nullable String zipCode) {
-        this.addressLine1 = addressLine1;
-        this.addressLine2 = addressLine2;
-        this.city = city;
-        this.contactType = contactType;
-        this.countryCode = countryCode;
-        this.email = email;
-        this.extraParams = extraParams;
-        this.fax = fax;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.organizationName = organizationName;
-        this.phoneNumber = phoneNumber;
-        this.state = state;
-        this.zipCode = zipCode;
-    }
-
+    private RegisteredDomainRegistrantContact() {}
     /**
      * @return First line of the contact&#39;s address.
      * 
@@ -221,7 +190,7 @@ public final class RegisteredDomainRegistrantContact {
     public static Builder builder(RegisteredDomainRegistrantContact defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String addressLine1;
         private @Nullable String addressLine2;
@@ -237,11 +206,7 @@ public final class RegisteredDomainRegistrantContact {
         private @Nullable String phoneNumber;
         private @Nullable String state;
         private @Nullable String zipCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegisteredDomainRegistrantContact defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressLine1 = defaults.addressLine1;
@@ -260,63 +225,93 @@ public final class RegisteredDomainRegistrantContact {
     	      this.zipCode = defaults.zipCode;
         }
 
+        @CustomType.Setter
         public Builder addressLine1(@Nullable String addressLine1) {
             this.addressLine1 = addressLine1;
             return this;
         }
+        @CustomType.Setter
         public Builder addressLine2(@Nullable String addressLine2) {
             this.addressLine2 = addressLine2;
             return this;
         }
+        @CustomType.Setter
         public Builder city(@Nullable String city) {
             this.city = city;
             return this;
         }
+        @CustomType.Setter
         public Builder contactType(@Nullable String contactType) {
             this.contactType = contactType;
             return this;
         }
+        @CustomType.Setter
         public Builder countryCode(@Nullable String countryCode) {
             this.countryCode = countryCode;
             return this;
         }
+        @CustomType.Setter
         public Builder email(@Nullable String email) {
             this.email = email;
             return this;
         }
+        @CustomType.Setter
         public Builder extraParams(@Nullable Map<String,String> extraParams) {
             this.extraParams = extraParams;
             return this;
         }
+        @CustomType.Setter
         public Builder fax(@Nullable String fax) {
             this.fax = fax;
             return this;
         }
+        @CustomType.Setter
         public Builder firstName(@Nullable String firstName) {
             this.firstName = firstName;
             return this;
         }
+        @CustomType.Setter
         public Builder lastName(@Nullable String lastName) {
             this.lastName = lastName;
             return this;
         }
+        @CustomType.Setter
         public Builder organizationName(@Nullable String organizationName) {
             this.organizationName = organizationName;
             return this;
         }
+        @CustomType.Setter
         public Builder phoneNumber(@Nullable String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
         }
+        @CustomType.Setter
         public Builder state(@Nullable String state) {
             this.state = state;
             return this;
         }
+        @CustomType.Setter
         public Builder zipCode(@Nullable String zipCode) {
             this.zipCode = zipCode;
             return this;
-        }        public RegisteredDomainRegistrantContact build() {
-            return new RegisteredDomainRegistrantContact(addressLine1, addressLine2, city, contactType, countryCode, email, extraParams, fax, firstName, lastName, organizationName, phoneNumber, state, zipCode);
+        }
+        public RegisteredDomainRegistrantContact build() {
+            final var o = new RegisteredDomainRegistrantContact();
+            o.addressLine1 = addressLine1;
+            o.addressLine2 = addressLine2;
+            o.city = city;
+            o.contactType = contactType;
+            o.countryCode = countryCode;
+            o.email = email;
+            o.extraParams = extraParams;
+            o.fax = fax;
+            o.firstName = firstName;
+            o.lastName = lastName;
+            o.organizationName = organizationName;
+            o.phoneNumber = phoneNumber;
+            o.state = state;
+            o.zipCode = zipCode;
+            return o;
         }
     }
 }

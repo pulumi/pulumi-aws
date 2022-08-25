@@ -15,21 +15,14 @@ public final class BucketServerSideEncryptionConfigurationV2RuleApplyServerSideE
      * @return The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
      * 
      */
-    private final @Nullable String kmsMasterKeyId;
+    private @Nullable String kmsMasterKeyId;
     /**
      * @return The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
      * 
      */
-    private final String sseAlgorithm;
+    private String sseAlgorithm;
 
-    @CustomType.Constructor
-    private BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault(
-        @CustomType.Parameter("kmsMasterKeyId") @Nullable String kmsMasterKeyId,
-        @CustomType.Parameter("sseAlgorithm") String sseAlgorithm) {
-        this.kmsMasterKeyId = kmsMasterKeyId;
-        this.sseAlgorithm = sseAlgorithm;
-    }
-
+    private BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault() {}
     /**
      * @return The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
      * 
@@ -52,30 +45,32 @@ public final class BucketServerSideEncryptionConfigurationV2RuleApplyServerSideE
     public static Builder builder(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsMasterKeyId;
         private String sseAlgorithm;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsMasterKeyId = defaults.kmsMasterKeyId;
     	      this.sseAlgorithm = defaults.sseAlgorithm;
         }
 
+        @CustomType.Setter
         public Builder kmsMasterKeyId(@Nullable String kmsMasterKeyId) {
             this.kmsMasterKeyId = kmsMasterKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder sseAlgorithm(String sseAlgorithm) {
             this.sseAlgorithm = Objects.requireNonNull(sseAlgorithm);
             return this;
-        }        public BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault build() {
-            return new BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault(kmsMasterKeyId, sseAlgorithm);
+        }
+        public BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault build() {
+            final var o = new BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault();
+            o.kmsMasterKeyId = kmsMasterKeyId;
+            o.sseAlgorithm = sseAlgorithm;
+            return o;
         }
     }
 }

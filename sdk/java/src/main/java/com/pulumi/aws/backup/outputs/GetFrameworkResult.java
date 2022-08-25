@@ -16,70 +16,49 @@ public final class GetFrameworkResult {
      * @return The ARN of the backup framework.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      * 
      */
-    private final List<GetFrameworkControl> controls;
+    private List<GetFrameworkControl> controls;
     /**
      * @return The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    private final String creationTime;
+    private String creationTime;
     /**
      * @return The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
      * 
      */
-    private final String deploymentStatus;
+    private String deploymentStatus;
     /**
      * @return The description of the framework.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of a parameter, for example, BackupPlanFrequency.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetFrameworkResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("controls") List<GetFrameworkControl> controls,
-        @CustomType.Parameter("creationTime") String creationTime,
-        @CustomType.Parameter("deploymentStatus") String deploymentStatus,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.controls = controls;
-        this.creationTime = creationTime;
-        this.deploymentStatus = deploymentStatus;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.status = status;
-        this.tags = tags;
-    }
-
+    private GetFrameworkResult() {}
     /**
      * @return The ARN of the backup framework.
      * 
@@ -151,7 +130,7 @@ public final class GetFrameworkResult {
     public static Builder builder(GetFrameworkResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetFrameworkControl> controls;
@@ -162,11 +141,7 @@ public final class GetFrameworkResult {
         private String name;
         private String status;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFrameworkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -180,10 +155,12 @@ public final class GetFrameworkResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder controls(List<GetFrameworkControl> controls) {
             this.controls = Objects.requireNonNull(controls);
             return this;
@@ -191,35 +168,53 @@ public final class GetFrameworkResult {
         public Builder controls(GetFrameworkControl... controls) {
             return controls(List.of(controls));
         }
+        @CustomType.Setter
         public Builder creationTime(String creationTime) {
             this.creationTime = Objects.requireNonNull(creationTime);
             return this;
         }
+        @CustomType.Setter
         public Builder deploymentStatus(String deploymentStatus) {
             this.deploymentStatus = Objects.requireNonNull(deploymentStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetFrameworkResult build() {
-            return new GetFrameworkResult(arn, controls, creationTime, deploymentStatus, description, id, name, status, tags);
+        }
+        public GetFrameworkResult build() {
+            final var o = new GetFrameworkResult();
+            o.arn = arn;
+            o.controls = controls;
+            o.creationTime = creationTime;
+            o.deploymentStatus = deploymentStatus;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.status = status;
+            o.tags = tags;
+            return o;
         }
     }
 }

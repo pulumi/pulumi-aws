@@ -15,21 +15,14 @@ public final class ExperimentTemplateStopCondition {
      * @return Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
      * 
      */
-    private final String source;
+    private String source;
     /**
      * @return Tag value.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ExperimentTemplateStopCondition(
-        @CustomType.Parameter("source") String source,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.source = source;
-        this.value = value;
-    }
-
+    private ExperimentTemplateStopCondition() {}
     /**
      * @return Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
      * 
@@ -52,30 +45,32 @@ public final class ExperimentTemplateStopCondition {
     public static Builder builder(ExperimentTemplateStopCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String source;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExperimentTemplateStopCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.source = defaults.source;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ExperimentTemplateStopCondition build() {
-            return new ExperimentTemplateStopCondition(source, value);
+        }
+        public ExperimentTemplateStopCondition build() {
+            final var o = new ExperimentTemplateStopCondition();
+            o.source = source;
+            o.value = value;
+            return o;
         }
     }
 }

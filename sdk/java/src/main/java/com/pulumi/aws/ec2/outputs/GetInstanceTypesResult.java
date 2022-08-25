@@ -12,28 +12,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceTypesResult {
-    private final @Nullable List<GetInstanceTypesFilter> filters;
+    private @Nullable List<GetInstanceTypesFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of EC2 Instance Types.
      * 
      */
-    private final List<String> instanceTypes;
+    private List<String> instanceTypes;
 
-    @CustomType.Constructor
-    private GetInstanceTypesResult(
-        @CustomType.Parameter("filters") @Nullable List<GetInstanceTypesFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceTypes") List<String> instanceTypes) {
-        this.filters = filters;
-        this.id = id;
-        this.instanceTypes = instanceTypes;
-    }
-
+    private GetInstanceTypesResult() {}
     public List<GetInstanceTypesFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -59,16 +50,12 @@ public final class GetInstanceTypesResult {
     public static Builder builder(GetInstanceTypesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetInstanceTypesFilter> filters;
         private String id;
         private List<String> instanceTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -76,6 +63,7 @@ public final class GetInstanceTypesResult {
     	      this.instanceTypes = defaults.instanceTypes;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetInstanceTypesFilter> filters) {
             this.filters = filters;
             return this;
@@ -83,18 +71,25 @@ public final class GetInstanceTypesResult {
         public Builder filters(GetInstanceTypesFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceTypes(List<String> instanceTypes) {
             this.instanceTypes = Objects.requireNonNull(instanceTypes);
             return this;
         }
         public Builder instanceTypes(String... instanceTypes) {
             return instanceTypes(List.of(instanceTypes));
-        }        public GetInstanceTypesResult build() {
-            return new GetInstanceTypesResult(filters, id, instanceTypes);
+        }
+        public GetInstanceTypesResult build() {
+            final var o = new GetInstanceTypesResult();
+            o.filters = filters;
+            o.id = id;
+            o.instanceTypes = instanceTypes;
+            return o;
         }
     }
 }

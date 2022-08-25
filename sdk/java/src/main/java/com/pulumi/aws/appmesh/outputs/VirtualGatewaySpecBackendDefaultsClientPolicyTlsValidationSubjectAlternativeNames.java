@@ -13,13 +13,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSub
      * @return The criteria for determining a SAN&#39;s match.
      * 
      */
-    private final VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match;
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(@CustomType.Parameter("match") VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match) {
-        this.match = match;
-    }
-
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames() {}
     /**
      * @return The criteria for determining a SAN&#39;s match.
      * 
@@ -35,24 +31,24 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSub
     public static Builder builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.match = defaults.match;
         }
 
+        @CustomType.Setter
         public Builder match(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match) {
             this.match = Objects.requireNonNull(match);
             return this;
-        }        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames build() {
-            return new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(match);
+        }
+        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames build() {
+            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames();
+            o.match = match;
+            return o;
         }
     }
 }

@@ -19,23 +19,16 @@ public final class IntentConclusionStatement {
      * Attributes are documented under message. Must contain between 1 and 15 messages.
      * 
      */
-    private final List<IntentConclusionStatementMessage> messages;
+    private List<IntentConclusionStatementMessage> messages;
     /**
      * @return The response card. Amazon Lex will substitute session attributes and
      * slot values into the response card. For more information, see
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
      * 
      */
-    private final @Nullable String responseCard;
+    private @Nullable String responseCard;
 
-    @CustomType.Constructor
-    private IntentConclusionStatement(
-        @CustomType.Parameter("messages") List<IntentConclusionStatementMessage> messages,
-        @CustomType.Parameter("responseCard") @Nullable String responseCard) {
-        this.messages = messages;
-        this.responseCard = responseCard;
-    }
-
+    private IntentConclusionStatement() {}
     /**
      * @return A set of messages, each of which provides a message string and its type.
      * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
@@ -62,21 +55,18 @@ public final class IntentConclusionStatement {
     public static Builder builder(IntentConclusionStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<IntentConclusionStatementMessage> messages;
         private @Nullable String responseCard;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntentConclusionStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.messages = defaults.messages;
     	      this.responseCard = defaults.responseCard;
         }
 
+        @CustomType.Setter
         public Builder messages(List<IntentConclusionStatementMessage> messages) {
             this.messages = Objects.requireNonNull(messages);
             return this;
@@ -84,11 +74,16 @@ public final class IntentConclusionStatement {
         public Builder messages(IntentConclusionStatementMessage... messages) {
             return messages(List.of(messages));
         }
+        @CustomType.Setter
         public Builder responseCard(@Nullable String responseCard) {
             this.responseCard = responseCard;
             return this;
-        }        public IntentConclusionStatement build() {
-            return new IntentConclusionStatement(messages, responseCard);
+        }
+        public IntentConclusionStatement build() {
+            final var o = new IntentConclusionStatement();
+            o.messages = messages;
+            o.responseCard = responseCard;
+            return o;
         }
     }
 }

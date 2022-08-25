@@ -15,13 +15,9 @@ public final class DomainClusterConfigZoneAwarenessConfig {
      * @return Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
      * 
      */
-    private final @Nullable Integer availabilityZoneCount;
+    private @Nullable Integer availabilityZoneCount;
 
-    @CustomType.Constructor
-    private DomainClusterConfigZoneAwarenessConfig(@CustomType.Parameter("availabilityZoneCount") @Nullable Integer availabilityZoneCount) {
-        this.availabilityZoneCount = availabilityZoneCount;
-    }
-
+    private DomainClusterConfigZoneAwarenessConfig() {}
     /**
      * @return Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
      * 
@@ -37,24 +33,24 @@ public final class DomainClusterConfigZoneAwarenessConfig {
     public static Builder builder(DomainClusterConfigZoneAwarenessConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer availabilityZoneCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainClusterConfigZoneAwarenessConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZoneCount = defaults.availabilityZoneCount;
         }
 
+        @CustomType.Setter
         public Builder availabilityZoneCount(@Nullable Integer availabilityZoneCount) {
             this.availabilityZoneCount = availabilityZoneCount;
             return this;
-        }        public DomainClusterConfigZoneAwarenessConfig build() {
-            return new DomainClusterConfigZoneAwarenessConfig(availabilityZoneCount);
+        }
+        public DomainClusterConfigZoneAwarenessConfig build() {
+            final var o = new DomainClusterConfigZoneAwarenessConfig();
+            o.availabilityZoneCount = availabilityZoneCount;
+            return o;
         }
     }
 }

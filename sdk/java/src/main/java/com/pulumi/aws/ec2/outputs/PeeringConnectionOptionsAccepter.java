@@ -17,31 +17,22 @@ public final class PeeringConnectionOptionsAccepter {
      * to the remote VPC. This option is not supported for inter-region VPC peering.
      * 
      */
-    private final @Nullable Boolean allowClassicLinkToRemoteVpc;
+    private @Nullable Boolean allowClassicLinkToRemoteVpc;
     /**
      * @return Allow a local VPC to resolve public DNS hostnames to
      * private IP addresses when queried from instances in the peer VPC.
      * 
      */
-    private final @Nullable Boolean allowRemoteVpcDnsResolution;
+    private @Nullable Boolean allowRemoteVpcDnsResolution;
     /**
      * @return Allow a local VPC to communicate with a linked EC2-Classic
      * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
      * connection. This option is not supported for inter-region VPC peering.
      * 
      */
-    private final @Nullable Boolean allowVpcToRemoteClassicLink;
+    private @Nullable Boolean allowVpcToRemoteClassicLink;
 
-    @CustomType.Constructor
-    private PeeringConnectionOptionsAccepter(
-        @CustomType.Parameter("allowClassicLinkToRemoteVpc") @Nullable Boolean allowClassicLinkToRemoteVpc,
-        @CustomType.Parameter("allowRemoteVpcDnsResolution") @Nullable Boolean allowRemoteVpcDnsResolution,
-        @CustomType.Parameter("allowVpcToRemoteClassicLink") @Nullable Boolean allowVpcToRemoteClassicLink) {
-        this.allowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
-        this.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-        this.allowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
-    }
-
+    private PeeringConnectionOptionsAccepter() {}
     /**
      * @return Allow a local linked EC2-Classic instance to communicate
      * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
@@ -76,16 +67,12 @@ public final class PeeringConnectionOptionsAccepter {
     public static Builder builder(PeeringConnectionOptionsAccepter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowClassicLinkToRemoteVpc;
         private @Nullable Boolean allowRemoteVpcDnsResolution;
         private @Nullable Boolean allowVpcToRemoteClassicLink;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PeeringConnectionOptionsAccepter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowClassicLinkToRemoteVpc = defaults.allowClassicLinkToRemoteVpc;
@@ -93,19 +80,27 @@ public final class PeeringConnectionOptionsAccepter {
     	      this.allowVpcToRemoteClassicLink = defaults.allowVpcToRemoteClassicLink;
         }
 
+        @CustomType.Setter
         public Builder allowClassicLinkToRemoteVpc(@Nullable Boolean allowClassicLinkToRemoteVpc) {
             this.allowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
             return this;
         }
+        @CustomType.Setter
         public Builder allowRemoteVpcDnsResolution(@Nullable Boolean allowRemoteVpcDnsResolution) {
             this.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
             return this;
         }
+        @CustomType.Setter
         public Builder allowVpcToRemoteClassicLink(@Nullable Boolean allowVpcToRemoteClassicLink) {
             this.allowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
             return this;
-        }        public PeeringConnectionOptionsAccepter build() {
-            return new PeeringConnectionOptionsAccepter(allowClassicLinkToRemoteVpc, allowRemoteVpcDnsResolution, allowVpcToRemoteClassicLink);
+        }
+        public PeeringConnectionOptionsAccepter build() {
+            final var o = new PeeringConnectionOptionsAccepter();
+            o.allowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
+            o.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
+            o.allowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
+            return o;
         }
     }
 }

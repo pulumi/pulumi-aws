@@ -14,21 +14,14 @@ public final class GetNodeGroupRemoteAccess {
      * @return EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
      * 
      */
-    private final String ec2SshKey;
+    private String ec2SshKey;
     /**
      * @return Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
      * 
      */
-    private final List<String> sourceSecurityGroupIds;
+    private List<String> sourceSecurityGroupIds;
 
-    @CustomType.Constructor
-    private GetNodeGroupRemoteAccess(
-        @CustomType.Parameter("ec2SshKey") String ec2SshKey,
-        @CustomType.Parameter("sourceSecurityGroupIds") List<String> sourceSecurityGroupIds) {
-        this.ec2SshKey = ec2SshKey;
-        this.sourceSecurityGroupIds = sourceSecurityGroupIds;
-    }
-
+    private GetNodeGroupRemoteAccess() {}
     /**
      * @return EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
      * 
@@ -51,33 +44,35 @@ public final class GetNodeGroupRemoteAccess {
     public static Builder builder(GetNodeGroupRemoteAccess defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ec2SshKey;
         private List<String> sourceSecurityGroupIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNodeGroupRemoteAccess defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ec2SshKey = defaults.ec2SshKey;
     	      this.sourceSecurityGroupIds = defaults.sourceSecurityGroupIds;
         }
 
+        @CustomType.Setter
         public Builder ec2SshKey(String ec2SshKey) {
             this.ec2SshKey = Objects.requireNonNull(ec2SshKey);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceSecurityGroupIds(List<String> sourceSecurityGroupIds) {
             this.sourceSecurityGroupIds = Objects.requireNonNull(sourceSecurityGroupIds);
             return this;
         }
         public Builder sourceSecurityGroupIds(String... sourceSecurityGroupIds) {
             return sourceSecurityGroupIds(List.of(sourceSecurityGroupIds));
-        }        public GetNodeGroupRemoteAccess build() {
-            return new GetNodeGroupRemoteAccess(ec2SshKey, sourceSecurityGroupIds);
+        }
+        public GetNodeGroupRemoteAccess build() {
+            final var o = new GetNodeGroupRemoteAccess();
+            o.ec2SshKey = ec2SshKey;
+            o.sourceSecurityGroupIds = sourceSecurityGroupIds;
+            return o;
         }
     }
 }

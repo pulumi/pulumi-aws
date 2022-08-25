@@ -13,21 +13,14 @@ public final class ProjectSecondarySourceVersion {
      * @return An identifier for a source in the build project.
      * 
      */
-    private final String sourceIdentifier;
+    private String sourceIdentifier;
     /**
      * @return The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
      * 
      */
-    private final String sourceVersion;
+    private String sourceVersion;
 
-    @CustomType.Constructor
-    private ProjectSecondarySourceVersion(
-        @CustomType.Parameter("sourceIdentifier") String sourceIdentifier,
-        @CustomType.Parameter("sourceVersion") String sourceVersion) {
-        this.sourceIdentifier = sourceIdentifier;
-        this.sourceVersion = sourceVersion;
-    }
-
+    private ProjectSecondarySourceVersion() {}
     /**
      * @return An identifier for a source in the build project.
      * 
@@ -50,30 +43,32 @@ public final class ProjectSecondarySourceVersion {
     public static Builder builder(ProjectSecondarySourceVersion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String sourceIdentifier;
         private String sourceVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectSecondarySourceVersion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sourceIdentifier = defaults.sourceIdentifier;
     	      this.sourceVersion = defaults.sourceVersion;
         }
 
+        @CustomType.Setter
         public Builder sourceIdentifier(String sourceIdentifier) {
             this.sourceIdentifier = Objects.requireNonNull(sourceIdentifier);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceVersion(String sourceVersion) {
             this.sourceVersion = Objects.requireNonNull(sourceVersion);
             return this;
-        }        public ProjectSecondarySourceVersion build() {
-            return new ProjectSecondarySourceVersion(sourceIdentifier, sourceVersion);
+        }
+        public ProjectSecondarySourceVersion build() {
+            final var o = new ProjectSecondarySourceVersion();
+            o.sourceIdentifier = sourceIdentifier;
+            o.sourceVersion = sourceVersion;
+            return o;
         }
     }
 }

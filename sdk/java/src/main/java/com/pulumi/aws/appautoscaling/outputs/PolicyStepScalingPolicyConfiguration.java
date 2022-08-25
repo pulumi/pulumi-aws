@@ -18,42 +18,29 @@ public final class PolicyStepScalingPolicyConfiguration {
      * @return Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
-    private final @Nullable String adjustmentType;
+    private @Nullable String adjustmentType;
     /**
      * @return The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
-    private final @Nullable Integer cooldown;
+    private @Nullable Integer cooldown;
     /**
      * @return The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
-    private final @Nullable String metricAggregationType;
+    private @Nullable String metricAggregationType;
     /**
      * @return The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
      * 
      */
-    private final @Nullable Integer minAdjustmentMagnitude;
+    private @Nullable Integer minAdjustmentMagnitude;
     /**
      * @return A set of adjustments that manage scaling. These have the following structure:
      * 
      */
-    private final @Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments;
+    private @Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments;
 
-    @CustomType.Constructor
-    private PolicyStepScalingPolicyConfiguration(
-        @CustomType.Parameter("adjustmentType") @Nullable String adjustmentType,
-        @CustomType.Parameter("cooldown") @Nullable Integer cooldown,
-        @CustomType.Parameter("metricAggregationType") @Nullable String metricAggregationType,
-        @CustomType.Parameter("minAdjustmentMagnitude") @Nullable Integer minAdjustmentMagnitude,
-        @CustomType.Parameter("stepAdjustments") @Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments) {
-        this.adjustmentType = adjustmentType;
-        this.cooldown = cooldown;
-        this.metricAggregationType = metricAggregationType;
-        this.minAdjustmentMagnitude = minAdjustmentMagnitude;
-        this.stepAdjustments = stepAdjustments;
-    }
-
+    private PolicyStepScalingPolicyConfiguration() {}
     /**
      * @return Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
@@ -97,18 +84,14 @@ public final class PolicyStepScalingPolicyConfiguration {
     public static Builder builder(PolicyStepScalingPolicyConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String adjustmentType;
         private @Nullable Integer cooldown;
         private @Nullable String metricAggregationType;
         private @Nullable Integer minAdjustmentMagnitude;
         private @Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyStepScalingPolicyConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adjustmentType = defaults.adjustmentType;
@@ -118,30 +101,42 @@ public final class PolicyStepScalingPolicyConfiguration {
     	      this.stepAdjustments = defaults.stepAdjustments;
         }
 
+        @CustomType.Setter
         public Builder adjustmentType(@Nullable String adjustmentType) {
             this.adjustmentType = adjustmentType;
             return this;
         }
+        @CustomType.Setter
         public Builder cooldown(@Nullable Integer cooldown) {
             this.cooldown = cooldown;
             return this;
         }
+        @CustomType.Setter
         public Builder metricAggregationType(@Nullable String metricAggregationType) {
             this.metricAggregationType = metricAggregationType;
             return this;
         }
+        @CustomType.Setter
         public Builder minAdjustmentMagnitude(@Nullable Integer minAdjustmentMagnitude) {
             this.minAdjustmentMagnitude = minAdjustmentMagnitude;
             return this;
         }
+        @CustomType.Setter
         public Builder stepAdjustments(@Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments) {
             this.stepAdjustments = stepAdjustments;
             return this;
         }
         public Builder stepAdjustments(PolicyStepScalingPolicyConfigurationStepAdjustment... stepAdjustments) {
             return stepAdjustments(List.of(stepAdjustments));
-        }        public PolicyStepScalingPolicyConfiguration build() {
-            return new PolicyStepScalingPolicyConfiguration(adjustmentType, cooldown, metricAggregationType, minAdjustmentMagnitude, stepAdjustments);
+        }
+        public PolicyStepScalingPolicyConfiguration build() {
+            final var o = new PolicyStepScalingPolicyConfiguration();
+            o.adjustmentType = adjustmentType;
+            o.cooldown = cooldown;
+            o.metricAggregationType = metricAggregationType;
+            o.minAdjustmentMagnitude = minAdjustmentMagnitude;
+            o.stepAdjustments = stepAdjustments;
+            return o;
         }
     }
 }

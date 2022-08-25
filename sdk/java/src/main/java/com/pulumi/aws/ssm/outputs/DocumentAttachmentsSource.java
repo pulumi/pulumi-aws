@@ -16,28 +16,19 @@ public final class DocumentAttachmentsSource {
      * @return The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The name of the document attachment file
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The value describing the location of an attachment to a document
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private DocumentAttachmentsSource(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.key = key;
-        this.name = name;
-        this.values = values;
-    }
-
+    private DocumentAttachmentsSource() {}
     /**
      * @return The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
      * 
@@ -67,16 +58,12 @@ public final class DocumentAttachmentsSource {
     public static Builder builder(DocumentAttachmentsSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private @Nullable String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DocumentAttachmentsSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -84,22 +71,30 @@ public final class DocumentAttachmentsSource {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public DocumentAttachmentsSource build() {
-            return new DocumentAttachmentsSource(key, name, values);
+        }
+        public DocumentAttachmentsSource build() {
+            final var o = new DocumentAttachmentsSource();
+            o.key = key;
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

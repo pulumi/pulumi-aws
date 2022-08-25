@@ -13,13 +13,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesDynatrace(@CustomType.Parameter("object") String object) {
-        this.object = object;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesDynatrace() {}
     /**
      * @return The object specified in the Veeva flow source.
      * 
@@ -35,24 +31,24 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesDynatrace defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesDynatrace defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesDynatrace build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesDynatrace(object);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesDynatrace build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesDynatrace();
+            o.object = object;
+            return o;
         }
     }
 }

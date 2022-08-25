@@ -19,283 +19,200 @@ public final class GetClusterResult {
      * @return Whether major version upgrades can be applied during maintenance period
      * 
      */
-    private final Boolean allowVersionUpgrade;
+    private Boolean allowVersionUpgrade;
     /**
      * @return The value represents how the cluster is configured to use AQUA.
      * 
      */
-    private final String aquaConfigurationStatus;
+    private String aquaConfigurationStatus;
     /**
      * @return Amazon Resource Name (ARN) of cluster.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The backup retention period
      * 
      */
-    private final Integer automatedSnapshotRetentionPeriod;
+    private Integer automatedSnapshotRetentionPeriod;
     /**
      * @return The availability zone of the cluster
      * 
      */
-    private final String availabilityZone;
+    private String availabilityZone;
     /**
      * @return Indicates whether the cluster is able to be relocated to another availability zone.
      * 
      */
-    private final Boolean availabilityZoneRelocationEnabled;
+    private Boolean availabilityZoneRelocationEnabled;
     /**
      * @return The name of the S3 bucket where the log files are to be stored
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return The cluster identifier
      * 
      */
-    private final String clusterIdentifier;
+    private String clusterIdentifier;
     /**
      * @return The nodes in the cluster. Cluster node blocks are documented below
      * 
      */
-    private final List<GetClusterClusterNode> clusterNodes;
+    private List<GetClusterClusterNode> clusterNodes;
     /**
      * @return The name of the parameter group to be associated with this cluster
      * 
      */
-    private final String clusterParameterGroupName;
+    private String clusterParameterGroupName;
     /**
      * @return The public key for the cluster
      * 
      */
-    private final String clusterPublicKey;
+    private String clusterPublicKey;
     /**
      * @return The cluster revision number
      * 
      */
-    private final String clusterRevisionNumber;
+    private String clusterRevisionNumber;
     /**
      * @return The security groups associated with the cluster
      * 
      */
-    private final List<String> clusterSecurityGroups;
+    private List<String> clusterSecurityGroups;
     /**
      * @return The name of a cluster subnet group to be associated with this cluster
      * 
      */
-    private final String clusterSubnetGroupName;
+    private String clusterSubnetGroupName;
     /**
      * @return The cluster type
      * 
      */
-    private final String clusterType;
-    private final String clusterVersion;
+    private String clusterType;
+    private String clusterVersion;
     /**
      * @return The name of the default database in the cluster
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
-    private final String defaultIamRoleArn;
+    private String defaultIamRoleArn;
     /**
      * @return The Elastic IP of the cluster
      * 
      */
-    private final String elasticIp;
+    private String elasticIp;
     /**
      * @return Whether cluster logging is enabled
      * 
      */
-    private final Boolean enableLogging;
+    private Boolean enableLogging;
     /**
      * @return Whether the cluster data is encrypted
      * 
      */
-    private final Boolean encrypted;
+    private Boolean encrypted;
     /**
      * @return The cluster endpoint
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return Whether enhanced VPC routing is enabled
      * 
      */
-    private final Boolean enhancedVpcRouting;
+    private Boolean enhancedVpcRouting;
     /**
      * @return The IAM roles associated to the cluster
      * 
      */
-    private final List<String> iamRoles;
+    private List<String> iamRoles;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The KMS encryption key associated to the cluster
      * 
      */
-    private final String kmsKeyId;
+    private String kmsKeyId;
     /**
      * @return The log destination type.
      * 
      */
-    private final String logDestinationType;
+    private String logDestinationType;
     /**
      * @return The collection of exported log types. Log types include the connection log, user log and user activity log.
      * 
      */
-    private final List<String> logExports;
+    private List<String> logExports;
     /**
      * @return The name of the maintenance track for the restored cluster.
      * 
      */
-    private final String maintenanceTrackName;
+    private String maintenanceTrackName;
     /**
      * @return (Optional)  The default number of days to retain a manual snapshot.
      * 
      */
-    private final Integer manualSnapshotRetentionPeriod;
+    private Integer manualSnapshotRetentionPeriod;
     /**
      * @return Username for the master DB user
      * 
      */
-    private final String masterUsername;
+    private String masterUsername;
     /**
      * @return The cluster node type
      * 
      */
-    private final String nodeType;
+    private String nodeType;
     /**
      * @return The number of nodes in the cluster
      * 
      */
-    private final Integer numberOfNodes;
+    private Integer numberOfNodes;
     /**
      * @return The port the cluster responds on
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return The maintenance window
      * 
      */
-    private final String preferredMaintenanceWindow;
+    private String preferredMaintenanceWindow;
     /**
      * @return Whether the cluster is publicly accessible
      * 
      */
-    private final Boolean publiclyAccessible;
+    private Boolean publiclyAccessible;
     /**
      * @return The folder inside the S3 bucket where the log files are stored
      * 
      */
-    private final String s3KeyPrefix;
+    private String s3KeyPrefix;
     /**
      * @return The tags associated to the cluster
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The VPC Id associated with the cluster
      * 
      */
-    private final String vpcId;
+    private String vpcId;
     /**
      * @return The VPC security group Ids associated with the cluster
      * 
      */
-    private final List<String> vpcSecurityGroupIds;
+    private List<String> vpcSecurityGroupIds;
 
-    @CustomType.Constructor
-    private GetClusterResult(
-        @CustomType.Parameter("allowVersionUpgrade") Boolean allowVersionUpgrade,
-        @CustomType.Parameter("aquaConfigurationStatus") String aquaConfigurationStatus,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("automatedSnapshotRetentionPeriod") Integer automatedSnapshotRetentionPeriod,
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("availabilityZoneRelocationEnabled") Boolean availabilityZoneRelocationEnabled,
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("clusterIdentifier") String clusterIdentifier,
-        @CustomType.Parameter("clusterNodes") List<GetClusterClusterNode> clusterNodes,
-        @CustomType.Parameter("clusterParameterGroupName") String clusterParameterGroupName,
-        @CustomType.Parameter("clusterPublicKey") String clusterPublicKey,
-        @CustomType.Parameter("clusterRevisionNumber") String clusterRevisionNumber,
-        @CustomType.Parameter("clusterSecurityGroups") List<String> clusterSecurityGroups,
-        @CustomType.Parameter("clusterSubnetGroupName") String clusterSubnetGroupName,
-        @CustomType.Parameter("clusterType") String clusterType,
-        @CustomType.Parameter("clusterVersion") String clusterVersion,
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("defaultIamRoleArn") String defaultIamRoleArn,
-        @CustomType.Parameter("elasticIp") String elasticIp,
-        @CustomType.Parameter("enableLogging") Boolean enableLogging,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("enhancedVpcRouting") Boolean enhancedVpcRouting,
-        @CustomType.Parameter("iamRoles") List<String> iamRoles,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("logDestinationType") String logDestinationType,
-        @CustomType.Parameter("logExports") List<String> logExports,
-        @CustomType.Parameter("maintenanceTrackName") String maintenanceTrackName,
-        @CustomType.Parameter("manualSnapshotRetentionPeriod") Integer manualSnapshotRetentionPeriod,
-        @CustomType.Parameter("masterUsername") String masterUsername,
-        @CustomType.Parameter("nodeType") String nodeType,
-        @CustomType.Parameter("numberOfNodes") Integer numberOfNodes,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("preferredMaintenanceWindow") String preferredMaintenanceWindow,
-        @CustomType.Parameter("publiclyAccessible") Boolean publiclyAccessible,
-        @CustomType.Parameter("s3KeyPrefix") String s3KeyPrefix,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId,
-        @CustomType.Parameter("vpcSecurityGroupIds") List<String> vpcSecurityGroupIds) {
-        this.allowVersionUpgrade = allowVersionUpgrade;
-        this.aquaConfigurationStatus = aquaConfigurationStatus;
-        this.arn = arn;
-        this.automatedSnapshotRetentionPeriod = automatedSnapshotRetentionPeriod;
-        this.availabilityZone = availabilityZone;
-        this.availabilityZoneRelocationEnabled = availabilityZoneRelocationEnabled;
-        this.bucketName = bucketName;
-        this.clusterIdentifier = clusterIdentifier;
-        this.clusterNodes = clusterNodes;
-        this.clusterParameterGroupName = clusterParameterGroupName;
-        this.clusterPublicKey = clusterPublicKey;
-        this.clusterRevisionNumber = clusterRevisionNumber;
-        this.clusterSecurityGroups = clusterSecurityGroups;
-        this.clusterSubnetGroupName = clusterSubnetGroupName;
-        this.clusterType = clusterType;
-        this.clusterVersion = clusterVersion;
-        this.databaseName = databaseName;
-        this.defaultIamRoleArn = defaultIamRoleArn;
-        this.elasticIp = elasticIp;
-        this.enableLogging = enableLogging;
-        this.encrypted = encrypted;
-        this.endpoint = endpoint;
-        this.enhancedVpcRouting = enhancedVpcRouting;
-        this.iamRoles = iamRoles;
-        this.id = id;
-        this.kmsKeyId = kmsKeyId;
-        this.logDestinationType = logDestinationType;
-        this.logExports = logExports;
-        this.maintenanceTrackName = maintenanceTrackName;
-        this.manualSnapshotRetentionPeriod = manualSnapshotRetentionPeriod;
-        this.masterUsername = masterUsername;
-        this.nodeType = nodeType;
-        this.numberOfNodes = numberOfNodes;
-        this.port = port;
-        this.preferredMaintenanceWindow = preferredMaintenanceWindow;
-        this.publiclyAccessible = publiclyAccessible;
-        this.s3KeyPrefix = s3KeyPrefix;
-        this.tags = tags;
-        this.vpcId = vpcId;
-        this.vpcSecurityGroupIds = vpcSecurityGroupIds;
-    }
-
+    private GetClusterResult() {}
     /**
      * @return Whether major version upgrades can be applied during maintenance period
      * 
@@ -580,7 +497,7 @@ public final class GetClusterResult {
     public static Builder builder(GetClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean allowVersionUpgrade;
         private String aquaConfigurationStatus;
@@ -622,11 +539,7 @@ public final class GetClusterResult {
         private @Nullable Map<String,String> tags;
         private String vpcId;
         private List<String> vpcSecurityGroupIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowVersionUpgrade = defaults.allowVersionUpgrade;
@@ -671,38 +584,47 @@ public final class GetClusterResult {
     	      this.vpcSecurityGroupIds = defaults.vpcSecurityGroupIds;
         }
 
+        @CustomType.Setter
         public Builder allowVersionUpgrade(Boolean allowVersionUpgrade) {
             this.allowVersionUpgrade = Objects.requireNonNull(allowVersionUpgrade);
             return this;
         }
+        @CustomType.Setter
         public Builder aquaConfigurationStatus(String aquaConfigurationStatus) {
             this.aquaConfigurationStatus = Objects.requireNonNull(aquaConfigurationStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder automatedSnapshotRetentionPeriod(Integer automatedSnapshotRetentionPeriod) {
             this.automatedSnapshotRetentionPeriod = Objects.requireNonNull(automatedSnapshotRetentionPeriod);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZoneRelocationEnabled(Boolean availabilityZoneRelocationEnabled) {
             this.availabilityZoneRelocationEnabled = Objects.requireNonNull(availabilityZoneRelocationEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterIdentifier(String clusterIdentifier) {
             this.clusterIdentifier = Objects.requireNonNull(clusterIdentifier);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterNodes(List<GetClusterClusterNode> clusterNodes) {
             this.clusterNodes = Objects.requireNonNull(clusterNodes);
             return this;
@@ -710,18 +632,22 @@ public final class GetClusterResult {
         public Builder clusterNodes(GetClusterClusterNode... clusterNodes) {
             return clusterNodes(List.of(clusterNodes));
         }
+        @CustomType.Setter
         public Builder clusterParameterGroupName(String clusterParameterGroupName) {
             this.clusterParameterGroupName = Objects.requireNonNull(clusterParameterGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterPublicKey(String clusterPublicKey) {
             this.clusterPublicKey = Objects.requireNonNull(clusterPublicKey);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterRevisionNumber(String clusterRevisionNumber) {
             this.clusterRevisionNumber = Objects.requireNonNull(clusterRevisionNumber);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterSecurityGroups(List<String> clusterSecurityGroups) {
             this.clusterSecurityGroups = Objects.requireNonNull(clusterSecurityGroups);
             return this;
@@ -729,46 +655,57 @@ public final class GetClusterResult {
         public Builder clusterSecurityGroups(String... clusterSecurityGroups) {
             return clusterSecurityGroups(List.of(clusterSecurityGroups));
         }
+        @CustomType.Setter
         public Builder clusterSubnetGroupName(String clusterSubnetGroupName) {
             this.clusterSubnetGroupName = Objects.requireNonNull(clusterSubnetGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterType(String clusterType) {
             this.clusterType = Objects.requireNonNull(clusterType);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterVersion(String clusterVersion) {
             this.clusterVersion = Objects.requireNonNull(clusterVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultIamRoleArn(String defaultIamRoleArn) {
             this.defaultIamRoleArn = Objects.requireNonNull(defaultIamRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticIp(String elasticIp) {
             this.elasticIp = Objects.requireNonNull(elasticIp);
             return this;
         }
+        @CustomType.Setter
         public Builder enableLogging(Boolean enableLogging) {
             this.enableLogging = Objects.requireNonNull(enableLogging);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder enhancedVpcRouting(Boolean enhancedVpcRouting) {
             this.enhancedVpcRouting = Objects.requireNonNull(enhancedVpcRouting);
             return this;
         }
+        @CustomType.Setter
         public Builder iamRoles(List<String> iamRoles) {
             this.iamRoles = Objects.requireNonNull(iamRoles);
             return this;
@@ -776,18 +713,22 @@ public final class GetClusterResult {
         public Builder iamRoles(String... iamRoles) {
             return iamRoles(List.of(iamRoles));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder logDestinationType(String logDestinationType) {
             this.logDestinationType = Objects.requireNonNull(logDestinationType);
             return this;
         }
+        @CustomType.Setter
         public Builder logExports(List<String> logExports) {
             this.logExports = Objects.requireNonNull(logExports);
             return this;
@@ -795,58 +736,112 @@ public final class GetClusterResult {
         public Builder logExports(String... logExports) {
             return logExports(List.of(logExports));
         }
+        @CustomType.Setter
         public Builder maintenanceTrackName(String maintenanceTrackName) {
             this.maintenanceTrackName = Objects.requireNonNull(maintenanceTrackName);
             return this;
         }
+        @CustomType.Setter
         public Builder manualSnapshotRetentionPeriod(Integer manualSnapshotRetentionPeriod) {
             this.manualSnapshotRetentionPeriod = Objects.requireNonNull(manualSnapshotRetentionPeriod);
             return this;
         }
+        @CustomType.Setter
         public Builder masterUsername(String masterUsername) {
             this.masterUsername = Objects.requireNonNull(masterUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeType(String nodeType) {
             this.nodeType = Objects.requireNonNull(nodeType);
             return this;
         }
+        @CustomType.Setter
         public Builder numberOfNodes(Integer numberOfNodes) {
             this.numberOfNodes = Objects.requireNonNull(numberOfNodes);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder preferredMaintenanceWindow(String preferredMaintenanceWindow) {
             this.preferredMaintenanceWindow = Objects.requireNonNull(preferredMaintenanceWindow);
             return this;
         }
+        @CustomType.Setter
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             this.publiclyAccessible = Objects.requireNonNull(publiclyAccessible);
             return this;
         }
+        @CustomType.Setter
         public Builder s3KeyPrefix(String s3KeyPrefix) {
             this.s3KeyPrefix = Objects.requireNonNull(s3KeyPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
             this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
             return this;
         }
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
-        }        public GetClusterResult build() {
-            return new GetClusterResult(allowVersionUpgrade, aquaConfigurationStatus, arn, automatedSnapshotRetentionPeriod, availabilityZone, availabilityZoneRelocationEnabled, bucketName, clusterIdentifier, clusterNodes, clusterParameterGroupName, clusterPublicKey, clusterRevisionNumber, clusterSecurityGroups, clusterSubnetGroupName, clusterType, clusterVersion, databaseName, defaultIamRoleArn, elasticIp, enableLogging, encrypted, endpoint, enhancedVpcRouting, iamRoles, id, kmsKeyId, logDestinationType, logExports, maintenanceTrackName, manualSnapshotRetentionPeriod, masterUsername, nodeType, numberOfNodes, port, preferredMaintenanceWindow, publiclyAccessible, s3KeyPrefix, tags, vpcId, vpcSecurityGroupIds);
+        }
+        public GetClusterResult build() {
+            final var o = new GetClusterResult();
+            o.allowVersionUpgrade = allowVersionUpgrade;
+            o.aquaConfigurationStatus = aquaConfigurationStatus;
+            o.arn = arn;
+            o.automatedSnapshotRetentionPeriod = automatedSnapshotRetentionPeriod;
+            o.availabilityZone = availabilityZone;
+            o.availabilityZoneRelocationEnabled = availabilityZoneRelocationEnabled;
+            o.bucketName = bucketName;
+            o.clusterIdentifier = clusterIdentifier;
+            o.clusterNodes = clusterNodes;
+            o.clusterParameterGroupName = clusterParameterGroupName;
+            o.clusterPublicKey = clusterPublicKey;
+            o.clusterRevisionNumber = clusterRevisionNumber;
+            o.clusterSecurityGroups = clusterSecurityGroups;
+            o.clusterSubnetGroupName = clusterSubnetGroupName;
+            o.clusterType = clusterType;
+            o.clusterVersion = clusterVersion;
+            o.databaseName = databaseName;
+            o.defaultIamRoleArn = defaultIamRoleArn;
+            o.elasticIp = elasticIp;
+            o.enableLogging = enableLogging;
+            o.encrypted = encrypted;
+            o.endpoint = endpoint;
+            o.enhancedVpcRouting = enhancedVpcRouting;
+            o.iamRoles = iamRoles;
+            o.id = id;
+            o.kmsKeyId = kmsKeyId;
+            o.logDestinationType = logDestinationType;
+            o.logExports = logExports;
+            o.maintenanceTrackName = maintenanceTrackName;
+            o.manualSnapshotRetentionPeriod = manualSnapshotRetentionPeriod;
+            o.masterUsername = masterUsername;
+            o.nodeType = nodeType;
+            o.numberOfNodes = numberOfNodes;
+            o.port = port;
+            o.preferredMaintenanceWindow = preferredMaintenanceWindow;
+            o.publiclyAccessible = publiclyAccessible;
+            o.s3KeyPrefix = s3KeyPrefix;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            o.vpcSecurityGroupIds = vpcSecurityGroupIds;
+            return o;
         }
     }
 }

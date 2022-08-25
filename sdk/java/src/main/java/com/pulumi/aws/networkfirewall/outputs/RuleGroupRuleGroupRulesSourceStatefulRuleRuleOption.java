@@ -16,21 +16,14 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption {
      * See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
      * 
      */
-    private final String keyword;
+    private String keyword;
     /**
      * @return Set of strings for additional settings to use in stateful rule inspection.
      * 
      */
-    private final @Nullable List<String> settings;
+    private @Nullable List<String> settings;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption(
-        @CustomType.Parameter("keyword") String keyword,
-        @CustomType.Parameter("settings") @Nullable List<String> settings) {
-        this.keyword = keyword;
-        this.settings = settings;
-    }
-
+    private RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption() {}
     /**
      * @return Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
      * See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
@@ -54,33 +47,35 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption {
     public static Builder builder(RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyword;
         private @Nullable List<String> settings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyword = defaults.keyword;
     	      this.settings = defaults.settings;
         }
 
+        @CustomType.Setter
         public Builder keyword(String keyword) {
             this.keyword = Objects.requireNonNull(keyword);
             return this;
         }
+        @CustomType.Setter
         public Builder settings(@Nullable List<String> settings) {
             this.settings = settings;
             return this;
         }
         public Builder settings(String... settings) {
             return settings(List.of(settings));
-        }        public RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption build() {
-            return new RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption(keyword, settings);
+        }
+        public RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption build() {
+            final var o = new RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption();
+            o.keyword = keyword;
+            o.settings = settings;
+            return o;
         }
     }
 }

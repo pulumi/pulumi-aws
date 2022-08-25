@@ -15,21 +15,14 @@ public final class ByteMatchSetByteMatchTupleFieldToMatch {
      * @return When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
      * 
      */
-    private final @Nullable String data;
+    private @Nullable String data;
     /**
      * @return The part of the web request that you want AWS WAF to search for a specified string.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ByteMatchSetByteMatchTupleFieldToMatch(
-        @CustomType.Parameter("data") @Nullable String data,
-        @CustomType.Parameter("type") String type) {
-        this.data = data;
-        this.type = type;
-    }
-
+    private ByteMatchSetByteMatchTupleFieldToMatch() {}
     /**
      * @return When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
      * 
@@ -52,30 +45,32 @@ public final class ByteMatchSetByteMatchTupleFieldToMatch {
     public static Builder builder(ByteMatchSetByteMatchTupleFieldToMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String data;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ByteMatchSetByteMatchTupleFieldToMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.data = defaults.data;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder data(@Nullable String data) {
             this.data = data;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ByteMatchSetByteMatchTupleFieldToMatch build() {
-            return new ByteMatchSetByteMatchTupleFieldToMatch(data, type);
+        }
+        public ByteMatchSetByteMatchTupleFieldToMatch build() {
+            final var o = new ByteMatchSetByteMatchTupleFieldToMatch();
+            o.data = data;
+            o.type = type;
+            return o;
         }
     }
 }

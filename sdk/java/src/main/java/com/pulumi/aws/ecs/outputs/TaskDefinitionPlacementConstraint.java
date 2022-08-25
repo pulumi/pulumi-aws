@@ -15,21 +15,14 @@ public final class TaskDefinitionPlacementConstraint {
      * @return Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
      * 
      */
-    private final @Nullable String expression;
+    private @Nullable String expression;
     /**
      * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private TaskDefinitionPlacementConstraint(
-        @CustomType.Parameter("expression") @Nullable String expression,
-        @CustomType.Parameter("type") String type) {
-        this.expression = expression;
-        this.type = type;
-    }
-
+    private TaskDefinitionPlacementConstraint() {}
     /**
      * @return Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
      * 
@@ -52,30 +45,32 @@ public final class TaskDefinitionPlacementConstraint {
     public static Builder builder(TaskDefinitionPlacementConstraint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String expression;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskDefinitionPlacementConstraint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expression = defaults.expression;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder expression(@Nullable String expression) {
             this.expression = expression;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public TaskDefinitionPlacementConstraint build() {
-            return new TaskDefinitionPlacementConstraint(expression, type);
+        }
+        public TaskDefinitionPlacementConstraint build() {
+            final var o = new TaskDefinitionPlacementConstraint();
+            o.expression = expression;
+            o.type = type;
+            return o;
         }
     }
 }

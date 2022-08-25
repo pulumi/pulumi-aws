@@ -13,13 +13,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesInforNexus {
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesInforNexus(@CustomType.Parameter("object") String object) {
-        this.object = object;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesInforNexus() {}
     /**
      * @return The object specified in the Veeva flow source.
      * 
@@ -35,24 +31,24 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesInforNexus {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesInforNexus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesInforNexus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesInforNexus build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesInforNexus(object);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesInforNexus build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesInforNexus();
+            o.object = object;
+            return o;
         }
     }
 }

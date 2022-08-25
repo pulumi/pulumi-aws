@@ -18,49 +18,34 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
      * @return The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
      * 
      */
-    private final @Nullable String cmkArn;
+    private @Nullable String cmkArn;
     /**
      * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
      * 
      */
-    private final @Nullable Boolean copyTags;
+    private @Nullable Boolean copyTags;
     /**
      * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
      * 
      */
-    private final @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule deprecateRule;
+    private @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule deprecateRule;
     /**
      * @return To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
      * 
      */
-    private final Boolean encrypted;
+    private Boolean encrypted;
     /**
      * @return The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
      * 
      */
-    private final @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule retainRule;
+    private @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule retainRule;
     /**
      * @return The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
      * 
      */
-    private final String target;
+    private String target;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule(
-        @CustomType.Parameter("cmkArn") @Nullable String cmkArn,
-        @CustomType.Parameter("copyTags") @Nullable Boolean copyTags,
-        @CustomType.Parameter("deprecateRule") @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule deprecateRule,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("retainRule") @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule retainRule,
-        @CustomType.Parameter("target") String target) {
-        this.cmkArn = cmkArn;
-        this.copyTags = copyTags;
-        this.deprecateRule = deprecateRule;
-        this.encrypted = encrypted;
-        this.retainRule = retainRule;
-        this.target = target;
-    }
-
+    private LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule() {}
     /**
      * @return The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
      * 
@@ -111,7 +96,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
     public static Builder builder(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cmkArn;
         private @Nullable Boolean copyTags;
@@ -119,11 +104,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
         private Boolean encrypted;
         private @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule retainRule;
         private String target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cmkArn = defaults.cmkArn;
@@ -134,31 +115,45 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder cmkArn(@Nullable String cmkArn) {
             this.cmkArn = cmkArn;
             return this;
         }
+        @CustomType.Setter
         public Builder copyTags(@Nullable Boolean copyTags) {
             this.copyTags = copyTags;
             return this;
         }
+        @CustomType.Setter
         public Builder deprecateRule(@Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule deprecateRule) {
             this.deprecateRule = deprecateRule;
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder retainRule(@Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule retainRule) {
             this.retainRule = retainRule;
             return this;
         }
+        @CustomType.Setter
         public Builder target(String target) {
             this.target = Objects.requireNonNull(target);
             return this;
-        }        public LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule build() {
-            return new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule(cmkArn, copyTags, deprecateRule, encrypted, retainRule, target);
+        }
+        public LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule build() {
+            final var o = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule();
+            o.cmkArn = cmkArn;
+            o.copyTags = copyTags;
+            o.deprecateRule = deprecateRule;
+            o.encrypted = encrypted;
+            o.retainRule = retainRule;
+            o.target = target;
+            return o;
         }
     }
 }

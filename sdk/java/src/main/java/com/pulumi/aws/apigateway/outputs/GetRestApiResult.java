@@ -17,87 +17,60 @@ public final class GetRestApiResult {
      * @return The source of the API key for requests.
      * 
      */
-    private final String apiKeySource;
+    private String apiKeySource;
     /**
      * @return The ARN of the REST API.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The list of binary media types supported by the REST API.
      * 
      */
-    private final List<String> binaryMediaTypes;
+    private List<String> binaryMediaTypes;
     /**
      * @return The description of the REST API.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The endpoint configuration of this RestApi showing the endpoint types of the API.
      * 
      */
-    private final List<GetRestApiEndpointConfiguration> endpointConfigurations;
+    private List<GetRestApiEndpointConfiguration> endpointConfigurations;
     /**
      * @return The execution ARN part to be used in `lambda_permission`&#39;s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
      */
-    private final String executionArn;
+    private String executionArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Minimum response size to compress for the REST API.
      * 
      */
-    private final Integer minimumCompressionSize;
-    private final String name;
+    private Integer minimumCompressionSize;
+    private String name;
     /**
      * @return JSON formatted policy document that controls access to the API Gateway.
      * 
      */
-    private final String policy;
+    private String policy;
     /**
      * @return Set to the ID of the API Gateway Resource on the found REST API where the route matches &#39;/&#39;.
      * 
      */
-    private final String rootResourceId;
+    private String rootResourceId;
     /**
      * @return Key-value map of resource tags.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetRestApiResult(
-        @CustomType.Parameter("apiKeySource") String apiKeySource,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("binaryMediaTypes") List<String> binaryMediaTypes,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("endpointConfigurations") List<GetRestApiEndpointConfiguration> endpointConfigurations,
-        @CustomType.Parameter("executionArn") String executionArn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("minimumCompressionSize") Integer minimumCompressionSize,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("policy") String policy,
-        @CustomType.Parameter("rootResourceId") String rootResourceId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.apiKeySource = apiKeySource;
-        this.arn = arn;
-        this.binaryMediaTypes = binaryMediaTypes;
-        this.description = description;
-        this.endpointConfigurations = endpointConfigurations;
-        this.executionArn = executionArn;
-        this.id = id;
-        this.minimumCompressionSize = minimumCompressionSize;
-        this.name = name;
-        this.policy = policy;
-        this.rootResourceId = rootResourceId;
-        this.tags = tags;
-    }
-
+    private GetRestApiResult() {}
     /**
      * @return The source of the API key for requests.
      * 
@@ -186,7 +159,7 @@ public final class GetRestApiResult {
     public static Builder builder(GetRestApiResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiKeySource;
         private String arn;
@@ -200,11 +173,7 @@ public final class GetRestApiResult {
         private String policy;
         private String rootResourceId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRestApiResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKeySource = defaults.apiKeySource;
@@ -221,14 +190,17 @@ public final class GetRestApiResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder apiKeySource(String apiKeySource) {
             this.apiKeySource = Objects.requireNonNull(apiKeySource);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder binaryMediaTypes(List<String> binaryMediaTypes) {
             this.binaryMediaTypes = Objects.requireNonNull(binaryMediaTypes);
             return this;
@@ -236,10 +208,12 @@ public final class GetRestApiResult {
         public Builder binaryMediaTypes(String... binaryMediaTypes) {
             return binaryMediaTypes(List.of(binaryMediaTypes));
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder endpointConfigurations(List<GetRestApiEndpointConfiguration> endpointConfigurations) {
             this.endpointConfigurations = Objects.requireNonNull(endpointConfigurations);
             return this;
@@ -247,35 +221,56 @@ public final class GetRestApiResult {
         public Builder endpointConfigurations(GetRestApiEndpointConfiguration... endpointConfigurations) {
             return endpointConfigurations(List.of(endpointConfigurations));
         }
+        @CustomType.Setter
         public Builder executionArn(String executionArn) {
             this.executionArn = Objects.requireNonNull(executionArn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumCompressionSize(Integer minimumCompressionSize) {
             this.minimumCompressionSize = Objects.requireNonNull(minimumCompressionSize);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder policy(String policy) {
             this.policy = Objects.requireNonNull(policy);
             return this;
         }
+        @CustomType.Setter
         public Builder rootResourceId(String rootResourceId) {
             this.rootResourceId = Objects.requireNonNull(rootResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetRestApiResult build() {
-            return new GetRestApiResult(apiKeySource, arn, binaryMediaTypes, description, endpointConfigurations, executionArn, id, minimumCompressionSize, name, policy, rootResourceId, tags);
+        }
+        public GetRestApiResult build() {
+            final var o = new GetRestApiResult();
+            o.apiKeySource = apiKeySource;
+            o.arn = arn;
+            o.binaryMediaTypes = binaryMediaTypes;
+            o.description = description;
+            o.endpointConfigurations = endpointConfigurations;
+            o.executionArn = executionArn;
+            o.id = id;
+            o.minimumCompressionSize = minimumCompressionSize;
+            o.name = name;
+            o.policy = policy;
+            o.rootResourceId = rootResourceId;
+            o.tags = tags;
+            return o;
         }
     }
 }

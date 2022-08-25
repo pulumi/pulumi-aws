@@ -19,130 +19,85 @@ public final class GetClusterSnapshotResult {
      * @return Specifies the allocated storage size in gigabytes (GB).
      * 
      */
-    private final Integer allocatedStorage;
+    private Integer allocatedStorage;
     /**
      * @return List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      * 
      */
-    private final List<String> availabilityZones;
+    private List<String> availabilityZones;
     /**
      * @return Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
      * 
      */
-    private final @Nullable String dbClusterIdentifier;
+    private @Nullable String dbClusterIdentifier;
     /**
      * @return The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      * 
      */
-    private final String dbClusterSnapshotArn;
-    private final @Nullable String dbClusterSnapshotIdentifier;
+    private String dbClusterSnapshotArn;
+    private @Nullable String dbClusterSnapshotIdentifier;
     /**
      * @return Specifies the name of the database engine.
      * 
      */
-    private final String engine;
+    private String engine;
     /**
      * @return Version of the database engine for this DB cluster snapshot.
      * 
      */
-    private final String engineVersion;
+    private String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean includePublic;
-    private final @Nullable Boolean includeShared;
+    private String id;
+    private @Nullable Boolean includePublic;
+    private @Nullable Boolean includeShared;
     /**
      * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
-    private final String kmsKeyId;
+    private String kmsKeyId;
     /**
      * @return License model information for the restored DB cluster.
      * 
      */
-    private final String licenseModel;
-    private final @Nullable Boolean mostRecent;
+    private String licenseModel;
+    private @Nullable Boolean mostRecent;
     /**
      * @return Port that the DB cluster was listening on at the time of the snapshot.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return Time when the snapshot was taken, in Universal Coordinated Time (UTC).
      * 
      */
-    private final String snapshotCreateTime;
-    private final @Nullable String snapshotType;
-    private final String sourceDbClusterSnapshotArn;
+    private String snapshotCreateTime;
+    private @Nullable String snapshotType;
+    private String sourceDbClusterSnapshotArn;
     /**
      * @return The status of this DB Cluster Snapshot.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Specifies whether the DB cluster snapshot is encrypted.
      * 
      */
-    private final Boolean storageEncrypted;
+    private Boolean storageEncrypted;
     /**
      * @return A map of tags for the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The VPC ID associated with the DB cluster snapshot.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetClusterSnapshotResult(
-        @CustomType.Parameter("allocatedStorage") Integer allocatedStorage,
-        @CustomType.Parameter("availabilityZones") List<String> availabilityZones,
-        @CustomType.Parameter("dbClusterIdentifier") @Nullable String dbClusterIdentifier,
-        @CustomType.Parameter("dbClusterSnapshotArn") String dbClusterSnapshotArn,
-        @CustomType.Parameter("dbClusterSnapshotIdentifier") @Nullable String dbClusterSnapshotIdentifier,
-        @CustomType.Parameter("engine") String engine,
-        @CustomType.Parameter("engineVersion") String engineVersion,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("includePublic") @Nullable Boolean includePublic,
-        @CustomType.Parameter("includeShared") @Nullable Boolean includeShared,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("licenseModel") String licenseModel,
-        @CustomType.Parameter("mostRecent") @Nullable Boolean mostRecent,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("snapshotCreateTime") String snapshotCreateTime,
-        @CustomType.Parameter("snapshotType") @Nullable String snapshotType,
-        @CustomType.Parameter("sourceDbClusterSnapshotArn") String sourceDbClusterSnapshotArn,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("storageEncrypted") Boolean storageEncrypted,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.allocatedStorage = allocatedStorage;
-        this.availabilityZones = availabilityZones;
-        this.dbClusterIdentifier = dbClusterIdentifier;
-        this.dbClusterSnapshotArn = dbClusterSnapshotArn;
-        this.dbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
-        this.engine = engine;
-        this.engineVersion = engineVersion;
-        this.id = id;
-        this.includePublic = includePublic;
-        this.includeShared = includeShared;
-        this.kmsKeyId = kmsKeyId;
-        this.licenseModel = licenseModel;
-        this.mostRecent = mostRecent;
-        this.port = port;
-        this.snapshotCreateTime = snapshotCreateTime;
-        this.snapshotType = snapshotType;
-        this.sourceDbClusterSnapshotArn = sourceDbClusterSnapshotArn;
-        this.status = status;
-        this.storageEncrypted = storageEncrypted;
-        this.tags = tags;
-        this.vpcId = vpcId;
-    }
-
+    private GetClusterSnapshotResult() {}
     /**
      * @return Specifies the allocated storage size in gigabytes (GB).
      * 
@@ -274,7 +229,7 @@ public final class GetClusterSnapshotResult {
     public static Builder builder(GetClusterSnapshotResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer allocatedStorage;
         private List<String> availabilityZones;
@@ -297,11 +252,7 @@ public final class GetClusterSnapshotResult {
         private Boolean storageEncrypted;
         private Map<String,String> tags;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocatedStorage = defaults.allocatedStorage;
@@ -327,10 +278,12 @@ public final class GetClusterSnapshotResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder allocatedStorage(Integer allocatedStorage) {
             this.allocatedStorage = Objects.requireNonNull(allocatedStorage);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
             this.availabilityZones = Objects.requireNonNull(availabilityZones);
             return this;
@@ -338,83 +291,125 @@ public final class GetClusterSnapshotResult {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder dbClusterIdentifier(@Nullable String dbClusterIdentifier) {
             this.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
+        @CustomType.Setter
         public Builder dbClusterSnapshotArn(String dbClusterSnapshotArn) {
             this.dbClusterSnapshotArn = Objects.requireNonNull(dbClusterSnapshotArn);
             return this;
         }
+        @CustomType.Setter
         public Builder dbClusterSnapshotIdentifier(@Nullable String dbClusterSnapshotIdentifier) {
             this.dbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
             return this;
         }
+        @CustomType.Setter
         public Builder engine(String engine) {
             this.engine = Objects.requireNonNull(engine);
             return this;
         }
+        @CustomType.Setter
         public Builder engineVersion(String engineVersion) {
             this.engineVersion = Objects.requireNonNull(engineVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder includePublic(@Nullable Boolean includePublic) {
             this.includePublic = includePublic;
             return this;
         }
+        @CustomType.Setter
         public Builder includeShared(@Nullable Boolean includeShared) {
             this.includeShared = includeShared;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder licenseModel(String licenseModel) {
             this.licenseModel = Objects.requireNonNull(licenseModel);
             return this;
         }
+        @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             this.mostRecent = mostRecent;
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotCreateTime(String snapshotCreateTime) {
             this.snapshotCreateTime = Objects.requireNonNull(snapshotCreateTime);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotType(@Nullable String snapshotType) {
             this.snapshotType = snapshotType;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceDbClusterSnapshotArn(String sourceDbClusterSnapshotArn) {
             this.sourceDbClusterSnapshotArn = Objects.requireNonNull(sourceDbClusterSnapshotArn);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder storageEncrypted(Boolean storageEncrypted) {
             this.storageEncrypted = Objects.requireNonNull(storageEncrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetClusterSnapshotResult build() {
-            return new GetClusterSnapshotResult(allocatedStorage, availabilityZones, dbClusterIdentifier, dbClusterSnapshotArn, dbClusterSnapshotIdentifier, engine, engineVersion, id, includePublic, includeShared, kmsKeyId, licenseModel, mostRecent, port, snapshotCreateTime, snapshotType, sourceDbClusterSnapshotArn, status, storageEncrypted, tags, vpcId);
+        }
+        public GetClusterSnapshotResult build() {
+            final var o = new GetClusterSnapshotResult();
+            o.allocatedStorage = allocatedStorage;
+            o.availabilityZones = availabilityZones;
+            o.dbClusterIdentifier = dbClusterIdentifier;
+            o.dbClusterSnapshotArn = dbClusterSnapshotArn;
+            o.dbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
+            o.engine = engine;
+            o.engineVersion = engineVersion;
+            o.id = id;
+            o.includePublic = includePublic;
+            o.includeShared = includeShared;
+            o.kmsKeyId = kmsKeyId;
+            o.licenseModel = licenseModel;
+            o.mostRecent = mostRecent;
+            o.port = port;
+            o.snapshotCreateTime = snapshotCreateTime;
+            o.snapshotType = snapshotType;
+            o.sourceDbClusterSnapshotArn = sourceDbClusterSnapshotArn;
+            o.status = status;
+            o.storageEncrypted = storageEncrypted;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

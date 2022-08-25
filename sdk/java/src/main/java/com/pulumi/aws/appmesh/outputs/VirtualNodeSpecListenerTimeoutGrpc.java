@@ -16,21 +16,14 @@ public final class VirtualNodeSpecListenerTimeoutGrpc {
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTimeoutGrpcIdle idle;
+    private @Nullable VirtualNodeSpecListenerTimeoutGrpcIdle idle;
     /**
      * @return The per request timeout.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTimeoutGrpcPerRequest perRequest;
+    private @Nullable VirtualNodeSpecListenerTimeoutGrpcPerRequest perRequest;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTimeoutGrpc(
-        @CustomType.Parameter("idle") @Nullable VirtualNodeSpecListenerTimeoutGrpcIdle idle,
-        @CustomType.Parameter("perRequest") @Nullable VirtualNodeSpecListenerTimeoutGrpcPerRequest perRequest) {
-        this.idle = idle;
-        this.perRequest = perRequest;
-    }
-
+    private VirtualNodeSpecListenerTimeoutGrpc() {}
     /**
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
@@ -53,30 +46,32 @@ public final class VirtualNodeSpecListenerTimeoutGrpc {
     public static Builder builder(VirtualNodeSpecListenerTimeoutGrpc defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecListenerTimeoutGrpcIdle idle;
         private @Nullable VirtualNodeSpecListenerTimeoutGrpcPerRequest perRequest;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTimeoutGrpc defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.idle = defaults.idle;
     	      this.perRequest = defaults.perRequest;
         }
 
+        @CustomType.Setter
         public Builder idle(@Nullable VirtualNodeSpecListenerTimeoutGrpcIdle idle) {
             this.idle = idle;
             return this;
         }
+        @CustomType.Setter
         public Builder perRequest(@Nullable VirtualNodeSpecListenerTimeoutGrpcPerRequest perRequest) {
             this.perRequest = perRequest;
             return this;
-        }        public VirtualNodeSpecListenerTimeoutGrpc build() {
-            return new VirtualNodeSpecListenerTimeoutGrpc(idle, perRequest);
+        }
+        public VirtualNodeSpecListenerTimeoutGrpc build() {
+            final var o = new VirtualNodeSpecListenerTimeoutGrpc();
+            o.idle = idle;
+            o.perRequest = perRequest;
+            return o;
         }
     }
 }

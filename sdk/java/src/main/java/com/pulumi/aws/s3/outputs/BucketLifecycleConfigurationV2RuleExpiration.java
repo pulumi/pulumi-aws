@@ -17,28 +17,19 @@ public final class BucketLifecycleConfigurationV2RuleExpiration {
      * @return The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private final @Nullable String date;
+    private @Nullable String date;
     /**
      * @return The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
      * 
      */
-    private final @Nullable Boolean expiredObjectDeleteMarker;
+    private @Nullable Boolean expiredObjectDeleteMarker;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationV2RuleExpiration(
-        @CustomType.Parameter("date") @Nullable String date,
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("expiredObjectDeleteMarker") @Nullable Boolean expiredObjectDeleteMarker) {
-        this.date = date;
-        this.days = days;
-        this.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
-    }
-
+    private BucketLifecycleConfigurationV2RuleExpiration() {}
     /**
      * @return The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
@@ -68,16 +59,12 @@ public final class BucketLifecycleConfigurationV2RuleExpiration {
     public static Builder builder(BucketLifecycleConfigurationV2RuleExpiration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String date;
         private @Nullable Integer days;
         private @Nullable Boolean expiredObjectDeleteMarker;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleExpiration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.date = defaults.date;
@@ -85,19 +72,27 @@ public final class BucketLifecycleConfigurationV2RuleExpiration {
     	      this.expiredObjectDeleteMarker = defaults.expiredObjectDeleteMarker;
         }
 
+        @CustomType.Setter
         public Builder date(@Nullable String date) {
             this.date = date;
             return this;
         }
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder expiredObjectDeleteMarker(@Nullable Boolean expiredObjectDeleteMarker) {
             this.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
             return this;
-        }        public BucketLifecycleConfigurationV2RuleExpiration build() {
-            return new BucketLifecycleConfigurationV2RuleExpiration(date, days, expiredObjectDeleteMarker);
+        }
+        public BucketLifecycleConfigurationV2RuleExpiration build() {
+            final var o = new BucketLifecycleConfigurationV2RuleExpiration();
+            o.date = date;
+            o.days = days;
+            o.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
+            return o;
         }
     }
 }

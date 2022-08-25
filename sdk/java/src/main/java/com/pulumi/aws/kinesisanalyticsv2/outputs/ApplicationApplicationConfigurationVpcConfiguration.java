@@ -16,27 +16,16 @@ public final class ApplicationApplicationConfigurationVpcConfiguration {
      * @return The Security Group IDs used by the VPC configuration.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return The Subnet IDs used by the VPC configuration.
      * 
      */
-    private final List<String> subnetIds;
-    private final @Nullable String vpcConfigurationId;
-    private final @Nullable String vpcId;
+    private List<String> subnetIds;
+    private @Nullable String vpcConfigurationId;
+    private @Nullable String vpcId;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationVpcConfiguration(
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcConfigurationId") @Nullable String vpcConfigurationId,
-        @CustomType.Parameter("vpcId") @Nullable String vpcId) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcConfigurationId = vpcConfigurationId;
-        this.vpcId = vpcId;
-    }
-
+    private ApplicationApplicationConfigurationVpcConfiguration() {}
     /**
      * @return The Security Group IDs used by the VPC configuration.
      * 
@@ -65,17 +54,13 @@ public final class ApplicationApplicationConfigurationVpcConfiguration {
     public static Builder builder(ApplicationApplicationConfigurationVpcConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private @Nullable String vpcConfigurationId;
         private @Nullable String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationVpcConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
@@ -84,6 +69,7 @@ public final class ApplicationApplicationConfigurationVpcConfiguration {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -91,6 +77,7 @@ public final class ApplicationApplicationConfigurationVpcConfiguration {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -98,15 +85,23 @@ public final class ApplicationApplicationConfigurationVpcConfiguration {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcConfigurationId(@Nullable String vpcConfigurationId) {
             this.vpcConfigurationId = vpcConfigurationId;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
             this.vpcId = vpcId;
             return this;
-        }        public ApplicationApplicationConfigurationVpcConfiguration build() {
-            return new ApplicationApplicationConfigurationVpcConfiguration(securityGroupIds, subnetIds, vpcConfigurationId, vpcId);
+        }
+        public ApplicationApplicationConfigurationVpcConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationVpcConfiguration();
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcConfigurationId = vpcConfigurationId;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

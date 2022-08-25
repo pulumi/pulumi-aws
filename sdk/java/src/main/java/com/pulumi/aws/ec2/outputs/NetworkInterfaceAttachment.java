@@ -12,28 +12,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NetworkInterfaceAttachment {
-    private final @Nullable String attachmentId;
+    private @Nullable String attachmentId;
     /**
      * @return Integer to define the devices index.
      * 
      */
-    private final Integer deviceIndex;
+    private Integer deviceIndex;
     /**
      * @return ID of the instance to attach to.
      * 
      */
-    private final String instance;
+    private String instance;
 
-    @CustomType.Constructor
-    private NetworkInterfaceAttachment(
-        @CustomType.Parameter("attachmentId") @Nullable String attachmentId,
-        @CustomType.Parameter("deviceIndex") Integer deviceIndex,
-        @CustomType.Parameter("instance") String instance) {
-        this.attachmentId = attachmentId;
-        this.deviceIndex = deviceIndex;
-        this.instance = instance;
-    }
-
+    private NetworkInterfaceAttachment() {}
     public Optional<String> attachmentId() {
         return Optional.ofNullable(this.attachmentId);
     }
@@ -59,16 +50,12 @@ public final class NetworkInterfaceAttachment {
     public static Builder builder(NetworkInterfaceAttachment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String attachmentId;
         private Integer deviceIndex;
         private String instance;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkInterfaceAttachment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attachmentId = defaults.attachmentId;
@@ -76,19 +63,27 @@ public final class NetworkInterfaceAttachment {
     	      this.instance = defaults.instance;
         }
 
+        @CustomType.Setter
         public Builder attachmentId(@Nullable String attachmentId) {
             this.attachmentId = attachmentId;
             return this;
         }
+        @CustomType.Setter
         public Builder deviceIndex(Integer deviceIndex) {
             this.deviceIndex = Objects.requireNonNull(deviceIndex);
             return this;
         }
+        @CustomType.Setter
         public Builder instance(String instance) {
             this.instance = Objects.requireNonNull(instance);
             return this;
-        }        public NetworkInterfaceAttachment build() {
-            return new NetworkInterfaceAttachment(attachmentId, deviceIndex, instance);
+        }
+        public NetworkInterfaceAttachment build() {
+            final var o = new NetworkInterfaceAttachment();
+            o.attachmentId = attachmentId;
+            o.deviceIndex = deviceIndex;
+            o.instance = instance;
+            return o;
         }
     }
 }

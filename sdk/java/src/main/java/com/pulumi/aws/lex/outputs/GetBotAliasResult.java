@@ -13,70 +13,49 @@ public final class GetBotAliasResult {
      * @return The ARN of the bot alias.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The name of the bot.
      * 
      */
-    private final String botName;
+    private String botName;
     /**
      * @return The version of the bot that the alias points to.
      * 
      */
-    private final String botVersion;
+    private String botVersion;
     /**
      * @return Checksum of the bot alias.
      * 
      */
-    private final String checksum;
+    private String checksum;
     /**
      * @return The date that the bot alias was created.
      * 
      */
-    private final String createdDate;
+    private String createdDate;
     /**
      * @return A description of the alias.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      * 
      */
-    private final String lastUpdatedDate;
+    private String lastUpdatedDate;
     /**
      * @return The name of the alias. The name is not case sensitive.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetBotAliasResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("botName") String botName,
-        @CustomType.Parameter("botVersion") String botVersion,
-        @CustomType.Parameter("checksum") String checksum,
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastUpdatedDate") String lastUpdatedDate,
-        @CustomType.Parameter("name") String name) {
-        this.arn = arn;
-        this.botName = botName;
-        this.botVersion = botVersion;
-        this.checksum = checksum;
-        this.createdDate = createdDate;
-        this.description = description;
-        this.id = id;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.name = name;
-    }
-
+    private GetBotAliasResult() {}
     /**
      * @return The ARN of the bot alias.
      * 
@@ -148,7 +127,7 @@ public final class GetBotAliasResult {
     public static Builder builder(GetBotAliasResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String botName;
@@ -159,11 +138,7 @@ public final class GetBotAliasResult {
         private String id;
         private String lastUpdatedDate;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBotAliasResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -177,43 +152,63 @@ public final class GetBotAliasResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder botName(String botName) {
             this.botName = Objects.requireNonNull(botName);
             return this;
         }
+        @CustomType.Setter
         public Builder botVersion(String botVersion) {
             this.botVersion = Objects.requireNonNull(botVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder checksum(String checksum) {
             this.checksum = Objects.requireNonNull(checksum);
             return this;
         }
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
             this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetBotAliasResult build() {
-            return new GetBotAliasResult(arn, botName, botVersion, checksum, createdDate, description, id, lastUpdatedDate, name);
+        }
+        public GetBotAliasResult build() {
+            final var o = new GetBotAliasResult();
+            o.arn = arn;
+            o.botName = botName;
+            o.botVersion = botVersion;
+            o.checksum = checksum;
+            o.createdDate = createdDate;
+            o.description = description;
+            o.id = id;
+            o.lastUpdatedDate = lastUpdatedDate;
+            o.name = name;
+            return o;
         }
     }
 }

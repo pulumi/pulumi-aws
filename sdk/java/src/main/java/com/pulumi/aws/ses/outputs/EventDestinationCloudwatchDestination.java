@@ -13,28 +13,19 @@ public final class EventDestinationCloudwatchDestination {
      * @return The default value for the event
      * 
      */
-    private final String defaultValue;
+    private String defaultValue;
     /**
      * @return The name for the dimension
      * 
      */
-    private final String dimensionName;
+    private String dimensionName;
     /**
      * @return The source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
      * 
      */
-    private final String valueSource;
+    private String valueSource;
 
-    @CustomType.Constructor
-    private EventDestinationCloudwatchDestination(
-        @CustomType.Parameter("defaultValue") String defaultValue,
-        @CustomType.Parameter("dimensionName") String dimensionName,
-        @CustomType.Parameter("valueSource") String valueSource) {
-        this.defaultValue = defaultValue;
-        this.dimensionName = dimensionName;
-        this.valueSource = valueSource;
-    }
-
+    private EventDestinationCloudwatchDestination() {}
     /**
      * @return The default value for the event
      * 
@@ -64,16 +55,12 @@ public final class EventDestinationCloudwatchDestination {
     public static Builder builder(EventDestinationCloudwatchDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String defaultValue;
         private String dimensionName;
         private String valueSource;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventDestinationCloudwatchDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultValue = defaults.defaultValue;
@@ -81,19 +68,27 @@ public final class EventDestinationCloudwatchDestination {
     	      this.valueSource = defaults.valueSource;
         }
 
+        @CustomType.Setter
         public Builder defaultValue(String defaultValue) {
             this.defaultValue = Objects.requireNonNull(defaultValue);
             return this;
         }
+        @CustomType.Setter
         public Builder dimensionName(String dimensionName) {
             this.dimensionName = Objects.requireNonNull(dimensionName);
             return this;
         }
+        @CustomType.Setter
         public Builder valueSource(String valueSource) {
             this.valueSource = Objects.requireNonNull(valueSource);
             return this;
-        }        public EventDestinationCloudwatchDestination build() {
-            return new EventDestinationCloudwatchDestination(defaultValue, dimensionName, valueSource);
+        }
+        public EventDestinationCloudwatchDestination build() {
+            final var o = new EventDestinationCloudwatchDestination();
+            o.defaultValue = defaultValue;
+            o.dimensionName = dimensionName;
+            o.valueSource = valueSource;
+            return o;
         }
     }
 }

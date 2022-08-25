@@ -16,21 +16,14 @@ public final class BucketLifecycleConfigurationRuleFilter {
      * @return Object prefix for rule filtering.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return Key-value map of object tags for rule filtering.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationRuleFilter(
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.prefix = prefix;
-        this.tags = tags;
-    }
-
+    private BucketLifecycleConfigurationRuleFilter() {}
     /**
      * @return Object prefix for rule filtering.
      * 
@@ -53,30 +46,32 @@ public final class BucketLifecycleConfigurationRuleFilter {
     public static Builder builder(BucketLifecycleConfigurationRuleFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String prefix;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationRuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prefix = defaults.prefix;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public BucketLifecycleConfigurationRuleFilter build() {
-            return new BucketLifecycleConfigurationRuleFilter(prefix, tags);
+        }
+        public BucketLifecycleConfigurationRuleFilter build() {
+            final var o = new BucketLifecycleConfigurationRuleFilter();
+            o.prefix = prefix;
+            o.tags = tags;
+            return o;
         }
     }
 }

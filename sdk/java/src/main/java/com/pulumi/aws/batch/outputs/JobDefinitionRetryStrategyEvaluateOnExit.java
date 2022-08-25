@@ -15,35 +15,24 @@ public final class JobDefinitionRetryStrategyEvaluateOnExit {
      * @return Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return A glob pattern to match against the decimal representation of the exit code returned for a job.
      * 
      */
-    private final @Nullable String onExitCode;
+    private @Nullable String onExitCode;
     /**
      * @return A glob pattern to match against the reason returned for a job.
      * 
      */
-    private final @Nullable String onReason;
+    private @Nullable String onReason;
     /**
      * @return A glob pattern to match against the status reason returned for a job.
      * 
      */
-    private final @Nullable String onStatusReason;
+    private @Nullable String onStatusReason;
 
-    @CustomType.Constructor
-    private JobDefinitionRetryStrategyEvaluateOnExit(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("onExitCode") @Nullable String onExitCode,
-        @CustomType.Parameter("onReason") @Nullable String onReason,
-        @CustomType.Parameter("onStatusReason") @Nullable String onStatusReason) {
-        this.action = action;
-        this.onExitCode = onExitCode;
-        this.onReason = onReason;
-        this.onStatusReason = onStatusReason;
-    }
-
+    private JobDefinitionRetryStrategyEvaluateOnExit() {}
     /**
      * @return Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
      * 
@@ -80,17 +69,13 @@ public final class JobDefinitionRetryStrategyEvaluateOnExit {
     public static Builder builder(JobDefinitionRetryStrategyEvaluateOnExit defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private @Nullable String onExitCode;
         private @Nullable String onReason;
         private @Nullable String onStatusReason;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(JobDefinitionRetryStrategyEvaluateOnExit defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -99,23 +84,33 @@ public final class JobDefinitionRetryStrategyEvaluateOnExit {
     	      this.onStatusReason = defaults.onStatusReason;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder onExitCode(@Nullable String onExitCode) {
             this.onExitCode = onExitCode;
             return this;
         }
+        @CustomType.Setter
         public Builder onReason(@Nullable String onReason) {
             this.onReason = onReason;
             return this;
         }
+        @CustomType.Setter
         public Builder onStatusReason(@Nullable String onStatusReason) {
             this.onStatusReason = onStatusReason;
             return this;
-        }        public JobDefinitionRetryStrategyEvaluateOnExit build() {
-            return new JobDefinitionRetryStrategyEvaluateOnExit(action, onExitCode, onReason, onStatusReason);
+        }
+        public JobDefinitionRetryStrategyEvaluateOnExit build() {
+            final var o = new JobDefinitionRetryStrategyEvaluateOnExit();
+            o.action = action;
+            o.onExitCode = onExitCode;
+            o.onReason = onReason;
+            o.onStatusReason = onStatusReason;
+            return o;
         }
     }
 }

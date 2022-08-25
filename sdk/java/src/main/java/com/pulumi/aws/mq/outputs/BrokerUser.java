@@ -17,35 +17,24 @@ public final class BrokerUser {
      * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
      * 
      */
-    private final @Nullable Boolean consoleAccess;
+    private @Nullable Boolean consoleAccess;
     /**
      * @return List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
      * 
      */
-    private final @Nullable List<String> groups;
+    private @Nullable List<String> groups;
     /**
      * @return Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return Username of the user.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private BrokerUser(
-        @CustomType.Parameter("consoleAccess") @Nullable Boolean consoleAccess,
-        @CustomType.Parameter("groups") @Nullable List<String> groups,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.consoleAccess = consoleAccess;
-        this.groups = groups;
-        this.password = password;
-        this.username = username;
-    }
-
+    private BrokerUser() {}
     /**
      * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
      * 
@@ -82,17 +71,13 @@ public final class BrokerUser {
     public static Builder builder(BrokerUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean consoleAccess;
         private @Nullable List<String> groups;
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BrokerUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consoleAccess = defaults.consoleAccess;
@@ -101,10 +86,12 @@ public final class BrokerUser {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder consoleAccess(@Nullable Boolean consoleAccess) {
             this.consoleAccess = consoleAccess;
             return this;
         }
+        @CustomType.Setter
         public Builder groups(@Nullable List<String> groups) {
             this.groups = groups;
             return this;
@@ -112,15 +99,23 @@ public final class BrokerUser {
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public BrokerUser build() {
-            return new BrokerUser(consoleAccess, groups, password, username);
+        }
+        public BrokerUser build() {
+            final var o = new BrokerUser();
+            o.consoleAccess = consoleAccess;
+            o.groups = groups;
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class TaskSchedule {
      * @return Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
      * 
      */
-    private final String scheduleExpression;
+    private String scheduleExpression;
 
-    @CustomType.Constructor
-    private TaskSchedule(@CustomType.Parameter("scheduleExpression") String scheduleExpression) {
-        this.scheduleExpression = scheduleExpression;
-    }
-
+    private TaskSchedule() {}
     /**
      * @return Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
      * 
@@ -35,24 +31,24 @@ public final class TaskSchedule {
     public static Builder builder(TaskSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String scheduleExpression;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.scheduleExpression = defaults.scheduleExpression;
         }
 
+        @CustomType.Setter
         public Builder scheduleExpression(String scheduleExpression) {
             this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
             return this;
-        }        public TaskSchedule build() {
-            return new TaskSchedule(scheduleExpression);
+        }
+        public TaskSchedule build() {
+            final var o = new TaskSchedule();
+            o.scheduleExpression = scheduleExpression;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions
      * @return Enables or disables the logging. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The CloudWatch group name for logging. This value is required if `enabled` is true.
      * 
      */
-    private final @Nullable String logGroupName;
+    private @Nullable String logGroupName;
     /**
      * @return The CloudWatch log stream name for logging. This value is required if `enabled` is true.
      * 
      */
-    private final @Nullable String logStreamName;
+    private @Nullable String logStreamName;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("logGroupName") @Nullable String logGroupName,
-        @CustomType.Parameter("logStreamName") @Nullable String logStreamName) {
-        this.enabled = enabled;
-        this.logGroupName = logGroupName;
-        this.logStreamName = logStreamName;
-    }
-
+    private FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions() {}
     /**
      * @return Enables or disables the logging. Defaults to `false`.
      * 
@@ -67,16 +58,12 @@ public final class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions
     public static Builder builder(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable String logGroupName;
         private @Nullable String logStreamName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -84,19 +71,27 @@ public final class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions
     	      this.logStreamName = defaults.logStreamName;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder logGroupName(@Nullable String logGroupName) {
             this.logGroupName = logGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder logStreamName(@Nullable String logStreamName) {
             this.logStreamName = logStreamName;
             return this;
-        }        public FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions build() {
-            return new FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions(enabled, logGroupName, logStreamName);
+        }
+        public FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions build() {
+            final var o = new FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions();
+            o.enabled = enabled;
+            o.logGroupName = logGroupName;
+            o.logStreamName = logStreamName;
+            return o;
         }
     }
 }

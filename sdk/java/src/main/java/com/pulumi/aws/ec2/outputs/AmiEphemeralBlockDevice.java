@@ -13,22 +13,15 @@ public final class AmiEphemeralBlockDevice {
      * @return The path at which the device is exposed to created instances.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return A name for the ephemeral device, of the form &#34;ephemeralN&#34; where
      * *N* is a volume number starting from zero.
      * 
      */
-    private final String virtualName;
+    private String virtualName;
 
-    @CustomType.Constructor
-    private AmiEphemeralBlockDevice(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("virtualName") String virtualName) {
-        this.deviceName = deviceName;
-        this.virtualName = virtualName;
-    }
-
+    private AmiEphemeralBlockDevice() {}
     /**
      * @return The path at which the device is exposed to created instances.
      * 
@@ -52,30 +45,32 @@ public final class AmiEphemeralBlockDevice {
     public static Builder builder(AmiEphemeralBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AmiEphemeralBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(String virtualName) {
             this.virtualName = Objects.requireNonNull(virtualName);
             return this;
-        }        public AmiEphemeralBlockDevice build() {
-            return new AmiEphemeralBlockDevice(deviceName, virtualName);
+        }
+        public AmiEphemeralBlockDevice build() {
+            final var o = new AmiEphemeralBlockDevice();
+            o.deviceName = deviceName;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

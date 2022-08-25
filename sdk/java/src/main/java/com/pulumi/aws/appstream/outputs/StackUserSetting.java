@@ -13,21 +13,14 @@ public final class StackUserSetting {
      * @return Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
      * 
      */
-    private final String permission;
+    private String permission;
 
-    @CustomType.Constructor
-    private StackUserSetting(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("permission") String permission) {
-        this.action = action;
-        this.permission = permission;
-    }
-
+    private StackUserSetting() {}
     /**
      * @return Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
      * 
@@ -50,30 +43,32 @@ public final class StackUserSetting {
     public static Builder builder(StackUserSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private String permission;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StackUserSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.permission = defaults.permission;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder permission(String permission) {
             this.permission = Objects.requireNonNull(permission);
             return this;
-        }        public StackUserSetting build() {
-            return new StackUserSetting(action, permission);
+        }
+        public StackUserSetting build() {
+            final var o = new StackUserSetting();
+            o.action = action;
+            o.permission = permission;
+            return o;
         }
     }
 }

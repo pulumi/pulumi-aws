@@ -15,24 +15,15 @@ public final class GetUserHierarchyStructureResult {
      * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
      * 
      */
-    private final List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
+    private List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
+    private String id;
+    private String instanceId;
 
-    @CustomType.Constructor
-    private GetUserHierarchyStructureResult(
-        @CustomType.Parameter("hierarchyStructures") List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId) {
-        this.hierarchyStructures = hierarchyStructures;
-        this.id = id;
-        this.instanceId = instanceId;
-    }
-
+    private GetUserHierarchyStructureResult() {}
     /**
      * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
      * 
@@ -58,16 +49,12 @@ public final class GetUserHierarchyStructureResult {
     public static Builder builder(GetUserHierarchyStructureResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
         private String id;
         private String instanceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserHierarchyStructureResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hierarchyStructures = defaults.hierarchyStructures;
@@ -75,6 +62,7 @@ public final class GetUserHierarchyStructureResult {
     	      this.instanceId = defaults.instanceId;
         }
 
+        @CustomType.Setter
         public Builder hierarchyStructures(List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures) {
             this.hierarchyStructures = Objects.requireNonNull(hierarchyStructures);
             return this;
@@ -82,15 +70,22 @@ public final class GetUserHierarchyStructureResult {
         public Builder hierarchyStructures(GetUserHierarchyStructureHierarchyStructure... hierarchyStructures) {
             return hierarchyStructures(List.of(hierarchyStructures));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
-        }        public GetUserHierarchyStructureResult build() {
-            return new GetUserHierarchyStructureResult(hierarchyStructures, id, instanceId);
+        }
+        public GetUserHierarchyStructureResult build() {
+            final var o = new GetUserHierarchyStructureResult();
+            o.hierarchyStructures = hierarchyStructures;
+            o.id = id;
+            o.instanceId = instanceId;
+            return o;
         }
     }
 }

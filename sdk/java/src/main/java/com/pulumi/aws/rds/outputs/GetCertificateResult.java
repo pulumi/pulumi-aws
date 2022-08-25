@@ -16,62 +16,41 @@ public final class GetCertificateResult {
      * @return Amazon Resource Name (ARN) of the certificate.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Type of certificate. For example, `CA`.
      * 
      */
-    private final String certificateType;
+    private String certificateType;
     /**
      * @return Boolean whether there is an override for the default certificate identifier.
      * 
      */
-    private final Boolean customerOverride;
+    private Boolean customerOverride;
     /**
      * @return If there is an override for the default certificate identifier, when the override expires.
      * 
      */
-    private final String customerOverrideValidTill;
-    private final String id;
-    private final @Nullable Boolean latestValidTill;
+    private String customerOverrideValidTill;
+    private String id;
+    private @Nullable Boolean latestValidTill;
     /**
      * @return Thumbprint of the certificate.
      * 
      */
-    private final String thumbprint;
+    private String thumbprint;
     /**
      * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
      * 
      */
-    private final String validFrom;
+    private String validFrom;
     /**
      * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
      * 
      */
-    private final String validTill;
+    private String validTill;
 
-    @CustomType.Constructor
-    private GetCertificateResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("certificateType") String certificateType,
-        @CustomType.Parameter("customerOverride") Boolean customerOverride,
-        @CustomType.Parameter("customerOverrideValidTill") String customerOverrideValidTill,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("latestValidTill") @Nullable Boolean latestValidTill,
-        @CustomType.Parameter("thumbprint") String thumbprint,
-        @CustomType.Parameter("validFrom") String validFrom,
-        @CustomType.Parameter("validTill") String validTill) {
-        this.arn = arn;
-        this.certificateType = certificateType;
-        this.customerOverride = customerOverride;
-        this.customerOverrideValidTill = customerOverrideValidTill;
-        this.id = id;
-        this.latestValidTill = latestValidTill;
-        this.thumbprint = thumbprint;
-        this.validFrom = validFrom;
-        this.validTill = validTill;
-    }
-
+    private GetCertificateResult() {}
     /**
      * @return Amazon Resource Name (ARN) of the certificate.
      * 
@@ -135,7 +114,7 @@ public final class GetCertificateResult {
     public static Builder builder(GetCertificateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String certificateType;
@@ -146,11 +125,7 @@ public final class GetCertificateResult {
         private String thumbprint;
         private String validFrom;
         private String validTill;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -164,43 +139,63 @@ public final class GetCertificateResult {
     	      this.validTill = defaults.validTill;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateType(String certificateType) {
             this.certificateType = Objects.requireNonNull(certificateType);
             return this;
         }
+        @CustomType.Setter
         public Builder customerOverride(Boolean customerOverride) {
             this.customerOverride = Objects.requireNonNull(customerOverride);
             return this;
         }
+        @CustomType.Setter
         public Builder customerOverrideValidTill(String customerOverrideValidTill) {
             this.customerOverrideValidTill = Objects.requireNonNull(customerOverrideValidTill);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder latestValidTill(@Nullable Boolean latestValidTill) {
             this.latestValidTill = latestValidTill;
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             this.thumbprint = Objects.requireNonNull(thumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder validFrom(String validFrom) {
             this.validFrom = Objects.requireNonNull(validFrom);
             return this;
         }
+        @CustomType.Setter
         public Builder validTill(String validTill) {
             this.validTill = Objects.requireNonNull(validTill);
             return this;
-        }        public GetCertificateResult build() {
-            return new GetCertificateResult(arn, certificateType, customerOverride, customerOverrideValidTill, id, latestValidTill, thumbprint, validFrom, validTill);
+        }
+        public GetCertificateResult build() {
+            final var o = new GetCertificateResult();
+            o.arn = arn;
+            o.certificateType = certificateType;
+            o.customerOverride = customerOverride;
+            o.customerOverrideValidTill = customerOverrideValidTill;
+            o.id = id;
+            o.latestValidTill = latestValidTill;
+            o.thumbprint = thumbprint;
+            o.validFrom = validFrom;
+            o.validTill = validTill;
+            return o;
         }
     }
 }

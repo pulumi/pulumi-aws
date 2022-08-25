@@ -13,21 +13,14 @@ public final class FirehoseDeliveryStreamKinesisSourceConfiguration {
      * @return The kinesis stream used as the source of the firehose delivery stream.
      * 
      */
-    private final String kinesisStreamArn;
+    private String kinesisStreamArn;
     /**
      * @return The ARN of the role that provides access to the source Kinesis stream.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamKinesisSourceConfiguration(
-        @CustomType.Parameter("kinesisStreamArn") String kinesisStreamArn,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.kinesisStreamArn = kinesisStreamArn;
-        this.roleArn = roleArn;
-    }
-
+    private FirehoseDeliveryStreamKinesisSourceConfiguration() {}
     /**
      * @return The kinesis stream used as the source of the firehose delivery stream.
      * 
@@ -50,30 +43,32 @@ public final class FirehoseDeliveryStreamKinesisSourceConfiguration {
     public static Builder builder(FirehoseDeliveryStreamKinesisSourceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String kinesisStreamArn;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamKinesisSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kinesisStreamArn = defaults.kinesisStreamArn;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder kinesisStreamArn(String kinesisStreamArn) {
             this.kinesisStreamArn = Objects.requireNonNull(kinesisStreamArn);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public FirehoseDeliveryStreamKinesisSourceConfiguration build() {
-            return new FirehoseDeliveryStreamKinesisSourceConfiguration(kinesisStreamArn, roleArn);
+        }
+        public FirehoseDeliveryStreamKinesisSourceConfiguration build() {
+            final var o = new FirehoseDeliveryStreamKinesisSourceConfiguration();
+            o.kinesisStreamArn = kinesisStreamArn;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

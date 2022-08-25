@@ -13,13 +13,9 @@ public final class BucketReplicationConfigurationRuleDestinationAccessControlTra
      * @return The override value for the owner on replicated objects. Currently only `Destination` is supported.
      * 
      */
-    private final String owner;
+    private String owner;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigurationRuleDestinationAccessControlTranslation(@CustomType.Parameter("owner") String owner) {
-        this.owner = owner;
-    }
-
+    private BucketReplicationConfigurationRuleDestinationAccessControlTranslation() {}
     /**
      * @return The override value for the owner on replicated objects. Currently only `Destination` is supported.
      * 
@@ -35,24 +31,24 @@ public final class BucketReplicationConfigurationRuleDestinationAccessControlTra
     public static Builder builder(BucketReplicationConfigurationRuleDestinationAccessControlTranslation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String owner;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigurationRuleDestinationAccessControlTranslation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.owner = defaults.owner;
         }
 
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
-        }        public BucketReplicationConfigurationRuleDestinationAccessControlTranslation build() {
-            return new BucketReplicationConfigurationRuleDestinationAccessControlTranslation(owner);
+        }
+        public BucketReplicationConfigurationRuleDestinationAccessControlTranslation build() {
+            final var o = new BucketReplicationConfigurationRuleDestinationAccessControlTranslation();
+            o.owner = owner;
+            return o;
         }
     }
 }

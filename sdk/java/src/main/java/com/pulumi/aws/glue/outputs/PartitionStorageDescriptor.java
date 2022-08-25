@@ -23,91 +23,64 @@ public final class PartitionStorageDescriptor {
      * @return A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
-    private final @Nullable List<String> bucketColumns;
+    private @Nullable List<String> bucketColumns;
     /**
      * @return A list of the Columns in the table.
      * 
      */
-    private final @Nullable List<PartitionStorageDescriptorColumn> columns;
+    private @Nullable List<PartitionStorageDescriptorColumn> columns;
     /**
      * @return True if the data in the table is compressed, or False if not.
      * 
      */
-    private final @Nullable Boolean compressed;
+    private @Nullable Boolean compressed;
     /**
      * @return The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
-    private final @Nullable String inputFormat;
+    private @Nullable String inputFormat;
     /**
      * @return The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return Must be specified if the table contains any dimension columns.
      * 
      */
-    private final @Nullable Integer numberOfBuckets;
+    private @Nullable Integer numberOfBuckets;
     /**
      * @return The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
-    private final @Nullable String outputFormat;
+    private @Nullable String outputFormat;
     /**
      * @return A map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Serialization/deserialization (SerDe) information.
      * 
      */
-    private final @Nullable PartitionStorageDescriptorSerDeInfo serDeInfo;
+    private @Nullable PartitionStorageDescriptorSerDeInfo serDeInfo;
     /**
      * @return Information about values that appear very frequently in a column (skewed values).
      * 
      */
-    private final @Nullable PartitionStorageDescriptorSkewedInfo skewedInfo;
+    private @Nullable PartitionStorageDescriptorSkewedInfo skewedInfo;
     /**
      * @return A list of Order objects specifying the sort order of each bucket in the table.
      * 
      */
-    private final @Nullable List<PartitionStorageDescriptorSortColumn> sortColumns;
+    private @Nullable List<PartitionStorageDescriptorSortColumn> sortColumns;
     /**
      * @return True if the table data is stored in subdirectories, or False if not.
      * 
      */
-    private final @Nullable Boolean storedAsSubDirectories;
+    private @Nullable Boolean storedAsSubDirectories;
 
-    @CustomType.Constructor
-    private PartitionStorageDescriptor(
-        @CustomType.Parameter("bucketColumns") @Nullable List<String> bucketColumns,
-        @CustomType.Parameter("columns") @Nullable List<PartitionStorageDescriptorColumn> columns,
-        @CustomType.Parameter("compressed") @Nullable Boolean compressed,
-        @CustomType.Parameter("inputFormat") @Nullable String inputFormat,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("numberOfBuckets") @Nullable Integer numberOfBuckets,
-        @CustomType.Parameter("outputFormat") @Nullable String outputFormat,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters,
-        @CustomType.Parameter("serDeInfo") @Nullable PartitionStorageDescriptorSerDeInfo serDeInfo,
-        @CustomType.Parameter("skewedInfo") @Nullable PartitionStorageDescriptorSkewedInfo skewedInfo,
-        @CustomType.Parameter("sortColumns") @Nullable List<PartitionStorageDescriptorSortColumn> sortColumns,
-        @CustomType.Parameter("storedAsSubDirectories") @Nullable Boolean storedAsSubDirectories) {
-        this.bucketColumns = bucketColumns;
-        this.columns = columns;
-        this.compressed = compressed;
-        this.inputFormat = inputFormat;
-        this.location = location;
-        this.numberOfBuckets = numberOfBuckets;
-        this.outputFormat = outputFormat;
-        this.parameters = parameters;
-        this.serDeInfo = serDeInfo;
-        this.skewedInfo = skewedInfo;
-        this.sortColumns = sortColumns;
-        this.storedAsSubDirectories = storedAsSubDirectories;
-    }
-
+    private PartitionStorageDescriptor() {}
     /**
      * @return A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
@@ -200,7 +173,7 @@ public final class PartitionStorageDescriptor {
     public static Builder builder(PartitionStorageDescriptor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> bucketColumns;
         private @Nullable List<PartitionStorageDescriptorColumn> columns;
@@ -214,11 +187,7 @@ public final class PartitionStorageDescriptor {
         private @Nullable PartitionStorageDescriptorSkewedInfo skewedInfo;
         private @Nullable List<PartitionStorageDescriptorSortColumn> sortColumns;
         private @Nullable Boolean storedAsSubDirectories;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PartitionStorageDescriptor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketColumns = defaults.bucketColumns;
@@ -235,6 +204,7 @@ public final class PartitionStorageDescriptor {
     	      this.storedAsSubDirectories = defaults.storedAsSubDirectories;
         }
 
+        @CustomType.Setter
         public Builder bucketColumns(@Nullable List<String> bucketColumns) {
             this.bucketColumns = bucketColumns;
             return this;
@@ -242,6 +212,7 @@ public final class PartitionStorageDescriptor {
         public Builder bucketColumns(String... bucketColumns) {
             return bucketColumns(List.of(bucketColumns));
         }
+        @CustomType.Setter
         public Builder columns(@Nullable List<PartitionStorageDescriptorColumn> columns) {
             this.columns = columns;
             return this;
@@ -249,38 +220,47 @@ public final class PartitionStorageDescriptor {
         public Builder columns(PartitionStorageDescriptorColumn... columns) {
             return columns(List.of(columns));
         }
+        @CustomType.Setter
         public Builder compressed(@Nullable Boolean compressed) {
             this.compressed = compressed;
             return this;
         }
+        @CustomType.Setter
         public Builder inputFormat(@Nullable String inputFormat) {
             this.inputFormat = inputFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder numberOfBuckets(@Nullable Integer numberOfBuckets) {
             this.numberOfBuckets = numberOfBuckets;
             return this;
         }
+        @CustomType.Setter
         public Builder outputFormat(@Nullable String outputFormat) {
             this.outputFormat = outputFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder serDeInfo(@Nullable PartitionStorageDescriptorSerDeInfo serDeInfo) {
             this.serDeInfo = serDeInfo;
             return this;
         }
+        @CustomType.Setter
         public Builder skewedInfo(@Nullable PartitionStorageDescriptorSkewedInfo skewedInfo) {
             this.skewedInfo = skewedInfo;
             return this;
         }
+        @CustomType.Setter
         public Builder sortColumns(@Nullable List<PartitionStorageDescriptorSortColumn> sortColumns) {
             this.sortColumns = sortColumns;
             return this;
@@ -288,11 +268,26 @@ public final class PartitionStorageDescriptor {
         public Builder sortColumns(PartitionStorageDescriptorSortColumn... sortColumns) {
             return sortColumns(List.of(sortColumns));
         }
+        @CustomType.Setter
         public Builder storedAsSubDirectories(@Nullable Boolean storedAsSubDirectories) {
             this.storedAsSubDirectories = storedAsSubDirectories;
             return this;
-        }        public PartitionStorageDescriptor build() {
-            return new PartitionStorageDescriptor(bucketColumns, columns, compressed, inputFormat, location, numberOfBuckets, outputFormat, parameters, serDeInfo, skewedInfo, sortColumns, storedAsSubDirectories);
+        }
+        public PartitionStorageDescriptor build() {
+            final var o = new PartitionStorageDescriptor();
+            o.bucketColumns = bucketColumns;
+            o.columns = columns;
+            o.compressed = compressed;
+            o.inputFormat = inputFormat;
+            o.location = location;
+            o.numberOfBuckets = numberOfBuckets;
+            o.outputFormat = outputFormat;
+            o.parameters = parameters;
+            o.serDeInfo = serDeInfo;
+            o.skewedInfo = skewedInfo;
+            o.sortColumns = sortColumns;
+            o.storedAsSubDirectories = storedAsSubDirectories;
+            return o;
         }
     }
 }

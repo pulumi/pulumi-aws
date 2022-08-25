@@ -13,42 +13,29 @@ public final class GetEventConnectionResult {
      * @return The ARN (Amazon Resource Name) for the connection.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
-    private final String authorizationType;
+    private String authorizationType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the connection.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
      * 
      */
-    private final String secretArn;
+    private String secretArn;
 
-    @CustomType.Constructor
-    private GetEventConnectionResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("authorizationType") String authorizationType,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("secretArn") String secretArn) {
-        this.arn = arn;
-        this.authorizationType = authorizationType;
-        this.id = id;
-        this.name = name;
-        this.secretArn = secretArn;
-    }
-
+    private GetEventConnectionResult() {}
     /**
      * @return The ARN (Amazon Resource Name) for the connection.
      * 
@@ -92,18 +79,14 @@ public final class GetEventConnectionResult {
     public static Builder builder(GetEventConnectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String authorizationType;
         private String id;
         private String name;
         private String secretArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEventConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -113,27 +96,39 @@ public final class GetEventConnectionResult {
     	      this.secretArn = defaults.secretArn;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder authorizationType(String authorizationType) {
             this.authorizationType = Objects.requireNonNull(authorizationType);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder secretArn(String secretArn) {
             this.secretArn = Objects.requireNonNull(secretArn);
             return this;
-        }        public GetEventConnectionResult build() {
-            return new GetEventConnectionResult(arn, authorizationType, id, name, secretArn);
+        }
+        public GetEventConnectionResult build() {
+            final var o = new GetEventConnectionResult();
+            o.arn = arn;
+            o.authorizationType = authorizationType;
+            o.id = id;
+            o.name = name;
+            o.secretArn = secretArn;
+            return o;
         }
     }
 }

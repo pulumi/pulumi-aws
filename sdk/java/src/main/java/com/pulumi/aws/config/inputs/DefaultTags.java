@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DefaultTags {
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private DefaultTags(@CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.tags = tags;
-    }
-
+    private DefaultTags() {}
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -29,24 +25,24 @@ public final class DefaultTags {
     public static Builder builder(DefaultTags defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DefaultTags defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public DefaultTags build() {
-            return new DefaultTags(tags);
+        }
+        public DefaultTags build() {
+            final var o = new DefaultTags();
+            o.tags = tags;
+            return o;
         }
     }
 }

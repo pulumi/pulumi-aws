@@ -15,13 +15,9 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationS
      * @return The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
      * 
      */
-    private final @Nullable Integer targetResourceCount;
+    private @Nullable Integer targetResourceCount;
 
-    @CustomType.Constructor
-    private DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration(@CustomType.Parameter("targetResourceCount") @Nullable Integer targetResourceCount) {
-        this.targetResourceCount = targetResourceCount;
-    }
-
+    private DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration() {}
     /**
      * @return The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
      * 
@@ -37,24 +33,24 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationS
     public static Builder builder(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer targetResourceCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.targetResourceCount = defaults.targetResourceCount;
         }
 
+        @CustomType.Setter
         public Builder targetResourceCount(@Nullable Integer targetResourceCount) {
             this.targetResourceCount = targetResourceCount;
             return this;
-        }        public DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration build() {
-            return new DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration(targetResourceCount);
+        }
+        public DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration build() {
+            final var o = new DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration();
+            o.targetResourceCount = targetResourceCount;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class ServiceDeploymentCircuitBreaker {
      * @return Whether to enable the deployment circuit breaker logic for the service.
      * 
      */
-    private final Boolean enable;
+    private Boolean enable;
     /**
      * @return Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
      * 
      */
-    private final Boolean rollback;
+    private Boolean rollback;
 
-    @CustomType.Constructor
-    private ServiceDeploymentCircuitBreaker(
-        @CustomType.Parameter("enable") Boolean enable,
-        @CustomType.Parameter("rollback") Boolean rollback) {
-        this.enable = enable;
-        this.rollback = rollback;
-    }
-
+    private ServiceDeploymentCircuitBreaker() {}
     /**
      * @return Whether to enable the deployment circuit breaker logic for the service.
      * 
@@ -50,30 +43,32 @@ public final class ServiceDeploymentCircuitBreaker {
     public static Builder builder(ServiceDeploymentCircuitBreaker defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enable;
         private Boolean rollback;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceDeploymentCircuitBreaker defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enable = defaults.enable;
     	      this.rollback = defaults.rollback;
         }
 
+        @CustomType.Setter
         public Builder enable(Boolean enable) {
             this.enable = Objects.requireNonNull(enable);
             return this;
         }
+        @CustomType.Setter
         public Builder rollback(Boolean rollback) {
             this.rollback = Objects.requireNonNull(rollback);
             return this;
-        }        public ServiceDeploymentCircuitBreaker build() {
-            return new ServiceDeploymentCircuitBreaker(enable, rollback);
+        }
+        public ServiceDeploymentCircuitBreaker build() {
+            final var o = new ServiceDeploymentCircuitBreaker();
+            o.enable = enable;
+            o.rollback = rollback;
+            return o;
         }
     }
 }

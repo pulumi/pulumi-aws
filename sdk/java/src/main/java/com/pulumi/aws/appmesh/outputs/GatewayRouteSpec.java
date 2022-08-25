@@ -17,28 +17,19 @@ public final class GatewayRouteSpec {
      * @return The specification of a gRPC gateway route.
      * 
      */
-    private final @Nullable GatewayRouteSpecGrpcRoute grpcRoute;
+    private @Nullable GatewayRouteSpecGrpcRoute grpcRoute;
     /**
      * @return The specification of an HTTP/2 gateway route.
      * 
      */
-    private final @Nullable GatewayRouteSpecHttp2Route http2Route;
+    private @Nullable GatewayRouteSpecHttp2Route http2Route;
     /**
      * @return The specification of an HTTP gateway route.
      * 
      */
-    private final @Nullable GatewayRouteSpecHttpRoute httpRoute;
+    private @Nullable GatewayRouteSpecHttpRoute httpRoute;
 
-    @CustomType.Constructor
-    private GatewayRouteSpec(
-        @CustomType.Parameter("grpcRoute") @Nullable GatewayRouteSpecGrpcRoute grpcRoute,
-        @CustomType.Parameter("http2Route") @Nullable GatewayRouteSpecHttp2Route http2Route,
-        @CustomType.Parameter("httpRoute") @Nullable GatewayRouteSpecHttpRoute httpRoute) {
-        this.grpcRoute = grpcRoute;
-        this.http2Route = http2Route;
-        this.httpRoute = httpRoute;
-    }
-
+    private GatewayRouteSpec() {}
     /**
      * @return The specification of a gRPC gateway route.
      * 
@@ -68,16 +59,12 @@ public final class GatewayRouteSpec {
     public static Builder builder(GatewayRouteSpec defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GatewayRouteSpecGrpcRoute grpcRoute;
         private @Nullable GatewayRouteSpecHttp2Route http2Route;
         private @Nullable GatewayRouteSpecHttpRoute httpRoute;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.grpcRoute = defaults.grpcRoute;
@@ -85,19 +72,27 @@ public final class GatewayRouteSpec {
     	      this.httpRoute = defaults.httpRoute;
         }
 
+        @CustomType.Setter
         public Builder grpcRoute(@Nullable GatewayRouteSpecGrpcRoute grpcRoute) {
             this.grpcRoute = grpcRoute;
             return this;
         }
+        @CustomType.Setter
         public Builder http2Route(@Nullable GatewayRouteSpecHttp2Route http2Route) {
             this.http2Route = http2Route;
             return this;
         }
+        @CustomType.Setter
         public Builder httpRoute(@Nullable GatewayRouteSpecHttpRoute httpRoute) {
             this.httpRoute = httpRoute;
             return this;
-        }        public GatewayRouteSpec build() {
-            return new GatewayRouteSpec(grpcRoute, http2Route, httpRoute);
+        }
+        public GatewayRouteSpec build() {
+            final var o = new GatewayRouteSpec();
+            o.grpcRoute = grpcRoute;
+            o.http2Route = http2Route;
+            o.httpRoute = httpRoute;
+            return o;
         }
     }
 }

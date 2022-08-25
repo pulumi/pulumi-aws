@@ -14,13 +14,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSub
      * @return The values sent must match the specified values exactly.
      * 
      */
-    private final List<String> exacts;
+    private List<String> exacts;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(@CustomType.Parameter("exacts") List<String> exacts) {
-        this.exacts = exacts;
-    }
-
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch() {}
     /**
      * @return The values sent must match the specified values exactly.
      * 
@@ -36,27 +32,27 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSub
     public static Builder builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> exacts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exacts = defaults.exacts;
         }
 
+        @CustomType.Setter
         public Builder exacts(List<String> exacts) {
             this.exacts = Objects.requireNonNull(exacts);
             return this;
         }
         public Builder exacts(String... exacts) {
             return exacts(List.of(exacts));
-        }        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch build() {
-            return new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(exacts);
+        }
+        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch build() {
+            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch();
+            o.exacts = exacts;
+            return o;
         }
     }
 }

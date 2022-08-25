@@ -15,13 +15,9 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
      * @return Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
      * 
      */
-    private final @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration s3Configuration;
+    private @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration s3Configuration;
 
-    @CustomType.Constructor
-    private TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation(@CustomType.Parameter("s3Configuration") @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration s3Configuration) {
-        this.s3Configuration = s3Configuration;
-    }
-
+    private TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation() {}
     /**
      * @return Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
      * 
@@ -37,24 +33,24 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
     public static Builder builder(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration s3Configuration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Configuration = defaults.s3Configuration;
         }
 
+        @CustomType.Setter
         public Builder s3Configuration(@Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration s3Configuration) {
             this.s3Configuration = s3Configuration;
             return this;
-        }        public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation build() {
-            return new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation(s3Configuration);
+        }
+        public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation build() {
+            final var o = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation();
+            o.s3Configuration = s3Configuration;
+            return o;
         }
     }
 }

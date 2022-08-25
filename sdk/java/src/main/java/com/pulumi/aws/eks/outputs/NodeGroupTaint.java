@@ -15,28 +15,19 @@ public final class NodeGroupTaint {
      * @return The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
      * 
      */
-    private final String effect;
+    private String effect;
     /**
      * @return The key of the taint. Maximum length of 63.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The value of the taint. Maximum length of 63.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private NodeGroupTaint(
-        @CustomType.Parameter("effect") String effect,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.effect = effect;
-        this.key = key;
-        this.value = value;
-    }
-
+    private NodeGroupTaint() {}
     /**
      * @return The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
      * 
@@ -66,16 +57,12 @@ public final class NodeGroupTaint {
     public static Builder builder(NodeGroupTaint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String effect;
         private String key;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NodeGroupTaint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.effect = defaults.effect;
@@ -83,19 +70,27 @@ public final class NodeGroupTaint {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder effect(String effect) {
             this.effect = Objects.requireNonNull(effect);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public NodeGroupTaint build() {
-            return new NodeGroupTaint(effect, key, value);
+        }
+        public NodeGroupTaint build() {
+            final var o = new NodeGroupTaint();
+            o.effect = effect;
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

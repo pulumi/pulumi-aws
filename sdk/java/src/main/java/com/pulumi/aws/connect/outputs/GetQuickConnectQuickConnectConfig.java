@@ -17,35 +17,24 @@ public final class GetQuickConnectQuickConnectConfig {
      * @return Specifies the phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
      * 
      */
-    private final List<GetQuickConnectQuickConnectConfigPhoneConfig> phoneConfigs;
+    private List<GetQuickConnectQuickConnectConfigPhoneConfig> phoneConfigs;
     /**
      * @return Specifies the queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
      * 
      */
-    private final List<GetQuickConnectQuickConnectConfigQueueConfig> queueConfigs;
+    private List<GetQuickConnectQuickConnectConfigQueueConfig> queueConfigs;
     /**
      * @return Specifies the configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
      * 
      */
-    private final String quickConnectType;
+    private String quickConnectType;
     /**
      * @return Specifies the user configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
      * 
      */
-    private final List<GetQuickConnectQuickConnectConfigUserConfig> userConfigs;
+    private List<GetQuickConnectQuickConnectConfigUserConfig> userConfigs;
 
-    @CustomType.Constructor
-    private GetQuickConnectQuickConnectConfig(
-        @CustomType.Parameter("phoneConfigs") List<GetQuickConnectQuickConnectConfigPhoneConfig> phoneConfigs,
-        @CustomType.Parameter("queueConfigs") List<GetQuickConnectQuickConnectConfigQueueConfig> queueConfigs,
-        @CustomType.Parameter("quickConnectType") String quickConnectType,
-        @CustomType.Parameter("userConfigs") List<GetQuickConnectQuickConnectConfigUserConfig> userConfigs) {
-        this.phoneConfigs = phoneConfigs;
-        this.queueConfigs = queueConfigs;
-        this.quickConnectType = quickConnectType;
-        this.userConfigs = userConfigs;
-    }
-
+    private GetQuickConnectQuickConnectConfig() {}
     /**
      * @return Specifies the phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
      * 
@@ -82,17 +71,13 @@ public final class GetQuickConnectQuickConnectConfig {
     public static Builder builder(GetQuickConnectQuickConnectConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetQuickConnectQuickConnectConfigPhoneConfig> phoneConfigs;
         private List<GetQuickConnectQuickConnectConfigQueueConfig> queueConfigs;
         private String quickConnectType;
         private List<GetQuickConnectQuickConnectConfigUserConfig> userConfigs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetQuickConnectQuickConnectConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.phoneConfigs = defaults.phoneConfigs;
@@ -101,6 +86,7 @@ public final class GetQuickConnectQuickConnectConfig {
     	      this.userConfigs = defaults.userConfigs;
         }
 
+        @CustomType.Setter
         public Builder phoneConfigs(List<GetQuickConnectQuickConnectConfigPhoneConfig> phoneConfigs) {
             this.phoneConfigs = Objects.requireNonNull(phoneConfigs);
             return this;
@@ -108,6 +94,7 @@ public final class GetQuickConnectQuickConnectConfig {
         public Builder phoneConfigs(GetQuickConnectQuickConnectConfigPhoneConfig... phoneConfigs) {
             return phoneConfigs(List.of(phoneConfigs));
         }
+        @CustomType.Setter
         public Builder queueConfigs(List<GetQuickConnectQuickConnectConfigQueueConfig> queueConfigs) {
             this.queueConfigs = Objects.requireNonNull(queueConfigs);
             return this;
@@ -115,18 +102,26 @@ public final class GetQuickConnectQuickConnectConfig {
         public Builder queueConfigs(GetQuickConnectQuickConnectConfigQueueConfig... queueConfigs) {
             return queueConfigs(List.of(queueConfigs));
         }
+        @CustomType.Setter
         public Builder quickConnectType(String quickConnectType) {
             this.quickConnectType = Objects.requireNonNull(quickConnectType);
             return this;
         }
+        @CustomType.Setter
         public Builder userConfigs(List<GetQuickConnectQuickConnectConfigUserConfig> userConfigs) {
             this.userConfigs = Objects.requireNonNull(userConfigs);
             return this;
         }
         public Builder userConfigs(GetQuickConnectQuickConnectConfigUserConfig... userConfigs) {
             return userConfigs(List.of(userConfigs));
-        }        public GetQuickConnectQuickConnectConfig build() {
-            return new GetQuickConnectQuickConnectConfig(phoneConfigs, queueConfigs, quickConnectType, userConfigs);
+        }
+        public GetQuickConnectQuickConnectConfig build() {
+            final var o = new GetQuickConnectQuickConnectConfig();
+            o.phoneConfigs = phoneConfigs;
+            o.queueConfigs = queueConfigs;
+            o.quickConnectType = quickConnectType;
+            o.userConfigs = userConfigs;
+            return o;
         }
     }
 }

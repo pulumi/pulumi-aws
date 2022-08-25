@@ -15,24 +15,15 @@ public final class GetOrganizationalUnitsResult {
      * @return List of child organizational units, which have the following attributes:
      * 
      */
-    private final List<GetOrganizationalUnitsChildren> childrens;
+    private List<GetOrganizationalUnitsChildren> childrens;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String parentId;
+    private String id;
+    private String parentId;
 
-    @CustomType.Constructor
-    private GetOrganizationalUnitsResult(
-        @CustomType.Parameter("childrens") List<GetOrganizationalUnitsChildren> childrens,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("parentId") String parentId) {
-        this.childrens = childrens;
-        this.id = id;
-        this.parentId = parentId;
-    }
-
+    private GetOrganizationalUnitsResult() {}
     /**
      * @return List of child organizational units, which have the following attributes:
      * 
@@ -58,16 +49,12 @@ public final class GetOrganizationalUnitsResult {
     public static Builder builder(GetOrganizationalUnitsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetOrganizationalUnitsChildren> childrens;
         private String id;
         private String parentId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrganizationalUnitsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.childrens = defaults.childrens;
@@ -75,6 +62,7 @@ public final class GetOrganizationalUnitsResult {
     	      this.parentId = defaults.parentId;
         }
 
+        @CustomType.Setter
         public Builder childrens(List<GetOrganizationalUnitsChildren> childrens) {
             this.childrens = Objects.requireNonNull(childrens);
             return this;
@@ -82,15 +70,22 @@ public final class GetOrganizationalUnitsResult {
         public Builder childrens(GetOrganizationalUnitsChildren... childrens) {
             return childrens(List.of(childrens));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder parentId(String parentId) {
             this.parentId = Objects.requireNonNull(parentId);
             return this;
-        }        public GetOrganizationalUnitsResult build() {
-            return new GetOrganizationalUnitsResult(childrens, id, parentId);
+        }
+        public GetOrganizationalUnitsResult build() {
+            final var o = new GetOrganizationalUnitsResult();
+            o.childrens = childrens;
+            o.id = id;
+            o.parentId = parentId;
+            return o;
         }
     }
 }

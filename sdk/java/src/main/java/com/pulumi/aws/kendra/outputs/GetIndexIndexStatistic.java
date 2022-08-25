@@ -15,21 +15,14 @@ public final class GetIndexIndexStatistic {
      * @return A block that specifies the number of question and answer topics in the index. Documented below.
      * 
      */
-    private final List<GetIndexIndexStatisticFaqStatistic> faqStatistics;
+    private List<GetIndexIndexStatisticFaqStatistic> faqStatistics;
     /**
      * @return A block that specifies the number of text documents indexed.
      * 
      */
-    private final List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
+    private List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
 
-    @CustomType.Constructor
-    private GetIndexIndexStatistic(
-        @CustomType.Parameter("faqStatistics") List<GetIndexIndexStatisticFaqStatistic> faqStatistics,
-        @CustomType.Parameter("textDocumentStatistics") List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics) {
-        this.faqStatistics = faqStatistics;
-        this.textDocumentStatistics = textDocumentStatistics;
-    }
-
+    private GetIndexIndexStatistic() {}
     /**
      * @return A block that specifies the number of question and answer topics in the index. Documented below.
      * 
@@ -52,21 +45,18 @@ public final class GetIndexIndexStatistic {
     public static Builder builder(GetIndexIndexStatistic defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetIndexIndexStatisticFaqStatistic> faqStatistics;
         private List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIndexIndexStatistic defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.faqStatistics = defaults.faqStatistics;
     	      this.textDocumentStatistics = defaults.textDocumentStatistics;
         }
 
+        @CustomType.Setter
         public Builder faqStatistics(List<GetIndexIndexStatisticFaqStatistic> faqStatistics) {
             this.faqStatistics = Objects.requireNonNull(faqStatistics);
             return this;
@@ -74,14 +64,19 @@ public final class GetIndexIndexStatistic {
         public Builder faqStatistics(GetIndexIndexStatisticFaqStatistic... faqStatistics) {
             return faqStatistics(List.of(faqStatistics));
         }
+        @CustomType.Setter
         public Builder textDocumentStatistics(List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics) {
             this.textDocumentStatistics = Objects.requireNonNull(textDocumentStatistics);
             return this;
         }
         public Builder textDocumentStatistics(GetIndexIndexStatisticTextDocumentStatistic... textDocumentStatistics) {
             return textDocumentStatistics(List.of(textDocumentStatistics));
-        }        public GetIndexIndexStatistic build() {
-            return new GetIndexIndexStatistic(faqStatistics, textDocumentStatistics);
+        }
+        public GetIndexIndexStatistic build() {
+            final var o = new GetIndexIndexStatistic();
+            o.faqStatistics = faqStatistics;
+            o.textDocumentStatistics = textDocumentStatistics;
+            return o;
         }
     }
 }

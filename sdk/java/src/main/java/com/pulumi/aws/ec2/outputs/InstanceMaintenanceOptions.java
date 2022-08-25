@@ -15,13 +15,9 @@ public final class InstanceMaintenanceOptions {
      * @return The automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
      */
-    private final @Nullable String autoRecovery;
+    private @Nullable String autoRecovery;
 
-    @CustomType.Constructor
-    private InstanceMaintenanceOptions(@CustomType.Parameter("autoRecovery") @Nullable String autoRecovery) {
-        this.autoRecovery = autoRecovery;
-    }
-
+    private InstanceMaintenanceOptions() {}
     /**
      * @return The automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
@@ -37,24 +33,24 @@ public final class InstanceMaintenanceOptions {
     public static Builder builder(InstanceMaintenanceOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String autoRecovery;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceMaintenanceOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRecovery = defaults.autoRecovery;
         }
 
+        @CustomType.Setter
         public Builder autoRecovery(@Nullable String autoRecovery) {
             this.autoRecovery = autoRecovery;
             return this;
-        }        public InstanceMaintenanceOptions build() {
-            return new InstanceMaintenanceOptions(autoRecovery);
+        }
+        public InstanceMaintenanceOptions build() {
+            final var o = new InstanceMaintenanceOptions();
+            o.autoRecovery = autoRecovery;
+            return o;
         }
     }
 }

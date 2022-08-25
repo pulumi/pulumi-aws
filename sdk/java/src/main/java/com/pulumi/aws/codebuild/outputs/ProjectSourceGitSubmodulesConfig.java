@@ -13,13 +13,9 @@ public final class ProjectSourceGitSubmodulesConfig {
      * @return Whether to fetch Git submodules for the AWS CodeBuild build project.
      * 
      */
-    private final Boolean fetchSubmodules;
+    private Boolean fetchSubmodules;
 
-    @CustomType.Constructor
-    private ProjectSourceGitSubmodulesConfig(@CustomType.Parameter("fetchSubmodules") Boolean fetchSubmodules) {
-        this.fetchSubmodules = fetchSubmodules;
-    }
-
+    private ProjectSourceGitSubmodulesConfig() {}
     /**
      * @return Whether to fetch Git submodules for the AWS CodeBuild build project.
      * 
@@ -35,24 +31,24 @@ public final class ProjectSourceGitSubmodulesConfig {
     public static Builder builder(ProjectSourceGitSubmodulesConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean fetchSubmodules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectSourceGitSubmodulesConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fetchSubmodules = defaults.fetchSubmodules;
         }
 
+        @CustomType.Setter
         public Builder fetchSubmodules(Boolean fetchSubmodules) {
             this.fetchSubmodules = Objects.requireNonNull(fetchSubmodules);
             return this;
-        }        public ProjectSourceGitSubmodulesConfig build() {
-            return new ProjectSourceGitSubmodulesConfig(fetchSubmodules);
+        }
+        public ProjectSourceGitSubmodulesConfig build() {
+            final var o = new ProjectSourceGitSubmodulesConfig();
+            o.fetchSubmodules = fetchSubmodules;
+            return o;
         }
     }
 }

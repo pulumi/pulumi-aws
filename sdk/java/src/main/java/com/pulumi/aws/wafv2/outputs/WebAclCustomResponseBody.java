@@ -13,28 +13,19 @@ public final class WebAclCustomResponseBody {
      * @return Payload of the custom response.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
      * 
      */
-    private final String key;
+    private String key;
 
-    @CustomType.Constructor
-    private WebAclCustomResponseBody(
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("key") String key) {
-        this.content = content;
-        this.contentType = contentType;
-        this.key = key;
-    }
-
+    private WebAclCustomResponseBody() {}
     /**
      * @return Payload of the custom response.
      * 
@@ -64,16 +55,12 @@ public final class WebAclCustomResponseBody {
     public static Builder builder(WebAclCustomResponseBody defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String content;
         private String contentType;
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclCustomResponseBody defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
@@ -81,19 +68,27 @@ public final class WebAclCustomResponseBody {
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public WebAclCustomResponseBody build() {
-            return new WebAclCustomResponseBody(content, contentType, key);
+        }
+        public WebAclCustomResponseBody build() {
+            final var o = new WebAclCustomResponseBody();
+            o.content = content;
+            o.contentType = contentType;
+            o.key = key;
+            return o;
         }
     }
 }

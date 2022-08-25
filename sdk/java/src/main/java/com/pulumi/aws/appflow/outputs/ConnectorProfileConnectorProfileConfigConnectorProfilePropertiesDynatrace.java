@@ -13,13 +13,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The location of the Salesforce resource.
      * 
      */
-    private final String instanceUrl;
+    private String instanceUrl;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace(@CustomType.Parameter("instanceUrl") String instanceUrl) {
-        this.instanceUrl = instanceUrl;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace() {}
     /**
      * @return The location of the Salesforce resource.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String instanceUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceUrl = defaults.instanceUrl;
         }
 
+        @CustomType.Setter
         public Builder instanceUrl(String instanceUrl) {
             this.instanceUrl = Objects.requireNonNull(instanceUrl);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace(instanceUrl);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace();
+            o.instanceUrl = instanceUrl;
+            return o;
         }
     }
 }

@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateHibernationOption {
-    private final Boolean configured;
+    private Boolean configured;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateHibernationOption(@CustomType.Parameter("configured") Boolean configured) {
-        this.configured = configured;
-    }
-
+    private GetLaunchTemplateHibernationOption() {}
     public Boolean configured() {
         return this.configured;
     }
@@ -27,24 +23,24 @@ public final class GetLaunchTemplateHibernationOption {
     public static Builder builder(GetLaunchTemplateHibernationOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean configured;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateHibernationOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configured = defaults.configured;
         }
 
+        @CustomType.Setter
         public Builder configured(Boolean configured) {
             this.configured = Objects.requireNonNull(configured);
             return this;
-        }        public GetLaunchTemplateHibernationOption build() {
-            return new GetLaunchTemplateHibernationOption(configured);
+        }
+        public GetLaunchTemplateHibernationOption build() {
+            final var o = new GetLaunchTemplateHibernationOption();
+            o.configured = configured;
+            return o;
         }
     }
 }

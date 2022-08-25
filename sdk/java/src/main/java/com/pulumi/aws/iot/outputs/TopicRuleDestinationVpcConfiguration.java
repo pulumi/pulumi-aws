@@ -15,35 +15,24 @@ public final class TopicRuleDestinationVpcConfiguration {
      * @return The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The security groups of the VPC destination.
      * 
      */
-    private final @Nullable List<String> securityGroups;
+    private @Nullable List<String> securityGroups;
     /**
      * @return The subnet IDs of the VPC destination.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return The ID of the VPC.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private TopicRuleDestinationVpcConfiguration(
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("securityGroups") @Nullable List<String> securityGroups,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.roleArn = roleArn;
-        this.securityGroups = securityGroups;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private TopicRuleDestinationVpcConfiguration() {}
     /**
      * @return The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
      * 
@@ -80,17 +69,13 @@ public final class TopicRuleDestinationVpcConfiguration {
     public static Builder builder(TopicRuleDestinationVpcConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String roleArn;
         private @Nullable List<String> securityGroups;
         private List<String> subnetIds;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleDestinationVpcConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.roleArn = defaults.roleArn;
@@ -99,10 +84,12 @@ public final class TopicRuleDestinationVpcConfiguration {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
             this.securityGroups = securityGroups;
             return this;
@@ -110,6 +97,7 @@ public final class TopicRuleDestinationVpcConfiguration {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -117,11 +105,18 @@ public final class TopicRuleDestinationVpcConfiguration {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public TopicRuleDestinationVpcConfiguration build() {
-            return new TopicRuleDestinationVpcConfiguration(roleArn, securityGroups, subnetIds, vpcId);
+        }
+        public TopicRuleDestinationVpcConfiguration build() {
+            final var o = new TopicRuleDestinationVpcConfiguration();
+            o.roleArn = roleArn;
+            o.securityGroups = securityGroups;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

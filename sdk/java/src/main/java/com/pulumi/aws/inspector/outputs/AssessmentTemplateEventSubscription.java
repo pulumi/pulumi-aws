@@ -13,21 +13,14 @@ public final class AssessmentTemplateEventSubscription {
      * @return The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
      * 
      */
-    private final String event;
+    private String event;
     /**
      * @return The ARN of the SNS topic to which notifications are sent.
      * 
      */
-    private final String topicArn;
+    private String topicArn;
 
-    @CustomType.Constructor
-    private AssessmentTemplateEventSubscription(
-        @CustomType.Parameter("event") String event,
-        @CustomType.Parameter("topicArn") String topicArn) {
-        this.event = event;
-        this.topicArn = topicArn;
-    }
-
+    private AssessmentTemplateEventSubscription() {}
     /**
      * @return The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
      * 
@@ -50,30 +43,32 @@ public final class AssessmentTemplateEventSubscription {
     public static Builder builder(AssessmentTemplateEventSubscription defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String event;
         private String topicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AssessmentTemplateEventSubscription defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.event = defaults.event;
     	      this.topicArn = defaults.topicArn;
         }
 
+        @CustomType.Setter
         public Builder event(String event) {
             this.event = Objects.requireNonNull(event);
             return this;
         }
+        @CustomType.Setter
         public Builder topicArn(String topicArn) {
             this.topicArn = Objects.requireNonNull(topicArn);
             return this;
-        }        public AssessmentTemplateEventSubscription build() {
-            return new AssessmentTemplateEventSubscription(event, topicArn);
+        }
+        public AssessmentTemplateEventSubscription build() {
+            final var o = new AssessmentTemplateEventSubscription();
+            o.event = event;
+            o.topicArn = topicArn;
+            return o;
         }
     }
 }

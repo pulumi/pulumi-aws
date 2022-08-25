@@ -16,21 +16,14 @@ public final class TableTtl {
      * @return Name of the table attribute to store the TTL timestamp in.
      * 
      */
-    private final String attributeName;
+    private String attributeName;
     /**
      * @return Whether TTL is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private TableTtl(
-        @CustomType.Parameter("attributeName") String attributeName,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.attributeName = attributeName;
-        this.enabled = enabled;
-    }
-
+    private TableTtl() {}
     /**
      * @return Name of the table attribute to store the TTL timestamp in.
      * 
@@ -53,30 +46,32 @@ public final class TableTtl {
     public static Builder builder(TableTtl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String attributeName;
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableTtl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attributeName = defaults.attributeName;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder attributeName(String attributeName) {
             this.attributeName = Objects.requireNonNull(attributeName);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public TableTtl build() {
-            return new TableTtl(attributeName, enabled);
+        }
+        public TableTtl build() {
+            final var o = new TableTtl();
+            o.attributeName = attributeName;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

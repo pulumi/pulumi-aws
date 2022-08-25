@@ -15,28 +15,19 @@ public final class TopicRuleKinesis {
      * @return The partition key.
      * 
      */
-    private final @Nullable String partitionKey;
+    private @Nullable String partitionKey;
     /**
      * @return The ARN of the IAM role that grants access to the Amazon Kinesis stream.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The name of the Amazon Kinesis stream.
      * 
      */
-    private final String streamName;
+    private String streamName;
 
-    @CustomType.Constructor
-    private TopicRuleKinesis(
-        @CustomType.Parameter("partitionKey") @Nullable String partitionKey,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("streamName") String streamName) {
-        this.partitionKey = partitionKey;
-        this.roleArn = roleArn;
-        this.streamName = streamName;
-    }
-
+    private TopicRuleKinesis() {}
     /**
      * @return The partition key.
      * 
@@ -66,16 +57,12 @@ public final class TopicRuleKinesis {
     public static Builder builder(TopicRuleKinesis defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String partitionKey;
         private String roleArn;
         private String streamName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleKinesis defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.partitionKey = defaults.partitionKey;
@@ -83,19 +70,27 @@ public final class TopicRuleKinesis {
     	      this.streamName = defaults.streamName;
         }
 
+        @CustomType.Setter
         public Builder partitionKey(@Nullable String partitionKey) {
             this.partitionKey = partitionKey;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder streamName(String streamName) {
             this.streamName = Objects.requireNonNull(streamName);
             return this;
-        }        public TopicRuleKinesis build() {
-            return new TopicRuleKinesis(partitionKey, roleArn, streamName);
+        }
+        public TopicRuleKinesis build() {
+            final var o = new TopicRuleKinesis();
+            o.partitionKey = partitionKey;
+            o.roleArn = roleArn;
+            o.streamName = streamName;
+            return o;
         }
     }
 }

@@ -14,13 +14,9 @@ public final class VirtualRouterSpec {
      * Currently only one listener is supported per virtual router.
      * 
      */
-    private final VirtualRouterSpecListener listener;
+    private VirtualRouterSpecListener listener;
 
-    @CustomType.Constructor
-    private VirtualRouterSpec(@CustomType.Parameter("listener") VirtualRouterSpecListener listener) {
-        this.listener = listener;
-    }
-
+    private VirtualRouterSpec() {}
     /**
      * @return The listeners that the virtual router is expected to receive inbound traffic from.
      * Currently only one listener is supported per virtual router.
@@ -37,24 +33,24 @@ public final class VirtualRouterSpec {
     public static Builder builder(VirtualRouterSpec defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualRouterSpecListener listener;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualRouterSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.listener = defaults.listener;
         }
 
+        @CustomType.Setter
         public Builder listener(VirtualRouterSpecListener listener) {
             this.listener = Objects.requireNonNull(listener);
             return this;
-        }        public VirtualRouterSpec build() {
-            return new VirtualRouterSpec(listener);
+        }
+        public VirtualRouterSpec build() {
+            final var o = new VirtualRouterSpec();
+            o.listener = listener;
+            return o;
         }
     }
 }

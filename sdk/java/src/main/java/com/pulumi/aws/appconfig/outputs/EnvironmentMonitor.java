@@ -15,21 +15,14 @@ public final class EnvironmentMonitor {
      * @return ARN of the Amazon CloudWatch alarm.
      * 
      */
-    private final String alarmArn;
+    private String alarmArn;
     /**
      * @return ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
      * 
      */
-    private final @Nullable String alarmRoleArn;
+    private @Nullable String alarmRoleArn;
 
-    @CustomType.Constructor
-    private EnvironmentMonitor(
-        @CustomType.Parameter("alarmArn") String alarmArn,
-        @CustomType.Parameter("alarmRoleArn") @Nullable String alarmRoleArn) {
-        this.alarmArn = alarmArn;
-        this.alarmRoleArn = alarmRoleArn;
-    }
-
+    private EnvironmentMonitor() {}
     /**
      * @return ARN of the Amazon CloudWatch alarm.
      * 
@@ -52,30 +45,32 @@ public final class EnvironmentMonitor {
     public static Builder builder(EnvironmentMonitor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String alarmArn;
         private @Nullable String alarmRoleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EnvironmentMonitor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alarmArn = defaults.alarmArn;
     	      this.alarmRoleArn = defaults.alarmRoleArn;
         }
 
+        @CustomType.Setter
         public Builder alarmArn(String alarmArn) {
             this.alarmArn = Objects.requireNonNull(alarmArn);
             return this;
         }
+        @CustomType.Setter
         public Builder alarmRoleArn(@Nullable String alarmRoleArn) {
             this.alarmRoleArn = alarmRoleArn;
             return this;
-        }        public EnvironmentMonitor build() {
-            return new EnvironmentMonitor(alarmArn, alarmRoleArn);
+        }
+        public EnvironmentMonitor build() {
+            final var o = new EnvironmentMonitor();
+            o.alarmArn = alarmArn;
+            o.alarmRoleArn = alarmRoleArn;
+            return o;
         }
     }
 }

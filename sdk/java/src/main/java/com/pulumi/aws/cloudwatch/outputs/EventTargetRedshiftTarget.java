@@ -16,49 +16,34 @@ public final class EventTargetRedshiftTarget {
      * @return The name of the database.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The database user name.
      * 
      */
-    private final @Nullable String dbUser;
+    private @Nullable String dbUser;
     /**
      * @return The name or ARN of the secret that enables access to the database.
      * 
      */
-    private final @Nullable String secretsManagerArn;
+    private @Nullable String secretsManagerArn;
     /**
      * @return The SQL statement text to run.
      * 
      */
-    private final @Nullable String sql;
+    private @Nullable String sql;
     /**
      * @return The name of the SQL statement.
      * 
      */
-    private final @Nullable String statementName;
+    private @Nullable String statementName;
     /**
      * @return Indicates whether to send an event back to EventBridge after the SQL statement runs.
      * 
      */
-    private final @Nullable Boolean withEvent;
+    private @Nullable Boolean withEvent;
 
-    @CustomType.Constructor
-    private EventTargetRedshiftTarget(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("dbUser") @Nullable String dbUser,
-        @CustomType.Parameter("secretsManagerArn") @Nullable String secretsManagerArn,
-        @CustomType.Parameter("sql") @Nullable String sql,
-        @CustomType.Parameter("statementName") @Nullable String statementName,
-        @CustomType.Parameter("withEvent") @Nullable Boolean withEvent) {
-        this.database = database;
-        this.dbUser = dbUser;
-        this.secretsManagerArn = secretsManagerArn;
-        this.sql = sql;
-        this.statementName = statementName;
-        this.withEvent = withEvent;
-    }
-
+    private EventTargetRedshiftTarget() {}
     /**
      * @return The name of the database.
      * 
@@ -109,7 +94,7 @@ public final class EventTargetRedshiftTarget {
     public static Builder builder(EventTargetRedshiftTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private @Nullable String dbUser;
@@ -117,11 +102,7 @@ public final class EventTargetRedshiftTarget {
         private @Nullable String sql;
         private @Nullable String statementName;
         private @Nullable Boolean withEvent;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventTargetRedshiftTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -132,31 +113,45 @@ public final class EventTargetRedshiftTarget {
     	      this.withEvent = defaults.withEvent;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder dbUser(@Nullable String dbUser) {
             this.dbUser = dbUser;
             return this;
         }
+        @CustomType.Setter
         public Builder secretsManagerArn(@Nullable String secretsManagerArn) {
             this.secretsManagerArn = secretsManagerArn;
             return this;
         }
+        @CustomType.Setter
         public Builder sql(@Nullable String sql) {
             this.sql = sql;
             return this;
         }
+        @CustomType.Setter
         public Builder statementName(@Nullable String statementName) {
             this.statementName = statementName;
             return this;
         }
+        @CustomType.Setter
         public Builder withEvent(@Nullable Boolean withEvent) {
             this.withEvent = withEvent;
             return this;
-        }        public EventTargetRedshiftTarget build() {
-            return new EventTargetRedshiftTarget(database, dbUser, secretsManagerArn, sql, statementName, withEvent);
+        }
+        public EventTargetRedshiftTarget build() {
+            final var o = new EventTargetRedshiftTarget();
+            o.database = database;
+            o.dbUser = dbUser;
+            o.secretsManagerArn = secretsManagerArn;
+            o.sql = sql;
+            o.statementName = statementName;
+            o.withEvent = withEvent;
+            return o;
         }
     }
 }

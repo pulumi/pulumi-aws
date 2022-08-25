@@ -15,21 +15,14 @@ public final class GetHostedZoneResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The region of the hosted zone.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
 
-    @CustomType.Constructor
-    private GetHostedZoneResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("region") @Nullable String region) {
-        this.id = id;
-        this.region = region;
-    }
-
+    private GetHostedZoneResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -52,30 +45,32 @@ public final class GetHostedZoneResult {
     public static Builder builder(GetHostedZoneResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetHostedZoneResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
-        }        public GetHostedZoneResult build() {
-            return new GetHostedZoneResult(id, region);
+        }
+        public GetHostedZoneResult build() {
+            final var o = new GetHostedZoneResult();
+            o.id = id;
+            o.region = region;
+            return o;
         }
     }
 }

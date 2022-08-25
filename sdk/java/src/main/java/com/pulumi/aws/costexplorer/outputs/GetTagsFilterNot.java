@@ -17,28 +17,19 @@ public final class GetTagsFilterNot {
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
      */
-    private final @Nullable GetTagsFilterNotCostCategory costCategory;
+    private @Nullable GetTagsFilterNotCostCategory costCategory;
     /**
      * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
-    private final @Nullable GetTagsFilterNotDimension dimension;
+    private @Nullable GetTagsFilterNotDimension dimension;
     /**
      * @return Tags that match your request.
      * 
      */
-    private final @Nullable GetTagsFilterNotTags tags;
+    private @Nullable GetTagsFilterNotTags tags;
 
-    @CustomType.Constructor
-    private GetTagsFilterNot(
-        @CustomType.Parameter("costCategory") @Nullable GetTagsFilterNotCostCategory costCategory,
-        @CustomType.Parameter("dimension") @Nullable GetTagsFilterNotDimension dimension,
-        @CustomType.Parameter("tags") @Nullable GetTagsFilterNotTags tags) {
-        this.costCategory = costCategory;
-        this.dimension = dimension;
-        this.tags = tags;
-    }
-
+    private GetTagsFilterNot() {}
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
@@ -68,16 +59,12 @@ public final class GetTagsFilterNot {
     public static Builder builder(GetTagsFilterNot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GetTagsFilterNotCostCategory costCategory;
         private @Nullable GetTagsFilterNotDimension dimension;
         private @Nullable GetTagsFilterNotTags tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTagsFilterNot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.costCategory = defaults.costCategory;
@@ -85,19 +72,27 @@ public final class GetTagsFilterNot {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder costCategory(@Nullable GetTagsFilterNotCostCategory costCategory) {
             this.costCategory = costCategory;
             return this;
         }
+        @CustomType.Setter
         public Builder dimension(@Nullable GetTagsFilterNotDimension dimension) {
             this.dimension = dimension;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable GetTagsFilterNotTags tags) {
             this.tags = tags;
             return this;
-        }        public GetTagsFilterNot build() {
-            return new GetTagsFilterNot(costCategory, dimension, tags);
+        }
+        public GetTagsFilterNot build() {
+            final var o = new GetTagsFilterNot();
+            o.costCategory = costCategory;
+            o.dimension = dimension;
+            o.tags = tags;
+            return o;
         }
     }
 }

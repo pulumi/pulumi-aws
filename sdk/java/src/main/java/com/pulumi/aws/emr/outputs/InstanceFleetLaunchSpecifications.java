@@ -16,21 +16,14 @@ public final class InstanceFleetLaunchSpecifications {
      * @return Configuration block for on demand instances launch specifications
      * 
      */
-    private final @Nullable List<InstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications;
+    private @Nullable List<InstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications;
     /**
      * @return Configuration block for spot instances launch specifications
      * 
      */
-    private final @Nullable List<InstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications;
+    private @Nullable List<InstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications;
 
-    @CustomType.Constructor
-    private InstanceFleetLaunchSpecifications(
-        @CustomType.Parameter("onDemandSpecifications") @Nullable List<InstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications,
-        @CustomType.Parameter("spotSpecifications") @Nullable List<InstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications) {
-        this.onDemandSpecifications = onDemandSpecifications;
-        this.spotSpecifications = spotSpecifications;
-    }
-
+    private InstanceFleetLaunchSpecifications() {}
     /**
      * @return Configuration block for on demand instances launch specifications
      * 
@@ -53,21 +46,18 @@ public final class InstanceFleetLaunchSpecifications {
     public static Builder builder(InstanceFleetLaunchSpecifications defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<InstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications;
         private @Nullable List<InstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceFleetLaunchSpecifications defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.onDemandSpecifications = defaults.onDemandSpecifications;
     	      this.spotSpecifications = defaults.spotSpecifications;
         }
 
+        @CustomType.Setter
         public Builder onDemandSpecifications(@Nullable List<InstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications) {
             this.onDemandSpecifications = onDemandSpecifications;
             return this;
@@ -75,14 +65,19 @@ public final class InstanceFleetLaunchSpecifications {
         public Builder onDemandSpecifications(InstanceFleetLaunchSpecificationsOnDemandSpecification... onDemandSpecifications) {
             return onDemandSpecifications(List.of(onDemandSpecifications));
         }
+        @CustomType.Setter
         public Builder spotSpecifications(@Nullable List<InstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications) {
             this.spotSpecifications = spotSpecifications;
             return this;
         }
         public Builder spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecification... spotSpecifications) {
             return spotSpecifications(List.of(spotSpecifications));
-        }        public InstanceFleetLaunchSpecifications build() {
-            return new InstanceFleetLaunchSpecifications(onDemandSpecifications, spotSpecifications);
+        }
+        public InstanceFleetLaunchSpecifications build() {
+            final var o = new InstanceFleetLaunchSpecifications();
+            o.onDemandSpecifications = onDemandSpecifications;
+            o.spotSpecifications = spotSpecifications;
+            return o;
         }
     }
 }

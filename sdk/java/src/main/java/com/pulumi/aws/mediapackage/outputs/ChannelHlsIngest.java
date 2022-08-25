@@ -15,13 +15,9 @@ public final class ChannelHlsIngest {
      * @return A list of the ingest endpoints
      * 
      */
-    private final @Nullable List<ChannelHlsIngestIngestEndpoint> ingestEndpoints;
+    private @Nullable List<ChannelHlsIngestIngestEndpoint> ingestEndpoints;
 
-    @CustomType.Constructor
-    private ChannelHlsIngest(@CustomType.Parameter("ingestEndpoints") @Nullable List<ChannelHlsIngestIngestEndpoint> ingestEndpoints) {
-        this.ingestEndpoints = ingestEndpoints;
-    }
-
+    private ChannelHlsIngest() {}
     /**
      * @return A list of the ingest endpoints
      * 
@@ -37,27 +33,27 @@ public final class ChannelHlsIngest {
     public static Builder builder(ChannelHlsIngest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ChannelHlsIngestIngestEndpoint> ingestEndpoints;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ChannelHlsIngest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ingestEndpoints = defaults.ingestEndpoints;
         }
 
+        @CustomType.Setter
         public Builder ingestEndpoints(@Nullable List<ChannelHlsIngestIngestEndpoint> ingestEndpoints) {
             this.ingestEndpoints = ingestEndpoints;
             return this;
         }
         public Builder ingestEndpoints(ChannelHlsIngestIngestEndpoint... ingestEndpoints) {
             return ingestEndpoints(List.of(ingestEndpoints));
-        }        public ChannelHlsIngest build() {
-            return new ChannelHlsIngest(ingestEndpoints);
+        }
+        public ChannelHlsIngest build() {
+            final var o = new ChannelHlsIngest();
+            o.ingestEndpoints = ingestEndpoints;
+            return o;
         }
     }
 }

@@ -14,56 +14,39 @@ public final class GetUserResult {
      * @return The Amazon Resource Name (ARN) assigned by AWS for this user.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Path in which this user was created.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return The ARN of the policy that is used to set the permissions boundary for the user.
      * 
      */
-    private final String permissionsBoundary;
+    private String permissionsBoundary;
     /**
      * @return Map of key-value pairs associated with the user.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The unique ID assigned by AWS for this user.
      * 
      */
-    private final String userId;
+    private String userId;
     /**
      * @return The name associated to this User
      * 
      */
-    private final String userName;
+    private String userName;
 
-    @CustomType.Constructor
-    private GetUserResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("permissionsBoundary") String permissionsBoundary,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("userId") String userId,
-        @CustomType.Parameter("userName") String userName) {
-        this.arn = arn;
-        this.id = id;
-        this.path = path;
-        this.permissionsBoundary = permissionsBoundary;
-        this.tags = tags;
-        this.userId = userId;
-        this.userName = userName;
-    }
-
+    private GetUserResult() {}
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS for this user.
      * 
@@ -121,7 +104,7 @@ public final class GetUserResult {
     public static Builder builder(GetUserResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
@@ -130,11 +113,7 @@ public final class GetUserResult {
         private Map<String,String> tags;
         private String userId;
         private String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -146,35 +125,51 @@ public final class GetUserResult {
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder permissionsBoundary(String permissionsBoundary) {
             this.permissionsBoundary = Objects.requireNonNull(permissionsBoundary);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder userId(String userId) {
             this.userId = Objects.requireNonNull(userId);
             return this;
         }
+        @CustomType.Setter
         public Builder userName(String userName) {
             this.userName = Objects.requireNonNull(userName);
             return this;
-        }        public GetUserResult build() {
-            return new GetUserResult(arn, id, path, permissionsBoundary, tags, userId, userName);
+        }
+        public GetUserResult build() {
+            final var o = new GetUserResult();
+            o.arn = arn;
+            o.id = id;
+            o.path = path;
+            o.permissionsBoundary = permissionsBoundary;
+            o.tags = tags;
+            o.userId = userId;
+            o.userName = userName;
+            return o;
         }
     }
 }

@@ -16,38 +16,25 @@ public final class DomainDomainEndpointOptions {
      * @return Fully qualified domain for your custom endpoint.
      * 
      */
-    private final @Nullable String customEndpoint;
+    private @Nullable String customEndpoint;
     /**
      * @return ACM certificate ARN for your custom endpoint.
      * 
      */
-    private final @Nullable String customEndpointCertificateArn;
+    private @Nullable String customEndpointCertificateArn;
     /**
      * @return Whether to enable custom endpoint for the Elasticsearch domain.
      * 
      */
-    private final @Nullable Boolean customEndpointEnabled;
+    private @Nullable Boolean customEndpointEnabled;
     /**
      * @return Whether or not to require HTTPS. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enforceHttps;
-    private final @Nullable String tlsSecurityPolicy;
+    private @Nullable Boolean enforceHttps;
+    private @Nullable String tlsSecurityPolicy;
 
-    @CustomType.Constructor
-    private DomainDomainEndpointOptions(
-        @CustomType.Parameter("customEndpoint") @Nullable String customEndpoint,
-        @CustomType.Parameter("customEndpointCertificateArn") @Nullable String customEndpointCertificateArn,
-        @CustomType.Parameter("customEndpointEnabled") @Nullable Boolean customEndpointEnabled,
-        @CustomType.Parameter("enforceHttps") @Nullable Boolean enforceHttps,
-        @CustomType.Parameter("tlsSecurityPolicy") @Nullable String tlsSecurityPolicy) {
-        this.customEndpoint = customEndpoint;
-        this.customEndpointCertificateArn = customEndpointCertificateArn;
-        this.customEndpointEnabled = customEndpointEnabled;
-        this.enforceHttps = enforceHttps;
-        this.tlsSecurityPolicy = tlsSecurityPolicy;
-    }
-
+    private DomainDomainEndpointOptions() {}
     /**
      * @return Fully qualified domain for your custom endpoint.
      * 
@@ -87,18 +74,14 @@ public final class DomainDomainEndpointOptions {
     public static Builder builder(DomainDomainEndpointOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String customEndpoint;
         private @Nullable String customEndpointCertificateArn;
         private @Nullable Boolean customEndpointEnabled;
         private @Nullable Boolean enforceHttps;
         private @Nullable String tlsSecurityPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainDomainEndpointOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customEndpoint = defaults.customEndpoint;
@@ -108,27 +91,39 @@ public final class DomainDomainEndpointOptions {
     	      this.tlsSecurityPolicy = defaults.tlsSecurityPolicy;
         }
 
+        @CustomType.Setter
         public Builder customEndpoint(@Nullable String customEndpoint) {
             this.customEndpoint = customEndpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder customEndpointCertificateArn(@Nullable String customEndpointCertificateArn) {
             this.customEndpointCertificateArn = customEndpointCertificateArn;
             return this;
         }
+        @CustomType.Setter
         public Builder customEndpointEnabled(@Nullable Boolean customEndpointEnabled) {
             this.customEndpointEnabled = customEndpointEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder enforceHttps(@Nullable Boolean enforceHttps) {
             this.enforceHttps = enforceHttps;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsSecurityPolicy(@Nullable String tlsSecurityPolicy) {
             this.tlsSecurityPolicy = tlsSecurityPolicy;
             return this;
-        }        public DomainDomainEndpointOptions build() {
-            return new DomainDomainEndpointOptions(customEndpoint, customEndpointCertificateArn, customEndpointEnabled, enforceHttps, tlsSecurityPolicy);
+        }
+        public DomainDomainEndpointOptions build() {
+            final var o = new DomainDomainEndpointOptions();
+            o.customEndpoint = customEndpoint;
+            o.customEndpointCertificateArn = customEndpointCertificateArn;
+            o.customEndpointEnabled = customEndpointEnabled;
+            o.enforceHttps = enforceHttps;
+            o.tlsSecurityPolicy = tlsSecurityPolicy;
+            return o;
         }
     }
 }

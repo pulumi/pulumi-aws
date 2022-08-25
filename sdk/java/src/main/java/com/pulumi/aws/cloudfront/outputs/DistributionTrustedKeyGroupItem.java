@@ -16,21 +16,14 @@ public final class DistributionTrustedKeyGroupItem {
      * @return The ID of the key group that contains the public keys
      * 
      */
-    private final @Nullable String keyGroupId;
+    private @Nullable String keyGroupId;
     /**
      * @return Set of active CloudFront key pairs associated with the signer account
      * 
      */
-    private final @Nullable List<String> keyPairIds;
+    private @Nullable List<String> keyPairIds;
 
-    @CustomType.Constructor
-    private DistributionTrustedKeyGroupItem(
-        @CustomType.Parameter("keyGroupId") @Nullable String keyGroupId,
-        @CustomType.Parameter("keyPairIds") @Nullable List<String> keyPairIds) {
-        this.keyGroupId = keyGroupId;
-        this.keyPairIds = keyPairIds;
-    }
-
+    private DistributionTrustedKeyGroupItem() {}
     /**
      * @return The ID of the key group that contains the public keys
      * 
@@ -53,33 +46,35 @@ public final class DistributionTrustedKeyGroupItem {
     public static Builder builder(DistributionTrustedKeyGroupItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String keyGroupId;
         private @Nullable List<String> keyPairIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionTrustedKeyGroupItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyGroupId = defaults.keyGroupId;
     	      this.keyPairIds = defaults.keyPairIds;
         }
 
+        @CustomType.Setter
         public Builder keyGroupId(@Nullable String keyGroupId) {
             this.keyGroupId = keyGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder keyPairIds(@Nullable List<String> keyPairIds) {
             this.keyPairIds = keyPairIds;
             return this;
         }
         public Builder keyPairIds(String... keyPairIds) {
             return keyPairIds(List.of(keyPairIds));
-        }        public DistributionTrustedKeyGroupItem build() {
-            return new DistributionTrustedKeyGroupItem(keyGroupId, keyPairIds);
+        }
+        public DistributionTrustedKeyGroupItem build() {
+            final var o = new DistributionTrustedKeyGroupItem();
+            o.keyGroupId = keyGroupId;
+            o.keyPairIds = keyPairIds;
+            return o;
         }
     }
 }

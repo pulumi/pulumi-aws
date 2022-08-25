@@ -16,59 +16,40 @@ public final class GetVirtualClusterResult {
      * @return The Amazon Resource Name (ARN) of the cluster.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
      * 
      */
-    private final List<GetVirtualClusterContainerProvider> containerProviders;
+    private List<GetVirtualClusterContainerProvider> containerProviders;
     /**
      * @return The Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
-    private final String createdAt;
+    private String createdAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the cluster.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      * 
      */
-    private final String state;
+    private String state;
     /**
      * @return Key-value mapping of resource tags.
      * 
      */
-    private final Map<String,String> tags;
-    private final String virtualClusterId;
+    private Map<String,String> tags;
+    private String virtualClusterId;
 
-    @CustomType.Constructor
-    private GetVirtualClusterResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("containerProviders") List<GetVirtualClusterContainerProvider> containerProviders,
-        @CustomType.Parameter("createdAt") String createdAt,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("virtualClusterId") String virtualClusterId) {
-        this.arn = arn;
-        this.containerProviders = containerProviders;
-        this.createdAt = createdAt;
-        this.id = id;
-        this.name = name;
-        this.state = state;
-        this.tags = tags;
-        this.virtualClusterId = virtualClusterId;
-    }
-
+    private GetVirtualClusterResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the cluster.
      * 
@@ -129,7 +110,7 @@ public final class GetVirtualClusterResult {
     public static Builder builder(GetVirtualClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetVirtualClusterContainerProvider> containerProviders;
@@ -139,11 +120,7 @@ public final class GetVirtualClusterResult {
         private String state;
         private Map<String,String> tags;
         private String virtualClusterId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -156,10 +133,12 @@ public final class GetVirtualClusterResult {
     	      this.virtualClusterId = defaults.virtualClusterId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder containerProviders(List<GetVirtualClusterContainerProvider> containerProviders) {
             this.containerProviders = Objects.requireNonNull(containerProviders);
             return this;
@@ -167,31 +146,47 @@ public final class GetVirtualClusterResult {
         public Builder containerProviders(GetVirtualClusterContainerProvider... containerProviders) {
             return containerProviders(List.of(containerProviders));
         }
+        @CustomType.Setter
         public Builder createdAt(String createdAt) {
             this.createdAt = Objects.requireNonNull(createdAt);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualClusterId(String virtualClusterId) {
             this.virtualClusterId = Objects.requireNonNull(virtualClusterId);
             return this;
-        }        public GetVirtualClusterResult build() {
-            return new GetVirtualClusterResult(arn, containerProviders, createdAt, id, name, state, tags, virtualClusterId);
+        }
+        public GetVirtualClusterResult build() {
+            final var o = new GetVirtualClusterResult();
+            o.arn = arn;
+            o.containerProviders = containerProviders;
+            o.createdAt = createdAt;
+            o.id = id;
+            o.name = name;
+            o.state = state;
+            o.tags = tags;
+            o.virtualClusterId = virtualClusterId;
+            return o;
         }
     }
 }

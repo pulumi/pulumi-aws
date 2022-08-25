@@ -17,49 +17,34 @@ public final class ClassifierCsvClassifier {
      * @return Enables the processing of files that contain only one column.
      * 
      */
-    private final @Nullable Boolean allowSingleColumn;
+    private @Nullable Boolean allowSingleColumn;
     /**
      * @return Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
      * 
      */
-    private final @Nullable String containsHeader;
+    private @Nullable String containsHeader;
     /**
      * @return The delimiter used in the Csv to separate columns.
      * 
      */
-    private final @Nullable String delimiter;
+    private @Nullable String delimiter;
     /**
      * @return Specifies whether to trim column values.
      * 
      */
-    private final @Nullable Boolean disableValueTrimming;
+    private @Nullable Boolean disableValueTrimming;
     /**
      * @return A list of strings representing column names.
      * 
      */
-    private final @Nullable List<String> headers;
+    private @Nullable List<String> headers;
     /**
      * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
      * 
      */
-    private final @Nullable String quoteSymbol;
+    private @Nullable String quoteSymbol;
 
-    @CustomType.Constructor
-    private ClassifierCsvClassifier(
-        @CustomType.Parameter("allowSingleColumn") @Nullable Boolean allowSingleColumn,
-        @CustomType.Parameter("containsHeader") @Nullable String containsHeader,
-        @CustomType.Parameter("delimiter") @Nullable String delimiter,
-        @CustomType.Parameter("disableValueTrimming") @Nullable Boolean disableValueTrimming,
-        @CustomType.Parameter("headers") @Nullable List<String> headers,
-        @CustomType.Parameter("quoteSymbol") @Nullable String quoteSymbol) {
-        this.allowSingleColumn = allowSingleColumn;
-        this.containsHeader = containsHeader;
-        this.delimiter = delimiter;
-        this.disableValueTrimming = disableValueTrimming;
-        this.headers = headers;
-        this.quoteSymbol = quoteSymbol;
-    }
-
+    private ClassifierCsvClassifier() {}
     /**
      * @return Enables the processing of files that contain only one column.
      * 
@@ -110,7 +95,7 @@ public final class ClassifierCsvClassifier {
     public static Builder builder(ClassifierCsvClassifier defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowSingleColumn;
         private @Nullable String containsHeader;
@@ -118,11 +103,7 @@ public final class ClassifierCsvClassifier {
         private @Nullable Boolean disableValueTrimming;
         private @Nullable List<String> headers;
         private @Nullable String quoteSymbol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassifierCsvClassifier defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowSingleColumn = defaults.allowSingleColumn;
@@ -133,22 +114,27 @@ public final class ClassifierCsvClassifier {
     	      this.quoteSymbol = defaults.quoteSymbol;
         }
 
+        @CustomType.Setter
         public Builder allowSingleColumn(@Nullable Boolean allowSingleColumn) {
             this.allowSingleColumn = allowSingleColumn;
             return this;
         }
+        @CustomType.Setter
         public Builder containsHeader(@Nullable String containsHeader) {
             this.containsHeader = containsHeader;
             return this;
         }
+        @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
             this.delimiter = delimiter;
             return this;
         }
+        @CustomType.Setter
         public Builder disableValueTrimming(@Nullable Boolean disableValueTrimming) {
             this.disableValueTrimming = disableValueTrimming;
             return this;
         }
+        @CustomType.Setter
         public Builder headers(@Nullable List<String> headers) {
             this.headers = headers;
             return this;
@@ -156,11 +142,20 @@ public final class ClassifierCsvClassifier {
         public Builder headers(String... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder quoteSymbol(@Nullable String quoteSymbol) {
             this.quoteSymbol = quoteSymbol;
             return this;
-        }        public ClassifierCsvClassifier build() {
-            return new ClassifierCsvClassifier(allowSingleColumn, containsHeader, delimiter, disableValueTrimming, headers, quoteSymbol);
+        }
+        public ClassifierCsvClassifier build() {
+            final var o = new ClassifierCsvClassifier();
+            o.allowSingleColumn = allowSingleColumn;
+            o.containsHeader = containsHeader;
+            o.delimiter = delimiter;
+            o.disableValueTrimming = disableValueTrimming;
+            o.headers = headers;
+            o.quoteSymbol = quoteSymbol;
+            return o;
         }
     }
 }

@@ -17,29 +17,20 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
      * @return The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
      * 
      */
-    private final @Nullable String targetDocumentAttributeKey;
+    private @Nullable String targetDocumentAttributeKey;
     /**
      * @return The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;.
      * See Document Attribute Value.
      * 
      */
-    private final @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue targetDocumentAttributeValue;
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue targetDocumentAttributeValue;
     /**
      * @return `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
      * 
      */
-    private final @Nullable Boolean targetDocumentAttributeValueDeletion;
+    private @Nullable Boolean targetDocumentAttributeValueDeletion;
 
-    @CustomType.Constructor
-    private DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget(
-        @CustomType.Parameter("targetDocumentAttributeKey") @Nullable String targetDocumentAttributeKey,
-        @CustomType.Parameter("targetDocumentAttributeValue") @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue targetDocumentAttributeValue,
-        @CustomType.Parameter("targetDocumentAttributeValueDeletion") @Nullable Boolean targetDocumentAttributeValueDeletion) {
-        this.targetDocumentAttributeKey = targetDocumentAttributeKey;
-        this.targetDocumentAttributeValue = targetDocumentAttributeValue;
-        this.targetDocumentAttributeValueDeletion = targetDocumentAttributeValueDeletion;
-    }
-
+    private DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget() {}
     /**
      * @return The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
      * 
@@ -70,16 +61,12 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     public static Builder builder(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String targetDocumentAttributeKey;
         private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue targetDocumentAttributeValue;
         private @Nullable Boolean targetDocumentAttributeValueDeletion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.targetDocumentAttributeKey = defaults.targetDocumentAttributeKey;
@@ -87,19 +74,27 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     	      this.targetDocumentAttributeValueDeletion = defaults.targetDocumentAttributeValueDeletion;
         }
 
+        @CustomType.Setter
         public Builder targetDocumentAttributeKey(@Nullable String targetDocumentAttributeKey) {
             this.targetDocumentAttributeKey = targetDocumentAttributeKey;
             return this;
         }
+        @CustomType.Setter
         public Builder targetDocumentAttributeValue(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue targetDocumentAttributeValue) {
             this.targetDocumentAttributeValue = targetDocumentAttributeValue;
             return this;
         }
+        @CustomType.Setter
         public Builder targetDocumentAttributeValueDeletion(@Nullable Boolean targetDocumentAttributeValueDeletion) {
             this.targetDocumentAttributeValueDeletion = targetDocumentAttributeValueDeletion;
             return this;
-        }        public DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget build() {
-            return new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget(targetDocumentAttributeKey, targetDocumentAttributeValue, targetDocumentAttributeValueDeletion);
+        }
+        public DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget build() {
+            final var o = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget();
+            o.targetDocumentAttributeKey = targetDocumentAttributeKey;
+            o.targetDocumentAttributeValue = targetDocumentAttributeValue;
+            o.targetDocumentAttributeValueDeletion = targetDocumentAttributeValueDeletion;
+            return o;
         }
     }
 }

@@ -16,22 +16,15 @@ public final class BucketReplicationConfigurationRuleFilter {
      * @return Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return A map of tags that identifies subset of objects to which the rule applies.
      * The rule applies only to objects having all the tags in its tagset.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigurationRuleFilter(
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.prefix = prefix;
-        this.tags = tags;
-    }
-
+    private BucketReplicationConfigurationRuleFilter() {}
     /**
      * @return Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
      * 
@@ -55,30 +48,32 @@ public final class BucketReplicationConfigurationRuleFilter {
     public static Builder builder(BucketReplicationConfigurationRuleFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String prefix;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigurationRuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prefix = defaults.prefix;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public BucketReplicationConfigurationRuleFilter build() {
-            return new BucketReplicationConfigurationRuleFilter(prefix, tags);
+        }
+        public BucketReplicationConfigurationRuleFilter build() {
+            final var o = new BucketReplicationConfigurationRuleFilter();
+            o.prefix = prefix;
+            o.tags = tags;
+            return o;
         }
     }
 }

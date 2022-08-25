@@ -14,13 +14,9 @@ public final class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeName
      * @return The values sent must match the specified values exactly.
      * 
      */
-    private final List<String> exacts;
+    private List<String> exacts;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(@CustomType.Parameter("exacts") List<String> exacts) {
-        this.exacts = exacts;
-    }
-
+    private VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch() {}
     /**
      * @return The values sent must match the specified values exactly.
      * 
@@ -36,27 +32,27 @@ public final class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeName
     public static Builder builder(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> exacts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exacts = defaults.exacts;
         }
 
+        @CustomType.Setter
         public Builder exacts(List<String> exacts) {
             this.exacts = Objects.requireNonNull(exacts);
             return this;
         }
         public Builder exacts(String... exacts) {
             return exacts(List.of(exacts));
-        }        public VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch build() {
-            return new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(exacts);
+        }
+        public VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch build() {
+            final var o = new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch();
+            o.exacts = exacts;
+            return o;
         }
     }
 }

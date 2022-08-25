@@ -15,21 +15,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
      * @return The unique name of the Amazon Connect Customer Profiles domain.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return The object specified in the Amazon Connect Customer Profiles flow destination.
      * 
      */
-    private final @Nullable String objectTypeName;
+    private @Nullable String objectTypeName;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles(
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("objectTypeName") @Nullable String objectTypeName) {
-        this.domainName = domainName;
-        this.objectTypeName = objectTypeName;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles() {}
     /**
      * @return The unique name of the Amazon Connect Customer Profiles domain.
      * 
@@ -52,30 +45,32 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domainName;
         private @Nullable String objectTypeName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainName = defaults.domainName;
     	      this.objectTypeName = defaults.objectTypeName;
         }
 
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder objectTypeName(@Nullable String objectTypeName) {
             this.objectTypeName = objectTypeName;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles(domainName, objectTypeName);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles();
+            o.domainName = domainName;
+            o.objectTypeName = objectTypeName;
+            return o;
         }
     }
 }

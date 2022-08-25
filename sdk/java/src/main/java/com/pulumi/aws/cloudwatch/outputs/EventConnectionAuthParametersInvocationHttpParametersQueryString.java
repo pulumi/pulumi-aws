@@ -16,28 +16,19 @@ public final class EventConnectionAuthParametersInvocationHttpParametersQueryStr
      * @return Specified whether the value is secret.
      * 
      */
-    private final @Nullable Boolean isValueSecret;
+    private @Nullable Boolean isValueSecret;
     /**
      * @return Header Name.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return Header Value. Created and stored in AWS Secrets Manager.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private EventConnectionAuthParametersInvocationHttpParametersQueryString(
-        @CustomType.Parameter("isValueSecret") @Nullable Boolean isValueSecret,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.isValueSecret = isValueSecret;
-        this.key = key;
-        this.value = value;
-    }
-
+    private EventConnectionAuthParametersInvocationHttpParametersQueryString() {}
     /**
      * @return Specified whether the value is secret.
      * 
@@ -67,16 +58,12 @@ public final class EventConnectionAuthParametersInvocationHttpParametersQueryStr
     public static Builder builder(EventConnectionAuthParametersInvocationHttpParametersQueryString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean isValueSecret;
         private @Nullable String key;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventConnectionAuthParametersInvocationHttpParametersQueryString defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.isValueSecret = defaults.isValueSecret;
@@ -84,19 +71,27 @@ public final class EventConnectionAuthParametersInvocationHttpParametersQueryStr
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder isValueSecret(@Nullable Boolean isValueSecret) {
             this.isValueSecret = isValueSecret;
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public EventConnectionAuthParametersInvocationHttpParametersQueryString build() {
-            return new EventConnectionAuthParametersInvocationHttpParametersQueryString(isValueSecret, key, value);
+        }
+        public EventConnectionAuthParametersInvocationHttpParametersQueryString build() {
+            final var o = new EventConnectionAuthParametersInvocationHttpParametersQueryString();
+            o.isValueSecret = isValueSecret;
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

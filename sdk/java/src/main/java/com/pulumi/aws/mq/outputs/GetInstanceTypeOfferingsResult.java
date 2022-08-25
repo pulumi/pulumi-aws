@@ -17,42 +17,29 @@ public final class GetInstanceTypeOfferingsResult {
      * @return Option for host instance type. See Broker Instance Options below.
      * 
      */
-    private final List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions;
+    private List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions;
     /**
      * @return The broker&#39;s engine type.
      * 
      */
-    private final @Nullable String engineType;
+    private @Nullable String engineType;
     /**
      * @return The broker&#39;s instance type.
      * 
      */
-    private final @Nullable String hostInstanceType;
+    private @Nullable String hostInstanceType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The broker&#39;s storage type.
      * 
      */
-    private final @Nullable String storageType;
+    private @Nullable String storageType;
 
-    @CustomType.Constructor
-    private GetInstanceTypeOfferingsResult(
-        @CustomType.Parameter("brokerInstanceOptions") List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions,
-        @CustomType.Parameter("engineType") @Nullable String engineType,
-        @CustomType.Parameter("hostInstanceType") @Nullable String hostInstanceType,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("storageType") @Nullable String storageType) {
-        this.brokerInstanceOptions = brokerInstanceOptions;
-        this.engineType = engineType;
-        this.hostInstanceType = hostInstanceType;
-        this.id = id;
-        this.storageType = storageType;
-    }
-
+    private GetInstanceTypeOfferingsResult() {}
     /**
      * @return Option for host instance type. See Broker Instance Options below.
      * 
@@ -96,18 +83,14 @@ public final class GetInstanceTypeOfferingsResult {
     public static Builder builder(GetInstanceTypeOfferingsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions;
         private @Nullable String engineType;
         private @Nullable String hostInstanceType;
         private String id;
         private @Nullable String storageType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypeOfferingsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.brokerInstanceOptions = defaults.brokerInstanceOptions;
@@ -117,6 +100,7 @@ public final class GetInstanceTypeOfferingsResult {
     	      this.storageType = defaults.storageType;
         }
 
+        @CustomType.Setter
         public Builder brokerInstanceOptions(List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions) {
             this.brokerInstanceOptions = Objects.requireNonNull(brokerInstanceOptions);
             return this;
@@ -124,23 +108,34 @@ public final class GetInstanceTypeOfferingsResult {
         public Builder brokerInstanceOptions(GetInstanceTypeOfferingsBrokerInstanceOption... brokerInstanceOptions) {
             return brokerInstanceOptions(List.of(brokerInstanceOptions));
         }
+        @CustomType.Setter
         public Builder engineType(@Nullable String engineType) {
             this.engineType = engineType;
             return this;
         }
+        @CustomType.Setter
         public Builder hostInstanceType(@Nullable String hostInstanceType) {
             this.hostInstanceType = hostInstanceType;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder storageType(@Nullable String storageType) {
             this.storageType = storageType;
             return this;
-        }        public GetInstanceTypeOfferingsResult build() {
-            return new GetInstanceTypeOfferingsResult(brokerInstanceOptions, engineType, hostInstanceType, id, storageType);
+        }
+        public GetInstanceTypeOfferingsResult build() {
+            final var o = new GetInstanceTypeOfferingsResult();
+            o.brokerInstanceOptions = brokerInstanceOptions;
+            o.engineType = engineType;
+            o.hostInstanceType = hostInstanceType;
+            o.id = id;
+            o.storageType = storageType;
+            return o;
         }
     }
 }

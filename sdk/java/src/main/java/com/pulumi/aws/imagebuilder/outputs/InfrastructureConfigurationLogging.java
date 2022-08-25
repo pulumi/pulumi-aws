@@ -13,13 +13,9 @@ public final class InfrastructureConfigurationLogging {
      * @return Configuration block with S3 logging settings. Detailed below.
      * 
      */
-    private final InfrastructureConfigurationLoggingS3Logs s3Logs;
+    private InfrastructureConfigurationLoggingS3Logs s3Logs;
 
-    @CustomType.Constructor
-    private InfrastructureConfigurationLogging(@CustomType.Parameter("s3Logs") InfrastructureConfigurationLoggingS3Logs s3Logs) {
-        this.s3Logs = s3Logs;
-    }
-
+    private InfrastructureConfigurationLogging() {}
     /**
      * @return Configuration block with S3 logging settings. Detailed below.
      * 
@@ -35,24 +31,24 @@ public final class InfrastructureConfigurationLogging {
     public static Builder builder(InfrastructureConfigurationLogging defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private InfrastructureConfigurationLoggingS3Logs s3Logs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InfrastructureConfigurationLogging defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Logs = defaults.s3Logs;
         }
 
+        @CustomType.Setter
         public Builder s3Logs(InfrastructureConfigurationLoggingS3Logs s3Logs) {
             this.s3Logs = Objects.requireNonNull(s3Logs);
             return this;
-        }        public InfrastructureConfigurationLogging build() {
-            return new InfrastructureConfigurationLogging(s3Logs);
+        }
+        public InfrastructureConfigurationLogging build() {
+            final var o = new InfrastructureConfigurationLogging();
+            o.s3Logs = s3Logs;
+            return o;
         }
     }
 }

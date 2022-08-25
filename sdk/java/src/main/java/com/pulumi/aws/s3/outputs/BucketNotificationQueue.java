@@ -16,42 +16,29 @@ public final class BucketNotificationQueue {
      * @return [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
      * 
      */
-    private final List<String> events;
+    private List<String> events;
     /**
      * @return Object key name prefix.
      * 
      */
-    private final @Nullable String filterPrefix;
+    private @Nullable String filterPrefix;
     /**
      * @return Object key name suffix.
      * 
      */
-    private final @Nullable String filterSuffix;
+    private @Nullable String filterSuffix;
     /**
      * @return Unique identifier for each of the notification configurations.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return SQS queue ARN.
      * 
      */
-    private final String queueArn;
+    private String queueArn;
 
-    @CustomType.Constructor
-    private BucketNotificationQueue(
-        @CustomType.Parameter("events") List<String> events,
-        @CustomType.Parameter("filterPrefix") @Nullable String filterPrefix,
-        @CustomType.Parameter("filterSuffix") @Nullable String filterSuffix,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("queueArn") String queueArn) {
-        this.events = events;
-        this.filterPrefix = filterPrefix;
-        this.filterSuffix = filterSuffix;
-        this.id = id;
-        this.queueArn = queueArn;
-    }
-
+    private BucketNotificationQueue() {}
     /**
      * @return [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
      * 
@@ -95,18 +82,14 @@ public final class BucketNotificationQueue {
     public static Builder builder(BucketNotificationQueue defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> events;
         private @Nullable String filterPrefix;
         private @Nullable String filterSuffix;
         private @Nullable String id;
         private String queueArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketNotificationQueue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.events = defaults.events;
@@ -116,6 +99,7 @@ public final class BucketNotificationQueue {
     	      this.queueArn = defaults.queueArn;
         }
 
+        @CustomType.Setter
         public Builder events(List<String> events) {
             this.events = Objects.requireNonNull(events);
             return this;
@@ -123,23 +107,34 @@ public final class BucketNotificationQueue {
         public Builder events(String... events) {
             return events(List.of(events));
         }
+        @CustomType.Setter
         public Builder filterPrefix(@Nullable String filterPrefix) {
             this.filterPrefix = filterPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder filterSuffix(@Nullable String filterSuffix) {
             this.filterSuffix = filterSuffix;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder queueArn(String queueArn) {
             this.queueArn = Objects.requireNonNull(queueArn);
             return this;
-        }        public BucketNotificationQueue build() {
-            return new BucketNotificationQueue(events, filterPrefix, filterSuffix, id, queueArn);
+        }
+        public BucketNotificationQueue build() {
+            final var o = new BucketNotificationQueue();
+            o.events = events;
+            o.filterPrefix = filterPrefix;
+            o.filterSuffix = filterSuffix;
+            o.id = id;
+            o.queueArn = queueArn;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class BucketAclV2AccessControlPolicy {
      * @return Set of `grant` configuration blocks documented below.
      * 
      */
-    private final @Nullable List<BucketAclV2AccessControlPolicyGrant> grants;
+    private @Nullable List<BucketAclV2AccessControlPolicyGrant> grants;
     /**
      * @return Configuration block of the bucket owner&#39;s display name and ID documented below.
      * 
      */
-    private final BucketAclV2AccessControlPolicyOwner owner;
+    private BucketAclV2AccessControlPolicyOwner owner;
 
-    @CustomType.Constructor
-    private BucketAclV2AccessControlPolicy(
-        @CustomType.Parameter("grants") @Nullable List<BucketAclV2AccessControlPolicyGrant> grants,
-        @CustomType.Parameter("owner") BucketAclV2AccessControlPolicyOwner owner) {
-        this.grants = grants;
-        this.owner = owner;
-    }
-
+    private BucketAclV2AccessControlPolicy() {}
     /**
      * @return Set of `grant` configuration blocks documented below.
      * 
@@ -53,21 +46,18 @@ public final class BucketAclV2AccessControlPolicy {
     public static Builder builder(BucketAclV2AccessControlPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<BucketAclV2AccessControlPolicyGrant> grants;
         private BucketAclV2AccessControlPolicyOwner owner;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketAclV2AccessControlPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.grants = defaults.grants;
     	      this.owner = defaults.owner;
         }
 
+        @CustomType.Setter
         public Builder grants(@Nullable List<BucketAclV2AccessControlPolicyGrant> grants) {
             this.grants = grants;
             return this;
@@ -75,11 +65,16 @@ public final class BucketAclV2AccessControlPolicy {
         public Builder grants(BucketAclV2AccessControlPolicyGrant... grants) {
             return grants(List.of(grants));
         }
+        @CustomType.Setter
         public Builder owner(BucketAclV2AccessControlPolicyOwner owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
-        }        public BucketAclV2AccessControlPolicy build() {
-            return new BucketAclV2AccessControlPolicy(grants, owner);
+        }
+        public BucketAclV2AccessControlPolicy build() {
+            final var o = new BucketAclV2AccessControlPolicy();
+            o.grants = grants;
+            o.owner = owner;
+            return o;
         }
     }
 }

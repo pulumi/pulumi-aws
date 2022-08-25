@@ -11,17 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateInstanceMarketOption {
-    private final String marketType;
-    private final List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions;
+    private String marketType;
+    private List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateInstanceMarketOption(
-        @CustomType.Parameter("marketType") String marketType,
-        @CustomType.Parameter("spotOptions") List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions) {
-        this.marketType = marketType;
-        this.spotOptions = spotOptions;
-    }
-
+    private GetLaunchTemplateInstanceMarketOption() {}
     public String marketType() {
         return this.marketType;
     }
@@ -36,33 +29,35 @@ public final class GetLaunchTemplateInstanceMarketOption {
     public static Builder builder(GetLaunchTemplateInstanceMarketOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String marketType;
         private List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateInstanceMarketOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.marketType = defaults.marketType;
     	      this.spotOptions = defaults.spotOptions;
         }
 
+        @CustomType.Setter
         public Builder marketType(String marketType) {
             this.marketType = Objects.requireNonNull(marketType);
             return this;
         }
+        @CustomType.Setter
         public Builder spotOptions(List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions) {
             this.spotOptions = Objects.requireNonNull(spotOptions);
             return this;
         }
         public Builder spotOptions(GetLaunchTemplateInstanceMarketOptionSpotOption... spotOptions) {
             return spotOptions(List.of(spotOptions));
-        }        public GetLaunchTemplateInstanceMarketOption build() {
-            return new GetLaunchTemplateInstanceMarketOption(marketType, spotOptions);
+        }
+        public GetLaunchTemplateInstanceMarketOption build() {
+            final var o = new GetLaunchTemplateInstanceMarketOption();
+            o.marketType = marketType;
+            o.spotOptions = spotOptions;
+            return o;
         }
     }
 }

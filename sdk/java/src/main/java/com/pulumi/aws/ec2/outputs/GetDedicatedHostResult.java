@@ -18,100 +18,67 @@ public final class GetDedicatedHostResult {
      * @return The ARN of the Dedicated Host.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Whether auto-placement is on or off.
      * 
      */
-    private final String autoPlacement;
+    private String autoPlacement;
     /**
      * @return The Availability Zone of the Dedicated Host.
      * 
      */
-    private final String availabilityZone;
+    private String availabilityZone;
     /**
      * @return The number of cores on the Dedicated Host.
      * 
      */
-    private final Integer cores;
-    private final @Nullable List<GetDedicatedHostFilter> filters;
-    private final String hostId;
+    private Integer cores;
+    private @Nullable List<GetDedicatedHostFilter> filters;
+    private String hostId;
     /**
      * @return Indicates whether host recovery is enabled or disabled for the Dedicated Host.
      * 
      */
-    private final String hostRecovery;
+    private String hostRecovery;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The instance family supported by the Dedicated Host. For example, &#34;m5&#34;.
      * 
      */
-    private final String instanceFamily;
+    private String instanceFamily;
     /**
      * @return The instance type supported by the Dedicated Host. For example, &#34;m5.large&#34;. If the host supports multiple instance types, no instanceType is returned.
      * 
      */
-    private final String instanceType;
+    private String instanceType;
     /**
      * @return The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
      * 
      */
-    private final String outpostArn;
+    private String outpostArn;
     /**
      * @return The ID of the AWS account that owns the Dedicated Host.
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return The number of sockets on the Dedicated Host.
      * 
      */
-    private final Integer sockets;
-    private final Map<String,String> tags;
+    private Integer sockets;
+    private Map<String,String> tags;
     /**
      * @return The total number of vCPUs on the Dedicated Host.
      * 
      */
-    private final Integer totalVcpus;
+    private Integer totalVcpus;
 
-    @CustomType.Constructor
-    private GetDedicatedHostResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("autoPlacement") String autoPlacement,
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("cores") Integer cores,
-        @CustomType.Parameter("filters") @Nullable List<GetDedicatedHostFilter> filters,
-        @CustomType.Parameter("hostId") String hostId,
-        @CustomType.Parameter("hostRecovery") String hostRecovery,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceFamily") String instanceFamily,
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("outpostArn") String outpostArn,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("sockets") Integer sockets,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("totalVcpus") Integer totalVcpus) {
-        this.arn = arn;
-        this.autoPlacement = autoPlacement;
-        this.availabilityZone = availabilityZone;
-        this.cores = cores;
-        this.filters = filters;
-        this.hostId = hostId;
-        this.hostRecovery = hostRecovery;
-        this.id = id;
-        this.instanceFamily = instanceFamily;
-        this.instanceType = instanceType;
-        this.outpostArn = outpostArn;
-        this.ownerId = ownerId;
-        this.sockets = sockets;
-        this.tags = tags;
-        this.totalVcpus = totalVcpus;
-    }
-
+    private GetDedicatedHostResult() {}
     /**
      * @return The ARN of the Dedicated Host.
      * 
@@ -213,7 +180,7 @@ public final class GetDedicatedHostResult {
     public static Builder builder(GetDedicatedHostResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String autoPlacement;
@@ -230,11 +197,7 @@ public final class GetDedicatedHostResult {
         private Integer sockets;
         private Map<String,String> tags;
         private Integer totalVcpus;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDedicatedHostResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -254,22 +217,27 @@ public final class GetDedicatedHostResult {
     	      this.totalVcpus = defaults.totalVcpus;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder autoPlacement(String autoPlacement) {
             this.autoPlacement = Objects.requireNonNull(autoPlacement);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder cores(Integer cores) {
             this.cores = Objects.requireNonNull(cores);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetDedicatedHostFilter> filters) {
             this.filters = filters;
             return this;
@@ -277,47 +245,74 @@ public final class GetDedicatedHostResult {
         public Builder filters(GetDedicatedHostFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder hostId(String hostId) {
             this.hostId = Objects.requireNonNull(hostId);
             return this;
         }
+        @CustomType.Setter
         public Builder hostRecovery(String hostRecovery) {
             this.hostRecovery = Objects.requireNonNull(hostRecovery);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceFamily(String instanceFamily) {
             this.instanceFamily = Objects.requireNonNull(instanceFamily);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
             this.outpostArn = Objects.requireNonNull(outpostArn);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder sockets(Integer sockets) {
             this.sockets = Objects.requireNonNull(sockets);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder totalVcpus(Integer totalVcpus) {
             this.totalVcpus = Objects.requireNonNull(totalVcpus);
             return this;
-        }        public GetDedicatedHostResult build() {
-            return new GetDedicatedHostResult(arn, autoPlacement, availabilityZone, cores, filters, hostId, hostRecovery, id, instanceFamily, instanceType, outpostArn, ownerId, sockets, tags, totalVcpus);
+        }
+        public GetDedicatedHostResult build() {
+            final var o = new GetDedicatedHostResult();
+            o.arn = arn;
+            o.autoPlacement = autoPlacement;
+            o.availabilityZone = availabilityZone;
+            o.cores = cores;
+            o.filters = filters;
+            o.hostId = hostId;
+            o.hostRecovery = hostRecovery;
+            o.id = id;
+            o.instanceFamily = instanceFamily;
+            o.instanceType = instanceType;
+            o.outpostArn = outpostArn;
+            o.ownerId = ownerId;
+            o.sockets = sockets;
+            o.tags = tags;
+            o.totalVcpus = totalVcpus;
+            return o;
         }
     }
 }

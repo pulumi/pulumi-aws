@@ -14,52 +14,35 @@ public final class GetApplicationResult {
      * @return The ARN of the application.
      * 
      */
-    private final String applicationId;
+    private String applicationId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the application.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A list of capabilities describing the permissions needed to deploy the application.
      * 
      */
-    private final List<String> requiredCapabilities;
-    private final String semanticVersion;
+    private List<String> requiredCapabilities;
+    private String semanticVersion;
     /**
      * @return A URL pointing to the source code of the application version.
      * 
      */
-    private final String sourceCodeUrl;
+    private String sourceCodeUrl;
     /**
      * @return A URL pointing to the Cloud Formation template for the application version.
      * 
      */
-    private final String templateUrl;
+    private String templateUrl;
 
-    @CustomType.Constructor
-    private GetApplicationResult(
-        @CustomType.Parameter("applicationId") String applicationId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("requiredCapabilities") List<String> requiredCapabilities,
-        @CustomType.Parameter("semanticVersion") String semanticVersion,
-        @CustomType.Parameter("sourceCodeUrl") String sourceCodeUrl,
-        @CustomType.Parameter("templateUrl") String templateUrl) {
-        this.applicationId = applicationId;
-        this.id = id;
-        this.name = name;
-        this.requiredCapabilities = requiredCapabilities;
-        this.semanticVersion = semanticVersion;
-        this.sourceCodeUrl = sourceCodeUrl;
-        this.templateUrl = templateUrl;
-    }
-
+    private GetApplicationResult() {}
     /**
      * @return The ARN of the application.
      * 
@@ -113,7 +96,7 @@ public final class GetApplicationResult {
     public static Builder builder(GetApplicationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String applicationId;
         private String id;
@@ -122,11 +105,7 @@ public final class GetApplicationResult {
         private String semanticVersion;
         private String sourceCodeUrl;
         private String templateUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationId = defaults.applicationId;
@@ -138,18 +117,22 @@ public final class GetApplicationResult {
     	      this.templateUrl = defaults.templateUrl;
         }
 
+        @CustomType.Setter
         public Builder applicationId(String applicationId) {
             this.applicationId = Objects.requireNonNull(applicationId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder requiredCapabilities(List<String> requiredCapabilities) {
             this.requiredCapabilities = Objects.requireNonNull(requiredCapabilities);
             return this;
@@ -157,19 +140,31 @@ public final class GetApplicationResult {
         public Builder requiredCapabilities(String... requiredCapabilities) {
             return requiredCapabilities(List.of(requiredCapabilities));
         }
+        @CustomType.Setter
         public Builder semanticVersion(String semanticVersion) {
             this.semanticVersion = Objects.requireNonNull(semanticVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceCodeUrl(String sourceCodeUrl) {
             this.sourceCodeUrl = Objects.requireNonNull(sourceCodeUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder templateUrl(String templateUrl) {
             this.templateUrl = Objects.requireNonNull(templateUrl);
             return this;
-        }        public GetApplicationResult build() {
-            return new GetApplicationResult(applicationId, id, name, requiredCapabilities, semanticVersion, sourceCodeUrl, templateUrl);
+        }
+        public GetApplicationResult build() {
+            final var o = new GetApplicationResult();
+            o.applicationId = applicationId;
+            o.id = id;
+            o.name = name;
+            o.requiredCapabilities = requiredCapabilities;
+            o.semanticVersion = semanticVersion;
+            o.sourceCodeUrl = sourceCodeUrl;
+            o.templateUrl = templateUrl;
+            return o;
         }
     }
 }

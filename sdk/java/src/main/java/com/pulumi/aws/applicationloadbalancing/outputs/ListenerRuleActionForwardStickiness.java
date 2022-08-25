@@ -16,21 +16,14 @@ public final class ListenerRuleActionForwardStickiness {
      * @return The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
      * 
      */
-    private final Integer duration;
+    private Integer duration;
     /**
      * @return Indicates whether target group stickiness is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private ListenerRuleActionForwardStickiness(
-        @CustomType.Parameter("duration") Integer duration,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.duration = duration;
-        this.enabled = enabled;
-    }
-
+    private ListenerRuleActionForwardStickiness() {}
     /**
      * @return The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
      * 
@@ -53,30 +46,32 @@ public final class ListenerRuleActionForwardStickiness {
     public static Builder builder(ListenerRuleActionForwardStickiness defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer duration;
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerRuleActionForwardStickiness defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder duration(Integer duration) {
             this.duration = Objects.requireNonNull(duration);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public ListenerRuleActionForwardStickiness build() {
-            return new ListenerRuleActionForwardStickiness(duration, enabled);
+        }
+        public ListenerRuleActionForwardStickiness build() {
+            final var o = new ListenerRuleActionForwardStickiness();
+            o.duration = duration;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

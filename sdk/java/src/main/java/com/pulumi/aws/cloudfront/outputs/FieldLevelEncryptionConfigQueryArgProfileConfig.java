@@ -16,21 +16,14 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfig {
      * @return Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
      * 
      */
-    private final Boolean forwardWhenQueryArgProfileIsUnknown;
+    private Boolean forwardWhenQueryArgProfileIsUnknown;
     /**
      * @return Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
      * 
      */
-    private final @Nullable FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles queryArgProfiles;
+    private @Nullable FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles queryArgProfiles;
 
-    @CustomType.Constructor
-    private FieldLevelEncryptionConfigQueryArgProfileConfig(
-        @CustomType.Parameter("forwardWhenQueryArgProfileIsUnknown") Boolean forwardWhenQueryArgProfileIsUnknown,
-        @CustomType.Parameter("queryArgProfiles") @Nullable FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles queryArgProfiles) {
-        this.forwardWhenQueryArgProfileIsUnknown = forwardWhenQueryArgProfileIsUnknown;
-        this.queryArgProfiles = queryArgProfiles;
-    }
-
+    private FieldLevelEncryptionConfigQueryArgProfileConfig() {}
     /**
      * @return Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
      * 
@@ -53,30 +46,32 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfig {
     public static Builder builder(FieldLevelEncryptionConfigQueryArgProfileConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean forwardWhenQueryArgProfileIsUnknown;
         private @Nullable FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles queryArgProfiles;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FieldLevelEncryptionConfigQueryArgProfileConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.forwardWhenQueryArgProfileIsUnknown = defaults.forwardWhenQueryArgProfileIsUnknown;
     	      this.queryArgProfiles = defaults.queryArgProfiles;
         }
 
+        @CustomType.Setter
         public Builder forwardWhenQueryArgProfileIsUnknown(Boolean forwardWhenQueryArgProfileIsUnknown) {
             this.forwardWhenQueryArgProfileIsUnknown = Objects.requireNonNull(forwardWhenQueryArgProfileIsUnknown);
             return this;
         }
+        @CustomType.Setter
         public Builder queryArgProfiles(@Nullable FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles queryArgProfiles) {
             this.queryArgProfiles = queryArgProfiles;
             return this;
-        }        public FieldLevelEncryptionConfigQueryArgProfileConfig build() {
-            return new FieldLevelEncryptionConfigQueryArgProfileConfig(forwardWhenQueryArgProfileIsUnknown, queryArgProfiles);
+        }
+        public FieldLevelEncryptionConfigQueryArgProfileConfig build() {
+            final var o = new FieldLevelEncryptionConfigQueryArgProfileConfig();
+            o.forwardWhenQueryArgProfileIsUnknown = forwardWhenQueryArgProfileIsUnknown;
+            o.queryArgProfiles = queryArgProfiles;
+            return o;
         }
     }
 }

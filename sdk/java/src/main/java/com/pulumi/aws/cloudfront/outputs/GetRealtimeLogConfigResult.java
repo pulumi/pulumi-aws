@@ -16,45 +16,30 @@ public final class GetRealtimeLogConfigResult {
      * @return The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return (Required) The Amazon Kinesis data streams where real-time log data is sent.
      * 
      */
-    private final List<GetRealtimeLogConfigEndpoint> endpoints;
+    private List<GetRealtimeLogConfigEndpoint> endpoints;
     /**
      * @return (Required) The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      * 
      */
-    private final List<String> fields;
+    private List<String> fields;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return (Required) The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      * 
      */
-    private final Integer samplingRate;
+    private Integer samplingRate;
 
-    @CustomType.Constructor
-    private GetRealtimeLogConfigResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("endpoints") List<GetRealtimeLogConfigEndpoint> endpoints,
-        @CustomType.Parameter("fields") List<String> fields,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("samplingRate") Integer samplingRate) {
-        this.arn = arn;
-        this.endpoints = endpoints;
-        this.fields = fields;
-        this.id = id;
-        this.name = name;
-        this.samplingRate = samplingRate;
-    }
-
+    private GetRealtimeLogConfigResult() {}
     /**
      * @return The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      * 
@@ -101,7 +86,7 @@ public final class GetRealtimeLogConfigResult {
     public static Builder builder(GetRealtimeLogConfigResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetRealtimeLogConfigEndpoint> endpoints;
@@ -109,11 +94,7 @@ public final class GetRealtimeLogConfigResult {
         private String id;
         private String name;
         private Integer samplingRate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRealtimeLogConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -124,10 +105,12 @@ public final class GetRealtimeLogConfigResult {
     	      this.samplingRate = defaults.samplingRate;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder endpoints(List<GetRealtimeLogConfigEndpoint> endpoints) {
             this.endpoints = Objects.requireNonNull(endpoints);
             return this;
@@ -135,6 +118,7 @@ public final class GetRealtimeLogConfigResult {
         public Builder endpoints(GetRealtimeLogConfigEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
+        @CustomType.Setter
         public Builder fields(List<String> fields) {
             this.fields = Objects.requireNonNull(fields);
             return this;
@@ -142,19 +126,30 @@ public final class GetRealtimeLogConfigResult {
         public Builder fields(String... fields) {
             return fields(List.of(fields));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder samplingRate(Integer samplingRate) {
             this.samplingRate = Objects.requireNonNull(samplingRate);
             return this;
-        }        public GetRealtimeLogConfigResult build() {
-            return new GetRealtimeLogConfigResult(arn, endpoints, fields, id, name, samplingRate);
+        }
+        public GetRealtimeLogConfigResult build() {
+            final var o = new GetRealtimeLogConfigResult();
+            o.arn = arn;
+            o.endpoints = endpoints;
+            o.fields = fields;
+            o.id = id;
+            o.name = name;
+            o.samplingRate = samplingRate;
+            return o;
         }
     }
 }

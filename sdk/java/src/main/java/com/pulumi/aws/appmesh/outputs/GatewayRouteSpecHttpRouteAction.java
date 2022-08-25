@@ -16,21 +16,14 @@ public final class GatewayRouteSpecHttpRouteAction {
      * @return The gateway route action to rewrite.
      * 
      */
-    private final @Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite;
+    private @Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite;
     /**
      * @return The target that traffic is routed to when a request matches the gateway route.
      * 
      */
-    private final GatewayRouteSpecHttpRouteActionTarget target;
+    private GatewayRouteSpecHttpRouteActionTarget target;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttpRouteAction(
-        @CustomType.Parameter("rewrite") @Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite,
-        @CustomType.Parameter("target") GatewayRouteSpecHttpRouteActionTarget target) {
-        this.rewrite = rewrite;
-        this.target = target;
-    }
-
+    private GatewayRouteSpecHttpRouteAction() {}
     /**
      * @return The gateway route action to rewrite.
      * 
@@ -53,30 +46,32 @@ public final class GatewayRouteSpecHttpRouteAction {
     public static Builder builder(GatewayRouteSpecHttpRouteAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite;
         private GatewayRouteSpecHttpRouteActionTarget target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttpRouteAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.rewrite = defaults.rewrite;
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder rewrite(@Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite) {
             this.rewrite = rewrite;
             return this;
         }
+        @CustomType.Setter
         public Builder target(GatewayRouteSpecHttpRouteActionTarget target) {
             this.target = Objects.requireNonNull(target);
             return this;
-        }        public GatewayRouteSpecHttpRouteAction build() {
-            return new GatewayRouteSpecHttpRouteAction(rewrite, target);
+        }
+        public GatewayRouteSpecHttpRouteAction build() {
+            final var o = new GatewayRouteSpecHttpRouteAction();
+            o.rewrite = rewrite;
+            o.target = target;
+            return o;
         }
     }
 }

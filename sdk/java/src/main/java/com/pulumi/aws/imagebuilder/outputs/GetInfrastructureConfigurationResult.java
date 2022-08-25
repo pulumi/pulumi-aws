@@ -14,122 +14,85 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInfrastructureConfigurationResult {
-    private final String arn;
+    private String arn;
     /**
      * @return Date the infrastructure configuration was updated.
      * 
      */
-    private final String dateCreated;
-    private final String dateUpdated;
+    private String dateCreated;
+    private String dateUpdated;
     /**
      * @return Description of the infrastructure configuration.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
      * 
      */
-    private final List<GetInfrastructureConfigurationInstanceMetadataOption> instanceMetadataOptions;
+    private List<GetInfrastructureConfigurationInstanceMetadataOption> instanceMetadataOptions;
     /**
      * @return Name of the IAM Instance Profile associated with the configuration.
      * 
      */
-    private final String instanceProfileName;
+    private String instanceProfileName;
     /**
      * @return Set of EC2 Instance Types associated with the configuration.
      * 
      */
-    private final List<String> instanceTypes;
+    private List<String> instanceTypes;
     /**
      * @return Name of the EC2 Key Pair associated with the configuration.
      * 
      */
-    private final String keyPair;
+    private String keyPair;
     /**
      * @return Nested list of logging settings.
      * 
      */
-    private final List<GetInfrastructureConfigurationLogging> loggings;
+    private List<GetInfrastructureConfigurationLogging> loggings;
     /**
      * @return Name of the infrastructure configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      * 
      */
-    private final Map<String,String> resourceTags;
+    private Map<String,String> resourceTags;
     /**
      * @return Set of EC2 Security Group identifiers associated with the configuration.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return Amazon Resource Name (ARN) of the SNS Topic associated with the configuration.
      * 
      */
-    private final String snsTopicArn;
+    private String snsTopicArn;
     /**
      * @return Identifier of the EC2 Subnet associated with the configuration.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
     /**
      * @return Key-value map of resource tags for the infrastructure configuration.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Whether instances are terminated on failure.
      * 
      */
-    private final Boolean terminateInstanceOnFailure;
+    private Boolean terminateInstanceOnFailure;
 
-    @CustomType.Constructor
-    private GetInfrastructureConfigurationResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("dateCreated") String dateCreated,
-        @CustomType.Parameter("dateUpdated") String dateUpdated,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceMetadataOptions") List<GetInfrastructureConfigurationInstanceMetadataOption> instanceMetadataOptions,
-        @CustomType.Parameter("instanceProfileName") String instanceProfileName,
-        @CustomType.Parameter("instanceTypes") List<String> instanceTypes,
-        @CustomType.Parameter("keyPair") String keyPair,
-        @CustomType.Parameter("loggings") List<GetInfrastructureConfigurationLogging> loggings,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceTags") Map<String,String> resourceTags,
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("snsTopicArn") String snsTopicArn,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("terminateInstanceOnFailure") Boolean terminateInstanceOnFailure) {
-        this.arn = arn;
-        this.dateCreated = dateCreated;
-        this.dateUpdated = dateUpdated;
-        this.description = description;
-        this.id = id;
-        this.instanceMetadataOptions = instanceMetadataOptions;
-        this.instanceProfileName = instanceProfileName;
-        this.instanceTypes = instanceTypes;
-        this.keyPair = keyPair;
-        this.loggings = loggings;
-        this.name = name;
-        this.resourceTags = resourceTags;
-        this.securityGroupIds = securityGroupIds;
-        this.snsTopicArn = snsTopicArn;
-        this.subnetId = subnetId;
-        this.tags = tags;
-        this.terminateInstanceOnFailure = terminateInstanceOnFailure;
-    }
-
+    private GetInfrastructureConfigurationResult() {}
     public String arn() {
         return this.arn;
     }
@@ -249,7 +212,7 @@ public final class GetInfrastructureConfigurationResult {
     public static Builder builder(GetInfrastructureConfigurationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String dateCreated;
@@ -268,11 +231,7 @@ public final class GetInfrastructureConfigurationResult {
         private String subnetId;
         private Map<String,String> tags;
         private Boolean terminateInstanceOnFailure;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInfrastructureConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -294,26 +253,32 @@ public final class GetInfrastructureConfigurationResult {
     	      this.terminateInstanceOnFailure = defaults.terminateInstanceOnFailure;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
             this.dateCreated = Objects.requireNonNull(dateCreated);
             return this;
         }
+        @CustomType.Setter
         public Builder dateUpdated(String dateUpdated) {
             this.dateUpdated = Objects.requireNonNull(dateUpdated);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceMetadataOptions(List<GetInfrastructureConfigurationInstanceMetadataOption> instanceMetadataOptions) {
             this.instanceMetadataOptions = Objects.requireNonNull(instanceMetadataOptions);
             return this;
@@ -321,10 +286,12 @@ public final class GetInfrastructureConfigurationResult {
         public Builder instanceMetadataOptions(GetInfrastructureConfigurationInstanceMetadataOption... instanceMetadataOptions) {
             return instanceMetadataOptions(List.of(instanceMetadataOptions));
         }
+        @CustomType.Setter
         public Builder instanceProfileName(String instanceProfileName) {
             this.instanceProfileName = Objects.requireNonNull(instanceProfileName);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceTypes(List<String> instanceTypes) {
             this.instanceTypes = Objects.requireNonNull(instanceTypes);
             return this;
@@ -332,10 +299,12 @@ public final class GetInfrastructureConfigurationResult {
         public Builder instanceTypes(String... instanceTypes) {
             return instanceTypes(List.of(instanceTypes));
         }
+        @CustomType.Setter
         public Builder keyPair(String keyPair) {
             this.keyPair = Objects.requireNonNull(keyPair);
             return this;
         }
+        @CustomType.Setter
         public Builder loggings(List<GetInfrastructureConfigurationLogging> loggings) {
             this.loggings = Objects.requireNonNull(loggings);
             return this;
@@ -343,14 +312,17 @@ public final class GetInfrastructureConfigurationResult {
         public Builder loggings(GetInfrastructureConfigurationLogging... loggings) {
             return loggings(List.of(loggings));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceTags(Map<String,String> resourceTags) {
             this.resourceTags = Objects.requireNonNull(resourceTags);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -358,23 +330,46 @@ public final class GetInfrastructureConfigurationResult {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder snsTopicArn(String snsTopicArn) {
             this.snsTopicArn = Objects.requireNonNull(snsTopicArn);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder terminateInstanceOnFailure(Boolean terminateInstanceOnFailure) {
             this.terminateInstanceOnFailure = Objects.requireNonNull(terminateInstanceOnFailure);
             return this;
-        }        public GetInfrastructureConfigurationResult build() {
-            return new GetInfrastructureConfigurationResult(arn, dateCreated, dateUpdated, description, id, instanceMetadataOptions, instanceProfileName, instanceTypes, keyPair, loggings, name, resourceTags, securityGroupIds, snsTopicArn, subnetId, tags, terminateInstanceOnFailure);
+        }
+        public GetInfrastructureConfigurationResult build() {
+            final var o = new GetInfrastructureConfigurationResult();
+            o.arn = arn;
+            o.dateCreated = dateCreated;
+            o.dateUpdated = dateUpdated;
+            o.description = description;
+            o.id = id;
+            o.instanceMetadataOptions = instanceMetadataOptions;
+            o.instanceProfileName = instanceProfileName;
+            o.instanceTypes = instanceTypes;
+            o.keyPair = keyPair;
+            o.loggings = loggings;
+            o.name = name;
+            o.resourceTags = resourceTags;
+            o.securityGroupIds = securityGroupIds;
+            o.snsTopicArn = snsTopicArn;
+            o.subnetId = subnetId;
+            o.tags = tags;
+            o.terminateInstanceOnFailure = terminateInstanceOnFailure;
+            return o;
         }
     }
 }

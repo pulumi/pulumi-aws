@@ -18,35 +18,24 @@ public final class WebAclRuleStatementRateBasedStatement {
      * @return Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
-    private final @Nullable String aggregateKeyType;
+    private @Nullable String aggregateKeyType;
     /**
      * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
      * 
      */
-    private final @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
+    private @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
     /**
      * @return Limit on requests per 5-minute period for a single originating IP address.
      * 
      */
-    private final Integer limit;
+    private Integer limit;
     /**
      * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
      * 
      */
-    private final @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement;
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementRateBasedStatement(
-        @CustomType.Parameter("aggregateKeyType") @Nullable String aggregateKeyType,
-        @CustomType.Parameter("forwardedIpConfig") @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig,
-        @CustomType.Parameter("limit") Integer limit,
-        @CustomType.Parameter("scopeDownStatement") @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement) {
-        this.aggregateKeyType = aggregateKeyType;
-        this.forwardedIpConfig = forwardedIpConfig;
-        this.limit = limit;
-        this.scopeDownStatement = scopeDownStatement;
-    }
-
+    private WebAclRuleStatementRateBasedStatement() {}
     /**
      * @return Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
@@ -83,17 +72,13 @@ public final class WebAclRuleStatementRateBasedStatement {
     public static Builder builder(WebAclRuleStatementRateBasedStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregateKeyType;
         private @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
         private Integer limit;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregateKeyType = defaults.aggregateKeyType;
@@ -102,23 +87,33 @@ public final class WebAclRuleStatementRateBasedStatement {
     	      this.scopeDownStatement = defaults.scopeDownStatement;
         }
 
+        @CustomType.Setter
         public Builder aggregateKeyType(@Nullable String aggregateKeyType) {
             this.aggregateKeyType = aggregateKeyType;
             return this;
         }
+        @CustomType.Setter
         public Builder forwardedIpConfig(@Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig) {
             this.forwardedIpConfig = forwardedIpConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder limit(Integer limit) {
             this.limit = Objects.requireNonNull(limit);
             return this;
         }
+        @CustomType.Setter
         public Builder scopeDownStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement) {
             this.scopeDownStatement = scopeDownStatement;
             return this;
-        }        public WebAclRuleStatementRateBasedStatement build() {
-            return new WebAclRuleStatementRateBasedStatement(aggregateKeyType, forwardedIpConfig, limit, scopeDownStatement);
+        }
+        public WebAclRuleStatementRateBasedStatement build() {
+            final var o = new WebAclRuleStatementRateBasedStatement();
+            o.aggregateKeyType = aggregateKeyType;
+            o.forwardedIpConfig = forwardedIpConfig;
+            o.limit = limit;
+            o.scopeDownStatement = scopeDownStatement;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
      * @return The SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private final @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames;
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames;
     /**
      * @return The TLS validation context trust.
      * 
      */
-    private final VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust;
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(
-        @CustomType.Parameter("subjectAlternativeNames") @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames,
-        @CustomType.Parameter("trust") VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust) {
-        this.subjectAlternativeNames = subjectAlternativeNames;
-        this.trust = trust;
-    }
-
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation() {}
     /**
      * @return The SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
      * 
@@ -53,30 +46,32 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
     public static Builder builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames;
         private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subjectAlternativeNames = defaults.subjectAlternativeNames;
     	      this.trust = defaults.trust;
         }
 
+        @CustomType.Setter
         public Builder subjectAlternativeNames(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames) {
             this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
+        @CustomType.Setter
         public Builder trust(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust) {
             this.trust = Objects.requireNonNull(trust);
             return this;
-        }        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation build() {
-            return new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(subjectAlternativeNames, trust);
+        }
+        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation build() {
+            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation();
+            o.subjectAlternativeNames = subjectAlternativeNames;
+            o.trust = trust;
+            return o;
         }
     }
 }

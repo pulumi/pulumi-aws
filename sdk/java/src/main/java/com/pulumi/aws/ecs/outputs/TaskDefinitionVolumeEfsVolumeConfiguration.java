@@ -17,42 +17,29 @@ public final class TaskDefinitionVolumeEfsVolumeConfiguration {
      * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
      * 
      */
-    private final @Nullable TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig authorizationConfig;
+    private @Nullable TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig authorizationConfig;
     /**
      * @return The Amazon FSx for Windows File Server file system ID to use.
      * 
      */
-    private final String fileSystemId;
+    private String fileSystemId;
     /**
      * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
      * 
      */
-    private final @Nullable String rootDirectory;
+    private @Nullable String rootDirectory;
     /**
      * @return Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
      * 
      */
-    private final @Nullable String transitEncryption;
+    private @Nullable String transitEncryption;
     /**
      * @return Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
      * 
      */
-    private final @Nullable Integer transitEncryptionPort;
+    private @Nullable Integer transitEncryptionPort;
 
-    @CustomType.Constructor
-    private TaskDefinitionVolumeEfsVolumeConfiguration(
-        @CustomType.Parameter("authorizationConfig") @Nullable TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig authorizationConfig,
-        @CustomType.Parameter("fileSystemId") String fileSystemId,
-        @CustomType.Parameter("rootDirectory") @Nullable String rootDirectory,
-        @CustomType.Parameter("transitEncryption") @Nullable String transitEncryption,
-        @CustomType.Parameter("transitEncryptionPort") @Nullable Integer transitEncryptionPort) {
-        this.authorizationConfig = authorizationConfig;
-        this.fileSystemId = fileSystemId;
-        this.rootDirectory = rootDirectory;
-        this.transitEncryption = transitEncryption;
-        this.transitEncryptionPort = transitEncryptionPort;
-    }
-
+    private TaskDefinitionVolumeEfsVolumeConfiguration() {}
     /**
      * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
      * 
@@ -96,18 +83,14 @@ public final class TaskDefinitionVolumeEfsVolumeConfiguration {
     public static Builder builder(TaskDefinitionVolumeEfsVolumeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig authorizationConfig;
         private String fileSystemId;
         private @Nullable String rootDirectory;
         private @Nullable String transitEncryption;
         private @Nullable Integer transitEncryptionPort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskDefinitionVolumeEfsVolumeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationConfig = defaults.authorizationConfig;
@@ -117,27 +100,39 @@ public final class TaskDefinitionVolumeEfsVolumeConfiguration {
     	      this.transitEncryptionPort = defaults.transitEncryptionPort;
         }
 
+        @CustomType.Setter
         public Builder authorizationConfig(@Nullable TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig authorizationConfig) {
             this.authorizationConfig = authorizationConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
             this.fileSystemId = Objects.requireNonNull(fileSystemId);
             return this;
         }
+        @CustomType.Setter
         public Builder rootDirectory(@Nullable String rootDirectory) {
             this.rootDirectory = rootDirectory;
             return this;
         }
+        @CustomType.Setter
         public Builder transitEncryption(@Nullable String transitEncryption) {
             this.transitEncryption = transitEncryption;
             return this;
         }
+        @CustomType.Setter
         public Builder transitEncryptionPort(@Nullable Integer transitEncryptionPort) {
             this.transitEncryptionPort = transitEncryptionPort;
             return this;
-        }        public TaskDefinitionVolumeEfsVolumeConfiguration build() {
-            return new TaskDefinitionVolumeEfsVolumeConfiguration(authorizationConfig, fileSystemId, rootDirectory, transitEncryption, transitEncryptionPort);
+        }
+        public TaskDefinitionVolumeEfsVolumeConfiguration build() {
+            final var o = new TaskDefinitionVolumeEfsVolumeConfiguration();
+            o.authorizationConfig = authorizationConfig;
+            o.fileSystemId = fileSystemId;
+            o.rootDirectory = rootDirectory;
+            o.transitEncryption = transitEncryption;
+            o.transitEncryptionPort = transitEncryptionPort;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class ClusterEncryptionConfigProvider {
      * @return ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
      * 
      */
-    private final String keyArn;
+    private String keyArn;
 
-    @CustomType.Constructor
-    private ClusterEncryptionConfigProvider(@CustomType.Parameter("keyArn") String keyArn) {
-        this.keyArn = keyArn;
-    }
-
+    private ClusterEncryptionConfigProvider() {}
     /**
      * @return ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
      * 
@@ -35,24 +31,24 @@ public final class ClusterEncryptionConfigProvider {
     public static Builder builder(ClusterEncryptionConfigProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterEncryptionConfigProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyArn = defaults.keyArn;
         }
 
+        @CustomType.Setter
         public Builder keyArn(String keyArn) {
             this.keyArn = Objects.requireNonNull(keyArn);
             return this;
-        }        public ClusterEncryptionConfigProvider build() {
-            return new ClusterEncryptionConfigProvider(keyArn);
+        }
+        public ClusterEncryptionConfigProvider build() {
+            final var o = new ClusterEncryptionConfigProvider();
+            o.keyArn = keyArn;
+            return o;
         }
     }
 }

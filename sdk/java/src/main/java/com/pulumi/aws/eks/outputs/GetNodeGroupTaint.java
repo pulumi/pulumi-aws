@@ -13,28 +13,19 @@ public final class GetNodeGroupTaint {
      * @return The effect of the taint.
      * 
      */
-    private final String effect;
+    private String effect;
     /**
      * @return The key of the taint.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The value of the taint.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetNodeGroupTaint(
-        @CustomType.Parameter("effect") String effect,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") String value) {
-        this.effect = effect;
-        this.key = key;
-        this.value = value;
-    }
-
+    private GetNodeGroupTaint() {}
     /**
      * @return The effect of the taint.
      * 
@@ -64,16 +55,12 @@ public final class GetNodeGroupTaint {
     public static Builder builder(GetNodeGroupTaint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String effect;
         private String key;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNodeGroupTaint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.effect = defaults.effect;
@@ -81,19 +68,27 @@ public final class GetNodeGroupTaint {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder effect(String effect) {
             this.effect = Objects.requireNonNull(effect);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetNodeGroupTaint build() {
-            return new GetNodeGroupTaint(effect, key, value);
+        }
+        public GetNodeGroupTaint build() {
+            final var o = new GetNodeGroupTaint();
+            o.effect = effect;
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

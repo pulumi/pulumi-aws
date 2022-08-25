@@ -16,28 +16,19 @@ public final class SpotInstanceRequestEphemeralBlockDevice {
      * @return The name of the block device to mount on the instance.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return Suppresses the specified device included in the AMI&#39;s block device mapping.
      * 
      */
-    private final @Nullable Boolean noDevice;
+    private @Nullable Boolean noDevice;
     /**
      * @return [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
      * 
      */
-    private final @Nullable String virtualName;
+    private @Nullable String virtualName;
 
-    @CustomType.Constructor
-    private SpotInstanceRequestEphemeralBlockDevice(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("noDevice") @Nullable Boolean noDevice,
-        @CustomType.Parameter("virtualName") @Nullable String virtualName) {
-        this.deviceName = deviceName;
-        this.noDevice = noDevice;
-        this.virtualName = virtualName;
-    }
-
+    private SpotInstanceRequestEphemeralBlockDevice() {}
     /**
      * @return The name of the block device to mount on the instance.
      * 
@@ -67,16 +58,12 @@ public final class SpotInstanceRequestEphemeralBlockDevice {
     public static Builder builder(SpotInstanceRequestEphemeralBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private @Nullable Boolean noDevice;
         private @Nullable String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotInstanceRequestEphemeralBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
@@ -84,19 +71,27 @@ public final class SpotInstanceRequestEphemeralBlockDevice {
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder noDevice(@Nullable Boolean noDevice) {
             this.noDevice = noDevice;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
             this.virtualName = virtualName;
             return this;
-        }        public SpotInstanceRequestEphemeralBlockDevice build() {
-            return new SpotInstanceRequestEphemeralBlockDevice(deviceName, noDevice, virtualName);
+        }
+        public SpotInstanceRequestEphemeralBlockDevice build() {
+            final var o = new SpotInstanceRequestEphemeralBlockDevice();
+            o.deviceName = deviceName;
+            o.noDevice = noDevice;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

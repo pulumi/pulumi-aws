@@ -17,28 +17,19 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
      * @return The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
      * 
      */
-    private final LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration;
+    private LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration;
     /**
      * @return The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
      * 
      */
-    private final @Nullable LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule retainRule;
+    private @Nullable LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule retainRule;
     /**
      * @return The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
      * 
      */
-    private final String target;
+    private String target;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsActionCrossRegionCopy(
-        @CustomType.Parameter("encryptionConfiguration") LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration,
-        @CustomType.Parameter("retainRule") @Nullable LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule retainRule,
-        @CustomType.Parameter("target") String target) {
-        this.encryptionConfiguration = encryptionConfiguration;
-        this.retainRule = retainRule;
-        this.target = target;
-    }
-
+    private LifecyclePolicyPolicyDetailsActionCrossRegionCopy() {}
     /**
      * @return The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
      * 
@@ -68,16 +59,12 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
     public static Builder builder(LifecyclePolicyPolicyDetailsActionCrossRegionCopy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration;
         private @Nullable LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule retainRule;
         private String target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsActionCrossRegionCopy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionConfiguration = defaults.encryptionConfiguration;
@@ -85,19 +72,27 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder encryptionConfiguration(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration) {
             this.encryptionConfiguration = Objects.requireNonNull(encryptionConfiguration);
             return this;
         }
+        @CustomType.Setter
         public Builder retainRule(@Nullable LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule retainRule) {
             this.retainRule = retainRule;
             return this;
         }
+        @CustomType.Setter
         public Builder target(String target) {
             this.target = Objects.requireNonNull(target);
             return this;
-        }        public LifecyclePolicyPolicyDetailsActionCrossRegionCopy build() {
-            return new LifecyclePolicyPolicyDetailsActionCrossRegionCopy(encryptionConfiguration, retainRule, target);
+        }
+        public LifecyclePolicyPolicyDetailsActionCrossRegionCopy build() {
+            final var o = new LifecyclePolicyPolicyDetailsActionCrossRegionCopy();
+            o.encryptionConfiguration = encryptionConfiguration;
+            o.retainRule = retainRule;
+            o.target = target;
+            return o;
         }
     }
 }

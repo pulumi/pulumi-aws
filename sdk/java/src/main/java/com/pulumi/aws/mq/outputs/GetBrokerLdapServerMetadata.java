@@ -11,44 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerLdapServerMetadata {
-    private final List<String> hosts;
-    private final String roleBase;
-    private final String roleName;
-    private final String roleSearchMatching;
-    private final Boolean roleSearchSubtree;
-    private final String serviceAccountPassword;
-    private final String serviceAccountUsername;
-    private final String userBase;
-    private final String userRoleName;
-    private final String userSearchMatching;
-    private final Boolean userSearchSubtree;
+    private List<String> hosts;
+    private String roleBase;
+    private String roleName;
+    private String roleSearchMatching;
+    private Boolean roleSearchSubtree;
+    private String serviceAccountPassword;
+    private String serviceAccountUsername;
+    private String userBase;
+    private String userRoleName;
+    private String userSearchMatching;
+    private Boolean userSearchSubtree;
 
-    @CustomType.Constructor
-    private GetBrokerLdapServerMetadata(
-        @CustomType.Parameter("hosts") List<String> hosts,
-        @CustomType.Parameter("roleBase") String roleBase,
-        @CustomType.Parameter("roleName") String roleName,
-        @CustomType.Parameter("roleSearchMatching") String roleSearchMatching,
-        @CustomType.Parameter("roleSearchSubtree") Boolean roleSearchSubtree,
-        @CustomType.Parameter("serviceAccountPassword") String serviceAccountPassword,
-        @CustomType.Parameter("serviceAccountUsername") String serviceAccountUsername,
-        @CustomType.Parameter("userBase") String userBase,
-        @CustomType.Parameter("userRoleName") String userRoleName,
-        @CustomType.Parameter("userSearchMatching") String userSearchMatching,
-        @CustomType.Parameter("userSearchSubtree") Boolean userSearchSubtree) {
-        this.hosts = hosts;
-        this.roleBase = roleBase;
-        this.roleName = roleName;
-        this.roleSearchMatching = roleSearchMatching;
-        this.roleSearchSubtree = roleSearchSubtree;
-        this.serviceAccountPassword = serviceAccountPassword;
-        this.serviceAccountUsername = serviceAccountUsername;
-        this.userBase = userBase;
-        this.userRoleName = userRoleName;
-        this.userSearchMatching = userSearchMatching;
-        this.userSearchSubtree = userSearchSubtree;
-    }
-
+    private GetBrokerLdapServerMetadata() {}
     public List<String> hosts() {
         return this.hosts;
     }
@@ -90,7 +65,7 @@ public final class GetBrokerLdapServerMetadata {
     public static Builder builder(GetBrokerLdapServerMetadata defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> hosts;
         private String roleBase;
@@ -103,11 +78,7 @@ public final class GetBrokerLdapServerMetadata {
         private String userRoleName;
         private String userSearchMatching;
         private Boolean userSearchSubtree;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrokerLdapServerMetadata defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hosts = defaults.hosts;
@@ -123,6 +94,7 @@ public final class GetBrokerLdapServerMetadata {
     	      this.userSearchSubtree = defaults.userSearchSubtree;
         }
 
+        @CustomType.Setter
         public Builder hosts(List<String> hosts) {
             this.hosts = Objects.requireNonNull(hosts);
             return this;
@@ -130,47 +102,70 @@ public final class GetBrokerLdapServerMetadata {
         public Builder hosts(String... hosts) {
             return hosts(List.of(hosts));
         }
+        @CustomType.Setter
         public Builder roleBase(String roleBase) {
             this.roleBase = Objects.requireNonNull(roleBase);
             return this;
         }
+        @CustomType.Setter
         public Builder roleName(String roleName) {
             this.roleName = Objects.requireNonNull(roleName);
             return this;
         }
+        @CustomType.Setter
         public Builder roleSearchMatching(String roleSearchMatching) {
             this.roleSearchMatching = Objects.requireNonNull(roleSearchMatching);
             return this;
         }
+        @CustomType.Setter
         public Builder roleSearchSubtree(Boolean roleSearchSubtree) {
             this.roleSearchSubtree = Objects.requireNonNull(roleSearchSubtree);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccountPassword(String serviceAccountPassword) {
             this.serviceAccountPassword = Objects.requireNonNull(serviceAccountPassword);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccountUsername(String serviceAccountUsername) {
             this.serviceAccountUsername = Objects.requireNonNull(serviceAccountUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder userBase(String userBase) {
             this.userBase = Objects.requireNonNull(userBase);
             return this;
         }
+        @CustomType.Setter
         public Builder userRoleName(String userRoleName) {
             this.userRoleName = Objects.requireNonNull(userRoleName);
             return this;
         }
+        @CustomType.Setter
         public Builder userSearchMatching(String userSearchMatching) {
             this.userSearchMatching = Objects.requireNonNull(userSearchMatching);
             return this;
         }
+        @CustomType.Setter
         public Builder userSearchSubtree(Boolean userSearchSubtree) {
             this.userSearchSubtree = Objects.requireNonNull(userSearchSubtree);
             return this;
-        }        public GetBrokerLdapServerMetadata build() {
-            return new GetBrokerLdapServerMetadata(hosts, roleBase, roleName, roleSearchMatching, roleSearchSubtree, serviceAccountPassword, serviceAccountUsername, userBase, userRoleName, userSearchMatching, userSearchSubtree);
+        }
+        public GetBrokerLdapServerMetadata build() {
+            final var o = new GetBrokerLdapServerMetadata();
+            o.hosts = hosts;
+            o.roleBase = roleBase;
+            o.roleName = roleName;
+            o.roleSearchMatching = roleSearchMatching;
+            o.roleSearchSubtree = roleSearchSubtree;
+            o.serviceAccountPassword = serviceAccountPassword;
+            o.serviceAccountUsername = serviceAccountUsername;
+            o.userBase = userBase;
+            o.userRoleName = userRoleName;
+            o.userSearchMatching = userSearchMatching;
+            o.userSearchSubtree = userSearchSubtree;
+            return o;
         }
     }
 }

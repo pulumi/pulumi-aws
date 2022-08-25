@@ -15,13 +15,9 @@ public final class FunctionEphemeralStorage {
      * @return The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
      * 
      */
-    private final @Nullable Integer size;
+    private @Nullable Integer size;
 
-    @CustomType.Constructor
-    private FunctionEphemeralStorage(@CustomType.Parameter("size") @Nullable Integer size) {
-        this.size = size;
-    }
-
+    private FunctionEphemeralStorage() {}
     /**
      * @return The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
      * 
@@ -37,24 +33,24 @@ public final class FunctionEphemeralStorage {
     public static Builder builder(FunctionEphemeralStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer size;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionEphemeralStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.size = defaults.size;
         }
 
+        @CustomType.Setter
         public Builder size(@Nullable Integer size) {
             this.size = size;
             return this;
-        }        public FunctionEphemeralStorage build() {
-            return new FunctionEphemeralStorage(size);
+        }
+        public FunctionEphemeralStorage build() {
+            final var o = new FunctionEphemeralStorage();
+            o.size = size;
+            return o;
         }
     }
 }

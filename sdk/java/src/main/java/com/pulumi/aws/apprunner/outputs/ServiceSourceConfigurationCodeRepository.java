@@ -17,28 +17,19 @@ public final class ServiceSourceConfigurationCodeRepository {
      * @return Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
      * 
      */
-    private final @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration;
+    private @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration;
     /**
      * @return The location of the repository that contains the source code.
      * 
      */
-    private final String repositoryUrl;
+    private String repositoryUrl;
     /**
      * @return The version that should be used within the source code repository. See Source Code Version below for more details.
      * 
      */
-    private final ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion;
+    private ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion;
 
-    @CustomType.Constructor
-    private ServiceSourceConfigurationCodeRepository(
-        @CustomType.Parameter("codeConfiguration") @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration,
-        @CustomType.Parameter("repositoryUrl") String repositoryUrl,
-        @CustomType.Parameter("sourceCodeVersion") ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion) {
-        this.codeConfiguration = codeConfiguration;
-        this.repositoryUrl = repositoryUrl;
-        this.sourceCodeVersion = sourceCodeVersion;
-    }
-
+    private ServiceSourceConfigurationCodeRepository() {}
     /**
      * @return Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
      * 
@@ -68,16 +59,12 @@ public final class ServiceSourceConfigurationCodeRepository {
     public static Builder builder(ServiceSourceConfigurationCodeRepository defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration;
         private String repositoryUrl;
         private ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSourceConfigurationCodeRepository defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.codeConfiguration = defaults.codeConfiguration;
@@ -85,19 +72,27 @@ public final class ServiceSourceConfigurationCodeRepository {
     	      this.sourceCodeVersion = defaults.sourceCodeVersion;
         }
 
+        @CustomType.Setter
         public Builder codeConfiguration(@Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration) {
             this.codeConfiguration = codeConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
             this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceCodeVersion(ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion) {
             this.sourceCodeVersion = Objects.requireNonNull(sourceCodeVersion);
             return this;
-        }        public ServiceSourceConfigurationCodeRepository build() {
-            return new ServiceSourceConfigurationCodeRepository(codeConfiguration, repositoryUrl, sourceCodeVersion);
+        }
+        public ServiceSourceConfigurationCodeRepository build() {
+            final var o = new ServiceSourceConfigurationCodeRepository();
+            o.codeConfiguration = codeConfiguration;
+            o.repositoryUrl = repositoryUrl;
+            o.sourceCodeVersion = sourceCodeVersion;
+            return o;
         }
     }
 }

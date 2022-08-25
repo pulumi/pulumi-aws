@@ -16,21 +16,14 @@ public final class SchedulingPolicyFairSharePolicyShareDistribution {
      * @return A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    private final String shareIdentifier;
+    private String shareIdentifier;
     /**
      * @return The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    private final @Nullable Double weightFactor;
+    private @Nullable Double weightFactor;
 
-    @CustomType.Constructor
-    private SchedulingPolicyFairSharePolicyShareDistribution(
-        @CustomType.Parameter("shareIdentifier") String shareIdentifier,
-        @CustomType.Parameter("weightFactor") @Nullable Double weightFactor) {
-        this.shareIdentifier = shareIdentifier;
-        this.weightFactor = weightFactor;
-    }
-
+    private SchedulingPolicyFairSharePolicyShareDistribution() {}
     /**
      * @return A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
@@ -53,30 +46,32 @@ public final class SchedulingPolicyFairSharePolicyShareDistribution {
     public static Builder builder(SchedulingPolicyFairSharePolicyShareDistribution defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String shareIdentifier;
         private @Nullable Double weightFactor;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SchedulingPolicyFairSharePolicyShareDistribution defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.shareIdentifier = defaults.shareIdentifier;
     	      this.weightFactor = defaults.weightFactor;
         }
 
+        @CustomType.Setter
         public Builder shareIdentifier(String shareIdentifier) {
             this.shareIdentifier = Objects.requireNonNull(shareIdentifier);
             return this;
         }
+        @CustomType.Setter
         public Builder weightFactor(@Nullable Double weightFactor) {
             this.weightFactor = weightFactor;
             return this;
-        }        public SchedulingPolicyFairSharePolicyShareDistribution build() {
-            return new SchedulingPolicyFairSharePolicyShareDistribution(shareIdentifier, weightFactor);
+        }
+        public SchedulingPolicyFairSharePolicyShareDistribution build() {
+            final var o = new SchedulingPolicyFairSharePolicyShareDistribution();
+            o.shareIdentifier = shareIdentifier;
+            o.weightFactor = weightFactor;
+            return o;
         }
     }
 }

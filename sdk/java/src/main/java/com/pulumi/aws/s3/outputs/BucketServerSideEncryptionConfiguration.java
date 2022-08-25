@@ -13,13 +13,9 @@ public final class BucketServerSideEncryptionConfiguration {
      * @return A single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    private final BucketServerSideEncryptionConfigurationRule rule;
+    private BucketServerSideEncryptionConfigurationRule rule;
 
-    @CustomType.Constructor
-    private BucketServerSideEncryptionConfiguration(@CustomType.Parameter("rule") BucketServerSideEncryptionConfigurationRule rule) {
-        this.rule = rule;
-    }
-
+    private BucketServerSideEncryptionConfiguration() {}
     /**
      * @return A single object for server-side encryption by default configuration. (documented below)
      * 
@@ -35,24 +31,24 @@ public final class BucketServerSideEncryptionConfiguration {
     public static Builder builder(BucketServerSideEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private BucketServerSideEncryptionConfigurationRule rule;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketServerSideEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.rule = defaults.rule;
         }
 
+        @CustomType.Setter
         public Builder rule(BucketServerSideEncryptionConfigurationRule rule) {
             this.rule = Objects.requireNonNull(rule);
             return this;
-        }        public BucketServerSideEncryptionConfiguration build() {
-            return new BucketServerSideEncryptionConfiguration(rule);
+        }
+        public BucketServerSideEncryptionConfiguration build() {
+            final var o = new BucketServerSideEncryptionConfiguration();
+            o.rule = rule;
+            return o;
         }
     }
 }

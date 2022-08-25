@@ -15,28 +15,19 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return A reference to the data element in the streaming input or the reference data source.
      * 
      */
-    private final @Nullable String mapping;
+    private @Nullable String mapping;
     /**
      * @return The name of the column that is created in the in-application input stream or reference table.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The type of column created in the in-application input stream or reference table.
      * 
      */
-    private final String sqlType;
+    private String sqlType;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn(
-        @CustomType.Parameter("mapping") @Nullable String mapping,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("sqlType") String sqlType) {
-        this.mapping = mapping;
-        this.name = name;
-        this.sqlType = sqlType;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn() {}
     /**
      * @return A reference to the data element in the streaming input or the reference data source.
      * 
@@ -66,16 +57,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String mapping;
         private String name;
         private String sqlType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mapping = defaults.mapping;
@@ -83,19 +70,27 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     	      this.sqlType = defaults.sqlType;
         }
 
+        @CustomType.Setter
         public Builder mapping(@Nullable String mapping) {
             this.mapping = mapping;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder sqlType(String sqlType) {
             this.sqlType = Objects.requireNonNull(sqlType);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn(mapping, name, sqlType);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn();
+            o.mapping = mapping;
+            o.name = name;
+            o.sqlType = sqlType;
+            return o;
         }
     }
 }

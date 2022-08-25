@@ -13,17 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StaticWebLayerCloudwatchConfiguration {
-    private final @Nullable Boolean enabled;
-    private final @Nullable List<StaticWebLayerCloudwatchConfigurationLogStream> logStreams;
+    private @Nullable Boolean enabled;
+    private @Nullable List<StaticWebLayerCloudwatchConfigurationLogStream> logStreams;
 
-    @CustomType.Constructor
-    private StaticWebLayerCloudwatchConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("logStreams") @Nullable List<StaticWebLayerCloudwatchConfigurationLogStream> logStreams) {
-        this.enabled = enabled;
-        this.logStreams = logStreams;
-    }
-
+    private StaticWebLayerCloudwatchConfiguration() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -38,33 +31,35 @@ public final class StaticWebLayerCloudwatchConfiguration {
     public static Builder builder(StaticWebLayerCloudwatchConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<StaticWebLayerCloudwatchConfigurationLogStream> logStreams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StaticWebLayerCloudwatchConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.logStreams = defaults.logStreams;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder logStreams(@Nullable List<StaticWebLayerCloudwatchConfigurationLogStream> logStreams) {
             this.logStreams = logStreams;
             return this;
         }
         public Builder logStreams(StaticWebLayerCloudwatchConfigurationLogStream... logStreams) {
             return logStreams(List.of(logStreams));
-        }        public StaticWebLayerCloudwatchConfiguration build() {
-            return new StaticWebLayerCloudwatchConfiguration(enabled, logStreams);
+        }
+        public StaticWebLayerCloudwatchConfiguration build() {
+            final var o = new StaticWebLayerCloudwatchConfiguration();
+            o.enabled = enabled;
+            o.logStreams = logStreams;
+            return o;
         }
     }
 }

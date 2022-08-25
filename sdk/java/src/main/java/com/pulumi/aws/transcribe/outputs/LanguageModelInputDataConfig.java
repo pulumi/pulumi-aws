@@ -15,28 +15,19 @@ public final class LanguageModelInputDataConfig {
      * @return IAM role with access to S3 bucket.
      * 
      */
-    private final String dataAccessRoleArn;
+    private String dataAccessRoleArn;
     /**
      * @return S3 URI where training data is located.
      * 
      */
-    private final String s3Uri;
+    private String s3Uri;
     /**
      * @return S3 URI where tuning data is located.
      * 
      */
-    private final @Nullable String tuningDataS3Uri;
+    private @Nullable String tuningDataS3Uri;
 
-    @CustomType.Constructor
-    private LanguageModelInputDataConfig(
-        @CustomType.Parameter("dataAccessRoleArn") String dataAccessRoleArn,
-        @CustomType.Parameter("s3Uri") String s3Uri,
-        @CustomType.Parameter("tuningDataS3Uri") @Nullable String tuningDataS3Uri) {
-        this.dataAccessRoleArn = dataAccessRoleArn;
-        this.s3Uri = s3Uri;
-        this.tuningDataS3Uri = tuningDataS3Uri;
-    }
-
+    private LanguageModelInputDataConfig() {}
     /**
      * @return IAM role with access to S3 bucket.
      * 
@@ -66,16 +57,12 @@ public final class LanguageModelInputDataConfig {
     public static Builder builder(LanguageModelInputDataConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dataAccessRoleArn;
         private String s3Uri;
         private @Nullable String tuningDataS3Uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LanguageModelInputDataConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataAccessRoleArn = defaults.dataAccessRoleArn;
@@ -83,19 +70,27 @@ public final class LanguageModelInputDataConfig {
     	      this.tuningDataS3Uri = defaults.tuningDataS3Uri;
         }
 
+        @CustomType.Setter
         public Builder dataAccessRoleArn(String dataAccessRoleArn) {
             this.dataAccessRoleArn = Objects.requireNonNull(dataAccessRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
             this.s3Uri = Objects.requireNonNull(s3Uri);
             return this;
         }
+        @CustomType.Setter
         public Builder tuningDataS3Uri(@Nullable String tuningDataS3Uri) {
             this.tuningDataS3Uri = tuningDataS3Uri;
             return this;
-        }        public LanguageModelInputDataConfig build() {
-            return new LanguageModelInputDataConfig(dataAccessRoleArn, s3Uri, tuningDataS3Uri);
+        }
+        public LanguageModelInputDataConfig build() {
+            final var o = new LanguageModelInputDataConfig();
+            o.dataAccessRoleArn = dataAccessRoleArn;
+            o.s3Uri = s3Uri;
+            o.tuningDataS3Uri = tuningDataS3Uri;
+            return o;
         }
     }
 }

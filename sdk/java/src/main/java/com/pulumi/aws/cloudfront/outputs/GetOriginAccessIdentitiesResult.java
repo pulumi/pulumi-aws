@@ -11,42 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOriginAccessIdentitiesResult {
-    private final @Nullable List<String> comments;
+    private @Nullable List<String> comments;
     /**
      * @return Set of ARNs of the matched origin access identities.
      * 
      */
-    private final List<String> iamArns;
+    private List<String> iamArns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of ids of the matched origin access identities.
      * 
      */
-    private final List<String> ids;
+    private List<String> ids;
     /**
      * @return Set of S3 canonical user IDs of the matched origin access identities.
      * 
      */
-    private final List<String> s3CanonicalUserIds;
+    private List<String> s3CanonicalUserIds;
 
-    @CustomType.Constructor
-    private GetOriginAccessIdentitiesResult(
-        @CustomType.Parameter("comments") @Nullable List<String> comments,
-        @CustomType.Parameter("iamArns") List<String> iamArns,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("s3CanonicalUserIds") List<String> s3CanonicalUserIds) {
-        this.comments = comments;
-        this.iamArns = iamArns;
-        this.id = id;
-        this.ids = ids;
-        this.s3CanonicalUserIds = s3CanonicalUserIds;
-    }
-
+    private GetOriginAccessIdentitiesResult() {}
     public List<String> comments() {
         return this.comments == null ? List.of() : this.comments;
     }
@@ -86,18 +73,14 @@ public final class GetOriginAccessIdentitiesResult {
     public static Builder builder(GetOriginAccessIdentitiesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> comments;
         private List<String> iamArns;
         private String id;
         private List<String> ids;
         private List<String> s3CanonicalUserIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOriginAccessIdentitiesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comments = defaults.comments;
@@ -107,6 +90,7 @@ public final class GetOriginAccessIdentitiesResult {
     	      this.s3CanonicalUserIds = defaults.s3CanonicalUserIds;
         }
 
+        @CustomType.Setter
         public Builder comments(@Nullable List<String> comments) {
             this.comments = comments;
             return this;
@@ -114,6 +98,7 @@ public final class GetOriginAccessIdentitiesResult {
         public Builder comments(String... comments) {
             return comments(List.of(comments));
         }
+        @CustomType.Setter
         public Builder iamArns(List<String> iamArns) {
             this.iamArns = Objects.requireNonNull(iamArns);
             return this;
@@ -121,10 +106,12 @@ public final class GetOriginAccessIdentitiesResult {
         public Builder iamArns(String... iamArns) {
             return iamArns(List.of(iamArns));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -132,14 +119,22 @@ public final class GetOriginAccessIdentitiesResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder s3CanonicalUserIds(List<String> s3CanonicalUserIds) {
             this.s3CanonicalUserIds = Objects.requireNonNull(s3CanonicalUserIds);
             return this;
         }
         public Builder s3CanonicalUserIds(String... s3CanonicalUserIds) {
             return s3CanonicalUserIds(List.of(s3CanonicalUserIds));
-        }        public GetOriginAccessIdentitiesResult build() {
-            return new GetOriginAccessIdentitiesResult(comments, iamArns, id, ids, s3CanonicalUserIds);
+        }
+        public GetOriginAccessIdentitiesResult build() {
+            final var o = new GetOriginAccessIdentitiesResult();
+            o.comments = comments;
+            o.iamArns = iamArns;
+            o.id = id;
+            o.ids = ids;
+            o.s3CanonicalUserIds = s3CanonicalUserIds;
+            return o;
         }
     }
 }

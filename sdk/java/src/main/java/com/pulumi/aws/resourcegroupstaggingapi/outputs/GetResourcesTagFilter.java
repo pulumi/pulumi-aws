@@ -15,21 +15,14 @@ public final class GetResourcesTagFilter {
      * @return One part of a key-value pair that makes up a tag.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The optional part of a key-value pair that make up a tag.
      * 
      */
-    private final @Nullable List<String> values;
+    private @Nullable List<String> values;
 
-    @CustomType.Constructor
-    private GetResourcesTagFilter(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("values") @Nullable List<String> values) {
-        this.key = key;
-        this.values = values;
-    }
-
+    private GetResourcesTagFilter() {}
     /**
      * @return One part of a key-value pair that makes up a tag.
      * 
@@ -52,33 +45,35 @@ public final class GetResourcesTagFilter {
     public static Builder builder(GetResourcesTagFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private @Nullable List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourcesTagFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetResourcesTagFilter build() {
-            return new GetResourcesTagFilter(key, values);
+        }
+        public GetResourcesTagFilter build() {
+            final var o = new GetResourcesTagFilter();
+            o.key = key;
+            o.values = values;
+            return o;
         }
     }
 }

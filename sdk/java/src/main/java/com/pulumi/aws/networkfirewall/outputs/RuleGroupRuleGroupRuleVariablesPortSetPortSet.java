@@ -14,13 +14,9 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetPortSet {
      * @return Set of port ranges.
      * 
      */
-    private final List<String> definitions;
+    private List<String> definitions;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRuleVariablesPortSetPortSet(@CustomType.Parameter("definitions") List<String> definitions) {
-        this.definitions = definitions;
-    }
-
+    private RuleGroupRuleGroupRuleVariablesPortSetPortSet() {}
     /**
      * @return Set of port ranges.
      * 
@@ -36,27 +32,27 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetPortSet {
     public static Builder builder(RuleGroupRuleGroupRuleVariablesPortSetPortSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> definitions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRuleVariablesPortSetPortSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.definitions = defaults.definitions;
         }
 
+        @CustomType.Setter
         public Builder definitions(List<String> definitions) {
             this.definitions = Objects.requireNonNull(definitions);
             return this;
         }
         public Builder definitions(String... definitions) {
             return definitions(List.of(definitions));
-        }        public RuleGroupRuleGroupRuleVariablesPortSetPortSet build() {
-            return new RuleGroupRuleGroupRuleVariablesPortSetPortSet(definitions);
+        }
+        public RuleGroupRuleGroupRuleVariablesPortSetPortSet build() {
+            final var o = new RuleGroupRuleGroupRuleVariablesPortSetPortSet();
+            o.definitions = definitions;
+            return o;
         }
     }
 }

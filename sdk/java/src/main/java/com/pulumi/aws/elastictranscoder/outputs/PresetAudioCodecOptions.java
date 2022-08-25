@@ -15,35 +15,24 @@ public final class PresetAudioCodecOptions {
      * @return The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
      * 
      */
-    private final @Nullable String bitDepth;
+    private @Nullable String bitDepth;
     /**
      * @return The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
      * 
      */
-    private final @Nullable String bitOrder;
+    private @Nullable String bitOrder;
     /**
      * @return If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
      * 
      */
-    private final @Nullable String profile;
+    private @Nullable String profile;
     /**
      * @return Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
      * 
      */
-    private final @Nullable String signed;
+    private @Nullable String signed;
 
-    @CustomType.Constructor
-    private PresetAudioCodecOptions(
-        @CustomType.Parameter("bitDepth") @Nullable String bitDepth,
-        @CustomType.Parameter("bitOrder") @Nullable String bitOrder,
-        @CustomType.Parameter("profile") @Nullable String profile,
-        @CustomType.Parameter("signed") @Nullable String signed) {
-        this.bitDepth = bitDepth;
-        this.bitOrder = bitOrder;
-        this.profile = profile;
-        this.signed = signed;
-    }
-
+    private PresetAudioCodecOptions() {}
     /**
      * @return The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
      * 
@@ -80,17 +69,13 @@ public final class PresetAudioCodecOptions {
     public static Builder builder(PresetAudioCodecOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bitDepth;
         private @Nullable String bitOrder;
         private @Nullable String profile;
         private @Nullable String signed;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PresetAudioCodecOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bitDepth = defaults.bitDepth;
@@ -99,23 +84,33 @@ public final class PresetAudioCodecOptions {
     	      this.signed = defaults.signed;
         }
 
+        @CustomType.Setter
         public Builder bitDepth(@Nullable String bitDepth) {
             this.bitDepth = bitDepth;
             return this;
         }
+        @CustomType.Setter
         public Builder bitOrder(@Nullable String bitOrder) {
             this.bitOrder = bitOrder;
             return this;
         }
+        @CustomType.Setter
         public Builder profile(@Nullable String profile) {
             this.profile = profile;
             return this;
         }
+        @CustomType.Setter
         public Builder signed(@Nullable String signed) {
             this.signed = signed;
             return this;
-        }        public PresetAudioCodecOptions build() {
-            return new PresetAudioCodecOptions(bitDepth, bitOrder, profile, signed);
+        }
+        public PresetAudioCodecOptions build() {
+            final var o = new PresetAudioCodecOptions();
+            o.bitDepth = bitDepth;
+            o.bitOrder = bitOrder;
+            o.profile = profile;
+            o.signed = signed;
+            return o;
         }
     }
 }

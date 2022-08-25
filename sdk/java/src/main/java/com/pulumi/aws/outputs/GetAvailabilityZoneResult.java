@@ -14,91 +14,60 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAvailabilityZoneResult {
-    private final @Nullable Boolean allAvailabilityZones;
-    private final @Nullable List<GetAvailabilityZoneFilter> filters;
+    private @Nullable Boolean allAvailabilityZones;
+    private @Nullable List<GetAvailabilityZoneFilter> filters;
     /**
      * @return For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
      * 
      */
-    private final String groupName;
+    private String groupName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
      * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
      * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
      * 
      */
-    private final String nameSuffix;
+    private String nameSuffix;
     /**
      * @return The name of the location from which the address is advertised.
      * 
      */
-    private final String networkBorderGroup;
+    private String networkBorderGroup;
     /**
      * @return For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
      * 
      */
-    private final String optInStatus;
+    private String optInStatus;
     /**
      * @return The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      * 
      */
-    private final String parentZoneId;
+    private String parentZoneId;
     /**
      * @return The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      * 
      */
-    private final String parentZoneName;
+    private String parentZoneName;
     /**
      * @return The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
      * 
      */
-    private final String region;
-    private final String state;
-    private final String zoneId;
+    private String region;
+    private String state;
+    private String zoneId;
     /**
      * @return The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
      * 
      */
-    private final String zoneType;
+    private String zoneType;
 
-    @CustomType.Constructor
-    private GetAvailabilityZoneResult(
-        @CustomType.Parameter("allAvailabilityZones") @Nullable Boolean allAvailabilityZones,
-        @CustomType.Parameter("filters") @Nullable List<GetAvailabilityZoneFilter> filters,
-        @CustomType.Parameter("groupName") String groupName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nameSuffix") String nameSuffix,
-        @CustomType.Parameter("networkBorderGroup") String networkBorderGroup,
-        @CustomType.Parameter("optInStatus") String optInStatus,
-        @CustomType.Parameter("parentZoneId") String parentZoneId,
-        @CustomType.Parameter("parentZoneName") String parentZoneName,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("zoneId") String zoneId,
-        @CustomType.Parameter("zoneType") String zoneType) {
-        this.allAvailabilityZones = allAvailabilityZones;
-        this.filters = filters;
-        this.groupName = groupName;
-        this.id = id;
-        this.name = name;
-        this.nameSuffix = nameSuffix;
-        this.networkBorderGroup = networkBorderGroup;
-        this.optInStatus = optInStatus;
-        this.parentZoneId = parentZoneId;
-        this.parentZoneName = parentZoneName;
-        this.region = region;
-        this.state = state;
-        this.zoneId = zoneId;
-        this.zoneType = zoneType;
-    }
-
+    private GetAvailabilityZoneResult() {}
     public Optional<Boolean> allAvailabilityZones() {
         return Optional.ofNullable(this.allAvailabilityZones);
     }
@@ -187,7 +156,7 @@ public final class GetAvailabilityZoneResult {
     public static Builder builder(GetAvailabilityZoneResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allAvailabilityZones;
         private @Nullable List<GetAvailabilityZoneFilter> filters;
@@ -203,11 +172,7 @@ public final class GetAvailabilityZoneResult {
         private String state;
         private String zoneId;
         private String zoneType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAvailabilityZoneResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allAvailabilityZones = defaults.allAvailabilityZones;
@@ -226,10 +191,12 @@ public final class GetAvailabilityZoneResult {
     	      this.zoneType = defaults.zoneType;
         }
 
+        @CustomType.Setter
         public Builder allAvailabilityZones(@Nullable Boolean allAvailabilityZones) {
             this.allAvailabilityZones = allAvailabilityZones;
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetAvailabilityZoneFilter> filters) {
             this.filters = filters;
             return this;
@@ -237,55 +204,83 @@ public final class GetAvailabilityZoneResult {
         public Builder filters(GetAvailabilityZoneFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder groupName(String groupName) {
             this.groupName = Objects.requireNonNull(groupName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nameSuffix(String nameSuffix) {
             this.nameSuffix = Objects.requireNonNull(nameSuffix);
             return this;
         }
+        @CustomType.Setter
         public Builder networkBorderGroup(String networkBorderGroup) {
             this.networkBorderGroup = Objects.requireNonNull(networkBorderGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder optInStatus(String optInStatus) {
             this.optInStatus = Objects.requireNonNull(optInStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder parentZoneId(String parentZoneId) {
             this.parentZoneId = Objects.requireNonNull(parentZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder parentZoneName(String parentZoneName) {
             this.parentZoneName = Objects.requireNonNull(parentZoneName);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneId(String zoneId) {
             this.zoneId = Objects.requireNonNull(zoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneType(String zoneType) {
             this.zoneType = Objects.requireNonNull(zoneType);
             return this;
-        }        public GetAvailabilityZoneResult build() {
-            return new GetAvailabilityZoneResult(allAvailabilityZones, filters, groupName, id, name, nameSuffix, networkBorderGroup, optInStatus, parentZoneId, parentZoneName, region, state, zoneId, zoneType);
+        }
+        public GetAvailabilityZoneResult build() {
+            final var o = new GetAvailabilityZoneResult();
+            o.allAvailabilityZones = allAvailabilityZones;
+            o.filters = filters;
+            o.groupName = groupName;
+            o.id = id;
+            o.name = name;
+            o.nameSuffix = nameSuffix;
+            o.networkBorderGroup = networkBorderGroup;
+            o.optInStatus = optInStatus;
+            o.parentZoneId = parentZoneId;
+            o.parentZoneName = parentZoneName;
+            o.region = region;
+            o.state = state;
+            o.zoneId = zoneId;
+            o.zoneType = zoneType;
+            return o;
         }
     }
 }

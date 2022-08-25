@@ -14,28 +14,19 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
      * 
      */
-    private final String authCodeUrl;
+    private String authCodeUrl;
     /**
      * @return The OAuth scopes required for OAuth type authentication.
      * 
      */
-    private final List<String> oauthScopes;
+    private List<String> oauthScopes;
     /**
      * @return The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
      * 
      */
-    private final String tokenUrl;
+    private String tokenUrl;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties(
-        @CustomType.Parameter("authCodeUrl") String authCodeUrl,
-        @CustomType.Parameter("oauthScopes") List<String> oauthScopes,
-        @CustomType.Parameter("tokenUrl") String tokenUrl) {
-        this.authCodeUrl = authCodeUrl;
-        this.oauthScopes = oauthScopes;
-        this.tokenUrl = tokenUrl;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties() {}
     /**
      * @return The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
      * 
@@ -65,16 +56,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authCodeUrl;
         private List<String> oauthScopes;
         private String tokenUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authCodeUrl = defaults.authCodeUrl;
@@ -82,10 +69,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     	      this.tokenUrl = defaults.tokenUrl;
         }
 
+        @CustomType.Setter
         public Builder authCodeUrl(String authCodeUrl) {
             this.authCodeUrl = Objects.requireNonNull(authCodeUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(List<String> oauthScopes) {
             this.oauthScopes = Objects.requireNonNull(oauthScopes);
             return this;
@@ -93,11 +82,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
         }
+        @CustomType.Setter
         public Builder tokenUrl(String tokenUrl) {
             this.tokenUrl = Objects.requireNonNull(tokenUrl);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties(authCodeUrl, oauthScopes, tokenUrl);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties();
+            o.authCodeUrl = authCodeUrl;
+            o.oauthScopes = oauthScopes;
+            o.tokenUrl = tokenUrl;
+            return o;
         }
     }
 }

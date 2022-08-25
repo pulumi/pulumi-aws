@@ -13,13 +13,9 @@ public final class ServerlessClusterClientAuthenticationSaslIam {
      * @return Whether SASL/IAM authentication is enabled or not.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private ServerlessClusterClientAuthenticationSaslIam(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private ServerlessClusterClientAuthenticationSaslIam() {}
     /**
      * @return Whether SASL/IAM authentication is enabled or not.
      * 
@@ -35,24 +31,24 @@ public final class ServerlessClusterClientAuthenticationSaslIam {
     public static Builder builder(ServerlessClusterClientAuthenticationSaslIam defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerlessClusterClientAuthenticationSaslIam defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public ServerlessClusterClientAuthenticationSaslIam build() {
-            return new ServerlessClusterClientAuthenticationSaslIam(enabled);
+        }
+        public ServerlessClusterClientAuthenticationSaslIam build() {
+            final var o = new ServerlessClusterClientAuthenticationSaslIam();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

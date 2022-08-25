@@ -13,13 +13,9 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
      * @return A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
      * 
      */
-    private final FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction publishMetricAction;
+    private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction publishMetricAction;
 
-    @CustomType.Constructor
-    private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(@CustomType.Parameter("publishMetricAction") FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction publishMetricAction) {
-        this.publishMetricAction = publishMetricAction;
-    }
-
+    private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition() {}
     /**
      * @return A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
      * 
@@ -35,24 +31,24 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
     public static Builder builder(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction publishMetricAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.publishMetricAction = defaults.publishMetricAction;
         }
 
+        @CustomType.Setter
         public Builder publishMetricAction(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction publishMetricAction) {
             this.publishMetricAction = Objects.requireNonNull(publishMetricAction);
             return this;
-        }        public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition build() {
-            return new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(publishMetricAction);
+        }
+        public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition build() {
+            final var o = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition();
+            o.publishMetricAction = publishMetricAction;
+            return o;
         }
     }
 }

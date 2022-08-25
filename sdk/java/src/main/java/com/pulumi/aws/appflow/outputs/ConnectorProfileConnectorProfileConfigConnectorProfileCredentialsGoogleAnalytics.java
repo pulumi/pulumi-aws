@@ -16,42 +16,29 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The credentials used to access protected Zendesk resources.
      * 
      */
-    private final @Nullable String accessToken;
+    private @Nullable String accessToken;
     /**
      * @return The identifier for the desired client.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The client secret used by the OAuth client to authenticate to the authorization server.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest oauthRequest;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest oauthRequest;
     /**
      * @return The refresh token used to refresh expired access token.
      * 
      */
-    private final @Nullable String refreshToken;
+    private @Nullable String refreshToken;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics(
-        @CustomType.Parameter("accessToken") @Nullable String accessToken,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("oauthRequest") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest oauthRequest,
-        @CustomType.Parameter("refreshToken") @Nullable String refreshToken) {
-        this.accessToken = accessToken;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.oauthRequest = oauthRequest;
-        this.refreshToken = refreshToken;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics() {}
     /**
      * @return The credentials used to access protected Zendesk resources.
      * 
@@ -95,18 +82,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessToken;
         private String clientId;
         private String clientSecret;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest oauthRequest;
         private @Nullable String refreshToken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
@@ -116,27 +99,39 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     	      this.refreshToken = defaults.refreshToken;
         }
 
+        @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
             this.accessToken = accessToken;
             return this;
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthRequest(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest oauthRequest) {
             this.oauthRequest = oauthRequest;
             return this;
         }
+        @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
             this.refreshToken = refreshToken;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics(accessToken, clientId, clientSecret, oauthRequest, refreshToken);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics();
+            o.accessToken = accessToken;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.oauthRequest = oauthRequest;
+            o.refreshToken = refreshToken;
+            return o;
         }
     }
 }

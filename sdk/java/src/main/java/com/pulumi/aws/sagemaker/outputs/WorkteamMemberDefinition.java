@@ -16,21 +16,14 @@ public final class WorkteamMemberDefinition {
      * @return The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
      * 
      */
-    private final @Nullable WorkteamMemberDefinitionCognitoMemberDefinition cognitoMemberDefinition;
+    private @Nullable WorkteamMemberDefinitionCognitoMemberDefinition cognitoMemberDefinition;
     /**
      * @return A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
      * 
      */
-    private final @Nullable WorkteamMemberDefinitionOidcMemberDefinition oidcMemberDefinition;
+    private @Nullable WorkteamMemberDefinitionOidcMemberDefinition oidcMemberDefinition;
 
-    @CustomType.Constructor
-    private WorkteamMemberDefinition(
-        @CustomType.Parameter("cognitoMemberDefinition") @Nullable WorkteamMemberDefinitionCognitoMemberDefinition cognitoMemberDefinition,
-        @CustomType.Parameter("oidcMemberDefinition") @Nullable WorkteamMemberDefinitionOidcMemberDefinition oidcMemberDefinition) {
-        this.cognitoMemberDefinition = cognitoMemberDefinition;
-        this.oidcMemberDefinition = oidcMemberDefinition;
-    }
-
+    private WorkteamMemberDefinition() {}
     /**
      * @return The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
      * 
@@ -53,30 +46,32 @@ public final class WorkteamMemberDefinition {
     public static Builder builder(WorkteamMemberDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WorkteamMemberDefinitionCognitoMemberDefinition cognitoMemberDefinition;
         private @Nullable WorkteamMemberDefinitionOidcMemberDefinition oidcMemberDefinition;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkteamMemberDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cognitoMemberDefinition = defaults.cognitoMemberDefinition;
     	      this.oidcMemberDefinition = defaults.oidcMemberDefinition;
         }
 
+        @CustomType.Setter
         public Builder cognitoMemberDefinition(@Nullable WorkteamMemberDefinitionCognitoMemberDefinition cognitoMemberDefinition) {
             this.cognitoMemberDefinition = cognitoMemberDefinition;
             return this;
         }
+        @CustomType.Setter
         public Builder oidcMemberDefinition(@Nullable WorkteamMemberDefinitionOidcMemberDefinition oidcMemberDefinition) {
             this.oidcMemberDefinition = oidcMemberDefinition;
             return this;
-        }        public WorkteamMemberDefinition build() {
-            return new WorkteamMemberDefinition(cognitoMemberDefinition, oidcMemberDefinition);
+        }
+        public WorkteamMemberDefinition build() {
+            final var o = new WorkteamMemberDefinition();
+            o.cognitoMemberDefinition = cognitoMemberDefinition;
+            o.oidcMemberDefinition = oidcMemberDefinition;
+            return o;
         }
     }
 }

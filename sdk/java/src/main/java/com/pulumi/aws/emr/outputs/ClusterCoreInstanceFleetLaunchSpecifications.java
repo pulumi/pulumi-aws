@@ -16,21 +16,14 @@ public final class ClusterCoreInstanceFleetLaunchSpecifications {
      * @return Configuration block for on demand instances launch specifications.
      * 
      */
-    private final @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications;
+    private @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications;
     /**
      * @return Configuration block for spot instances launch specifications.
      * 
      */
-    private final @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications;
+    private @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications;
 
-    @CustomType.Constructor
-    private ClusterCoreInstanceFleetLaunchSpecifications(
-        @CustomType.Parameter("onDemandSpecifications") @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications,
-        @CustomType.Parameter("spotSpecifications") @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications) {
-        this.onDemandSpecifications = onDemandSpecifications;
-        this.spotSpecifications = spotSpecifications;
-    }
-
+    private ClusterCoreInstanceFleetLaunchSpecifications() {}
     /**
      * @return Configuration block for on demand instances launch specifications.
      * 
@@ -53,21 +46,18 @@ public final class ClusterCoreInstanceFleetLaunchSpecifications {
     public static Builder builder(ClusterCoreInstanceFleetLaunchSpecifications defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications;
         private @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterCoreInstanceFleetLaunchSpecifications defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.onDemandSpecifications = defaults.onDemandSpecifications;
     	      this.spotSpecifications = defaults.spotSpecifications;
         }
 
+        @CustomType.Setter
         public Builder onDemandSpecifications(@Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications) {
             this.onDemandSpecifications = onDemandSpecifications;
             return this;
@@ -75,14 +65,19 @@ public final class ClusterCoreInstanceFleetLaunchSpecifications {
         public Builder onDemandSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification... onDemandSpecifications) {
             return onDemandSpecifications(List.of(onDemandSpecifications));
         }
+        @CustomType.Setter
         public Builder spotSpecifications(@Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications) {
             this.spotSpecifications = spotSpecifications;
             return this;
         }
         public Builder spotSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification... spotSpecifications) {
             return spotSpecifications(List.of(spotSpecifications));
-        }        public ClusterCoreInstanceFleetLaunchSpecifications build() {
-            return new ClusterCoreInstanceFleetLaunchSpecifications(onDemandSpecifications, spotSpecifications);
+        }
+        public ClusterCoreInstanceFleetLaunchSpecifications build() {
+            final var o = new ClusterCoreInstanceFleetLaunchSpecifications();
+            o.onDemandSpecifications = onDemandSpecifications;
+            o.spotSpecifications = spotSpecifications;
+            return o;
         }
     }
 }

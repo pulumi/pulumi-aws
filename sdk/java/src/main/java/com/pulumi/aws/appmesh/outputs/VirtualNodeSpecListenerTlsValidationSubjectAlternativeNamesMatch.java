@@ -14,13 +14,9 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMa
      * @return The values sent must match the specified values exactly.
      * 
      */
-    private final List<String> exacts;
+    private List<String> exacts;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(@CustomType.Parameter("exacts") List<String> exacts) {
-        this.exacts = exacts;
-    }
-
+    private VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch() {}
     /**
      * @return The values sent must match the specified values exactly.
      * 
@@ -36,27 +32,27 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMa
     public static Builder builder(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> exacts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exacts = defaults.exacts;
         }
 
+        @CustomType.Setter
         public Builder exacts(List<String> exacts) {
             this.exacts = Objects.requireNonNull(exacts);
             return this;
         }
         public Builder exacts(String... exacts) {
             return exacts(List.of(exacts));
-        }        public VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch build() {
-            return new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(exacts);
+        }
+        public VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch build() {
+            final var o = new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch();
+            o.exacts = exacts;
+            return o;
         }
     }
 }

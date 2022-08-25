@@ -13,28 +13,19 @@ public final class GetUserHierarchyGroupHierarchyPathLevelOne {
      * @return The Amazon Resource Name (ARN) of the hierarchy group.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The identifier of the hierarchy group.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Returns information on a specific hierarchy group by name
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetUserHierarchyGroupHierarchyPathLevelOne(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetUserHierarchyGroupHierarchyPathLevelOne() {}
     /**
      * @return The Amazon Resource Name (ARN) of the hierarchy group.
      * 
@@ -64,16 +55,12 @@ public final class GetUserHierarchyGroupHierarchyPathLevelOne {
     public static Builder builder(GetUserHierarchyGroupHierarchyPathLevelOne defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserHierarchyGroupHierarchyPathLevelOne defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -81,19 +68,27 @@ public final class GetUserHierarchyGroupHierarchyPathLevelOne {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetUserHierarchyGroupHierarchyPathLevelOne build() {
-            return new GetUserHierarchyGroupHierarchyPathLevelOne(arn, id, name);
+        }
+        public GetUserHierarchyGroupHierarchyPathLevelOne build() {
+            final var o = new GetUserHierarchyGroupHierarchyPathLevelOne();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ClusterEncryptionConfig {
      * @return Configuration block with provider for encryption. Detailed below.
      * 
      */
-    private final ClusterEncryptionConfigProvider provider;
+    private ClusterEncryptionConfigProvider provider;
     /**
      * @return List of strings with resources to be encrypted. Valid values: `secrets`.
      * 
      */
-    private final List<String> resources;
+    private List<String> resources;
 
-    @CustomType.Constructor
-    private ClusterEncryptionConfig(
-        @CustomType.Parameter("provider") ClusterEncryptionConfigProvider provider,
-        @CustomType.Parameter("resources") List<String> resources) {
-        this.provider = provider;
-        this.resources = resources;
-    }
-
+    private ClusterEncryptionConfig() {}
     /**
      * @return Configuration block with provider for encryption. Detailed below.
      * 
@@ -52,33 +45,35 @@ public final class ClusterEncryptionConfig {
     public static Builder builder(ClusterEncryptionConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ClusterEncryptionConfigProvider provider;
         private List<String> resources;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterEncryptionConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.provider = defaults.provider;
     	      this.resources = defaults.resources;
         }
 
+        @CustomType.Setter
         public Builder provider(ClusterEncryptionConfigProvider provider) {
             this.provider = Objects.requireNonNull(provider);
             return this;
         }
+        @CustomType.Setter
         public Builder resources(List<String> resources) {
             this.resources = Objects.requireNonNull(resources);
             return this;
         }
         public Builder resources(String... resources) {
             return resources(List.of(resources));
-        }        public ClusterEncryptionConfig build() {
-            return new ClusterEncryptionConfig(provider, resources);
+        }
+        public ClusterEncryptionConfig build() {
+            final var o = new ClusterEncryptionConfig();
+            o.provider = provider;
+            o.resources = resources;
+            return o;
         }
     }
 }

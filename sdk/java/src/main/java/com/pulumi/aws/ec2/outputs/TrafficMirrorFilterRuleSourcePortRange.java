@@ -15,21 +15,14 @@ public final class TrafficMirrorFilterRuleSourcePortRange {
      * @return Starting port of the range
      * 
      */
-    private final @Nullable Integer fromPort;
+    private @Nullable Integer fromPort;
     /**
      * @return Ending port of the range
      * 
      */
-    private final @Nullable Integer toPort;
+    private @Nullable Integer toPort;
 
-    @CustomType.Constructor
-    private TrafficMirrorFilterRuleSourcePortRange(
-        @CustomType.Parameter("fromPort") @Nullable Integer fromPort,
-        @CustomType.Parameter("toPort") @Nullable Integer toPort) {
-        this.fromPort = fromPort;
-        this.toPort = toPort;
-    }
-
+    private TrafficMirrorFilterRuleSourcePortRange() {}
     /**
      * @return Starting port of the range
      * 
@@ -52,30 +45,32 @@ public final class TrafficMirrorFilterRuleSourcePortRange {
     public static Builder builder(TrafficMirrorFilterRuleSourcePortRange defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer fromPort;
         private @Nullable Integer toPort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrafficMirrorFilterRuleSourcePortRange defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fromPort = defaults.fromPort;
     	      this.toPort = defaults.toPort;
         }
 
+        @CustomType.Setter
         public Builder fromPort(@Nullable Integer fromPort) {
             this.fromPort = fromPort;
             return this;
         }
+        @CustomType.Setter
         public Builder toPort(@Nullable Integer toPort) {
             this.toPort = toPort;
             return this;
-        }        public TrafficMirrorFilterRuleSourcePortRange build() {
-            return new TrafficMirrorFilterRuleSourcePortRange(fromPort, toPort);
+        }
+        public TrafficMirrorFilterRuleSourcePortRange build() {
+            final var o = new TrafficMirrorFilterRuleSourcePortRange();
+            o.fromPort = fromPort;
+            o.toPort = toPort;
+            return o;
         }
     }
 }

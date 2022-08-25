@@ -9,41 +9,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStreamConsumerResult {
-    private final String arn;
+    private String arn;
     /**
      * @return Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      * 
      */
-    private final String creationTimestamp;
+    private String creationTimestamp;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The current status of the stream consumer.
      * 
      */
-    private final String status;
-    private final String streamArn;
+    private String status;
+    private String streamArn;
 
-    @CustomType.Constructor
-    private GetStreamConsumerResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("creationTimestamp") String creationTimestamp,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("streamArn") String streamArn) {
-        this.arn = arn;
-        this.creationTimestamp = creationTimestamp;
-        this.id = id;
-        this.name = name;
-        this.status = status;
-        this.streamArn = streamArn;
-    }
-
+    private GetStreamConsumerResult() {}
     public String arn() {
         return this.arn;
     }
@@ -82,7 +67,7 @@ public final class GetStreamConsumerResult {
     public static Builder builder(GetStreamConsumerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String creationTimestamp;
@@ -90,11 +75,7 @@ public final class GetStreamConsumerResult {
         private String name;
         private String status;
         private String streamArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStreamConsumerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -105,31 +86,45 @@ public final class GetStreamConsumerResult {
     	      this.streamArn = defaults.streamArn;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder creationTimestamp(String creationTimestamp) {
             this.creationTimestamp = Objects.requireNonNull(creationTimestamp);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder streamArn(String streamArn) {
             this.streamArn = Objects.requireNonNull(streamArn);
             return this;
-        }        public GetStreamConsumerResult build() {
-            return new GetStreamConsumerResult(arn, creationTimestamp, id, name, status, streamArn);
+        }
+        public GetStreamConsumerResult build() {
+            final var o = new GetStreamConsumerResult();
+            o.arn = arn;
+            o.creationTimestamp = creationTimestamp;
+            o.id = id;
+            o.name = name;
+            o.status = status;
+            o.streamArn = streamArn;
+            return o;
         }
     }
 }

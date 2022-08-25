@@ -10,26 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateInstanceMarketOptionSpotOption {
-    private final Integer blockDurationMinutes;
-    private final String instanceInterruptionBehavior;
-    private final String maxPrice;
-    private final String spotInstanceType;
-    private final String validUntil;
+    private Integer blockDurationMinutes;
+    private String instanceInterruptionBehavior;
+    private String maxPrice;
+    private String spotInstanceType;
+    private String validUntil;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateInstanceMarketOptionSpotOption(
-        @CustomType.Parameter("blockDurationMinutes") Integer blockDurationMinutes,
-        @CustomType.Parameter("instanceInterruptionBehavior") String instanceInterruptionBehavior,
-        @CustomType.Parameter("maxPrice") String maxPrice,
-        @CustomType.Parameter("spotInstanceType") String spotInstanceType,
-        @CustomType.Parameter("validUntil") String validUntil) {
-        this.blockDurationMinutes = blockDurationMinutes;
-        this.instanceInterruptionBehavior = instanceInterruptionBehavior;
-        this.maxPrice = maxPrice;
-        this.spotInstanceType = spotInstanceType;
-        this.validUntil = validUntil;
-    }
-
+    private GetLaunchTemplateInstanceMarketOptionSpotOption() {}
     public Integer blockDurationMinutes() {
         return this.blockDurationMinutes;
     }
@@ -53,18 +40,14 @@ public final class GetLaunchTemplateInstanceMarketOptionSpotOption {
     public static Builder builder(GetLaunchTemplateInstanceMarketOptionSpotOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer blockDurationMinutes;
         private String instanceInterruptionBehavior;
         private String maxPrice;
         private String spotInstanceType;
         private String validUntil;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateInstanceMarketOptionSpotOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blockDurationMinutes = defaults.blockDurationMinutes;
@@ -74,27 +57,39 @@ public final class GetLaunchTemplateInstanceMarketOptionSpotOption {
     	      this.validUntil = defaults.validUntil;
         }
 
+        @CustomType.Setter
         public Builder blockDurationMinutes(Integer blockDurationMinutes) {
             this.blockDurationMinutes = Objects.requireNonNull(blockDurationMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceInterruptionBehavior(String instanceInterruptionBehavior) {
             this.instanceInterruptionBehavior = Objects.requireNonNull(instanceInterruptionBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder maxPrice(String maxPrice) {
             this.maxPrice = Objects.requireNonNull(maxPrice);
             return this;
         }
+        @CustomType.Setter
         public Builder spotInstanceType(String spotInstanceType) {
             this.spotInstanceType = Objects.requireNonNull(spotInstanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder validUntil(String validUntil) {
             this.validUntil = Objects.requireNonNull(validUntil);
             return this;
-        }        public GetLaunchTemplateInstanceMarketOptionSpotOption build() {
-            return new GetLaunchTemplateInstanceMarketOptionSpotOption(blockDurationMinutes, instanceInterruptionBehavior, maxPrice, spotInstanceType, validUntil);
+        }
+        public GetLaunchTemplateInstanceMarketOptionSpotOption build() {
+            final var o = new GetLaunchTemplateInstanceMarketOptionSpotOption();
+            o.blockDurationMinutes = blockDurationMinutes;
+            o.instanceInterruptionBehavior = instanceInterruptionBehavior;
+            o.maxPrice = maxPrice;
+            o.spotInstanceType = spotInstanceType;
+            o.validUntil = validUntil;
+            return o;
         }
     }
 }

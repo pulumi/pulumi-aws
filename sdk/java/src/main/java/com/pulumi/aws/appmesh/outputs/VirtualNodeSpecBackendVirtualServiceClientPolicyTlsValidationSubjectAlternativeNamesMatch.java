@@ -14,13 +14,9 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
      * @return The values sent must match the specified values exactly.
      * 
      */
-    private final List<String> exacts;
+    private List<String> exacts;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch(@CustomType.Parameter("exacts") List<String> exacts) {
-        this.exacts = exacts;
-    }
-
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch() {}
     /**
      * @return The values sent must match the specified values exactly.
      * 
@@ -36,27 +32,27 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     public static Builder builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> exacts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exacts = defaults.exacts;
         }
 
+        @CustomType.Setter
         public Builder exacts(List<String> exacts) {
             this.exacts = Objects.requireNonNull(exacts);
             return this;
         }
         public Builder exacts(String... exacts) {
             return exacts(List.of(exacts));
-        }        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch build() {
-            return new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch(exacts);
+        }
+        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch build() {
+            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch();
+            o.exacts = exacts;
+            return o;
         }
     }
 }

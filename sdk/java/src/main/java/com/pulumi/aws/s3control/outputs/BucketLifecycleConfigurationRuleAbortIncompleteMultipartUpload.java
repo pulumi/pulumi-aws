@@ -13,13 +13,9 @@ public final class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploa
      * @return Number of days after which Amazon S3 aborts an incomplete multipart upload.
      * 
      */
-    private final Integer daysAfterInitiation;
+    private Integer daysAfterInitiation;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(@CustomType.Parameter("daysAfterInitiation") Integer daysAfterInitiation) {
-        this.daysAfterInitiation = daysAfterInitiation;
-    }
-
+    private BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload() {}
     /**
      * @return Number of days after which Amazon S3 aborts an incomplete multipart upload.
      * 
@@ -35,24 +31,24 @@ public final class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploa
     public static Builder builder(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer daysAfterInitiation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.daysAfterInitiation = defaults.daysAfterInitiation;
         }
 
+        @CustomType.Setter
         public Builder daysAfterInitiation(Integer daysAfterInitiation) {
             this.daysAfterInitiation = Objects.requireNonNull(daysAfterInitiation);
             return this;
-        }        public BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload build() {
-            return new BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(daysAfterInitiation);
+        }
+        public BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload build() {
+            final var o = new BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload();
+            o.daysAfterInitiation = daysAfterInitiation;
+            return o;
         }
     }
 }

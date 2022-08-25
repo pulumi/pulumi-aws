@@ -14,21 +14,14 @@ public final class GatewayRouteSpecGrpcRoute {
      * @return The action to take if a match is determined.
      * 
      */
-    private final GatewayRouteSpecGrpcRouteAction action;
+    private GatewayRouteSpecGrpcRouteAction action;
     /**
      * @return The criteria for determining a request match.
      * 
      */
-    private final GatewayRouteSpecGrpcRouteMatch match;
+    private GatewayRouteSpecGrpcRouteMatch match;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecGrpcRoute(
-        @CustomType.Parameter("action") GatewayRouteSpecGrpcRouteAction action,
-        @CustomType.Parameter("match") GatewayRouteSpecGrpcRouteMatch match) {
-        this.action = action;
-        this.match = match;
-    }
-
+    private GatewayRouteSpecGrpcRoute() {}
     /**
      * @return The action to take if a match is determined.
      * 
@@ -51,30 +44,32 @@ public final class GatewayRouteSpecGrpcRoute {
     public static Builder builder(GatewayRouteSpecGrpcRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GatewayRouteSpecGrpcRouteAction action;
         private GatewayRouteSpecGrpcRouteMatch match;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecGrpcRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.match = defaults.match;
         }
 
+        @CustomType.Setter
         public Builder action(GatewayRouteSpecGrpcRouteAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder match(GatewayRouteSpecGrpcRouteMatch match) {
             this.match = Objects.requireNonNull(match);
             return this;
-        }        public GatewayRouteSpecGrpcRoute build() {
-            return new GatewayRouteSpecGrpcRoute(action, match);
+        }
+        public GatewayRouteSpecGrpcRoute build() {
+            final var o = new GatewayRouteSpecGrpcRoute();
+            o.action = action;
+            o.match = match;
+            return o;
         }
     }
 }

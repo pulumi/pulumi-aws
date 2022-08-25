@@ -16,21 +16,14 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
      * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return The Amazon Resource Name (ARN) of the stateful rule group.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
 
-    @CustomType.Constructor
-    private FirewallPolicyFirewallPolicyStatefulRuleGroupReference(
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("resourceArn") String resourceArn) {
-        this.priority = priority;
-        this.resourceArn = resourceArn;
-    }
-
+    private FirewallPolicyFirewallPolicyStatefulRuleGroupReference() {}
     /**
      * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
      * 
@@ -53,30 +46,32 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     public static Builder builder(FirewallPolicyFirewallPolicyStatefulRuleGroupReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer priority;
         private String resourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatefulRuleGroupReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.priority = defaults.priority;
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
-        }        public FirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
-            return new FirewallPolicyFirewallPolicyStatefulRuleGroupReference(priority, resourceArn);
+        }
+        public FirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
+            final var o = new FirewallPolicyFirewallPolicyStatefulRuleGroupReference();
+            o.priority = priority;
+            o.resourceArn = resourceArn;
+            return o;
         }
     }
 }

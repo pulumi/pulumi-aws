@@ -18,49 +18,34 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
      * @return Key-value map of tags to apply to the distributed AMI.
      * 
      */
-    private final @Nullable Map<String,String> amiTags;
+    private @Nullable Map<String,String> amiTags;
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
      * 
      */
-    private final @Nullable DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission launchPermission;
+    private @Nullable DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission launchPermission;
     /**
      * @return Name to apply to the distributed AMI.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Set of AWS Account identifiers to distribute the AMI.
      * 
      */
-    private final @Nullable List<String> targetAccountIds;
+    private @Nullable List<String> targetAccountIds;
 
-    @CustomType.Constructor
-    private DistributionConfigurationDistributionAmiDistributionConfiguration(
-        @CustomType.Parameter("amiTags") @Nullable Map<String,String> amiTags,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("launchPermission") @Nullable DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission launchPermission,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("targetAccountIds") @Nullable List<String> targetAccountIds) {
-        this.amiTags = amiTags;
-        this.description = description;
-        this.kmsKeyId = kmsKeyId;
-        this.launchPermission = launchPermission;
-        this.name = name;
-        this.targetAccountIds = targetAccountIds;
-    }
-
+    private DistributionConfigurationDistributionAmiDistributionConfiguration() {}
     /**
      * @return Key-value map of tags to apply to the distributed AMI.
      * 
@@ -111,7 +96,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
     public static Builder builder(DistributionConfigurationDistributionAmiDistributionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> amiTags;
         private @Nullable String description;
@@ -119,11 +104,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         private @Nullable DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission launchPermission;
         private @Nullable String name;
         private @Nullable List<String> targetAccountIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionConfigurationDistributionAmiDistributionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amiTags = defaults.amiTags;
@@ -134,34 +115,48 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
     	      this.targetAccountIds = defaults.targetAccountIds;
         }
 
+        @CustomType.Setter
         public Builder amiTags(@Nullable Map<String,String> amiTags) {
             this.amiTags = amiTags;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder launchPermission(@Nullable DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission launchPermission) {
             this.launchPermission = launchPermission;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder targetAccountIds(@Nullable List<String> targetAccountIds) {
             this.targetAccountIds = targetAccountIds;
             return this;
         }
         public Builder targetAccountIds(String... targetAccountIds) {
             return targetAccountIds(List.of(targetAccountIds));
-        }        public DistributionConfigurationDistributionAmiDistributionConfiguration build() {
-            return new DistributionConfigurationDistributionAmiDistributionConfiguration(amiTags, description, kmsKeyId, launchPermission, name, targetAccountIds);
+        }
+        public DistributionConfigurationDistributionAmiDistributionConfiguration build() {
+            final var o = new DistributionConfigurationDistributionAmiDistributionConfiguration();
+            o.amiTags = amiTags;
+            o.description = description;
+            o.kmsKeyId = kmsKeyId;
+            o.launchPermission = launchPermission;
+            o.name = name;
+            o.targetAccountIds = targetAccountIds;
+            return o;
         }
     }
 }

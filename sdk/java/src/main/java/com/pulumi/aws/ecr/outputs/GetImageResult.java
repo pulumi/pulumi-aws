@@ -17,47 +17,28 @@ public final class GetImageResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String imageDigest;
+    private String id;
+    private String imageDigest;
     /**
      * @return The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
      * 
      */
-    private final Integer imagePushedAt;
+    private Integer imagePushedAt;
     /**
      * @return The size, in bytes, of the image in the repository.
      * 
      */
-    private final Integer imageSizeInBytes;
-    private final @Nullable String imageTag;
+    private Integer imageSizeInBytes;
+    private @Nullable String imageTag;
     /**
      * @return The list of tags associated with this image.
      * 
      */
-    private final List<String> imageTags;
-    private final String registryId;
-    private final String repositoryName;
+    private List<String> imageTags;
+    private String registryId;
+    private String repositoryName;
 
-    @CustomType.Constructor
-    private GetImageResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageDigest") String imageDigest,
-        @CustomType.Parameter("imagePushedAt") Integer imagePushedAt,
-        @CustomType.Parameter("imageSizeInBytes") Integer imageSizeInBytes,
-        @CustomType.Parameter("imageTag") @Nullable String imageTag,
-        @CustomType.Parameter("imageTags") List<String> imageTags,
-        @CustomType.Parameter("registryId") String registryId,
-        @CustomType.Parameter("repositoryName") String repositoryName) {
-        this.id = id;
-        this.imageDigest = imageDigest;
-        this.imagePushedAt = imagePushedAt;
-        this.imageSizeInBytes = imageSizeInBytes;
-        this.imageTag = imageTag;
-        this.imageTags = imageTags;
-        this.registryId = registryId;
-        this.repositoryName = repositoryName;
-    }
-
+    private GetImageResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -106,7 +87,7 @@ public final class GetImageResult {
     public static Builder builder(GetImageResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String imageDigest;
@@ -116,11 +97,7 @@ public final class GetImageResult {
         private List<String> imageTags;
         private String registryId;
         private String repositoryName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImageResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -133,26 +110,32 @@ public final class GetImageResult {
     	      this.repositoryName = defaults.repositoryName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageDigest(String imageDigest) {
             this.imageDigest = Objects.requireNonNull(imageDigest);
             return this;
         }
+        @CustomType.Setter
         public Builder imagePushedAt(Integer imagePushedAt) {
             this.imagePushedAt = Objects.requireNonNull(imagePushedAt);
             return this;
         }
+        @CustomType.Setter
         public Builder imageSizeInBytes(Integer imageSizeInBytes) {
             this.imageSizeInBytes = Objects.requireNonNull(imageSizeInBytes);
             return this;
         }
+        @CustomType.Setter
         public Builder imageTag(@Nullable String imageTag) {
             this.imageTag = imageTag;
             return this;
         }
+        @CustomType.Setter
         public Builder imageTags(List<String> imageTags) {
             this.imageTags = Objects.requireNonNull(imageTags);
             return this;
@@ -160,15 +143,27 @@ public final class GetImageResult {
         public Builder imageTags(String... imageTags) {
             return imageTags(List.of(imageTags));
         }
+        @CustomType.Setter
         public Builder registryId(String registryId) {
             this.registryId = Objects.requireNonNull(registryId);
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
             this.repositoryName = Objects.requireNonNull(repositoryName);
             return this;
-        }        public GetImageResult build() {
-            return new GetImageResult(id, imageDigest, imagePushedAt, imageSizeInBytes, imageTag, imageTags, registryId, repositoryName);
+        }
+        public GetImageResult build() {
+            final var o = new GetImageResult();
+            o.id = id;
+            o.imageDigest = imageDigest;
+            o.imagePushedAt = imagePushedAt;
+            o.imageSizeInBytes = imageSizeInBytes;
+            o.imageTag = imageTag;
+            o.imageTags = imageTags;
+            o.registryId = registryId;
+            o.repositoryName = repositoryName;
+            return o;
         }
     }
 }

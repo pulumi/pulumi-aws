@@ -16,21 +16,14 @@ public final class GatewayRouteSpecHttpRouteMatch {
      * @return The host name to rewrite.
      * 
      */
-    private final @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
+    private @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
     /**
      * @return The specified beginning characters to rewrite.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttpRouteMatch(
-        @CustomType.Parameter("hostname") @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname,
-        @CustomType.Parameter("prefix") @Nullable String prefix) {
-        this.hostname = hostname;
-        this.prefix = prefix;
-    }
-
+    private GatewayRouteSpecHttpRouteMatch() {}
     /**
      * @return The host name to rewrite.
      * 
@@ -53,30 +46,32 @@ public final class GatewayRouteSpecHttpRouteMatch {
     public static Builder builder(GatewayRouteSpecHttpRouteMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
         private @Nullable String prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttpRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttpRouteMatchHostname hostname) {
             this.hostname = hostname;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
-        }        public GatewayRouteSpecHttpRouteMatch build() {
-            return new GatewayRouteSpecHttpRouteMatch(hostname, prefix);
+        }
+        public GatewayRouteSpecHttpRouteMatch build() {
+            final var o = new GatewayRouteSpecHttpRouteMatch();
+            o.hostname = hostname;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

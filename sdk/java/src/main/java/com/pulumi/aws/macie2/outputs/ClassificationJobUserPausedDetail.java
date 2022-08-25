@@ -11,20 +11,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassificationJobUserPausedDetail {
-    private final @Nullable String jobExpiresAt;
-    private final @Nullable String jobImminentExpirationHealthEventArn;
-    private final @Nullable String jobPausedAt;
+    private @Nullable String jobExpiresAt;
+    private @Nullable String jobImminentExpirationHealthEventArn;
+    private @Nullable String jobPausedAt;
 
-    @CustomType.Constructor
-    private ClassificationJobUserPausedDetail(
-        @CustomType.Parameter("jobExpiresAt") @Nullable String jobExpiresAt,
-        @CustomType.Parameter("jobImminentExpirationHealthEventArn") @Nullable String jobImminentExpirationHealthEventArn,
-        @CustomType.Parameter("jobPausedAt") @Nullable String jobPausedAt) {
-        this.jobExpiresAt = jobExpiresAt;
-        this.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
-        this.jobPausedAt = jobPausedAt;
-    }
-
+    private ClassificationJobUserPausedDetail() {}
     public Optional<String> jobExpiresAt() {
         return Optional.ofNullable(this.jobExpiresAt);
     }
@@ -42,16 +33,12 @@ public final class ClassificationJobUserPausedDetail {
     public static Builder builder(ClassificationJobUserPausedDetail defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String jobExpiresAt;
         private @Nullable String jobImminentExpirationHealthEventArn;
         private @Nullable String jobPausedAt;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobUserPausedDetail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.jobExpiresAt = defaults.jobExpiresAt;
@@ -59,19 +46,27 @@ public final class ClassificationJobUserPausedDetail {
     	      this.jobPausedAt = defaults.jobPausedAt;
         }
 
+        @CustomType.Setter
         public Builder jobExpiresAt(@Nullable String jobExpiresAt) {
             this.jobExpiresAt = jobExpiresAt;
             return this;
         }
+        @CustomType.Setter
         public Builder jobImminentExpirationHealthEventArn(@Nullable String jobImminentExpirationHealthEventArn) {
             this.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
             return this;
         }
+        @CustomType.Setter
         public Builder jobPausedAt(@Nullable String jobPausedAt) {
             this.jobPausedAt = jobPausedAt;
             return this;
-        }        public ClassificationJobUserPausedDetail build() {
-            return new ClassificationJobUserPausedDetail(jobExpiresAt, jobImminentExpirationHealthEventArn, jobPausedAt);
+        }
+        public ClassificationJobUserPausedDetail build() {
+            final var o = new ClassificationJobUserPausedDetail();
+            o.jobExpiresAt = jobExpiresAt;
+            o.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
+            o.jobPausedAt = jobPausedAt;
+            return o;
         }
     }
 }

@@ -14,13 +14,9 @@ public final class WebAclRuleActionCountCustomRequestHandling {
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
-    private final List<WebAclRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders;
+    private List<WebAclRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders;
 
-    @CustomType.Constructor
-    private WebAclRuleActionCountCustomRequestHandling(@CustomType.Parameter("insertHeaders") List<WebAclRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders) {
-        this.insertHeaders = insertHeaders;
-    }
-
+    private WebAclRuleActionCountCustomRequestHandling() {}
     /**
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclRuleActionCountCustomRequestHandling {
     public static Builder builder(WebAclRuleActionCountCustomRequestHandling defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleActionCountCustomRequestHandling defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.insertHeaders = defaults.insertHeaders;
         }
 
+        @CustomType.Setter
         public Builder insertHeaders(List<WebAclRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders) {
             this.insertHeaders = Objects.requireNonNull(insertHeaders);
             return this;
         }
         public Builder insertHeaders(WebAclRuleActionCountCustomRequestHandlingInsertHeader... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
-        }        public WebAclRuleActionCountCustomRequestHandling build() {
-            return new WebAclRuleActionCountCustomRequestHandling(insertHeaders);
+        }
+        public WebAclRuleActionCountCustomRequestHandling build() {
+            final var o = new WebAclRuleActionCountCustomRequestHandling();
+            o.insertHeaders = insertHeaders;
+            return o;
         }
     }
 }

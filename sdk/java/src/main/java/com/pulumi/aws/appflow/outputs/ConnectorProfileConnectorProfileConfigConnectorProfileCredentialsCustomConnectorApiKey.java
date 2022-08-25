@@ -15,21 +15,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
-    private final String apiKey;
+    private String apiKey;
     /**
      * @return The Secret Access Key portion of the credentials.
      * 
      */
-    private final @Nullable String apiSecretKey;
+    private @Nullable String apiSecretKey;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey(
-        @CustomType.Parameter("apiKey") String apiKey,
-        @CustomType.Parameter("apiSecretKey") @Nullable String apiSecretKey) {
-        this.apiKey = apiKey;
-        this.apiSecretKey = apiSecretKey;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey() {}
     /**
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
@@ -52,30 +45,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiKey;
         private @Nullable String apiSecretKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
     	      this.apiSecretKey = defaults.apiSecretKey;
         }
 
+        @CustomType.Setter
         public Builder apiKey(String apiKey) {
             this.apiKey = Objects.requireNonNull(apiKey);
             return this;
         }
+        @CustomType.Setter
         public Builder apiSecretKey(@Nullable String apiSecretKey) {
             this.apiSecretKey = apiSecretKey;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey(apiKey, apiSecretKey);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey();
+            o.apiKey = apiKey;
+            o.apiSecretKey = apiSecretKey;
+            return o;
         }
     }
 }

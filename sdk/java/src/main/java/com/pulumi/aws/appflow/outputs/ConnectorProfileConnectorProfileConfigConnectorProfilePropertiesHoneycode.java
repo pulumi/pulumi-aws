@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode {
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode() {
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode();
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode();
+            return o;
         }
     }
 }

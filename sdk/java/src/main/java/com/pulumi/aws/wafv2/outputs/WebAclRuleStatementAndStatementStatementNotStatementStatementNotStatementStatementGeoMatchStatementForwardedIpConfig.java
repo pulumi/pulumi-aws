@@ -13,21 +13,14 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
      * @return - Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
-    private final String fallbackBehavior;
+    private String fallbackBehavior;
     /**
      * @return - Name of the HTTP header to use for the IP address.
      * 
      */
-    private final String headerName;
+    private String headerName;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig(
-        @CustomType.Parameter("fallbackBehavior") String fallbackBehavior,
-        @CustomType.Parameter("headerName") String headerName) {
-        this.fallbackBehavior = fallbackBehavior;
-        this.headerName = headerName;
-    }
-
+    private WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig() {}
     /**
      * @return - Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
@@ -50,30 +43,32 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
     public static Builder builder(WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String fallbackBehavior;
         private String headerName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fallbackBehavior = defaults.fallbackBehavior;
     	      this.headerName = defaults.headerName;
         }
 
+        @CustomType.Setter
         public Builder fallbackBehavior(String fallbackBehavior) {
             this.fallbackBehavior = Objects.requireNonNull(fallbackBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder headerName(String headerName) {
             this.headerName = Objects.requireNonNull(headerName);
             return this;
-        }        public WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig build() {
-            return new WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig(fallbackBehavior, headerName);
+        }
+        public WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig build() {
+            final var o = new WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig();
+            o.fallbackBehavior = fallbackBehavior;
+            o.headerName = headerName;
+            return o;
         }
     }
 }

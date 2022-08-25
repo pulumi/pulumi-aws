@@ -16,28 +16,19 @@ public final class FunctionImageConfig {
      * @return Parameters that you want to pass in with `entry_point`.
      * 
      */
-    private final @Nullable List<String> commands;
+    private @Nullable List<String> commands;
     /**
      * @return Entry point to your application, which is typically the location of the runtime executable.
      * 
      */
-    private final @Nullable List<String> entryPoints;
+    private @Nullable List<String> entryPoints;
     /**
      * @return Working directory.
      * 
      */
-    private final @Nullable String workingDirectory;
+    private @Nullable String workingDirectory;
 
-    @CustomType.Constructor
-    private FunctionImageConfig(
-        @CustomType.Parameter("commands") @Nullable List<String> commands,
-        @CustomType.Parameter("entryPoints") @Nullable List<String> entryPoints,
-        @CustomType.Parameter("workingDirectory") @Nullable String workingDirectory) {
-        this.commands = commands;
-        this.entryPoints = entryPoints;
-        this.workingDirectory = workingDirectory;
-    }
-
+    private FunctionImageConfig() {}
     /**
      * @return Parameters that you want to pass in with `entry_point`.
      * 
@@ -67,16 +58,12 @@ public final class FunctionImageConfig {
     public static Builder builder(FunctionImageConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> commands;
         private @Nullable List<String> entryPoints;
         private @Nullable String workingDirectory;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionImageConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commands = defaults.commands;
@@ -84,6 +71,7 @@ public final class FunctionImageConfig {
     	      this.workingDirectory = defaults.workingDirectory;
         }
 
+        @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
             this.commands = commands;
             return this;
@@ -91,6 +79,7 @@ public final class FunctionImageConfig {
         public Builder commands(String... commands) {
             return commands(List.of(commands));
         }
+        @CustomType.Setter
         public Builder entryPoints(@Nullable List<String> entryPoints) {
             this.entryPoints = entryPoints;
             return this;
@@ -98,11 +87,17 @@ public final class FunctionImageConfig {
         public Builder entryPoints(String... entryPoints) {
             return entryPoints(List.of(entryPoints));
         }
+        @CustomType.Setter
         public Builder workingDirectory(@Nullable String workingDirectory) {
             this.workingDirectory = workingDirectory;
             return this;
-        }        public FunctionImageConfig build() {
-            return new FunctionImageConfig(commands, entryPoints, workingDirectory);
+        }
+        public FunctionImageConfig build() {
+            final var o = new FunctionImageConfig();
+            o.commands = commands;
+            o.entryPoints = entryPoints;
+            o.workingDirectory = workingDirectory;
+            return o;
         }
     }
 }

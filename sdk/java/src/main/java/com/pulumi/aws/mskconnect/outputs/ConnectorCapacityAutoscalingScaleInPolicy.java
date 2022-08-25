@@ -15,13 +15,9 @@ public final class ConnectorCapacityAutoscalingScaleInPolicy {
      * @return The CPU utilization percentage threshold at which you want connector scale out to be triggered.
      * 
      */
-    private final @Nullable Integer cpuUtilizationPercentage;
+    private @Nullable Integer cpuUtilizationPercentage;
 
-    @CustomType.Constructor
-    private ConnectorCapacityAutoscalingScaleInPolicy(@CustomType.Parameter("cpuUtilizationPercentage") @Nullable Integer cpuUtilizationPercentage) {
-        this.cpuUtilizationPercentage = cpuUtilizationPercentage;
-    }
-
+    private ConnectorCapacityAutoscalingScaleInPolicy() {}
     /**
      * @return The CPU utilization percentage threshold at which you want connector scale out to be triggered.
      * 
@@ -37,24 +33,24 @@ public final class ConnectorCapacityAutoscalingScaleInPolicy {
     public static Builder builder(ConnectorCapacityAutoscalingScaleInPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer cpuUtilizationPercentage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorCapacityAutoscalingScaleInPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cpuUtilizationPercentage = defaults.cpuUtilizationPercentage;
         }
 
+        @CustomType.Setter
         public Builder cpuUtilizationPercentage(@Nullable Integer cpuUtilizationPercentage) {
             this.cpuUtilizationPercentage = cpuUtilizationPercentage;
             return this;
-        }        public ConnectorCapacityAutoscalingScaleInPolicy build() {
-            return new ConnectorCapacityAutoscalingScaleInPolicy(cpuUtilizationPercentage);
+        }
+        public ConnectorCapacityAutoscalingScaleInPolicy build() {
+            final var o = new ConnectorCapacityAutoscalingScaleInPolicy();
+            o.cpuUtilizationPercentage = cpuUtilizationPercentage;
+            return o;
         }
     }
 }

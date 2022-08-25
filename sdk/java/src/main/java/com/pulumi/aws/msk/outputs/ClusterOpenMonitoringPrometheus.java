@@ -16,21 +16,14 @@ public final class ClusterOpenMonitoringPrometheus {
      * @return Configuration block for JMX Exporter. See below.
      * 
      */
-    private final @Nullable ClusterOpenMonitoringPrometheusJmxExporter jmxExporter;
+    private @Nullable ClusterOpenMonitoringPrometheusJmxExporter jmxExporter;
     /**
      * @return Configuration block for Node Exporter. See below.
      * 
      */
-    private final @Nullable ClusterOpenMonitoringPrometheusNodeExporter nodeExporter;
+    private @Nullable ClusterOpenMonitoringPrometheusNodeExporter nodeExporter;
 
-    @CustomType.Constructor
-    private ClusterOpenMonitoringPrometheus(
-        @CustomType.Parameter("jmxExporter") @Nullable ClusterOpenMonitoringPrometheusJmxExporter jmxExporter,
-        @CustomType.Parameter("nodeExporter") @Nullable ClusterOpenMonitoringPrometheusNodeExporter nodeExporter) {
-        this.jmxExporter = jmxExporter;
-        this.nodeExporter = nodeExporter;
-    }
-
+    private ClusterOpenMonitoringPrometheus() {}
     /**
      * @return Configuration block for JMX Exporter. See below.
      * 
@@ -53,30 +46,32 @@ public final class ClusterOpenMonitoringPrometheus {
     public static Builder builder(ClusterOpenMonitoringPrometheus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterOpenMonitoringPrometheusJmxExporter jmxExporter;
         private @Nullable ClusterOpenMonitoringPrometheusNodeExporter nodeExporter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterOpenMonitoringPrometheus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.jmxExporter = defaults.jmxExporter;
     	      this.nodeExporter = defaults.nodeExporter;
         }
 
+        @CustomType.Setter
         public Builder jmxExporter(@Nullable ClusterOpenMonitoringPrometheusJmxExporter jmxExporter) {
             this.jmxExporter = jmxExporter;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeExporter(@Nullable ClusterOpenMonitoringPrometheusNodeExporter nodeExporter) {
             this.nodeExporter = nodeExporter;
             return this;
-        }        public ClusterOpenMonitoringPrometheus build() {
-            return new ClusterOpenMonitoringPrometheus(jmxExporter, nodeExporter);
+        }
+        public ClusterOpenMonitoringPrometheus build() {
+            final var o = new ClusterOpenMonitoringPrometheus();
+            o.jmxExporter = jmxExporter;
+            o.nodeExporter = nodeExporter;
+            return o;
         }
     }
 }

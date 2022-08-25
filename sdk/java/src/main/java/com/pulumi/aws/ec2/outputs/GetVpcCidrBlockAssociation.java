@@ -13,29 +13,20 @@ public final class GetVpcCidrBlockAssociation {
      * @return The association ID for the the IPv4 CIDR block.
      * 
      */
-    private final String associationId;
+    private String associationId;
     /**
      * @return The cidr block of the desired VPC.
      * 
      */
-    private final String cidrBlock;
+    private String cidrBlock;
     /**
      * @return The current state of the desired VPC.
      * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
-    private final String state;
+    private String state;
 
-    @CustomType.Constructor
-    private GetVpcCidrBlockAssociation(
-        @CustomType.Parameter("associationId") String associationId,
-        @CustomType.Parameter("cidrBlock") String cidrBlock,
-        @CustomType.Parameter("state") String state) {
-        this.associationId = associationId;
-        this.cidrBlock = cidrBlock;
-        this.state = state;
-    }
-
+    private GetVpcCidrBlockAssociation() {}
     /**
      * @return The association ID for the the IPv4 CIDR block.
      * 
@@ -66,16 +57,12 @@ public final class GetVpcCidrBlockAssociation {
     public static Builder builder(GetVpcCidrBlockAssociation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String associationId;
         private String cidrBlock;
         private String state;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcCidrBlockAssociation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associationId = defaults.associationId;
@@ -83,19 +70,27 @@ public final class GetVpcCidrBlockAssociation {
     	      this.state = defaults.state;
         }
 
+        @CustomType.Setter
         public Builder associationId(String associationId) {
             this.associationId = Objects.requireNonNull(associationId);
             return this;
         }
+        @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
             this.cidrBlock = Objects.requireNonNull(cidrBlock);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
-        }        public GetVpcCidrBlockAssociation build() {
-            return new GetVpcCidrBlockAssociation(associationId, cidrBlock, state);
+        }
+        public GetVpcCidrBlockAssociation build() {
+            final var o = new GetVpcCidrBlockAssociation();
+            o.associationId = associationId;
+            o.cidrBlock = cidrBlock;
+            o.state = state;
+            return o;
         }
     }
 }

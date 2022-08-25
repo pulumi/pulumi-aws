@@ -14,21 +14,14 @@ public final class EnvironmentNetworkConfiguration {
      * @return Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return The private subnet IDs in which the environment should be created. MWAA requires two subnets.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
 
-    @CustomType.Constructor
-    private EnvironmentNetworkConfiguration(
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-    }
-
+    private EnvironmentNetworkConfiguration() {}
     /**
      * @return Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
      * 
@@ -51,21 +44,18 @@ public final class EnvironmentNetworkConfiguration {
     public static Builder builder(EnvironmentNetworkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroupIds;
         private List<String> subnetIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EnvironmentNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -73,14 +63,19 @@ public final class EnvironmentNetworkConfiguration {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
-        }        public EnvironmentNetworkConfiguration build() {
-            return new EnvironmentNetworkConfiguration(securityGroupIds, subnetIds);
+        }
+        public EnvironmentNetworkConfiguration build() {
+            final var o = new EnvironmentNetworkConfiguration();
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            return o;
         }
     }
 }

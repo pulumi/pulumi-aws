@@ -17,21 +17,14 @@ public final class ContainerRecipeInstanceConfiguration {
      * @return Configuration block(s) with block device mappings for the the container recipe. Detailed below.
      * 
      */
-    private final @Nullable List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
+    private @Nullable List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
     /**
      * @return The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
      * 
      */
-    private final @Nullable String image;
+    private @Nullable String image;
 
-    @CustomType.Constructor
-    private ContainerRecipeInstanceConfiguration(
-        @CustomType.Parameter("blockDeviceMappings") @Nullable List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings,
-        @CustomType.Parameter("image") @Nullable String image) {
-        this.blockDeviceMappings = blockDeviceMappings;
-        this.image = image;
-    }
-
+    private ContainerRecipeInstanceConfiguration() {}
     /**
      * @return Configuration block(s) with block device mappings for the the container recipe. Detailed below.
      * 
@@ -54,21 +47,18 @@ public final class ContainerRecipeInstanceConfiguration {
     public static Builder builder(ContainerRecipeInstanceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
         private @Nullable String image;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContainerRecipeInstanceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blockDeviceMappings = defaults.blockDeviceMappings;
     	      this.image = defaults.image;
         }
 
+        @CustomType.Setter
         public Builder blockDeviceMappings(@Nullable List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings) {
             this.blockDeviceMappings = blockDeviceMappings;
             return this;
@@ -76,11 +66,16 @@ public final class ContainerRecipeInstanceConfiguration {
         public Builder blockDeviceMappings(ContainerRecipeInstanceConfigurationBlockDeviceMapping... blockDeviceMappings) {
             return blockDeviceMappings(List.of(blockDeviceMappings));
         }
+        @CustomType.Setter
         public Builder image(@Nullable String image) {
             this.image = image;
             return this;
-        }        public ContainerRecipeInstanceConfiguration build() {
-            return new ContainerRecipeInstanceConfiguration(blockDeviceMappings, image);
+        }
+        public ContainerRecipeInstanceConfiguration build() {
+            final var o = new ContainerRecipeInstanceConfiguration();
+            o.blockDeviceMappings = blockDeviceMappings;
+            o.image = image;
+            return o;
         }
     }
 }

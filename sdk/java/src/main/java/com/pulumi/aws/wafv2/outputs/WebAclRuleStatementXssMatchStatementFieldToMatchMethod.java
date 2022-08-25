@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementXssMatchStatementFieldToMatchMethod {
-    @CustomType.Constructor
-    private WebAclRuleStatementXssMatchStatementFieldToMatchMethod() {
-    }
-
+    private WebAclRuleStatementXssMatchStatementFieldToMatchMethod() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchMethod {
     public static Builder builder(WebAclRuleStatementXssMatchStatementFieldToMatchMethod defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementXssMatchStatementFieldToMatchMethod defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleStatementXssMatchStatementFieldToMatchMethod build() {
-            return new WebAclRuleStatementXssMatchStatementFieldToMatchMethod();
+            final var o = new WebAclRuleStatementXssMatchStatementFieldToMatchMethod();
+            return o;
         }
     }
 }

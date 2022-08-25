@@ -13,21 +13,14 @@ public final class ClassifierXmlClassifier {
      * @return An identifier of the data format that the classifier matches.
      * 
      */
-    private final String classification;
+    private String classification;
     /**
      * @return The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
      * 
      */
-    private final String rowTag;
+    private String rowTag;
 
-    @CustomType.Constructor
-    private ClassifierXmlClassifier(
-        @CustomType.Parameter("classification") String classification,
-        @CustomType.Parameter("rowTag") String rowTag) {
-        this.classification = classification;
-        this.rowTag = rowTag;
-    }
-
+    private ClassifierXmlClassifier() {}
     /**
      * @return An identifier of the data format that the classifier matches.
      * 
@@ -50,30 +43,32 @@ public final class ClassifierXmlClassifier {
     public static Builder builder(ClassifierXmlClassifier defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String classification;
         private String rowTag;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassifierXmlClassifier defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.classification = defaults.classification;
     	      this.rowTag = defaults.rowTag;
         }
 
+        @CustomType.Setter
         public Builder classification(String classification) {
             this.classification = Objects.requireNonNull(classification);
             return this;
         }
+        @CustomType.Setter
         public Builder rowTag(String rowTag) {
             this.rowTag = Objects.requireNonNull(rowTag);
             return this;
-        }        public ClassifierXmlClassifier build() {
-            return new ClassifierXmlClassifier(classification, rowTag);
+        }
+        public ClassifierXmlClassifier build() {
+            final var o = new ClassifierXmlClassifier();
+            o.classification = classification;
+            o.rowTag = rowTag;
+            return o;
         }
     }
 }

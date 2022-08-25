@@ -17,28 +17,19 @@ public final class VirtualGatewaySpecListenerTls {
      * @return The listener&#39;s TLS certificate.
      * 
      */
-    private final VirtualGatewaySpecListenerTlsCertificate certificate;
+    private VirtualGatewaySpecListenerTlsCertificate certificate;
     /**
      * @return The listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
      * 
      */
-    private final String mode;
+    private String mode;
     /**
      * @return The listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerTlsValidation validation;
+    private @Nullable VirtualGatewaySpecListenerTlsValidation validation;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerTls(
-        @CustomType.Parameter("certificate") VirtualGatewaySpecListenerTlsCertificate certificate,
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("validation") @Nullable VirtualGatewaySpecListenerTlsValidation validation) {
-        this.certificate = certificate;
-        this.mode = mode;
-        this.validation = validation;
-    }
-
+    private VirtualGatewaySpecListenerTls() {}
     /**
      * @return The listener&#39;s TLS certificate.
      * 
@@ -68,16 +59,12 @@ public final class VirtualGatewaySpecListenerTls {
     public static Builder builder(VirtualGatewaySpecListenerTls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualGatewaySpecListenerTlsCertificate certificate;
         private String mode;
         private @Nullable VirtualGatewaySpecListenerTlsValidation validation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
@@ -85,19 +72,27 @@ public final class VirtualGatewaySpecListenerTls {
     	      this.validation = defaults.validation;
         }
 
+        @CustomType.Setter
         public Builder certificate(VirtualGatewaySpecListenerTlsCertificate certificate) {
             this.certificate = Objects.requireNonNull(certificate);
             return this;
         }
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder validation(@Nullable VirtualGatewaySpecListenerTlsValidation validation) {
             this.validation = validation;
             return this;
-        }        public VirtualGatewaySpecListenerTls build() {
-            return new VirtualGatewaySpecListenerTls(certificate, mode, validation);
+        }
+        public VirtualGatewaySpecListenerTls build() {
+            final var o = new VirtualGatewaySpecListenerTls();
+            o.certificate = certificate;
+            o.mode = mode;
+            o.validation = validation;
+            return o;
         }
     }
 }

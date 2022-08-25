@@ -14,21 +14,14 @@ public final class GetUserAuthenticationMode {
      * @return The number of passwords belonging to the user.
      * 
      */
-    private final Integer passwordCount;
+    private Integer passwordCount;
     /**
      * @return Indicates whether the user requires a password to authenticate.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetUserAuthenticationMode(
-        @CustomType.Parameter("passwordCount") Integer passwordCount,
-        @CustomType.Parameter("type") String type) {
-        this.passwordCount = passwordCount;
-        this.type = type;
-    }
-
+    private GetUserAuthenticationMode() {}
     /**
      * @return The number of passwords belonging to the user.
      * 
@@ -51,30 +44,32 @@ public final class GetUserAuthenticationMode {
     public static Builder builder(GetUserAuthenticationMode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer passwordCount;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserAuthenticationMode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.passwordCount = defaults.passwordCount;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder passwordCount(Integer passwordCount) {
             this.passwordCount = Objects.requireNonNull(passwordCount);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetUserAuthenticationMode build() {
-            return new GetUserAuthenticationMode(passwordCount, type);
+        }
+        public GetUserAuthenticationMode build() {
+            final var o = new GetUserAuthenticationMode();
+            o.passwordCount = passwordCount;
+            o.type = type;
+            return o;
         }
     }
 }

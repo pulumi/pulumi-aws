@@ -13,21 +13,14 @@ public final class CatalogDatabaseTargetDatabase {
      * @return ID of the Data Catalog in which the database resides.
      * 
      */
-    private final String catalogId;
+    private String catalogId;
     /**
      * @return Name of the catalog database.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
 
-    @CustomType.Constructor
-    private CatalogDatabaseTargetDatabase(
-        @CustomType.Parameter("catalogId") String catalogId,
-        @CustomType.Parameter("databaseName") String databaseName) {
-        this.catalogId = catalogId;
-        this.databaseName = databaseName;
-    }
-
+    private CatalogDatabaseTargetDatabase() {}
     /**
      * @return ID of the Data Catalog in which the database resides.
      * 
@@ -50,30 +43,32 @@ public final class CatalogDatabaseTargetDatabase {
     public static Builder builder(CatalogDatabaseTargetDatabase defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String catalogId;
         private String databaseName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogDatabaseTargetDatabase defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
     	      this.databaseName = defaults.databaseName;
         }
 
+        @CustomType.Setter
         public Builder catalogId(String catalogId) {
             this.catalogId = Objects.requireNonNull(catalogId);
             return this;
         }
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
-        }        public CatalogDatabaseTargetDatabase build() {
-            return new CatalogDatabaseTargetDatabase(catalogId, databaseName);
+        }
+        public CatalogDatabaseTargetDatabase build() {
+            final var o = new CatalogDatabaseTargetDatabase();
+            o.catalogId = catalogId;
+            o.databaseName = databaseName;
+            return o;
         }
     }
 }

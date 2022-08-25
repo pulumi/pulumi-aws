@@ -18,21 +18,14 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
      * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
      * 
      */
-    private final @Nullable String action;
+    private @Nullable String action;
     /**
      * @return The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
      * 
      */
-    private final @Nullable Integer terminationWaitTimeInMinutes;
+    private @Nullable Integer terminationWaitTimeInMinutes;
 
-    @CustomType.Constructor
-    private DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess(
-        @CustomType.Parameter("action") @Nullable String action,
-        @CustomType.Parameter("terminationWaitTimeInMinutes") @Nullable Integer terminationWaitTimeInMinutes) {
-        this.action = action;
-        this.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
-    }
-
+    private DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess() {}
     /**
      * @return The action to take on instances in the original environment after a successful blue/green deployment.
      * * `TERMINATE`: Instances are terminated after a specified wait time.
@@ -57,30 +50,32 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
     public static Builder builder(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
         private @Nullable Integer terminationWaitTimeInMinutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.terminationWaitTimeInMinutes = defaults.terminationWaitTimeInMinutes;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable String action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder terminationWaitTimeInMinutes(@Nullable Integer terminationWaitTimeInMinutes) {
             this.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
             return this;
-        }        public DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess build() {
-            return new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess(action, terminationWaitTimeInMinutes);
+        }
+        public DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess build() {
+            final var o = new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess();
+            o.action = action;
+            o.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
+            return o;
         }
     }
 }

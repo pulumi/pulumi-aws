@@ -16,21 +16,14 @@ public final class BucketReplicationConfigRuleDestinationMetrics {
      * @return A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
      * 
      */
-    private final @Nullable BucketReplicationConfigRuleDestinationMetricsEventThreshold eventThreshold;
+    private @Nullable BucketReplicationConfigRuleDestinationMetricsEventThreshold eventThreshold;
     /**
      * @return The status of the Destination Metrics. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleDestinationMetrics(
-        @CustomType.Parameter("eventThreshold") @Nullable BucketReplicationConfigRuleDestinationMetricsEventThreshold eventThreshold,
-        @CustomType.Parameter("status") String status) {
-        this.eventThreshold = eventThreshold;
-        this.status = status;
-    }
-
+    private BucketReplicationConfigRuleDestinationMetrics() {}
     /**
      * @return A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
      * 
@@ -53,30 +46,32 @@ public final class BucketReplicationConfigRuleDestinationMetrics {
     public static Builder builder(BucketReplicationConfigRuleDestinationMetrics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketReplicationConfigRuleDestinationMetricsEventThreshold eventThreshold;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleDestinationMetrics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventThreshold = defaults.eventThreshold;
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder eventThreshold(@Nullable BucketReplicationConfigRuleDestinationMetricsEventThreshold eventThreshold) {
             this.eventThreshold = eventThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public BucketReplicationConfigRuleDestinationMetrics build() {
-            return new BucketReplicationConfigRuleDestinationMetrics(eventThreshold, status);
+        }
+        public BucketReplicationConfigRuleDestinationMetrics build() {
+            final var o = new BucketReplicationConfigRuleDestinationMetrics();
+            o.eventThreshold = eventThreshold;
+            o.status = status;
+            return o;
         }
     }
 }

@@ -14,17 +14,10 @@ public final class GetOpenZfsSnapshotFilter {
      * @return The name of the snapshot.
      * 
      */
-    private final String name;
-    private final List<String> values;
+    private String name;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetOpenZfsSnapshotFilter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private GetOpenZfsSnapshotFilter() {}
     /**
      * @return The name of the snapshot.
      * 
@@ -43,33 +36,35 @@ public final class GetOpenZfsSnapshotFilter {
     public static Builder builder(GetOpenZfsSnapshotFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOpenZfsSnapshotFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetOpenZfsSnapshotFilter build() {
-            return new GetOpenZfsSnapshotFilter(name, values);
+        }
+        public GetOpenZfsSnapshotFilter build() {
+            final var o = new GetOpenZfsSnapshotFilter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

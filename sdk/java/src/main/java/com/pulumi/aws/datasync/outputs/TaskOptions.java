@@ -16,98 +16,69 @@ public final class TaskOptions {
      * @return A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
      * 
      */
-    private final @Nullable String atime;
+    private @Nullable String atime;
     /**
      * @return Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
      * 
      */
-    private final @Nullable Integer bytesPerSecond;
+    private @Nullable Integer bytesPerSecond;
     /**
      * @return Group identifier of the file&#39;s owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
      * 
      */
-    private final @Nullable String gid;
+    private @Nullable String gid;
     /**
      * @return Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
      * 
      */
-    private final @Nullable String logLevel;
+    private @Nullable String logLevel;
     /**
      * @return A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
      * 
      */
-    private final @Nullable String mtime;
+    private @Nullable String mtime;
     /**
      * @return Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
      * 
      */
-    private final @Nullable String overwriteMode;
+    private @Nullable String overwriteMode;
     /**
      * @return Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
      * 
      */
-    private final @Nullable String posixPermissions;
+    private @Nullable String posixPermissions;
     /**
      * @return Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
      * 
      */
-    private final @Nullable String preserveDeletedFiles;
+    private @Nullable String preserveDeletedFiles;
     /**
      * @return Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
      * 
      */
-    private final @Nullable String preserveDevices;
+    private @Nullable String preserveDevices;
     /**
      * @return Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
      * 
      */
-    private final @Nullable String taskQueueing;
+    private @Nullable String taskQueueing;
     /**
      * @return Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
      * 
      */
-    private final @Nullable String transferMode;
+    private @Nullable String transferMode;
     /**
      * @return User identifier of the file&#39;s owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
      * 
      */
-    private final @Nullable String uid;
+    private @Nullable String uid;
     /**
      * @return Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
      * 
      */
-    private final @Nullable String verifyMode;
+    private @Nullable String verifyMode;
 
-    @CustomType.Constructor
-    private TaskOptions(
-        @CustomType.Parameter("atime") @Nullable String atime,
-        @CustomType.Parameter("bytesPerSecond") @Nullable Integer bytesPerSecond,
-        @CustomType.Parameter("gid") @Nullable String gid,
-        @CustomType.Parameter("logLevel") @Nullable String logLevel,
-        @CustomType.Parameter("mtime") @Nullable String mtime,
-        @CustomType.Parameter("overwriteMode") @Nullable String overwriteMode,
-        @CustomType.Parameter("posixPermissions") @Nullable String posixPermissions,
-        @CustomType.Parameter("preserveDeletedFiles") @Nullable String preserveDeletedFiles,
-        @CustomType.Parameter("preserveDevices") @Nullable String preserveDevices,
-        @CustomType.Parameter("taskQueueing") @Nullable String taskQueueing,
-        @CustomType.Parameter("transferMode") @Nullable String transferMode,
-        @CustomType.Parameter("uid") @Nullable String uid,
-        @CustomType.Parameter("verifyMode") @Nullable String verifyMode) {
-        this.atime = atime;
-        this.bytesPerSecond = bytesPerSecond;
-        this.gid = gid;
-        this.logLevel = logLevel;
-        this.mtime = mtime;
-        this.overwriteMode = overwriteMode;
-        this.posixPermissions = posixPermissions;
-        this.preserveDeletedFiles = preserveDeletedFiles;
-        this.preserveDevices = preserveDevices;
-        this.taskQueueing = taskQueueing;
-        this.transferMode = transferMode;
-        this.uid = uid;
-        this.verifyMode = verifyMode;
-    }
-
+    private TaskOptions() {}
     /**
      * @return A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
      * 
@@ -207,7 +178,7 @@ public final class TaskOptions {
     public static Builder builder(TaskOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String atime;
         private @Nullable Integer bytesPerSecond;
@@ -222,11 +193,7 @@ public final class TaskOptions {
         private @Nullable String transferMode;
         private @Nullable String uid;
         private @Nullable String verifyMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.atime = defaults.atime;
@@ -244,59 +211,87 @@ public final class TaskOptions {
     	      this.verifyMode = defaults.verifyMode;
         }
 
+        @CustomType.Setter
         public Builder atime(@Nullable String atime) {
             this.atime = atime;
             return this;
         }
+        @CustomType.Setter
         public Builder bytesPerSecond(@Nullable Integer bytesPerSecond) {
             this.bytesPerSecond = bytesPerSecond;
             return this;
         }
+        @CustomType.Setter
         public Builder gid(@Nullable String gid) {
             this.gid = gid;
             return this;
         }
+        @CustomType.Setter
         public Builder logLevel(@Nullable String logLevel) {
             this.logLevel = logLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder mtime(@Nullable String mtime) {
             this.mtime = mtime;
             return this;
         }
+        @CustomType.Setter
         public Builder overwriteMode(@Nullable String overwriteMode) {
             this.overwriteMode = overwriteMode;
             return this;
         }
+        @CustomType.Setter
         public Builder posixPermissions(@Nullable String posixPermissions) {
             this.posixPermissions = posixPermissions;
             return this;
         }
+        @CustomType.Setter
         public Builder preserveDeletedFiles(@Nullable String preserveDeletedFiles) {
             this.preserveDeletedFiles = preserveDeletedFiles;
             return this;
         }
+        @CustomType.Setter
         public Builder preserveDevices(@Nullable String preserveDevices) {
             this.preserveDevices = preserveDevices;
             return this;
         }
+        @CustomType.Setter
         public Builder taskQueueing(@Nullable String taskQueueing) {
             this.taskQueueing = taskQueueing;
             return this;
         }
+        @CustomType.Setter
         public Builder transferMode(@Nullable String transferMode) {
             this.transferMode = transferMode;
             return this;
         }
+        @CustomType.Setter
         public Builder uid(@Nullable String uid) {
             this.uid = uid;
             return this;
         }
+        @CustomType.Setter
         public Builder verifyMode(@Nullable String verifyMode) {
             this.verifyMode = verifyMode;
             return this;
-        }        public TaskOptions build() {
-            return new TaskOptions(atime, bytesPerSecond, gid, logLevel, mtime, overwriteMode, posixPermissions, preserveDeletedFiles, preserveDevices, taskQueueing, transferMode, uid, verifyMode);
+        }
+        public TaskOptions build() {
+            final var o = new TaskOptions();
+            o.atime = atime;
+            o.bytesPerSecond = bytesPerSecond;
+            o.gid = gid;
+            o.logLevel = logLevel;
+            o.mtime = mtime;
+            o.overwriteMode = overwriteMode;
+            o.posixPermissions = posixPermissions;
+            o.preserveDeletedFiles = preserveDeletedFiles;
+            o.preserveDevices = preserveDevices;
+            o.taskQueueing = taskQueueing;
+            o.transferMode = transferMode;
+            o.uid = uid;
+            o.verifyMode = verifyMode;
+            return o;
         }
     }
 }

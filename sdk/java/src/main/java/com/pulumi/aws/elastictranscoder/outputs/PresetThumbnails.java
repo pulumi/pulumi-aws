@@ -15,63 +15,44 @@ public final class PresetThumbnails {
      * @return The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
      * 
      */
-    private final @Nullable String aspectRatio;
+    private @Nullable String aspectRatio;
     /**
      * @return The format of thumbnails, if any. Valid formats are jpg and png.
      * 
      */
-    private final @Nullable String format;
+    private @Nullable String format;
     /**
      * @return The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
      * 
      */
-    private final @Nullable String interval;
+    private @Nullable String interval;
     /**
      * @return The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
      * 
      */
-    private final @Nullable String maxHeight;
+    private @Nullable String maxHeight;
     /**
      * @return The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
      * 
      */
-    private final @Nullable String maxWidth;
+    private @Nullable String maxWidth;
     /**
      * @return When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
      * 
      */
-    private final @Nullable String paddingPolicy;
+    private @Nullable String paddingPolicy;
     /**
      * @return The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
      * 
      */
-    private final @Nullable String resolution;
+    private @Nullable String resolution;
     /**
      * @return A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
      * 
      */
-    private final @Nullable String sizingPolicy;
+    private @Nullable String sizingPolicy;
 
-    @CustomType.Constructor
-    private PresetThumbnails(
-        @CustomType.Parameter("aspectRatio") @Nullable String aspectRatio,
-        @CustomType.Parameter("format") @Nullable String format,
-        @CustomType.Parameter("interval") @Nullable String interval,
-        @CustomType.Parameter("maxHeight") @Nullable String maxHeight,
-        @CustomType.Parameter("maxWidth") @Nullable String maxWidth,
-        @CustomType.Parameter("paddingPolicy") @Nullable String paddingPolicy,
-        @CustomType.Parameter("resolution") @Nullable String resolution,
-        @CustomType.Parameter("sizingPolicy") @Nullable String sizingPolicy) {
-        this.aspectRatio = aspectRatio;
-        this.format = format;
-        this.interval = interval;
-        this.maxHeight = maxHeight;
-        this.maxWidth = maxWidth;
-        this.paddingPolicy = paddingPolicy;
-        this.resolution = resolution;
-        this.sizingPolicy = sizingPolicy;
-    }
-
+    private PresetThumbnails() {}
     /**
      * @return The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
      * 
@@ -136,7 +117,7 @@ public final class PresetThumbnails {
     public static Builder builder(PresetThumbnails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String aspectRatio;
         private @Nullable String format;
@@ -146,11 +127,7 @@ public final class PresetThumbnails {
         private @Nullable String paddingPolicy;
         private @Nullable String resolution;
         private @Nullable String sizingPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PresetThumbnails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aspectRatio = defaults.aspectRatio;
@@ -163,39 +140,57 @@ public final class PresetThumbnails {
     	      this.sizingPolicy = defaults.sizingPolicy;
         }
 
+        @CustomType.Setter
         public Builder aspectRatio(@Nullable String aspectRatio) {
             this.aspectRatio = aspectRatio;
             return this;
         }
+        @CustomType.Setter
         public Builder format(@Nullable String format) {
             this.format = format;
             return this;
         }
+        @CustomType.Setter
         public Builder interval(@Nullable String interval) {
             this.interval = interval;
             return this;
         }
+        @CustomType.Setter
         public Builder maxHeight(@Nullable String maxHeight) {
             this.maxHeight = maxHeight;
             return this;
         }
+        @CustomType.Setter
         public Builder maxWidth(@Nullable String maxWidth) {
             this.maxWidth = maxWidth;
             return this;
         }
+        @CustomType.Setter
         public Builder paddingPolicy(@Nullable String paddingPolicy) {
             this.paddingPolicy = paddingPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder resolution(@Nullable String resolution) {
             this.resolution = resolution;
             return this;
         }
+        @CustomType.Setter
         public Builder sizingPolicy(@Nullable String sizingPolicy) {
             this.sizingPolicy = sizingPolicy;
             return this;
-        }        public PresetThumbnails build() {
-            return new PresetThumbnails(aspectRatio, format, interval, maxHeight, maxWidth, paddingPolicy, resolution, sizingPolicy);
+        }
+        public PresetThumbnails build() {
+            final var o = new PresetThumbnails();
+            o.aspectRatio = aspectRatio;
+            o.format = format;
+            o.interval = interval;
+            o.maxHeight = maxHeight;
+            o.maxWidth = maxWidth;
+            o.paddingPolicy = paddingPolicy;
+            o.resolution = resolution;
+            o.sizingPolicy = sizingPolicy;
+            return o;
         }
     }
 }

@@ -16,51 +16,36 @@ public final class EntityRecognizerInputDataConfigAugmentedManifest {
      * @return Location of annotation files.
      * 
      */
-    private final @Nullable String annotationDataS3Uri;
+    private @Nullable String annotationDataS3Uri;
     /**
      * @return The JSON attribute that contains the annotations for the training documents.
      * 
      */
-    private final List<String> attributeNames;
+    private List<String> attributeNames;
     /**
      * @return Type of augmented manifest.
      * One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
      * 
      */
-    private final @Nullable String documentType;
+    private @Nullable String documentType;
     /**
      * @return Location of entity list.
      * 
      */
-    private final String s3Uri;
+    private String s3Uri;
     /**
      * @return Location of source PDF files.
      * 
      */
-    private final @Nullable String sourceDocumentsS3Uri;
+    private @Nullable String sourceDocumentsS3Uri;
     /**
      * @return Purpose of data in augmented manifest.
      * One of `TRAIN` or `TEST`.
      * 
      */
-    private final @Nullable String split;
+    private @Nullable String split;
 
-    @CustomType.Constructor
-    private EntityRecognizerInputDataConfigAugmentedManifest(
-        @CustomType.Parameter("annotationDataS3Uri") @Nullable String annotationDataS3Uri,
-        @CustomType.Parameter("attributeNames") List<String> attributeNames,
-        @CustomType.Parameter("documentType") @Nullable String documentType,
-        @CustomType.Parameter("s3Uri") String s3Uri,
-        @CustomType.Parameter("sourceDocumentsS3Uri") @Nullable String sourceDocumentsS3Uri,
-        @CustomType.Parameter("split") @Nullable String split) {
-        this.annotationDataS3Uri = annotationDataS3Uri;
-        this.attributeNames = attributeNames;
-        this.documentType = documentType;
-        this.s3Uri = s3Uri;
-        this.sourceDocumentsS3Uri = sourceDocumentsS3Uri;
-        this.split = split;
-    }
-
+    private EntityRecognizerInputDataConfigAugmentedManifest() {}
     /**
      * @return Location of annotation files.
      * 
@@ -113,7 +98,7 @@ public final class EntityRecognizerInputDataConfigAugmentedManifest {
     public static Builder builder(EntityRecognizerInputDataConfigAugmentedManifest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String annotationDataS3Uri;
         private List<String> attributeNames;
@@ -121,11 +106,7 @@ public final class EntityRecognizerInputDataConfigAugmentedManifest {
         private String s3Uri;
         private @Nullable String sourceDocumentsS3Uri;
         private @Nullable String split;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EntityRecognizerInputDataConfigAugmentedManifest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.annotationDataS3Uri = defaults.annotationDataS3Uri;
@@ -136,10 +117,12 @@ public final class EntityRecognizerInputDataConfigAugmentedManifest {
     	      this.split = defaults.split;
         }
 
+        @CustomType.Setter
         public Builder annotationDataS3Uri(@Nullable String annotationDataS3Uri) {
             this.annotationDataS3Uri = annotationDataS3Uri;
             return this;
         }
+        @CustomType.Setter
         public Builder attributeNames(List<String> attributeNames) {
             this.attributeNames = Objects.requireNonNull(attributeNames);
             return this;
@@ -147,23 +130,35 @@ public final class EntityRecognizerInputDataConfigAugmentedManifest {
         public Builder attributeNames(String... attributeNames) {
             return attributeNames(List.of(attributeNames));
         }
+        @CustomType.Setter
         public Builder documentType(@Nullable String documentType) {
             this.documentType = documentType;
             return this;
         }
+        @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
             this.s3Uri = Objects.requireNonNull(s3Uri);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceDocumentsS3Uri(@Nullable String sourceDocumentsS3Uri) {
             this.sourceDocumentsS3Uri = sourceDocumentsS3Uri;
             return this;
         }
+        @CustomType.Setter
         public Builder split(@Nullable String split) {
             this.split = split;
             return this;
-        }        public EntityRecognizerInputDataConfigAugmentedManifest build() {
-            return new EntityRecognizerInputDataConfigAugmentedManifest(annotationDataS3Uri, attributeNames, documentType, s3Uri, sourceDocumentsS3Uri, split);
+        }
+        public EntityRecognizerInputDataConfigAugmentedManifest build() {
+            final var o = new EntityRecognizerInputDataConfigAugmentedManifest();
+            o.annotationDataS3Uri = annotationDataS3Uri;
+            o.attributeNames = attributeNames;
+            o.documentType = documentType;
+            o.s3Uri = s3Uri;
+            o.sourceDocumentsS3Uri = sourceDocumentsS3Uri;
+            o.split = split;
+            return o;
         }
     }
 }

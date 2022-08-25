@@ -16,21 +16,14 @@ public final class DataSourceHttpConfig {
      * @return The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
      * 
      */
-    private final @Nullable DataSourceHttpConfigAuthorizationConfig authorizationConfig;
+    private @Nullable DataSourceHttpConfigAuthorizationConfig authorizationConfig;
     /**
      * @return HTTP URL.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
 
-    @CustomType.Constructor
-    private DataSourceHttpConfig(
-        @CustomType.Parameter("authorizationConfig") @Nullable DataSourceHttpConfigAuthorizationConfig authorizationConfig,
-        @CustomType.Parameter("endpoint") String endpoint) {
-        this.authorizationConfig = authorizationConfig;
-        this.endpoint = endpoint;
-    }
-
+    private DataSourceHttpConfig() {}
     /**
      * @return The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
      * 
@@ -53,30 +46,32 @@ public final class DataSourceHttpConfig {
     public static Builder builder(DataSourceHttpConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceHttpConfigAuthorizationConfig authorizationConfig;
         private String endpoint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceHttpConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationConfig = defaults.authorizationConfig;
     	      this.endpoint = defaults.endpoint;
         }
 
+        @CustomType.Setter
         public Builder authorizationConfig(@Nullable DataSourceHttpConfigAuthorizationConfig authorizationConfig) {
             this.authorizationConfig = authorizationConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
-        }        public DataSourceHttpConfig build() {
-            return new DataSourceHttpConfig(authorizationConfig, endpoint);
+        }
+        public DataSourceHttpConfig build() {
+            final var o = new DataSourceHttpConfig();
+            o.authorizationConfig = authorizationConfig;
+            o.endpoint = endpoint;
+            return o;
         }
     }
 }

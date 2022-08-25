@@ -15,28 +15,19 @@ public final class ContainerServiceDeploymentVersionPublicEndpoint {
      * @return The name of the container for the endpoint.
      * 
      */
-    private final String containerName;
+    private String containerName;
     /**
      * @return The port of the container to which traffic is forwarded to.
      * 
      */
-    private final Integer containerPort;
+    private Integer containerPort;
     /**
      * @return A configuration block that describes the health check configuration of the container. Detailed below.
      * 
      */
-    private final ContainerServiceDeploymentVersionPublicEndpointHealthCheck healthCheck;
+    private ContainerServiceDeploymentVersionPublicEndpointHealthCheck healthCheck;
 
-    @CustomType.Constructor
-    private ContainerServiceDeploymentVersionPublicEndpoint(
-        @CustomType.Parameter("containerName") String containerName,
-        @CustomType.Parameter("containerPort") Integer containerPort,
-        @CustomType.Parameter("healthCheck") ContainerServiceDeploymentVersionPublicEndpointHealthCheck healthCheck) {
-        this.containerName = containerName;
-        this.containerPort = containerPort;
-        this.healthCheck = healthCheck;
-    }
-
+    private ContainerServiceDeploymentVersionPublicEndpoint() {}
     /**
      * @return The name of the container for the endpoint.
      * 
@@ -66,16 +57,12 @@ public final class ContainerServiceDeploymentVersionPublicEndpoint {
     public static Builder builder(ContainerServiceDeploymentVersionPublicEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String containerName;
         private Integer containerPort;
         private ContainerServiceDeploymentVersionPublicEndpointHealthCheck healthCheck;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContainerServiceDeploymentVersionPublicEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerName = defaults.containerName;
@@ -83,19 +70,27 @@ public final class ContainerServiceDeploymentVersionPublicEndpoint {
     	      this.healthCheck = defaults.healthCheck;
         }
 
+        @CustomType.Setter
         public Builder containerName(String containerName) {
             this.containerName = Objects.requireNonNull(containerName);
             return this;
         }
+        @CustomType.Setter
         public Builder containerPort(Integer containerPort) {
             this.containerPort = Objects.requireNonNull(containerPort);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheck(ContainerServiceDeploymentVersionPublicEndpointHealthCheck healthCheck) {
             this.healthCheck = Objects.requireNonNull(healthCheck);
             return this;
-        }        public ContainerServiceDeploymentVersionPublicEndpoint build() {
-            return new ContainerServiceDeploymentVersionPublicEndpoint(containerName, containerPort, healthCheck);
+        }
+        public ContainerServiceDeploymentVersionPublicEndpoint build() {
+            final var o = new ContainerServiceDeploymentVersionPublicEndpoint();
+            o.containerName = containerName;
+            o.containerPort = containerPort;
+            o.healthCheck = healthCheck;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class GetResourcesResourceTagMappingList {
      * @return List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
      * 
      */
-    private final List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails;
+    private List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails;
     /**
      * @return ARN of the resource.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
     /**
      * @return Map of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetResourcesResourceTagMappingList(
-        @CustomType.Parameter("complianceDetails") List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails,
-        @CustomType.Parameter("resourceArn") String resourceArn,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.complianceDetails = complianceDetails;
-        this.resourceArn = resourceArn;
-        this.tags = tags;
-    }
-
+    private GetResourcesResourceTagMappingList() {}
     /**
      * @return List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
      * 
@@ -67,16 +58,12 @@ public final class GetResourcesResourceTagMappingList {
     public static Builder builder(GetResourcesResourceTagMappingList defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails;
         private String resourceArn;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourcesResourceTagMappingList defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.complianceDetails = defaults.complianceDetails;
@@ -84,6 +71,7 @@ public final class GetResourcesResourceTagMappingList {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder complianceDetails(List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails) {
             this.complianceDetails = Objects.requireNonNull(complianceDetails);
             return this;
@@ -91,15 +79,22 @@ public final class GetResourcesResourceTagMappingList {
         public Builder complianceDetails(GetResourcesResourceTagMappingListComplianceDetail... complianceDetails) {
             return complianceDetails(List.of(complianceDetails));
         }
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetResourcesResourceTagMappingList build() {
-            return new GetResourcesResourceTagMappingList(complianceDetails, resourceArn, tags);
+        }
+        public GetResourcesResourceTagMappingList build() {
+            final var o = new GetResourcesResourceTagMappingList();
+            o.complianceDetails = complianceDetails;
+            o.resourceArn = resourceArn;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -16,49 +16,34 @@ public final class LogMetricFilterMetricTransformation {
      * @return The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
      * 
      */
-    private final @Nullable String defaultValue;
+    private @Nullable String defaultValue;
     /**
      * @return Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
      * 
      */
-    private final @Nullable Map<String,String> dimensions;
+    private @Nullable Map<String,String> dimensions;
     /**
      * @return The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The destination namespace of the CloudWatch metric.
      * 
      */
-    private final String namespace;
+    private String namespace;
     /**
      * @return The unit to assign to the metric. If you omit this, the unit is set as `None`.
      * 
      */
-    private final @Nullable String unit;
+    private @Nullable String unit;
     /**
      * @return What to publish to the metric. For example, if you&#39;re counting the occurrences of a particular term like &#34;Error&#34;, the value will be &#34;1&#34; for each occurrence. If you&#39;re counting the bytes transferred the published value will be the value in the log event.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private LogMetricFilterMetricTransformation(
-        @CustomType.Parameter("defaultValue") @Nullable String defaultValue,
-        @CustomType.Parameter("dimensions") @Nullable Map<String,String> dimensions,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespace") String namespace,
-        @CustomType.Parameter("unit") @Nullable String unit,
-        @CustomType.Parameter("value") String value) {
-        this.defaultValue = defaultValue;
-        this.dimensions = dimensions;
-        this.name = name;
-        this.namespace = namespace;
-        this.unit = unit;
-        this.value = value;
-    }
-
+    private LogMetricFilterMetricTransformation() {}
     /**
      * @return The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
      * 
@@ -109,7 +94,7 @@ public final class LogMetricFilterMetricTransformation {
     public static Builder builder(LogMetricFilterMetricTransformation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultValue;
         private @Nullable Map<String,String> dimensions;
@@ -117,11 +102,7 @@ public final class LogMetricFilterMetricTransformation {
         private String namespace;
         private @Nullable String unit;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LogMetricFilterMetricTransformation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultValue = defaults.defaultValue;
@@ -132,31 +113,45 @@ public final class LogMetricFilterMetricTransformation {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
             this.defaultValue = defaultValue;
             return this;
         }
+        @CustomType.Setter
         public Builder dimensions(@Nullable Map<String,String> dimensions) {
             this.dimensions = dimensions;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
         }
+        @CustomType.Setter
         public Builder unit(@Nullable String unit) {
             this.unit = unit;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public LogMetricFilterMetricTransformation build() {
-            return new LogMetricFilterMetricTransformation(defaultValue, dimensions, name, namespace, unit, value);
+        }
+        public LogMetricFilterMetricTransformation build() {
+            final var o = new LogMetricFilterMetricTransformation();
+            o.defaultValue = defaultValue;
+            o.dimensions = dimensions;
+            o.name = name;
+            o.namespace = namespace;
+            o.unit = unit;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class RemediationConfigurationExecutionControls {
      * @return Configuration block for SSM controls. See below.
      * 
      */
-    private final @Nullable RemediationConfigurationExecutionControlsSsmControls ssmControls;
+    private @Nullable RemediationConfigurationExecutionControlsSsmControls ssmControls;
 
-    @CustomType.Constructor
-    private RemediationConfigurationExecutionControls(@CustomType.Parameter("ssmControls") @Nullable RemediationConfigurationExecutionControlsSsmControls ssmControls) {
-        this.ssmControls = ssmControls;
-    }
-
+    private RemediationConfigurationExecutionControls() {}
     /**
      * @return Configuration block for SSM controls. See below.
      * 
@@ -37,24 +33,24 @@ public final class RemediationConfigurationExecutionControls {
     public static Builder builder(RemediationConfigurationExecutionControls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RemediationConfigurationExecutionControlsSsmControls ssmControls;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RemediationConfigurationExecutionControls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ssmControls = defaults.ssmControls;
         }
 
+        @CustomType.Setter
         public Builder ssmControls(@Nullable RemediationConfigurationExecutionControlsSsmControls ssmControls) {
             this.ssmControls = ssmControls;
             return this;
-        }        public RemediationConfigurationExecutionControls build() {
-            return new RemediationConfigurationExecutionControls(ssmControls);
+        }
+        public RemediationConfigurationExecutionControls build() {
+            final var o = new RemediationConfigurationExecutionControls();
+            o.ssmControls = ssmControls;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class CatalogTableStorageDescriptorColumn {
      * @return Free-form text comment.
      * 
      */
-    private final @Nullable String comment;
+    private @Nullable String comment;
     /**
      * @return Name of the target table.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Datatype of data in the Column.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private CatalogTableStorageDescriptorColumn(
-        @CustomType.Parameter("comment") @Nullable String comment,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.comment = comment;
-        this.name = name;
-        this.parameters = parameters;
-        this.type = type;
-    }
-
+    private CatalogTableStorageDescriptorColumn() {}
     /**
      * @return Free-form text comment.
      * 
@@ -81,17 +70,13 @@ public final class CatalogTableStorageDescriptorColumn {
     public static Builder builder(CatalogTableStorageDescriptorColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String comment;
         private String name;
         private @Nullable Map<String,String> parameters;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogTableStorageDescriptorColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -100,23 +85,33 @@ public final class CatalogTableStorageDescriptorColumn {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder comment(@Nullable String comment) {
             this.comment = comment;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public CatalogTableStorageDescriptorColumn build() {
-            return new CatalogTableStorageDescriptorColumn(comment, name, parameters, type);
+        }
+        public CatalogTableStorageDescriptorColumn build() {
+            final var o = new CatalogTableStorageDescriptorColumn();
+            o.comment = comment;
+            o.name = name;
+            o.parameters = parameters;
+            o.type = type;
+            return o;
         }
     }
 }

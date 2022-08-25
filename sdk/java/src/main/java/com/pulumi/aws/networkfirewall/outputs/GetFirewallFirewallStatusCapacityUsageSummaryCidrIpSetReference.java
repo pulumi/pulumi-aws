@@ -13,13 +13,9 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferen
      * @return Total number of CIDR blocks used by the IP set references in a firewall.
      * 
      */
-    private final Integer resolvedCidrCount;
+    private Integer resolvedCidrCount;
 
-    @CustomType.Constructor
-    private GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference(@CustomType.Parameter("resolvedCidrCount") Integer resolvedCidrCount) {
-        this.resolvedCidrCount = resolvedCidrCount;
-    }
-
+    private GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference() {}
     /**
      * @return Total number of CIDR blocks used by the IP set references in a firewall.
      * 
@@ -35,24 +31,24 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferen
     public static Builder builder(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer resolvedCidrCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resolvedCidrCount = defaults.resolvedCidrCount;
         }
 
+        @CustomType.Setter
         public Builder resolvedCidrCount(Integer resolvedCidrCount) {
             this.resolvedCidrCount = Objects.requireNonNull(resolvedCidrCount);
             return this;
-        }        public GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference build() {
-            return new GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference(resolvedCidrCount);
+        }
+        public GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference build() {
+            final var o = new GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference();
+            o.resolvedCidrCount = resolvedCidrCount;
+            return o;
         }
     }
 }

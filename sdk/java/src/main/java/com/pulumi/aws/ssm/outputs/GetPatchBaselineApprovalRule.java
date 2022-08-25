@@ -17,42 +17,29 @@ public final class GetPatchBaselineApprovalRule {
      * @return The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
      * 
      */
-    private final Integer approveAfterDays;
+    private Integer approveAfterDays;
     /**
      * @return The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
      * 
      */
-    private final String approveUntilDate;
+    private String approveUntilDate;
     /**
      * @return The compliance level for patches approved by this rule.
      * 
      */
-    private final String complianceLevel;
+    private String complianceLevel;
     /**
      * @return Boolean enabling the application of non-security updates.
      * 
      */
-    private final Boolean enableNonSecurity;
+    private Boolean enableNonSecurity;
     /**
      * @return The patch filter group that defines the criteria for the rule.
      * 
      */
-    private final List<GetPatchBaselineApprovalRulePatchFilter> patchFilters;
+    private List<GetPatchBaselineApprovalRulePatchFilter> patchFilters;
 
-    @CustomType.Constructor
-    private GetPatchBaselineApprovalRule(
-        @CustomType.Parameter("approveAfterDays") Integer approveAfterDays,
-        @CustomType.Parameter("approveUntilDate") String approveUntilDate,
-        @CustomType.Parameter("complianceLevel") String complianceLevel,
-        @CustomType.Parameter("enableNonSecurity") Boolean enableNonSecurity,
-        @CustomType.Parameter("patchFilters") List<GetPatchBaselineApprovalRulePatchFilter> patchFilters) {
-        this.approveAfterDays = approveAfterDays;
-        this.approveUntilDate = approveUntilDate;
-        this.complianceLevel = complianceLevel;
-        this.enableNonSecurity = enableNonSecurity;
-        this.patchFilters = patchFilters;
-    }
-
+    private GetPatchBaselineApprovalRule() {}
     /**
      * @return The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
      * 
@@ -96,18 +83,14 @@ public final class GetPatchBaselineApprovalRule {
     public static Builder builder(GetPatchBaselineApprovalRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer approveAfterDays;
         private String approveUntilDate;
         private String complianceLevel;
         private Boolean enableNonSecurity;
         private List<GetPatchBaselineApprovalRulePatchFilter> patchFilters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPatchBaselineApprovalRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.approveAfterDays = defaults.approveAfterDays;
@@ -117,30 +100,42 @@ public final class GetPatchBaselineApprovalRule {
     	      this.patchFilters = defaults.patchFilters;
         }
 
+        @CustomType.Setter
         public Builder approveAfterDays(Integer approveAfterDays) {
             this.approveAfterDays = Objects.requireNonNull(approveAfterDays);
             return this;
         }
+        @CustomType.Setter
         public Builder approveUntilDate(String approveUntilDate) {
             this.approveUntilDate = Objects.requireNonNull(approveUntilDate);
             return this;
         }
+        @CustomType.Setter
         public Builder complianceLevel(String complianceLevel) {
             this.complianceLevel = Objects.requireNonNull(complianceLevel);
             return this;
         }
+        @CustomType.Setter
         public Builder enableNonSecurity(Boolean enableNonSecurity) {
             this.enableNonSecurity = Objects.requireNonNull(enableNonSecurity);
             return this;
         }
+        @CustomType.Setter
         public Builder patchFilters(List<GetPatchBaselineApprovalRulePatchFilter> patchFilters) {
             this.patchFilters = Objects.requireNonNull(patchFilters);
             return this;
         }
         public Builder patchFilters(GetPatchBaselineApprovalRulePatchFilter... patchFilters) {
             return patchFilters(List.of(patchFilters));
-        }        public GetPatchBaselineApprovalRule build() {
-            return new GetPatchBaselineApprovalRule(approveAfterDays, approveUntilDate, complianceLevel, enableNonSecurity, patchFilters);
+        }
+        public GetPatchBaselineApprovalRule build() {
+            final var o = new GetPatchBaselineApprovalRule();
+            o.approveAfterDays = approveAfterDays;
+            o.approveUntilDate = approveUntilDate;
+            o.complianceLevel = complianceLevel;
+            o.enableNonSecurity = enableNonSecurity;
+            o.patchFilters = patchFilters;
+            return o;
         }
     }
 }

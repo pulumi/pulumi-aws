@@ -13,13 +13,9 @@ public final class FunctionTracingConfig {
      * @return Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with &#34;sampled=1&#34;. If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
      * 
      */
-    private final String mode;
+    private String mode;
 
-    @CustomType.Constructor
-    private FunctionTracingConfig(@CustomType.Parameter("mode") String mode) {
-        this.mode = mode;
-    }
-
+    private FunctionTracingConfig() {}
     /**
      * @return Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with &#34;sampled=1&#34;. If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
      * 
@@ -35,24 +31,24 @@ public final class FunctionTracingConfig {
     public static Builder builder(FunctionTracingConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionTracingConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
-        }        public FunctionTracingConfig build() {
-            return new FunctionTracingConfig(mode);
+        }
+        public FunctionTracingConfig build() {
+            final var o = new FunctionTracingConfig();
+            o.mode = mode;
+            return o;
         }
     }
 }

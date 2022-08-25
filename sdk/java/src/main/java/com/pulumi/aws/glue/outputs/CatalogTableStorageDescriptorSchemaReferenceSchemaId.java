@@ -15,28 +15,19 @@ public final class CatalogTableStorageDescriptorSchemaReferenceSchemaId {
      * @return Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
      * 
      */
-    private final @Nullable String registryName;
+    private @Nullable String registryName;
     /**
      * @return ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
      * 
      */
-    private final @Nullable String schemaArn;
+    private @Nullable String schemaArn;
     /**
      * @return Name of the schema. One of `schema_arn` or `schema_name` has to be provided.
      * 
      */
-    private final @Nullable String schemaName;
+    private @Nullable String schemaName;
 
-    @CustomType.Constructor
-    private CatalogTableStorageDescriptorSchemaReferenceSchemaId(
-        @CustomType.Parameter("registryName") @Nullable String registryName,
-        @CustomType.Parameter("schemaArn") @Nullable String schemaArn,
-        @CustomType.Parameter("schemaName") @Nullable String schemaName) {
-        this.registryName = registryName;
-        this.schemaArn = schemaArn;
-        this.schemaName = schemaName;
-    }
-
+    private CatalogTableStorageDescriptorSchemaReferenceSchemaId() {}
     /**
      * @return Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
      * 
@@ -66,16 +57,12 @@ public final class CatalogTableStorageDescriptorSchemaReferenceSchemaId {
     public static Builder builder(CatalogTableStorageDescriptorSchemaReferenceSchemaId defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String registryName;
         private @Nullable String schemaArn;
         private @Nullable String schemaName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogTableStorageDescriptorSchemaReferenceSchemaId defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.registryName = defaults.registryName;
@@ -83,19 +70,27 @@ public final class CatalogTableStorageDescriptorSchemaReferenceSchemaId {
     	      this.schemaName = defaults.schemaName;
         }
 
+        @CustomType.Setter
         public Builder registryName(@Nullable String registryName) {
             this.registryName = registryName;
             return this;
         }
+        @CustomType.Setter
         public Builder schemaArn(@Nullable String schemaArn) {
             this.schemaArn = schemaArn;
             return this;
         }
+        @CustomType.Setter
         public Builder schemaName(@Nullable String schemaName) {
             this.schemaName = schemaName;
             return this;
-        }        public CatalogTableStorageDescriptorSchemaReferenceSchemaId build() {
-            return new CatalogTableStorageDescriptorSchemaReferenceSchemaId(registryName, schemaArn, schemaName);
+        }
+        public CatalogTableStorageDescriptorSchemaReferenceSchemaId build() {
+            final var o = new CatalogTableStorageDescriptorSchemaReferenceSchemaId();
+            o.registryName = registryName;
+            o.schemaArn = schemaArn;
+            o.schemaName = schemaName;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return A map that holds custom authentication credentials.
      * 
      */
-    private final @Nullable Map<String,String> credentialsMap;
+    private @Nullable Map<String,String> credentialsMap;
     /**
      * @return The custom authentication type that the connector uses.
      * 
      */
-    private final String customAuthenticationType;
+    private String customAuthenticationType;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom(
-        @CustomType.Parameter("credentialsMap") @Nullable Map<String,String> credentialsMap,
-        @CustomType.Parameter("customAuthenticationType") String customAuthenticationType) {
-        this.credentialsMap = credentialsMap;
-        this.customAuthenticationType = customAuthenticationType;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom() {}
     /**
      * @return A map that holds custom authentication credentials.
      * 
@@ -52,30 +45,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> credentialsMap;
         private String customAuthenticationType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.credentialsMap = defaults.credentialsMap;
     	      this.customAuthenticationType = defaults.customAuthenticationType;
         }
 
+        @CustomType.Setter
         public Builder credentialsMap(@Nullable Map<String,String> credentialsMap) {
             this.credentialsMap = credentialsMap;
             return this;
         }
+        @CustomType.Setter
         public Builder customAuthenticationType(String customAuthenticationType) {
             this.customAuthenticationType = Objects.requireNonNull(customAuthenticationType);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom(credentialsMap, customAuthenticationType);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom();
+            o.credentialsMap = credentialsMap;
+            o.customAuthenticationType = customAuthenticationType;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class IndexIndexStatistic {
      * @return A block that specifies the number of question and answer topics in the index. Documented below.
      * 
      */
-    private final @Nullable List<IndexIndexStatisticFaqStatistic> faqStatistics;
+    private @Nullable List<IndexIndexStatisticFaqStatistic> faqStatistics;
     /**
      * @return A block that specifies the number of text documents indexed.
      * 
      */
-    private final @Nullable List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
+    private @Nullable List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
 
-    @CustomType.Constructor
-    private IndexIndexStatistic(
-        @CustomType.Parameter("faqStatistics") @Nullable List<IndexIndexStatisticFaqStatistic> faqStatistics,
-        @CustomType.Parameter("textDocumentStatistics") @Nullable List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics) {
-        this.faqStatistics = faqStatistics;
-        this.textDocumentStatistics = textDocumentStatistics;
-    }
-
+    private IndexIndexStatistic() {}
     /**
      * @return A block that specifies the number of question and answer topics in the index. Documented below.
      * 
@@ -53,21 +46,18 @@ public final class IndexIndexStatistic {
     public static Builder builder(IndexIndexStatistic defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<IndexIndexStatisticFaqStatistic> faqStatistics;
         private @Nullable List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexIndexStatistic defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.faqStatistics = defaults.faqStatistics;
     	      this.textDocumentStatistics = defaults.textDocumentStatistics;
         }
 
+        @CustomType.Setter
         public Builder faqStatistics(@Nullable List<IndexIndexStatisticFaqStatistic> faqStatistics) {
             this.faqStatistics = faqStatistics;
             return this;
@@ -75,14 +65,19 @@ public final class IndexIndexStatistic {
         public Builder faqStatistics(IndexIndexStatisticFaqStatistic... faqStatistics) {
             return faqStatistics(List.of(faqStatistics));
         }
+        @CustomType.Setter
         public Builder textDocumentStatistics(@Nullable List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics) {
             this.textDocumentStatistics = textDocumentStatistics;
             return this;
         }
         public Builder textDocumentStatistics(IndexIndexStatisticTextDocumentStatistic... textDocumentStatistics) {
             return textDocumentStatistics(List.of(textDocumentStatistics));
-        }        public IndexIndexStatistic build() {
-            return new IndexIndexStatistic(faqStatistics, textDocumentStatistics);
+        }
+        public IndexIndexStatistic build() {
+            final var o = new IndexIndexStatistic();
+            o.faqStatistics = faqStatistics;
+            o.textDocumentStatistics = textDocumentStatistics;
+            return o;
         }
     }
 }

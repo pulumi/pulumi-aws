@@ -18,35 +18,24 @@ public final class TableSchemaDefinition {
      * @return The columns that are part of the clustering key of the table.
      * 
      */
-    private final @Nullable List<TableSchemaDefinitionClusteringKey> clusteringKeys;
+    private @Nullable List<TableSchemaDefinitionClusteringKey> clusteringKeys;
     /**
      * @return The regular columns of the table.
      * 
      */
-    private final List<TableSchemaDefinitionColumn> columns;
+    private List<TableSchemaDefinitionColumn> columns;
     /**
      * @return The columns that are part of the partition key of the table .
      * 
      */
-    private final List<TableSchemaDefinitionPartitionKey> partitionKeys;
+    private List<TableSchemaDefinitionPartitionKey> partitionKeys;
     /**
      * @return The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
      * 
      */
-    private final @Nullable List<TableSchemaDefinitionStaticColumn> staticColumns;
+    private @Nullable List<TableSchemaDefinitionStaticColumn> staticColumns;
 
-    @CustomType.Constructor
-    private TableSchemaDefinition(
-        @CustomType.Parameter("clusteringKeys") @Nullable List<TableSchemaDefinitionClusteringKey> clusteringKeys,
-        @CustomType.Parameter("columns") List<TableSchemaDefinitionColumn> columns,
-        @CustomType.Parameter("partitionKeys") List<TableSchemaDefinitionPartitionKey> partitionKeys,
-        @CustomType.Parameter("staticColumns") @Nullable List<TableSchemaDefinitionStaticColumn> staticColumns) {
-        this.clusteringKeys = clusteringKeys;
-        this.columns = columns;
-        this.partitionKeys = partitionKeys;
-        this.staticColumns = staticColumns;
-    }
-
+    private TableSchemaDefinition() {}
     /**
      * @return The columns that are part of the clustering key of the table.
      * 
@@ -83,17 +72,13 @@ public final class TableSchemaDefinition {
     public static Builder builder(TableSchemaDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<TableSchemaDefinitionClusteringKey> clusteringKeys;
         private List<TableSchemaDefinitionColumn> columns;
         private List<TableSchemaDefinitionPartitionKey> partitionKeys;
         private @Nullable List<TableSchemaDefinitionStaticColumn> staticColumns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableSchemaDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusteringKeys = defaults.clusteringKeys;
@@ -102,6 +87,7 @@ public final class TableSchemaDefinition {
     	      this.staticColumns = defaults.staticColumns;
         }
 
+        @CustomType.Setter
         public Builder clusteringKeys(@Nullable List<TableSchemaDefinitionClusteringKey> clusteringKeys) {
             this.clusteringKeys = clusteringKeys;
             return this;
@@ -109,6 +95,7 @@ public final class TableSchemaDefinition {
         public Builder clusteringKeys(TableSchemaDefinitionClusteringKey... clusteringKeys) {
             return clusteringKeys(List.of(clusteringKeys));
         }
+        @CustomType.Setter
         public Builder columns(List<TableSchemaDefinitionColumn> columns) {
             this.columns = Objects.requireNonNull(columns);
             return this;
@@ -116,6 +103,7 @@ public final class TableSchemaDefinition {
         public Builder columns(TableSchemaDefinitionColumn... columns) {
             return columns(List.of(columns));
         }
+        @CustomType.Setter
         public Builder partitionKeys(List<TableSchemaDefinitionPartitionKey> partitionKeys) {
             this.partitionKeys = Objects.requireNonNull(partitionKeys);
             return this;
@@ -123,14 +111,21 @@ public final class TableSchemaDefinition {
         public Builder partitionKeys(TableSchemaDefinitionPartitionKey... partitionKeys) {
             return partitionKeys(List.of(partitionKeys));
         }
+        @CustomType.Setter
         public Builder staticColumns(@Nullable List<TableSchemaDefinitionStaticColumn> staticColumns) {
             this.staticColumns = staticColumns;
             return this;
         }
         public Builder staticColumns(TableSchemaDefinitionStaticColumn... staticColumns) {
             return staticColumns(List.of(staticColumns));
-        }        public TableSchemaDefinition build() {
-            return new TableSchemaDefinition(clusteringKeys, columns, partitionKeys, staticColumns);
+        }
+        public TableSchemaDefinition build() {
+            final var o = new TableSchemaDefinition();
+            o.clusteringKeys = clusteringKeys;
+            o.columns = columns;
+            o.partitionKeys = partitionKeys;
+            o.staticColumns = staticColumns;
+            return o;
         }
     }
 }

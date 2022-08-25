@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleOverrideActionCount {
-    @CustomType.Constructor
-    private WebAclRuleOverrideActionCount() {
-    }
-
+    private WebAclRuleOverrideActionCount() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleOverrideActionCount {
     public static Builder builder(WebAclRuleOverrideActionCount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleOverrideActionCount defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleOverrideActionCount build() {
-            return new WebAclRuleOverrideActionCount();
+            final var o = new WebAclRuleOverrideActionCount();
+            return o;
         }
     }
 }

@@ -17,13 +17,9 @@ public final class NfsFileShareCacheAttributes {
      * to first refresh that directory&#39;s contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
      * 
      */
-    private final @Nullable Integer cacheStaleTimeoutInSeconds;
+    private @Nullable Integer cacheStaleTimeoutInSeconds;
 
-    @CustomType.Constructor
-    private NfsFileShareCacheAttributes(@CustomType.Parameter("cacheStaleTimeoutInSeconds") @Nullable Integer cacheStaleTimeoutInSeconds) {
-        this.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
-    }
-
+    private NfsFileShareCacheAttributes() {}
     /**
      * @return Refreshes a file share&#39;s cache by using Time To Live (TTL).
      * TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -41,24 +37,24 @@ public final class NfsFileShareCacheAttributes {
     public static Builder builder(NfsFileShareCacheAttributes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer cacheStaleTimeoutInSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NfsFileShareCacheAttributes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cacheStaleTimeoutInSeconds = defaults.cacheStaleTimeoutInSeconds;
         }
 
+        @CustomType.Setter
         public Builder cacheStaleTimeoutInSeconds(@Nullable Integer cacheStaleTimeoutInSeconds) {
             this.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
             return this;
-        }        public NfsFileShareCacheAttributes build() {
-            return new NfsFileShareCacheAttributes(cacheStaleTimeoutInSeconds);
+        }
+        public NfsFileShareCacheAttributes build() {
+            final var o = new NfsFileShareCacheAttributes();
+            o.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
+            return o;
         }
     }
 }

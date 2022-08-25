@@ -13,13 +13,9 @@ public final class GetRepositoryImageScanningConfiguration {
      * @return Indicates whether images are scanned after being pushed to the repository.
      * 
      */
-    private final Boolean scanOnPush;
+    private Boolean scanOnPush;
 
-    @CustomType.Constructor
-    private GetRepositoryImageScanningConfiguration(@CustomType.Parameter("scanOnPush") Boolean scanOnPush) {
-        this.scanOnPush = scanOnPush;
-    }
-
+    private GetRepositoryImageScanningConfiguration() {}
     /**
      * @return Indicates whether images are scanned after being pushed to the repository.
      * 
@@ -35,24 +31,24 @@ public final class GetRepositoryImageScanningConfiguration {
     public static Builder builder(GetRepositoryImageScanningConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean scanOnPush;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryImageScanningConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.scanOnPush = defaults.scanOnPush;
         }
 
+        @CustomType.Setter
         public Builder scanOnPush(Boolean scanOnPush) {
             this.scanOnPush = Objects.requireNonNull(scanOnPush);
             return this;
-        }        public GetRepositoryImageScanningConfiguration build() {
-            return new GetRepositoryImageScanningConfiguration(scanOnPush);
+        }
+        public GetRepositoryImageScanningConfiguration build() {
+            final var o = new GetRepositoryImageScanningConfiguration();
+            o.scanOnPush = scanOnPush;
+            return o;
         }
     }
 }

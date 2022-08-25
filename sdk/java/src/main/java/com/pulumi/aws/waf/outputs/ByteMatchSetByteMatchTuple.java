@@ -16,7 +16,7 @@ public final class ByteMatchSetByteMatchTuple {
      * @return The part of a web request that you want to search, such as a specified header or a query string.
      * 
      */
-    private final ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch;
+    private ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch;
     /**
      * @return Within the portion of a web request that you want to search
      * (for example, in the query string, if any), specify where you want to search.
@@ -25,14 +25,14 @@ public final class ByteMatchSetByteMatchTuple {
      * for all supported values.
      * 
      */
-    private final String positionalConstraint;
+    private String positionalConstraint;
     /**
      * @return The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
      * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
      * for all supported values.
      * 
      */
-    private final @Nullable String targetString;
+    private @Nullable String targetString;
     /**
      * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
      * If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
@@ -41,20 +41,9 @@ public final class ByteMatchSetByteMatchTuple {
      * for all supported values.
      * 
      */
-    private final String textTransformation;
+    private String textTransformation;
 
-    @CustomType.Constructor
-    private ByteMatchSetByteMatchTuple(
-        @CustomType.Parameter("fieldToMatch") ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch,
-        @CustomType.Parameter("positionalConstraint") String positionalConstraint,
-        @CustomType.Parameter("targetString") @Nullable String targetString,
-        @CustomType.Parameter("textTransformation") String textTransformation) {
-        this.fieldToMatch = fieldToMatch;
-        this.positionalConstraint = positionalConstraint;
-        this.targetString = targetString;
-        this.textTransformation = textTransformation;
-    }
-
+    private ByteMatchSetByteMatchTuple() {}
     /**
      * @return The part of a web request that you want to search, such as a specified header or a query string.
      * 
@@ -101,17 +90,13 @@ public final class ByteMatchSetByteMatchTuple {
     public static Builder builder(ByteMatchSetByteMatchTuple defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch;
         private String positionalConstraint;
         private @Nullable String targetString;
         private String textTransformation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ByteMatchSetByteMatchTuple defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
@@ -120,23 +105,33 @@ public final class ByteMatchSetByteMatchTuple {
     	      this.textTransformation = defaults.textTransformation;
         }
 
+        @CustomType.Setter
         public Builder fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch) {
             this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
             return this;
         }
+        @CustomType.Setter
         public Builder positionalConstraint(String positionalConstraint) {
             this.positionalConstraint = Objects.requireNonNull(positionalConstraint);
             return this;
         }
+        @CustomType.Setter
         public Builder targetString(@Nullable String targetString) {
             this.targetString = targetString;
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
             this.textTransformation = Objects.requireNonNull(textTransformation);
             return this;
-        }        public ByteMatchSetByteMatchTuple build() {
-            return new ByteMatchSetByteMatchTuple(fieldToMatch, positionalConstraint, targetString, textTransformation);
+        }
+        public ByteMatchSetByteMatchTuple build() {
+            final var o = new ByteMatchSetByteMatchTuple();
+            o.fieldToMatch = fieldToMatch;
+            o.positionalConstraint = positionalConstraint;
+            o.targetString = targetString;
+            o.textTransformation = textTransformation;
+            return o;
         }
     }
 }

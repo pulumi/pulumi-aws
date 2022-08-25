@@ -14,13 +14,9 @@ public final class OrganizationConfigurationDatasourcesKubernetes {
      * See Kubernetes Audit Logs below for more details.
      * 
      */
-    private final OrganizationConfigurationDatasourcesKubernetesAuditLogs auditLogs;
+    private OrganizationConfigurationDatasourcesKubernetesAuditLogs auditLogs;
 
-    @CustomType.Constructor
-    private OrganizationConfigurationDatasourcesKubernetes(@CustomType.Parameter("auditLogs") OrganizationConfigurationDatasourcesKubernetesAuditLogs auditLogs) {
-        this.auditLogs = auditLogs;
-    }
-
+    private OrganizationConfigurationDatasourcesKubernetes() {}
     /**
      * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
      * See Kubernetes Audit Logs below for more details.
@@ -37,24 +33,24 @@ public final class OrganizationConfigurationDatasourcesKubernetes {
     public static Builder builder(OrganizationConfigurationDatasourcesKubernetes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private OrganizationConfigurationDatasourcesKubernetesAuditLogs auditLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationConfigurationDatasourcesKubernetes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auditLogs = defaults.auditLogs;
         }
 
+        @CustomType.Setter
         public Builder auditLogs(OrganizationConfigurationDatasourcesKubernetesAuditLogs auditLogs) {
             this.auditLogs = Objects.requireNonNull(auditLogs);
             return this;
-        }        public OrganizationConfigurationDatasourcesKubernetes build() {
-            return new OrganizationConfigurationDatasourcesKubernetes(auditLogs);
+        }
+        public OrganizationConfigurationDatasourcesKubernetes build() {
+            final var o = new OrganizationConfigurationDatasourcesKubernetes();
+            o.auditLogs = auditLogs;
+            return o;
         }
     }
 }

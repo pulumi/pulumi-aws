@@ -14,17 +14,10 @@ public final class BudgetCostFilter {
      * @return The name of a budget. Unique within accounts.
      * 
      */
-    private final String name;
-    private final List<String> values;
+    private String name;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private BudgetCostFilter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private BudgetCostFilter() {}
     /**
      * @return The name of a budget. Unique within accounts.
      * 
@@ -43,33 +36,35 @@ public final class BudgetCostFilter {
     public static Builder builder(BudgetCostFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetCostFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public BudgetCostFilter build() {
-            return new BudgetCostFilter(name, values);
+        }
+        public BudgetCostFilter build() {
+            final var o = new BudgetCostFilter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

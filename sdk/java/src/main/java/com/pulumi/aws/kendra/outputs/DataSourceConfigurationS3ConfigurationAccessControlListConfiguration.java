@@ -15,13 +15,9 @@ public final class DataSourceConfigurationS3ConfigurationAccessControlListConfig
      * @return Path to the AWS S3 bucket that contains the ACL files.
      * 
      */
-    private final @Nullable String keyPath;
+    private @Nullable String keyPath;
 
-    @CustomType.Constructor
-    private DataSourceConfigurationS3ConfigurationAccessControlListConfiguration(@CustomType.Parameter("keyPath") @Nullable String keyPath) {
-        this.keyPath = keyPath;
-    }
-
+    private DataSourceConfigurationS3ConfigurationAccessControlListConfiguration() {}
     /**
      * @return Path to the AWS S3 bucket that contains the ACL files.
      * 
@@ -37,24 +33,24 @@ public final class DataSourceConfigurationS3ConfigurationAccessControlListConfig
     public static Builder builder(DataSourceConfigurationS3ConfigurationAccessControlListConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String keyPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfigurationS3ConfigurationAccessControlListConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyPath = defaults.keyPath;
         }
 
+        @CustomType.Setter
         public Builder keyPath(@Nullable String keyPath) {
             this.keyPath = keyPath;
             return this;
-        }        public DataSourceConfigurationS3ConfigurationAccessControlListConfiguration build() {
-            return new DataSourceConfigurationS3ConfigurationAccessControlListConfiguration(keyPath);
+        }
+        public DataSourceConfigurationS3ConfigurationAccessControlListConfiguration build() {
+            final var o = new DataSourceConfigurationS3ConfigurationAccessControlListConfiguration();
+            o.keyPath = keyPath;
+            return o;
         }
     }
 }

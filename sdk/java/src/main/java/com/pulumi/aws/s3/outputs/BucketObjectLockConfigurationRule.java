@@ -13,13 +13,9 @@ public final class BucketObjectLockConfigurationRule {
      * @return The default retention period that you want to apply to new objects placed in this bucket.
      * 
      */
-    private final BucketObjectLockConfigurationRuleDefaultRetention defaultRetention;
+    private BucketObjectLockConfigurationRuleDefaultRetention defaultRetention;
 
-    @CustomType.Constructor
-    private BucketObjectLockConfigurationRule(@CustomType.Parameter("defaultRetention") BucketObjectLockConfigurationRuleDefaultRetention defaultRetention) {
-        this.defaultRetention = defaultRetention;
-    }
-
+    private BucketObjectLockConfigurationRule() {}
     /**
      * @return The default retention period that you want to apply to new objects placed in this bucket.
      * 
@@ -35,24 +31,24 @@ public final class BucketObjectLockConfigurationRule {
     public static Builder builder(BucketObjectLockConfigurationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private BucketObjectLockConfigurationRuleDefaultRetention defaultRetention;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketObjectLockConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultRetention = defaults.defaultRetention;
         }
 
+        @CustomType.Setter
         public Builder defaultRetention(BucketObjectLockConfigurationRuleDefaultRetention defaultRetention) {
             this.defaultRetention = Objects.requireNonNull(defaultRetention);
             return this;
-        }        public BucketObjectLockConfigurationRule build() {
-            return new BucketObjectLockConfigurationRule(defaultRetention);
+        }
+        public BucketObjectLockConfigurationRule build() {
+            final var o = new BucketObjectLockConfigurationRule();
+            o.defaultRetention = defaultRetention;
+            return o;
         }
     }
 }

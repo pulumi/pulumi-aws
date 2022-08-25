@@ -21,76 +21,41 @@ public final class GetVpcPeeringConnectionResult {
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      * 
      */
-    private final Map<String,Boolean> accepter;
+    private Map<String,Boolean> accepter;
     /**
      * @return A CIDR block associated to the VPC of the specific VPC Peering Connection.
      * 
      */
-    private final String cidrBlock;
+    private String cidrBlock;
     /**
      * @return List of objects with CIDR blocks of the requester VPC.
      * 
      */
-    private final List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets;
-    private final @Nullable List<GetVpcPeeringConnectionFilter> filters;
-    private final String id;
-    private final String ownerId;
-    private final String peerCidrBlock;
+    private List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets;
+    private @Nullable List<GetVpcPeeringConnectionFilter> filters;
+    private String id;
+    private String ownerId;
+    private String peerCidrBlock;
     /**
      * @return List of objects with CIDR blocks of the accepter VPC.
      * 
      */
-    private final List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets;
-    private final String peerOwnerId;
-    private final String peerRegion;
-    private final String peerVpcId;
-    private final String region;
+    private List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets;
+    private String peerOwnerId;
+    private String peerRegion;
+    private String peerVpcId;
+    private String region;
     /**
      * @return A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      * 
      */
-    private final Map<String,Boolean> requester;
-    private final String status;
-    private final Map<String,String> tags;
-    private final String vpcId;
+    private Map<String,Boolean> requester;
+    private String status;
+    private Map<String,String> tags;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetVpcPeeringConnectionResult(
-        @CustomType.Parameter("accepter") Map<String,Boolean> accepter,
-        @CustomType.Parameter("cidrBlock") String cidrBlock,
-        @CustomType.Parameter("cidrBlockSets") List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets,
-        @CustomType.Parameter("filters") @Nullable List<GetVpcPeeringConnectionFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("peerCidrBlock") String peerCidrBlock,
-        @CustomType.Parameter("peerCidrBlockSets") List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets,
-        @CustomType.Parameter("peerOwnerId") String peerOwnerId,
-        @CustomType.Parameter("peerRegion") String peerRegion,
-        @CustomType.Parameter("peerVpcId") String peerVpcId,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("requester") Map<String,Boolean> requester,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.accepter = accepter;
-        this.cidrBlock = cidrBlock;
-        this.cidrBlockSets = cidrBlockSets;
-        this.filters = filters;
-        this.id = id;
-        this.ownerId = ownerId;
-        this.peerCidrBlock = peerCidrBlock;
-        this.peerCidrBlockSets = peerCidrBlockSets;
-        this.peerOwnerId = peerOwnerId;
-        this.peerRegion = peerRegion;
-        this.peerVpcId = peerVpcId;
-        this.region = region;
-        this.requester = requester;
-        this.status = status;
-        this.tags = tags;
-        this.vpcId = vpcId;
-    }
-
+    private GetVpcPeeringConnectionResult() {}
     /**
      * @return A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
@@ -169,7 +134,7 @@ public final class GetVpcPeeringConnectionResult {
     public static Builder builder(GetVpcPeeringConnectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,Boolean> accepter;
         private String cidrBlock;
@@ -187,11 +152,7 @@ public final class GetVpcPeeringConnectionResult {
         private String status;
         private Map<String,String> tags;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcPeeringConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accepter = defaults.accepter;
@@ -212,14 +173,17 @@ public final class GetVpcPeeringConnectionResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder accepter(Map<String,Boolean> accepter) {
             this.accepter = Objects.requireNonNull(accepter);
             return this;
         }
+        @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
             this.cidrBlock = Objects.requireNonNull(cidrBlock);
             return this;
         }
+        @CustomType.Setter
         public Builder cidrBlockSets(List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets) {
             this.cidrBlockSets = Objects.requireNonNull(cidrBlockSets);
             return this;
@@ -227,6 +191,7 @@ public final class GetVpcPeeringConnectionResult {
         public Builder cidrBlockSets(GetVpcPeeringConnectionCidrBlockSet... cidrBlockSets) {
             return cidrBlockSets(List.of(cidrBlockSets));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcPeeringConnectionFilter> filters) {
             this.filters = filters;
             return this;
@@ -234,18 +199,22 @@ public final class GetVpcPeeringConnectionResult {
         public Builder filters(GetVpcPeeringConnectionFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder peerCidrBlock(String peerCidrBlock) {
             this.peerCidrBlock = Objects.requireNonNull(peerCidrBlock);
             return this;
         }
+        @CustomType.Setter
         public Builder peerCidrBlockSets(List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets) {
             this.peerCidrBlockSets = Objects.requireNonNull(peerCidrBlockSets);
             return this;
@@ -253,39 +222,65 @@ public final class GetVpcPeeringConnectionResult {
         public Builder peerCidrBlockSets(GetVpcPeeringConnectionPeerCidrBlockSet... peerCidrBlockSets) {
             return peerCidrBlockSets(List.of(peerCidrBlockSets));
         }
+        @CustomType.Setter
         public Builder peerOwnerId(String peerOwnerId) {
             this.peerOwnerId = Objects.requireNonNull(peerOwnerId);
             return this;
         }
+        @CustomType.Setter
         public Builder peerRegion(String peerRegion) {
             this.peerRegion = Objects.requireNonNull(peerRegion);
             return this;
         }
+        @CustomType.Setter
         public Builder peerVpcId(String peerVpcId) {
             this.peerVpcId = Objects.requireNonNull(peerVpcId);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder requester(Map<String,Boolean> requester) {
             this.requester = Objects.requireNonNull(requester);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetVpcPeeringConnectionResult build() {
-            return new GetVpcPeeringConnectionResult(accepter, cidrBlock, cidrBlockSets, filters, id, ownerId, peerCidrBlock, peerCidrBlockSets, peerOwnerId, peerRegion, peerVpcId, region, requester, status, tags, vpcId);
+        }
+        public GetVpcPeeringConnectionResult build() {
+            final var o = new GetVpcPeeringConnectionResult();
+            o.accepter = accepter;
+            o.cidrBlock = cidrBlock;
+            o.cidrBlockSets = cidrBlockSets;
+            o.filters = filters;
+            o.id = id;
+            o.ownerId = ownerId;
+            o.peerCidrBlock = peerCidrBlock;
+            o.peerCidrBlockSets = peerCidrBlockSets;
+            o.peerOwnerId = peerOwnerId;
+            o.peerRegion = peerRegion;
+            o.peerVpcId = peerVpcId;
+            o.region = region;
+            o.requester = requester;
+            o.status = status;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

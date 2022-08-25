@@ -17,65 +17,42 @@ public final class GetRoutingProfileResult {
      * @return The Amazon Resource Name (ARN) of the Routing Profile.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Specifies the default outbound queue for the Routing Profile.
      * 
      */
-    private final String defaultOutboundQueueId;
+    private String defaultOutboundQueueId;
     /**
      * @return Specifies the description of the Routing Profile.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
+    private String id;
+    private String instanceId;
     /**
      * @return One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
      * 
      */
-    private final List<GetRoutingProfileMediaConcurrency> mediaConcurrencies;
-    private final String name;
+    private List<GetRoutingProfileMediaConcurrency> mediaConcurrencies;
+    private String name;
     /**
      * @return One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
      * 
      */
-    private final List<GetRoutingProfileQueueConfig> queueConfigs;
-    private final String routingProfileId;
+    private List<GetRoutingProfileQueueConfig> queueConfigs;
+    private String routingProfileId;
     /**
      * @return A map of tags to assign to the Routing Profile.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetRoutingProfileResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("defaultOutboundQueueId") String defaultOutboundQueueId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("mediaConcurrencies") List<GetRoutingProfileMediaConcurrency> mediaConcurrencies,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("queueConfigs") List<GetRoutingProfileQueueConfig> queueConfigs,
-        @CustomType.Parameter("routingProfileId") String routingProfileId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.defaultOutboundQueueId = defaultOutboundQueueId;
-        this.description = description;
-        this.id = id;
-        this.instanceId = instanceId;
-        this.mediaConcurrencies = mediaConcurrencies;
-        this.name = name;
-        this.queueConfigs = queueConfigs;
-        this.routingProfileId = routingProfileId;
-        this.tags = tags;
-    }
-
+    private GetRoutingProfileResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Routing Profile.
      * 
@@ -142,7 +119,7 @@ public final class GetRoutingProfileResult {
     public static Builder builder(GetRoutingProfileResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String defaultOutboundQueueId;
@@ -154,11 +131,7 @@ public final class GetRoutingProfileResult {
         private List<GetRoutingProfileQueueConfig> queueConfigs;
         private String routingProfileId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRoutingProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -173,26 +146,32 @@ public final class GetRoutingProfileResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultOutboundQueueId(String defaultOutboundQueueId) {
             this.defaultOutboundQueueId = Objects.requireNonNull(defaultOutboundQueueId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder mediaConcurrencies(List<GetRoutingProfileMediaConcurrency> mediaConcurrencies) {
             this.mediaConcurrencies = Objects.requireNonNull(mediaConcurrencies);
             return this;
@@ -200,10 +179,12 @@ public final class GetRoutingProfileResult {
         public Builder mediaConcurrencies(GetRoutingProfileMediaConcurrency... mediaConcurrencies) {
             return mediaConcurrencies(List.of(mediaConcurrencies));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder queueConfigs(List<GetRoutingProfileQueueConfig> queueConfigs) {
             this.queueConfigs = Objects.requireNonNull(queueConfigs);
             return this;
@@ -211,15 +192,29 @@ public final class GetRoutingProfileResult {
         public Builder queueConfigs(GetRoutingProfileQueueConfig... queueConfigs) {
             return queueConfigs(List.of(queueConfigs));
         }
+        @CustomType.Setter
         public Builder routingProfileId(String routingProfileId) {
             this.routingProfileId = Objects.requireNonNull(routingProfileId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetRoutingProfileResult build() {
-            return new GetRoutingProfileResult(arn, defaultOutboundQueueId, description, id, instanceId, mediaConcurrencies, name, queueConfigs, routingProfileId, tags);
+        }
+        public GetRoutingProfileResult build() {
+            final var o = new GetRoutingProfileResult();
+            o.arn = arn;
+            o.defaultOutboundQueueId = defaultOutboundQueueId;
+            o.description = description;
+            o.id = id;
+            o.instanceId = instanceId;
+            o.mediaConcurrencies = mediaConcurrencies;
+            o.name = name;
+            o.queueConfigs = queueConfigs;
+            o.routingProfileId = routingProfileId;
+            o.tags = tags;
+            return o;
         }
     }
 }

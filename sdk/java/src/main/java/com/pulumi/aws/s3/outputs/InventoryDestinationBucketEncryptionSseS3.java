@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class InventoryDestinationBucketEncryptionSseS3 {
-    @CustomType.Constructor
-    private InventoryDestinationBucketEncryptionSseS3() {
-    }
-
+    private InventoryDestinationBucketEncryptionSseS3() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class InventoryDestinationBucketEncryptionSseS3 {
     public static Builder builder(InventoryDestinationBucketEncryptionSseS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InventoryDestinationBucketEncryptionSseS3 defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public InventoryDestinationBucketEncryptionSseS3 build() {
-            return new InventoryDestinationBucketEncryptionSseS3();
+            final var o = new InventoryDestinationBucketEncryptionSseS3();
+            return o;
         }
     }
 }

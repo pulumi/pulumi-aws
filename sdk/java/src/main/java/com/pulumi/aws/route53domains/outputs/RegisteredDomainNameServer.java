@@ -15,21 +15,14 @@ public final class RegisteredDomainNameServer {
      * @return Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
      * 
      */
-    private final @Nullable List<String> glueIps;
+    private @Nullable List<String> glueIps;
     /**
      * @return The fully qualified host name of the name server.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private RegisteredDomainNameServer(
-        @CustomType.Parameter("glueIps") @Nullable List<String> glueIps,
-        @CustomType.Parameter("name") String name) {
-        this.glueIps = glueIps;
-        this.name = name;
-    }
-
+    private RegisteredDomainNameServer() {}
     /**
      * @return Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
      * 
@@ -52,21 +45,18 @@ public final class RegisteredDomainNameServer {
     public static Builder builder(RegisteredDomainNameServer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> glueIps;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegisteredDomainNameServer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.glueIps = defaults.glueIps;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder glueIps(@Nullable List<String> glueIps) {
             this.glueIps = glueIps;
             return this;
@@ -74,11 +64,16 @@ public final class RegisteredDomainNameServer {
         public Builder glueIps(String... glueIps) {
             return glueIps(List.of(glueIps));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public RegisteredDomainNameServer build() {
-            return new RegisteredDomainNameServer(glueIps, name);
+        }
+        public RegisteredDomainNameServer build() {
+            final var o = new RegisteredDomainNameServer();
+            o.glueIps = glueIps;
+            o.name = name;
+            return o;
         }
     }
 }

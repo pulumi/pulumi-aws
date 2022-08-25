@@ -15,13 +15,9 @@ public final class IndexIndexStatisticFaqStatistic {
      * @return The total number of FAQ questions and answers contained in the index.
      * 
      */
-    private final @Nullable Integer indexedQuestionAnswersCount;
+    private @Nullable Integer indexedQuestionAnswersCount;
 
-    @CustomType.Constructor
-    private IndexIndexStatisticFaqStatistic(@CustomType.Parameter("indexedQuestionAnswersCount") @Nullable Integer indexedQuestionAnswersCount) {
-        this.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
-    }
-
+    private IndexIndexStatisticFaqStatistic() {}
     /**
      * @return The total number of FAQ questions and answers contained in the index.
      * 
@@ -37,24 +33,24 @@ public final class IndexIndexStatisticFaqStatistic {
     public static Builder builder(IndexIndexStatisticFaqStatistic defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer indexedQuestionAnswersCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexIndexStatisticFaqStatistic defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.indexedQuestionAnswersCount = defaults.indexedQuestionAnswersCount;
         }
 
+        @CustomType.Setter
         public Builder indexedQuestionAnswersCount(@Nullable Integer indexedQuestionAnswersCount) {
             this.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
             return this;
-        }        public IndexIndexStatisticFaqStatistic build() {
-            return new IndexIndexStatisticFaqStatistic(indexedQuestionAnswersCount);
+        }
+        public IndexIndexStatisticFaqStatistic build() {
+            final var o = new IndexIndexStatisticFaqStatistic();
+            o.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
+            return o;
         }
     }
 }

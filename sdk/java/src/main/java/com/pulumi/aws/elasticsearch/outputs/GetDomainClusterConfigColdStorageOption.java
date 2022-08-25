@@ -13,13 +13,9 @@ public final class GetDomainClusterConfigColdStorageOption {
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetDomainClusterConfigColdStorageOption(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private GetDomainClusterConfigColdStorageOption() {}
     /**
      * @return Whether node to node encryption is enabled.
      * 
@@ -35,24 +31,24 @@ public final class GetDomainClusterConfigColdStorageOption {
     public static Builder builder(GetDomainClusterConfigColdStorageOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainClusterConfigColdStorageOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetDomainClusterConfigColdStorageOption build() {
-            return new GetDomainClusterConfigColdStorageOption(enabled);
+        }
+        public GetDomainClusterConfigColdStorageOption build() {
+            final var o = new GetDomainClusterConfigColdStorageOption();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

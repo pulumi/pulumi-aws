@@ -14,21 +14,14 @@ public final class GetAutoscalingGroupsFilter {
      * @return The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The value of the filter.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetAutoscalingGroupsFilter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private GetAutoscalingGroupsFilter() {}
     /**
      * @return The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
      * 
@@ -51,33 +44,35 @@ public final class GetAutoscalingGroupsFilter {
     public static Builder builder(GetAutoscalingGroupsFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAutoscalingGroupsFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetAutoscalingGroupsFilter build() {
-            return new GetAutoscalingGroupsFilter(name, values);
+        }
+        public GetAutoscalingGroupsFilter build() {
+            final var o = new GetAutoscalingGroupsFilter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

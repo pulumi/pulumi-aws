@@ -13,40 +13,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLinksResult {
-    private final String globalNetworkId;
+    private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The IDs of the links.
      * 
      */
-    private final List<String> ids;
-    private final @Nullable String providerName;
-    private final @Nullable String siteId;
-    private final @Nullable Map<String,String> tags;
-    private final @Nullable String type;
+    private List<String> ids;
+    private @Nullable String providerName;
+    private @Nullable String siteId;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private GetLinksResult(
-        @CustomType.Parameter("globalNetworkId") String globalNetworkId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("providerName") @Nullable String providerName,
-        @CustomType.Parameter("siteId") @Nullable String siteId,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.globalNetworkId = globalNetworkId;
-        this.id = id;
-        this.ids = ids;
-        this.providerName = providerName;
-        this.siteId = siteId;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private GetLinksResult() {}
     public String globalNetworkId() {
         return this.globalNetworkId;
     }
@@ -84,7 +67,7 @@ public final class GetLinksResult {
     public static Builder builder(GetLinksResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String globalNetworkId;
         private String id;
@@ -93,11 +76,7 @@ public final class GetLinksResult {
         private @Nullable String siteId;
         private @Nullable Map<String,String> tags;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinksResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.globalNetworkId = defaults.globalNetworkId;
@@ -109,14 +88,17 @@ public final class GetLinksResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
             this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -124,23 +106,36 @@ public final class GetLinksResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder providerName(@Nullable String providerName) {
             this.providerName = providerName;
             return this;
         }
+        @CustomType.Setter
         public Builder siteId(@Nullable String siteId) {
             this.siteId = siteId;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public GetLinksResult build() {
-            return new GetLinksResult(globalNetworkId, id, ids, providerName, siteId, tags, type);
+        }
+        public GetLinksResult build() {
+            final var o = new GetLinksResult();
+            o.globalNetworkId = globalNetworkId;
+            o.id = id;
+            o.ids = ids;
+            o.providerName = providerName;
+            o.siteId = siteId;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

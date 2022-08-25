@@ -17,28 +17,19 @@ public final class ExperienceConfigurationContentSourceConfiguration {
      * @return The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
-    private final @Nullable List<String> dataSourceIds;
+    private @Nullable List<String> dataSourceIds;
     /**
      * @return Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean directPutContent;
+    private @Nullable Boolean directPutContent;
     /**
      * @return The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
-    private final @Nullable List<String> faqIds;
+    private @Nullable List<String> faqIds;
 
-    @CustomType.Constructor
-    private ExperienceConfigurationContentSourceConfiguration(
-        @CustomType.Parameter("dataSourceIds") @Nullable List<String> dataSourceIds,
-        @CustomType.Parameter("directPutContent") @Nullable Boolean directPutContent,
-        @CustomType.Parameter("faqIds") @Nullable List<String> faqIds) {
-        this.dataSourceIds = dataSourceIds;
-        this.directPutContent = directPutContent;
-        this.faqIds = faqIds;
-    }
-
+    private ExperienceConfigurationContentSourceConfiguration() {}
     /**
      * @return The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
@@ -68,16 +59,12 @@ public final class ExperienceConfigurationContentSourceConfiguration {
     public static Builder builder(ExperienceConfigurationContentSourceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> dataSourceIds;
         private @Nullable Boolean directPutContent;
         private @Nullable List<String> faqIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExperienceConfigurationContentSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataSourceIds = defaults.dataSourceIds;
@@ -85,6 +72,7 @@ public final class ExperienceConfigurationContentSourceConfiguration {
     	      this.faqIds = defaults.faqIds;
         }
 
+        @CustomType.Setter
         public Builder dataSourceIds(@Nullable List<String> dataSourceIds) {
             this.dataSourceIds = dataSourceIds;
             return this;
@@ -92,18 +80,25 @@ public final class ExperienceConfigurationContentSourceConfiguration {
         public Builder dataSourceIds(String... dataSourceIds) {
             return dataSourceIds(List.of(dataSourceIds));
         }
+        @CustomType.Setter
         public Builder directPutContent(@Nullable Boolean directPutContent) {
             this.directPutContent = directPutContent;
             return this;
         }
+        @CustomType.Setter
         public Builder faqIds(@Nullable List<String> faqIds) {
             this.faqIds = faqIds;
             return this;
         }
         public Builder faqIds(String... faqIds) {
             return faqIds(List.of(faqIds));
-        }        public ExperienceConfigurationContentSourceConfiguration build() {
-            return new ExperienceConfigurationContentSourceConfiguration(dataSourceIds, directPutContent, faqIds);
+        }
+        public ExperienceConfigurationContentSourceConfiguration build() {
+            final var o = new ExperienceConfigurationContentSourceConfiguration();
+            o.dataSourceIds = dataSourceIds;
+            o.directPutContent = directPutContent;
+            o.faqIds = faqIds;
+            return o;
         }
     }
 }

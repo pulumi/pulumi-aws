@@ -15,35 +15,24 @@ public final class CanaryTimeline {
      * @return Date and time the canary was created.
      * 
      */
-    private final @Nullable String created;
+    private @Nullable String created;
     /**
      * @return Date and time the canary was most recently modified.
      * 
      */
-    private final @Nullable String lastModified;
+    private @Nullable String lastModified;
     /**
      * @return Date and time that the canary&#39;s most recent run started.
      * 
      */
-    private final @Nullable String lastStarted;
+    private @Nullable String lastStarted;
     /**
      * @return Date and time that the canary&#39;s most recent run ended.
      * 
      */
-    private final @Nullable String lastStopped;
+    private @Nullable String lastStopped;
 
-    @CustomType.Constructor
-    private CanaryTimeline(
-        @CustomType.Parameter("created") @Nullable String created,
-        @CustomType.Parameter("lastModified") @Nullable String lastModified,
-        @CustomType.Parameter("lastStarted") @Nullable String lastStarted,
-        @CustomType.Parameter("lastStopped") @Nullable String lastStopped) {
-        this.created = created;
-        this.lastModified = lastModified;
-        this.lastStarted = lastStarted;
-        this.lastStopped = lastStopped;
-    }
-
+    private CanaryTimeline() {}
     /**
      * @return Date and time the canary was created.
      * 
@@ -80,17 +69,13 @@ public final class CanaryTimeline {
     public static Builder builder(CanaryTimeline defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String created;
         private @Nullable String lastModified;
         private @Nullable String lastStarted;
         private @Nullable String lastStopped;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CanaryTimeline defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.created = defaults.created;
@@ -99,23 +84,33 @@ public final class CanaryTimeline {
     	      this.lastStopped = defaults.lastStopped;
         }
 
+        @CustomType.Setter
         public Builder created(@Nullable String created) {
             this.created = created;
             return this;
         }
+        @CustomType.Setter
         public Builder lastModified(@Nullable String lastModified) {
             this.lastModified = lastModified;
             return this;
         }
+        @CustomType.Setter
         public Builder lastStarted(@Nullable String lastStarted) {
             this.lastStarted = lastStarted;
             return this;
         }
+        @CustomType.Setter
         public Builder lastStopped(@Nullable String lastStopped) {
             this.lastStopped = lastStopped;
             return this;
-        }        public CanaryTimeline build() {
-            return new CanaryTimeline(created, lastModified, lastStarted, lastStopped);
+        }
+        public CanaryTimeline build() {
+            final var o = new CanaryTimeline();
+            o.created = created;
+            o.lastModified = lastModified;
+            o.lastStarted = lastStarted;
+            o.lastStopped = lastStopped;
+            return o;
         }
     }
 }

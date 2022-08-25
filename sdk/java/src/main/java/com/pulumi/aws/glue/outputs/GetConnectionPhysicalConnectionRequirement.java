@@ -10,20 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionPhysicalConnectionRequirement {
-    private final String availabilityZone;
-    private final List<String> securityGroupIdLists;
-    private final String subnetId;
+    private String availabilityZone;
+    private List<String> securityGroupIdLists;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetConnectionPhysicalConnectionRequirement(
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("securityGroupIdLists") List<String> securityGroupIdLists,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.availabilityZone = availabilityZone;
-        this.securityGroupIdLists = securityGroupIdLists;
-        this.subnetId = subnetId;
-    }
-
+    private GetConnectionPhysicalConnectionRequirement() {}
     public String availabilityZone() {
         return this.availabilityZone;
     }
@@ -41,16 +32,12 @@ public final class GetConnectionPhysicalConnectionRequirement {
     public static Builder builder(GetConnectionPhysicalConnectionRequirement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String availabilityZone;
         private List<String> securityGroupIdLists;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConnectionPhysicalConnectionRequirement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZone = defaults.availabilityZone;
@@ -58,10 +45,12 @@ public final class GetConnectionPhysicalConnectionRequirement {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupIdLists(List<String> securityGroupIdLists) {
             this.securityGroupIdLists = Objects.requireNonNull(securityGroupIdLists);
             return this;
@@ -69,11 +58,17 @@ public final class GetConnectionPhysicalConnectionRequirement {
         public Builder securityGroupIdLists(String... securityGroupIdLists) {
             return securityGroupIdLists(List.of(securityGroupIdLists));
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetConnectionPhysicalConnectionRequirement build() {
-            return new GetConnectionPhysicalConnectionRequirement(availabilityZone, securityGroupIdLists, subnetId);
+        }
+        public GetConnectionPhysicalConnectionRequirement build() {
+            final var o = new GetConnectionPhysicalConnectionRequirement();
+            o.availabilityZone = availabilityZone;
+            o.securityGroupIdLists = securityGroupIdLists;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

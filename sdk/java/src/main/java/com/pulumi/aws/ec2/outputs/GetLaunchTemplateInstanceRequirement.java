@@ -20,74 +20,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateInstanceRequirement {
-    private final List<GetLaunchTemplateInstanceRequirementAcceleratorCount> acceleratorCounts;
-    private final List<String> acceleratorManufacturers;
-    private final List<String> acceleratorNames;
-    private final List<GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs;
-    private final List<String> acceleratorTypes;
-    private final String bareMetal;
-    private final List<GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
-    private final String burstablePerformance;
-    private final List<String> cpuManufacturers;
-    private final List<String> excludedInstanceTypes;
-    private final List<String> instanceGenerations;
-    private final String localStorage;
-    private final List<String> localStorageTypes;
-    private final List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
-    private final List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs;
-    private final List<GetLaunchTemplateInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts;
-    private final Integer onDemandMaxPricePercentageOverLowestPrice;
-    private final Boolean requireHibernateSupport;
-    private final Integer spotMaxPricePercentageOverLowestPrice;
-    private final List<GetLaunchTemplateInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs;
-    private final List<GetLaunchTemplateInstanceRequirementVcpuCount> vcpuCounts;
+    private List<GetLaunchTemplateInstanceRequirementAcceleratorCount> acceleratorCounts;
+    private List<String> acceleratorManufacturers;
+    private List<String> acceleratorNames;
+    private List<GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs;
+    private List<String> acceleratorTypes;
+    private String bareMetal;
+    private List<GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
+    private String burstablePerformance;
+    private List<String> cpuManufacturers;
+    private List<String> excludedInstanceTypes;
+    private List<String> instanceGenerations;
+    private String localStorage;
+    private List<String> localStorageTypes;
+    private List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
+    private List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs;
+    private List<GetLaunchTemplateInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts;
+    private Integer onDemandMaxPricePercentageOverLowestPrice;
+    private Boolean requireHibernateSupport;
+    private Integer spotMaxPricePercentageOverLowestPrice;
+    private List<GetLaunchTemplateInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs;
+    private List<GetLaunchTemplateInstanceRequirementVcpuCount> vcpuCounts;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateInstanceRequirement(
-        @CustomType.Parameter("acceleratorCounts") List<GetLaunchTemplateInstanceRequirementAcceleratorCount> acceleratorCounts,
-        @CustomType.Parameter("acceleratorManufacturers") List<String> acceleratorManufacturers,
-        @CustomType.Parameter("acceleratorNames") List<String> acceleratorNames,
-        @CustomType.Parameter("acceleratorTotalMemoryMibs") List<GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs,
-        @CustomType.Parameter("acceleratorTypes") List<String> acceleratorTypes,
-        @CustomType.Parameter("bareMetal") String bareMetal,
-        @CustomType.Parameter("baselineEbsBandwidthMbps") List<GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps,
-        @CustomType.Parameter("burstablePerformance") String burstablePerformance,
-        @CustomType.Parameter("cpuManufacturers") List<String> cpuManufacturers,
-        @CustomType.Parameter("excludedInstanceTypes") List<String> excludedInstanceTypes,
-        @CustomType.Parameter("instanceGenerations") List<String> instanceGenerations,
-        @CustomType.Parameter("localStorage") String localStorage,
-        @CustomType.Parameter("localStorageTypes") List<String> localStorageTypes,
-        @CustomType.Parameter("memoryGibPerVcpus") List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus,
-        @CustomType.Parameter("memoryMibs") List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs,
-        @CustomType.Parameter("networkInterfaceCounts") List<GetLaunchTemplateInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts,
-        @CustomType.Parameter("onDemandMaxPricePercentageOverLowestPrice") Integer onDemandMaxPricePercentageOverLowestPrice,
-        @CustomType.Parameter("requireHibernateSupport") Boolean requireHibernateSupport,
-        @CustomType.Parameter("spotMaxPricePercentageOverLowestPrice") Integer spotMaxPricePercentageOverLowestPrice,
-        @CustomType.Parameter("totalLocalStorageGbs") List<GetLaunchTemplateInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs,
-        @CustomType.Parameter("vcpuCounts") List<GetLaunchTemplateInstanceRequirementVcpuCount> vcpuCounts) {
-        this.acceleratorCounts = acceleratorCounts;
-        this.acceleratorManufacturers = acceleratorManufacturers;
-        this.acceleratorNames = acceleratorNames;
-        this.acceleratorTotalMemoryMibs = acceleratorTotalMemoryMibs;
-        this.acceleratorTypes = acceleratorTypes;
-        this.bareMetal = bareMetal;
-        this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
-        this.burstablePerformance = burstablePerformance;
-        this.cpuManufacturers = cpuManufacturers;
-        this.excludedInstanceTypes = excludedInstanceTypes;
-        this.instanceGenerations = instanceGenerations;
-        this.localStorage = localStorage;
-        this.localStorageTypes = localStorageTypes;
-        this.memoryGibPerVcpus = memoryGibPerVcpus;
-        this.memoryMibs = memoryMibs;
-        this.networkInterfaceCounts = networkInterfaceCounts;
-        this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
-        this.requireHibernateSupport = requireHibernateSupport;
-        this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
-        this.totalLocalStorageGbs = totalLocalStorageGbs;
-        this.vcpuCounts = vcpuCounts;
-    }
-
+    private GetLaunchTemplateInstanceRequirement() {}
     public List<GetLaunchTemplateInstanceRequirementAcceleratorCount> acceleratorCounts() {
         return this.acceleratorCounts;
     }
@@ -159,7 +114,7 @@ public final class GetLaunchTemplateInstanceRequirement {
     public static Builder builder(GetLaunchTemplateInstanceRequirement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetLaunchTemplateInstanceRequirementAcceleratorCount> acceleratorCounts;
         private List<String> acceleratorManufacturers;
@@ -182,11 +137,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         private Integer spotMaxPricePercentageOverLowestPrice;
         private List<GetLaunchTemplateInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs;
         private List<GetLaunchTemplateInstanceRequirementVcpuCount> vcpuCounts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateInstanceRequirement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceleratorCounts = defaults.acceleratorCounts;
@@ -212,6 +163,7 @@ public final class GetLaunchTemplateInstanceRequirement {
     	      this.vcpuCounts = defaults.vcpuCounts;
         }
 
+        @CustomType.Setter
         public Builder acceleratorCounts(List<GetLaunchTemplateInstanceRequirementAcceleratorCount> acceleratorCounts) {
             this.acceleratorCounts = Objects.requireNonNull(acceleratorCounts);
             return this;
@@ -219,6 +171,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder acceleratorCounts(GetLaunchTemplateInstanceRequirementAcceleratorCount... acceleratorCounts) {
             return acceleratorCounts(List.of(acceleratorCounts));
         }
+        @CustomType.Setter
         public Builder acceleratorManufacturers(List<String> acceleratorManufacturers) {
             this.acceleratorManufacturers = Objects.requireNonNull(acceleratorManufacturers);
             return this;
@@ -226,6 +179,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder acceleratorManufacturers(String... acceleratorManufacturers) {
             return acceleratorManufacturers(List.of(acceleratorManufacturers));
         }
+        @CustomType.Setter
         public Builder acceleratorNames(List<String> acceleratorNames) {
             this.acceleratorNames = Objects.requireNonNull(acceleratorNames);
             return this;
@@ -233,6 +187,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder acceleratorNames(String... acceleratorNames) {
             return acceleratorNames(List.of(acceleratorNames));
         }
+        @CustomType.Setter
         public Builder acceleratorTotalMemoryMibs(List<GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs) {
             this.acceleratorTotalMemoryMibs = Objects.requireNonNull(acceleratorTotalMemoryMibs);
             return this;
@@ -240,6 +195,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder acceleratorTotalMemoryMibs(GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib... acceleratorTotalMemoryMibs) {
             return acceleratorTotalMemoryMibs(List.of(acceleratorTotalMemoryMibs));
         }
+        @CustomType.Setter
         public Builder acceleratorTypes(List<String> acceleratorTypes) {
             this.acceleratorTypes = Objects.requireNonNull(acceleratorTypes);
             return this;
@@ -247,10 +203,12 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder acceleratorTypes(String... acceleratorTypes) {
             return acceleratorTypes(List.of(acceleratorTypes));
         }
+        @CustomType.Setter
         public Builder bareMetal(String bareMetal) {
             this.bareMetal = Objects.requireNonNull(bareMetal);
             return this;
         }
+        @CustomType.Setter
         public Builder baselineEbsBandwidthMbps(List<GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps) {
             this.baselineEbsBandwidthMbps = Objects.requireNonNull(baselineEbsBandwidthMbps);
             return this;
@@ -258,10 +216,12 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder baselineEbsBandwidthMbps(GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp... baselineEbsBandwidthMbps) {
             return baselineEbsBandwidthMbps(List.of(baselineEbsBandwidthMbps));
         }
+        @CustomType.Setter
         public Builder burstablePerformance(String burstablePerformance) {
             this.burstablePerformance = Objects.requireNonNull(burstablePerformance);
             return this;
         }
+        @CustomType.Setter
         public Builder cpuManufacturers(List<String> cpuManufacturers) {
             this.cpuManufacturers = Objects.requireNonNull(cpuManufacturers);
             return this;
@@ -269,6 +229,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder cpuManufacturers(String... cpuManufacturers) {
             return cpuManufacturers(List.of(cpuManufacturers));
         }
+        @CustomType.Setter
         public Builder excludedInstanceTypes(List<String> excludedInstanceTypes) {
             this.excludedInstanceTypes = Objects.requireNonNull(excludedInstanceTypes);
             return this;
@@ -276,6 +237,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder excludedInstanceTypes(String... excludedInstanceTypes) {
             return excludedInstanceTypes(List.of(excludedInstanceTypes));
         }
+        @CustomType.Setter
         public Builder instanceGenerations(List<String> instanceGenerations) {
             this.instanceGenerations = Objects.requireNonNull(instanceGenerations);
             return this;
@@ -283,10 +245,12 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder instanceGenerations(String... instanceGenerations) {
             return instanceGenerations(List.of(instanceGenerations));
         }
+        @CustomType.Setter
         public Builder localStorage(String localStorage) {
             this.localStorage = Objects.requireNonNull(localStorage);
             return this;
         }
+        @CustomType.Setter
         public Builder localStorageTypes(List<String> localStorageTypes) {
             this.localStorageTypes = Objects.requireNonNull(localStorageTypes);
             return this;
@@ -294,6 +258,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder localStorageTypes(String... localStorageTypes) {
             return localStorageTypes(List.of(localStorageTypes));
         }
+        @CustomType.Setter
         public Builder memoryGibPerVcpus(List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus) {
             this.memoryGibPerVcpus = Objects.requireNonNull(memoryGibPerVcpus);
             return this;
@@ -301,6 +266,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder memoryGibPerVcpus(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus... memoryGibPerVcpus) {
             return memoryGibPerVcpus(List.of(memoryGibPerVcpus));
         }
+        @CustomType.Setter
         public Builder memoryMibs(List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs) {
             this.memoryMibs = Objects.requireNonNull(memoryMibs);
             return this;
@@ -308,6 +274,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder memoryMibs(GetLaunchTemplateInstanceRequirementMemoryMib... memoryMibs) {
             return memoryMibs(List.of(memoryMibs));
         }
+        @CustomType.Setter
         public Builder networkInterfaceCounts(List<GetLaunchTemplateInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts) {
             this.networkInterfaceCounts = Objects.requireNonNull(networkInterfaceCounts);
             return this;
@@ -315,18 +282,22 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder networkInterfaceCounts(GetLaunchTemplateInstanceRequirementNetworkInterfaceCount... networkInterfaceCounts) {
             return networkInterfaceCounts(List.of(networkInterfaceCounts));
         }
+        @CustomType.Setter
         public Builder onDemandMaxPricePercentageOverLowestPrice(Integer onDemandMaxPricePercentageOverLowestPrice) {
             this.onDemandMaxPricePercentageOverLowestPrice = Objects.requireNonNull(onDemandMaxPricePercentageOverLowestPrice);
             return this;
         }
+        @CustomType.Setter
         public Builder requireHibernateSupport(Boolean requireHibernateSupport) {
             this.requireHibernateSupport = Objects.requireNonNull(requireHibernateSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder spotMaxPricePercentageOverLowestPrice(Integer spotMaxPricePercentageOverLowestPrice) {
             this.spotMaxPricePercentageOverLowestPrice = Objects.requireNonNull(spotMaxPricePercentageOverLowestPrice);
             return this;
         }
+        @CustomType.Setter
         public Builder totalLocalStorageGbs(List<GetLaunchTemplateInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs) {
             this.totalLocalStorageGbs = Objects.requireNonNull(totalLocalStorageGbs);
             return this;
@@ -334,14 +305,38 @@ public final class GetLaunchTemplateInstanceRequirement {
         public Builder totalLocalStorageGbs(GetLaunchTemplateInstanceRequirementTotalLocalStorageGb... totalLocalStorageGbs) {
             return totalLocalStorageGbs(List.of(totalLocalStorageGbs));
         }
+        @CustomType.Setter
         public Builder vcpuCounts(List<GetLaunchTemplateInstanceRequirementVcpuCount> vcpuCounts) {
             this.vcpuCounts = Objects.requireNonNull(vcpuCounts);
             return this;
         }
         public Builder vcpuCounts(GetLaunchTemplateInstanceRequirementVcpuCount... vcpuCounts) {
             return vcpuCounts(List.of(vcpuCounts));
-        }        public GetLaunchTemplateInstanceRequirement build() {
-            return new GetLaunchTemplateInstanceRequirement(acceleratorCounts, acceleratorManufacturers, acceleratorNames, acceleratorTotalMemoryMibs, acceleratorTypes, bareMetal, baselineEbsBandwidthMbps, burstablePerformance, cpuManufacturers, excludedInstanceTypes, instanceGenerations, localStorage, localStorageTypes, memoryGibPerVcpus, memoryMibs, networkInterfaceCounts, onDemandMaxPricePercentageOverLowestPrice, requireHibernateSupport, spotMaxPricePercentageOverLowestPrice, totalLocalStorageGbs, vcpuCounts);
+        }
+        public GetLaunchTemplateInstanceRequirement build() {
+            final var o = new GetLaunchTemplateInstanceRequirement();
+            o.acceleratorCounts = acceleratorCounts;
+            o.acceleratorManufacturers = acceleratorManufacturers;
+            o.acceleratorNames = acceleratorNames;
+            o.acceleratorTotalMemoryMibs = acceleratorTotalMemoryMibs;
+            o.acceleratorTypes = acceleratorTypes;
+            o.bareMetal = bareMetal;
+            o.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
+            o.burstablePerformance = burstablePerformance;
+            o.cpuManufacturers = cpuManufacturers;
+            o.excludedInstanceTypes = excludedInstanceTypes;
+            o.instanceGenerations = instanceGenerations;
+            o.localStorage = localStorage;
+            o.localStorageTypes = localStorageTypes;
+            o.memoryGibPerVcpus = memoryGibPerVcpus;
+            o.memoryMibs = memoryMibs;
+            o.networkInterfaceCounts = networkInterfaceCounts;
+            o.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
+            o.requireHibernateSupport = requireHibernateSupport;
+            o.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
+            o.totalLocalStorageGbs = totalLocalStorageGbs;
+            o.vcpuCounts = vcpuCounts;
+            return o;
         }
     }
 }

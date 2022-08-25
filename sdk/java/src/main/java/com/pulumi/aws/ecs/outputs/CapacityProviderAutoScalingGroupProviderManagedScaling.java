@@ -16,42 +16,29 @@ public final class CapacityProviderAutoScalingGroupProviderManagedScaling {
      * @return Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
      * 
      */
-    private final @Nullable Integer instanceWarmupPeriod;
+    private @Nullable Integer instanceWarmupPeriod;
     /**
      * @return Maximum step adjustment size. A number between 1 and 10,000.
      * 
      */
-    private final @Nullable Integer maximumScalingStepSize;
+    private @Nullable Integer maximumScalingStepSize;
     /**
      * @return Minimum step adjustment size. A number between 1 and 10,000.
      * 
      */
-    private final @Nullable Integer minimumScalingStepSize;
+    private @Nullable Integer minimumScalingStepSize;
     /**
      * @return Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return Target utilization for the capacity provider. A number between 1 and 100.
      * 
      */
-    private final @Nullable Integer targetCapacity;
+    private @Nullable Integer targetCapacity;
 
-    @CustomType.Constructor
-    private CapacityProviderAutoScalingGroupProviderManagedScaling(
-        @CustomType.Parameter("instanceWarmupPeriod") @Nullable Integer instanceWarmupPeriod,
-        @CustomType.Parameter("maximumScalingStepSize") @Nullable Integer maximumScalingStepSize,
-        @CustomType.Parameter("minimumScalingStepSize") @Nullable Integer minimumScalingStepSize,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("targetCapacity") @Nullable Integer targetCapacity) {
-        this.instanceWarmupPeriod = instanceWarmupPeriod;
-        this.maximumScalingStepSize = maximumScalingStepSize;
-        this.minimumScalingStepSize = minimumScalingStepSize;
-        this.status = status;
-        this.targetCapacity = targetCapacity;
-    }
-
+    private CapacityProviderAutoScalingGroupProviderManagedScaling() {}
     /**
      * @return Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
      * 
@@ -95,18 +82,14 @@ public final class CapacityProviderAutoScalingGroupProviderManagedScaling {
     public static Builder builder(CapacityProviderAutoScalingGroupProviderManagedScaling defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer instanceWarmupPeriod;
         private @Nullable Integer maximumScalingStepSize;
         private @Nullable Integer minimumScalingStepSize;
         private @Nullable String status;
         private @Nullable Integer targetCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CapacityProviderAutoScalingGroupProviderManagedScaling defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceWarmupPeriod = defaults.instanceWarmupPeriod;
@@ -116,27 +99,39 @@ public final class CapacityProviderAutoScalingGroupProviderManagedScaling {
     	      this.targetCapacity = defaults.targetCapacity;
         }
 
+        @CustomType.Setter
         public Builder instanceWarmupPeriod(@Nullable Integer instanceWarmupPeriod) {
             this.instanceWarmupPeriod = instanceWarmupPeriod;
             return this;
         }
+        @CustomType.Setter
         public Builder maximumScalingStepSize(@Nullable Integer maximumScalingStepSize) {
             this.maximumScalingStepSize = maximumScalingStepSize;
             return this;
         }
+        @CustomType.Setter
         public Builder minimumScalingStepSize(@Nullable Integer minimumScalingStepSize) {
             this.minimumScalingStepSize = minimumScalingStepSize;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder targetCapacity(@Nullable Integer targetCapacity) {
             this.targetCapacity = targetCapacity;
             return this;
-        }        public CapacityProviderAutoScalingGroupProviderManagedScaling build() {
-            return new CapacityProviderAutoScalingGroupProviderManagedScaling(instanceWarmupPeriod, maximumScalingStepSize, minimumScalingStepSize, status, targetCapacity);
+        }
+        public CapacityProviderAutoScalingGroupProviderManagedScaling build() {
+            final var o = new CapacityProviderAutoScalingGroupProviderManagedScaling();
+            o.instanceWarmupPeriod = instanceWarmupPeriod;
+            o.maximumScalingStepSize = maximumScalingStepSize;
+            o.minimumScalingStepSize = minimumScalingStepSize;
+            o.status = status;
+            o.targetCapacity = targetCapacity;
+            return o;
         }
     }
 }

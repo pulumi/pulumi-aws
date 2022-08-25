@@ -15,69 +15,46 @@ public final class GetPublicKeyResult {
      * @return Key ARN of the asymmetric CMK from which the public key was downloaded.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Type of the public key that was downloaded.
      * 
      */
-    private final String customerMasterKeySpec;
+    private String customerMasterKeySpec;
     /**
      * @return Encryption algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `ENCRYPT_DECRYPT`.
      * 
      */
-    private final List<String> encryptionAlgorithms;
-    private final @Nullable List<String> grantTokens;
+    private List<String> encryptionAlgorithms;
+    private @Nullable List<String> grantTokens;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String keyId;
+    private String id;
+    private String keyId;
     /**
      * @return Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
      * 
      */
-    private final String keyUsage;
+    private String keyUsage;
     /**
      * @return Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
      * 
      */
-    private final String publicKey;
+    private String publicKey;
     /**
      * @return Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
      * 
      */
-    private final String publicKeyPem;
+    private String publicKeyPem;
     /**
      * @return Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
      * 
      */
-    private final List<String> signingAlgorithms;
+    private List<String> signingAlgorithms;
 
-    @CustomType.Constructor
-    private GetPublicKeyResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("customerMasterKeySpec") String customerMasterKeySpec,
-        @CustomType.Parameter("encryptionAlgorithms") List<String> encryptionAlgorithms,
-        @CustomType.Parameter("grantTokens") @Nullable List<String> grantTokens,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyId") String keyId,
-        @CustomType.Parameter("keyUsage") String keyUsage,
-        @CustomType.Parameter("publicKey") String publicKey,
-        @CustomType.Parameter("publicKeyPem") String publicKeyPem,
-        @CustomType.Parameter("signingAlgorithms") List<String> signingAlgorithms) {
-        this.arn = arn;
-        this.customerMasterKeySpec = customerMasterKeySpec;
-        this.encryptionAlgorithms = encryptionAlgorithms;
-        this.grantTokens = grantTokens;
-        this.id = id;
-        this.keyId = keyId;
-        this.keyUsage = keyUsage;
-        this.publicKey = publicKey;
-        this.publicKeyPem = publicKeyPem;
-        this.signingAlgorithms = signingAlgorithms;
-    }
-
+    private GetPublicKeyResult() {}
     /**
      * @return Key ARN of the asymmetric CMK from which the public key was downloaded.
      * 
@@ -148,7 +125,7 @@ public final class GetPublicKeyResult {
     public static Builder builder(GetPublicKeyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String customerMasterKeySpec;
@@ -160,11 +137,7 @@ public final class GetPublicKeyResult {
         private String publicKey;
         private String publicKeyPem;
         private List<String> signingAlgorithms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPublicKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -179,14 +152,17 @@ public final class GetPublicKeyResult {
     	      this.signingAlgorithms = defaults.signingAlgorithms;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder customerMasterKeySpec(String customerMasterKeySpec) {
             this.customerMasterKeySpec = Objects.requireNonNull(customerMasterKeySpec);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionAlgorithms(List<String> encryptionAlgorithms) {
             this.encryptionAlgorithms = Objects.requireNonNull(encryptionAlgorithms);
             return this;
@@ -194,6 +170,7 @@ public final class GetPublicKeyResult {
         public Builder encryptionAlgorithms(String... encryptionAlgorithms) {
             return encryptionAlgorithms(List.of(encryptionAlgorithms));
         }
+        @CustomType.Setter
         public Builder grantTokens(@Nullable List<String> grantTokens) {
             this.grantTokens = grantTokens;
             return this;
@@ -201,34 +178,52 @@ public final class GetPublicKeyResult {
         public Builder grantTokens(String... grantTokens) {
             return grantTokens(List.of(grantTokens));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
         }
+        @CustomType.Setter
         public Builder keyUsage(String keyUsage) {
             this.keyUsage = Objects.requireNonNull(keyUsage);
             return this;
         }
+        @CustomType.Setter
         public Builder publicKey(String publicKey) {
             this.publicKey = Objects.requireNonNull(publicKey);
             return this;
         }
+        @CustomType.Setter
         public Builder publicKeyPem(String publicKeyPem) {
             this.publicKeyPem = Objects.requireNonNull(publicKeyPem);
             return this;
         }
+        @CustomType.Setter
         public Builder signingAlgorithms(List<String> signingAlgorithms) {
             this.signingAlgorithms = Objects.requireNonNull(signingAlgorithms);
             return this;
         }
         public Builder signingAlgorithms(String... signingAlgorithms) {
             return signingAlgorithms(List.of(signingAlgorithms));
-        }        public GetPublicKeyResult build() {
-            return new GetPublicKeyResult(arn, customerMasterKeySpec, encryptionAlgorithms, grantTokens, id, keyId, keyUsage, publicKey, publicKeyPem, signingAlgorithms);
+        }
+        public GetPublicKeyResult build() {
+            final var o = new GetPublicKeyResult();
+            o.arn = arn;
+            o.customerMasterKeySpec = customerMasterKeySpec;
+            o.encryptionAlgorithms = encryptionAlgorithms;
+            o.grantTokens = grantTokens;
+            o.id = id;
+            o.keyId = keyId;
+            o.keyUsage = keyUsage;
+            o.publicKey = publicKey;
+            o.publicKeyPem = publicKeyPem;
+            o.signingAlgorithms = signingAlgorithms;
+            return o;
         }
     }
 }

@@ -13,35 +13,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The Access Key portion of the credentials.
      * 
      */
-    private final String accessKeyId;
+    private String accessKeyId;
     /**
      * @return The encryption keys used to encrypt data.
      * 
      */
-    private final String datakey;
+    private String datakey;
     /**
      * @return The secret key used to sign requests.
      * 
      */
-    private final String secretAccessKey;
+    private String secretAccessKey;
     /**
      * @return The identifier for the user.
      * 
      */
-    private final String userId;
+    private String userId;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus(
-        @CustomType.Parameter("accessKeyId") String accessKeyId,
-        @CustomType.Parameter("datakey") String datakey,
-        @CustomType.Parameter("secretAccessKey") String secretAccessKey,
-        @CustomType.Parameter("userId") String userId) {
-        this.accessKeyId = accessKeyId;
-        this.datakey = datakey;
-        this.secretAccessKey = secretAccessKey;
-        this.userId = userId;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus() {}
     /**
      * @return The Access Key portion of the credentials.
      * 
@@ -78,17 +67,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessKeyId;
         private String datakey;
         private String secretAccessKey;
         private String userId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessKeyId = defaults.accessKeyId;
@@ -97,23 +82,33 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     	      this.userId = defaults.userId;
         }
 
+        @CustomType.Setter
         public Builder accessKeyId(String accessKeyId) {
             this.accessKeyId = Objects.requireNonNull(accessKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder datakey(String datakey) {
             this.datakey = Objects.requireNonNull(datakey);
             return this;
         }
+        @CustomType.Setter
         public Builder secretAccessKey(String secretAccessKey) {
             this.secretAccessKey = Objects.requireNonNull(secretAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder userId(String userId) {
             this.userId = Objects.requireNonNull(userId);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus(accessKeyId, datakey, secretAccessKey, userId);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus();
+            o.accessKeyId = accessKeyId;
+            o.datakey = datakey;
+            o.secretAccessKey = secretAccessKey;
+            o.userId = userId;
+            return o;
         }
     }
 }

@@ -18,40 +18,23 @@ public final class GetInternetGatewayResult {
      * @return The ARN of the Internet Gateway.
      * 
      */
-    private final String arn;
-    private final List<GetInternetGatewayAttachment> attachments;
-    private final @Nullable List<GetInternetGatewayFilter> filters;
+    private String arn;
+    private List<GetInternetGatewayAttachment> attachments;
+    private @Nullable List<GetInternetGatewayFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String internetGatewayId;
+    private String id;
+    private String internetGatewayId;
     /**
      * @return The ID of the AWS account that owns the internet gateway.
      * 
      */
-    private final String ownerId;
-    private final Map<String,String> tags;
+    private String ownerId;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetInternetGatewayResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("attachments") List<GetInternetGatewayAttachment> attachments,
-        @CustomType.Parameter("filters") @Nullable List<GetInternetGatewayFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("internetGatewayId") String internetGatewayId,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.attachments = attachments;
-        this.filters = filters;
-        this.id = id;
-        this.internetGatewayId = internetGatewayId;
-        this.ownerId = ownerId;
-        this.tags = tags;
-    }
-
+    private GetInternetGatewayResult() {}
     /**
      * @return The ARN of the Internet Gateway.
      * 
@@ -93,7 +76,7 @@ public final class GetInternetGatewayResult {
     public static Builder builder(GetInternetGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetInternetGatewayAttachment> attachments;
@@ -102,11 +85,7 @@ public final class GetInternetGatewayResult {
         private String internetGatewayId;
         private String ownerId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInternetGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -118,10 +97,12 @@ public final class GetInternetGatewayResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder attachments(List<GetInternetGatewayAttachment> attachments) {
             this.attachments = Objects.requireNonNull(attachments);
             return this;
@@ -129,6 +110,7 @@ public final class GetInternetGatewayResult {
         public Builder attachments(GetInternetGatewayAttachment... attachments) {
             return attachments(List.of(attachments));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetInternetGatewayFilter> filters) {
             this.filters = filters;
             return this;
@@ -136,23 +118,36 @@ public final class GetInternetGatewayResult {
         public Builder filters(GetInternetGatewayFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder internetGatewayId(String internetGatewayId) {
             this.internetGatewayId = Objects.requireNonNull(internetGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetInternetGatewayResult build() {
-            return new GetInternetGatewayResult(arn, attachments, filters, id, internetGatewayId, ownerId, tags);
+        }
+        public GetInternetGatewayResult build() {
+            final var o = new GetInternetGatewayResult();
+            o.arn = arn;
+            o.attachments = attachments;
+            o.filters = filters;
+            o.id = id;
+            o.internetGatewayId = internetGatewayId;
+            o.ownerId = ownerId;
+            o.tags = tags;
+            return o;
         }
     }
 }

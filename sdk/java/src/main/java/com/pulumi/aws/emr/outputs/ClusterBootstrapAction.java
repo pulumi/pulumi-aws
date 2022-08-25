@@ -15,28 +15,19 @@ public final class ClusterBootstrapAction {
      * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
      * 
      */
-    private final @Nullable List<String> args;
+    private @Nullable List<String> args;
     /**
      * @return Name of the step.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private ClusterBootstrapAction(
-        @CustomType.Parameter("args") @Nullable List<String> args,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("path") String path) {
-        this.args = args;
-        this.name = name;
-        this.path = path;
-    }
-
+    private ClusterBootstrapAction() {}
     /**
      * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
      * 
@@ -66,16 +57,12 @@ public final class ClusterBootstrapAction {
     public static Builder builder(ClusterBootstrapAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> args;
         private String name;
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterBootstrapAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.args = defaults.args;
@@ -83,6 +70,7 @@ public final class ClusterBootstrapAction {
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder args(@Nullable List<String> args) {
             this.args = args;
             return this;
@@ -90,15 +78,22 @@ public final class ClusterBootstrapAction {
         public Builder args(String... args) {
             return args(List.of(args));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public ClusterBootstrapAction build() {
-            return new ClusterBootstrapAction(args, name, path);
+        }
+        public ClusterBootstrapAction build() {
+            final var o = new ClusterBootstrapAction();
+            o.args = args;
+            o.name = name;
+            o.path = path;
+            return o;
         }
     }
 }

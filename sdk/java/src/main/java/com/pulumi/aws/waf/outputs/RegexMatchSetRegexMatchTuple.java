@@ -14,12 +14,12 @@ public final class RegexMatchSetRegexMatchTuple {
      * @return The part of a web request that you want to search, such as a specified header or a query string.
      * 
      */
-    private final RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch;
+    private RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch;
     /**
      * @return The ID of a `WAF Regex Pattern Set`.
      * 
      */
-    private final String regexPatternSetId;
+    private String regexPatternSetId;
     /**
      * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
      * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
@@ -27,18 +27,9 @@ public final class RegexMatchSetRegexMatchTuple {
      * for all supported values.
      * 
      */
-    private final String textTransformation;
+    private String textTransformation;
 
-    @CustomType.Constructor
-    private RegexMatchSetRegexMatchTuple(
-        @CustomType.Parameter("fieldToMatch") RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch,
-        @CustomType.Parameter("regexPatternSetId") String regexPatternSetId,
-        @CustomType.Parameter("textTransformation") String textTransformation) {
-        this.fieldToMatch = fieldToMatch;
-        this.regexPatternSetId = regexPatternSetId;
-        this.textTransformation = textTransformation;
-    }
-
+    private RegexMatchSetRegexMatchTuple() {}
     /**
      * @return The part of a web request that you want to search, such as a specified header or a query string.
      * 
@@ -71,16 +62,12 @@ public final class RegexMatchSetRegexMatchTuple {
     public static Builder builder(RegexMatchSetRegexMatchTuple defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch;
         private String regexPatternSetId;
         private String textTransformation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegexMatchSetRegexMatchTuple defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
@@ -88,19 +75,27 @@ public final class RegexMatchSetRegexMatchTuple {
     	      this.textTransformation = defaults.textTransformation;
         }
 
+        @CustomType.Setter
         public Builder fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch) {
             this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
             return this;
         }
+        @CustomType.Setter
         public Builder regexPatternSetId(String regexPatternSetId) {
             this.regexPatternSetId = Objects.requireNonNull(regexPatternSetId);
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
             this.textTransformation = Objects.requireNonNull(textTransformation);
             return this;
-        }        public RegexMatchSetRegexMatchTuple build() {
-            return new RegexMatchSetRegexMatchTuple(fieldToMatch, regexPatternSetId, textTransformation);
+        }
+        public RegexMatchSetRegexMatchTuple build() {
+            final var o = new RegexMatchSetRegexMatchTuple();
+            o.fieldToMatch = fieldToMatch;
+            o.regexPatternSetId = regexPatternSetId;
+            o.textTransformation = textTransformation;
+            return o;
         }
     }
 }

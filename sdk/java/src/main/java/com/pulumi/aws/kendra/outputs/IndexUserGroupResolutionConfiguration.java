@@ -13,13 +13,9 @@ public final class IndexUserGroupResolutionConfiguration {
      * @return The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
      * 
      */
-    private final String userGroupResolutionMode;
+    private String userGroupResolutionMode;
 
-    @CustomType.Constructor
-    private IndexUserGroupResolutionConfiguration(@CustomType.Parameter("userGroupResolutionMode") String userGroupResolutionMode) {
-        this.userGroupResolutionMode = userGroupResolutionMode;
-    }
-
+    private IndexUserGroupResolutionConfiguration() {}
     /**
      * @return The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
      * 
@@ -35,24 +31,24 @@ public final class IndexUserGroupResolutionConfiguration {
     public static Builder builder(IndexUserGroupResolutionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String userGroupResolutionMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexUserGroupResolutionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.userGroupResolutionMode = defaults.userGroupResolutionMode;
         }
 
+        @CustomType.Setter
         public Builder userGroupResolutionMode(String userGroupResolutionMode) {
             this.userGroupResolutionMode = Objects.requireNonNull(userGroupResolutionMode);
             return this;
-        }        public IndexUserGroupResolutionConfiguration build() {
-            return new IndexUserGroupResolutionConfiguration(userGroupResolutionMode);
+        }
+        public IndexUserGroupResolutionConfiguration build() {
+            final var o = new IndexUserGroupResolutionConfiguration();
+            o.userGroupResolutionMode = userGroupResolutionMode;
+            return o;
         }
     }
 }

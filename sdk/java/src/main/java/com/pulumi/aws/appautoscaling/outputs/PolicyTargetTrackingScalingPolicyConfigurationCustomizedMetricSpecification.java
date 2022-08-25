@@ -17,42 +17,29 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
      * @return Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
      * 
      */
-    private final @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions;
+    private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions;
     /**
      * @return The name of the metric.
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return The namespace of the metric.
      * 
      */
-    private final String namespace;
+    private String namespace;
     /**
      * @return The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
-    private final String statistic;
+    private String statistic;
     /**
      * @return The unit of the metric.
      * 
      */
-    private final @Nullable String unit;
+    private @Nullable String unit;
 
-    @CustomType.Constructor
-    private PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification(
-        @CustomType.Parameter("dimensions") @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions,
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("namespace") String namespace,
-        @CustomType.Parameter("statistic") String statistic,
-        @CustomType.Parameter("unit") @Nullable String unit) {
-        this.dimensions = dimensions;
-        this.metricName = metricName;
-        this.namespace = namespace;
-        this.statistic = statistic;
-        this.unit = unit;
-    }
-
+    private PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification() {}
     /**
      * @return Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
      * 
@@ -96,18 +83,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     public static Builder builder(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions;
         private String metricName;
         private String namespace;
         private String statistic;
         private @Nullable String unit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
@@ -117,6 +100,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     	      this.unit = defaults.unit;
         }
 
+        @CustomType.Setter
         public Builder dimensions(@Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions) {
             this.dimensions = dimensions;
             return this;
@@ -124,23 +108,34 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         public Builder dimensions(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
         }
+        @CustomType.Setter
         public Builder statistic(String statistic) {
             this.statistic = Objects.requireNonNull(statistic);
             return this;
         }
+        @CustomType.Setter
         public Builder unit(@Nullable String unit) {
             this.unit = unit;
             return this;
-        }        public PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification build() {
-            return new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification(dimensions, metricName, namespace, statistic, unit);
+        }
+        public PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification build() {
+            final var o = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification();
+            o.dimensions = dimensions;
+            o.metricName = metricName;
+            o.namespace = namespace;
+            o.statistic = statistic;
+            o.unit = unit;
+            return o;
         }
     }
 }

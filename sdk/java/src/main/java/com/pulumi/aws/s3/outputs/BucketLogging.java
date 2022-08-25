@@ -15,21 +15,14 @@ public final class BucketLogging {
      * @return The name of the bucket that will receive the log objects.
      * 
      */
-    private final String targetBucket;
+    private String targetBucket;
     /**
      * @return To specify a key prefix for log objects.
      * 
      */
-    private final @Nullable String targetPrefix;
+    private @Nullable String targetPrefix;
 
-    @CustomType.Constructor
-    private BucketLogging(
-        @CustomType.Parameter("targetBucket") String targetBucket,
-        @CustomType.Parameter("targetPrefix") @Nullable String targetPrefix) {
-        this.targetBucket = targetBucket;
-        this.targetPrefix = targetPrefix;
-    }
-
+    private BucketLogging() {}
     /**
      * @return The name of the bucket that will receive the log objects.
      * 
@@ -52,30 +45,32 @@ public final class BucketLogging {
     public static Builder builder(BucketLogging defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String targetBucket;
         private @Nullable String targetPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLogging defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.targetBucket = defaults.targetBucket;
     	      this.targetPrefix = defaults.targetPrefix;
         }
 
+        @CustomType.Setter
         public Builder targetBucket(String targetBucket) {
             this.targetBucket = Objects.requireNonNull(targetBucket);
             return this;
         }
+        @CustomType.Setter
         public Builder targetPrefix(@Nullable String targetPrefix) {
             this.targetPrefix = targetPrefix;
             return this;
-        }        public BucketLogging build() {
-            return new BucketLogging(targetBucket, targetPrefix);
+        }
+        public BucketLogging build() {
+            final var o = new BucketLogging();
+            o.targetBucket = targetBucket;
+            o.targetPrefix = targetPrefix;
+            return o;
         }
     }
 }

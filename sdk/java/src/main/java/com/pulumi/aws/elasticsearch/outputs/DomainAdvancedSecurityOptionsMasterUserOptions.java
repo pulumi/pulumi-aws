@@ -15,28 +15,19 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptions {
      * @return ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
      * 
      */
-    private final @Nullable String masterUserArn;
+    private @Nullable String masterUserArn;
     /**
      * @return Main user&#39;s username, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
      * 
      */
-    private final @Nullable String masterUserName;
+    private @Nullable String masterUserName;
     /**
      * @return Main user&#39;s password, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
      * 
      */
-    private final @Nullable String masterUserPassword;
+    private @Nullable String masterUserPassword;
 
-    @CustomType.Constructor
-    private DomainAdvancedSecurityOptionsMasterUserOptions(
-        @CustomType.Parameter("masterUserArn") @Nullable String masterUserArn,
-        @CustomType.Parameter("masterUserName") @Nullable String masterUserName,
-        @CustomType.Parameter("masterUserPassword") @Nullable String masterUserPassword) {
-        this.masterUserArn = masterUserArn;
-        this.masterUserName = masterUserName;
-        this.masterUserPassword = masterUserPassword;
-    }
-
+    private DomainAdvancedSecurityOptionsMasterUserOptions() {}
     /**
      * @return ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
      * 
@@ -66,16 +57,12 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptions {
     public static Builder builder(DomainAdvancedSecurityOptionsMasterUserOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String masterUserArn;
         private @Nullable String masterUserName;
         private @Nullable String masterUserPassword;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainAdvancedSecurityOptionsMasterUserOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.masterUserArn = defaults.masterUserArn;
@@ -83,19 +70,27 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptions {
     	      this.masterUserPassword = defaults.masterUserPassword;
         }
 
+        @CustomType.Setter
         public Builder masterUserArn(@Nullable String masterUserArn) {
             this.masterUserArn = masterUserArn;
             return this;
         }
+        @CustomType.Setter
         public Builder masterUserName(@Nullable String masterUserName) {
             this.masterUserName = masterUserName;
             return this;
         }
+        @CustomType.Setter
         public Builder masterUserPassword(@Nullable String masterUserPassword) {
             this.masterUserPassword = masterUserPassword;
             return this;
-        }        public DomainAdvancedSecurityOptionsMasterUserOptions build() {
-            return new DomainAdvancedSecurityOptionsMasterUserOptions(masterUserArn, masterUserName, masterUserPassword);
+        }
+        public DomainAdvancedSecurityOptionsMasterUserOptions build() {
+            final var o = new DomainAdvancedSecurityOptionsMasterUserOptions();
+            o.masterUserArn = masterUserArn;
+            o.masterUserName = masterUserName;
+            o.masterUserPassword = masterUserPassword;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class ImagePipelineSchedule {
      * @return Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
      * 
      */
-    private final @Nullable String pipelineExecutionStartCondition;
+    private @Nullable String pipelineExecutionStartCondition;
     /**
      * @return Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
      * 
      */
-    private final String scheduleExpression;
+    private String scheduleExpression;
     /**
      * @return The timezone that applies to the scheduling expression. For example, &#34;Etc/UTC&#34;, &#34;America/Los_Angeles&#34; in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
      * 
      */
-    private final @Nullable String timezone;
+    private @Nullable String timezone;
 
-    @CustomType.Constructor
-    private ImagePipelineSchedule(
-        @CustomType.Parameter("pipelineExecutionStartCondition") @Nullable String pipelineExecutionStartCondition,
-        @CustomType.Parameter("scheduleExpression") String scheduleExpression,
-        @CustomType.Parameter("timezone") @Nullable String timezone) {
-        this.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
-        this.scheduleExpression = scheduleExpression;
-        this.timezone = timezone;
-    }
-
+    private ImagePipelineSchedule() {}
     /**
      * @return Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
      * 
@@ -66,16 +57,12 @@ public final class ImagePipelineSchedule {
     public static Builder builder(ImagePipelineSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String pipelineExecutionStartCondition;
         private String scheduleExpression;
         private @Nullable String timezone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ImagePipelineSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.pipelineExecutionStartCondition = defaults.pipelineExecutionStartCondition;
@@ -83,19 +70,27 @@ public final class ImagePipelineSchedule {
     	      this.timezone = defaults.timezone;
         }
 
+        @CustomType.Setter
         public Builder pipelineExecutionStartCondition(@Nullable String pipelineExecutionStartCondition) {
             this.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder scheduleExpression(String scheduleExpression) {
             this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
             return this;
         }
+        @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
             this.timezone = timezone;
             return this;
-        }        public ImagePipelineSchedule build() {
-            return new ImagePipelineSchedule(pipelineExecutionStartCondition, scheduleExpression, timezone);
+        }
+        public ImagePipelineSchedule build() {
+            final var o = new ImagePipelineSchedule();
+            o.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
+            o.scheduleExpression = scheduleExpression;
+            o.timezone = timezone;
+            return o;
         }
     }
 }

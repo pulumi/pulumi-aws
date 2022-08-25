@@ -15,49 +15,34 @@ public final class ListenerDefaultActionRedirect {
      * @return Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
      * 
      */
-    private final @Nullable String host;
+    private @Nullable String host;
     /**
      * @return Absolute path, starting with the leading &#34;/&#34;. This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
      * 
      */
-    private final @Nullable String port;
+    private @Nullable String port;
     /**
      * @return Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
     /**
      * @return Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading &#34;?&#34;. Defaults to `#{query}`.
      * 
      */
-    private final @Nullable String query;
+    private @Nullable String query;
     /**
      * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
      * 
      */
-    private final String statusCode;
+    private String statusCode;
 
-    @CustomType.Constructor
-    private ListenerDefaultActionRedirect(
-        @CustomType.Parameter("host") @Nullable String host,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("port") @Nullable String port,
-        @CustomType.Parameter("protocol") @Nullable String protocol,
-        @CustomType.Parameter("query") @Nullable String query,
-        @CustomType.Parameter("statusCode") String statusCode) {
-        this.host = host;
-        this.path = path;
-        this.port = port;
-        this.protocol = protocol;
-        this.query = query;
-        this.statusCode = statusCode;
-    }
-
+    private ListenerDefaultActionRedirect() {}
     /**
      * @return Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
      * 
@@ -108,7 +93,7 @@ public final class ListenerDefaultActionRedirect {
     public static Builder builder(ListenerDefaultActionRedirect defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String host;
         private @Nullable String path;
@@ -116,11 +101,7 @@ public final class ListenerDefaultActionRedirect {
         private @Nullable String protocol;
         private @Nullable String query;
         private String statusCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerDefaultActionRedirect defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.host = defaults.host;
@@ -131,31 +112,45 @@ public final class ListenerDefaultActionRedirect {
     	      this.statusCode = defaults.statusCode;
         }
 
+        @CustomType.Setter
         public Builder host(@Nullable String host) {
             this.host = host;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable String port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
         }
+        @CustomType.Setter
         public Builder query(@Nullable String query) {
             this.query = query;
             return this;
         }
+        @CustomType.Setter
         public Builder statusCode(String statusCode) {
             this.statusCode = Objects.requireNonNull(statusCode);
             return this;
-        }        public ListenerDefaultActionRedirect build() {
-            return new ListenerDefaultActionRedirect(host, path, port, protocol, query, statusCode);
+        }
+        public ListenerDefaultActionRedirect build() {
+            final var o = new ListenerDefaultActionRedirect();
+            o.host = host;
+            o.path = path;
+            o.port = port;
+            o.protocol = protocol;
+            o.query = query;
+            o.statusCode = statusCode;
+            return o;
         }
     }
 }

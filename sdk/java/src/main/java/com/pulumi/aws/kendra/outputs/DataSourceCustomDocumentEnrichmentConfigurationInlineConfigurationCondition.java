@@ -16,28 +16,19 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
      * @return The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
      * 
      */
-    private final String conditionDocumentAttributeKey;
+    private String conditionDocumentAttributeKey;
     /**
      * @return The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
      * 
      */
-    private final @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue conditionOnValue;
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue conditionOnValue;
     /**
      * @return The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
      * 
      */
-    private final String operator;
+    private String operator;
 
-    @CustomType.Constructor
-    private DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition(
-        @CustomType.Parameter("conditionDocumentAttributeKey") String conditionDocumentAttributeKey,
-        @CustomType.Parameter("conditionOnValue") @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue conditionOnValue,
-        @CustomType.Parameter("operator") String operator) {
-        this.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
-        this.conditionOnValue = conditionOnValue;
-        this.operator = operator;
-    }
-
+    private DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition() {}
     /**
      * @return The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
      * 
@@ -67,16 +58,12 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     public static Builder builder(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String conditionDocumentAttributeKey;
         private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue conditionOnValue;
         private String operator;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditionDocumentAttributeKey = defaults.conditionDocumentAttributeKey;
@@ -84,19 +71,27 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     	      this.operator = defaults.operator;
         }
 
+        @CustomType.Setter
         public Builder conditionDocumentAttributeKey(String conditionDocumentAttributeKey) {
             this.conditionDocumentAttributeKey = Objects.requireNonNull(conditionDocumentAttributeKey);
             return this;
         }
+        @CustomType.Setter
         public Builder conditionOnValue(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue conditionOnValue) {
             this.conditionOnValue = conditionOnValue;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
-        }        public DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition build() {
-            return new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition(conditionDocumentAttributeKey, conditionOnValue, operator);
+        }
+        public DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition build() {
+            final var o = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition();
+            o.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
+            o.conditionOnValue = conditionOnValue;
+            o.operator = operator;
+            return o;
         }
     }
 }

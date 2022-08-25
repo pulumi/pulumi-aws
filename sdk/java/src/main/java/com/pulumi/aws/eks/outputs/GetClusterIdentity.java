@@ -14,13 +14,9 @@ public final class GetClusterIdentity {
      * @return Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
      * 
      */
-    private final List<GetClusterIdentityOidc> oidcs;
+    private List<GetClusterIdentityOidc> oidcs;
 
-    @CustomType.Constructor
-    private GetClusterIdentity(@CustomType.Parameter("oidcs") List<GetClusterIdentityOidc> oidcs) {
-        this.oidcs = oidcs;
-    }
-
+    private GetClusterIdentity() {}
     /**
      * @return Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
      * 
@@ -36,27 +32,27 @@ public final class GetClusterIdentity {
     public static Builder builder(GetClusterIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetClusterIdentityOidc> oidcs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.oidcs = defaults.oidcs;
         }
 
+        @CustomType.Setter
         public Builder oidcs(List<GetClusterIdentityOidc> oidcs) {
             this.oidcs = Objects.requireNonNull(oidcs);
             return this;
         }
         public Builder oidcs(GetClusterIdentityOidc... oidcs) {
             return oidcs(List.of(oidcs));
-        }        public GetClusterIdentity build() {
-            return new GetClusterIdentity(oidcs);
+        }
+        public GetClusterIdentity build() {
+            final var o = new GetClusterIdentity();
+            o.oidcs = oidcs;
+            return o;
         }
     }
 }

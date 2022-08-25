@@ -13,21 +13,14 @@ public final class GetFirewallEncryptionConfiguration {
      * @return The ID of the AWS Key Management Service (AWS KMS) customer managed key.
      * 
      */
-    private final String keyId;
+    private String keyId;
     /**
      * @return The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetFirewallEncryptionConfiguration(
-        @CustomType.Parameter("keyId") String keyId,
-        @CustomType.Parameter("type") String type) {
-        this.keyId = keyId;
-        this.type = type;
-    }
-
+    private GetFirewallEncryptionConfiguration() {}
     /**
      * @return The ID of the AWS Key Management Service (AWS KMS) customer managed key.
      * 
@@ -50,30 +43,32 @@ public final class GetFirewallEncryptionConfiguration {
     public static Builder builder(GetFirewallEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyId = defaults.keyId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetFirewallEncryptionConfiguration build() {
-            return new GetFirewallEncryptionConfiguration(keyId, type);
+        }
+        public GetFirewallEncryptionConfiguration build() {
+            final var o = new GetFirewallEncryptionConfiguration();
+            o.keyId = keyId;
+            o.type = type;
+            return o;
         }
     }
 }

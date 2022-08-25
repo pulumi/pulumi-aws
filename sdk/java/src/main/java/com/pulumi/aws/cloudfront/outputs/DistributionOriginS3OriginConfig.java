@@ -14,13 +14,9 @@ public final class DistributionOriginS3OriginConfig {
      * identity][5] to associate with the origin.
      * 
      */
-    private final String originAccessIdentity;
+    private String originAccessIdentity;
 
-    @CustomType.Constructor
-    private DistributionOriginS3OriginConfig(@CustomType.Parameter("originAccessIdentity") String originAccessIdentity) {
-        this.originAccessIdentity = originAccessIdentity;
-    }
-
+    private DistributionOriginS3OriginConfig() {}
     /**
      * @return The [CloudFront origin access
      * identity][5] to associate with the origin.
@@ -37,24 +33,24 @@ public final class DistributionOriginS3OriginConfig {
     public static Builder builder(DistributionOriginS3OriginConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String originAccessIdentity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionOriginS3OriginConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.originAccessIdentity = defaults.originAccessIdentity;
         }
 
+        @CustomType.Setter
         public Builder originAccessIdentity(String originAccessIdentity) {
             this.originAccessIdentity = Objects.requireNonNull(originAccessIdentity);
             return this;
-        }        public DistributionOriginS3OriginConfig build() {
-            return new DistributionOriginS3OriginConfig(originAccessIdentity);
+        }
+        public DistributionOriginS3OriginConfig build() {
+            final var o = new DistributionOriginS3OriginConfig();
+            o.originAccessIdentity = originAccessIdentity;
+            return o;
         }
     }
 }

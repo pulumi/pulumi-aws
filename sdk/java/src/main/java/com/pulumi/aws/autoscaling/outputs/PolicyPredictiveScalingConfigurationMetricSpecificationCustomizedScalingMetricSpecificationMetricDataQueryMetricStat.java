@@ -16,28 +16,19 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * @return A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
      * 
      */
-    private final PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric metric;
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric metric;
     /**
      * @return The statistic of the metrics to return.
      * 
      */
-    private final String stat;
+    private String stat;
     /**
      * @return The unit of the metrics to return.
      * 
      */
-    private final @Nullable String unit;
+    private @Nullable String unit;
 
-    @CustomType.Constructor
-    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat(
-        @CustomType.Parameter("metric") PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric metric,
-        @CustomType.Parameter("stat") String stat,
-        @CustomType.Parameter("unit") @Nullable String unit) {
-        this.metric = metric;
-        this.stat = stat;
-        this.unit = unit;
-    }
-
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat() {}
     /**
      * @return A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
      * 
@@ -67,16 +58,12 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static Builder builder(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric metric;
         private String stat;
         private @Nullable String unit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metric = defaults.metric;
@@ -84,19 +71,27 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     	      this.unit = defaults.unit;
         }
 
+        @CustomType.Setter
         public Builder metric(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric metric) {
             this.metric = Objects.requireNonNull(metric);
             return this;
         }
+        @CustomType.Setter
         public Builder stat(String stat) {
             this.stat = Objects.requireNonNull(stat);
             return this;
         }
+        @CustomType.Setter
         public Builder unit(@Nullable String unit) {
             this.unit = unit;
             return this;
-        }        public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat build() {
-            return new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat(metric, stat, unit);
+        }
+        public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat build() {
+            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat();
+            o.metric = metric;
+            o.stat = stat;
+            o.unit = unit;
+            return o;
         }
     }
 }

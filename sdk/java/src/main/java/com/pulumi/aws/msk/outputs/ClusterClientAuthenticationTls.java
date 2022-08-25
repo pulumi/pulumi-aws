@@ -15,13 +15,9 @@ public final class ClusterClientAuthenticationTls {
      * @return List of ACM Certificate Authority Amazon Resource Names (ARNs).
      * 
      */
-    private final @Nullable List<String> certificateAuthorityArns;
+    private @Nullable List<String> certificateAuthorityArns;
 
-    @CustomType.Constructor
-    private ClusterClientAuthenticationTls(@CustomType.Parameter("certificateAuthorityArns") @Nullable List<String> certificateAuthorityArns) {
-        this.certificateAuthorityArns = certificateAuthorityArns;
-    }
-
+    private ClusterClientAuthenticationTls() {}
     /**
      * @return List of ACM Certificate Authority Amazon Resource Names (ARNs).
      * 
@@ -37,27 +33,27 @@ public final class ClusterClientAuthenticationTls {
     public static Builder builder(ClusterClientAuthenticationTls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> certificateAuthorityArns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterClientAuthenticationTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateAuthorityArns = defaults.certificateAuthorityArns;
         }
 
+        @CustomType.Setter
         public Builder certificateAuthorityArns(@Nullable List<String> certificateAuthorityArns) {
             this.certificateAuthorityArns = certificateAuthorityArns;
             return this;
         }
         public Builder certificateAuthorityArns(String... certificateAuthorityArns) {
             return certificateAuthorityArns(List.of(certificateAuthorityArns));
-        }        public ClusterClientAuthenticationTls build() {
-            return new ClusterClientAuthenticationTls(certificateAuthorityArns);
+        }
+        public ClusterClientAuthenticationTls build() {
+            final var o = new ClusterClientAuthenticationTls();
+            o.certificateAuthorityArns = certificateAuthorityArns;
+            return o;
         }
     }
 }

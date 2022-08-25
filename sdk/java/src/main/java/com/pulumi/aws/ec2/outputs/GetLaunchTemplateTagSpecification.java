@@ -10,21 +10,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateTagSpecification {
-    private final String resourceType;
+    private String resourceType;
     /**
      * @return A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateTagSpecification(
-        @CustomType.Parameter("resourceType") String resourceType,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.resourceType = resourceType;
-        this.tags = tags;
-    }
-
+    private GetLaunchTemplateTagSpecification() {}
     public String resourceType() {
         return this.resourceType;
     }
@@ -43,30 +36,32 @@ public final class GetLaunchTemplateTagSpecification {
     public static Builder builder(GetLaunchTemplateTagSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resourceType;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateTagSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceType = defaults.resourceType;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder resourceType(String resourceType) {
             this.resourceType = Objects.requireNonNull(resourceType);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetLaunchTemplateTagSpecification build() {
-            return new GetLaunchTemplateTagSpecification(resourceType, tags);
+        }
+        public GetLaunchTemplateTagSpecification build() {
+            final var o = new GetLaunchTemplateTagSpecification();
+            o.resourceType = resourceType;
+            o.tags = tags;
+            return o;
         }
     }
 }

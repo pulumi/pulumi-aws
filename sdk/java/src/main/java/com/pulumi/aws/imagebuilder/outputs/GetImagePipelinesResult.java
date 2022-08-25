@@ -16,31 +16,20 @@ public final class GetImagePipelinesResult {
      * @return Set of ARNs of the matched Image Builder Image Pipelines.
      * 
      */
-    private final List<String> arns;
-    private final @Nullable List<GetImagePipelinesFilter> filters;
+    private List<String> arns;
+    private @Nullable List<GetImagePipelinesFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of names of the matched Image Builder Image Pipelines.
      * 
      */
-    private final List<String> names;
+    private List<String> names;
 
-    @CustomType.Constructor
-    private GetImagePipelinesResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("filters") @Nullable List<GetImagePipelinesFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("names") List<String> names) {
-        this.arns = arns;
-        this.filters = filters;
-        this.id = id;
-        this.names = names;
-    }
-
+    private GetImagePipelinesResult() {}
     /**
      * @return Set of ARNs of the matched Image Builder Image Pipelines.
      * 
@@ -73,17 +62,13 @@ public final class GetImagePipelinesResult {
     public static Builder builder(GetImagePipelinesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private @Nullable List<GetImagePipelinesFilter> filters;
         private String id;
         private List<String> names;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImagePipelinesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -92,6 +77,7 @@ public final class GetImagePipelinesResult {
     	      this.names = defaults.names;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -99,6 +85,7 @@ public final class GetImagePipelinesResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetImagePipelinesFilter> filters) {
             this.filters = filters;
             return this;
@@ -106,18 +93,26 @@ public final class GetImagePipelinesResult {
         public Builder filters(GetImagePipelinesFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder names(List<String> names) {
             this.names = Objects.requireNonNull(names);
             return this;
         }
         public Builder names(String... names) {
             return names(List.of(names));
-        }        public GetImagePipelinesResult build() {
-            return new GetImagePipelinesResult(arns, filters, id, names);
+        }
+        public GetImagePipelinesResult build() {
+            final var o = new GetImagePipelinesResult();
+            o.arns = arns;
+            o.filters = filters;
+            o.id = id;
+            o.names = names;
+            return o;
         }
     }
 }

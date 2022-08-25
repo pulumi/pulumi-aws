@@ -15,21 +15,14 @@ public final class GetTrafficPolicyDocumentRuleItem {
      * @return References to an endpoint.
      * 
      */
-    private final @Nullable String endpointReference;
+    private @Nullable String endpointReference;
     /**
      * @return If you want to associate a health check with the endpoint or rule.
      * 
      */
-    private final @Nullable String healthCheck;
+    private @Nullable String healthCheck;
 
-    @CustomType.Constructor
-    private GetTrafficPolicyDocumentRuleItem(
-        @CustomType.Parameter("endpointReference") @Nullable String endpointReference,
-        @CustomType.Parameter("healthCheck") @Nullable String healthCheck) {
-        this.endpointReference = endpointReference;
-        this.healthCheck = healthCheck;
-    }
-
+    private GetTrafficPolicyDocumentRuleItem() {}
     /**
      * @return References to an endpoint.
      * 
@@ -52,30 +45,32 @@ public final class GetTrafficPolicyDocumentRuleItem {
     public static Builder builder(GetTrafficPolicyDocumentRuleItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String endpointReference;
         private @Nullable String healthCheck;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficPolicyDocumentRuleItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointReference = defaults.endpointReference;
     	      this.healthCheck = defaults.healthCheck;
         }
 
+        @CustomType.Setter
         public Builder endpointReference(@Nullable String endpointReference) {
             this.endpointReference = endpointReference;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
             this.healthCheck = healthCheck;
             return this;
-        }        public GetTrafficPolicyDocumentRuleItem build() {
-            return new GetTrafficPolicyDocumentRuleItem(endpointReference, healthCheck);
+        }
+        public GetTrafficPolicyDocumentRuleItem build() {
+            final var o = new GetTrafficPolicyDocumentRuleItem();
+            o.endpointReference = endpointReference;
+            o.healthCheck = healthCheck;
+            return o;
         }
     }
 }

@@ -11,36 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableGlobalSecondaryIndex {
-    private final String hashKey;
+    private String hashKey;
     /**
      * @return The name of the DynamoDB table.
      * 
      */
-    private final String name;
-    private final List<String> nonKeyAttributes;
-    private final String projectionType;
-    private final String rangeKey;
-    private final Integer readCapacity;
-    private final Integer writeCapacity;
+    private String name;
+    private List<String> nonKeyAttributes;
+    private String projectionType;
+    private String rangeKey;
+    private Integer readCapacity;
+    private Integer writeCapacity;
 
-    @CustomType.Constructor
-    private GetTableGlobalSecondaryIndex(
-        @CustomType.Parameter("hashKey") String hashKey,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nonKeyAttributes") List<String> nonKeyAttributes,
-        @CustomType.Parameter("projectionType") String projectionType,
-        @CustomType.Parameter("rangeKey") String rangeKey,
-        @CustomType.Parameter("readCapacity") Integer readCapacity,
-        @CustomType.Parameter("writeCapacity") Integer writeCapacity) {
-        this.hashKey = hashKey;
-        this.name = name;
-        this.nonKeyAttributes = nonKeyAttributes;
-        this.projectionType = projectionType;
-        this.rangeKey = rangeKey;
-        this.readCapacity = readCapacity;
-        this.writeCapacity = writeCapacity;
-    }
-
+    private GetTableGlobalSecondaryIndex() {}
     public String hashKey() {
         return this.hashKey;
     }
@@ -74,7 +57,7 @@ public final class GetTableGlobalSecondaryIndex {
     public static Builder builder(GetTableGlobalSecondaryIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hashKey;
         private String name;
@@ -83,11 +66,7 @@ public final class GetTableGlobalSecondaryIndex {
         private String rangeKey;
         private Integer readCapacity;
         private Integer writeCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTableGlobalSecondaryIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hashKey = defaults.hashKey;
@@ -99,14 +78,17 @@ public final class GetTableGlobalSecondaryIndex {
     	      this.writeCapacity = defaults.writeCapacity;
         }
 
+        @CustomType.Setter
         public Builder hashKey(String hashKey) {
             this.hashKey = Objects.requireNonNull(hashKey);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nonKeyAttributes(List<String> nonKeyAttributes) {
             this.nonKeyAttributes = Objects.requireNonNull(nonKeyAttributes);
             return this;
@@ -114,23 +96,36 @@ public final class GetTableGlobalSecondaryIndex {
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
             return nonKeyAttributes(List.of(nonKeyAttributes));
         }
+        @CustomType.Setter
         public Builder projectionType(String projectionType) {
             this.projectionType = Objects.requireNonNull(projectionType);
             return this;
         }
+        @CustomType.Setter
         public Builder rangeKey(String rangeKey) {
             this.rangeKey = Objects.requireNonNull(rangeKey);
             return this;
         }
+        @CustomType.Setter
         public Builder readCapacity(Integer readCapacity) {
             this.readCapacity = Objects.requireNonNull(readCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder writeCapacity(Integer writeCapacity) {
             this.writeCapacity = Objects.requireNonNull(writeCapacity);
             return this;
-        }        public GetTableGlobalSecondaryIndex build() {
-            return new GetTableGlobalSecondaryIndex(hashKey, name, nonKeyAttributes, projectionType, rangeKey, readCapacity, writeCapacity);
+        }
+        public GetTableGlobalSecondaryIndex build() {
+            final var o = new GetTableGlobalSecondaryIndex();
+            o.hashKey = hashKey;
+            o.name = name;
+            o.nonKeyAttributes = nonKeyAttributes;
+            o.projectionType = projectionType;
+            o.rangeKey = rangeKey;
+            o.readCapacity = readCapacity;
+            o.writeCapacity = writeCapacity;
+            return o;
         }
     }
 }

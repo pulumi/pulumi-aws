@@ -18,70 +18,49 @@ public final class AppMonitorAppMonitorConfiguration {
      * @return If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
      * 
      */
-    private final @Nullable Boolean allowCookies;
+    private @Nullable Boolean allowCookies;
     /**
      * @return If you set this to `true`, RUM enables X-Ray tracing for the user sessions  that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
      * 
      */
-    private final @Nullable Boolean enableXray;
+    private @Nullable Boolean enableXray;
     /**
      * @return A list of URLs in your website or application to exclude from RUM data collection.
      * 
      */
-    private final @Nullable List<String> excludedPages;
+    private @Nullable List<String> excludedPages;
     /**
      * @return A list of pages in the CloudWatch RUM console that are to be displayed with a &#34;favorite&#34; icon.
      * 
      */
-    private final @Nullable List<String> favoritePages;
+    private @Nullable List<String> favoritePages;
     /**
      * @return The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
      * 
      */
-    private final @Nullable String guestRoleArn;
+    private @Nullable String guestRoleArn;
     /**
      * @return The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
      * 
      */
-    private final @Nullable String identityPoolId;
+    private @Nullable String identityPoolId;
     /**
      * @return If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
      * 
      */
-    private final @Nullable List<String> includedPages;
+    private @Nullable List<String> includedPages;
     /**
      * @return Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
      * 
      */
-    private final @Nullable Double sessionSampleRate;
+    private @Nullable Double sessionSampleRate;
     /**
      * @return An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
      * 
      */
-    private final @Nullable List<String> telemetries;
+    private @Nullable List<String> telemetries;
 
-    @CustomType.Constructor
-    private AppMonitorAppMonitorConfiguration(
-        @CustomType.Parameter("allowCookies") @Nullable Boolean allowCookies,
-        @CustomType.Parameter("enableXray") @Nullable Boolean enableXray,
-        @CustomType.Parameter("excludedPages") @Nullable List<String> excludedPages,
-        @CustomType.Parameter("favoritePages") @Nullable List<String> favoritePages,
-        @CustomType.Parameter("guestRoleArn") @Nullable String guestRoleArn,
-        @CustomType.Parameter("identityPoolId") @Nullable String identityPoolId,
-        @CustomType.Parameter("includedPages") @Nullable List<String> includedPages,
-        @CustomType.Parameter("sessionSampleRate") @Nullable Double sessionSampleRate,
-        @CustomType.Parameter("telemetries") @Nullable List<String> telemetries) {
-        this.allowCookies = allowCookies;
-        this.enableXray = enableXray;
-        this.excludedPages = excludedPages;
-        this.favoritePages = favoritePages;
-        this.guestRoleArn = guestRoleArn;
-        this.identityPoolId = identityPoolId;
-        this.includedPages = includedPages;
-        this.sessionSampleRate = sessionSampleRate;
-        this.telemetries = telemetries;
-    }
-
+    private AppMonitorAppMonitorConfiguration() {}
     /**
      * @return If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
      * 
@@ -153,7 +132,7 @@ public final class AppMonitorAppMonitorConfiguration {
     public static Builder builder(AppMonitorAppMonitorConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowCookies;
         private @Nullable Boolean enableXray;
@@ -164,11 +143,7 @@ public final class AppMonitorAppMonitorConfiguration {
         private @Nullable List<String> includedPages;
         private @Nullable Double sessionSampleRate;
         private @Nullable List<String> telemetries;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppMonitorAppMonitorConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowCookies = defaults.allowCookies;
@@ -182,14 +157,17 @@ public final class AppMonitorAppMonitorConfiguration {
     	      this.telemetries = defaults.telemetries;
         }
 
+        @CustomType.Setter
         public Builder allowCookies(@Nullable Boolean allowCookies) {
             this.allowCookies = allowCookies;
             return this;
         }
+        @CustomType.Setter
         public Builder enableXray(@Nullable Boolean enableXray) {
             this.enableXray = enableXray;
             return this;
         }
+        @CustomType.Setter
         public Builder excludedPages(@Nullable List<String> excludedPages) {
             this.excludedPages = excludedPages;
             return this;
@@ -197,6 +175,7 @@ public final class AppMonitorAppMonitorConfiguration {
         public Builder excludedPages(String... excludedPages) {
             return excludedPages(List.of(excludedPages));
         }
+        @CustomType.Setter
         public Builder favoritePages(@Nullable List<String> favoritePages) {
             this.favoritePages = favoritePages;
             return this;
@@ -204,14 +183,17 @@ public final class AppMonitorAppMonitorConfiguration {
         public Builder favoritePages(String... favoritePages) {
             return favoritePages(List.of(favoritePages));
         }
+        @CustomType.Setter
         public Builder guestRoleArn(@Nullable String guestRoleArn) {
             this.guestRoleArn = guestRoleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder identityPoolId(@Nullable String identityPoolId) {
             this.identityPoolId = identityPoolId;
             return this;
         }
+        @CustomType.Setter
         public Builder includedPages(@Nullable List<String> includedPages) {
             this.includedPages = includedPages;
             return this;
@@ -219,18 +201,31 @@ public final class AppMonitorAppMonitorConfiguration {
         public Builder includedPages(String... includedPages) {
             return includedPages(List.of(includedPages));
         }
+        @CustomType.Setter
         public Builder sessionSampleRate(@Nullable Double sessionSampleRate) {
             this.sessionSampleRate = sessionSampleRate;
             return this;
         }
+        @CustomType.Setter
         public Builder telemetries(@Nullable List<String> telemetries) {
             this.telemetries = telemetries;
             return this;
         }
         public Builder telemetries(String... telemetries) {
             return telemetries(List.of(telemetries));
-        }        public AppMonitorAppMonitorConfiguration build() {
-            return new AppMonitorAppMonitorConfiguration(allowCookies, enableXray, excludedPages, favoritePages, guestRoleArn, identityPoolId, includedPages, sessionSampleRate, telemetries);
+        }
+        public AppMonitorAppMonitorConfiguration build() {
+            final var o = new AppMonitorAppMonitorConfiguration();
+            o.allowCookies = allowCookies;
+            o.enableXray = enableXray;
+            o.excludedPages = excludedPages;
+            o.favoritePages = favoritePages;
+            o.guestRoleArn = guestRoleArn;
+            o.identityPoolId = identityPoolId;
+            o.includedPages = includedPages;
+            o.sessionSampleRate = sessionSampleRate;
+            o.telemetries = telemetries;
+            return o;
         }
     }
 }

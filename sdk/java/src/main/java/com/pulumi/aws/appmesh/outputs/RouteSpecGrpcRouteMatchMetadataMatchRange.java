@@ -13,21 +13,14 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchRange {
      * @return The end of the range.
      * 
      */
-    private final Integer end;
+    private Integer end;
     /**
      * @return The start of the range.
      * 
      */
-    private final Integer start;
+    private Integer start;
 
-    @CustomType.Constructor
-    private RouteSpecGrpcRouteMatchMetadataMatchRange(
-        @CustomType.Parameter("end") Integer end,
-        @CustomType.Parameter("start") Integer start) {
-        this.end = end;
-        this.start = start;
-    }
-
+    private RouteSpecGrpcRouteMatchMetadataMatchRange() {}
     /**
      * @return The end of the range.
      * 
@@ -50,30 +43,32 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchRange {
     public static Builder builder(RouteSpecGrpcRouteMatchMetadataMatchRange defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer end;
         private Integer start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecGrpcRouteMatchMetadataMatchRange defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.end = defaults.end;
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder end(Integer end) {
             this.end = Objects.requireNonNull(end);
             return this;
         }
+        @CustomType.Setter
         public Builder start(Integer start) {
             this.start = Objects.requireNonNull(start);
             return this;
-        }        public RouteSpecGrpcRouteMatchMetadataMatchRange build() {
-            return new RouteSpecGrpcRouteMatchMetadataMatchRange(end, start);
+        }
+        public RouteSpecGrpcRouteMatchMetadataMatchRange build() {
+            final var o = new RouteSpecGrpcRouteMatchMetadataMatchRange();
+            o.end = end;
+            o.start = start;
+            return o;
         }
     }
 }

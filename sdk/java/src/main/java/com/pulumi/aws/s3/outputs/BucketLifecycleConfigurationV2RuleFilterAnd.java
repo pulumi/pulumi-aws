@@ -17,35 +17,24 @@ public final class BucketLifecycleConfigurationV2RuleFilterAnd {
      * @return Minimum object size to which the rule applies. Value must be at least `0` if specified.
      * 
      */
-    private final @Nullable Integer objectSizeGreaterThan;
+    private @Nullable Integer objectSizeGreaterThan;
     /**
      * @return Maximum object size to which the rule applies. Value must be at least `1` if specified.
      * 
      */
-    private final @Nullable Integer objectSizeLessThan;
+    private @Nullable Integer objectSizeLessThan;
     /**
      * @return Prefix identifying one or more objects to which the rule applies.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationV2RuleFilterAnd(
-        @CustomType.Parameter("objectSizeGreaterThan") @Nullable Integer objectSizeGreaterThan,
-        @CustomType.Parameter("objectSizeLessThan") @Nullable Integer objectSizeLessThan,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.objectSizeGreaterThan = objectSizeGreaterThan;
-        this.objectSizeLessThan = objectSizeLessThan;
-        this.prefix = prefix;
-        this.tags = tags;
-    }
-
+    private BucketLifecycleConfigurationV2RuleFilterAnd() {}
     /**
      * @return Minimum object size to which the rule applies. Value must be at least `0` if specified.
      * 
@@ -82,17 +71,13 @@ public final class BucketLifecycleConfigurationV2RuleFilterAnd {
     public static Builder builder(BucketLifecycleConfigurationV2RuleFilterAnd defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer objectSizeGreaterThan;
         private @Nullable Integer objectSizeLessThan;
         private @Nullable String prefix;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleFilterAnd defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.objectSizeGreaterThan = defaults.objectSizeGreaterThan;
@@ -101,23 +86,33 @@ public final class BucketLifecycleConfigurationV2RuleFilterAnd {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder objectSizeGreaterThan(@Nullable Integer objectSizeGreaterThan) {
             this.objectSizeGreaterThan = objectSizeGreaterThan;
             return this;
         }
+        @CustomType.Setter
         public Builder objectSizeLessThan(@Nullable Integer objectSizeLessThan) {
             this.objectSizeLessThan = objectSizeLessThan;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public BucketLifecycleConfigurationV2RuleFilterAnd build() {
-            return new BucketLifecycleConfigurationV2RuleFilterAnd(objectSizeGreaterThan, objectSizeLessThan, prefix, tags);
+        }
+        public BucketLifecycleConfigurationV2RuleFilterAnd build() {
+            final var o = new BucketLifecycleConfigurationV2RuleFilterAnd();
+            o.objectSizeGreaterThan = objectSizeGreaterThan;
+            o.objectSizeLessThan = objectSizeLessThan;
+            o.prefix = prefix;
+            o.tags = tags;
+            return o;
         }
     }
 }

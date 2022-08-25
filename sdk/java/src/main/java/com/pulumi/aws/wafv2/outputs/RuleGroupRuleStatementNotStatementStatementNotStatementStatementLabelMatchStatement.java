@@ -13,21 +13,14 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
      * @return The string to match against.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
      * 
      */
-    private final String scope;
+    private String scope;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("scope") String scope) {
-        this.key = key;
-        this.scope = scope;
-    }
-
+    private RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement() {}
     /**
      * @return The string to match against.
      * 
@@ -50,30 +43,32 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
     public static Builder builder(RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String scope;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(String scope) {
             this.scope = Objects.requireNonNull(scope);
             return this;
-        }        public RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement build() {
-            return new RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement(key, scope);
+        }
+        public RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement build() {
+            final var o = new RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement();
+            o.key = key;
+            o.scope = scope;
+            return o;
         }
     }
 }

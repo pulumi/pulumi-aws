@@ -15,21 +15,14 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
      * @return The ID of the file system, assigned by Amazon EFS.
      * 
      */
-    private final @Nullable String fileSystemId;
+    private @Nullable String fileSystemId;
     /**
      * @return The pathname for the folder being used by a workflow.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
 
-    @CustomType.Constructor
-    private WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation(
-        @CustomType.Parameter("fileSystemId") @Nullable String fileSystemId,
-        @CustomType.Parameter("path") @Nullable String path) {
-        this.fileSystemId = fileSystemId;
-        this.path = path;
-    }
-
+    private WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation() {}
     /**
      * @return The ID of the file system, assigned by Amazon EFS.
      * 
@@ -52,30 +45,32 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
     public static Builder builder(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String fileSystemId;
         private @Nullable String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fileSystemId = defaults.fileSystemId;
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder fileSystemId(@Nullable String fileSystemId) {
             this.fileSystemId = fileSystemId;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
-        }        public WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation build() {
-            return new WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation(fileSystemId, path);
+        }
+        public WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation build() {
+            final var o = new WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation();
+            o.fileSystemId = fileSystemId;
+            o.path = path;
+            return o;
         }
     }
 }

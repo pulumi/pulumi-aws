@@ -15,21 +15,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCoun
      * @return Maximum.
      * 
      */
-    private final @Nullable Integer max;
+    private @Nullable Integer max;
     /**
      * @return Minimum.
      * 
      */
-    private final Integer min;
+    private Integer min;
 
-    @CustomType.Constructor
-    private FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount(
-        @CustomType.Parameter("max") @Nullable Integer max,
-        @CustomType.Parameter("min") Integer min) {
-        this.max = max;
-        this.min = min;
-    }
-
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount() {}
     /**
      * @return Maximum.
      * 
@@ -52,30 +45,32 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCoun
     public static Builder builder(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer max;
         private Integer min;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.max = defaults.max;
     	      this.min = defaults.min;
         }
 
+        @CustomType.Setter
         public Builder max(@Nullable Integer max) {
             this.max = max;
             return this;
         }
+        @CustomType.Setter
         public Builder min(Integer min) {
             this.min = Objects.requireNonNull(min);
             return this;
-        }        public FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount build() {
-            return new FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount(max, min);
+        }
+        public FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount build() {
+            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount();
+            o.max = max;
+            o.min = min;
+            return o;
         }
     }
 }

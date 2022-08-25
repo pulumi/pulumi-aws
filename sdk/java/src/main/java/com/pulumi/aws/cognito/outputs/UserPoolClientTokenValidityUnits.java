@@ -15,28 +15,19 @@ public final class UserPoolClientTokenValidityUnits {
      * @return Time unit in for the value in `access_token_validity`, defaults to `hours`.
      * 
      */
-    private final @Nullable String accessToken;
+    private @Nullable String accessToken;
     /**
      * @return Time unit in for the value in `id_token_validity`, defaults to `hours`.
      * 
      */
-    private final @Nullable String idToken;
+    private @Nullable String idToken;
     /**
      * @return Time unit in for the value in `refresh_token_validity`, defaults to `days`.
      * 
      */
-    private final @Nullable String refreshToken;
+    private @Nullable String refreshToken;
 
-    @CustomType.Constructor
-    private UserPoolClientTokenValidityUnits(
-        @CustomType.Parameter("accessToken") @Nullable String accessToken,
-        @CustomType.Parameter("idToken") @Nullable String idToken,
-        @CustomType.Parameter("refreshToken") @Nullable String refreshToken) {
-        this.accessToken = accessToken;
-        this.idToken = idToken;
-        this.refreshToken = refreshToken;
-    }
-
+    private UserPoolClientTokenValidityUnits() {}
     /**
      * @return Time unit in for the value in `access_token_validity`, defaults to `hours`.
      * 
@@ -66,16 +57,12 @@ public final class UserPoolClientTokenValidityUnits {
     public static Builder builder(UserPoolClientTokenValidityUnits defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessToken;
         private @Nullable String idToken;
         private @Nullable String refreshToken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolClientTokenValidityUnits defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
@@ -83,19 +70,27 @@ public final class UserPoolClientTokenValidityUnits {
     	      this.refreshToken = defaults.refreshToken;
         }
 
+        @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
             this.accessToken = accessToken;
             return this;
         }
+        @CustomType.Setter
         public Builder idToken(@Nullable String idToken) {
             this.idToken = idToken;
             return this;
         }
+        @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
             this.refreshToken = refreshToken;
             return this;
-        }        public UserPoolClientTokenValidityUnits build() {
-            return new UserPoolClientTokenValidityUnits(accessToken, idToken, refreshToken);
+        }
+        public UserPoolClientTokenValidityUnits build() {
+            final var o = new UserPoolClientTokenValidityUnits();
+            o.accessToken = accessToken;
+            o.idToken = idToken;
+            o.refreshToken = refreshToken;
+            return o;
         }
     }
 }

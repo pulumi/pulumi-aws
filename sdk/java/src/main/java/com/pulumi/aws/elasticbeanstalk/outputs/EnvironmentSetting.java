@@ -16,23 +16,12 @@ public final class EnvironmentSetting {
      * in the application URL
      * 
      */
-    private final String name;
-    private final String namespace;
-    private final @Nullable String resource;
-    private final String value;
+    private String name;
+    private String namespace;
+    private @Nullable String resource;
+    private String value;
 
-    @CustomType.Constructor
-    private EnvironmentSetting(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespace") String namespace,
-        @CustomType.Parameter("resource") @Nullable String resource,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.namespace = namespace;
-        this.resource = resource;
-        this.value = value;
-    }
-
+    private EnvironmentSetting() {}
     /**
      * @return A unique name for this Environment. This name is used
      * in the application URL
@@ -58,17 +47,13 @@ public final class EnvironmentSetting {
     public static Builder builder(EnvironmentSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String namespace;
         private @Nullable String resource;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EnvironmentSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -77,23 +62,33 @@ public final class EnvironmentSetting {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
         }
+        @CustomType.Setter
         public Builder resource(@Nullable String resource) {
             this.resource = resource;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public EnvironmentSetting build() {
-            return new EnvironmentSetting(name, namespace, resource, value);
+        }
+        public EnvironmentSetting build() {
+            final var o = new EnvironmentSetting();
+            o.name = name;
+            o.namespace = namespace;
+            o.resource = resource;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class LoadBalancerAccessLogs {
      * @return The S3 bucket name to store the logs in.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The S3 bucket prefix. Logs are stored in the root if not configured.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
 
-    @CustomType.Constructor
-    private LoadBalancerAccessLogs(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("prefix") @Nullable String prefix) {
-        this.bucket = bucket;
-        this.enabled = enabled;
-        this.prefix = prefix;
-    }
-
+    private LoadBalancerAccessLogs() {}
     /**
      * @return The S3 bucket name to store the logs in.
      * 
@@ -67,16 +58,12 @@ public final class LoadBalancerAccessLogs {
     public static Builder builder(LoadBalancerAccessLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private @Nullable Boolean enabled;
         private @Nullable String prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LoadBalancerAccessLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -84,19 +71,27 @@ public final class LoadBalancerAccessLogs {
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
-        }        public LoadBalancerAccessLogs build() {
-            return new LoadBalancerAccessLogs(bucket, enabled, prefix);
+        }
+        public LoadBalancerAccessLogs build() {
+            final var o = new LoadBalancerAccessLogs();
+            o.bucket = bucket;
+            o.enabled = enabled;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

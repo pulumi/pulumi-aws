@@ -16,35 +16,24 @@ public final class ProjectLogsConfigS3Logs {
      * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
      * 
      */
-    private final @Nullable String bucketOwnerAccess;
+    private @Nullable String bucketOwnerAccess;
     /**
      * @return Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean encryptionDisabled;
+    private @Nullable Boolean encryptionDisabled;
     /**
      * @return Location of the source code from git or s3.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
 
-    @CustomType.Constructor
-    private ProjectLogsConfigS3Logs(
-        @CustomType.Parameter("bucketOwnerAccess") @Nullable String bucketOwnerAccess,
-        @CustomType.Parameter("encryptionDisabled") @Nullable Boolean encryptionDisabled,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("status") @Nullable String status) {
-        this.bucketOwnerAccess = bucketOwnerAccess;
-        this.encryptionDisabled = encryptionDisabled;
-        this.location = location;
-        this.status = status;
-    }
-
+    private ProjectLogsConfigS3Logs() {}
     /**
      * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
      * 
@@ -81,17 +70,13 @@ public final class ProjectLogsConfigS3Logs {
     public static Builder builder(ProjectLogsConfigS3Logs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucketOwnerAccess;
         private @Nullable Boolean encryptionDisabled;
         private @Nullable String location;
         private @Nullable String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectLogsConfigS3Logs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketOwnerAccess = defaults.bucketOwnerAccess;
@@ -100,23 +85,33 @@ public final class ProjectLogsConfigS3Logs {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder bucketOwnerAccess(@Nullable String bucketOwnerAccess) {
             this.bucketOwnerAccess = bucketOwnerAccess;
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionDisabled(@Nullable Boolean encryptionDisabled) {
             this.encryptionDisabled = encryptionDisabled;
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
-        }        public ProjectLogsConfigS3Logs build() {
-            return new ProjectLogsConfigS3Logs(bucketOwnerAccess, encryptionDisabled, location, status);
+        }
+        public ProjectLogsConfigS3Logs build() {
+            final var o = new ProjectLogsConfigS3Logs();
+            o.bucketOwnerAccess = bucketOwnerAccess;
+            o.encryptionDisabled = encryptionDisabled;
+            o.location = location;
+            o.status = status;
+            return o;
         }
     }
 }

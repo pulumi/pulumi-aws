@@ -13,105 +13,74 @@ public final class GetRouteTableRoute {
      * @return ID of the Carrier Gateway.
      * 
      */
-    private final String carrierGatewayId;
+    private String carrierGatewayId;
     /**
      * @return CIDR block of the route.
      * 
      */
-    private final String cidrBlock;
+    private String cidrBlock;
     /**
      * @return ARN of the core network.
      * 
      */
-    private final String coreNetworkArn;
+    private String coreNetworkArn;
     /**
      * @return The ID of a managed prefix list destination of the route.
      * 
      */
-    private final String destinationPrefixListId;
+    private String destinationPrefixListId;
     /**
      * @return ID of the Egress Only Internet Gateway.
      * 
      */
-    private final String egressOnlyGatewayId;
+    private String egressOnlyGatewayId;
     /**
      * @return ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      * 
      */
-    private final String gatewayId;
+    private String gatewayId;
     /**
      * @return EC2 instance ID.
      * 
      */
-    private final String instanceId;
+    private String instanceId;
     /**
      * @return IPv6 CIDR block of the route.
      * 
      */
-    private final String ipv6CidrBlock;
+    private String ipv6CidrBlock;
     /**
      * @return Local Gateway ID.
      * 
      */
-    private final String localGatewayId;
+    private String localGatewayId;
     /**
      * @return NAT Gateway ID.
      * 
      */
-    private final String natGatewayId;
+    private String natGatewayId;
     /**
      * @return ID of the elastic network interface (eni) to use.
      * 
      */
-    private final String networkInterfaceId;
+    private String networkInterfaceId;
     /**
      * @return EC2 Transit Gateway ID.
      * 
      */
-    private final String transitGatewayId;
+    private String transitGatewayId;
     /**
      * @return VPC Endpoint ID.
      * 
      */
-    private final String vpcEndpointId;
+    private String vpcEndpointId;
     /**
      * @return VPC Peering ID.
      * 
      */
-    private final String vpcPeeringConnectionId;
+    private String vpcPeeringConnectionId;
 
-    @CustomType.Constructor
-    private GetRouteTableRoute(
-        @CustomType.Parameter("carrierGatewayId") String carrierGatewayId,
-        @CustomType.Parameter("cidrBlock") String cidrBlock,
-        @CustomType.Parameter("coreNetworkArn") String coreNetworkArn,
-        @CustomType.Parameter("destinationPrefixListId") String destinationPrefixListId,
-        @CustomType.Parameter("egressOnlyGatewayId") String egressOnlyGatewayId,
-        @CustomType.Parameter("gatewayId") String gatewayId,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("ipv6CidrBlock") String ipv6CidrBlock,
-        @CustomType.Parameter("localGatewayId") String localGatewayId,
-        @CustomType.Parameter("natGatewayId") String natGatewayId,
-        @CustomType.Parameter("networkInterfaceId") String networkInterfaceId,
-        @CustomType.Parameter("transitGatewayId") String transitGatewayId,
-        @CustomType.Parameter("vpcEndpointId") String vpcEndpointId,
-        @CustomType.Parameter("vpcPeeringConnectionId") String vpcPeeringConnectionId) {
-        this.carrierGatewayId = carrierGatewayId;
-        this.cidrBlock = cidrBlock;
-        this.coreNetworkArn = coreNetworkArn;
-        this.destinationPrefixListId = destinationPrefixListId;
-        this.egressOnlyGatewayId = egressOnlyGatewayId;
-        this.gatewayId = gatewayId;
-        this.instanceId = instanceId;
-        this.ipv6CidrBlock = ipv6CidrBlock;
-        this.localGatewayId = localGatewayId;
-        this.natGatewayId = natGatewayId;
-        this.networkInterfaceId = networkInterfaceId;
-        this.transitGatewayId = transitGatewayId;
-        this.vpcEndpointId = vpcEndpointId;
-        this.vpcPeeringConnectionId = vpcPeeringConnectionId;
-    }
-
+    private GetRouteTableRoute() {}
     /**
      * @return ID of the Carrier Gateway.
      * 
@@ -218,7 +187,7 @@ public final class GetRouteTableRoute {
     public static Builder builder(GetRouteTableRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String carrierGatewayId;
         private String cidrBlock;
@@ -234,11 +203,7 @@ public final class GetRouteTableRoute {
         private String transitGatewayId;
         private String vpcEndpointId;
         private String vpcPeeringConnectionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRouteTableRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.carrierGatewayId = defaults.carrierGatewayId;
@@ -257,63 +222,93 @@ public final class GetRouteTableRoute {
     	      this.vpcPeeringConnectionId = defaults.vpcPeeringConnectionId;
         }
 
+        @CustomType.Setter
         public Builder carrierGatewayId(String carrierGatewayId) {
             this.carrierGatewayId = Objects.requireNonNull(carrierGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
             this.cidrBlock = Objects.requireNonNull(cidrBlock);
             return this;
         }
+        @CustomType.Setter
         public Builder coreNetworkArn(String coreNetworkArn) {
             this.coreNetworkArn = Objects.requireNonNull(coreNetworkArn);
             return this;
         }
+        @CustomType.Setter
         public Builder destinationPrefixListId(String destinationPrefixListId) {
             this.destinationPrefixListId = Objects.requireNonNull(destinationPrefixListId);
             return this;
         }
+        @CustomType.Setter
         public Builder egressOnlyGatewayId(String egressOnlyGatewayId) {
             this.egressOnlyGatewayId = Objects.requireNonNull(egressOnlyGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayId(String gatewayId) {
             this.gatewayId = Objects.requireNonNull(gatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6CidrBlock(String ipv6CidrBlock) {
             this.ipv6CidrBlock = Objects.requireNonNull(ipv6CidrBlock);
             return this;
         }
+        @CustomType.Setter
         public Builder localGatewayId(String localGatewayId) {
             this.localGatewayId = Objects.requireNonNull(localGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder natGatewayId(String natGatewayId) {
             this.natGatewayId = Objects.requireNonNull(natGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
             this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
             this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcEndpointId(String vpcEndpointId) {
             this.vpcEndpointId = Objects.requireNonNull(vpcEndpointId);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcPeeringConnectionId(String vpcPeeringConnectionId) {
             this.vpcPeeringConnectionId = Objects.requireNonNull(vpcPeeringConnectionId);
             return this;
-        }        public GetRouteTableRoute build() {
-            return new GetRouteTableRoute(carrierGatewayId, cidrBlock, coreNetworkArn, destinationPrefixListId, egressOnlyGatewayId, gatewayId, instanceId, ipv6CidrBlock, localGatewayId, natGatewayId, networkInterfaceId, transitGatewayId, vpcEndpointId, vpcPeeringConnectionId);
+        }
+        public GetRouteTableRoute build() {
+            final var o = new GetRouteTableRoute();
+            o.carrierGatewayId = carrierGatewayId;
+            o.cidrBlock = cidrBlock;
+            o.coreNetworkArn = coreNetworkArn;
+            o.destinationPrefixListId = destinationPrefixListId;
+            o.egressOnlyGatewayId = egressOnlyGatewayId;
+            o.gatewayId = gatewayId;
+            o.instanceId = instanceId;
+            o.ipv6CidrBlock = ipv6CidrBlock;
+            o.localGatewayId = localGatewayId;
+            o.natGatewayId = natGatewayId;
+            o.networkInterfaceId = networkInterfaceId;
+            o.transitGatewayId = transitGatewayId;
+            o.vpcEndpointId = vpcEndpointId;
+            o.vpcPeeringConnectionId = vpcPeeringConnectionId;
+            return o;
         }
     }
 }

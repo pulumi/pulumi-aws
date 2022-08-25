@@ -16,21 +16,14 @@ public final class ReportGroupExportConfig {
      * @return contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
      * 
      */
-    private final @Nullable ReportGroupExportConfigS3Destination s3Destination;
+    private @Nullable ReportGroupExportConfigS3Destination s3Destination;
     /**
      * @return The export configuration type. Valid values are `S3` and `NO_EXPORT`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ReportGroupExportConfig(
-        @CustomType.Parameter("s3Destination") @Nullable ReportGroupExportConfigS3Destination s3Destination,
-        @CustomType.Parameter("type") String type) {
-        this.s3Destination = s3Destination;
-        this.type = type;
-    }
-
+    private ReportGroupExportConfig() {}
     /**
      * @return contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
      * 
@@ -53,30 +46,32 @@ public final class ReportGroupExportConfig {
     public static Builder builder(ReportGroupExportConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ReportGroupExportConfigS3Destination s3Destination;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReportGroupExportConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Destination = defaults.s3Destination;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder s3Destination(@Nullable ReportGroupExportConfigS3Destination s3Destination) {
             this.s3Destination = s3Destination;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ReportGroupExportConfig build() {
-            return new ReportGroupExportConfig(s3Destination, type);
+        }
+        public ReportGroupExportConfig build() {
+            final var o = new ReportGroupExportConfig();
+            o.s3Destination = s3Destination;
+            o.type = type;
+            return o;
         }
     }
 }

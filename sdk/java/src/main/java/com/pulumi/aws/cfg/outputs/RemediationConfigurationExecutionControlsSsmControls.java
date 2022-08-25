@@ -15,21 +15,14 @@ public final class RemediationConfigurationExecutionControlsSsmControls {
      * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
      * 
      */
-    private final @Nullable Integer concurrentExecutionRatePercentage;
+    private @Nullable Integer concurrentExecutionRatePercentage;
     /**
      * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
      * 
      */
-    private final @Nullable Integer errorPercentage;
+    private @Nullable Integer errorPercentage;
 
-    @CustomType.Constructor
-    private RemediationConfigurationExecutionControlsSsmControls(
-        @CustomType.Parameter("concurrentExecutionRatePercentage") @Nullable Integer concurrentExecutionRatePercentage,
-        @CustomType.Parameter("errorPercentage") @Nullable Integer errorPercentage) {
-        this.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
-        this.errorPercentage = errorPercentage;
-    }
-
+    private RemediationConfigurationExecutionControlsSsmControls() {}
     /**
      * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
      * 
@@ -52,30 +45,32 @@ public final class RemediationConfigurationExecutionControlsSsmControls {
     public static Builder builder(RemediationConfigurationExecutionControlsSsmControls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer concurrentExecutionRatePercentage;
         private @Nullable Integer errorPercentage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RemediationConfigurationExecutionControlsSsmControls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.concurrentExecutionRatePercentage = defaults.concurrentExecutionRatePercentage;
     	      this.errorPercentage = defaults.errorPercentage;
         }
 
+        @CustomType.Setter
         public Builder concurrentExecutionRatePercentage(@Nullable Integer concurrentExecutionRatePercentage) {
             this.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder errorPercentage(@Nullable Integer errorPercentage) {
             this.errorPercentage = errorPercentage;
             return this;
-        }        public RemediationConfigurationExecutionControlsSsmControls build() {
-            return new RemediationConfigurationExecutionControlsSsmControls(concurrentExecutionRatePercentage, errorPercentage);
+        }
+        public RemediationConfigurationExecutionControlsSsmControls build() {
+            final var o = new RemediationConfigurationExecutionControlsSsmControls();
+            o.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
+            o.errorPercentage = errorPercentage;
+            return o;
         }
     }
 }

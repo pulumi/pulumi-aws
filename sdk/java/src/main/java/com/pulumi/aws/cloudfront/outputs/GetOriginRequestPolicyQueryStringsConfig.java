@@ -11,17 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOriginRequestPolicyQueryStringsConfig {
-    private final String queryStringBehavior;
-    private final List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings;
+    private String queryStringBehavior;
+    private List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings;
 
-    @CustomType.Constructor
-    private GetOriginRequestPolicyQueryStringsConfig(
-        @CustomType.Parameter("queryStringBehavior") String queryStringBehavior,
-        @CustomType.Parameter("queryStrings") List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings) {
-        this.queryStringBehavior = queryStringBehavior;
-        this.queryStrings = queryStrings;
-    }
-
+    private GetOriginRequestPolicyQueryStringsConfig() {}
     public String queryStringBehavior() {
         return this.queryStringBehavior;
     }
@@ -36,33 +29,35 @@ public final class GetOriginRequestPolicyQueryStringsConfig {
     public static Builder builder(GetOriginRequestPolicyQueryStringsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String queryStringBehavior;
         private List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOriginRequestPolicyQueryStringsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.queryStringBehavior = defaults.queryStringBehavior;
     	      this.queryStrings = defaults.queryStrings;
         }
 
+        @CustomType.Setter
         public Builder queryStringBehavior(String queryStringBehavior) {
             this.queryStringBehavior = Objects.requireNonNull(queryStringBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder queryStrings(List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings) {
             this.queryStrings = Objects.requireNonNull(queryStrings);
             return this;
         }
         public Builder queryStrings(GetOriginRequestPolicyQueryStringsConfigQueryString... queryStrings) {
             return queryStrings(List.of(queryStrings));
-        }        public GetOriginRequestPolicyQueryStringsConfig build() {
-            return new GetOriginRequestPolicyQueryStringsConfig(queryStringBehavior, queryStrings);
+        }
+        public GetOriginRequestPolicyQueryStringsConfig build() {
+            final var o = new GetOriginRequestPolicyQueryStringsConfig();
+            o.queryStringBehavior = queryStringBehavior;
+            o.queryStrings = queryStrings;
+            return o;
         }
     }
 }

@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSnapshotFilter {
-    private final String name;
-    private final List<String> values;
+    private String name;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetSnapshotFilter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private GetSnapshotFilter() {}
     public String name() {
         return this.name;
     }
@@ -35,33 +28,35 @@ public final class GetSnapshotFilter {
     public static Builder builder(GetSnapshotFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetSnapshotFilter build() {
-            return new GetSnapshotFilter(name, values);
+        }
+        public GetSnapshotFilter build() {
+            final var o = new GetSnapshotFilter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

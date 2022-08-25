@@ -18,64 +18,39 @@ public final class GetCertificateResult {
      * @return Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The ACM-issued certificate.
      * 
      */
-    private final String certificate;
+    private String certificate;
     /**
      * @return Certificates forming the requested ACM-issued certificate&#39;s chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
      * 
      */
-    private final String certificateChain;
-    private final String domain;
+    private String certificateChain;
+    private String domain;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable List<String> keyTypes;
-    private final @Nullable Boolean mostRecent;
+    private String id;
+    private @Nullable List<String> keyTypes;
+    private @Nullable Boolean mostRecent;
     /**
      * @return Status of the found certificate.
      * 
      */
-    private final String status;
-    private final @Nullable List<String> statuses;
+    private String status;
+    private @Nullable List<String> statuses;
     /**
      * @return A mapping of tags for the resource.
      * 
      */
-    private final Map<String,String> tags;
-    private final @Nullable List<String> types;
+    private Map<String,String> tags;
+    private @Nullable List<String> types;
 
-    @CustomType.Constructor
-    private GetCertificateResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("certificate") String certificate,
-        @CustomType.Parameter("certificateChain") String certificateChain,
-        @CustomType.Parameter("domain") String domain,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyTypes") @Nullable List<String> keyTypes,
-        @CustomType.Parameter("mostRecent") @Nullable Boolean mostRecent,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("statuses") @Nullable List<String> statuses,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("types") @Nullable List<String> types) {
-        this.arn = arn;
-        this.certificate = certificate;
-        this.certificateChain = certificateChain;
-        this.domain = domain;
-        this.id = id;
-        this.keyTypes = keyTypes;
-        this.mostRecent = mostRecent;
-        this.status = status;
-        this.statuses = statuses;
-        this.tags = tags;
-        this.types = types;
-    }
-
+    private GetCertificateResult() {}
     /**
      * @return Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
      * 
@@ -141,7 +116,7 @@ public final class GetCertificateResult {
     public static Builder builder(GetCertificateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String certificate;
@@ -154,11 +129,7 @@ public final class GetCertificateResult {
         private @Nullable List<String> statuses;
         private Map<String,String> tags;
         private @Nullable List<String> types;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -174,26 +145,32 @@ public final class GetCertificateResult {
     	      this.types = defaults.types;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificate(String certificate) {
             this.certificate = Objects.requireNonNull(certificate);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
             this.certificateChain = Objects.requireNonNull(certificateChain);
             return this;
         }
+        @CustomType.Setter
         public Builder domain(String domain) {
             this.domain = Objects.requireNonNull(domain);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyTypes(@Nullable List<String> keyTypes) {
             this.keyTypes = keyTypes;
             return this;
@@ -201,14 +178,17 @@ public final class GetCertificateResult {
         public Builder keyTypes(String... keyTypes) {
             return keyTypes(List.of(keyTypes));
         }
+        @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             this.mostRecent = mostRecent;
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder statuses(@Nullable List<String> statuses) {
             this.statuses = statuses;
             return this;
@@ -216,18 +196,33 @@ public final class GetCertificateResult {
         public Builder statuses(String... statuses) {
             return statuses(List.of(statuses));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder types(@Nullable List<String> types) {
             this.types = types;
             return this;
         }
         public Builder types(String... types) {
             return types(List.of(types));
-        }        public GetCertificateResult build() {
-            return new GetCertificateResult(arn, certificate, certificateChain, domain, id, keyTypes, mostRecent, status, statuses, tags, types);
+        }
+        public GetCertificateResult build() {
+            final var o = new GetCertificateResult();
+            o.arn = arn;
+            o.certificate = certificate;
+            o.certificateChain = certificateChain;
+            o.domain = domain;
+            o.id = id;
+            o.keyTypes = keyTypes;
+            o.mostRecent = mostRecent;
+            o.status = status;
+            o.statuses = statuses;
+            o.tags = tags;
+            o.types = types;
+            return o;
         }
     }
 }

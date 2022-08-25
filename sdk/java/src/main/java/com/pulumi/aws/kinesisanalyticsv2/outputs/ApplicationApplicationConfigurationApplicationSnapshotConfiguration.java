@@ -13,13 +13,9 @@ public final class ApplicationApplicationConfigurationApplicationSnapshotConfigu
      * @return Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
      * 
      */
-    private final Boolean snapshotsEnabled;
+    private Boolean snapshotsEnabled;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationApplicationSnapshotConfiguration(@CustomType.Parameter("snapshotsEnabled") Boolean snapshotsEnabled) {
-        this.snapshotsEnabled = snapshotsEnabled;
-    }
-
+    private ApplicationApplicationConfigurationApplicationSnapshotConfiguration() {}
     /**
      * @return Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
      * 
@@ -35,24 +31,24 @@ public final class ApplicationApplicationConfigurationApplicationSnapshotConfigu
     public static Builder builder(ApplicationApplicationConfigurationApplicationSnapshotConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean snapshotsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationApplicationSnapshotConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.snapshotsEnabled = defaults.snapshotsEnabled;
         }
 
+        @CustomType.Setter
         public Builder snapshotsEnabled(Boolean snapshotsEnabled) {
             this.snapshotsEnabled = Objects.requireNonNull(snapshotsEnabled);
             return this;
-        }        public ApplicationApplicationConfigurationApplicationSnapshotConfiguration build() {
-            return new ApplicationApplicationConfigurationApplicationSnapshotConfiguration(snapshotsEnabled);
+        }
+        public ApplicationApplicationConfigurationApplicationSnapshotConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationApplicationSnapshotConfiguration();
+            o.snapshotsEnabled = snapshotsEnabled;
+            return o;
         }
     }
 }

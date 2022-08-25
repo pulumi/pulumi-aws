@@ -18,42 +18,29 @@ public final class TopicRuleTimestream {
      * @return The name of an Amazon Timestream database.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
      * 
      */
-    private final List<TopicRuleTimestreamDimension> dimensions;
+    private List<TopicRuleTimestreamDimension> dimensions;
     /**
      * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The name of the database table into which to write the measure records.
      * 
      */
-    private final String tableName;
+    private String tableName;
     /**
      * @return Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
      * 
      */
-    private final @Nullable TopicRuleTimestreamTimestamp timestamp;
+    private @Nullable TopicRuleTimestreamTimestamp timestamp;
 
-    @CustomType.Constructor
-    private TopicRuleTimestream(
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("dimensions") List<TopicRuleTimestreamDimension> dimensions,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("tableName") String tableName,
-        @CustomType.Parameter("timestamp") @Nullable TopicRuleTimestreamTimestamp timestamp) {
-        this.databaseName = databaseName;
-        this.dimensions = dimensions;
-        this.roleArn = roleArn;
-        this.tableName = tableName;
-        this.timestamp = timestamp;
-    }
-
+    private TopicRuleTimestream() {}
     /**
      * @return The name of an Amazon Timestream database.
      * 
@@ -97,18 +84,14 @@ public final class TopicRuleTimestream {
     public static Builder builder(TopicRuleTimestream defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String databaseName;
         private List<TopicRuleTimestreamDimension> dimensions;
         private String roleArn;
         private String tableName;
         private @Nullable TopicRuleTimestreamTimestamp timestamp;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleTimestream defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.databaseName = defaults.databaseName;
@@ -118,10 +101,12 @@ public final class TopicRuleTimestream {
     	      this.timestamp = defaults.timestamp;
         }
 
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder dimensions(List<TopicRuleTimestreamDimension> dimensions) {
             this.dimensions = Objects.requireNonNull(dimensions);
             return this;
@@ -129,19 +114,29 @@ public final class TopicRuleTimestream {
         public Builder dimensions(TopicRuleTimestreamDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             this.tableName = Objects.requireNonNull(tableName);
             return this;
         }
+        @CustomType.Setter
         public Builder timestamp(@Nullable TopicRuleTimestreamTimestamp timestamp) {
             this.timestamp = timestamp;
             return this;
-        }        public TopicRuleTimestream build() {
-            return new TopicRuleTimestream(databaseName, dimensions, roleArn, tableName, timestamp);
+        }
+        public TopicRuleTimestream build() {
+            final var o = new TopicRuleTimestream();
+            o.databaseName = databaseName;
+            o.dimensions = dimensions;
+            o.roleArn = roleArn;
+            o.tableName = tableName;
+            o.timestamp = timestamp;
+            return o;
         }
     }
 }

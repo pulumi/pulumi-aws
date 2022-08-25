@@ -13,21 +13,14 @@ public final class SnapshotImportDiskContainerUserBucket {
      * @return The name of the Amazon S3 bucket where the disk image is located.
      * 
      */
-    private final String s3Bucket;
+    private String s3Bucket;
     /**
      * @return The file name of the disk image.
      * 
      */
-    private final String s3Key;
+    private String s3Key;
 
-    @CustomType.Constructor
-    private SnapshotImportDiskContainerUserBucket(
-        @CustomType.Parameter("s3Bucket") String s3Bucket,
-        @CustomType.Parameter("s3Key") String s3Key) {
-        this.s3Bucket = s3Bucket;
-        this.s3Key = s3Key;
-    }
-
+    private SnapshotImportDiskContainerUserBucket() {}
     /**
      * @return The name of the Amazon S3 bucket where the disk image is located.
      * 
@@ -50,30 +43,32 @@ public final class SnapshotImportDiskContainerUserBucket {
     public static Builder builder(SnapshotImportDiskContainerUserBucket defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String s3Bucket;
         private String s3Key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SnapshotImportDiskContainerUserBucket defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Bucket = defaults.s3Bucket;
     	      this.s3Key = defaults.s3Key;
         }
 
+        @CustomType.Setter
         public Builder s3Bucket(String s3Bucket) {
             this.s3Bucket = Objects.requireNonNull(s3Bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder s3Key(String s3Key) {
             this.s3Key = Objects.requireNonNull(s3Key);
             return this;
-        }        public SnapshotImportDiskContainerUserBucket build() {
-            return new SnapshotImportDiskContainerUserBucket(s3Bucket, s3Key);
+        }
+        public SnapshotImportDiskContainerUserBucket build() {
+            final var o = new SnapshotImportDiskContainerUserBucket();
+            o.s3Bucket = s3Bucket;
+            o.s3Key = s3Key;
+            return o;
         }
     }
 }

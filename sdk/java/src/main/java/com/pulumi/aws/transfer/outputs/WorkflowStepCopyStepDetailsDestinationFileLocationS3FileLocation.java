@@ -15,21 +15,14 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
      * @return Specifies the S3 bucket for the customer input file.
      * 
      */
-    private final @Nullable String bucket;
+    private @Nullable String bucket;
     /**
      * @return The name assigned to the tag that you create.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
 
-    @CustomType.Constructor
-    private WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation(
-        @CustomType.Parameter("bucket") @Nullable String bucket,
-        @CustomType.Parameter("key") @Nullable String key) {
-        this.bucket = bucket;
-        this.key = key;
-    }
-
+    private WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation() {}
     /**
      * @return Specifies the S3 bucket for the customer input file.
      * 
@@ -52,30 +45,32 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
     public static Builder builder(WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucket;
         private @Nullable String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
             this.bucket = bucket;
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
-        }        public WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation build() {
-            return new WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation(bucket, key);
+        }
+        public WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation build() {
+            final var o = new WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation();
+            o.bucket = bucket;
+            o.key = key;
+            return o;
         }
     }
 }

@@ -17,60 +17,35 @@ public final class GetNatGatewayResult {
      * @return The Id of the EIP allocated to the selected Nat Gateway.
      * 
      */
-    private final String allocationId;
+    private String allocationId;
     /**
      * @return The connectivity type of the NAT Gateway.
      * 
      */
-    private final String connectivityType;
-    private final @Nullable List<GetNatGatewayFilter> filters;
-    private final String id;
+    private String connectivityType;
+    private @Nullable List<GetNatGatewayFilter> filters;
+    private String id;
     /**
      * @return The Id of the ENI allocated to the selected Nat Gateway.
      * 
      */
-    private final String networkInterfaceId;
+    private String networkInterfaceId;
     /**
      * @return The private Ip address of the selected Nat Gateway.
      * 
      */
-    private final String privateIp;
+    private String privateIp;
     /**
      * @return The public Ip (EIP) address of the selected Nat Gateway.
      * 
      */
-    private final String publicIp;
-    private final String state;
-    private final String subnetId;
-    private final Map<String,String> tags;
-    private final String vpcId;
+    private String publicIp;
+    private String state;
+    private String subnetId;
+    private Map<String,String> tags;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetNatGatewayResult(
-        @CustomType.Parameter("allocationId") String allocationId,
-        @CustomType.Parameter("connectivityType") String connectivityType,
-        @CustomType.Parameter("filters") @Nullable List<GetNatGatewayFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("networkInterfaceId") String networkInterfaceId,
-        @CustomType.Parameter("privateIp") String privateIp,
-        @CustomType.Parameter("publicIp") String publicIp,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.allocationId = allocationId;
-        this.connectivityType = connectivityType;
-        this.filters = filters;
-        this.id = id;
-        this.networkInterfaceId = networkInterfaceId;
-        this.privateIp = privateIp;
-        this.publicIp = publicIp;
-        this.state = state;
-        this.subnetId = subnetId;
-        this.tags = tags;
-        this.vpcId = vpcId;
-    }
-
+    private GetNatGatewayResult() {}
     /**
      * @return The Id of the EIP allocated to the selected Nat Gateway.
      * 
@@ -132,7 +107,7 @@ public final class GetNatGatewayResult {
     public static Builder builder(GetNatGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String allocationId;
         private String connectivityType;
@@ -145,11 +120,7 @@ public final class GetNatGatewayResult {
         private String subnetId;
         private Map<String,String> tags;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNatGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationId = defaults.allocationId;
@@ -165,14 +136,17 @@ public final class GetNatGatewayResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder allocationId(String allocationId) {
             this.allocationId = Objects.requireNonNull(allocationId);
             return this;
         }
+        @CustomType.Setter
         public Builder connectivityType(String connectivityType) {
             this.connectivityType = Objects.requireNonNull(connectivityType);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetNatGatewayFilter> filters) {
             this.filters = filters;
             return this;
@@ -180,39 +154,60 @@ public final class GetNatGatewayResult {
         public Builder filters(GetNatGatewayFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
             this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIp(String privateIp) {
             this.privateIp = Objects.requireNonNull(privateIp);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIp(String publicIp) {
             this.publicIp = Objects.requireNonNull(publicIp);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetNatGatewayResult build() {
-            return new GetNatGatewayResult(allocationId, connectivityType, filters, id, networkInterfaceId, privateIp, publicIp, state, subnetId, tags, vpcId);
+        }
+        public GetNatGatewayResult build() {
+            final var o = new GetNatGatewayResult();
+            o.allocationId = allocationId;
+            o.connectivityType = connectivityType;
+            o.filters = filters;
+            o.id = id;
+            o.networkInterfaceId = networkInterfaceId;
+            o.privateIp = privateIp;
+            o.publicIp = publicIp;
+            o.state = state;
+            o.subnetId = subnetId;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class CostCategorySplitChargeRuleParameter {
      * @return Parameter type.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Parameter values.
      * 
      */
-    private final @Nullable List<String> values;
+    private @Nullable List<String> values;
 
-    @CustomType.Constructor
-    private CostCategorySplitChargeRuleParameter(
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("values") @Nullable List<String> values) {
-        this.type = type;
-        this.values = values;
-    }
-
+    private CostCategorySplitChargeRuleParameter() {}
     /**
      * @return Parameter type.
      * 
@@ -53,33 +46,35 @@ public final class CostCategorySplitChargeRuleParameter {
     public static Builder builder(CostCategorySplitChargeRuleParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String type;
         private @Nullable List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CostCategorySplitChargeRuleParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public CostCategorySplitChargeRuleParameter build() {
-            return new CostCategorySplitChargeRuleParameter(type, values);
+        }
+        public CostCategorySplitChargeRuleParameter build() {
+            final var o = new CostCategorySplitChargeRuleParameter();
+            o.type = type;
+            o.values = values;
+            return o;
         }
     }
 }

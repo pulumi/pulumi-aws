@@ -16,40 +16,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentResult {
-    private final @Nullable List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies;
-    private final List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations;
+    private @Nullable List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies;
+    private List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Standard JSON policy document rendered based on the arguments above.
      * 
      */
-    private final String json;
-    private final @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
-    private final List<GetCoreNetworkPolicyDocumentSegment> segments;
-    private final @Nullable String version;
+    private String json;
+    private @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
+    private List<GetCoreNetworkPolicyDocumentSegment> segments;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private GetCoreNetworkPolicyDocumentResult(
-        @CustomType.Parameter("attachmentPolicies") @Nullable List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies,
-        @CustomType.Parameter("coreNetworkConfigurations") List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("json") String json,
-        @CustomType.Parameter("segmentActions") @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions,
-        @CustomType.Parameter("segments") List<GetCoreNetworkPolicyDocumentSegment> segments,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.attachmentPolicies = attachmentPolicies;
-        this.coreNetworkConfigurations = coreNetworkConfigurations;
-        this.id = id;
-        this.json = json;
-        this.segmentActions = segmentActions;
-        this.segments = segments;
-        this.version = version;
-    }
-
+    private GetCoreNetworkPolicyDocumentResult() {}
     public List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies() {
         return this.attachmentPolicies == null ? List.of() : this.attachmentPolicies;
     }
@@ -87,7 +70,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
     public static Builder builder(GetCoreNetworkPolicyDocumentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies;
         private List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations;
@@ -96,11 +79,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
         private @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
         private List<GetCoreNetworkPolicyDocumentSegment> segments;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attachmentPolicies = defaults.attachmentPolicies;
@@ -112,6 +91,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder attachmentPolicies(@Nullable List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies) {
             this.attachmentPolicies = attachmentPolicies;
             return this;
@@ -119,6 +99,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
         public Builder attachmentPolicies(GetCoreNetworkPolicyDocumentAttachmentPolicy... attachmentPolicies) {
             return attachmentPolicies(List.of(attachmentPolicies));
         }
+        @CustomType.Setter
         public Builder coreNetworkConfigurations(List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations) {
             this.coreNetworkConfigurations = Objects.requireNonNull(coreNetworkConfigurations);
             return this;
@@ -126,14 +107,17 @@ public final class GetCoreNetworkPolicyDocumentResult {
         public Builder coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfiguration... coreNetworkConfigurations) {
             return coreNetworkConfigurations(List.of(coreNetworkConfigurations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder json(String json) {
             this.json = Objects.requireNonNull(json);
             return this;
         }
+        @CustomType.Setter
         public Builder segmentActions(@Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions) {
             this.segmentActions = segmentActions;
             return this;
@@ -141,6 +125,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
         public Builder segmentActions(GetCoreNetworkPolicyDocumentSegmentAction... segmentActions) {
             return segmentActions(List.of(segmentActions));
         }
+        @CustomType.Setter
         public Builder segments(List<GetCoreNetworkPolicyDocumentSegment> segments) {
             this.segments = Objects.requireNonNull(segments);
             return this;
@@ -148,11 +133,21 @@ public final class GetCoreNetworkPolicyDocumentResult {
         public Builder segments(GetCoreNetworkPolicyDocumentSegment... segments) {
             return segments(List.of(segments));
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public GetCoreNetworkPolicyDocumentResult build() {
-            return new GetCoreNetworkPolicyDocumentResult(attachmentPolicies, coreNetworkConfigurations, id, json, segmentActions, segments, version);
+        }
+        public GetCoreNetworkPolicyDocumentResult build() {
+            final var o = new GetCoreNetworkPolicyDocumentResult();
+            o.attachmentPolicies = attachmentPolicies;
+            o.coreNetworkConfigurations = coreNetworkConfigurations;
+            o.id = id;
+            o.json = json;
+            o.segmentActions = segmentActions;
+            o.segments = segments;
+            o.version = version;
+            return o;
         }
     }
 }

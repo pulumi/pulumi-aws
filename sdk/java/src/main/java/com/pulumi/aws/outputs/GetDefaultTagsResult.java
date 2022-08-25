@@ -14,21 +14,14 @@ public final class GetDefaultTagsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Blocks of default tags set on the provider. See details below.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDefaultTagsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.tags = tags;
-    }
-
+    private GetDefaultTagsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -51,30 +44,32 @@ public final class GetDefaultTagsResult {
     public static Builder builder(GetDefaultTagsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDefaultTagsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetDefaultTagsResult build() {
-            return new GetDefaultTagsResult(id, tags);
+        }
+        public GetDefaultTagsResult build() {
+            final var o = new GetDefaultTagsResult();
+            o.id = id;
+            o.tags = tags;
+            return o;
         }
     }
 }

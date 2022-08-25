@@ -14,24 +14,15 @@ public final class OpenZfsVolumeUserAndGroupQuota {
      * @return - The ID of the user or group. Valid values between `0` and `2147483647`
      * 
      */
-    private final Integer id;
+    private Integer id;
     /**
      * @return - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
      * 
      */
-    private final Integer storageCapacityQuotaGib;
-    private final String type;
+    private Integer storageCapacityQuotaGib;
+    private String type;
 
-    @CustomType.Constructor
-    private OpenZfsVolumeUserAndGroupQuota(
-        @CustomType.Parameter("id") Integer id,
-        @CustomType.Parameter("storageCapacityQuotaGib") Integer storageCapacityQuotaGib,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.storageCapacityQuotaGib = storageCapacityQuotaGib;
-        this.type = type;
-    }
-
+    private OpenZfsVolumeUserAndGroupQuota() {}
     /**
      * @return - The ID of the user or group. Valid values between `0` and `2147483647`
      * 
@@ -57,16 +48,12 @@ public final class OpenZfsVolumeUserAndGroupQuota {
     public static Builder builder(OpenZfsVolumeUserAndGroupQuota defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer id;
         private Integer storageCapacityQuotaGib;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OpenZfsVolumeUserAndGroupQuota defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -74,19 +61,27 @@ public final class OpenZfsVolumeUserAndGroupQuota {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(Integer id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder storageCapacityQuotaGib(Integer storageCapacityQuotaGib) {
             this.storageCapacityQuotaGib = Objects.requireNonNull(storageCapacityQuotaGib);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public OpenZfsVolumeUserAndGroupQuota build() {
-            return new OpenZfsVolumeUserAndGroupQuota(id, storageCapacityQuotaGib, type);
+        }
+        public OpenZfsVolumeUserAndGroupQuota build() {
+            final var o = new OpenZfsVolumeUserAndGroupQuota();
+            o.id = id;
+            o.storageCapacityQuotaGib = storageCapacityQuotaGib;
+            o.type = type;
+            return o;
         }
     }
 }

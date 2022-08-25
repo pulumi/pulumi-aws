@@ -17,56 +17,39 @@ public final class GetCoreNetworkPolicyDocumentSegment {
      * @return List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
      * 
      */
-    private final @Nullable List<String> allowFilters;
+    private @Nullable List<String> allowFilters;
     /**
      * @return An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment_actions`. If a segment is listed in the `deny_filter`, attachments between the two segments will never have routes shared across them. For example, you might have a &#34;financial&#34; payment segment that should never share routes with a &#34;development&#34; segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
      * 
      */
-    private final @Nullable List<String> denyFilters;
+    private @Nullable List<String> denyFilters;
     /**
      * @return A user-defined string describing the segment action.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
      * 
      */
-    private final @Nullable List<String> edgeLocations;
+    private @Nullable List<String> edgeLocations;
     /**
      * @return This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to &#34;development&#34; that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
      * 
      */
-    private final @Nullable Boolean isolateAttachments;
+    private @Nullable Boolean isolateAttachments;
     /**
      * @return A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a &#34;sandbox&#34; segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `require_attachment_acceptance` is set to `false`.
      * 
      */
-    private final @Nullable Boolean requireAttachmentAcceptance;
+    private @Nullable Boolean requireAttachmentAcceptance;
 
-    @CustomType.Constructor
-    private GetCoreNetworkPolicyDocumentSegment(
-        @CustomType.Parameter("allowFilters") @Nullable List<String> allowFilters,
-        @CustomType.Parameter("denyFilters") @Nullable List<String> denyFilters,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("edgeLocations") @Nullable List<String> edgeLocations,
-        @CustomType.Parameter("isolateAttachments") @Nullable Boolean isolateAttachments,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("requireAttachmentAcceptance") @Nullable Boolean requireAttachmentAcceptance) {
-        this.allowFilters = allowFilters;
-        this.denyFilters = denyFilters;
-        this.description = description;
-        this.edgeLocations = edgeLocations;
-        this.isolateAttachments = isolateAttachments;
-        this.name = name;
-        this.requireAttachmentAcceptance = requireAttachmentAcceptance;
-    }
-
+    private GetCoreNetworkPolicyDocumentSegment() {}
     /**
      * @return List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
      * 
@@ -124,7 +107,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
     public static Builder builder(GetCoreNetworkPolicyDocumentSegment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> allowFilters;
         private @Nullable List<String> denyFilters;
@@ -133,11 +116,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
         private @Nullable Boolean isolateAttachments;
         private String name;
         private @Nullable Boolean requireAttachmentAcceptance;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentSegment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowFilters = defaults.allowFilters;
@@ -149,6 +128,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
     	      this.requireAttachmentAcceptance = defaults.requireAttachmentAcceptance;
         }
 
+        @CustomType.Setter
         public Builder allowFilters(@Nullable List<String> allowFilters) {
             this.allowFilters = allowFilters;
             return this;
@@ -156,6 +136,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
         public Builder allowFilters(String... allowFilters) {
             return allowFilters(List.of(allowFilters));
         }
+        @CustomType.Setter
         public Builder denyFilters(@Nullable List<String> denyFilters) {
             this.denyFilters = denyFilters;
             return this;
@@ -163,10 +144,12 @@ public final class GetCoreNetworkPolicyDocumentSegment {
         public Builder denyFilters(String... denyFilters) {
             return denyFilters(List.of(denyFilters));
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder edgeLocations(@Nullable List<String> edgeLocations) {
             this.edgeLocations = edgeLocations;
             return this;
@@ -174,19 +157,31 @@ public final class GetCoreNetworkPolicyDocumentSegment {
         public Builder edgeLocations(String... edgeLocations) {
             return edgeLocations(List.of(edgeLocations));
         }
+        @CustomType.Setter
         public Builder isolateAttachments(@Nullable Boolean isolateAttachments) {
             this.isolateAttachments = isolateAttachments;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder requireAttachmentAcceptance(@Nullable Boolean requireAttachmentAcceptance) {
             this.requireAttachmentAcceptance = requireAttachmentAcceptance;
             return this;
-        }        public GetCoreNetworkPolicyDocumentSegment build() {
-            return new GetCoreNetworkPolicyDocumentSegment(allowFilters, denyFilters, description, edgeLocations, isolateAttachments, name, requireAttachmentAcceptance);
+        }
+        public GetCoreNetworkPolicyDocumentSegment build() {
+            final var o = new GetCoreNetworkPolicyDocumentSegment();
+            o.allowFilters = allowFilters;
+            o.denyFilters = denyFilters;
+            o.description = description;
+            o.edgeLocations = edgeLocations;
+            o.isolateAttachments = isolateAttachments;
+            o.name = name;
+            o.requireAttachmentAcceptance = requireAttachmentAcceptance;
+            return o;
         }
     }
 }

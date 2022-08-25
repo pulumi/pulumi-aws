@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class RegistryScanningConfigurationRuleRepositoryFilter {
-    private final String filter;
-    private final String filterType;
+    private String filter;
+    private String filterType;
 
-    @CustomType.Constructor
-    private RegistryScanningConfigurationRuleRepositoryFilter(
-        @CustomType.Parameter("filter") String filter,
-        @CustomType.Parameter("filterType") String filterType) {
-        this.filter = filter;
-        this.filterType = filterType;
-    }
-
+    private RegistryScanningConfigurationRuleRepositoryFilter() {}
     public String filter() {
         return this.filter;
     }
@@ -34,30 +27,32 @@ public final class RegistryScanningConfigurationRuleRepositoryFilter {
     public static Builder builder(RegistryScanningConfigurationRuleRepositoryFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String filter;
         private String filterType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryScanningConfigurationRuleRepositoryFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filter = defaults.filter;
     	      this.filterType = defaults.filterType;
         }
 
+        @CustomType.Setter
         public Builder filter(String filter) {
             this.filter = Objects.requireNonNull(filter);
             return this;
         }
+        @CustomType.Setter
         public Builder filterType(String filterType) {
             this.filterType = Objects.requireNonNull(filterType);
             return this;
-        }        public RegistryScanningConfigurationRuleRepositoryFilter build() {
-            return new RegistryScanningConfigurationRuleRepositoryFilter(filter, filterType);
+        }
+        public RegistryScanningConfigurationRuleRepositoryFilter build() {
+            final var o = new RegistryScanningConfigurationRuleRepositoryFilter();
+            o.filter = filter;
+            o.filterType = filterType;
+            return o;
         }
     }
 }

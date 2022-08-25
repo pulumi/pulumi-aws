@@ -15,28 +15,19 @@ public final class WindowsFileSystemAuditLogConfiguration {
      * @return The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
      * 
      */
-    private final @Nullable String auditLogDestination;
+    private @Nullable String auditLogDestination;
     /**
      * @return Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
      * 
      */
-    private final @Nullable String fileAccessAuditLogLevel;
+    private @Nullable String fileAccessAuditLogLevel;
     /**
      * @return Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
      * 
      */
-    private final @Nullable String fileShareAccessAuditLogLevel;
+    private @Nullable String fileShareAccessAuditLogLevel;
 
-    @CustomType.Constructor
-    private WindowsFileSystemAuditLogConfiguration(
-        @CustomType.Parameter("auditLogDestination") @Nullable String auditLogDestination,
-        @CustomType.Parameter("fileAccessAuditLogLevel") @Nullable String fileAccessAuditLogLevel,
-        @CustomType.Parameter("fileShareAccessAuditLogLevel") @Nullable String fileShareAccessAuditLogLevel) {
-        this.auditLogDestination = auditLogDestination;
-        this.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
-        this.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
-    }
-
+    private WindowsFileSystemAuditLogConfiguration() {}
     /**
      * @return The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
      * 
@@ -66,16 +57,12 @@ public final class WindowsFileSystemAuditLogConfiguration {
     public static Builder builder(WindowsFileSystemAuditLogConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String auditLogDestination;
         private @Nullable String fileAccessAuditLogLevel;
         private @Nullable String fileShareAccessAuditLogLevel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsFileSystemAuditLogConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auditLogDestination = defaults.auditLogDestination;
@@ -83,19 +70,27 @@ public final class WindowsFileSystemAuditLogConfiguration {
     	      this.fileShareAccessAuditLogLevel = defaults.fileShareAccessAuditLogLevel;
         }
 
+        @CustomType.Setter
         public Builder auditLogDestination(@Nullable String auditLogDestination) {
             this.auditLogDestination = auditLogDestination;
             return this;
         }
+        @CustomType.Setter
         public Builder fileAccessAuditLogLevel(@Nullable String fileAccessAuditLogLevel) {
             this.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder fileShareAccessAuditLogLevel(@Nullable String fileShareAccessAuditLogLevel) {
             this.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
             return this;
-        }        public WindowsFileSystemAuditLogConfiguration build() {
-            return new WindowsFileSystemAuditLogConfiguration(auditLogDestination, fileAccessAuditLogLevel, fileShareAccessAuditLogLevel);
+        }
+        public WindowsFileSystemAuditLogConfiguration build() {
+            final var o = new WindowsFileSystemAuditLogConfiguration();
+            o.auditLogDestination = auditLogDestination;
+            o.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
+            o.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
+            return o;
         }
     }
 }

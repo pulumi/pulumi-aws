@@ -16,21 +16,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The SAPOData basic authentication credentials.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials;
     /**
      * @return The SAPOData OAuth type authentication credentials.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData(
-        @CustomType.Parameter("basicAuthCredentials") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials,
-        @CustomType.Parameter("oauthCredentials") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials) {
-        this.basicAuthCredentials = basicAuthCredentials;
-        this.oauthCredentials = oauthCredentials;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData() {}
     /**
      * @return The SAPOData basic authentication credentials.
      * 
@@ -53,30 +46,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.basicAuthCredentials = defaults.basicAuthCredentials;
     	      this.oauthCredentials = defaults.oauthCredentials;
         }
 
+        @CustomType.Setter
         public Builder basicAuthCredentials(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials) {
             this.basicAuthCredentials = basicAuthCredentials;
             return this;
         }
+        @CustomType.Setter
         public Builder oauthCredentials(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials) {
             this.oauthCredentials = oauthCredentials;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData(basicAuthCredentials, oauthCredentials);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData();
+            o.basicAuthCredentials = basicAuthCredentials;
+            o.oauthCredentials = oauthCredentials;
+            return o;
         }
     }
 }

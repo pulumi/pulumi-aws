@@ -15,28 +15,19 @@ public final class DeviceDevice {
      * @return A description for the device.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The name of the device.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return Amazon Web Services Internet of Things (IoT) object name.
      * 
      */
-    private final @Nullable String iotThingName;
+    private @Nullable String iotThingName;
 
-    @CustomType.Constructor
-    private DeviceDevice(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("iotThingName") @Nullable String iotThingName) {
-        this.description = description;
-        this.deviceName = deviceName;
-        this.iotThingName = iotThingName;
-    }
-
+    private DeviceDevice() {}
     /**
      * @return A description for the device.
      * 
@@ -66,16 +57,12 @@ public final class DeviceDevice {
     public static Builder builder(DeviceDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String deviceName;
         private @Nullable String iotThingName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeviceDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -83,19 +70,27 @@ public final class DeviceDevice {
     	      this.iotThingName = defaults.iotThingName;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder iotThingName(@Nullable String iotThingName) {
             this.iotThingName = iotThingName;
             return this;
-        }        public DeviceDevice build() {
-            return new DeviceDevice(description, deviceName, iotThingName);
+        }
+        public DeviceDevice build() {
+            final var o = new DeviceDevice();
+            o.description = description;
+            o.deviceName = deviceName;
+            o.iotThingName = iotThingName;
+            return o;
         }
     }
 }

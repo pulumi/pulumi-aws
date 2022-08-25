@@ -16,24 +16,15 @@ public final class CatalogTablePartitionIndex {
      * @return Name of the partition index.
      * 
      */
-    private final String indexName;
-    private final @Nullable String indexStatus;
+    private String indexName;
+    private @Nullable String indexStatus;
     /**
      * @return Keys for the partition index.
      * 
      */
-    private final List<String> keys;
+    private List<String> keys;
 
-    @CustomType.Constructor
-    private CatalogTablePartitionIndex(
-        @CustomType.Parameter("indexName") String indexName,
-        @CustomType.Parameter("indexStatus") @Nullable String indexStatus,
-        @CustomType.Parameter("keys") List<String> keys) {
-        this.indexName = indexName;
-        this.indexStatus = indexStatus;
-        this.keys = keys;
-    }
-
+    private CatalogTablePartitionIndex() {}
     /**
      * @return Name of the partition index.
      * 
@@ -59,16 +50,12 @@ public final class CatalogTablePartitionIndex {
     public static Builder builder(CatalogTablePartitionIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String indexName;
         private @Nullable String indexStatus;
         private List<String> keys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogTablePartitionIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.indexName = defaults.indexName;
@@ -76,22 +63,30 @@ public final class CatalogTablePartitionIndex {
     	      this.keys = defaults.keys;
         }
 
+        @CustomType.Setter
         public Builder indexName(String indexName) {
             this.indexName = Objects.requireNonNull(indexName);
             return this;
         }
+        @CustomType.Setter
         public Builder indexStatus(@Nullable String indexStatus) {
             this.indexStatus = indexStatus;
             return this;
         }
+        @CustomType.Setter
         public Builder keys(List<String> keys) {
             this.keys = Objects.requireNonNull(keys);
             return this;
         }
         public Builder keys(String... keys) {
             return keys(List.of(keys));
-        }        public CatalogTablePartitionIndex build() {
-            return new CatalogTablePartitionIndex(indexName, indexStatus, keys);
+        }
+        public CatalogTablePartitionIndex build() {
+            final var o = new CatalogTablePartitionIndex();
+            o.indexName = indexName;
+            o.indexStatus = indexStatus;
+            o.keys = keys;
+            return o;
         }
     }
 }

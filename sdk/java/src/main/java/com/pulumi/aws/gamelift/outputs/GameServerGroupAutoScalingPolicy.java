@@ -19,17 +19,10 @@ public final class GameServerGroupAutoScalingPolicy {
      * because it avoids prematurely starting new instances. Defaults to `60`.
      * 
      */
-    private final @Nullable Integer estimatedInstanceWarmup;
-    private final GameServerGroupAutoScalingPolicyTargetTrackingConfiguration targetTrackingConfiguration;
+    private @Nullable Integer estimatedInstanceWarmup;
+    private GameServerGroupAutoScalingPolicyTargetTrackingConfiguration targetTrackingConfiguration;
 
-    @CustomType.Constructor
-    private GameServerGroupAutoScalingPolicy(
-        @CustomType.Parameter("estimatedInstanceWarmup") @Nullable Integer estimatedInstanceWarmup,
-        @CustomType.Parameter("targetTrackingConfiguration") GameServerGroupAutoScalingPolicyTargetTrackingConfiguration targetTrackingConfiguration) {
-        this.estimatedInstanceWarmup = estimatedInstanceWarmup;
-        this.targetTrackingConfiguration = targetTrackingConfiguration;
-    }
-
+    private GameServerGroupAutoScalingPolicy() {}
     /**
      * @return Length of time, in seconds, it takes for a new instance to start
      * new game server processes and register with GameLift FleetIQ.
@@ -51,30 +44,32 @@ public final class GameServerGroupAutoScalingPolicy {
     public static Builder builder(GameServerGroupAutoScalingPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer estimatedInstanceWarmup;
         private GameServerGroupAutoScalingPolicyTargetTrackingConfiguration targetTrackingConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GameServerGroupAutoScalingPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.estimatedInstanceWarmup = defaults.estimatedInstanceWarmup;
     	      this.targetTrackingConfiguration = defaults.targetTrackingConfiguration;
         }
 
+        @CustomType.Setter
         public Builder estimatedInstanceWarmup(@Nullable Integer estimatedInstanceWarmup) {
             this.estimatedInstanceWarmup = estimatedInstanceWarmup;
             return this;
         }
+        @CustomType.Setter
         public Builder targetTrackingConfiguration(GameServerGroupAutoScalingPolicyTargetTrackingConfiguration targetTrackingConfiguration) {
             this.targetTrackingConfiguration = Objects.requireNonNull(targetTrackingConfiguration);
             return this;
-        }        public GameServerGroupAutoScalingPolicy build() {
-            return new GameServerGroupAutoScalingPolicy(estimatedInstanceWarmup, targetTrackingConfiguration);
+        }
+        public GameServerGroupAutoScalingPolicy build() {
+            final var o = new GameServerGroupAutoScalingPolicy();
+            o.estimatedInstanceWarmup = estimatedInstanceWarmup;
+            o.targetTrackingConfiguration = targetTrackingConfiguration;
+            return o;
         }
     }
 }

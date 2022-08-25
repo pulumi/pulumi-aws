@@ -14,13 +14,9 @@ public final class GetDomainNameEndpointConfiguration {
      * @return List of endpoint types.
      * 
      */
-    private final List<String> types;
+    private List<String> types;
 
-    @CustomType.Constructor
-    private GetDomainNameEndpointConfiguration(@CustomType.Parameter("types") List<String> types) {
-        this.types = types;
-    }
-
+    private GetDomainNameEndpointConfiguration() {}
     /**
      * @return List of endpoint types.
      * 
@@ -36,27 +32,27 @@ public final class GetDomainNameEndpointConfiguration {
     public static Builder builder(GetDomainNameEndpointConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> types;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainNameEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.types = defaults.types;
         }
 
+        @CustomType.Setter
         public Builder types(List<String> types) {
             this.types = Objects.requireNonNull(types);
             return this;
         }
         public Builder types(String... types) {
             return types(List.of(types));
-        }        public GetDomainNameEndpointConfiguration build() {
-            return new GetDomainNameEndpointConfiguration(types);
+        }
+        public GetDomainNameEndpointConfiguration build() {
+            final var o = new GetDomainNameEndpointConfiguration();
+            o.types = types;
+            return o;
         }
     }
 }

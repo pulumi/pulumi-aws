@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateMaintenanceOption {
-    private final String autoRecovery;
+    private String autoRecovery;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateMaintenanceOption(@CustomType.Parameter("autoRecovery") String autoRecovery) {
-        this.autoRecovery = autoRecovery;
-    }
-
+    private GetLaunchTemplateMaintenanceOption() {}
     public String autoRecovery() {
         return this.autoRecovery;
     }
@@ -27,24 +23,24 @@ public final class GetLaunchTemplateMaintenanceOption {
     public static Builder builder(GetLaunchTemplateMaintenanceOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String autoRecovery;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateMaintenanceOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRecovery = defaults.autoRecovery;
         }
 
+        @CustomType.Setter
         public Builder autoRecovery(String autoRecovery) {
             this.autoRecovery = Objects.requireNonNull(autoRecovery);
             return this;
-        }        public GetLaunchTemplateMaintenanceOption build() {
-            return new GetLaunchTemplateMaintenanceOption(autoRecovery);
+        }
+        public GetLaunchTemplateMaintenanceOption build() {
+            final var o = new GetLaunchTemplateMaintenanceOption();
+            o.autoRecovery = autoRecovery;
+            return o;
         }
     }
 }

@@ -17,21 +17,14 @@ public final class NodeGroupResource {
      * @return List of objects containing information about AutoScaling Groups.
      * 
      */
-    private final @Nullable List<NodeGroupResourceAutoscalingGroup> autoscalingGroups;
+    private @Nullable List<NodeGroupResourceAutoscalingGroup> autoscalingGroups;
     /**
      * @return Identifier of the remote access EC2 Security Group.
      * 
      */
-    private final @Nullable String remoteAccessSecurityGroupId;
+    private @Nullable String remoteAccessSecurityGroupId;
 
-    @CustomType.Constructor
-    private NodeGroupResource(
-        @CustomType.Parameter("autoscalingGroups") @Nullable List<NodeGroupResourceAutoscalingGroup> autoscalingGroups,
-        @CustomType.Parameter("remoteAccessSecurityGroupId") @Nullable String remoteAccessSecurityGroupId) {
-        this.autoscalingGroups = autoscalingGroups;
-        this.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
-    }
-
+    private NodeGroupResource() {}
     /**
      * @return List of objects containing information about AutoScaling Groups.
      * 
@@ -54,21 +47,18 @@ public final class NodeGroupResource {
     public static Builder builder(NodeGroupResource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<NodeGroupResourceAutoscalingGroup> autoscalingGroups;
         private @Nullable String remoteAccessSecurityGroupId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NodeGroupResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoscalingGroups = defaults.autoscalingGroups;
     	      this.remoteAccessSecurityGroupId = defaults.remoteAccessSecurityGroupId;
         }
 
+        @CustomType.Setter
         public Builder autoscalingGroups(@Nullable List<NodeGroupResourceAutoscalingGroup> autoscalingGroups) {
             this.autoscalingGroups = autoscalingGroups;
             return this;
@@ -76,11 +66,16 @@ public final class NodeGroupResource {
         public Builder autoscalingGroups(NodeGroupResourceAutoscalingGroup... autoscalingGroups) {
             return autoscalingGroups(List.of(autoscalingGroups));
         }
+        @CustomType.Setter
         public Builder remoteAccessSecurityGroupId(@Nullable String remoteAccessSecurityGroupId) {
             this.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
             return this;
-        }        public NodeGroupResource build() {
-            return new NodeGroupResource(autoscalingGroups, remoteAccessSecurityGroupId);
+        }
+        public NodeGroupResource build() {
+            final var o = new NodeGroupResource();
+            o.autoscalingGroups = autoscalingGroups;
+            o.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
+            return o;
         }
     }
 }

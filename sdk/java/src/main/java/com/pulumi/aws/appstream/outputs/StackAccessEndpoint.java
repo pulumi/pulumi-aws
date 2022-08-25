@@ -15,21 +15,14 @@ public final class StackAccessEndpoint {
      * @return The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
      * 
      */
-    private final String endpointType;
+    private String endpointType;
     /**
      * @return The ID of the VPC in which the interface endpoint is used.
      * 
      */
-    private final @Nullable String vpceId;
+    private @Nullable String vpceId;
 
-    @CustomType.Constructor
-    private StackAccessEndpoint(
-        @CustomType.Parameter("endpointType") String endpointType,
-        @CustomType.Parameter("vpceId") @Nullable String vpceId) {
-        this.endpointType = endpointType;
-        this.vpceId = vpceId;
-    }
-
+    private StackAccessEndpoint() {}
     /**
      * @return The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
      * 
@@ -52,30 +45,32 @@ public final class StackAccessEndpoint {
     public static Builder builder(StackAccessEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpointType;
         private @Nullable String vpceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StackAccessEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointType = defaults.endpointType;
     	      this.vpceId = defaults.vpceId;
         }
 
+        @CustomType.Setter
         public Builder endpointType(String endpointType) {
             this.endpointType = Objects.requireNonNull(endpointType);
             return this;
         }
+        @CustomType.Setter
         public Builder vpceId(@Nullable String vpceId) {
             this.vpceId = vpceId;
             return this;
-        }        public StackAccessEndpoint build() {
-            return new StackAccessEndpoint(endpointType, vpceId);
+        }
+        public StackAccessEndpoint build() {
+            final var o = new StackAccessEndpoint();
+            o.endpointType = endpointType;
+            o.vpceId = vpceId;
+            return o;
         }
     }
 }

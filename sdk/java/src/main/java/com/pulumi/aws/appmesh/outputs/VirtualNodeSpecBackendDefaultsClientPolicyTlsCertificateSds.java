@@ -13,13 +13,9 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
      * @return The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
-    private final String secretName;
+    private String secretName;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(@CustomType.Parameter("secretName") String secretName) {
-        this.secretName = secretName;
-    }
-
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds() {}
     /**
      * @return The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
     public static Builder builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String secretName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretName = defaults.secretName;
         }
 
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
-        }        public VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds build() {
-            return new VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(secretName);
+        }
+        public VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds build() {
+            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds();
+            o.secretName = secretName;
+            return o;
         }
     }
 }

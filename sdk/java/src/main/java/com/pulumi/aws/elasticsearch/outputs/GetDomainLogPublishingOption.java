@@ -14,28 +14,19 @@ public final class GetDomainLogPublishingOption {
      * @return The CloudWatch Log Group where the logs are published.
      * 
      */
-    private final String cloudwatchLogGroupArn;
+    private String cloudwatchLogGroupArn;
     /**
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The type of Elasticsearch log being published.
      * 
      */
-    private final String logType;
+    private String logType;
 
-    @CustomType.Constructor
-    private GetDomainLogPublishingOption(
-        @CustomType.Parameter("cloudwatchLogGroupArn") String cloudwatchLogGroupArn,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("logType") String logType) {
-        this.cloudwatchLogGroupArn = cloudwatchLogGroupArn;
-        this.enabled = enabled;
-        this.logType = logType;
-    }
-
+    private GetDomainLogPublishingOption() {}
     /**
      * @return The CloudWatch Log Group where the logs are published.
      * 
@@ -65,16 +56,12 @@ public final class GetDomainLogPublishingOption {
     public static Builder builder(GetDomainLogPublishingOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cloudwatchLogGroupArn;
         private Boolean enabled;
         private String logType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainLogPublishingOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogGroupArn = defaults.cloudwatchLogGroupArn;
@@ -82,19 +69,27 @@ public final class GetDomainLogPublishingOption {
     	      this.logType = defaults.logType;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLogGroupArn(String cloudwatchLogGroupArn) {
             this.cloudwatchLogGroupArn = Objects.requireNonNull(cloudwatchLogGroupArn);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder logType(String logType) {
             this.logType = Objects.requireNonNull(logType);
             return this;
-        }        public GetDomainLogPublishingOption build() {
-            return new GetDomainLogPublishingOption(cloudwatchLogGroupArn, enabled, logType);
+        }
+        public GetDomainLogPublishingOption build() {
+            final var o = new GetDomainLogPublishingOption();
+            o.cloudwatchLogGroupArn = cloudwatchLogGroupArn;
+            o.enabled = enabled;
+            o.logType = logType;
+            return o;
         }
     }
 }

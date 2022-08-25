@@ -15,13 +15,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicy {
      * @return The Transport Layer Security (TLS) client policy.
      * 
      */
-    private final @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTls tls;
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTls tls;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaultsClientPolicy(@CustomType.Parameter("tls") @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTls tls) {
-        this.tls = tls;
-    }
-
+    private VirtualGatewaySpecBackendDefaultsClientPolicy() {}
     /**
      * @return The Transport Layer Security (TLS) client policy.
      * 
@@ -37,24 +33,24 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicy {
     public static Builder builder(VirtualGatewaySpecBackendDefaultsClientPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTls tls;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaultsClientPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
         public Builder tls(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTls tls) {
             this.tls = tls;
             return this;
-        }        public VirtualGatewaySpecBackendDefaultsClientPolicy build() {
-            return new VirtualGatewaySpecBackendDefaultsClientPolicy(tls);
+        }
+        public VirtualGatewaySpecBackendDefaultsClientPolicy build() {
+            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicy();
+            o.tls = tls;
+            return o;
         }
     }
 }

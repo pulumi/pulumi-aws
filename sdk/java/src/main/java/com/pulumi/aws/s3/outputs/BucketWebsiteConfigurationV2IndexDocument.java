@@ -15,13 +15,9 @@ public final class BucketWebsiteConfigurationV2IndexDocument {
      * The suffix must not be empty and must not include a slash character.
      * 
      */
-    private final String suffix;
+    private String suffix;
 
-    @CustomType.Constructor
-    private BucketWebsiteConfigurationV2IndexDocument(@CustomType.Parameter("suffix") String suffix) {
-        this.suffix = suffix;
-    }
-
+    private BucketWebsiteConfigurationV2IndexDocument() {}
     /**
      * @return A suffix that is appended to a request that is for a directory on the website endpoint.
      * For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
@@ -39,24 +35,24 @@ public final class BucketWebsiteConfigurationV2IndexDocument {
     public static Builder builder(BucketWebsiteConfigurationV2IndexDocument defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String suffix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketWebsiteConfigurationV2IndexDocument defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.suffix = defaults.suffix;
         }
 
+        @CustomType.Setter
         public Builder suffix(String suffix) {
             this.suffix = Objects.requireNonNull(suffix);
             return this;
-        }        public BucketWebsiteConfigurationV2IndexDocument build() {
-            return new BucketWebsiteConfigurationV2IndexDocument(suffix);
+        }
+        public BucketWebsiteConfigurationV2IndexDocument build() {
+            final var o = new BucketWebsiteConfigurationV2IndexDocument();
+            o.suffix = suffix;
+            return o;
         }
     }
 }

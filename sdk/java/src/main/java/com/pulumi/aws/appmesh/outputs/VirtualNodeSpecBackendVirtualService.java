@@ -16,21 +16,14 @@ public final class VirtualNodeSpecBackendVirtualService {
      * @return The client policy for the backend.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicy clientPolicy;
+    private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicy clientPolicy;
     /**
      * @return The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String virtualServiceName;
+    private String virtualServiceName;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendVirtualService(
-        @CustomType.Parameter("clientPolicy") @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicy clientPolicy,
-        @CustomType.Parameter("virtualServiceName") String virtualServiceName) {
-        this.clientPolicy = clientPolicy;
-        this.virtualServiceName = virtualServiceName;
-    }
-
+    private VirtualNodeSpecBackendVirtualService() {}
     /**
      * @return The client policy for the backend.
      * 
@@ -53,30 +46,32 @@ public final class VirtualNodeSpecBackendVirtualService {
     public static Builder builder(VirtualNodeSpecBackendVirtualService defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicy clientPolicy;
         private String virtualServiceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendVirtualService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientPolicy = defaults.clientPolicy;
     	      this.virtualServiceName = defaults.virtualServiceName;
         }
 
+        @CustomType.Setter
         public Builder clientPolicy(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicy clientPolicy) {
             this.clientPolicy = clientPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualServiceName(String virtualServiceName) {
             this.virtualServiceName = Objects.requireNonNull(virtualServiceName);
             return this;
-        }        public VirtualNodeSpecBackendVirtualService build() {
-            return new VirtualNodeSpecBackendVirtualService(clientPolicy, virtualServiceName);
+        }
+        public VirtualNodeSpecBackendVirtualService build() {
+            final var o = new VirtualNodeSpecBackendVirtualService();
+            o.clientPolicy = clientPolicy;
+            o.virtualServiceName = virtualServiceName;
+            return o;
         }
     }
 }

@@ -19,63 +19,44 @@ public final class BucketReplicationConfigurationRule {
      * @return Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
      * 
      */
-    private final @Nullable String deleteMarkerReplicationStatus;
+    private @Nullable String deleteMarkerReplicationStatus;
     /**
      * @return Specifies the destination for the rule (documented below).
      * 
      */
-    private final BucketReplicationConfigurationRuleDestination destination;
+    private BucketReplicationConfigurationRuleDestination destination;
     /**
      * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
      * 
      */
-    private final @Nullable BucketReplicationConfigurationRuleFilter filter;
+    private @Nullable BucketReplicationConfigurationRuleFilter filter;
     /**
      * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return Specifies special object selection criteria (documented below).
      * 
      */
-    private final @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria;
+    private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria;
     /**
      * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigurationRule(
-        @CustomType.Parameter("deleteMarkerReplicationStatus") @Nullable String deleteMarkerReplicationStatus,
-        @CustomType.Parameter("destination") BucketReplicationConfigurationRuleDestination destination,
-        @CustomType.Parameter("filter") @Nullable BucketReplicationConfigurationRuleFilter filter,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("sourceSelectionCriteria") @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria,
-        @CustomType.Parameter("status") String status) {
-        this.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
-        this.destination = destination;
-        this.filter = filter;
-        this.id = id;
-        this.prefix = prefix;
-        this.priority = priority;
-        this.sourceSelectionCriteria = sourceSelectionCriteria;
-        this.status = status;
-    }
-
+    private BucketReplicationConfigurationRule() {}
     /**
      * @return Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
      * 
@@ -140,7 +121,7 @@ public final class BucketReplicationConfigurationRule {
     public static Builder builder(BucketReplicationConfigurationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deleteMarkerReplicationStatus;
         private BucketReplicationConfigurationRuleDestination destination;
@@ -150,11 +131,7 @@ public final class BucketReplicationConfigurationRule {
         private @Nullable Integer priority;
         private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteMarkerReplicationStatus = defaults.deleteMarkerReplicationStatus;
@@ -167,39 +144,57 @@ public final class BucketReplicationConfigurationRule {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder deleteMarkerReplicationStatus(@Nullable String deleteMarkerReplicationStatus) {
             this.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
             return this;
         }
+        @CustomType.Setter
         public Builder destination(BucketReplicationConfigurationRuleDestination destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
         }
+        @CustomType.Setter
         public Builder filter(@Nullable BucketReplicationConfigurationRuleFilter filter) {
             this.filter = filter;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceSelectionCriteria(@Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria) {
             this.sourceSelectionCriteria = sourceSelectionCriteria;
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public BucketReplicationConfigurationRule build() {
-            return new BucketReplicationConfigurationRule(deleteMarkerReplicationStatus, destination, filter, id, prefix, priority, sourceSelectionCriteria, status);
+        }
+        public BucketReplicationConfigurationRule build() {
+            final var o = new BucketReplicationConfigurationRule();
+            o.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
+            o.destination = destination;
+            o.filter = filter;
+            o.id = id;
+            o.prefix = prefix;
+            o.priority = priority;
+            o.sourceSelectionCriteria = sourceSelectionCriteria;
+            o.status = status;
+            return o;
         }
     }
 }

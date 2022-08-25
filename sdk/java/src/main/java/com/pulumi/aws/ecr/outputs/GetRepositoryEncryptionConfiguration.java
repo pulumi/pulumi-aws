@@ -13,21 +13,14 @@ public final class GetRepositoryEncryptionConfiguration {
      * @return The encryption type to use for the repository, either `AES256` or `KMS`.
      * 
      */
-    private final String encryptionType;
+    private String encryptionType;
     /**
      * @return If `encryption_type` is `KMS`, the ARN of the KMS key used.
      * 
      */
-    private final String kmsKey;
+    private String kmsKey;
 
-    @CustomType.Constructor
-    private GetRepositoryEncryptionConfiguration(
-        @CustomType.Parameter("encryptionType") String encryptionType,
-        @CustomType.Parameter("kmsKey") String kmsKey) {
-        this.encryptionType = encryptionType;
-        this.kmsKey = kmsKey;
-    }
-
+    private GetRepositoryEncryptionConfiguration() {}
     /**
      * @return The encryption type to use for the repository, either `AES256` or `KMS`.
      * 
@@ -50,30 +43,32 @@ public final class GetRepositoryEncryptionConfiguration {
     public static Builder builder(GetRepositoryEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String encryptionType;
         private String kmsKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionType = defaults.encryptionType;
     	      this.kmsKey = defaults.kmsKey;
         }
 
+        @CustomType.Setter
         public Builder encryptionType(String encryptionType) {
             this.encryptionType = Objects.requireNonNull(encryptionType);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKey(String kmsKey) {
             this.kmsKey = Objects.requireNonNull(kmsKey);
             return this;
-        }        public GetRepositoryEncryptionConfiguration build() {
-            return new GetRepositoryEncryptionConfiguration(encryptionType, kmsKey);
+        }
+        public GetRepositoryEncryptionConfiguration build() {
+            final var o = new GetRepositoryEncryptionConfiguration();
+            o.encryptionType = encryptionType;
+            o.kmsKey = kmsKey;
+            return o;
         }
     }
 }

@@ -17,28 +17,19 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
      * @return The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm acm;
+    private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm acm;
     /**
      * @return The TLS validation context trust for a local file certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile file;
+    private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile file;
     /**
      * @return The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds sds;
+    private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds sds;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(
-        @CustomType.Parameter("acm") @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm acm,
-        @CustomType.Parameter("file") @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile file,
-        @CustomType.Parameter("sds") @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds sds) {
-        this.acm = acm;
-        this.file = file;
-        this.sds = sds;
-    }
-
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust() {}
     /**
      * @return The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
      * 
@@ -68,16 +59,12 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     public static Builder builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm acm;
         private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile file;
         private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds sds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acm = defaults.acm;
@@ -85,19 +72,27 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     	      this.sds = defaults.sds;
         }
 
+        @CustomType.Setter
         public Builder acm(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm acm) {
             this.acm = acm;
             return this;
         }
+        @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile file) {
             this.file = file;
             return this;
         }
+        @CustomType.Setter
         public Builder sds(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds sds) {
             this.sds = sds;
             return this;
-        }        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust build() {
-            return new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(acm, file, sds);
+        }
+        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust build() {
+            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust();
+            o.acm = acm;
+            o.file = file;
+            o.sds = sds;
+            return o;
         }
     }
 }

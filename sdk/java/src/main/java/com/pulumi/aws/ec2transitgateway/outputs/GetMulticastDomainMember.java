@@ -13,21 +13,14 @@ public final class GetMulticastDomainMember {
      * @return The IP address assigned to the transit gateway multicast group.
      * 
      */
-    private final String groupIpAddress;
+    private String groupIpAddress;
     /**
      * @return The group members&#39; network interface ID.
      * 
      */
-    private final String networkInterfaceId;
+    private String networkInterfaceId;
 
-    @CustomType.Constructor
-    private GetMulticastDomainMember(
-        @CustomType.Parameter("groupIpAddress") String groupIpAddress,
-        @CustomType.Parameter("networkInterfaceId") String networkInterfaceId) {
-        this.groupIpAddress = groupIpAddress;
-        this.networkInterfaceId = networkInterfaceId;
-    }
-
+    private GetMulticastDomainMember() {}
     /**
      * @return The IP address assigned to the transit gateway multicast group.
      * 
@@ -50,30 +43,32 @@ public final class GetMulticastDomainMember {
     public static Builder builder(GetMulticastDomainMember defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String groupIpAddress;
         private String networkInterfaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMulticastDomainMember defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groupIpAddress = defaults.groupIpAddress;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
         }
 
+        @CustomType.Setter
         public Builder groupIpAddress(String groupIpAddress) {
             this.groupIpAddress = Objects.requireNonNull(groupIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
             this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
             return this;
-        }        public GetMulticastDomainMember build() {
-            return new GetMulticastDomainMember(groupIpAddress, networkInterfaceId);
+        }
+        public GetMulticastDomainMember build() {
+            final var o = new GetMulticastDomainMember();
+            o.groupIpAddress = groupIpAddress;
+            o.networkInterfaceId = networkInterfaceId;
+            return o;
         }
     }
 }

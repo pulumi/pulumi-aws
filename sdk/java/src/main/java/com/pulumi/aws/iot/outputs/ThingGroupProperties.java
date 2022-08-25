@@ -16,21 +16,14 @@ public final class ThingGroupProperties {
      * @return The Thing Group attributes. Defined below.
      * 
      */
-    private final @Nullable ThingGroupPropertiesAttributePayload attributePayload;
+    private @Nullable ThingGroupPropertiesAttributePayload attributePayload;
     /**
      * @return A description of the Thing Group.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
 
-    @CustomType.Constructor
-    private ThingGroupProperties(
-        @CustomType.Parameter("attributePayload") @Nullable ThingGroupPropertiesAttributePayload attributePayload,
-        @CustomType.Parameter("description") @Nullable String description) {
-        this.attributePayload = attributePayload;
-        this.description = description;
-    }
-
+    private ThingGroupProperties() {}
     /**
      * @return The Thing Group attributes. Defined below.
      * 
@@ -53,30 +46,32 @@ public final class ThingGroupProperties {
     public static Builder builder(ThingGroupProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ThingGroupPropertiesAttributePayload attributePayload;
         private @Nullable String description;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ThingGroupProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attributePayload = defaults.attributePayload;
     	      this.description = defaults.description;
         }
 
+        @CustomType.Setter
         public Builder attributePayload(@Nullable ThingGroupPropertiesAttributePayload attributePayload) {
             this.attributePayload = attributePayload;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
-        }        public ThingGroupProperties build() {
-            return new ThingGroupProperties(attributePayload, description);
+        }
+        public ThingGroupProperties build() {
+            final var o = new ThingGroupProperties();
+            o.attributePayload = attributePayload;
+            o.description = description;
+            return o;
         }
     }
 }

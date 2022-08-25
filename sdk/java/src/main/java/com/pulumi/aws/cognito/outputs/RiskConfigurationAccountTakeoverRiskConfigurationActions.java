@@ -17,28 +17,19 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActions {
      * @return Action to take for a high risk. See action block below.
      * 
      */
-    private final @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction highAction;
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction highAction;
     /**
      * @return Action to take for a low risk. See action block below.
      * 
      */
-    private final @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction lowAction;
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction lowAction;
     /**
      * @return Action to take for a medium risk. See action block below.
      * 
      */
-    private final @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction mediumAction;
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction mediumAction;
 
-    @CustomType.Constructor
-    private RiskConfigurationAccountTakeoverRiskConfigurationActions(
-        @CustomType.Parameter("highAction") @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction highAction,
-        @CustomType.Parameter("lowAction") @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction lowAction,
-        @CustomType.Parameter("mediumAction") @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction mediumAction) {
-        this.highAction = highAction;
-        this.lowAction = lowAction;
-        this.mediumAction = mediumAction;
-    }
-
+    private RiskConfigurationAccountTakeoverRiskConfigurationActions() {}
     /**
      * @return Action to take for a high risk. See action block below.
      * 
@@ -68,16 +59,12 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActions {
     public static Builder builder(RiskConfigurationAccountTakeoverRiskConfigurationActions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction highAction;
         private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction lowAction;
         private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction mediumAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RiskConfigurationAccountTakeoverRiskConfigurationActions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.highAction = defaults.highAction;
@@ -85,19 +72,27 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActions {
     	      this.mediumAction = defaults.mediumAction;
         }
 
+        @CustomType.Setter
         public Builder highAction(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction highAction) {
             this.highAction = highAction;
             return this;
         }
+        @CustomType.Setter
         public Builder lowAction(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction lowAction) {
             this.lowAction = lowAction;
             return this;
         }
+        @CustomType.Setter
         public Builder mediumAction(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction mediumAction) {
             this.mediumAction = mediumAction;
             return this;
-        }        public RiskConfigurationAccountTakeoverRiskConfigurationActions build() {
-            return new RiskConfigurationAccountTakeoverRiskConfigurationActions(highAction, lowAction, mediumAction);
+        }
+        public RiskConfigurationAccountTakeoverRiskConfigurationActions build() {
+            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationActions();
+            o.highAction = highAction;
+            o.lowAction = lowAction;
+            o.mediumAction = mediumAction;
+            return o;
         }
     }
 }

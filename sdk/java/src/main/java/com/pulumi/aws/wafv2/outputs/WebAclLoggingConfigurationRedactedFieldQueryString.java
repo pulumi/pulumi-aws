@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclLoggingConfigurationRedactedFieldQueryString {
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationRedactedFieldQueryString() {
-    }
-
+    private WebAclLoggingConfigurationRedactedFieldQueryString() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclLoggingConfigurationRedactedFieldQueryString {
     public static Builder builder(WebAclLoggingConfigurationRedactedFieldQueryString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationRedactedFieldQueryString defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclLoggingConfigurationRedactedFieldQueryString build() {
-            return new WebAclLoggingConfigurationRedactedFieldQueryString();
+            final var o = new WebAclLoggingConfigurationRedactedFieldQueryString();
+            return o;
         }
     }
 }

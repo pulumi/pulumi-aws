@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateElasticInferenceAccelerator {
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateElasticInferenceAccelerator(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private GetLaunchTemplateElasticInferenceAccelerator() {}
     public String type() {
         return this.type;
     }
@@ -27,24 +23,24 @@ public final class GetLaunchTemplateElasticInferenceAccelerator {
     public static Builder builder(GetLaunchTemplateElasticInferenceAccelerator defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateElasticInferenceAccelerator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetLaunchTemplateElasticInferenceAccelerator build() {
-            return new GetLaunchTemplateElasticInferenceAccelerator(type);
+        }
+        public GetLaunchTemplateElasticInferenceAccelerator build() {
+            final var o = new GetLaunchTemplateElasticInferenceAccelerator();
+            o.type = type;
+            return o;
         }
     }
 }

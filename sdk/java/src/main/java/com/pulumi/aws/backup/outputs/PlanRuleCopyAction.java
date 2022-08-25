@@ -16,21 +16,14 @@ public final class PlanRuleCopyAction {
      * @return An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
      * 
      */
-    private final String destinationVaultArn;
+    private String destinationVaultArn;
     /**
      * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
      * 
      */
-    private final @Nullable PlanRuleCopyActionLifecycle lifecycle;
+    private @Nullable PlanRuleCopyActionLifecycle lifecycle;
 
-    @CustomType.Constructor
-    private PlanRuleCopyAction(
-        @CustomType.Parameter("destinationVaultArn") String destinationVaultArn,
-        @CustomType.Parameter("lifecycle") @Nullable PlanRuleCopyActionLifecycle lifecycle) {
-        this.destinationVaultArn = destinationVaultArn;
-        this.lifecycle = lifecycle;
-    }
-
+    private PlanRuleCopyAction() {}
     /**
      * @return An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
      * 
@@ -53,30 +46,32 @@ public final class PlanRuleCopyAction {
     public static Builder builder(PlanRuleCopyAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destinationVaultArn;
         private @Nullable PlanRuleCopyActionLifecycle lifecycle;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PlanRuleCopyAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationVaultArn = defaults.destinationVaultArn;
     	      this.lifecycle = defaults.lifecycle;
         }
 
+        @CustomType.Setter
         public Builder destinationVaultArn(String destinationVaultArn) {
             this.destinationVaultArn = Objects.requireNonNull(destinationVaultArn);
             return this;
         }
+        @CustomType.Setter
         public Builder lifecycle(@Nullable PlanRuleCopyActionLifecycle lifecycle) {
             this.lifecycle = lifecycle;
             return this;
-        }        public PlanRuleCopyAction build() {
-            return new PlanRuleCopyAction(destinationVaultArn, lifecycle);
+        }
+        public PlanRuleCopyAction build() {
+            final var o = new PlanRuleCopyAction();
+            o.destinationVaultArn = destinationVaultArn;
+            o.lifecycle = lifecycle;
+            return o;
         }
     }
 }

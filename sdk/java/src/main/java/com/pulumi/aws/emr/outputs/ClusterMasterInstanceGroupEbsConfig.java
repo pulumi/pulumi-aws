@@ -16,42 +16,29 @@ public final class ClusterMasterInstanceGroupEbsConfig {
      * @return Number of I/O operations per second (IOPS) that the volume supports.
      * 
      */
-    private final @Nullable Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return Volume size, in gibibytes (GiB).
      * 
      */
-    private final Integer size;
+    private Integer size;
     /**
      * @return The throughput, in mebibyte per second (MiB/s).
      * 
      */
-    private final @Nullable Integer throughput;
+    private @Nullable Integer throughput;
     /**
      * @return Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
      * 
      */
-    private final @Nullable Integer volumesPerInstance;
+    private @Nullable Integer volumesPerInstance;
 
-    @CustomType.Constructor
-    private ClusterMasterInstanceGroupEbsConfig(
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("size") Integer size,
-        @CustomType.Parameter("throughput") @Nullable Integer throughput,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("volumesPerInstance") @Nullable Integer volumesPerInstance) {
-        this.iops = iops;
-        this.size = size;
-        this.throughput = throughput;
-        this.type = type;
-        this.volumesPerInstance = volumesPerInstance;
-    }
-
+    private ClusterMasterInstanceGroupEbsConfig() {}
     /**
      * @return Number of I/O operations per second (IOPS) that the volume supports.
      * 
@@ -95,18 +82,14 @@ public final class ClusterMasterInstanceGroupEbsConfig {
     public static Builder builder(ClusterMasterInstanceGroupEbsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer iops;
         private Integer size;
         private @Nullable Integer throughput;
         private String type;
         private @Nullable Integer volumesPerInstance;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterMasterInstanceGroupEbsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.iops = defaults.iops;
@@ -116,27 +99,39 @@ public final class ClusterMasterInstanceGroupEbsConfig {
     	      this.volumesPerInstance = defaults.volumesPerInstance;
         }
 
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
             this.throughput = throughput;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder volumesPerInstance(@Nullable Integer volumesPerInstance) {
             this.volumesPerInstance = volumesPerInstance;
             return this;
-        }        public ClusterMasterInstanceGroupEbsConfig build() {
-            return new ClusterMasterInstanceGroupEbsConfig(iops, size, throughput, type, volumesPerInstance);
+        }
+        public ClusterMasterInstanceGroupEbsConfig build() {
+            final var o = new ClusterMasterInstanceGroupEbsConfig();
+            o.iops = iops;
+            o.size = size;
+            o.throughput = throughput;
+            o.type = type;
+            o.volumesPerInstance = volumesPerInstance;
+            return o;
         }
     }
 }

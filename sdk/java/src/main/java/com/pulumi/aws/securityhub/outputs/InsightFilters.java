@@ -102,623 +102,444 @@ public final class InsightFilters {
      * @return AWS account ID that a finding is generated in. See String_Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersAwsAccountId> awsAccountIds;
+    private @Nullable List<InsightFiltersAwsAccountId> awsAccountIds;
     /**
      * @return The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersCompanyName> companyNames;
+    private @Nullable List<InsightFiltersCompanyName> companyNames;
     /**
      * @return Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersComplianceStatus> complianceStatuses;
+    private @Nullable List<InsightFiltersComplianceStatus> complianceStatuses;
     /**
      * @return A finding&#39;s confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersConfidence> confidences;
+    private @Nullable List<InsightFiltersConfidence> confidences;
     /**
      * @return An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersCreatedAt> createdAts;
+    private @Nullable List<InsightFiltersCreatedAt> createdAts;
     /**
      * @return The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersCriticality> criticalities;
+    private @Nullable List<InsightFiltersCriticality> criticalities;
     /**
      * @return A finding&#39;s description. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersDescription> descriptions;
+    private @Nullable List<InsightFiltersDescription> descriptions;
     /**
      * @return The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersFindingProviderFieldsConfidence> findingProviderFieldsConfidences;
+    private @Nullable List<InsightFiltersFindingProviderFieldsConfidence> findingProviderFieldsConfidences;
     /**
      * @return The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersFindingProviderFieldsCriticality> findingProviderFieldsCriticalities;
+    private @Nullable List<InsightFiltersFindingProviderFieldsCriticality> findingProviderFieldsCriticalities;
     /**
      * @return The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsId> findingProviderFieldsRelatedFindingsIds;
+    private @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsId> findingProviderFieldsRelatedFindingsIds;
     /**
      * @return The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn> findingProviderFieldsRelatedFindingsProductArns;
+    private @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn> findingProviderFieldsRelatedFindingsProductArns;
     /**
      * @return The finding provider value for the severity label. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersFindingProviderFieldsSeverityLabel> findingProviderFieldsSeverityLabels;
+    private @Nullable List<InsightFiltersFindingProviderFieldsSeverityLabel> findingProviderFieldsSeverityLabels;
     /**
      * @return The finding provider&#39;s original value for the severity. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersFindingProviderFieldsSeverityOriginal> findingProviderFieldsSeverityOriginals;
+    private @Nullable List<InsightFiltersFindingProviderFieldsSeverityOriginal> findingProviderFieldsSeverityOriginals;
     /**
      * @return One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersFindingProviderFieldsType> findingProviderFieldsTypes;
+    private @Nullable List<InsightFiltersFindingProviderFieldsType> findingProviderFieldsTypes;
     /**
      * @return An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersFirstObservedAt> firstObservedAts;
+    private @Nullable List<InsightFiltersFirstObservedAt> firstObservedAts;
     /**
      * @return The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersGeneratorId> generatorIds;
+    private @Nullable List<InsightFiltersGeneratorId> generatorIds;
     /**
      * @return The security findings provider-specific identifier for a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersId> ids;
+    private @Nullable List<InsightFiltersId> ids;
     /**
      * @return A keyword for a finding. See Keyword Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersKeyword> keywords;
+    private @Nullable List<InsightFiltersKeyword> keywords;
     /**
      * @return An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersLastObservedAt> lastObservedAts;
+    private @Nullable List<InsightFiltersLastObservedAt> lastObservedAts;
     /**
      * @return The name of the malware that was observed. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersMalwareName> malwareNames;
+    private @Nullable List<InsightFiltersMalwareName> malwareNames;
     /**
      * @return The filesystem path of the malware that was observed. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersMalwarePath> malwarePaths;
+    private @Nullable List<InsightFiltersMalwarePath> malwarePaths;
     /**
      * @return The state of the malware that was observed. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersMalwareState> malwareStates;
+    private @Nullable List<InsightFiltersMalwareState> malwareStates;
     /**
      * @return The type of the malware that was observed. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersMalwareType> malwareTypes;
+    private @Nullable List<InsightFiltersMalwareType> malwareTypes;
     /**
      * @return The destination domain of network-related information about a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkDestinationDomain> networkDestinationDomains;
+    private @Nullable List<InsightFiltersNetworkDestinationDomain> networkDestinationDomains;
     /**
      * @return The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s;
+    private @Nullable List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s;
     /**
      * @return The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s;
+    private @Nullable List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s;
     /**
      * @return The destination port of network-related information about a finding. See Number Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkDestinationPort> networkDestinationPorts;
+    private @Nullable List<InsightFiltersNetworkDestinationPort> networkDestinationPorts;
     /**
      * @return Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkDirection> networkDirections;
+    private @Nullable List<InsightFiltersNetworkDirection> networkDirections;
     /**
      * @return The protocol of network-related information about a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkProtocol> networkProtocols;
+    private @Nullable List<InsightFiltersNetworkProtocol> networkProtocols;
     /**
      * @return The source domain of network-related information about a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkSourceDomain> networkSourceDomains;
+    private @Nullable List<InsightFiltersNetworkSourceDomain> networkSourceDomains;
     /**
      * @return The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s;
+    private @Nullable List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s;
     /**
      * @return The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s;
+    private @Nullable List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s;
     /**
      * @return The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkSourceMac> networkSourceMacs;
+    private @Nullable List<InsightFiltersNetworkSourceMac> networkSourceMacs;
     /**
      * @return The source port of network-related information about a finding. See Number Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNetworkSourcePort> networkSourcePorts;
+    private @Nullable List<InsightFiltersNetworkSourcePort> networkSourcePorts;
     /**
      * @return The text of a note. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNoteText> noteTexts;
+    private @Nullable List<InsightFiltersNoteText> noteTexts;
     /**
      * @return The timestamp of when the note was updated. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNoteUpdatedAt> noteUpdatedAts;
+    private @Nullable List<InsightFiltersNoteUpdatedAt> noteUpdatedAts;
     /**
      * @return The principal that created a note. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersNoteUpdatedBy> noteUpdatedBies;
+    private @Nullable List<InsightFiltersNoteUpdatedBy> noteUpdatedBies;
     /**
      * @return The date/time that the process was launched. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersProcessLaunchedAt> processLaunchedAts;
+    private @Nullable List<InsightFiltersProcessLaunchedAt> processLaunchedAts;
     /**
      * @return The name of the process. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersProcessName> processNames;
+    private @Nullable List<InsightFiltersProcessName> processNames;
     /**
      * @return The parent process ID. See Number Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersProcessParentPid> processParentPids;
+    private @Nullable List<InsightFiltersProcessParentPid> processParentPids;
     /**
      * @return The path to the process executable. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersProcessPath> processPaths;
+    private @Nullable List<InsightFiltersProcessPath> processPaths;
     /**
      * @return The process ID. See Number Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersProcessPid> processPids;
+    private @Nullable List<InsightFiltersProcessPid> processPids;
     /**
      * @return The date/time that the process was terminated. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersProcessTerminatedAt> processTerminatedAts;
+    private @Nullable List<InsightFiltersProcessTerminatedAt> processTerminatedAts;
     /**
      * @return The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider&#39;s product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersProductArn> productArns;
+    private @Nullable List<InsightFiltersProductArn> productArns;
     /**
      * @return A data type where security-findings providers can include additional solution-specific details that aren&#39;t part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersProductField> productFields;
+    private @Nullable List<InsightFiltersProductField> productFields;
     /**
      * @return The name of the solution (product) that generates findings. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersProductName> productNames;
+    private @Nullable List<InsightFiltersProductName> productNames;
     /**
      * @return The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersRecommendationText> recommendationTexts;
+    private @Nullable List<InsightFiltersRecommendationText> recommendationTexts;
     /**
      * @return The updated record state for the finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersRecordState> recordStates;
+    private @Nullable List<InsightFiltersRecordState> recordStates;
     /**
      * @return The solution-generated identifier for a related finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersRelatedFindingsId> relatedFindingsIds;
+    private @Nullable List<InsightFiltersRelatedFindingsId> relatedFindingsIds;
     /**
      * @return The ARN of the solution that generated a related finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersRelatedFindingsProductArn> relatedFindingsProductArns;
+    private @Nullable List<InsightFiltersRelatedFindingsProductArn> relatedFindingsProductArns;
     /**
      * @return The IAM profile ARN of the instance. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> resourceAwsEc2InstanceIamInstanceProfileArns;
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> resourceAwsEc2InstanceIamInstanceProfileArns;
     /**
      * @return The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds;
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds;
     /**
      * @return The IPv4 addresses associated with the instance. See Ip Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses;
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses;
     /**
      * @return The IPv6 addresses associated with the instance. See Ip Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses;
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses;
     /**
      * @return The key name associated with the instance. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsEc2InstanceKeyName> resourceAwsEc2InstanceKeyNames;
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceKeyName> resourceAwsEc2InstanceKeyNames;
     /**
      * @return The date and time the instance was launched. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsEc2InstanceLaunchedAt> resourceAwsEc2InstanceLaunchedAts;
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceLaunchedAt> resourceAwsEc2InstanceLaunchedAts;
     /**
      * @return The identifier of the subnet that the instance was launched in. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsEc2InstanceSubnetId> resourceAwsEc2InstanceSubnetIds;
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceSubnetId> resourceAwsEc2InstanceSubnetIds;
     /**
      * @return The instance type of the instance. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsEc2InstanceType> resourceAwsEc2InstanceTypes;
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceType> resourceAwsEc2InstanceTypes;
     /**
      * @return The identifier of the VPC that the instance was launched in. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsEc2InstanceVpcId> resourceAwsEc2InstanceVpcIds;
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceVpcId> resourceAwsEc2InstanceVpcIds;
     /**
      * @return The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsIamAccessKeyCreatedAt> resourceAwsIamAccessKeyCreatedAts;
+    private @Nullable List<InsightFiltersResourceAwsIamAccessKeyCreatedAt> resourceAwsIamAccessKeyCreatedAts;
     /**
      * @return The status of the IAM access key related to a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsIamAccessKeyStatus> resourceAwsIamAccessKeyStatuses;
+    private @Nullable List<InsightFiltersResourceAwsIamAccessKeyStatus> resourceAwsIamAccessKeyStatuses;
     /**
      * @return The user associated with the IAM access key related to a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsIamAccessKeyUserName> resourceAwsIamAccessKeyUserNames;
+    private @Nullable List<InsightFiltersResourceAwsIamAccessKeyUserName> resourceAwsIamAccessKeyUserNames;
     /**
      * @return The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsS3BucketOwnerId> resourceAwsS3BucketOwnerIds;
+    private @Nullable List<InsightFiltersResourceAwsS3BucketOwnerId> resourceAwsS3BucketOwnerIds;
     /**
      * @return The display name of the owner of the S3 bucket. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceAwsS3BucketOwnerName> resourceAwsS3BucketOwnerNames;
+    private @Nullable List<InsightFiltersResourceAwsS3BucketOwnerName> resourceAwsS3BucketOwnerNames;
     /**
      * @return The identifier of the image related to a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceContainerImageId> resourceContainerImageIds;
+    private @Nullable List<InsightFiltersResourceContainerImageId> resourceContainerImageIds;
     /**
      * @return The name of the image related to a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceContainerImageName> resourceContainerImageNames;
+    private @Nullable List<InsightFiltersResourceContainerImageName> resourceContainerImageNames;
     /**
      * @return The date/time that the container was started. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceContainerLaunchedAt> resourceContainerLaunchedAts;
+    private @Nullable List<InsightFiltersResourceContainerLaunchedAt> resourceContainerLaunchedAts;
     /**
      * @return The name of the container related to a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceContainerName> resourceContainerNames;
+    private @Nullable List<InsightFiltersResourceContainerName> resourceContainerNames;
     /**
      * @return The details of a resource that doesn&#39;t have a specific subfield for the resource type defined. See Map Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceDetailsOther> resourceDetailsOthers;
+    private @Nullable List<InsightFiltersResourceDetailsOther> resourceDetailsOthers;
     /**
      * @return The canonical identifier for the given resource type. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceId> resourceIds;
+    private @Nullable List<InsightFiltersResourceId> resourceIds;
     /**
      * @return The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourcePartition> resourcePartitions;
+    private @Nullable List<InsightFiltersResourcePartition> resourcePartitions;
     /**
      * @return The canonical AWS external Region name where this resource is located. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceRegion> resourceRegions;
+    private @Nullable List<InsightFiltersResourceRegion> resourceRegions;
     /**
      * @return A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceTag> resourceTags;
+    private @Nullable List<InsightFiltersResourceTag> resourceTags;
     /**
      * @return Specifies the type of the resource that details are provided for. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersResourceType> resourceTypes;
+    private @Nullable List<InsightFiltersResourceType> resourceTypes;
     /**
      * @return The label of a finding&#39;s severity. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersSeverityLabel> severityLabels;
+    private @Nullable List<InsightFiltersSeverityLabel> severityLabels;
     /**
      * @return A URL that links to a page about the current finding in the security-findings provider&#39;s solution. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersSourceUrl> sourceUrls;
+    private @Nullable List<InsightFiltersSourceUrl> sourceUrls;
     /**
      * @return The category of a threat intelligence indicator. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersThreatIntelIndicatorCategory> threatIntelIndicatorCategories;
+    private @Nullable List<InsightFiltersThreatIntelIndicatorCategory> threatIntelIndicatorCategories;
     /**
      * @return The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersThreatIntelIndicatorLastObservedAt> threatIntelIndicatorLastObservedAts;
+    private @Nullable List<InsightFiltersThreatIntelIndicatorLastObservedAt> threatIntelIndicatorLastObservedAts;
     /**
      * @return The URL for more details from the source of the threat intelligence. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersThreatIntelIndicatorSourceUrl> threatIntelIndicatorSourceUrls;
+    private @Nullable List<InsightFiltersThreatIntelIndicatorSourceUrl> threatIntelIndicatorSourceUrls;
     /**
      * @return The source of the threat intelligence. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersThreatIntelIndicatorSource> threatIntelIndicatorSources;
+    private @Nullable List<InsightFiltersThreatIntelIndicatorSource> threatIntelIndicatorSources;
     /**
      * @return The type of a threat intelligence indicator. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersThreatIntelIndicatorType> threatIntelIndicatorTypes;
+    private @Nullable List<InsightFiltersThreatIntelIndicatorType> threatIntelIndicatorTypes;
     /**
      * @return The value of a threat intelligence indicator. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersThreatIntelIndicatorValue> threatIntelIndicatorValues;
+    private @Nullable List<InsightFiltersThreatIntelIndicatorValue> threatIntelIndicatorValues;
     /**
      * @return A finding&#39;s title. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersTitle> titles;
+    private @Nullable List<InsightFiltersTitle> titles;
     /**
      * @return A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersType> types;
+    private @Nullable List<InsightFiltersType> types;
     /**
      * @return An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersUpdatedAt> updatedAts;
+    private @Nullable List<InsightFiltersUpdatedAt> updatedAts;
     /**
      * @return A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersUserDefinedValue> userDefinedValues;
+    private @Nullable List<InsightFiltersUserDefinedValue> userDefinedValues;
     /**
      * @return The veracity of a finding. See String Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersVerificationState> verificationStates;
+    private @Nullable List<InsightFiltersVerificationState> verificationStates;
     /**
      * @return The status of the investigation into a finding. See Workflow Status Filter below for more details.
      * 
      */
-    private final @Nullable List<InsightFiltersWorkflowStatus> workflowStatuses;
+    private @Nullable List<InsightFiltersWorkflowStatus> workflowStatuses;
 
-    @CustomType.Constructor
-    private InsightFilters(
-        @CustomType.Parameter("awsAccountIds") @Nullable List<InsightFiltersAwsAccountId> awsAccountIds,
-        @CustomType.Parameter("companyNames") @Nullable List<InsightFiltersCompanyName> companyNames,
-        @CustomType.Parameter("complianceStatuses") @Nullable List<InsightFiltersComplianceStatus> complianceStatuses,
-        @CustomType.Parameter("confidences") @Nullable List<InsightFiltersConfidence> confidences,
-        @CustomType.Parameter("createdAts") @Nullable List<InsightFiltersCreatedAt> createdAts,
-        @CustomType.Parameter("criticalities") @Nullable List<InsightFiltersCriticality> criticalities,
-        @CustomType.Parameter("descriptions") @Nullable List<InsightFiltersDescription> descriptions,
-        @CustomType.Parameter("findingProviderFieldsConfidences") @Nullable List<InsightFiltersFindingProviderFieldsConfidence> findingProviderFieldsConfidences,
-        @CustomType.Parameter("findingProviderFieldsCriticalities") @Nullable List<InsightFiltersFindingProviderFieldsCriticality> findingProviderFieldsCriticalities,
-        @CustomType.Parameter("findingProviderFieldsRelatedFindingsIds") @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsId> findingProviderFieldsRelatedFindingsIds,
-        @CustomType.Parameter("findingProviderFieldsRelatedFindingsProductArns") @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn> findingProviderFieldsRelatedFindingsProductArns,
-        @CustomType.Parameter("findingProviderFieldsSeverityLabels") @Nullable List<InsightFiltersFindingProviderFieldsSeverityLabel> findingProviderFieldsSeverityLabels,
-        @CustomType.Parameter("findingProviderFieldsSeverityOriginals") @Nullable List<InsightFiltersFindingProviderFieldsSeverityOriginal> findingProviderFieldsSeverityOriginals,
-        @CustomType.Parameter("findingProviderFieldsTypes") @Nullable List<InsightFiltersFindingProviderFieldsType> findingProviderFieldsTypes,
-        @CustomType.Parameter("firstObservedAts") @Nullable List<InsightFiltersFirstObservedAt> firstObservedAts,
-        @CustomType.Parameter("generatorIds") @Nullable List<InsightFiltersGeneratorId> generatorIds,
-        @CustomType.Parameter("ids") @Nullable List<InsightFiltersId> ids,
-        @CustomType.Parameter("keywords") @Nullable List<InsightFiltersKeyword> keywords,
-        @CustomType.Parameter("lastObservedAts") @Nullable List<InsightFiltersLastObservedAt> lastObservedAts,
-        @CustomType.Parameter("malwareNames") @Nullable List<InsightFiltersMalwareName> malwareNames,
-        @CustomType.Parameter("malwarePaths") @Nullable List<InsightFiltersMalwarePath> malwarePaths,
-        @CustomType.Parameter("malwareStates") @Nullable List<InsightFiltersMalwareState> malwareStates,
-        @CustomType.Parameter("malwareTypes") @Nullable List<InsightFiltersMalwareType> malwareTypes,
-        @CustomType.Parameter("networkDestinationDomains") @Nullable List<InsightFiltersNetworkDestinationDomain> networkDestinationDomains,
-        @CustomType.Parameter("networkDestinationIpv4s") @Nullable List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s,
-        @CustomType.Parameter("networkDestinationIpv6s") @Nullable List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s,
-        @CustomType.Parameter("networkDestinationPorts") @Nullable List<InsightFiltersNetworkDestinationPort> networkDestinationPorts,
-        @CustomType.Parameter("networkDirections") @Nullable List<InsightFiltersNetworkDirection> networkDirections,
-        @CustomType.Parameter("networkProtocols") @Nullable List<InsightFiltersNetworkProtocol> networkProtocols,
-        @CustomType.Parameter("networkSourceDomains") @Nullable List<InsightFiltersNetworkSourceDomain> networkSourceDomains,
-        @CustomType.Parameter("networkSourceIpv4s") @Nullable List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s,
-        @CustomType.Parameter("networkSourceIpv6s") @Nullable List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s,
-        @CustomType.Parameter("networkSourceMacs") @Nullable List<InsightFiltersNetworkSourceMac> networkSourceMacs,
-        @CustomType.Parameter("networkSourcePorts") @Nullable List<InsightFiltersNetworkSourcePort> networkSourcePorts,
-        @CustomType.Parameter("noteTexts") @Nullable List<InsightFiltersNoteText> noteTexts,
-        @CustomType.Parameter("noteUpdatedAts") @Nullable List<InsightFiltersNoteUpdatedAt> noteUpdatedAts,
-        @CustomType.Parameter("noteUpdatedBies") @Nullable List<InsightFiltersNoteUpdatedBy> noteUpdatedBies,
-        @CustomType.Parameter("processLaunchedAts") @Nullable List<InsightFiltersProcessLaunchedAt> processLaunchedAts,
-        @CustomType.Parameter("processNames") @Nullable List<InsightFiltersProcessName> processNames,
-        @CustomType.Parameter("processParentPids") @Nullable List<InsightFiltersProcessParentPid> processParentPids,
-        @CustomType.Parameter("processPaths") @Nullable List<InsightFiltersProcessPath> processPaths,
-        @CustomType.Parameter("processPids") @Nullable List<InsightFiltersProcessPid> processPids,
-        @CustomType.Parameter("processTerminatedAts") @Nullable List<InsightFiltersProcessTerminatedAt> processTerminatedAts,
-        @CustomType.Parameter("productArns") @Nullable List<InsightFiltersProductArn> productArns,
-        @CustomType.Parameter("productFields") @Nullable List<InsightFiltersProductField> productFields,
-        @CustomType.Parameter("productNames") @Nullable List<InsightFiltersProductName> productNames,
-        @CustomType.Parameter("recommendationTexts") @Nullable List<InsightFiltersRecommendationText> recommendationTexts,
-        @CustomType.Parameter("recordStates") @Nullable List<InsightFiltersRecordState> recordStates,
-        @CustomType.Parameter("relatedFindingsIds") @Nullable List<InsightFiltersRelatedFindingsId> relatedFindingsIds,
-        @CustomType.Parameter("relatedFindingsProductArns") @Nullable List<InsightFiltersRelatedFindingsProductArn> relatedFindingsProductArns,
-        @CustomType.Parameter("resourceAwsEc2InstanceIamInstanceProfileArns") @Nullable List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> resourceAwsEc2InstanceIamInstanceProfileArns,
-        @CustomType.Parameter("resourceAwsEc2InstanceImageIds") @Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds,
-        @CustomType.Parameter("resourceAwsEc2InstanceIpv4Addresses") @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses,
-        @CustomType.Parameter("resourceAwsEc2InstanceIpv6Addresses") @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses,
-        @CustomType.Parameter("resourceAwsEc2InstanceKeyNames") @Nullable List<InsightFiltersResourceAwsEc2InstanceKeyName> resourceAwsEc2InstanceKeyNames,
-        @CustomType.Parameter("resourceAwsEc2InstanceLaunchedAts") @Nullable List<InsightFiltersResourceAwsEc2InstanceLaunchedAt> resourceAwsEc2InstanceLaunchedAts,
-        @CustomType.Parameter("resourceAwsEc2InstanceSubnetIds") @Nullable List<InsightFiltersResourceAwsEc2InstanceSubnetId> resourceAwsEc2InstanceSubnetIds,
-        @CustomType.Parameter("resourceAwsEc2InstanceTypes") @Nullable List<InsightFiltersResourceAwsEc2InstanceType> resourceAwsEc2InstanceTypes,
-        @CustomType.Parameter("resourceAwsEc2InstanceVpcIds") @Nullable List<InsightFiltersResourceAwsEc2InstanceVpcId> resourceAwsEc2InstanceVpcIds,
-        @CustomType.Parameter("resourceAwsIamAccessKeyCreatedAts") @Nullable List<InsightFiltersResourceAwsIamAccessKeyCreatedAt> resourceAwsIamAccessKeyCreatedAts,
-        @CustomType.Parameter("resourceAwsIamAccessKeyStatuses") @Nullable List<InsightFiltersResourceAwsIamAccessKeyStatus> resourceAwsIamAccessKeyStatuses,
-        @CustomType.Parameter("resourceAwsIamAccessKeyUserNames") @Nullable List<InsightFiltersResourceAwsIamAccessKeyUserName> resourceAwsIamAccessKeyUserNames,
-        @CustomType.Parameter("resourceAwsS3BucketOwnerIds") @Nullable List<InsightFiltersResourceAwsS3BucketOwnerId> resourceAwsS3BucketOwnerIds,
-        @CustomType.Parameter("resourceAwsS3BucketOwnerNames") @Nullable List<InsightFiltersResourceAwsS3BucketOwnerName> resourceAwsS3BucketOwnerNames,
-        @CustomType.Parameter("resourceContainerImageIds") @Nullable List<InsightFiltersResourceContainerImageId> resourceContainerImageIds,
-        @CustomType.Parameter("resourceContainerImageNames") @Nullable List<InsightFiltersResourceContainerImageName> resourceContainerImageNames,
-        @CustomType.Parameter("resourceContainerLaunchedAts") @Nullable List<InsightFiltersResourceContainerLaunchedAt> resourceContainerLaunchedAts,
-        @CustomType.Parameter("resourceContainerNames") @Nullable List<InsightFiltersResourceContainerName> resourceContainerNames,
-        @CustomType.Parameter("resourceDetailsOthers") @Nullable List<InsightFiltersResourceDetailsOther> resourceDetailsOthers,
-        @CustomType.Parameter("resourceIds") @Nullable List<InsightFiltersResourceId> resourceIds,
-        @CustomType.Parameter("resourcePartitions") @Nullable List<InsightFiltersResourcePartition> resourcePartitions,
-        @CustomType.Parameter("resourceRegions") @Nullable List<InsightFiltersResourceRegion> resourceRegions,
-        @CustomType.Parameter("resourceTags") @Nullable List<InsightFiltersResourceTag> resourceTags,
-        @CustomType.Parameter("resourceTypes") @Nullable List<InsightFiltersResourceType> resourceTypes,
-        @CustomType.Parameter("severityLabels") @Nullable List<InsightFiltersSeverityLabel> severityLabels,
-        @CustomType.Parameter("sourceUrls") @Nullable List<InsightFiltersSourceUrl> sourceUrls,
-        @CustomType.Parameter("threatIntelIndicatorCategories") @Nullable List<InsightFiltersThreatIntelIndicatorCategory> threatIntelIndicatorCategories,
-        @CustomType.Parameter("threatIntelIndicatorLastObservedAts") @Nullable List<InsightFiltersThreatIntelIndicatorLastObservedAt> threatIntelIndicatorLastObservedAts,
-        @CustomType.Parameter("threatIntelIndicatorSourceUrls") @Nullable List<InsightFiltersThreatIntelIndicatorSourceUrl> threatIntelIndicatorSourceUrls,
-        @CustomType.Parameter("threatIntelIndicatorSources") @Nullable List<InsightFiltersThreatIntelIndicatorSource> threatIntelIndicatorSources,
-        @CustomType.Parameter("threatIntelIndicatorTypes") @Nullable List<InsightFiltersThreatIntelIndicatorType> threatIntelIndicatorTypes,
-        @CustomType.Parameter("threatIntelIndicatorValues") @Nullable List<InsightFiltersThreatIntelIndicatorValue> threatIntelIndicatorValues,
-        @CustomType.Parameter("titles") @Nullable List<InsightFiltersTitle> titles,
-        @CustomType.Parameter("types") @Nullable List<InsightFiltersType> types,
-        @CustomType.Parameter("updatedAts") @Nullable List<InsightFiltersUpdatedAt> updatedAts,
-        @CustomType.Parameter("userDefinedValues") @Nullable List<InsightFiltersUserDefinedValue> userDefinedValues,
-        @CustomType.Parameter("verificationStates") @Nullable List<InsightFiltersVerificationState> verificationStates,
-        @CustomType.Parameter("workflowStatuses") @Nullable List<InsightFiltersWorkflowStatus> workflowStatuses) {
-        this.awsAccountIds = awsAccountIds;
-        this.companyNames = companyNames;
-        this.complianceStatuses = complianceStatuses;
-        this.confidences = confidences;
-        this.createdAts = createdAts;
-        this.criticalities = criticalities;
-        this.descriptions = descriptions;
-        this.findingProviderFieldsConfidences = findingProviderFieldsConfidences;
-        this.findingProviderFieldsCriticalities = findingProviderFieldsCriticalities;
-        this.findingProviderFieldsRelatedFindingsIds = findingProviderFieldsRelatedFindingsIds;
-        this.findingProviderFieldsRelatedFindingsProductArns = findingProviderFieldsRelatedFindingsProductArns;
-        this.findingProviderFieldsSeverityLabels = findingProviderFieldsSeverityLabels;
-        this.findingProviderFieldsSeverityOriginals = findingProviderFieldsSeverityOriginals;
-        this.findingProviderFieldsTypes = findingProviderFieldsTypes;
-        this.firstObservedAts = firstObservedAts;
-        this.generatorIds = generatorIds;
-        this.ids = ids;
-        this.keywords = keywords;
-        this.lastObservedAts = lastObservedAts;
-        this.malwareNames = malwareNames;
-        this.malwarePaths = malwarePaths;
-        this.malwareStates = malwareStates;
-        this.malwareTypes = malwareTypes;
-        this.networkDestinationDomains = networkDestinationDomains;
-        this.networkDestinationIpv4s = networkDestinationIpv4s;
-        this.networkDestinationIpv6s = networkDestinationIpv6s;
-        this.networkDestinationPorts = networkDestinationPorts;
-        this.networkDirections = networkDirections;
-        this.networkProtocols = networkProtocols;
-        this.networkSourceDomains = networkSourceDomains;
-        this.networkSourceIpv4s = networkSourceIpv4s;
-        this.networkSourceIpv6s = networkSourceIpv6s;
-        this.networkSourceMacs = networkSourceMacs;
-        this.networkSourcePorts = networkSourcePorts;
-        this.noteTexts = noteTexts;
-        this.noteUpdatedAts = noteUpdatedAts;
-        this.noteUpdatedBies = noteUpdatedBies;
-        this.processLaunchedAts = processLaunchedAts;
-        this.processNames = processNames;
-        this.processParentPids = processParentPids;
-        this.processPaths = processPaths;
-        this.processPids = processPids;
-        this.processTerminatedAts = processTerminatedAts;
-        this.productArns = productArns;
-        this.productFields = productFields;
-        this.productNames = productNames;
-        this.recommendationTexts = recommendationTexts;
-        this.recordStates = recordStates;
-        this.relatedFindingsIds = relatedFindingsIds;
-        this.relatedFindingsProductArns = relatedFindingsProductArns;
-        this.resourceAwsEc2InstanceIamInstanceProfileArns = resourceAwsEc2InstanceIamInstanceProfileArns;
-        this.resourceAwsEc2InstanceImageIds = resourceAwsEc2InstanceImageIds;
-        this.resourceAwsEc2InstanceIpv4Addresses = resourceAwsEc2InstanceIpv4Addresses;
-        this.resourceAwsEc2InstanceIpv6Addresses = resourceAwsEc2InstanceIpv6Addresses;
-        this.resourceAwsEc2InstanceKeyNames = resourceAwsEc2InstanceKeyNames;
-        this.resourceAwsEc2InstanceLaunchedAts = resourceAwsEc2InstanceLaunchedAts;
-        this.resourceAwsEc2InstanceSubnetIds = resourceAwsEc2InstanceSubnetIds;
-        this.resourceAwsEc2InstanceTypes = resourceAwsEc2InstanceTypes;
-        this.resourceAwsEc2InstanceVpcIds = resourceAwsEc2InstanceVpcIds;
-        this.resourceAwsIamAccessKeyCreatedAts = resourceAwsIamAccessKeyCreatedAts;
-        this.resourceAwsIamAccessKeyStatuses = resourceAwsIamAccessKeyStatuses;
-        this.resourceAwsIamAccessKeyUserNames = resourceAwsIamAccessKeyUserNames;
-        this.resourceAwsS3BucketOwnerIds = resourceAwsS3BucketOwnerIds;
-        this.resourceAwsS3BucketOwnerNames = resourceAwsS3BucketOwnerNames;
-        this.resourceContainerImageIds = resourceContainerImageIds;
-        this.resourceContainerImageNames = resourceContainerImageNames;
-        this.resourceContainerLaunchedAts = resourceContainerLaunchedAts;
-        this.resourceContainerNames = resourceContainerNames;
-        this.resourceDetailsOthers = resourceDetailsOthers;
-        this.resourceIds = resourceIds;
-        this.resourcePartitions = resourcePartitions;
-        this.resourceRegions = resourceRegions;
-        this.resourceTags = resourceTags;
-        this.resourceTypes = resourceTypes;
-        this.severityLabels = severityLabels;
-        this.sourceUrls = sourceUrls;
-        this.threatIntelIndicatorCategories = threatIntelIndicatorCategories;
-        this.threatIntelIndicatorLastObservedAts = threatIntelIndicatorLastObservedAts;
-        this.threatIntelIndicatorSourceUrls = threatIntelIndicatorSourceUrls;
-        this.threatIntelIndicatorSources = threatIntelIndicatorSources;
-        this.threatIntelIndicatorTypes = threatIntelIndicatorTypes;
-        this.threatIntelIndicatorValues = threatIntelIndicatorValues;
-        this.titles = titles;
-        this.types = types;
-        this.updatedAts = updatedAts;
-        this.userDefinedValues = userDefinedValues;
-        this.verificationStates = verificationStates;
-        this.workflowStatuses = workflowStatuses;
-    }
-
+    private InsightFilters() {}
     /**
      * @return AWS account ID that a finding is generated in. See String_Filter below for more details.
      * 
@@ -1343,7 +1164,7 @@ public final class InsightFilters {
     public static Builder builder(InsightFilters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<InsightFiltersAwsAccountId> awsAccountIds;
         private @Nullable List<InsightFiltersCompanyName> companyNames;
@@ -1433,11 +1254,7 @@ public final class InsightFilters {
         private @Nullable List<InsightFiltersUserDefinedValue> userDefinedValues;
         private @Nullable List<InsightFiltersVerificationState> verificationStates;
         private @Nullable List<InsightFiltersWorkflowStatus> workflowStatuses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFilters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsAccountIds = defaults.awsAccountIds;
@@ -1530,6 +1347,7 @@ public final class InsightFilters {
     	      this.workflowStatuses = defaults.workflowStatuses;
         }
 
+        @CustomType.Setter
         public Builder awsAccountIds(@Nullable List<InsightFiltersAwsAccountId> awsAccountIds) {
             this.awsAccountIds = awsAccountIds;
             return this;
@@ -1537,6 +1355,7 @@ public final class InsightFilters {
         public Builder awsAccountIds(InsightFiltersAwsAccountId... awsAccountIds) {
             return awsAccountIds(List.of(awsAccountIds));
         }
+        @CustomType.Setter
         public Builder companyNames(@Nullable List<InsightFiltersCompanyName> companyNames) {
             this.companyNames = companyNames;
             return this;
@@ -1544,6 +1363,7 @@ public final class InsightFilters {
         public Builder companyNames(InsightFiltersCompanyName... companyNames) {
             return companyNames(List.of(companyNames));
         }
+        @CustomType.Setter
         public Builder complianceStatuses(@Nullable List<InsightFiltersComplianceStatus> complianceStatuses) {
             this.complianceStatuses = complianceStatuses;
             return this;
@@ -1551,6 +1371,7 @@ public final class InsightFilters {
         public Builder complianceStatuses(InsightFiltersComplianceStatus... complianceStatuses) {
             return complianceStatuses(List.of(complianceStatuses));
         }
+        @CustomType.Setter
         public Builder confidences(@Nullable List<InsightFiltersConfidence> confidences) {
             this.confidences = confidences;
             return this;
@@ -1558,6 +1379,7 @@ public final class InsightFilters {
         public Builder confidences(InsightFiltersConfidence... confidences) {
             return confidences(List.of(confidences));
         }
+        @CustomType.Setter
         public Builder createdAts(@Nullable List<InsightFiltersCreatedAt> createdAts) {
             this.createdAts = createdAts;
             return this;
@@ -1565,6 +1387,7 @@ public final class InsightFilters {
         public Builder createdAts(InsightFiltersCreatedAt... createdAts) {
             return createdAts(List.of(createdAts));
         }
+        @CustomType.Setter
         public Builder criticalities(@Nullable List<InsightFiltersCriticality> criticalities) {
             this.criticalities = criticalities;
             return this;
@@ -1572,6 +1395,7 @@ public final class InsightFilters {
         public Builder criticalities(InsightFiltersCriticality... criticalities) {
             return criticalities(List.of(criticalities));
         }
+        @CustomType.Setter
         public Builder descriptions(@Nullable List<InsightFiltersDescription> descriptions) {
             this.descriptions = descriptions;
             return this;
@@ -1579,6 +1403,7 @@ public final class InsightFilters {
         public Builder descriptions(InsightFiltersDescription... descriptions) {
             return descriptions(List.of(descriptions));
         }
+        @CustomType.Setter
         public Builder findingProviderFieldsConfidences(@Nullable List<InsightFiltersFindingProviderFieldsConfidence> findingProviderFieldsConfidences) {
             this.findingProviderFieldsConfidences = findingProviderFieldsConfidences;
             return this;
@@ -1586,6 +1411,7 @@ public final class InsightFilters {
         public Builder findingProviderFieldsConfidences(InsightFiltersFindingProviderFieldsConfidence... findingProviderFieldsConfidences) {
             return findingProviderFieldsConfidences(List.of(findingProviderFieldsConfidences));
         }
+        @CustomType.Setter
         public Builder findingProviderFieldsCriticalities(@Nullable List<InsightFiltersFindingProviderFieldsCriticality> findingProviderFieldsCriticalities) {
             this.findingProviderFieldsCriticalities = findingProviderFieldsCriticalities;
             return this;
@@ -1593,6 +1419,7 @@ public final class InsightFilters {
         public Builder findingProviderFieldsCriticalities(InsightFiltersFindingProviderFieldsCriticality... findingProviderFieldsCriticalities) {
             return findingProviderFieldsCriticalities(List.of(findingProviderFieldsCriticalities));
         }
+        @CustomType.Setter
         public Builder findingProviderFieldsRelatedFindingsIds(@Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsId> findingProviderFieldsRelatedFindingsIds) {
             this.findingProviderFieldsRelatedFindingsIds = findingProviderFieldsRelatedFindingsIds;
             return this;
@@ -1600,6 +1427,7 @@ public final class InsightFilters {
         public Builder findingProviderFieldsRelatedFindingsIds(InsightFiltersFindingProviderFieldsRelatedFindingsId... findingProviderFieldsRelatedFindingsIds) {
             return findingProviderFieldsRelatedFindingsIds(List.of(findingProviderFieldsRelatedFindingsIds));
         }
+        @CustomType.Setter
         public Builder findingProviderFieldsRelatedFindingsProductArns(@Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn> findingProviderFieldsRelatedFindingsProductArns) {
             this.findingProviderFieldsRelatedFindingsProductArns = findingProviderFieldsRelatedFindingsProductArns;
             return this;
@@ -1607,6 +1435,7 @@ public final class InsightFilters {
         public Builder findingProviderFieldsRelatedFindingsProductArns(InsightFiltersFindingProviderFieldsRelatedFindingsProductArn... findingProviderFieldsRelatedFindingsProductArns) {
             return findingProviderFieldsRelatedFindingsProductArns(List.of(findingProviderFieldsRelatedFindingsProductArns));
         }
+        @CustomType.Setter
         public Builder findingProviderFieldsSeverityLabels(@Nullable List<InsightFiltersFindingProviderFieldsSeverityLabel> findingProviderFieldsSeverityLabels) {
             this.findingProviderFieldsSeverityLabels = findingProviderFieldsSeverityLabels;
             return this;
@@ -1614,6 +1443,7 @@ public final class InsightFilters {
         public Builder findingProviderFieldsSeverityLabels(InsightFiltersFindingProviderFieldsSeverityLabel... findingProviderFieldsSeverityLabels) {
             return findingProviderFieldsSeverityLabels(List.of(findingProviderFieldsSeverityLabels));
         }
+        @CustomType.Setter
         public Builder findingProviderFieldsSeverityOriginals(@Nullable List<InsightFiltersFindingProviderFieldsSeverityOriginal> findingProviderFieldsSeverityOriginals) {
             this.findingProviderFieldsSeverityOriginals = findingProviderFieldsSeverityOriginals;
             return this;
@@ -1621,6 +1451,7 @@ public final class InsightFilters {
         public Builder findingProviderFieldsSeverityOriginals(InsightFiltersFindingProviderFieldsSeverityOriginal... findingProviderFieldsSeverityOriginals) {
             return findingProviderFieldsSeverityOriginals(List.of(findingProviderFieldsSeverityOriginals));
         }
+        @CustomType.Setter
         public Builder findingProviderFieldsTypes(@Nullable List<InsightFiltersFindingProviderFieldsType> findingProviderFieldsTypes) {
             this.findingProviderFieldsTypes = findingProviderFieldsTypes;
             return this;
@@ -1628,6 +1459,7 @@ public final class InsightFilters {
         public Builder findingProviderFieldsTypes(InsightFiltersFindingProviderFieldsType... findingProviderFieldsTypes) {
             return findingProviderFieldsTypes(List.of(findingProviderFieldsTypes));
         }
+        @CustomType.Setter
         public Builder firstObservedAts(@Nullable List<InsightFiltersFirstObservedAt> firstObservedAts) {
             this.firstObservedAts = firstObservedAts;
             return this;
@@ -1635,6 +1467,7 @@ public final class InsightFilters {
         public Builder firstObservedAts(InsightFiltersFirstObservedAt... firstObservedAts) {
             return firstObservedAts(List.of(firstObservedAts));
         }
+        @CustomType.Setter
         public Builder generatorIds(@Nullable List<InsightFiltersGeneratorId> generatorIds) {
             this.generatorIds = generatorIds;
             return this;
@@ -1642,6 +1475,7 @@ public final class InsightFilters {
         public Builder generatorIds(InsightFiltersGeneratorId... generatorIds) {
             return generatorIds(List.of(generatorIds));
         }
+        @CustomType.Setter
         public Builder ids(@Nullable List<InsightFiltersId> ids) {
             this.ids = ids;
             return this;
@@ -1649,6 +1483,7 @@ public final class InsightFilters {
         public Builder ids(InsightFiltersId... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder keywords(@Nullable List<InsightFiltersKeyword> keywords) {
             this.keywords = keywords;
             return this;
@@ -1656,6 +1491,7 @@ public final class InsightFilters {
         public Builder keywords(InsightFiltersKeyword... keywords) {
             return keywords(List.of(keywords));
         }
+        @CustomType.Setter
         public Builder lastObservedAts(@Nullable List<InsightFiltersLastObservedAt> lastObservedAts) {
             this.lastObservedAts = lastObservedAts;
             return this;
@@ -1663,6 +1499,7 @@ public final class InsightFilters {
         public Builder lastObservedAts(InsightFiltersLastObservedAt... lastObservedAts) {
             return lastObservedAts(List.of(lastObservedAts));
         }
+        @CustomType.Setter
         public Builder malwareNames(@Nullable List<InsightFiltersMalwareName> malwareNames) {
             this.malwareNames = malwareNames;
             return this;
@@ -1670,6 +1507,7 @@ public final class InsightFilters {
         public Builder malwareNames(InsightFiltersMalwareName... malwareNames) {
             return malwareNames(List.of(malwareNames));
         }
+        @CustomType.Setter
         public Builder malwarePaths(@Nullable List<InsightFiltersMalwarePath> malwarePaths) {
             this.malwarePaths = malwarePaths;
             return this;
@@ -1677,6 +1515,7 @@ public final class InsightFilters {
         public Builder malwarePaths(InsightFiltersMalwarePath... malwarePaths) {
             return malwarePaths(List.of(malwarePaths));
         }
+        @CustomType.Setter
         public Builder malwareStates(@Nullable List<InsightFiltersMalwareState> malwareStates) {
             this.malwareStates = malwareStates;
             return this;
@@ -1684,6 +1523,7 @@ public final class InsightFilters {
         public Builder malwareStates(InsightFiltersMalwareState... malwareStates) {
             return malwareStates(List.of(malwareStates));
         }
+        @CustomType.Setter
         public Builder malwareTypes(@Nullable List<InsightFiltersMalwareType> malwareTypes) {
             this.malwareTypes = malwareTypes;
             return this;
@@ -1691,6 +1531,7 @@ public final class InsightFilters {
         public Builder malwareTypes(InsightFiltersMalwareType... malwareTypes) {
             return malwareTypes(List.of(malwareTypes));
         }
+        @CustomType.Setter
         public Builder networkDestinationDomains(@Nullable List<InsightFiltersNetworkDestinationDomain> networkDestinationDomains) {
             this.networkDestinationDomains = networkDestinationDomains;
             return this;
@@ -1698,6 +1539,7 @@ public final class InsightFilters {
         public Builder networkDestinationDomains(InsightFiltersNetworkDestinationDomain... networkDestinationDomains) {
             return networkDestinationDomains(List.of(networkDestinationDomains));
         }
+        @CustomType.Setter
         public Builder networkDestinationIpv4s(@Nullable List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s) {
             this.networkDestinationIpv4s = networkDestinationIpv4s;
             return this;
@@ -1705,6 +1547,7 @@ public final class InsightFilters {
         public Builder networkDestinationIpv4s(InsightFiltersNetworkDestinationIpv4... networkDestinationIpv4s) {
             return networkDestinationIpv4s(List.of(networkDestinationIpv4s));
         }
+        @CustomType.Setter
         public Builder networkDestinationIpv6s(@Nullable List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s) {
             this.networkDestinationIpv6s = networkDestinationIpv6s;
             return this;
@@ -1712,6 +1555,7 @@ public final class InsightFilters {
         public Builder networkDestinationIpv6s(InsightFiltersNetworkDestinationIpv6... networkDestinationIpv6s) {
             return networkDestinationIpv6s(List.of(networkDestinationIpv6s));
         }
+        @CustomType.Setter
         public Builder networkDestinationPorts(@Nullable List<InsightFiltersNetworkDestinationPort> networkDestinationPorts) {
             this.networkDestinationPorts = networkDestinationPorts;
             return this;
@@ -1719,6 +1563,7 @@ public final class InsightFilters {
         public Builder networkDestinationPorts(InsightFiltersNetworkDestinationPort... networkDestinationPorts) {
             return networkDestinationPorts(List.of(networkDestinationPorts));
         }
+        @CustomType.Setter
         public Builder networkDirections(@Nullable List<InsightFiltersNetworkDirection> networkDirections) {
             this.networkDirections = networkDirections;
             return this;
@@ -1726,6 +1571,7 @@ public final class InsightFilters {
         public Builder networkDirections(InsightFiltersNetworkDirection... networkDirections) {
             return networkDirections(List.of(networkDirections));
         }
+        @CustomType.Setter
         public Builder networkProtocols(@Nullable List<InsightFiltersNetworkProtocol> networkProtocols) {
             this.networkProtocols = networkProtocols;
             return this;
@@ -1733,6 +1579,7 @@ public final class InsightFilters {
         public Builder networkProtocols(InsightFiltersNetworkProtocol... networkProtocols) {
             return networkProtocols(List.of(networkProtocols));
         }
+        @CustomType.Setter
         public Builder networkSourceDomains(@Nullable List<InsightFiltersNetworkSourceDomain> networkSourceDomains) {
             this.networkSourceDomains = networkSourceDomains;
             return this;
@@ -1740,6 +1587,7 @@ public final class InsightFilters {
         public Builder networkSourceDomains(InsightFiltersNetworkSourceDomain... networkSourceDomains) {
             return networkSourceDomains(List.of(networkSourceDomains));
         }
+        @CustomType.Setter
         public Builder networkSourceIpv4s(@Nullable List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s) {
             this.networkSourceIpv4s = networkSourceIpv4s;
             return this;
@@ -1747,6 +1595,7 @@ public final class InsightFilters {
         public Builder networkSourceIpv4s(InsightFiltersNetworkSourceIpv4... networkSourceIpv4s) {
             return networkSourceIpv4s(List.of(networkSourceIpv4s));
         }
+        @CustomType.Setter
         public Builder networkSourceIpv6s(@Nullable List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s) {
             this.networkSourceIpv6s = networkSourceIpv6s;
             return this;
@@ -1754,6 +1603,7 @@ public final class InsightFilters {
         public Builder networkSourceIpv6s(InsightFiltersNetworkSourceIpv6... networkSourceIpv6s) {
             return networkSourceIpv6s(List.of(networkSourceIpv6s));
         }
+        @CustomType.Setter
         public Builder networkSourceMacs(@Nullable List<InsightFiltersNetworkSourceMac> networkSourceMacs) {
             this.networkSourceMacs = networkSourceMacs;
             return this;
@@ -1761,6 +1611,7 @@ public final class InsightFilters {
         public Builder networkSourceMacs(InsightFiltersNetworkSourceMac... networkSourceMacs) {
             return networkSourceMacs(List.of(networkSourceMacs));
         }
+        @CustomType.Setter
         public Builder networkSourcePorts(@Nullable List<InsightFiltersNetworkSourcePort> networkSourcePorts) {
             this.networkSourcePorts = networkSourcePorts;
             return this;
@@ -1768,6 +1619,7 @@ public final class InsightFilters {
         public Builder networkSourcePorts(InsightFiltersNetworkSourcePort... networkSourcePorts) {
             return networkSourcePorts(List.of(networkSourcePorts));
         }
+        @CustomType.Setter
         public Builder noteTexts(@Nullable List<InsightFiltersNoteText> noteTexts) {
             this.noteTexts = noteTexts;
             return this;
@@ -1775,6 +1627,7 @@ public final class InsightFilters {
         public Builder noteTexts(InsightFiltersNoteText... noteTexts) {
             return noteTexts(List.of(noteTexts));
         }
+        @CustomType.Setter
         public Builder noteUpdatedAts(@Nullable List<InsightFiltersNoteUpdatedAt> noteUpdatedAts) {
             this.noteUpdatedAts = noteUpdatedAts;
             return this;
@@ -1782,6 +1635,7 @@ public final class InsightFilters {
         public Builder noteUpdatedAts(InsightFiltersNoteUpdatedAt... noteUpdatedAts) {
             return noteUpdatedAts(List.of(noteUpdatedAts));
         }
+        @CustomType.Setter
         public Builder noteUpdatedBies(@Nullable List<InsightFiltersNoteUpdatedBy> noteUpdatedBies) {
             this.noteUpdatedBies = noteUpdatedBies;
             return this;
@@ -1789,6 +1643,7 @@ public final class InsightFilters {
         public Builder noteUpdatedBies(InsightFiltersNoteUpdatedBy... noteUpdatedBies) {
             return noteUpdatedBies(List.of(noteUpdatedBies));
         }
+        @CustomType.Setter
         public Builder processLaunchedAts(@Nullable List<InsightFiltersProcessLaunchedAt> processLaunchedAts) {
             this.processLaunchedAts = processLaunchedAts;
             return this;
@@ -1796,6 +1651,7 @@ public final class InsightFilters {
         public Builder processLaunchedAts(InsightFiltersProcessLaunchedAt... processLaunchedAts) {
             return processLaunchedAts(List.of(processLaunchedAts));
         }
+        @CustomType.Setter
         public Builder processNames(@Nullable List<InsightFiltersProcessName> processNames) {
             this.processNames = processNames;
             return this;
@@ -1803,6 +1659,7 @@ public final class InsightFilters {
         public Builder processNames(InsightFiltersProcessName... processNames) {
             return processNames(List.of(processNames));
         }
+        @CustomType.Setter
         public Builder processParentPids(@Nullable List<InsightFiltersProcessParentPid> processParentPids) {
             this.processParentPids = processParentPids;
             return this;
@@ -1810,6 +1667,7 @@ public final class InsightFilters {
         public Builder processParentPids(InsightFiltersProcessParentPid... processParentPids) {
             return processParentPids(List.of(processParentPids));
         }
+        @CustomType.Setter
         public Builder processPaths(@Nullable List<InsightFiltersProcessPath> processPaths) {
             this.processPaths = processPaths;
             return this;
@@ -1817,6 +1675,7 @@ public final class InsightFilters {
         public Builder processPaths(InsightFiltersProcessPath... processPaths) {
             return processPaths(List.of(processPaths));
         }
+        @CustomType.Setter
         public Builder processPids(@Nullable List<InsightFiltersProcessPid> processPids) {
             this.processPids = processPids;
             return this;
@@ -1824,6 +1683,7 @@ public final class InsightFilters {
         public Builder processPids(InsightFiltersProcessPid... processPids) {
             return processPids(List.of(processPids));
         }
+        @CustomType.Setter
         public Builder processTerminatedAts(@Nullable List<InsightFiltersProcessTerminatedAt> processTerminatedAts) {
             this.processTerminatedAts = processTerminatedAts;
             return this;
@@ -1831,6 +1691,7 @@ public final class InsightFilters {
         public Builder processTerminatedAts(InsightFiltersProcessTerminatedAt... processTerminatedAts) {
             return processTerminatedAts(List.of(processTerminatedAts));
         }
+        @CustomType.Setter
         public Builder productArns(@Nullable List<InsightFiltersProductArn> productArns) {
             this.productArns = productArns;
             return this;
@@ -1838,6 +1699,7 @@ public final class InsightFilters {
         public Builder productArns(InsightFiltersProductArn... productArns) {
             return productArns(List.of(productArns));
         }
+        @CustomType.Setter
         public Builder productFields(@Nullable List<InsightFiltersProductField> productFields) {
             this.productFields = productFields;
             return this;
@@ -1845,6 +1707,7 @@ public final class InsightFilters {
         public Builder productFields(InsightFiltersProductField... productFields) {
             return productFields(List.of(productFields));
         }
+        @CustomType.Setter
         public Builder productNames(@Nullable List<InsightFiltersProductName> productNames) {
             this.productNames = productNames;
             return this;
@@ -1852,6 +1715,7 @@ public final class InsightFilters {
         public Builder productNames(InsightFiltersProductName... productNames) {
             return productNames(List.of(productNames));
         }
+        @CustomType.Setter
         public Builder recommendationTexts(@Nullable List<InsightFiltersRecommendationText> recommendationTexts) {
             this.recommendationTexts = recommendationTexts;
             return this;
@@ -1859,6 +1723,7 @@ public final class InsightFilters {
         public Builder recommendationTexts(InsightFiltersRecommendationText... recommendationTexts) {
             return recommendationTexts(List.of(recommendationTexts));
         }
+        @CustomType.Setter
         public Builder recordStates(@Nullable List<InsightFiltersRecordState> recordStates) {
             this.recordStates = recordStates;
             return this;
@@ -1866,6 +1731,7 @@ public final class InsightFilters {
         public Builder recordStates(InsightFiltersRecordState... recordStates) {
             return recordStates(List.of(recordStates));
         }
+        @CustomType.Setter
         public Builder relatedFindingsIds(@Nullable List<InsightFiltersRelatedFindingsId> relatedFindingsIds) {
             this.relatedFindingsIds = relatedFindingsIds;
             return this;
@@ -1873,6 +1739,7 @@ public final class InsightFilters {
         public Builder relatedFindingsIds(InsightFiltersRelatedFindingsId... relatedFindingsIds) {
             return relatedFindingsIds(List.of(relatedFindingsIds));
         }
+        @CustomType.Setter
         public Builder relatedFindingsProductArns(@Nullable List<InsightFiltersRelatedFindingsProductArn> relatedFindingsProductArns) {
             this.relatedFindingsProductArns = relatedFindingsProductArns;
             return this;
@@ -1880,6 +1747,7 @@ public final class InsightFilters {
         public Builder relatedFindingsProductArns(InsightFiltersRelatedFindingsProductArn... relatedFindingsProductArns) {
             return relatedFindingsProductArns(List.of(relatedFindingsProductArns));
         }
+        @CustomType.Setter
         public Builder resourceAwsEc2InstanceIamInstanceProfileArns(@Nullable List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> resourceAwsEc2InstanceIamInstanceProfileArns) {
             this.resourceAwsEc2InstanceIamInstanceProfileArns = resourceAwsEc2InstanceIamInstanceProfileArns;
             return this;
@@ -1887,6 +1755,7 @@ public final class InsightFilters {
         public Builder resourceAwsEc2InstanceIamInstanceProfileArns(InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn... resourceAwsEc2InstanceIamInstanceProfileArns) {
             return resourceAwsEc2InstanceIamInstanceProfileArns(List.of(resourceAwsEc2InstanceIamInstanceProfileArns));
         }
+        @CustomType.Setter
         public Builder resourceAwsEc2InstanceImageIds(@Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds) {
             this.resourceAwsEc2InstanceImageIds = resourceAwsEc2InstanceImageIds;
             return this;
@@ -1894,6 +1763,7 @@ public final class InsightFilters {
         public Builder resourceAwsEc2InstanceImageIds(InsightFiltersResourceAwsEc2InstanceImageId... resourceAwsEc2InstanceImageIds) {
             return resourceAwsEc2InstanceImageIds(List.of(resourceAwsEc2InstanceImageIds));
         }
+        @CustomType.Setter
         public Builder resourceAwsEc2InstanceIpv4Addresses(@Nullable List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses) {
             this.resourceAwsEc2InstanceIpv4Addresses = resourceAwsEc2InstanceIpv4Addresses;
             return this;
@@ -1901,6 +1771,7 @@ public final class InsightFilters {
         public Builder resourceAwsEc2InstanceIpv4Addresses(InsightFiltersResourceAwsEc2InstanceIpv4Address... resourceAwsEc2InstanceIpv4Addresses) {
             return resourceAwsEc2InstanceIpv4Addresses(List.of(resourceAwsEc2InstanceIpv4Addresses));
         }
+        @CustomType.Setter
         public Builder resourceAwsEc2InstanceIpv6Addresses(@Nullable List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses) {
             this.resourceAwsEc2InstanceIpv6Addresses = resourceAwsEc2InstanceIpv6Addresses;
             return this;
@@ -1908,6 +1779,7 @@ public final class InsightFilters {
         public Builder resourceAwsEc2InstanceIpv6Addresses(InsightFiltersResourceAwsEc2InstanceIpv6Address... resourceAwsEc2InstanceIpv6Addresses) {
             return resourceAwsEc2InstanceIpv6Addresses(List.of(resourceAwsEc2InstanceIpv6Addresses));
         }
+        @CustomType.Setter
         public Builder resourceAwsEc2InstanceKeyNames(@Nullable List<InsightFiltersResourceAwsEc2InstanceKeyName> resourceAwsEc2InstanceKeyNames) {
             this.resourceAwsEc2InstanceKeyNames = resourceAwsEc2InstanceKeyNames;
             return this;
@@ -1915,6 +1787,7 @@ public final class InsightFilters {
         public Builder resourceAwsEc2InstanceKeyNames(InsightFiltersResourceAwsEc2InstanceKeyName... resourceAwsEc2InstanceKeyNames) {
             return resourceAwsEc2InstanceKeyNames(List.of(resourceAwsEc2InstanceKeyNames));
         }
+        @CustomType.Setter
         public Builder resourceAwsEc2InstanceLaunchedAts(@Nullable List<InsightFiltersResourceAwsEc2InstanceLaunchedAt> resourceAwsEc2InstanceLaunchedAts) {
             this.resourceAwsEc2InstanceLaunchedAts = resourceAwsEc2InstanceLaunchedAts;
             return this;
@@ -1922,6 +1795,7 @@ public final class InsightFilters {
         public Builder resourceAwsEc2InstanceLaunchedAts(InsightFiltersResourceAwsEc2InstanceLaunchedAt... resourceAwsEc2InstanceLaunchedAts) {
             return resourceAwsEc2InstanceLaunchedAts(List.of(resourceAwsEc2InstanceLaunchedAts));
         }
+        @CustomType.Setter
         public Builder resourceAwsEc2InstanceSubnetIds(@Nullable List<InsightFiltersResourceAwsEc2InstanceSubnetId> resourceAwsEc2InstanceSubnetIds) {
             this.resourceAwsEc2InstanceSubnetIds = resourceAwsEc2InstanceSubnetIds;
             return this;
@@ -1929,6 +1803,7 @@ public final class InsightFilters {
         public Builder resourceAwsEc2InstanceSubnetIds(InsightFiltersResourceAwsEc2InstanceSubnetId... resourceAwsEc2InstanceSubnetIds) {
             return resourceAwsEc2InstanceSubnetIds(List.of(resourceAwsEc2InstanceSubnetIds));
         }
+        @CustomType.Setter
         public Builder resourceAwsEc2InstanceTypes(@Nullable List<InsightFiltersResourceAwsEc2InstanceType> resourceAwsEc2InstanceTypes) {
             this.resourceAwsEc2InstanceTypes = resourceAwsEc2InstanceTypes;
             return this;
@@ -1936,6 +1811,7 @@ public final class InsightFilters {
         public Builder resourceAwsEc2InstanceTypes(InsightFiltersResourceAwsEc2InstanceType... resourceAwsEc2InstanceTypes) {
             return resourceAwsEc2InstanceTypes(List.of(resourceAwsEc2InstanceTypes));
         }
+        @CustomType.Setter
         public Builder resourceAwsEc2InstanceVpcIds(@Nullable List<InsightFiltersResourceAwsEc2InstanceVpcId> resourceAwsEc2InstanceVpcIds) {
             this.resourceAwsEc2InstanceVpcIds = resourceAwsEc2InstanceVpcIds;
             return this;
@@ -1943,6 +1819,7 @@ public final class InsightFilters {
         public Builder resourceAwsEc2InstanceVpcIds(InsightFiltersResourceAwsEc2InstanceVpcId... resourceAwsEc2InstanceVpcIds) {
             return resourceAwsEc2InstanceVpcIds(List.of(resourceAwsEc2InstanceVpcIds));
         }
+        @CustomType.Setter
         public Builder resourceAwsIamAccessKeyCreatedAts(@Nullable List<InsightFiltersResourceAwsIamAccessKeyCreatedAt> resourceAwsIamAccessKeyCreatedAts) {
             this.resourceAwsIamAccessKeyCreatedAts = resourceAwsIamAccessKeyCreatedAts;
             return this;
@@ -1950,6 +1827,7 @@ public final class InsightFilters {
         public Builder resourceAwsIamAccessKeyCreatedAts(InsightFiltersResourceAwsIamAccessKeyCreatedAt... resourceAwsIamAccessKeyCreatedAts) {
             return resourceAwsIamAccessKeyCreatedAts(List.of(resourceAwsIamAccessKeyCreatedAts));
         }
+        @CustomType.Setter
         public Builder resourceAwsIamAccessKeyStatuses(@Nullable List<InsightFiltersResourceAwsIamAccessKeyStatus> resourceAwsIamAccessKeyStatuses) {
             this.resourceAwsIamAccessKeyStatuses = resourceAwsIamAccessKeyStatuses;
             return this;
@@ -1957,6 +1835,7 @@ public final class InsightFilters {
         public Builder resourceAwsIamAccessKeyStatuses(InsightFiltersResourceAwsIamAccessKeyStatus... resourceAwsIamAccessKeyStatuses) {
             return resourceAwsIamAccessKeyStatuses(List.of(resourceAwsIamAccessKeyStatuses));
         }
+        @CustomType.Setter
         public Builder resourceAwsIamAccessKeyUserNames(@Nullable List<InsightFiltersResourceAwsIamAccessKeyUserName> resourceAwsIamAccessKeyUserNames) {
             this.resourceAwsIamAccessKeyUserNames = resourceAwsIamAccessKeyUserNames;
             return this;
@@ -1964,6 +1843,7 @@ public final class InsightFilters {
         public Builder resourceAwsIamAccessKeyUserNames(InsightFiltersResourceAwsIamAccessKeyUserName... resourceAwsIamAccessKeyUserNames) {
             return resourceAwsIamAccessKeyUserNames(List.of(resourceAwsIamAccessKeyUserNames));
         }
+        @CustomType.Setter
         public Builder resourceAwsS3BucketOwnerIds(@Nullable List<InsightFiltersResourceAwsS3BucketOwnerId> resourceAwsS3BucketOwnerIds) {
             this.resourceAwsS3BucketOwnerIds = resourceAwsS3BucketOwnerIds;
             return this;
@@ -1971,6 +1851,7 @@ public final class InsightFilters {
         public Builder resourceAwsS3BucketOwnerIds(InsightFiltersResourceAwsS3BucketOwnerId... resourceAwsS3BucketOwnerIds) {
             return resourceAwsS3BucketOwnerIds(List.of(resourceAwsS3BucketOwnerIds));
         }
+        @CustomType.Setter
         public Builder resourceAwsS3BucketOwnerNames(@Nullable List<InsightFiltersResourceAwsS3BucketOwnerName> resourceAwsS3BucketOwnerNames) {
             this.resourceAwsS3BucketOwnerNames = resourceAwsS3BucketOwnerNames;
             return this;
@@ -1978,6 +1859,7 @@ public final class InsightFilters {
         public Builder resourceAwsS3BucketOwnerNames(InsightFiltersResourceAwsS3BucketOwnerName... resourceAwsS3BucketOwnerNames) {
             return resourceAwsS3BucketOwnerNames(List.of(resourceAwsS3BucketOwnerNames));
         }
+        @CustomType.Setter
         public Builder resourceContainerImageIds(@Nullable List<InsightFiltersResourceContainerImageId> resourceContainerImageIds) {
             this.resourceContainerImageIds = resourceContainerImageIds;
             return this;
@@ -1985,6 +1867,7 @@ public final class InsightFilters {
         public Builder resourceContainerImageIds(InsightFiltersResourceContainerImageId... resourceContainerImageIds) {
             return resourceContainerImageIds(List.of(resourceContainerImageIds));
         }
+        @CustomType.Setter
         public Builder resourceContainerImageNames(@Nullable List<InsightFiltersResourceContainerImageName> resourceContainerImageNames) {
             this.resourceContainerImageNames = resourceContainerImageNames;
             return this;
@@ -1992,6 +1875,7 @@ public final class InsightFilters {
         public Builder resourceContainerImageNames(InsightFiltersResourceContainerImageName... resourceContainerImageNames) {
             return resourceContainerImageNames(List.of(resourceContainerImageNames));
         }
+        @CustomType.Setter
         public Builder resourceContainerLaunchedAts(@Nullable List<InsightFiltersResourceContainerLaunchedAt> resourceContainerLaunchedAts) {
             this.resourceContainerLaunchedAts = resourceContainerLaunchedAts;
             return this;
@@ -1999,6 +1883,7 @@ public final class InsightFilters {
         public Builder resourceContainerLaunchedAts(InsightFiltersResourceContainerLaunchedAt... resourceContainerLaunchedAts) {
             return resourceContainerLaunchedAts(List.of(resourceContainerLaunchedAts));
         }
+        @CustomType.Setter
         public Builder resourceContainerNames(@Nullable List<InsightFiltersResourceContainerName> resourceContainerNames) {
             this.resourceContainerNames = resourceContainerNames;
             return this;
@@ -2006,6 +1891,7 @@ public final class InsightFilters {
         public Builder resourceContainerNames(InsightFiltersResourceContainerName... resourceContainerNames) {
             return resourceContainerNames(List.of(resourceContainerNames));
         }
+        @CustomType.Setter
         public Builder resourceDetailsOthers(@Nullable List<InsightFiltersResourceDetailsOther> resourceDetailsOthers) {
             this.resourceDetailsOthers = resourceDetailsOthers;
             return this;
@@ -2013,6 +1899,7 @@ public final class InsightFilters {
         public Builder resourceDetailsOthers(InsightFiltersResourceDetailsOther... resourceDetailsOthers) {
             return resourceDetailsOthers(List.of(resourceDetailsOthers));
         }
+        @CustomType.Setter
         public Builder resourceIds(@Nullable List<InsightFiltersResourceId> resourceIds) {
             this.resourceIds = resourceIds;
             return this;
@@ -2020,6 +1907,7 @@ public final class InsightFilters {
         public Builder resourceIds(InsightFiltersResourceId... resourceIds) {
             return resourceIds(List.of(resourceIds));
         }
+        @CustomType.Setter
         public Builder resourcePartitions(@Nullable List<InsightFiltersResourcePartition> resourcePartitions) {
             this.resourcePartitions = resourcePartitions;
             return this;
@@ -2027,6 +1915,7 @@ public final class InsightFilters {
         public Builder resourcePartitions(InsightFiltersResourcePartition... resourcePartitions) {
             return resourcePartitions(List.of(resourcePartitions));
         }
+        @CustomType.Setter
         public Builder resourceRegions(@Nullable List<InsightFiltersResourceRegion> resourceRegions) {
             this.resourceRegions = resourceRegions;
             return this;
@@ -2034,6 +1923,7 @@ public final class InsightFilters {
         public Builder resourceRegions(InsightFiltersResourceRegion... resourceRegions) {
             return resourceRegions(List.of(resourceRegions));
         }
+        @CustomType.Setter
         public Builder resourceTags(@Nullable List<InsightFiltersResourceTag> resourceTags) {
             this.resourceTags = resourceTags;
             return this;
@@ -2041,6 +1931,7 @@ public final class InsightFilters {
         public Builder resourceTags(InsightFiltersResourceTag... resourceTags) {
             return resourceTags(List.of(resourceTags));
         }
+        @CustomType.Setter
         public Builder resourceTypes(@Nullable List<InsightFiltersResourceType> resourceTypes) {
             this.resourceTypes = resourceTypes;
             return this;
@@ -2048,6 +1939,7 @@ public final class InsightFilters {
         public Builder resourceTypes(InsightFiltersResourceType... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }
+        @CustomType.Setter
         public Builder severityLabels(@Nullable List<InsightFiltersSeverityLabel> severityLabels) {
             this.severityLabels = severityLabels;
             return this;
@@ -2055,6 +1947,7 @@ public final class InsightFilters {
         public Builder severityLabels(InsightFiltersSeverityLabel... severityLabels) {
             return severityLabels(List.of(severityLabels));
         }
+        @CustomType.Setter
         public Builder sourceUrls(@Nullable List<InsightFiltersSourceUrl> sourceUrls) {
             this.sourceUrls = sourceUrls;
             return this;
@@ -2062,6 +1955,7 @@ public final class InsightFilters {
         public Builder sourceUrls(InsightFiltersSourceUrl... sourceUrls) {
             return sourceUrls(List.of(sourceUrls));
         }
+        @CustomType.Setter
         public Builder threatIntelIndicatorCategories(@Nullable List<InsightFiltersThreatIntelIndicatorCategory> threatIntelIndicatorCategories) {
             this.threatIntelIndicatorCategories = threatIntelIndicatorCategories;
             return this;
@@ -2069,6 +1963,7 @@ public final class InsightFilters {
         public Builder threatIntelIndicatorCategories(InsightFiltersThreatIntelIndicatorCategory... threatIntelIndicatorCategories) {
             return threatIntelIndicatorCategories(List.of(threatIntelIndicatorCategories));
         }
+        @CustomType.Setter
         public Builder threatIntelIndicatorLastObservedAts(@Nullable List<InsightFiltersThreatIntelIndicatorLastObservedAt> threatIntelIndicatorLastObservedAts) {
             this.threatIntelIndicatorLastObservedAts = threatIntelIndicatorLastObservedAts;
             return this;
@@ -2076,6 +1971,7 @@ public final class InsightFilters {
         public Builder threatIntelIndicatorLastObservedAts(InsightFiltersThreatIntelIndicatorLastObservedAt... threatIntelIndicatorLastObservedAts) {
             return threatIntelIndicatorLastObservedAts(List.of(threatIntelIndicatorLastObservedAts));
         }
+        @CustomType.Setter
         public Builder threatIntelIndicatorSourceUrls(@Nullable List<InsightFiltersThreatIntelIndicatorSourceUrl> threatIntelIndicatorSourceUrls) {
             this.threatIntelIndicatorSourceUrls = threatIntelIndicatorSourceUrls;
             return this;
@@ -2083,6 +1979,7 @@ public final class InsightFilters {
         public Builder threatIntelIndicatorSourceUrls(InsightFiltersThreatIntelIndicatorSourceUrl... threatIntelIndicatorSourceUrls) {
             return threatIntelIndicatorSourceUrls(List.of(threatIntelIndicatorSourceUrls));
         }
+        @CustomType.Setter
         public Builder threatIntelIndicatorSources(@Nullable List<InsightFiltersThreatIntelIndicatorSource> threatIntelIndicatorSources) {
             this.threatIntelIndicatorSources = threatIntelIndicatorSources;
             return this;
@@ -2090,6 +1987,7 @@ public final class InsightFilters {
         public Builder threatIntelIndicatorSources(InsightFiltersThreatIntelIndicatorSource... threatIntelIndicatorSources) {
             return threatIntelIndicatorSources(List.of(threatIntelIndicatorSources));
         }
+        @CustomType.Setter
         public Builder threatIntelIndicatorTypes(@Nullable List<InsightFiltersThreatIntelIndicatorType> threatIntelIndicatorTypes) {
             this.threatIntelIndicatorTypes = threatIntelIndicatorTypes;
             return this;
@@ -2097,6 +1995,7 @@ public final class InsightFilters {
         public Builder threatIntelIndicatorTypes(InsightFiltersThreatIntelIndicatorType... threatIntelIndicatorTypes) {
             return threatIntelIndicatorTypes(List.of(threatIntelIndicatorTypes));
         }
+        @CustomType.Setter
         public Builder threatIntelIndicatorValues(@Nullable List<InsightFiltersThreatIntelIndicatorValue> threatIntelIndicatorValues) {
             this.threatIntelIndicatorValues = threatIntelIndicatorValues;
             return this;
@@ -2104,6 +2003,7 @@ public final class InsightFilters {
         public Builder threatIntelIndicatorValues(InsightFiltersThreatIntelIndicatorValue... threatIntelIndicatorValues) {
             return threatIntelIndicatorValues(List.of(threatIntelIndicatorValues));
         }
+        @CustomType.Setter
         public Builder titles(@Nullable List<InsightFiltersTitle> titles) {
             this.titles = titles;
             return this;
@@ -2111,6 +2011,7 @@ public final class InsightFilters {
         public Builder titles(InsightFiltersTitle... titles) {
             return titles(List.of(titles));
         }
+        @CustomType.Setter
         public Builder types(@Nullable List<InsightFiltersType> types) {
             this.types = types;
             return this;
@@ -2118,6 +2019,7 @@ public final class InsightFilters {
         public Builder types(InsightFiltersType... types) {
             return types(List.of(types));
         }
+        @CustomType.Setter
         public Builder updatedAts(@Nullable List<InsightFiltersUpdatedAt> updatedAts) {
             this.updatedAts = updatedAts;
             return this;
@@ -2125,6 +2027,7 @@ public final class InsightFilters {
         public Builder updatedAts(InsightFiltersUpdatedAt... updatedAts) {
             return updatedAts(List.of(updatedAts));
         }
+        @CustomType.Setter
         public Builder userDefinedValues(@Nullable List<InsightFiltersUserDefinedValue> userDefinedValues) {
             this.userDefinedValues = userDefinedValues;
             return this;
@@ -2132,6 +2035,7 @@ public final class InsightFilters {
         public Builder userDefinedValues(InsightFiltersUserDefinedValue... userDefinedValues) {
             return userDefinedValues(List.of(userDefinedValues));
         }
+        @CustomType.Setter
         public Builder verificationStates(@Nullable List<InsightFiltersVerificationState> verificationStates) {
             this.verificationStates = verificationStates;
             return this;
@@ -2139,14 +2043,105 @@ public final class InsightFilters {
         public Builder verificationStates(InsightFiltersVerificationState... verificationStates) {
             return verificationStates(List.of(verificationStates));
         }
+        @CustomType.Setter
         public Builder workflowStatuses(@Nullable List<InsightFiltersWorkflowStatus> workflowStatuses) {
             this.workflowStatuses = workflowStatuses;
             return this;
         }
         public Builder workflowStatuses(InsightFiltersWorkflowStatus... workflowStatuses) {
             return workflowStatuses(List.of(workflowStatuses));
-        }        public InsightFilters build() {
-            return new InsightFilters(awsAccountIds, companyNames, complianceStatuses, confidences, createdAts, criticalities, descriptions, findingProviderFieldsConfidences, findingProviderFieldsCriticalities, findingProviderFieldsRelatedFindingsIds, findingProviderFieldsRelatedFindingsProductArns, findingProviderFieldsSeverityLabels, findingProviderFieldsSeverityOriginals, findingProviderFieldsTypes, firstObservedAts, generatorIds, ids, keywords, lastObservedAts, malwareNames, malwarePaths, malwareStates, malwareTypes, networkDestinationDomains, networkDestinationIpv4s, networkDestinationIpv6s, networkDestinationPorts, networkDirections, networkProtocols, networkSourceDomains, networkSourceIpv4s, networkSourceIpv6s, networkSourceMacs, networkSourcePorts, noteTexts, noteUpdatedAts, noteUpdatedBies, processLaunchedAts, processNames, processParentPids, processPaths, processPids, processTerminatedAts, productArns, productFields, productNames, recommendationTexts, recordStates, relatedFindingsIds, relatedFindingsProductArns, resourceAwsEc2InstanceIamInstanceProfileArns, resourceAwsEc2InstanceImageIds, resourceAwsEc2InstanceIpv4Addresses, resourceAwsEc2InstanceIpv6Addresses, resourceAwsEc2InstanceKeyNames, resourceAwsEc2InstanceLaunchedAts, resourceAwsEc2InstanceSubnetIds, resourceAwsEc2InstanceTypes, resourceAwsEc2InstanceVpcIds, resourceAwsIamAccessKeyCreatedAts, resourceAwsIamAccessKeyStatuses, resourceAwsIamAccessKeyUserNames, resourceAwsS3BucketOwnerIds, resourceAwsS3BucketOwnerNames, resourceContainerImageIds, resourceContainerImageNames, resourceContainerLaunchedAts, resourceContainerNames, resourceDetailsOthers, resourceIds, resourcePartitions, resourceRegions, resourceTags, resourceTypes, severityLabels, sourceUrls, threatIntelIndicatorCategories, threatIntelIndicatorLastObservedAts, threatIntelIndicatorSourceUrls, threatIntelIndicatorSources, threatIntelIndicatorTypes, threatIntelIndicatorValues, titles, types, updatedAts, userDefinedValues, verificationStates, workflowStatuses);
+        }
+        public InsightFilters build() {
+            final var o = new InsightFilters();
+            o.awsAccountIds = awsAccountIds;
+            o.companyNames = companyNames;
+            o.complianceStatuses = complianceStatuses;
+            o.confidences = confidences;
+            o.createdAts = createdAts;
+            o.criticalities = criticalities;
+            o.descriptions = descriptions;
+            o.findingProviderFieldsConfidences = findingProviderFieldsConfidences;
+            o.findingProviderFieldsCriticalities = findingProviderFieldsCriticalities;
+            o.findingProviderFieldsRelatedFindingsIds = findingProviderFieldsRelatedFindingsIds;
+            o.findingProviderFieldsRelatedFindingsProductArns = findingProviderFieldsRelatedFindingsProductArns;
+            o.findingProviderFieldsSeverityLabels = findingProviderFieldsSeverityLabels;
+            o.findingProviderFieldsSeverityOriginals = findingProviderFieldsSeverityOriginals;
+            o.findingProviderFieldsTypes = findingProviderFieldsTypes;
+            o.firstObservedAts = firstObservedAts;
+            o.generatorIds = generatorIds;
+            o.ids = ids;
+            o.keywords = keywords;
+            o.lastObservedAts = lastObservedAts;
+            o.malwareNames = malwareNames;
+            o.malwarePaths = malwarePaths;
+            o.malwareStates = malwareStates;
+            o.malwareTypes = malwareTypes;
+            o.networkDestinationDomains = networkDestinationDomains;
+            o.networkDestinationIpv4s = networkDestinationIpv4s;
+            o.networkDestinationIpv6s = networkDestinationIpv6s;
+            o.networkDestinationPorts = networkDestinationPorts;
+            o.networkDirections = networkDirections;
+            o.networkProtocols = networkProtocols;
+            o.networkSourceDomains = networkSourceDomains;
+            o.networkSourceIpv4s = networkSourceIpv4s;
+            o.networkSourceIpv6s = networkSourceIpv6s;
+            o.networkSourceMacs = networkSourceMacs;
+            o.networkSourcePorts = networkSourcePorts;
+            o.noteTexts = noteTexts;
+            o.noteUpdatedAts = noteUpdatedAts;
+            o.noteUpdatedBies = noteUpdatedBies;
+            o.processLaunchedAts = processLaunchedAts;
+            o.processNames = processNames;
+            o.processParentPids = processParentPids;
+            o.processPaths = processPaths;
+            o.processPids = processPids;
+            o.processTerminatedAts = processTerminatedAts;
+            o.productArns = productArns;
+            o.productFields = productFields;
+            o.productNames = productNames;
+            o.recommendationTexts = recommendationTexts;
+            o.recordStates = recordStates;
+            o.relatedFindingsIds = relatedFindingsIds;
+            o.relatedFindingsProductArns = relatedFindingsProductArns;
+            o.resourceAwsEc2InstanceIamInstanceProfileArns = resourceAwsEc2InstanceIamInstanceProfileArns;
+            o.resourceAwsEc2InstanceImageIds = resourceAwsEc2InstanceImageIds;
+            o.resourceAwsEc2InstanceIpv4Addresses = resourceAwsEc2InstanceIpv4Addresses;
+            o.resourceAwsEc2InstanceIpv6Addresses = resourceAwsEc2InstanceIpv6Addresses;
+            o.resourceAwsEc2InstanceKeyNames = resourceAwsEc2InstanceKeyNames;
+            o.resourceAwsEc2InstanceLaunchedAts = resourceAwsEc2InstanceLaunchedAts;
+            o.resourceAwsEc2InstanceSubnetIds = resourceAwsEc2InstanceSubnetIds;
+            o.resourceAwsEc2InstanceTypes = resourceAwsEc2InstanceTypes;
+            o.resourceAwsEc2InstanceVpcIds = resourceAwsEc2InstanceVpcIds;
+            o.resourceAwsIamAccessKeyCreatedAts = resourceAwsIamAccessKeyCreatedAts;
+            o.resourceAwsIamAccessKeyStatuses = resourceAwsIamAccessKeyStatuses;
+            o.resourceAwsIamAccessKeyUserNames = resourceAwsIamAccessKeyUserNames;
+            o.resourceAwsS3BucketOwnerIds = resourceAwsS3BucketOwnerIds;
+            o.resourceAwsS3BucketOwnerNames = resourceAwsS3BucketOwnerNames;
+            o.resourceContainerImageIds = resourceContainerImageIds;
+            o.resourceContainerImageNames = resourceContainerImageNames;
+            o.resourceContainerLaunchedAts = resourceContainerLaunchedAts;
+            o.resourceContainerNames = resourceContainerNames;
+            o.resourceDetailsOthers = resourceDetailsOthers;
+            o.resourceIds = resourceIds;
+            o.resourcePartitions = resourcePartitions;
+            o.resourceRegions = resourceRegions;
+            o.resourceTags = resourceTags;
+            o.resourceTypes = resourceTypes;
+            o.severityLabels = severityLabels;
+            o.sourceUrls = sourceUrls;
+            o.threatIntelIndicatorCategories = threatIntelIndicatorCategories;
+            o.threatIntelIndicatorLastObservedAts = threatIntelIndicatorLastObservedAts;
+            o.threatIntelIndicatorSourceUrls = threatIntelIndicatorSourceUrls;
+            o.threatIntelIndicatorSources = threatIntelIndicatorSources;
+            o.threatIntelIndicatorTypes = threatIntelIndicatorTypes;
+            o.threatIntelIndicatorValues = threatIntelIndicatorValues;
+            o.titles = titles;
+            o.types = types;
+            o.updatedAts = updatedAts;
+            o.userDefinedValues = userDefinedValues;
+            o.verificationStates = verificationStates;
+            o.workflowStatuses = workflowStatuses;
+            return o;
         }
     }
 }

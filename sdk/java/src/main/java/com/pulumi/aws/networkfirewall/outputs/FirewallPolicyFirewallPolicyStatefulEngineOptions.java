@@ -13,13 +13,9 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
      * @return Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
      */
-    private final String ruleOrder;
+    private String ruleOrder;
 
-    @CustomType.Constructor
-    private FirewallPolicyFirewallPolicyStatefulEngineOptions(@CustomType.Parameter("ruleOrder") String ruleOrder) {
-        this.ruleOrder = ruleOrder;
-    }
-
+    private FirewallPolicyFirewallPolicyStatefulEngineOptions() {}
     /**
      * @return Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
@@ -35,24 +31,24 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
     public static Builder builder(FirewallPolicyFirewallPolicyStatefulEngineOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ruleOrder;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatefulEngineOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ruleOrder = defaults.ruleOrder;
         }
 
+        @CustomType.Setter
         public Builder ruleOrder(String ruleOrder) {
             this.ruleOrder = Objects.requireNonNull(ruleOrder);
             return this;
-        }        public FirewallPolicyFirewallPolicyStatefulEngineOptions build() {
-            return new FirewallPolicyFirewallPolicyStatefulEngineOptions(ruleOrder);
+        }
+        public FirewallPolicyFirewallPolicyStatefulEngineOptions build() {
+            final var o = new FirewallPolicyFirewallPolicyStatefulEngineOptions();
+            o.ruleOrder = ruleOrder;
+            return o;
         }
     }
 }

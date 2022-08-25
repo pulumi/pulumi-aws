@@ -12,28 +12,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstancesResult {
-    private final @Nullable List<GetInstancesFilter> filters;
+    private @Nullable List<GetInstancesFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of instance IDs of the matched SSM managed instances.
      * 
      */
-    private final List<String> ids;
+    private List<String> ids;
 
-    @CustomType.Constructor
-    private GetInstancesResult(
-        @CustomType.Parameter("filters") @Nullable List<GetInstancesFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids) {
-        this.filters = filters;
-        this.id = id;
-        this.ids = ids;
-    }
-
+    private GetInstancesResult() {}
     public List<GetInstancesFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -59,16 +50,12 @@ public final class GetInstancesResult {
     public static Builder builder(GetInstancesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetInstancesFilter> filters;
         private String id;
         private List<String> ids;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstancesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -76,6 +63,7 @@ public final class GetInstancesResult {
     	      this.ids = defaults.ids;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetInstancesFilter> filters) {
             this.filters = filters;
             return this;
@@ -83,18 +71,25 @@ public final class GetInstancesResult {
         public Builder filters(GetInstancesFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
         }
         public Builder ids(String... ids) {
             return ids(List.of(ids));
-        }        public GetInstancesResult build() {
-            return new GetInstancesResult(filters, id, ids);
+        }
+        public GetInstancesResult build() {
+            final var o = new GetInstancesResult();
+            o.filters = filters;
+            o.id = id;
+            o.ids = ids;
+            return o;
         }
     }
 }

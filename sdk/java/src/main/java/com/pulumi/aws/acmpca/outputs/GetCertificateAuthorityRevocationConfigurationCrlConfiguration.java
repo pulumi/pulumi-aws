@@ -11,26 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
-    private final String customCname;
-    private final Boolean enabled;
-    private final Integer expirationInDays;
-    private final String s3BucketName;
-    private final String s3ObjectAcl;
+    private String customCname;
+    private Boolean enabled;
+    private Integer expirationInDays;
+    private String s3BucketName;
+    private String s3ObjectAcl;
 
-    @CustomType.Constructor
-    private GetCertificateAuthorityRevocationConfigurationCrlConfiguration(
-        @CustomType.Parameter("customCname") String customCname,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("expirationInDays") Integer expirationInDays,
-        @CustomType.Parameter("s3BucketName") String s3BucketName,
-        @CustomType.Parameter("s3ObjectAcl") String s3ObjectAcl) {
-        this.customCname = customCname;
-        this.enabled = enabled;
-        this.expirationInDays = expirationInDays;
-        this.s3BucketName = s3BucketName;
-        this.s3ObjectAcl = s3ObjectAcl;
-    }
-
+    private GetCertificateAuthorityRevocationConfigurationCrlConfiguration() {}
     public String customCname() {
         return this.customCname;
     }
@@ -54,18 +41,14 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
     public static Builder builder(GetCertificateAuthorityRevocationConfigurationCrlConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String customCname;
         private Boolean enabled;
         private Integer expirationInDays;
         private String s3BucketName;
         private String s3ObjectAcl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateAuthorityRevocationConfigurationCrlConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customCname = defaults.customCname;
@@ -75,27 +58,39 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
     	      this.s3ObjectAcl = defaults.s3ObjectAcl;
         }
 
+        @CustomType.Setter
         public Builder customCname(String customCname) {
             this.customCname = Objects.requireNonNull(customCname);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder expirationInDays(Integer expirationInDays) {
             this.expirationInDays = Objects.requireNonNull(expirationInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder s3BucketName(String s3BucketName) {
             this.s3BucketName = Objects.requireNonNull(s3BucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder s3ObjectAcl(String s3ObjectAcl) {
             this.s3ObjectAcl = Objects.requireNonNull(s3ObjectAcl);
             return this;
-        }        public GetCertificateAuthorityRevocationConfigurationCrlConfiguration build() {
-            return new GetCertificateAuthorityRevocationConfigurationCrlConfiguration(customCname, enabled, expirationInDays, s3BucketName, s3ObjectAcl);
+        }
+        public GetCertificateAuthorityRevocationConfigurationCrlConfiguration build() {
+            final var o = new GetCertificateAuthorityRevocationConfigurationCrlConfiguration();
+            o.customCname = customCname;
+            o.enabled = enabled;
+            o.expirationInDays = expirationInDays;
+            o.s3BucketName = s3BucketName;
+            o.s3ObjectAcl = s3ObjectAcl;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
      * @return Maximum.
      * 
      */
-    private final @Nullable Integer max;
+    private @Nullable Integer max;
     /**
      * @return Minimum.
      * 
      */
-    private final Integer min;
+    private Integer min;
 
-    @CustomType.Constructor
-    private FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(
-        @CustomType.Parameter("max") @Nullable Integer max,
-        @CustomType.Parameter("min") Integer min) {
-        this.max = max;
-        this.min = min;
-    }
-
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib() {}
     /**
      * @return Maximum.
      * 
@@ -52,30 +45,32 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
     public static Builder builder(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer max;
         private Integer min;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.max = defaults.max;
     	      this.min = defaults.min;
         }
 
+        @CustomType.Setter
         public Builder max(@Nullable Integer max) {
             this.max = max;
             return this;
         }
+        @CustomType.Setter
         public Builder min(Integer min) {
             this.min = Objects.requireNonNull(min);
             return this;
-        }        public FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib build() {
-            return new FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(max, min);
+        }
+        public FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib build() {
+            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib();
+            o.max = max;
+            o.min = min;
+            return o;
         }
     }
 }

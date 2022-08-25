@@ -15,13 +15,9 @@ public final class CanaryArtifactConfig {
      * @return Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
      * 
      */
-    private final @Nullable CanaryArtifactConfigS3Encryption s3Encryption;
+    private @Nullable CanaryArtifactConfigS3Encryption s3Encryption;
 
-    @CustomType.Constructor
-    private CanaryArtifactConfig(@CustomType.Parameter("s3Encryption") @Nullable CanaryArtifactConfigS3Encryption s3Encryption) {
-        this.s3Encryption = s3Encryption;
-    }
-
+    private CanaryArtifactConfig() {}
     /**
      * @return Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
      * 
@@ -37,24 +33,24 @@ public final class CanaryArtifactConfig {
     public static Builder builder(CanaryArtifactConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable CanaryArtifactConfigS3Encryption s3Encryption;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CanaryArtifactConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Encryption = defaults.s3Encryption;
         }
 
+        @CustomType.Setter
         public Builder s3Encryption(@Nullable CanaryArtifactConfigS3Encryption s3Encryption) {
             this.s3Encryption = s3Encryption;
             return this;
-        }        public CanaryArtifactConfig build() {
-            return new CanaryArtifactConfig(s3Encryption);
+        }
+        public CanaryArtifactConfig build() {
+            final var o = new CanaryArtifactConfig();
+            o.s3Encryption = s3Encryption;
+            return o;
         }
     }
 }

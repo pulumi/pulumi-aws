@@ -17,69 +17,46 @@ public final class GetFunctionUrlResult {
      * @return The type of authentication that the function URL uses.
      * 
      */
-    private final String authorizationType;
+    private String authorizationType;
     /**
      * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the [`aws.lambda.FunctionUrl` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function_url.html) documentation for more details.
      * 
      */
-    private final List<GetFunctionUrlCor> cors;
+    private List<GetFunctionUrlCor> cors;
     /**
      * @return When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      * 
      */
-    private final String creationTime;
+    private String creationTime;
     /**
      * @return The Amazon Resource Name (ARN) of the function.
      * 
      */
-    private final String functionArn;
-    private final String functionName;
+    private String functionArn;
+    private String functionName;
     /**
      * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
      * 
      */
-    private final String functionUrl;
+    private String functionUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      * 
      */
-    private final String lastModifiedTime;
-    private final @Nullable String qualifier;
+    private String lastModifiedTime;
+    private @Nullable String qualifier;
     /**
      * @return A generated ID for the endpoint.
      * 
      */
-    private final String urlId;
+    private String urlId;
 
-    @CustomType.Constructor
-    private GetFunctionUrlResult(
-        @CustomType.Parameter("authorizationType") String authorizationType,
-        @CustomType.Parameter("cors") List<GetFunctionUrlCor> cors,
-        @CustomType.Parameter("creationTime") String creationTime,
-        @CustomType.Parameter("functionArn") String functionArn,
-        @CustomType.Parameter("functionName") String functionName,
-        @CustomType.Parameter("functionUrl") String functionUrl,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastModifiedTime") String lastModifiedTime,
-        @CustomType.Parameter("qualifier") @Nullable String qualifier,
-        @CustomType.Parameter("urlId") String urlId) {
-        this.authorizationType = authorizationType;
-        this.cors = cors;
-        this.creationTime = creationTime;
-        this.functionArn = functionArn;
-        this.functionName = functionName;
-        this.functionUrl = functionUrl;
-        this.id = id;
-        this.lastModifiedTime = lastModifiedTime;
-        this.qualifier = qualifier;
-        this.urlId = urlId;
-    }
-
+    private GetFunctionUrlResult() {}
     /**
      * @return The type of authentication that the function URL uses.
      * 
@@ -150,7 +127,7 @@ public final class GetFunctionUrlResult {
     public static Builder builder(GetFunctionUrlResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authorizationType;
         private List<GetFunctionUrlCor> cors;
@@ -162,11 +139,7 @@ public final class GetFunctionUrlResult {
         private String lastModifiedTime;
         private @Nullable String qualifier;
         private String urlId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionUrlResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationType = defaults.authorizationType;
@@ -181,10 +154,12 @@ public final class GetFunctionUrlResult {
     	      this.urlId = defaults.urlId;
         }
 
+        @CustomType.Setter
         public Builder authorizationType(String authorizationType) {
             this.authorizationType = Objects.requireNonNull(authorizationType);
             return this;
         }
+        @CustomType.Setter
         public Builder cors(List<GetFunctionUrlCor> cors) {
             this.cors = Objects.requireNonNull(cors);
             return this;
@@ -192,39 +167,59 @@ public final class GetFunctionUrlResult {
         public Builder cors(GetFunctionUrlCor... cors) {
             return cors(List.of(cors));
         }
+        @CustomType.Setter
         public Builder creationTime(String creationTime) {
             this.creationTime = Objects.requireNonNull(creationTime);
             return this;
         }
+        @CustomType.Setter
         public Builder functionArn(String functionArn) {
             this.functionArn = Objects.requireNonNull(functionArn);
             return this;
         }
+        @CustomType.Setter
         public Builder functionName(String functionName) {
             this.functionName = Objects.requireNonNull(functionName);
             return this;
         }
+        @CustomType.Setter
         public Builder functionUrl(String functionUrl) {
             this.functionUrl = Objects.requireNonNull(functionUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModifiedTime(String lastModifiedTime) {
             this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
             return this;
         }
+        @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
             this.qualifier = qualifier;
             return this;
         }
+        @CustomType.Setter
         public Builder urlId(String urlId) {
             this.urlId = Objects.requireNonNull(urlId);
             return this;
-        }        public GetFunctionUrlResult build() {
-            return new GetFunctionUrlResult(authorizationType, cors, creationTime, functionArn, functionName, functionUrl, id, lastModifiedTime, qualifier, urlId);
+        }
+        public GetFunctionUrlResult build() {
+            final var o = new GetFunctionUrlResult();
+            o.authorizationType = authorizationType;
+            o.cors = cors;
+            o.creationTime = creationTime;
+            o.functionArn = functionArn;
+            o.functionName = functionName;
+            o.functionUrl = functionUrl;
+            o.id = id;
+            o.lastModifiedTime = lastModifiedTime;
+            o.qualifier = qualifier;
+            o.urlId = urlId;
+            return o;
         }
     }
 }

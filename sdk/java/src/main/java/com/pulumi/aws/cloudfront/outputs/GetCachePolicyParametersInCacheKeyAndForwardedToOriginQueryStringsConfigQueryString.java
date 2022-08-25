@@ -14,13 +14,9 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQuerySt
      * @return A list of item names (`cookies`, `headers`, or `query_strings`).
      * 
      */
-    private final List<String> items;
+    private List<String> items;
 
-    @CustomType.Constructor
-    private GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString(@CustomType.Parameter("items") List<String> items) {
-        this.items = items;
-    }
-
+    private GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString() {}
     /**
      * @return A list of item names (`cookies`, `headers`, or `query_strings`).
      * 
@@ -36,27 +32,27 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQuerySt
     public static Builder builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(List<String> items) {
             this.items = Objects.requireNonNull(items);
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString build() {
-            return new GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString(items);
+        }
+        public GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString build() {
+            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString();
+            o.items = items;
+            return o;
         }
     }
 }

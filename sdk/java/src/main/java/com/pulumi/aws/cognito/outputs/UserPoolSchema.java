@@ -18,56 +18,39 @@ public final class UserPoolSchema {
      * @return Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
      * 
      */
-    private final String attributeDataType;
+    private String attributeDataType;
     /**
      * @return Whether the attribute type is developer only.
      * 
      */
-    private final @Nullable Boolean developerOnlyAttribute;
+    private @Nullable Boolean developerOnlyAttribute;
     /**
      * @return Whether the attribute can be changed once it has been created.
      * 
      */
-    private final @Nullable Boolean mutable;
+    private @Nullable Boolean mutable;
     /**
      * @return Name of the attribute.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Configuration block for the constraints for an attribute of the number type. Detailed below.
      * 
      */
-    private final @Nullable UserPoolSchemaNumberAttributeConstraints numberAttributeConstraints;
+    private @Nullable UserPoolSchemaNumberAttributeConstraints numberAttributeConstraints;
     /**
      * @return Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
      * 
      */
-    private final @Nullable Boolean required;
+    private @Nullable Boolean required;
     /**
      * @return Constraints for an attribute of the string type. Detailed below.
      * 
      */
-    private final @Nullable UserPoolSchemaStringAttributeConstraints stringAttributeConstraints;
+    private @Nullable UserPoolSchemaStringAttributeConstraints stringAttributeConstraints;
 
-    @CustomType.Constructor
-    private UserPoolSchema(
-        @CustomType.Parameter("attributeDataType") String attributeDataType,
-        @CustomType.Parameter("developerOnlyAttribute") @Nullable Boolean developerOnlyAttribute,
-        @CustomType.Parameter("mutable") @Nullable Boolean mutable,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("numberAttributeConstraints") @Nullable UserPoolSchemaNumberAttributeConstraints numberAttributeConstraints,
-        @CustomType.Parameter("required") @Nullable Boolean required,
-        @CustomType.Parameter("stringAttributeConstraints") @Nullable UserPoolSchemaStringAttributeConstraints stringAttributeConstraints) {
-        this.attributeDataType = attributeDataType;
-        this.developerOnlyAttribute = developerOnlyAttribute;
-        this.mutable = mutable;
-        this.name = name;
-        this.numberAttributeConstraints = numberAttributeConstraints;
-        this.required = required;
-        this.stringAttributeConstraints = stringAttributeConstraints;
-    }
-
+    private UserPoolSchema() {}
     /**
      * @return Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
      * 
@@ -125,7 +108,7 @@ public final class UserPoolSchema {
     public static Builder builder(UserPoolSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String attributeDataType;
         private @Nullable Boolean developerOnlyAttribute;
@@ -134,11 +117,7 @@ public final class UserPoolSchema {
         private @Nullable UserPoolSchemaNumberAttributeConstraints numberAttributeConstraints;
         private @Nullable Boolean required;
         private @Nullable UserPoolSchemaStringAttributeConstraints stringAttributeConstraints;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attributeDataType = defaults.attributeDataType;
@@ -150,35 +129,51 @@ public final class UserPoolSchema {
     	      this.stringAttributeConstraints = defaults.stringAttributeConstraints;
         }
 
+        @CustomType.Setter
         public Builder attributeDataType(String attributeDataType) {
             this.attributeDataType = Objects.requireNonNull(attributeDataType);
             return this;
         }
+        @CustomType.Setter
         public Builder developerOnlyAttribute(@Nullable Boolean developerOnlyAttribute) {
             this.developerOnlyAttribute = developerOnlyAttribute;
             return this;
         }
+        @CustomType.Setter
         public Builder mutable(@Nullable Boolean mutable) {
             this.mutable = mutable;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder numberAttributeConstraints(@Nullable UserPoolSchemaNumberAttributeConstraints numberAttributeConstraints) {
             this.numberAttributeConstraints = numberAttributeConstraints;
             return this;
         }
+        @CustomType.Setter
         public Builder required(@Nullable Boolean required) {
             this.required = required;
             return this;
         }
+        @CustomType.Setter
         public Builder stringAttributeConstraints(@Nullable UserPoolSchemaStringAttributeConstraints stringAttributeConstraints) {
             this.stringAttributeConstraints = stringAttributeConstraints;
             return this;
-        }        public UserPoolSchema build() {
-            return new UserPoolSchema(attributeDataType, developerOnlyAttribute, mutable, name, numberAttributeConstraints, required, stringAttributeConstraints);
+        }
+        public UserPoolSchema build() {
+            final var o = new UserPoolSchema();
+            o.attributeDataType = attributeDataType;
+            o.developerOnlyAttribute = developerOnlyAttribute;
+            o.mutable = mutable;
+            o.name = name;
+            o.numberAttributeConstraints = numberAttributeConstraints;
+            o.required = required;
+            o.stringAttributeConstraints = stringAttributeConstraints;
+            return o;
         }
     }
 }

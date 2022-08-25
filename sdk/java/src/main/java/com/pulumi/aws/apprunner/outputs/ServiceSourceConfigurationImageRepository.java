@@ -16,29 +16,20 @@ public final class ServiceSourceConfigurationImageRepository {
      * @return Configuration for running the identified image. See Image Configuration below for more details.
      * 
      */
-    private final @Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration imageConfiguration;
+    private @Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration imageConfiguration;
     /**
      * @return The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
      * image name format, see Pulling an image in the Amazon ECR User Guide.
      * 
      */
-    private final String imageIdentifier;
+    private String imageIdentifier;
     /**
      * @return The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
      * 
      */
-    private final String imageRepositoryType;
+    private String imageRepositoryType;
 
-    @CustomType.Constructor
-    private ServiceSourceConfigurationImageRepository(
-        @CustomType.Parameter("imageConfiguration") @Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration imageConfiguration,
-        @CustomType.Parameter("imageIdentifier") String imageIdentifier,
-        @CustomType.Parameter("imageRepositoryType") String imageRepositoryType) {
-        this.imageConfiguration = imageConfiguration;
-        this.imageIdentifier = imageIdentifier;
-        this.imageRepositoryType = imageRepositoryType;
-    }
-
+    private ServiceSourceConfigurationImageRepository() {}
     /**
      * @return Configuration for running the identified image. See Image Configuration below for more details.
      * 
@@ -69,16 +60,12 @@ public final class ServiceSourceConfigurationImageRepository {
     public static Builder builder(ServiceSourceConfigurationImageRepository defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration imageConfiguration;
         private String imageIdentifier;
         private String imageRepositoryType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSourceConfigurationImageRepository defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.imageConfiguration = defaults.imageConfiguration;
@@ -86,19 +73,27 @@ public final class ServiceSourceConfigurationImageRepository {
     	      this.imageRepositoryType = defaults.imageRepositoryType;
         }
 
+        @CustomType.Setter
         public Builder imageConfiguration(@Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration imageConfiguration) {
             this.imageConfiguration = imageConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder imageIdentifier(String imageIdentifier) {
             this.imageIdentifier = Objects.requireNonNull(imageIdentifier);
             return this;
         }
+        @CustomType.Setter
         public Builder imageRepositoryType(String imageRepositoryType) {
             this.imageRepositoryType = Objects.requireNonNull(imageRepositoryType);
             return this;
-        }        public ServiceSourceConfigurationImageRepository build() {
-            return new ServiceSourceConfigurationImageRepository(imageConfiguration, imageIdentifier, imageRepositoryType);
+        }
+        public ServiceSourceConfigurationImageRepository build() {
+            final var o = new ServiceSourceConfigurationImageRepository();
+            o.imageConfiguration = imageConfiguration;
+            o.imageIdentifier = imageIdentifier;
+            o.imageRepositoryType = imageRepositoryType;
+            return o;
         }
     }
 }

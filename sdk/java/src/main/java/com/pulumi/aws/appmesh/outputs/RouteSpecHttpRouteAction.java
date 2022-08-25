@@ -15,13 +15,9 @@ public final class RouteSpecHttpRouteAction {
      * You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
-    private final List<RouteSpecHttpRouteActionWeightedTarget> weightedTargets;
+    private List<RouteSpecHttpRouteActionWeightedTarget> weightedTargets;
 
-    @CustomType.Constructor
-    private RouteSpecHttpRouteAction(@CustomType.Parameter("weightedTargets") List<RouteSpecHttpRouteActionWeightedTarget> weightedTargets) {
-        this.weightedTargets = weightedTargets;
-    }
-
+    private RouteSpecHttpRouteAction() {}
     /**
      * @return The targets that traffic is routed to when a request matches the route.
      * You can specify one or more targets and their relative weights with which to distribute traffic.
@@ -38,27 +34,27 @@ public final class RouteSpecHttpRouteAction {
     public static Builder builder(RouteSpecHttpRouteAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<RouteSpecHttpRouteActionWeightedTarget> weightedTargets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttpRouteAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.weightedTargets = defaults.weightedTargets;
         }
 
+        @CustomType.Setter
         public Builder weightedTargets(List<RouteSpecHttpRouteActionWeightedTarget> weightedTargets) {
             this.weightedTargets = Objects.requireNonNull(weightedTargets);
             return this;
         }
         public Builder weightedTargets(RouteSpecHttpRouteActionWeightedTarget... weightedTargets) {
             return weightedTargets(List.of(weightedTargets));
-        }        public RouteSpecHttpRouteAction build() {
-            return new RouteSpecHttpRouteAction(weightedTargets);
+        }
+        public RouteSpecHttpRouteAction build() {
+            final var o = new RouteSpecHttpRouteAction();
+            o.weightedTargets = weightedTargets;
+            return o;
         }
     }
 }

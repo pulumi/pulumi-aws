@@ -15,21 +15,14 @@ public final class DeviceFleetOutputConfig {
      * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role&#39;s account.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return The Amazon Simple Storage (S3) bucker URI.
      * 
      */
-    private final String s3OutputLocation;
+    private String s3OutputLocation;
 
-    @CustomType.Constructor
-    private DeviceFleetOutputConfig(
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("s3OutputLocation") String s3OutputLocation) {
-        this.kmsKeyId = kmsKeyId;
-        this.s3OutputLocation = s3OutputLocation;
-    }
-
+    private DeviceFleetOutputConfig() {}
     /**
      * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role&#39;s account.
      * 
@@ -52,30 +45,32 @@ public final class DeviceFleetOutputConfig {
     public static Builder builder(DeviceFleetOutputConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyId;
         private String s3OutputLocation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeviceFleetOutputConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.s3OutputLocation = defaults.s3OutputLocation;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder s3OutputLocation(String s3OutputLocation) {
             this.s3OutputLocation = Objects.requireNonNull(s3OutputLocation);
             return this;
-        }        public DeviceFleetOutputConfig build() {
-            return new DeviceFleetOutputConfig(kmsKeyId, s3OutputLocation);
+        }
+        public DeviceFleetOutputConfig build() {
+            final var o = new DeviceFleetOutputConfig();
+            o.kmsKeyId = kmsKeyId;
+            o.s3OutputLocation = s3OutputLocation;
+            return o;
         }
     }
 }

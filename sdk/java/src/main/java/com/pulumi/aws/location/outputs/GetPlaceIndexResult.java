@@ -16,66 +16,45 @@ public final class GetPlaceIndexResult {
      * @return The timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
-    private final String createTime;
+    private String createTime;
     /**
      * @return The data provider of geospatial data.
      * 
      */
-    private final String dataSource;
+    private String dataSource;
     /**
      * @return List of configurations that specify data storage option for requesting Places.
      * 
      */
-    private final List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations;
+    private List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations;
     /**
      * @return The optional description for the place index resource.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Amazon Resource Name (ARN) for the place index resource.
      * 
      */
-    private final String indexArn;
-    private final String indexName;
+    private String indexArn;
+    private String indexName;
     /**
      * @return Key-value map of resource tags for the place index.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
-    private final String updateTime;
+    private String updateTime;
 
-    @CustomType.Constructor
-    private GetPlaceIndexResult(
-        @CustomType.Parameter("createTime") String createTime,
-        @CustomType.Parameter("dataSource") String dataSource,
-        @CustomType.Parameter("dataSourceConfigurations") List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("indexArn") String indexArn,
-        @CustomType.Parameter("indexName") String indexName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("updateTime") String updateTime) {
-        this.createTime = createTime;
-        this.dataSource = dataSource;
-        this.dataSourceConfigurations = dataSourceConfigurations;
-        this.description = description;
-        this.id = id;
-        this.indexArn = indexArn;
-        this.indexName = indexName;
-        this.tags = tags;
-        this.updateTime = updateTime;
-    }
-
+    private GetPlaceIndexResult() {}
     /**
      * @return The timestamp for when the place index resource was created in ISO 8601 format.
      * 
@@ -143,7 +122,7 @@ public final class GetPlaceIndexResult {
     public static Builder builder(GetPlaceIndexResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String createTime;
         private String dataSource;
@@ -154,11 +133,7 @@ public final class GetPlaceIndexResult {
         private String indexName;
         private Map<String,String> tags;
         private String updateTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPlaceIndexResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createTime = defaults.createTime;
@@ -172,14 +147,17 @@ public final class GetPlaceIndexResult {
     	      this.updateTime = defaults.updateTime;
         }
 
+        @CustomType.Setter
         public Builder createTime(String createTime) {
             this.createTime = Objects.requireNonNull(createTime);
             return this;
         }
+        @CustomType.Setter
         public Builder dataSource(String dataSource) {
             this.dataSource = Objects.requireNonNull(dataSource);
             return this;
         }
+        @CustomType.Setter
         public Builder dataSourceConfigurations(List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations) {
             this.dataSourceConfigurations = Objects.requireNonNull(dataSourceConfigurations);
             return this;
@@ -187,31 +165,48 @@ public final class GetPlaceIndexResult {
         public Builder dataSourceConfigurations(GetPlaceIndexDataSourceConfiguration... dataSourceConfigurations) {
             return dataSourceConfigurations(List.of(dataSourceConfigurations));
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder indexArn(String indexArn) {
             this.indexArn = Objects.requireNonNull(indexArn);
             return this;
         }
+        @CustomType.Setter
         public Builder indexName(String indexName) {
             this.indexName = Objects.requireNonNull(indexName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder updateTime(String updateTime) {
             this.updateTime = Objects.requireNonNull(updateTime);
             return this;
-        }        public GetPlaceIndexResult build() {
-            return new GetPlaceIndexResult(createTime, dataSource, dataSourceConfigurations, description, id, indexArn, indexName, tags, updateTime);
+        }
+        public GetPlaceIndexResult build() {
+            final var o = new GetPlaceIndexResult();
+            o.createTime = createTime;
+            o.dataSource = dataSource;
+            o.dataSourceConfigurations = dataSourceConfigurations;
+            o.description = description;
+            o.id = id;
+            o.indexArn = indexArn;
+            o.indexName = indexName;
+            o.tags = tags;
+            o.updateTime = updateTime;
+            return o;
         }
     }
 }

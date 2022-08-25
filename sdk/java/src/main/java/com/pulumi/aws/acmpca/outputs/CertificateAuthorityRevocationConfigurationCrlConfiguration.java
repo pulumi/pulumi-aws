@@ -17,42 +17,29 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
      * @return Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don&#39;t want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
      * 
      */
-    private final @Nullable String customCname;
+    private @Nullable String customCname;
     /**
      * @return Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Number of days until a certificate expires. Must be between 1 and 5000.
      * 
      */
-    private final Integer expirationInDays;
+    private Integer expirationInDays;
     /**
      * @return Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
      * 
      */
-    private final @Nullable String s3BucketName;
+    private @Nullable String s3BucketName;
     /**
      * @return Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
      * 
      */
-    private final @Nullable String s3ObjectAcl;
+    private @Nullable String s3ObjectAcl;
 
-    @CustomType.Constructor
-    private CertificateAuthorityRevocationConfigurationCrlConfiguration(
-        @CustomType.Parameter("customCname") @Nullable String customCname,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("expirationInDays") Integer expirationInDays,
-        @CustomType.Parameter("s3BucketName") @Nullable String s3BucketName,
-        @CustomType.Parameter("s3ObjectAcl") @Nullable String s3ObjectAcl) {
-        this.customCname = customCname;
-        this.enabled = enabled;
-        this.expirationInDays = expirationInDays;
-        this.s3BucketName = s3BucketName;
-        this.s3ObjectAcl = s3ObjectAcl;
-    }
-
+    private CertificateAuthorityRevocationConfigurationCrlConfiguration() {}
     /**
      * @return Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don&#39;t want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
      * 
@@ -96,18 +83,14 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
     public static Builder builder(CertificateAuthorityRevocationConfigurationCrlConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String customCname;
         private @Nullable Boolean enabled;
         private Integer expirationInDays;
         private @Nullable String s3BucketName;
         private @Nullable String s3ObjectAcl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateAuthorityRevocationConfigurationCrlConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customCname = defaults.customCname;
@@ -117,27 +100,39 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
     	      this.s3ObjectAcl = defaults.s3ObjectAcl;
         }
 
+        @CustomType.Setter
         public Builder customCname(@Nullable String customCname) {
             this.customCname = customCname;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder expirationInDays(Integer expirationInDays) {
             this.expirationInDays = Objects.requireNonNull(expirationInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder s3BucketName(@Nullable String s3BucketName) {
             this.s3BucketName = s3BucketName;
             return this;
         }
+        @CustomType.Setter
         public Builder s3ObjectAcl(@Nullable String s3ObjectAcl) {
             this.s3ObjectAcl = s3ObjectAcl;
             return this;
-        }        public CertificateAuthorityRevocationConfigurationCrlConfiguration build() {
-            return new CertificateAuthorityRevocationConfigurationCrlConfiguration(customCname, enabled, expirationInDays, s3BucketName, s3ObjectAcl);
+        }
+        public CertificateAuthorityRevocationConfigurationCrlConfiguration build() {
+            final var o = new CertificateAuthorityRevocationConfigurationCrlConfiguration();
+            o.customCname = customCname;
+            o.enabled = enabled;
+            o.expirationInDays = expirationInDays;
+            o.s3BucketName = s3BucketName;
+            o.s3ObjectAcl = s3ObjectAcl;
+            return o;
         }
     }
 }

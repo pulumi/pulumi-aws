@@ -15,21 +15,14 @@ public final class BucketV2Versioning {
      * @return Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
      * 
      */
-    private final @Nullable Boolean mfaDelete;
+    private @Nullable Boolean mfaDelete;
 
-    @CustomType.Constructor
-    private BucketV2Versioning(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("mfaDelete") @Nullable Boolean mfaDelete) {
-        this.enabled = enabled;
-        this.mfaDelete = mfaDelete;
-    }
-
+    private BucketV2Versioning() {}
     /**
      * @return Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
      * 
@@ -52,30 +45,32 @@ public final class BucketV2Versioning {
     public static Builder builder(BucketV2Versioning defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Boolean mfaDelete;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2Versioning defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.mfaDelete = defaults.mfaDelete;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder mfaDelete(@Nullable Boolean mfaDelete) {
             this.mfaDelete = mfaDelete;
             return this;
-        }        public BucketV2Versioning build() {
-            return new BucketV2Versioning(enabled, mfaDelete);
+        }
+        public BucketV2Versioning build() {
+            final var o = new BucketV2Versioning();
+            o.enabled = enabled;
+            o.mfaDelete = mfaDelete;
+            return o;
         }
     }
 }

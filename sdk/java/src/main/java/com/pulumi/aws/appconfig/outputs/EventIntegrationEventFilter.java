@@ -13,13 +13,9 @@ public final class EventIntegrationEventFilter {
      * @return The source of the events.
      * 
      */
-    private final String source;
+    private String source;
 
-    @CustomType.Constructor
-    private EventIntegrationEventFilter(@CustomType.Parameter("source") String source) {
-        this.source = source;
-    }
-
+    private EventIntegrationEventFilter() {}
     /**
      * @return The source of the events.
      * 
@@ -35,24 +31,24 @@ public final class EventIntegrationEventFilter {
     public static Builder builder(EventIntegrationEventFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String source;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventIntegrationEventFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.source = defaults.source;
         }
 
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
-        }        public EventIntegrationEventFilter build() {
-            return new EventIntegrationEventFilter(source);
+        }
+        public EventIntegrationEventFilter build() {
+            final var o = new EventIntegrationEventFilter();
+            o.source = source;
+            return o;
         }
     }
 }

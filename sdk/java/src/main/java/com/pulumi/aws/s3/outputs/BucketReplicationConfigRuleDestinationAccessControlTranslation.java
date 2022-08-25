@@ -13,13 +13,9 @@ public final class BucketReplicationConfigRuleDestinationAccessControlTranslatio
      * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
      * 
      */
-    private final String owner;
+    private String owner;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleDestinationAccessControlTranslation(@CustomType.Parameter("owner") String owner) {
-        this.owner = owner;
-    }
-
+    private BucketReplicationConfigRuleDestinationAccessControlTranslation() {}
     /**
      * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
      * 
@@ -35,24 +31,24 @@ public final class BucketReplicationConfigRuleDestinationAccessControlTranslatio
     public static Builder builder(BucketReplicationConfigRuleDestinationAccessControlTranslation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String owner;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleDestinationAccessControlTranslation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.owner = defaults.owner;
         }
 
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
-        }        public BucketReplicationConfigRuleDestinationAccessControlTranslation build() {
-            return new BucketReplicationConfigRuleDestinationAccessControlTranslation(owner);
+        }
+        public BucketReplicationConfigRuleDestinationAccessControlTranslation build() {
+            final var o = new BucketReplicationConfigRuleDestinationAccessControlTranslation();
+            o.owner = owner;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
      * @return Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess(@CustomType.Parameter("type") @Nullable String type) {
-        this.type = type;
-    }
-
+    private ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess() {}
     /**
      * @return Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
      * 
@@ -37,24 +33,24 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
     public static Builder builder(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess build() {
-            return new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess(type);
+        }
+        public ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess build() {
+            final var o = new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess();
+            o.type = type;
+            return o;
         }
     }
 }

@@ -15,33 +15,18 @@ public final class GetResourceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String identifier;
+    private String id;
+    private String identifier;
     /**
      * @return JSON string matching the CloudFormation resource type schema with current configuration.
      * 
      */
-    private final String properties;
-    private final @Nullable String roleArn;
-    private final String typeName;
-    private final @Nullable String typeVersionId;
+    private String properties;
+    private @Nullable String roleArn;
+    private String typeName;
+    private @Nullable String typeVersionId;
 
-    @CustomType.Constructor
-    private GetResourceResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identifier") String identifier,
-        @CustomType.Parameter("properties") String properties,
-        @CustomType.Parameter("roleArn") @Nullable String roleArn,
-        @CustomType.Parameter("typeName") String typeName,
-        @CustomType.Parameter("typeVersionId") @Nullable String typeVersionId) {
-        this.id = id;
-        this.identifier = identifier;
-        this.properties = properties;
-        this.roleArn = roleArn;
-        this.typeName = typeName;
-        this.typeVersionId = typeVersionId;
-    }
-
+    private GetResourceResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -76,7 +61,7 @@ public final class GetResourceResult {
     public static Builder builder(GetResourceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String identifier;
@@ -84,11 +69,7 @@ public final class GetResourceResult {
         private @Nullable String roleArn;
         private String typeName;
         private @Nullable String typeVersionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -99,31 +80,45 @@ public final class GetResourceResult {
     	      this.typeVersionId = defaults.typeVersionId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identifier(String identifier) {
             this.identifier = Objects.requireNonNull(identifier);
             return this;
         }
+        @CustomType.Setter
         public Builder properties(String properties) {
             this.properties = Objects.requireNonNull(properties);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
             this.roleArn = roleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder typeName(String typeName) {
             this.typeName = Objects.requireNonNull(typeName);
             return this;
         }
+        @CustomType.Setter
         public Builder typeVersionId(@Nullable String typeVersionId) {
             this.typeVersionId = typeVersionId;
             return this;
-        }        public GetResourceResult build() {
-            return new GetResourceResult(id, identifier, properties, roleArn, typeName, typeVersionId);
+        }
+        public GetResourceResult build() {
+            final var o = new GetResourceResult();
+            o.id = id;
+            o.identifier = identifier;
+            o.properties = properties;
+            o.roleArn = roleArn;
+            o.typeName = typeName;
+            o.typeVersionId = typeVersionId;
+            return o;
         }
     }
 }

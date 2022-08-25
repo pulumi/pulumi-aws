@@ -13,13 +13,9 @@ public final class SigningJobSource {
      * @return A configuration block describing the S3 Destination object: See S3 Destination below for details.
      * 
      */
-    private final SigningJobSourceS3 s3;
+    private SigningJobSourceS3 s3;
 
-    @CustomType.Constructor
-    private SigningJobSource(@CustomType.Parameter("s3") SigningJobSourceS3 s3) {
-        this.s3 = s3;
-    }
-
+    private SigningJobSource() {}
     /**
      * @return A configuration block describing the S3 Destination object: See S3 Destination below for details.
      * 
@@ -35,24 +31,24 @@ public final class SigningJobSource {
     public static Builder builder(SigningJobSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private SigningJobSourceS3 s3;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SigningJobSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3 = defaults.s3;
         }
 
+        @CustomType.Setter
         public Builder s3(SigningJobSourceS3 s3) {
             this.s3 = Objects.requireNonNull(s3);
             return this;
-        }        public SigningJobSource build() {
-            return new SigningJobSource(s3);
+        }
+        public SigningJobSource build() {
+            final var o = new SigningJobSource();
+            o.s3 = s3;
+            return o;
         }
     }
 }

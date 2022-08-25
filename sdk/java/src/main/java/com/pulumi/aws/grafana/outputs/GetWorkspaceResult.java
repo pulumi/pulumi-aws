@@ -15,146 +15,101 @@ public final class GetWorkspaceResult {
      * @return (Required) The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
      * 
      */
-    private final String accountAccessType;
+    private String accountAccessType;
     /**
      * @return The Amazon Resource Name (ARN) of the Grafana workspace.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return (Required) The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
-    private final List<String> authenticationProviders;
+    private List<String> authenticationProviders;
     /**
      * @return The creation date of the Grafana workspace.
      * 
      */
-    private final String createdDate;
+    private String createdDate;
     /**
      * @return The data sources for the workspace.
      * 
      */
-    private final List<String> dataSources;
+    private List<String> dataSources;
     /**
      * @return The workspace description.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The endpoint of the Grafana workspace.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return The version of Grafana running on the workspace.
      * 
      */
-    private final String grafanaVersion;
+    private String grafanaVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The last updated date of the Grafana workspace.
      * 
      */
-    private final String lastUpdatedDate;
+    private String lastUpdatedDate;
     /**
      * @return The Grafana workspace name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The notification destinations.
      * 
      */
-    private final List<String> notificationDestinations;
+    private List<String> notificationDestinations;
     /**
      * @return The role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
-    private final String organizationRoleName;
+    private String organizationRoleName;
     /**
      * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
-    private final List<String> organizationalUnits;
+    private List<String> organizationalUnits;
     /**
      * @return The permission type of the workspace.
      * 
      */
-    private final String permissionType;
+    private String permissionType;
     /**
      * @return The IAM role ARN that the workspace assumes.
      * 
      */
-    private final String roleArn;
-    private final String samlConfigurationStatus;
+    private String roleArn;
+    private String samlConfigurationStatus;
     /**
      * @return The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
-    private final String stackSetName;
+    private String stackSetName;
     /**
      * @return The status of the Grafana workspace.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The tags assigned to the resource
      * 
      */
-    private final Map<String,String> tags;
-    private final String workspaceId;
+    private Map<String,String> tags;
+    private String workspaceId;
 
-    @CustomType.Constructor
-    private GetWorkspaceResult(
-        @CustomType.Parameter("accountAccessType") String accountAccessType,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("authenticationProviders") List<String> authenticationProviders,
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("dataSources") List<String> dataSources,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("grafanaVersion") String grafanaVersion,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastUpdatedDate") String lastUpdatedDate,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("notificationDestinations") List<String> notificationDestinations,
-        @CustomType.Parameter("organizationRoleName") String organizationRoleName,
-        @CustomType.Parameter("organizationalUnits") List<String> organizationalUnits,
-        @CustomType.Parameter("permissionType") String permissionType,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("samlConfigurationStatus") String samlConfigurationStatus,
-        @CustomType.Parameter("stackSetName") String stackSetName,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("workspaceId") String workspaceId) {
-        this.accountAccessType = accountAccessType;
-        this.arn = arn;
-        this.authenticationProviders = authenticationProviders;
-        this.createdDate = createdDate;
-        this.dataSources = dataSources;
-        this.description = description;
-        this.endpoint = endpoint;
-        this.grafanaVersion = grafanaVersion;
-        this.id = id;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.name = name;
-        this.notificationDestinations = notificationDestinations;
-        this.organizationRoleName = organizationRoleName;
-        this.organizationalUnits = organizationalUnits;
-        this.permissionType = permissionType;
-        this.roleArn = roleArn;
-        this.samlConfigurationStatus = samlConfigurationStatus;
-        this.stackSetName = stackSetName;
-        this.status = status;
-        this.tags = tags;
-        this.workspaceId = workspaceId;
-    }
-
+    private GetWorkspaceResult() {}
     /**
      * @return (Required) The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
      * 
@@ -302,7 +257,7 @@ public final class GetWorkspaceResult {
     public static Builder builder(GetWorkspaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountAccessType;
         private String arn;
@@ -325,11 +280,7 @@ public final class GetWorkspaceResult {
         private String status;
         private Map<String,String> tags;
         private String workspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountAccessType = defaults.accountAccessType;
@@ -355,14 +306,17 @@ public final class GetWorkspaceResult {
     	      this.workspaceId = defaults.workspaceId;
         }
 
+        @CustomType.Setter
         public Builder accountAccessType(String accountAccessType) {
             this.accountAccessType = Objects.requireNonNull(accountAccessType);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder authenticationProviders(List<String> authenticationProviders) {
             this.authenticationProviders = Objects.requireNonNull(authenticationProviders);
             return this;
@@ -370,10 +324,12 @@ public final class GetWorkspaceResult {
         public Builder authenticationProviders(String... authenticationProviders) {
             return authenticationProviders(List.of(authenticationProviders));
         }
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder dataSources(List<String> dataSources) {
             this.dataSources = Objects.requireNonNull(dataSources);
             return this;
@@ -381,30 +337,37 @@ public final class GetWorkspaceResult {
         public Builder dataSources(String... dataSources) {
             return dataSources(List.of(dataSources));
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder grafanaVersion(String grafanaVersion) {
             this.grafanaVersion = Objects.requireNonNull(grafanaVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
             this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder notificationDestinations(List<String> notificationDestinations) {
             this.notificationDestinations = Objects.requireNonNull(notificationDestinations);
             return this;
@@ -412,10 +375,12 @@ public final class GetWorkspaceResult {
         public Builder notificationDestinations(String... notificationDestinations) {
             return notificationDestinations(List.of(notificationDestinations));
         }
+        @CustomType.Setter
         public Builder organizationRoleName(String organizationRoleName) {
             this.organizationRoleName = Objects.requireNonNull(organizationRoleName);
             return this;
         }
+        @CustomType.Setter
         public Builder organizationalUnits(List<String> organizationalUnits) {
             this.organizationalUnits = Objects.requireNonNull(organizationalUnits);
             return this;
@@ -423,35 +388,65 @@ public final class GetWorkspaceResult {
         public Builder organizationalUnits(String... organizationalUnits) {
             return organizationalUnits(List.of(organizationalUnits));
         }
+        @CustomType.Setter
         public Builder permissionType(String permissionType) {
             this.permissionType = Objects.requireNonNull(permissionType);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder samlConfigurationStatus(String samlConfigurationStatus) {
             this.samlConfigurationStatus = Objects.requireNonNull(samlConfigurationStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder stackSetName(String stackSetName) {
             this.stackSetName = Objects.requireNonNull(stackSetName);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
-        }        public GetWorkspaceResult build() {
-            return new GetWorkspaceResult(accountAccessType, arn, authenticationProviders, createdDate, dataSources, description, endpoint, grafanaVersion, id, lastUpdatedDate, name, notificationDestinations, organizationRoleName, organizationalUnits, permissionType, roleArn, samlConfigurationStatus, stackSetName, status, tags, workspaceId);
+        }
+        public GetWorkspaceResult build() {
+            final var o = new GetWorkspaceResult();
+            o.accountAccessType = accountAccessType;
+            o.arn = arn;
+            o.authenticationProviders = authenticationProviders;
+            o.createdDate = createdDate;
+            o.dataSources = dataSources;
+            o.description = description;
+            o.endpoint = endpoint;
+            o.grafanaVersion = grafanaVersion;
+            o.id = id;
+            o.lastUpdatedDate = lastUpdatedDate;
+            o.name = name;
+            o.notificationDestinations = notificationDestinations;
+            o.organizationRoleName = organizationRoleName;
+            o.organizationalUnits = organizationalUnits;
+            o.permissionType = permissionType;
+            o.roleArn = roleArn;
+            o.samlConfigurationStatus = samlConfigurationStatus;
+            o.stackSetName = stackSetName;
+            o.status = status;
+            o.tags = tags;
+            o.workspaceId = workspaceId;
+            return o;
         }
     }
 }

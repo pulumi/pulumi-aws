@@ -14,13 +14,9 @@ public final class WebAclDefaultActionAllowCustomRequestHandling {
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
-    private final List<WebAclDefaultActionAllowCustomRequestHandlingInsertHeader> insertHeaders;
+    private List<WebAclDefaultActionAllowCustomRequestHandlingInsertHeader> insertHeaders;
 
-    @CustomType.Constructor
-    private WebAclDefaultActionAllowCustomRequestHandling(@CustomType.Parameter("insertHeaders") List<WebAclDefaultActionAllowCustomRequestHandlingInsertHeader> insertHeaders) {
-        this.insertHeaders = insertHeaders;
-    }
-
+    private WebAclDefaultActionAllowCustomRequestHandling() {}
     /**
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclDefaultActionAllowCustomRequestHandling {
     public static Builder builder(WebAclDefaultActionAllowCustomRequestHandling defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclDefaultActionAllowCustomRequestHandlingInsertHeader> insertHeaders;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclDefaultActionAllowCustomRequestHandling defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.insertHeaders = defaults.insertHeaders;
         }
 
+        @CustomType.Setter
         public Builder insertHeaders(List<WebAclDefaultActionAllowCustomRequestHandlingInsertHeader> insertHeaders) {
             this.insertHeaders = Objects.requireNonNull(insertHeaders);
             return this;
         }
         public Builder insertHeaders(WebAclDefaultActionAllowCustomRequestHandlingInsertHeader... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
-        }        public WebAclDefaultActionAllowCustomRequestHandling build() {
-            return new WebAclDefaultActionAllowCustomRequestHandling(insertHeaders);
+        }
+        public WebAclDefaultActionAllowCustomRequestHandling build() {
+            final var o = new WebAclDefaultActionAllowCustomRequestHandling();
+            o.insertHeaders = insertHeaders;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class AccessHomeDirectoryMapping {
      * @return Represents an entry and a target.
      * 
      */
-    private final String entry;
+    private String entry;
     /**
      * @return Represents the map target.
      * 
      */
-    private final String target;
+    private String target;
 
-    @CustomType.Constructor
-    private AccessHomeDirectoryMapping(
-        @CustomType.Parameter("entry") String entry,
-        @CustomType.Parameter("target") String target) {
-        this.entry = entry;
-        this.target = target;
-    }
-
+    private AccessHomeDirectoryMapping() {}
     /**
      * @return Represents an entry and a target.
      * 
@@ -50,30 +43,32 @@ public final class AccessHomeDirectoryMapping {
     public static Builder builder(AccessHomeDirectoryMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String entry;
         private String target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccessHomeDirectoryMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.entry = defaults.entry;
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder entry(String entry) {
             this.entry = Objects.requireNonNull(entry);
             return this;
         }
+        @CustomType.Setter
         public Builder target(String target) {
             this.target = Objects.requireNonNull(target);
             return this;
-        }        public AccessHomeDirectoryMapping build() {
-            return new AccessHomeDirectoryMapping(entry, target);
+        }
+        public AccessHomeDirectoryMapping build() {
+            final var o = new AccessHomeDirectoryMapping();
+            o.entry = entry;
+            o.target = target;
+            return o;
         }
     }
 }

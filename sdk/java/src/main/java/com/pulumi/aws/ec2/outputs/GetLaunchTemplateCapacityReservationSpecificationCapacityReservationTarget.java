@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
-    private final String capacityReservationId;
-    private final String capacityReservationResourceGroupArn;
+    private String capacityReservationId;
+    private String capacityReservationResourceGroupArn;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(
-        @CustomType.Parameter("capacityReservationId") String capacityReservationId,
-        @CustomType.Parameter("capacityReservationResourceGroupArn") String capacityReservationResourceGroupArn) {
-        this.capacityReservationId = capacityReservationId;
-        this.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
-    }
-
+    private GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget() {}
     public String capacityReservationId() {
         return this.capacityReservationId;
     }
@@ -34,30 +27,32 @@ public final class GetLaunchTemplateCapacityReservationSpecificationCapacityRese
     public static Builder builder(GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String capacityReservationId;
         private String capacityReservationResourceGroupArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityReservationId = defaults.capacityReservationId;
     	      this.capacityReservationResourceGroupArn = defaults.capacityReservationResourceGroupArn;
         }
 
+        @CustomType.Setter
         public Builder capacityReservationId(String capacityReservationId) {
             this.capacityReservationId = Objects.requireNonNull(capacityReservationId);
             return this;
         }
+        @CustomType.Setter
         public Builder capacityReservationResourceGroupArn(String capacityReservationResourceGroupArn) {
             this.capacityReservationResourceGroupArn = Objects.requireNonNull(capacityReservationResourceGroupArn);
             return this;
-        }        public GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget build() {
-            return new GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(capacityReservationId, capacityReservationResourceGroupArn);
+        }
+        public GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget build() {
+            final var o = new GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget();
+            o.capacityReservationId = capacityReservationId;
+            o.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
+            return o;
         }
     }
 }

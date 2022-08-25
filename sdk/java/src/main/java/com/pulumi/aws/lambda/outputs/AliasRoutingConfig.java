@@ -16,13 +16,9 @@ public final class AliasRoutingConfig {
      * @return A map that defines the proportion of events that should be sent to different versions of a lambda function.
      * 
      */
-    private final @Nullable Map<String,Double> additionalVersionWeights;
+    private @Nullable Map<String,Double> additionalVersionWeights;
 
-    @CustomType.Constructor
-    private AliasRoutingConfig(@CustomType.Parameter("additionalVersionWeights") @Nullable Map<String,Double> additionalVersionWeights) {
-        this.additionalVersionWeights = additionalVersionWeights;
-    }
-
+    private AliasRoutingConfig() {}
     /**
      * @return A map that defines the proportion of events that should be sent to different versions of a lambda function.
      * 
@@ -38,24 +34,24 @@ public final class AliasRoutingConfig {
     public static Builder builder(AliasRoutingConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,Double> additionalVersionWeights;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AliasRoutingConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalVersionWeights = defaults.additionalVersionWeights;
         }
 
+        @CustomType.Setter
         public Builder additionalVersionWeights(@Nullable Map<String,Double> additionalVersionWeights) {
             this.additionalVersionWeights = additionalVersionWeights;
             return this;
-        }        public AliasRoutingConfig build() {
-            return new AliasRoutingConfig(additionalVersionWeights);
+        }
+        public AliasRoutingConfig build() {
+            final var o = new AliasRoutingConfig();
+            o.additionalVersionWeights = additionalVersionWeights;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class EndpointConfigurationProductionVariantServerlessConfig {
      * @return The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
      * 
      */
-    private final Integer maxConcurrency;
+    private Integer maxConcurrency;
     /**
      * @return The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
      * 
      */
-    private final Integer memorySizeInMb;
+    private Integer memorySizeInMb;
 
-    @CustomType.Constructor
-    private EndpointConfigurationProductionVariantServerlessConfig(
-        @CustomType.Parameter("maxConcurrency") Integer maxConcurrency,
-        @CustomType.Parameter("memorySizeInMb") Integer memorySizeInMb) {
-        this.maxConcurrency = maxConcurrency;
-        this.memorySizeInMb = memorySizeInMb;
-    }
-
+    private EndpointConfigurationProductionVariantServerlessConfig() {}
     /**
      * @return The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
      * 
@@ -50,30 +43,32 @@ public final class EndpointConfigurationProductionVariantServerlessConfig {
     public static Builder builder(EndpointConfigurationProductionVariantServerlessConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxConcurrency;
         private Integer memorySizeInMb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConfigurationProductionVariantServerlessConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxConcurrency = defaults.maxConcurrency;
     	      this.memorySizeInMb = defaults.memorySizeInMb;
         }
 
+        @CustomType.Setter
         public Builder maxConcurrency(Integer maxConcurrency) {
             this.maxConcurrency = Objects.requireNonNull(maxConcurrency);
             return this;
         }
+        @CustomType.Setter
         public Builder memorySizeInMb(Integer memorySizeInMb) {
             this.memorySizeInMb = Objects.requireNonNull(memorySizeInMb);
             return this;
-        }        public EndpointConfigurationProductionVariantServerlessConfig build() {
-            return new EndpointConfigurationProductionVariantServerlessConfig(maxConcurrency, memorySizeInMb);
+        }
+        public EndpointConfigurationProductionVariantServerlessConfig build() {
+            final var o = new EndpointConfigurationProductionVariantServerlessConfig();
+            o.maxConcurrency = maxConcurrency;
+            o.memorySizeInMb = memorySizeInMb;
+            return o;
         }
     }
 }

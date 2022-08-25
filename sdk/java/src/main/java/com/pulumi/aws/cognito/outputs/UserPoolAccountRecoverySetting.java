@@ -14,13 +14,9 @@ public final class UserPoolAccountRecoverySetting {
      * @return List of Account Recovery Options of the following structure:
      * 
      */
-    private final List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms;
+    private List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms;
 
-    @CustomType.Constructor
-    private UserPoolAccountRecoverySetting(@CustomType.Parameter("recoveryMechanisms") List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms) {
-        this.recoveryMechanisms = recoveryMechanisms;
-    }
-
+    private UserPoolAccountRecoverySetting() {}
     /**
      * @return List of Account Recovery Options of the following structure:
      * 
@@ -36,27 +32,27 @@ public final class UserPoolAccountRecoverySetting {
     public static Builder builder(UserPoolAccountRecoverySetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolAccountRecoverySetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recoveryMechanisms = defaults.recoveryMechanisms;
         }
 
+        @CustomType.Setter
         public Builder recoveryMechanisms(List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms) {
             this.recoveryMechanisms = Objects.requireNonNull(recoveryMechanisms);
             return this;
         }
         public Builder recoveryMechanisms(UserPoolAccountRecoverySettingRecoveryMechanism... recoveryMechanisms) {
             return recoveryMechanisms(List.of(recoveryMechanisms));
-        }        public UserPoolAccountRecoverySetting build() {
-            return new UserPoolAccountRecoverySetting(recoveryMechanisms);
+        }
+        public UserPoolAccountRecoverySetting build() {
+            final var o = new UserPoolAccountRecoverySetting();
+            o.recoveryMechanisms = recoveryMechanisms;
+            return o;
         }
     }
 }

@@ -17,56 +17,39 @@ public final class ClusterVpcConfig {
      * @return Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
      * 
      */
-    private final @Nullable String clusterSecurityGroupId;
+    private @Nullable String clusterSecurityGroupId;
     /**
      * @return Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
      * 
      */
-    private final @Nullable Boolean endpointPrivateAccess;
+    private @Nullable Boolean endpointPrivateAccess;
     /**
      * @return Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
      * 
      */
-    private final @Nullable Boolean endpointPublicAccess;
+    private @Nullable Boolean endpointPublicAccess;
     /**
      * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private final @Nullable List<String> publicAccessCidrs;
+    private @Nullable List<String> publicAccessCidrs;
     /**
      * @return List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
      * 
      */
-    private final @Nullable List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return ID of the VPC associated with your cluster.
      * 
      */
-    private final @Nullable String vpcId;
+    private @Nullable String vpcId;
 
-    @CustomType.Constructor
-    private ClusterVpcConfig(
-        @CustomType.Parameter("clusterSecurityGroupId") @Nullable String clusterSecurityGroupId,
-        @CustomType.Parameter("endpointPrivateAccess") @Nullable Boolean endpointPrivateAccess,
-        @CustomType.Parameter("endpointPublicAccess") @Nullable Boolean endpointPublicAccess,
-        @CustomType.Parameter("publicAccessCidrs") @Nullable List<String> publicAccessCidrs,
-        @CustomType.Parameter("securityGroupIds") @Nullable List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") @Nullable String vpcId) {
-        this.clusterSecurityGroupId = clusterSecurityGroupId;
-        this.endpointPrivateAccess = endpointPrivateAccess;
-        this.endpointPublicAccess = endpointPublicAccess;
-        this.publicAccessCidrs = publicAccessCidrs;
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private ClusterVpcConfig() {}
     /**
      * @return Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
      * 
@@ -124,7 +107,7 @@ public final class ClusterVpcConfig {
     public static Builder builder(ClusterVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clusterSecurityGroupId;
         private @Nullable Boolean endpointPrivateAccess;
@@ -133,11 +116,7 @@ public final class ClusterVpcConfig {
         private @Nullable List<String> securityGroupIds;
         private List<String> subnetIds;
         private @Nullable String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterSecurityGroupId = defaults.clusterSecurityGroupId;
@@ -149,18 +128,22 @@ public final class ClusterVpcConfig {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder clusterSecurityGroupId(@Nullable String clusterSecurityGroupId) {
             this.clusterSecurityGroupId = clusterSecurityGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder endpointPrivateAccess(@Nullable Boolean endpointPrivateAccess) {
             this.endpointPrivateAccess = endpointPrivateAccess;
             return this;
         }
+        @CustomType.Setter
         public Builder endpointPublicAccess(@Nullable Boolean endpointPublicAccess) {
             this.endpointPublicAccess = endpointPublicAccess;
             return this;
         }
+        @CustomType.Setter
         public Builder publicAccessCidrs(@Nullable List<String> publicAccessCidrs) {
             this.publicAccessCidrs = publicAccessCidrs;
             return this;
@@ -168,6 +151,7 @@ public final class ClusterVpcConfig {
         public Builder publicAccessCidrs(String... publicAccessCidrs) {
             return publicAccessCidrs(List.of(publicAccessCidrs));
         }
+        @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
             this.securityGroupIds = securityGroupIds;
             return this;
@@ -175,6 +159,7 @@ public final class ClusterVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -182,11 +167,21 @@ public final class ClusterVpcConfig {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
             this.vpcId = vpcId;
             return this;
-        }        public ClusterVpcConfig build() {
-            return new ClusterVpcConfig(clusterSecurityGroupId, endpointPrivateAccess, endpointPublicAccess, publicAccessCidrs, securityGroupIds, subnetIds, vpcId);
+        }
+        public ClusterVpcConfig build() {
+            final var o = new ClusterVpcConfig();
+            o.clusterSecurityGroupId = clusterSecurityGroupId;
+            o.endpointPrivateAccess = endpointPrivateAccess;
+            o.endpointPublicAccess = endpointPublicAccess;
+            o.publicAccessCidrs = publicAccessCidrs;
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

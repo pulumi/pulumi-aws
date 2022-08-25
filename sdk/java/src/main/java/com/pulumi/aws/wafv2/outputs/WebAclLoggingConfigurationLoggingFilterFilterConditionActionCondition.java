@@ -13,13 +13,9 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
      * @return The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
      * 
      */
-    private final String action;
+    private String action;
 
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(@CustomType.Parameter("action") String action) {
-        this.action = action;
-    }
-
+    private WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition() {}
     /**
      * @return The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
      * 
@@ -35,24 +31,24 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
     public static Builder builder(WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
-        }        public WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition build() {
-            return new WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(action);
+        }
+        public WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition build() {
+            final var o = new WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition();
+            o.action = action;
+            return o;
         }
     }
 }

@@ -15,49 +15,34 @@ public final class DomainNameDomainNameConfiguration {
      * @return ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
      * 
      */
-    private final String certificateArn;
+    private String certificateArn;
     /**
      * @return Endpoint type. Valid values: `REGIONAL`.
      * 
      */
-    private final String endpointType;
+    private String endpointType;
     /**
      * @return Amazon Route 53 Hosted Zone ID of the endpoint.
      * 
      */
-    private final @Nullable String hostedZoneId;
+    private @Nullable String hostedZoneId;
     /**
      * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
      * 
      */
-    private final @Nullable String ownershipVerificationCertificateArn;
+    private @Nullable String ownershipVerificationCertificateArn;
     /**
      * @return Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
      * 
      */
-    private final String securityPolicy;
+    private String securityPolicy;
     /**
      * @return Target domain name.
      * 
      */
-    private final @Nullable String targetDomainName;
+    private @Nullable String targetDomainName;
 
-    @CustomType.Constructor
-    private DomainNameDomainNameConfiguration(
-        @CustomType.Parameter("certificateArn") String certificateArn,
-        @CustomType.Parameter("endpointType") String endpointType,
-        @CustomType.Parameter("hostedZoneId") @Nullable String hostedZoneId,
-        @CustomType.Parameter("ownershipVerificationCertificateArn") @Nullable String ownershipVerificationCertificateArn,
-        @CustomType.Parameter("securityPolicy") String securityPolicy,
-        @CustomType.Parameter("targetDomainName") @Nullable String targetDomainName) {
-        this.certificateArn = certificateArn;
-        this.endpointType = endpointType;
-        this.hostedZoneId = hostedZoneId;
-        this.ownershipVerificationCertificateArn = ownershipVerificationCertificateArn;
-        this.securityPolicy = securityPolicy;
-        this.targetDomainName = targetDomainName;
-    }
-
+    private DomainNameDomainNameConfiguration() {}
     /**
      * @return ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
      * 
@@ -108,7 +93,7 @@ public final class DomainNameDomainNameConfiguration {
     public static Builder builder(DomainNameDomainNameConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateArn;
         private String endpointType;
@@ -116,11 +101,7 @@ public final class DomainNameDomainNameConfiguration {
         private @Nullable String ownershipVerificationCertificateArn;
         private String securityPolicy;
         private @Nullable String targetDomainName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainNameDomainNameConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateArn = defaults.certificateArn;
@@ -131,31 +112,45 @@ public final class DomainNameDomainNameConfiguration {
     	      this.targetDomainName = defaults.targetDomainName;
         }
 
+        @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
             this.certificateArn = Objects.requireNonNull(certificateArn);
             return this;
         }
+        @CustomType.Setter
         public Builder endpointType(String endpointType) {
             this.endpointType = Objects.requireNonNull(endpointType);
             return this;
         }
+        @CustomType.Setter
         public Builder hostedZoneId(@Nullable String hostedZoneId) {
             this.hostedZoneId = hostedZoneId;
             return this;
         }
+        @CustomType.Setter
         public Builder ownershipVerificationCertificateArn(@Nullable String ownershipVerificationCertificateArn) {
             this.ownershipVerificationCertificateArn = ownershipVerificationCertificateArn;
             return this;
         }
+        @CustomType.Setter
         public Builder securityPolicy(String securityPolicy) {
             this.securityPolicy = Objects.requireNonNull(securityPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder targetDomainName(@Nullable String targetDomainName) {
             this.targetDomainName = targetDomainName;
             return this;
-        }        public DomainNameDomainNameConfiguration build() {
-            return new DomainNameDomainNameConfiguration(certificateArn, endpointType, hostedZoneId, ownershipVerificationCertificateArn, securityPolicy, targetDomainName);
+        }
+        public DomainNameDomainNameConfiguration build() {
+            final var o = new DomainNameDomainNameConfiguration();
+            o.certificateArn = certificateArn;
+            o.endpointType = endpointType;
+            o.hostedZoneId = hostedZoneId;
+            o.ownershipVerificationCertificateArn = ownershipVerificationCertificateArn;
+            o.securityPolicy = securityPolicy;
+            o.targetDomainName = targetDomainName;
+            return o;
         }
     }
 }

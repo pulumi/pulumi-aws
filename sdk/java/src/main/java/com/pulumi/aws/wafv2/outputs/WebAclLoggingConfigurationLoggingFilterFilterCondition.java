@@ -16,21 +16,14 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterCondition {
      * @return A single action condition. See Action Condition below for more details.
      * 
      */
-    private final @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition actionCondition;
+    private @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition actionCondition;
     /**
      * @return A single label name condition. See Label Name Condition below for more details.
      * 
      */
-    private final @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition labelNameCondition;
+    private @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition labelNameCondition;
 
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationLoggingFilterFilterCondition(
-        @CustomType.Parameter("actionCondition") @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition actionCondition,
-        @CustomType.Parameter("labelNameCondition") @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition labelNameCondition) {
-        this.actionCondition = actionCondition;
-        this.labelNameCondition = labelNameCondition;
-    }
-
+    private WebAclLoggingConfigurationLoggingFilterFilterCondition() {}
     /**
      * @return A single action condition. See Action Condition below for more details.
      * 
@@ -53,30 +46,32 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterCondition {
     public static Builder builder(WebAclLoggingConfigurationLoggingFilterFilterCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition actionCondition;
         private @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition labelNameCondition;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationLoggingFilterFilterCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionCondition = defaults.actionCondition;
     	      this.labelNameCondition = defaults.labelNameCondition;
         }
 
+        @CustomType.Setter
         public Builder actionCondition(@Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition actionCondition) {
             this.actionCondition = actionCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder labelNameCondition(@Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition labelNameCondition) {
             this.labelNameCondition = labelNameCondition;
             return this;
-        }        public WebAclLoggingConfigurationLoggingFilterFilterCondition build() {
-            return new WebAclLoggingConfigurationLoggingFilterFilterCondition(actionCondition, labelNameCondition);
+        }
+        public WebAclLoggingConfigurationLoggingFilterFilterCondition build() {
+            final var o = new WebAclLoggingConfigurationLoggingFilterFilterCondition();
+            o.actionCondition = actionCondition;
+            o.labelNameCondition = labelNameCondition;
+            return o;
         }
     }
 }

@@ -17,28 +17,19 @@ public final class WorkflowStepTagStepDetails {
      * @return The name of the step, used as an identifier.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
      * 
      */
-    private final @Nullable String sourceFileLocation;
+    private @Nullable String sourceFileLocation;
     /**
      * @return Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
      * 
      */
-    private final @Nullable List<WorkflowStepTagStepDetailsTag> tags;
+    private @Nullable List<WorkflowStepTagStepDetailsTag> tags;
 
-    @CustomType.Constructor
-    private WorkflowStepTagStepDetails(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("sourceFileLocation") @Nullable String sourceFileLocation,
-        @CustomType.Parameter("tags") @Nullable List<WorkflowStepTagStepDetailsTag> tags) {
-        this.name = name;
-        this.sourceFileLocation = sourceFileLocation;
-        this.tags = tags;
-    }
-
+    private WorkflowStepTagStepDetails() {}
     /**
      * @return The name of the step, used as an identifier.
      * 
@@ -68,16 +59,12 @@ public final class WorkflowStepTagStepDetails {
     public static Builder builder(WorkflowStepTagStepDetails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String sourceFileLocation;
         private @Nullable List<WorkflowStepTagStepDetailsTag> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowStepTagStepDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -85,22 +72,30 @@ public final class WorkflowStepTagStepDetails {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceFileLocation(@Nullable String sourceFileLocation) {
             this.sourceFileLocation = sourceFileLocation;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable List<WorkflowStepTagStepDetailsTag> tags) {
             this.tags = tags;
             return this;
         }
         public Builder tags(WorkflowStepTagStepDetailsTag... tags) {
             return tags(List.of(tags));
-        }        public WorkflowStepTagStepDetails build() {
-            return new WorkflowStepTagStepDetails(name, sourceFileLocation, tags);
+        }
+        public WorkflowStepTagStepDetails build() {
+            final var o = new WorkflowStepTagStepDetails();
+            o.name = name;
+            o.sourceFileLocation = sourceFileLocation;
+            o.tags = tags;
+            return o;
         }
     }
 }

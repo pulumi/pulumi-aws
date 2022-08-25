@@ -17,66 +17,45 @@ public final class GetReportPlanResult {
      * @return The ARN of the backup report plan.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    private final String creationTime;
+    private String creationTime;
     /**
      * @return The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
-    private final String deploymentStatus;
+    private String deploymentStatus;
     /**
      * @return The description of the report plan.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
-    private final List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
+    private List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
     /**
      * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
-    private final List<GetReportPlanReportSetting> reportSettings;
+    private List<GetReportPlanReportSetting> reportSettings;
     /**
      * @return Metadata that you can assign to help organize the report plans you create.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetReportPlanResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("creationTime") String creationTime,
-        @CustomType.Parameter("deploymentStatus") String deploymentStatus,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("reportDeliveryChannels") List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels,
-        @CustomType.Parameter("reportSettings") List<GetReportPlanReportSetting> reportSettings,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.creationTime = creationTime;
-        this.deploymentStatus = deploymentStatus;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.reportDeliveryChannels = reportDeliveryChannels;
-        this.reportSettings = reportSettings;
-        this.tags = tags;
-    }
-
+    private GetReportPlanResult() {}
     /**
      * @return The ARN of the backup report plan.
      * 
@@ -144,7 +123,7 @@ public final class GetReportPlanResult {
     public static Builder builder(GetReportPlanResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String creationTime;
@@ -155,11 +134,7 @@ public final class GetReportPlanResult {
         private List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
         private List<GetReportPlanReportSetting> reportSettings;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetReportPlanResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -173,30 +148,37 @@ public final class GetReportPlanResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder creationTime(String creationTime) {
             this.creationTime = Objects.requireNonNull(creationTime);
             return this;
         }
+        @CustomType.Setter
         public Builder deploymentStatus(String deploymentStatus) {
             this.deploymentStatus = Objects.requireNonNull(deploymentStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder reportDeliveryChannels(List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels) {
             this.reportDeliveryChannels = Objects.requireNonNull(reportDeliveryChannels);
             return this;
@@ -204,6 +186,7 @@ public final class GetReportPlanResult {
         public Builder reportDeliveryChannels(GetReportPlanReportDeliveryChannel... reportDeliveryChannels) {
             return reportDeliveryChannels(List.of(reportDeliveryChannels));
         }
+        @CustomType.Setter
         public Builder reportSettings(List<GetReportPlanReportSetting> reportSettings) {
             this.reportSettings = Objects.requireNonNull(reportSettings);
             return this;
@@ -211,11 +194,23 @@ public final class GetReportPlanResult {
         public Builder reportSettings(GetReportPlanReportSetting... reportSettings) {
             return reportSettings(List.of(reportSettings));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetReportPlanResult build() {
-            return new GetReportPlanResult(arn, creationTime, deploymentStatus, description, id, name, reportDeliveryChannels, reportSettings, tags);
+        }
+        public GetReportPlanResult build() {
+            final var o = new GetReportPlanResult();
+            o.arn = arn;
+            o.creationTime = creationTime;
+            o.deploymentStatus = deploymentStatus;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.reportDeliveryChannels = reportDeliveryChannels;
+            o.reportSettings = reportSettings;
+            o.tags = tags;
+            return o;
         }
     }
 }

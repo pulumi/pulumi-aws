@@ -16,35 +16,24 @@ public final class ServiceLoadBalancer {
      * @return Name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
-    private final String containerName;
+    private String containerName;
     /**
      * @return Port on the container to associate with the load balancer.
      * 
      */
-    private final Integer containerPort;
+    private Integer containerPort;
     /**
      * @return Name of the ELB (Classic) to associate with the service.
      * 
      */
-    private final @Nullable String elbName;
+    private @Nullable String elbName;
     /**
      * @return ARN of the Load Balancer target group to associate with the service.
      * 
      */
-    private final @Nullable String targetGroupArn;
+    private @Nullable String targetGroupArn;
 
-    @CustomType.Constructor
-    private ServiceLoadBalancer(
-        @CustomType.Parameter("containerName") String containerName,
-        @CustomType.Parameter("containerPort") Integer containerPort,
-        @CustomType.Parameter("elbName") @Nullable String elbName,
-        @CustomType.Parameter("targetGroupArn") @Nullable String targetGroupArn) {
-        this.containerName = containerName;
-        this.containerPort = containerPort;
-        this.elbName = elbName;
-        this.targetGroupArn = targetGroupArn;
-    }
-
+    private ServiceLoadBalancer() {}
     /**
      * @return Name of the container to associate with the load balancer (as it appears in a container definition).
      * 
@@ -81,17 +70,13 @@ public final class ServiceLoadBalancer {
     public static Builder builder(ServiceLoadBalancer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String containerName;
         private Integer containerPort;
         private @Nullable String elbName;
         private @Nullable String targetGroupArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceLoadBalancer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerName = defaults.containerName;
@@ -100,23 +85,33 @@ public final class ServiceLoadBalancer {
     	      this.targetGroupArn = defaults.targetGroupArn;
         }
 
+        @CustomType.Setter
         public Builder containerName(String containerName) {
             this.containerName = Objects.requireNonNull(containerName);
             return this;
         }
+        @CustomType.Setter
         public Builder containerPort(Integer containerPort) {
             this.containerPort = Objects.requireNonNull(containerPort);
             return this;
         }
+        @CustomType.Setter
         public Builder elbName(@Nullable String elbName) {
             this.elbName = elbName;
             return this;
         }
+        @CustomType.Setter
         public Builder targetGroupArn(@Nullable String targetGroupArn) {
             this.targetGroupArn = targetGroupArn;
             return this;
-        }        public ServiceLoadBalancer build() {
-            return new ServiceLoadBalancer(containerName, containerPort, elbName, targetGroupArn);
+        }
+        public ServiceLoadBalancer build() {
+            final var o = new ServiceLoadBalancer();
+            o.containerName = containerName;
+            o.containerPort = containerPort;
+            o.elbName = elbName;
+            o.targetGroupArn = targetGroupArn;
+            return o;
         }
     }
 }

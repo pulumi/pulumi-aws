@@ -18,49 +18,34 @@ public final class TriggerAction {
      * @return Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
      * 
      */
-    private final @Nullable Map<String,String> arguments;
+    private @Nullable Map<String,String> arguments;
     /**
      * @return The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
      * 
      */
-    private final @Nullable String crawlerName;
+    private @Nullable String crawlerName;
     /**
      * @return The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
      * 
      */
-    private final @Nullable String jobName;
+    private @Nullable String jobName;
     /**
      * @return Specifies configuration properties of a job run notification. See Notification Property details below.
      * 
      */
-    private final @Nullable TriggerActionNotificationProperty notificationProperty;
+    private @Nullable TriggerActionNotificationProperty notificationProperty;
     /**
      * @return The name of the Security Configuration structure to be used with this action.
      * 
      */
-    private final @Nullable String securityConfiguration;
+    private @Nullable String securityConfiguration;
     /**
      * @return The job run timeout in minutes. It overrides the timeout value of the job.
      * 
      */
-    private final @Nullable Integer timeout;
+    private @Nullable Integer timeout;
 
-    @CustomType.Constructor
-    private TriggerAction(
-        @CustomType.Parameter("arguments") @Nullable Map<String,String> arguments,
-        @CustomType.Parameter("crawlerName") @Nullable String crawlerName,
-        @CustomType.Parameter("jobName") @Nullable String jobName,
-        @CustomType.Parameter("notificationProperty") @Nullable TriggerActionNotificationProperty notificationProperty,
-        @CustomType.Parameter("securityConfiguration") @Nullable String securityConfiguration,
-        @CustomType.Parameter("timeout") @Nullable Integer timeout) {
-        this.arguments = arguments;
-        this.crawlerName = crawlerName;
-        this.jobName = jobName;
-        this.notificationProperty = notificationProperty;
-        this.securityConfiguration = securityConfiguration;
-        this.timeout = timeout;
-    }
-
+    private TriggerAction() {}
     /**
      * @return Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
      * 
@@ -111,7 +96,7 @@ public final class TriggerAction {
     public static Builder builder(TriggerAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> arguments;
         private @Nullable String crawlerName;
@@ -119,11 +104,7 @@ public final class TriggerAction {
         private @Nullable TriggerActionNotificationProperty notificationProperty;
         private @Nullable String securityConfiguration;
         private @Nullable Integer timeout;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arguments = defaults.arguments;
@@ -134,31 +115,45 @@ public final class TriggerAction {
     	      this.timeout = defaults.timeout;
         }
 
+        @CustomType.Setter
         public Builder arguments(@Nullable Map<String,String> arguments) {
             this.arguments = arguments;
             return this;
         }
+        @CustomType.Setter
         public Builder crawlerName(@Nullable String crawlerName) {
             this.crawlerName = crawlerName;
             return this;
         }
+        @CustomType.Setter
         public Builder jobName(@Nullable String jobName) {
             this.jobName = jobName;
             return this;
         }
+        @CustomType.Setter
         public Builder notificationProperty(@Nullable TriggerActionNotificationProperty notificationProperty) {
             this.notificationProperty = notificationProperty;
             return this;
         }
+        @CustomType.Setter
         public Builder securityConfiguration(@Nullable String securityConfiguration) {
             this.securityConfiguration = securityConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
             this.timeout = timeout;
             return this;
-        }        public TriggerAction build() {
-            return new TriggerAction(arguments, crawlerName, jobName, notificationProperty, securityConfiguration, timeout);
+        }
+        public TriggerAction build() {
+            final var o = new TriggerAction();
+            o.arguments = arguments;
+            o.crawlerName = crawlerName;
+            o.jobName = jobName;
+            o.notificationProperty = notificationProperty;
+            o.securityConfiguration = securityConfiguration;
+            o.timeout = timeout;
+            return o;
         }
     }
 }

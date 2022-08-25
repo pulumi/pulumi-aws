@@ -16,42 +16,29 @@ public final class TopicRuleErrorActionKafka {
      * @return Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
      * 
      */
-    private final Map<String,String> clientProperties;
+    private Map<String,String> clientProperties;
     /**
      * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination` .
      * 
      */
-    private final String destinationArn;
+    private String destinationArn;
     /**
      * @return The Kafka message key.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return The Kafka message partition.
      * 
      */
-    private final @Nullable String partition;
+    private @Nullable String partition;
     /**
      * @return The Kafka topic for messages to be sent to the Kafka broker.
      * 
      */
-    private final String topic;
+    private String topic;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionKafka(
-        @CustomType.Parameter("clientProperties") Map<String,String> clientProperties,
-        @CustomType.Parameter("destinationArn") String destinationArn,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("partition") @Nullable String partition,
-        @CustomType.Parameter("topic") String topic) {
-        this.clientProperties = clientProperties;
-        this.destinationArn = destinationArn;
-        this.key = key;
-        this.partition = partition;
-        this.topic = topic;
-    }
-
+    private TopicRuleErrorActionKafka() {}
     /**
      * @return Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
      * 
@@ -95,18 +82,14 @@ public final class TopicRuleErrorActionKafka {
     public static Builder builder(TopicRuleErrorActionKafka defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> clientProperties;
         private String destinationArn;
         private @Nullable String key;
         private @Nullable String partition;
         private String topic;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionKafka defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientProperties = defaults.clientProperties;
@@ -116,27 +99,39 @@ public final class TopicRuleErrorActionKafka {
     	      this.topic = defaults.topic;
         }
 
+        @CustomType.Setter
         public Builder clientProperties(Map<String,String> clientProperties) {
             this.clientProperties = Objects.requireNonNull(clientProperties);
             return this;
         }
+        @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
             this.destinationArn = Objects.requireNonNull(destinationArn);
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder partition(@Nullable String partition) {
             this.partition = partition;
             return this;
         }
+        @CustomType.Setter
         public Builder topic(String topic) {
             this.topic = Objects.requireNonNull(topic);
             return this;
-        }        public TopicRuleErrorActionKafka build() {
-            return new TopicRuleErrorActionKafka(clientProperties, destinationArn, key, partition, topic);
+        }
+        public TopicRuleErrorActionKafka build() {
+            final var o = new TopicRuleErrorActionKafka();
+            o.clientProperties = clientProperties;
+            o.destinationArn = destinationArn;
+            o.key = key;
+            o.partition = partition;
+            o.topic = topic;
+            return o;
         }
     }
 }

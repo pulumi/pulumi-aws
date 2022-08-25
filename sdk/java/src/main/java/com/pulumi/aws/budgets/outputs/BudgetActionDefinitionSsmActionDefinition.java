@@ -14,28 +14,19 @@ public final class BudgetActionDefinitionSsmActionDefinition {
      * @return The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
      * 
      */
-    private final String actionSubType;
+    private String actionSubType;
     /**
      * @return The EC2 and RDS instance IDs.
      * 
      */
-    private final List<String> instanceIds;
+    private List<String> instanceIds;
     /**
      * @return The Region to run the SSM document.
      * 
      */
-    private final String region;
+    private String region;
 
-    @CustomType.Constructor
-    private BudgetActionDefinitionSsmActionDefinition(
-        @CustomType.Parameter("actionSubType") String actionSubType,
-        @CustomType.Parameter("instanceIds") List<String> instanceIds,
-        @CustomType.Parameter("region") String region) {
-        this.actionSubType = actionSubType;
-        this.instanceIds = instanceIds;
-        this.region = region;
-    }
-
+    private BudgetActionDefinitionSsmActionDefinition() {}
     /**
      * @return The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
      * 
@@ -65,16 +56,12 @@ public final class BudgetActionDefinitionSsmActionDefinition {
     public static Builder builder(BudgetActionDefinitionSsmActionDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionSubType;
         private List<String> instanceIds;
         private String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetActionDefinitionSsmActionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionSubType = defaults.actionSubType;
@@ -82,10 +69,12 @@ public final class BudgetActionDefinitionSsmActionDefinition {
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder actionSubType(String actionSubType) {
             this.actionSubType = Objects.requireNonNull(actionSubType);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceIds(List<String> instanceIds) {
             this.instanceIds = Objects.requireNonNull(instanceIds);
             return this;
@@ -93,11 +82,17 @@ public final class BudgetActionDefinitionSsmActionDefinition {
         public Builder instanceIds(String... instanceIds) {
             return instanceIds(List.of(instanceIds));
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
-        }        public BudgetActionDefinitionSsmActionDefinition build() {
-            return new BudgetActionDefinitionSsmActionDefinition(actionSubType, instanceIds, region);
+        }
+        public BudgetActionDefinitionSsmActionDefinition build() {
+            final var o = new BudgetActionDefinitionSsmActionDefinition();
+            o.actionSubType = actionSubType;
+            o.instanceIds = instanceIds;
+            o.region = region;
+            return o;
         }
     }
 }

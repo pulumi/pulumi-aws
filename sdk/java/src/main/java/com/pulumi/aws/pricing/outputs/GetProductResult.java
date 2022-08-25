@@ -11,31 +11,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProductResult {
-    private final List<GetProductFilter> filters;
+    private List<GetProductFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set to the product returned from the API.
      * 
      */
-    private final String result;
-    private final String serviceCode;
+    private String result;
+    private String serviceCode;
 
-    @CustomType.Constructor
-    private GetProductResult(
-        @CustomType.Parameter("filters") List<GetProductFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("result") String result,
-        @CustomType.Parameter("serviceCode") String serviceCode) {
-        this.filters = filters;
-        this.id = id;
-        this.result = result;
-        this.serviceCode = serviceCode;
-    }
-
+    private GetProductResult() {}
     public List<GetProductFilter> filters() {
         return this.filters;
     }
@@ -64,17 +53,13 @@ public final class GetProductResult {
     public static Builder builder(GetProductResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetProductFilter> filters;
         private String id;
         private String result;
         private String serviceCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetProductResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -83,6 +68,7 @@ public final class GetProductResult {
     	      this.serviceCode = defaults.serviceCode;
         }
 
+        @CustomType.Setter
         public Builder filters(List<GetProductFilter> filters) {
             this.filters = Objects.requireNonNull(filters);
             return this;
@@ -90,19 +76,28 @@ public final class GetProductResult {
         public Builder filters(GetProductFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder result(String result) {
             this.result = Objects.requireNonNull(result);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceCode(String serviceCode) {
             this.serviceCode = Objects.requireNonNull(serviceCode);
             return this;
-        }        public GetProductResult build() {
-            return new GetProductResult(filters, id, result, serviceCode);
+        }
+        public GetProductResult build() {
+            final var o = new GetProductResult();
+            o.filters = filters;
+            o.id = id;
+            o.result = result;
+            o.serviceCode = serviceCode;
+            return o;
         }
     }
 }

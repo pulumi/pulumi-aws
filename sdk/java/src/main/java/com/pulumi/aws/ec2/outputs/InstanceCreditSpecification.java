@@ -15,13 +15,9 @@ public final class InstanceCreditSpecification {
      * @return Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
      * 
      */
-    private final @Nullable String cpuCredits;
+    private @Nullable String cpuCredits;
 
-    @CustomType.Constructor
-    private InstanceCreditSpecification(@CustomType.Parameter("cpuCredits") @Nullable String cpuCredits) {
-        this.cpuCredits = cpuCredits;
-    }
-
+    private InstanceCreditSpecification() {}
     /**
      * @return Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
      * 
@@ -37,24 +33,24 @@ public final class InstanceCreditSpecification {
     public static Builder builder(InstanceCreditSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cpuCredits;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceCreditSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cpuCredits = defaults.cpuCredits;
         }
 
+        @CustomType.Setter
         public Builder cpuCredits(@Nullable String cpuCredits) {
             this.cpuCredits = cpuCredits;
             return this;
-        }        public InstanceCreditSpecification build() {
-            return new InstanceCreditSpecification(cpuCredits);
+        }
+        public InstanceCreditSpecification build() {
+            final var o = new InstanceCreditSpecification();
+            o.cpuCredits = cpuCredits;
+            return o;
         }
     }
 }

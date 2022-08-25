@@ -9,51 +9,32 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOutpostResult {
-    private final String arn;
+    private String arn;
     /**
      * @return Availability Zone name.
      * 
      */
-    private final String availabilityZone;
+    private String availabilityZone;
     /**
      * @return Availability Zone identifier.
      * 
      */
-    private final String availabilityZoneId;
+    private String availabilityZoneId;
     /**
      * @return Description.
      * 
      */
-    private final String description;
-    private final String id;
-    private final String name;
-    private final String ownerId;
+    private String description;
+    private String id;
+    private String name;
+    private String ownerId;
     /**
      * @return Site identifier.
      * 
      */
-    private final String siteId;
+    private String siteId;
 
-    @CustomType.Constructor
-    private GetOutpostResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("availabilityZoneId") String availabilityZoneId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("siteId") String siteId) {
-        this.arn = arn;
-        this.availabilityZone = availabilityZone;
-        this.availabilityZoneId = availabilityZoneId;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.ownerId = ownerId;
-        this.siteId = siteId;
-    }
-
+    private GetOutpostResult() {}
     public String arn() {
         return this.arn;
     }
@@ -102,7 +83,7 @@ public final class GetOutpostResult {
     public static Builder builder(GetOutpostResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String availabilityZone;
@@ -112,11 +93,7 @@ public final class GetOutpostResult {
         private String name;
         private String ownerId;
         private String siteId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOutpostResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -129,39 +106,57 @@ public final class GetOutpostResult {
     	      this.siteId = defaults.siteId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZoneId(String availabilityZoneId) {
             this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder siteId(String siteId) {
             this.siteId = Objects.requireNonNull(siteId);
             return this;
-        }        public GetOutpostResult build() {
-            return new GetOutpostResult(arn, availabilityZone, availabilityZoneId, description, id, name, ownerId, siteId);
+        }
+        public GetOutpostResult build() {
+            final var o = new GetOutpostResult();
+            o.arn = arn;
+            o.availabilityZone = availabilityZone;
+            o.availabilityZoneId = availabilityZoneId;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.ownerId = ownerId;
+            o.siteId = siteId;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
      * @return The string value to use in the custom metric dimension.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension(@CustomType.Parameter("value") String value) {
-        this.value = value;
-    }
-
+    private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension() {}
     /**
      * @return The string value to use in the custom metric dimension.
      * 
@@ -35,24 +31,24 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
     public static Builder builder(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension build() {
-            return new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension(value);
+        }
+        public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension build() {
+            final var o = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension();
+            o.value = value;
+            return o;
         }
     }
 }

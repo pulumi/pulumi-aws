@@ -17,42 +17,29 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * @return The math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
-    private final @Nullable String expression;
+    private @Nullable String expression;
     /**
      * @return A short name for the metric used in predictive scaling policy.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A human-readable label for this metric or expression.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
     /**
      * @return A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
-    private final @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat metricStat;
+    private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat metricStat;
     /**
      * @return A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
      * 
      */
-    private final @Nullable Boolean returnData;
+    private @Nullable Boolean returnData;
 
-    @CustomType.Constructor
-    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery(
-        @CustomType.Parameter("expression") @Nullable String expression,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("metricStat") @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat metricStat,
-        @CustomType.Parameter("returnData") @Nullable Boolean returnData) {
-        this.expression = expression;
-        this.id = id;
-        this.label = label;
-        this.metricStat = metricStat;
-        this.returnData = returnData;
-    }
-
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery() {}
     /**
      * @return The math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
      * 
@@ -96,18 +83,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static Builder builder(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String expression;
         private String id;
         private @Nullable String label;
         private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat metricStat;
         private @Nullable Boolean returnData;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expression = defaults.expression;
@@ -117,27 +100,39 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     	      this.returnData = defaults.returnData;
         }
 
+        @CustomType.Setter
         public Builder expression(@Nullable String expression) {
             this.expression = expression;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder metricStat(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat metricStat) {
             this.metricStat = metricStat;
             return this;
         }
+        @CustomType.Setter
         public Builder returnData(@Nullable Boolean returnData) {
             this.returnData = returnData;
             return this;
-        }        public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery build() {
-            return new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery(expression, id, label, metricStat, returnData);
+        }
+        public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery build() {
+            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery();
+            o.expression = expression;
+            o.id = id;
+            o.label = label;
+            o.metricStat = metricStat;
+            o.returnData = returnData;
+            return o;
         }
     }
 }

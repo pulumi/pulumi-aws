@@ -16,28 +16,19 @@ public final class TableCapacitySpecification {
      * @return The throughput capacity specified for read operations defined in read capacity units (RCUs).
      * 
      */
-    private final @Nullable Integer readCapacityUnits;
+    private @Nullable Integer readCapacityUnits;
     /**
      * @return The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
      * 
      */
-    private final @Nullable String throughputMode;
+    private @Nullable String throughputMode;
     /**
      * @return The throughput capacity specified for write operations defined in write capacity units (WCUs).
      * 
      */
-    private final @Nullable Integer writeCapacityUnits;
+    private @Nullable Integer writeCapacityUnits;
 
-    @CustomType.Constructor
-    private TableCapacitySpecification(
-        @CustomType.Parameter("readCapacityUnits") @Nullable Integer readCapacityUnits,
-        @CustomType.Parameter("throughputMode") @Nullable String throughputMode,
-        @CustomType.Parameter("writeCapacityUnits") @Nullable Integer writeCapacityUnits) {
-        this.readCapacityUnits = readCapacityUnits;
-        this.throughputMode = throughputMode;
-        this.writeCapacityUnits = writeCapacityUnits;
-    }
-
+    private TableCapacitySpecification() {}
     /**
      * @return The throughput capacity specified for read operations defined in read capacity units (RCUs).
      * 
@@ -67,16 +58,12 @@ public final class TableCapacitySpecification {
     public static Builder builder(TableCapacitySpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer readCapacityUnits;
         private @Nullable String throughputMode;
         private @Nullable Integer writeCapacityUnits;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableCapacitySpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.readCapacityUnits = defaults.readCapacityUnits;
@@ -84,19 +71,27 @@ public final class TableCapacitySpecification {
     	      this.writeCapacityUnits = defaults.writeCapacityUnits;
         }
 
+        @CustomType.Setter
         public Builder readCapacityUnits(@Nullable Integer readCapacityUnits) {
             this.readCapacityUnits = readCapacityUnits;
             return this;
         }
+        @CustomType.Setter
         public Builder throughputMode(@Nullable String throughputMode) {
             this.throughputMode = throughputMode;
             return this;
         }
+        @CustomType.Setter
         public Builder writeCapacityUnits(@Nullable Integer writeCapacityUnits) {
             this.writeCapacityUnits = writeCapacityUnits;
             return this;
-        }        public TableCapacitySpecification build() {
-            return new TableCapacitySpecification(readCapacityUnits, throughputMode, writeCapacityUnits);
+        }
+        public TableCapacitySpecification build() {
+            final var o = new TableCapacitySpecification();
+            o.readCapacityUnits = readCapacityUnits;
+            o.throughputMode = throughputMode;
+            o.writeCapacityUnits = writeCapacityUnits;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetBillingServiceAccountResult {
      * @return The ARN of the AWS billing service account.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetBillingServiceAccountResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id) {
-        this.arn = arn;
-        this.id = id;
-    }
-
+    private GetBillingServiceAccountResult() {}
     /**
      * @return The ARN of the AWS billing service account.
      * 
@@ -50,30 +43,32 @@ public final class GetBillingServiceAccountResult {
     public static Builder builder(GetBillingServiceAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBillingServiceAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetBillingServiceAccountResult build() {
-            return new GetBillingServiceAccountResult(arn, id);
+        }
+        public GetBillingServiceAccountResult build() {
+            final var o = new GetBillingServiceAccountResult();
+            o.arn = arn;
+            o.id = id;
+            return o;
         }
     }
 }

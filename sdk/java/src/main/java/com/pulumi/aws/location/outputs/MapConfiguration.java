@@ -13,13 +13,9 @@ public final class MapConfiguration {
      * @return Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
      * 
      */
-    private final String style;
+    private String style;
 
-    @CustomType.Constructor
-    private MapConfiguration(@CustomType.Parameter("style") String style) {
-        this.style = style;
-    }
-
+    private MapConfiguration() {}
     /**
      * @return Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
      * 
@@ -35,24 +31,24 @@ public final class MapConfiguration {
     public static Builder builder(MapConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String style;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MapConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.style = defaults.style;
         }
 
+        @CustomType.Setter
         public Builder style(String style) {
             this.style = Objects.requireNonNull(style);
             return this;
-        }        public MapConfiguration build() {
-            return new MapConfiguration(style);
+        }
+        public MapConfiguration build() {
+            final var o = new MapConfiguration();
+            o.style = style;
+            return o;
         }
     }
 }

@@ -16,49 +16,34 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
      * @return Key-value map of tags to apply to distributed AMI.
      * 
      */
-    private final Map<String,String> amiTags;
+    private Map<String,String> amiTags;
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
      * 
      */
-    private final String kmsKeyId;
+    private String kmsKeyId;
     /**
      * @return Nested list of EC2 launch permissions.
      * 
      */
-    private final List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions;
+    private List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions;
     /**
      * @return Name of the distribution configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Set of target AWS Account identifiers.
      * 
      */
-    private final List<String> targetAccountIds;
+    private List<String> targetAccountIds;
 
-    @CustomType.Constructor
-    private GetDistributionConfigurationDistributionAmiDistributionConfiguration(
-        @CustomType.Parameter("amiTags") Map<String,String> amiTags,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("launchPermissions") List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("targetAccountIds") List<String> targetAccountIds) {
-        this.amiTags = amiTags;
-        this.description = description;
-        this.kmsKeyId = kmsKeyId;
-        this.launchPermissions = launchPermissions;
-        this.name = name;
-        this.targetAccountIds = targetAccountIds;
-    }
-
+    private GetDistributionConfigurationDistributionAmiDistributionConfiguration() {}
     /**
      * @return Key-value map of tags to apply to distributed AMI.
      * 
@@ -109,7 +94,7 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
     public static Builder builder(GetDistributionConfigurationDistributionAmiDistributionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> amiTags;
         private String description;
@@ -117,11 +102,7 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
         private List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions;
         private String name;
         private List<String> targetAccountIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDistributionConfigurationDistributionAmiDistributionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amiTags = defaults.amiTags;
@@ -132,18 +113,22 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
     	      this.targetAccountIds = defaults.targetAccountIds;
         }
 
+        @CustomType.Setter
         public Builder amiTags(Map<String,String> amiTags) {
             this.amiTags = Objects.requireNonNull(amiTags);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder launchPermissions(List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions) {
             this.launchPermissions = Objects.requireNonNull(launchPermissions);
             return this;
@@ -151,18 +136,28 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
         public Builder launchPermissions(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission... launchPermissions) {
             return launchPermissions(List.of(launchPermissions));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder targetAccountIds(List<String> targetAccountIds) {
             this.targetAccountIds = Objects.requireNonNull(targetAccountIds);
             return this;
         }
         public Builder targetAccountIds(String... targetAccountIds) {
             return targetAccountIds(List.of(targetAccountIds));
-        }        public GetDistributionConfigurationDistributionAmiDistributionConfiguration build() {
-            return new GetDistributionConfigurationDistributionAmiDistributionConfiguration(amiTags, description, kmsKeyId, launchPermissions, name, targetAccountIds);
+        }
+        public GetDistributionConfigurationDistributionAmiDistributionConfiguration build() {
+            final var o = new GetDistributionConfigurationDistributionAmiDistributionConfiguration();
+            o.amiTags = amiTags;
+            o.description = description;
+            o.kmsKeyId = kmsKeyId;
+            o.launchPermissions = launchPermissions;
+            o.name = name;
+            o.targetAccountIds = targetAccountIds;
+            return o;
         }
     }
 }

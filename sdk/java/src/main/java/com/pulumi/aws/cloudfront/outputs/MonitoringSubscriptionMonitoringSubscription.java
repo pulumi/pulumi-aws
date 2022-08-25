@@ -13,13 +13,9 @@ public final class MonitoringSubscriptionMonitoringSubscription {
      * @return A subscription configuration for additional CloudWatch metrics. See below.
      * 
      */
-    private final MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig realtimeMetricsSubscriptionConfig;
+    private MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig realtimeMetricsSubscriptionConfig;
 
-    @CustomType.Constructor
-    private MonitoringSubscriptionMonitoringSubscription(@CustomType.Parameter("realtimeMetricsSubscriptionConfig") MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig realtimeMetricsSubscriptionConfig) {
-        this.realtimeMetricsSubscriptionConfig = realtimeMetricsSubscriptionConfig;
-    }
-
+    private MonitoringSubscriptionMonitoringSubscription() {}
     /**
      * @return A subscription configuration for additional CloudWatch metrics. See below.
      * 
@@ -35,24 +31,24 @@ public final class MonitoringSubscriptionMonitoringSubscription {
     public static Builder builder(MonitoringSubscriptionMonitoringSubscription defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig realtimeMetricsSubscriptionConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MonitoringSubscriptionMonitoringSubscription defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.realtimeMetricsSubscriptionConfig = defaults.realtimeMetricsSubscriptionConfig;
         }
 
+        @CustomType.Setter
         public Builder realtimeMetricsSubscriptionConfig(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig realtimeMetricsSubscriptionConfig) {
             this.realtimeMetricsSubscriptionConfig = Objects.requireNonNull(realtimeMetricsSubscriptionConfig);
             return this;
-        }        public MonitoringSubscriptionMonitoringSubscription build() {
-            return new MonitoringSubscriptionMonitoringSubscription(realtimeMetricsSubscriptionConfig);
+        }
+        public MonitoringSubscriptionMonitoringSubscription build() {
+            final var o = new MonitoringSubscriptionMonitoringSubscription();
+            o.realtimeMetricsSubscriptionConfig = realtimeMetricsSubscriptionConfig;
+            return o;
         }
     }
 }

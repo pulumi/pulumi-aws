@@ -13,42 +13,29 @@ public final class GetAuthorizationTokenResult {
      * @return Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
      * 
      */
-    private final String authorizationToken;
+    private String authorizationToken;
     /**
      * @return The time in UTC RFC3339 format when the authorization token expires.
      * 
      */
-    private final String expiresAt;
+    private String expiresAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Password decoded from the authorization token.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return User name decoded from the authorization token.
      * 
      */
-    private final String userName;
+    private String userName;
 
-    @CustomType.Constructor
-    private GetAuthorizationTokenResult(
-        @CustomType.Parameter("authorizationToken") String authorizationToken,
-        @CustomType.Parameter("expiresAt") String expiresAt,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("userName") String userName) {
-        this.authorizationToken = authorizationToken;
-        this.expiresAt = expiresAt;
-        this.id = id;
-        this.password = password;
-        this.userName = userName;
-    }
-
+    private GetAuthorizationTokenResult() {}
     /**
      * @return Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
      * 
@@ -92,18 +79,14 @@ public final class GetAuthorizationTokenResult {
     public static Builder builder(GetAuthorizationTokenResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authorizationToken;
         private String expiresAt;
         private String id;
         private String password;
         private String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAuthorizationTokenResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationToken = defaults.authorizationToken;
@@ -113,27 +96,39 @@ public final class GetAuthorizationTokenResult {
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder authorizationToken(String authorizationToken) {
             this.authorizationToken = Objects.requireNonNull(authorizationToken);
             return this;
         }
+        @CustomType.Setter
         public Builder expiresAt(String expiresAt) {
             this.expiresAt = Objects.requireNonNull(expiresAt);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder userName(String userName) {
             this.userName = Objects.requireNonNull(userName);
             return this;
-        }        public GetAuthorizationTokenResult build() {
-            return new GetAuthorizationTokenResult(authorizationToken, expiresAt, id, password, userName);
+        }
+        public GetAuthorizationTokenResult build() {
+            final var o = new GetAuthorizationTokenResult();
+            o.authorizationToken = authorizationToken;
+            o.expiresAt = expiresAt;
+            o.id = id;
+            o.password = password;
+            o.userName = userName;
+            return o;
         }
     }
 }

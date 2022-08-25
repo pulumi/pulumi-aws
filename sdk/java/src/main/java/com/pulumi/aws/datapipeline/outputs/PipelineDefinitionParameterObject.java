@@ -16,21 +16,14 @@ public final class PipelineDefinitionParameterObject {
      * @return Configuration block for attributes of the parameter object. See below
      * 
      */
-    private final @Nullable List<PipelineDefinitionParameterObjectAttribute> attributes;
+    private @Nullable List<PipelineDefinitionParameterObjectAttribute> attributes;
     /**
      * @return ID of the parameter value.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private PipelineDefinitionParameterObject(
-        @CustomType.Parameter("attributes") @Nullable List<PipelineDefinitionParameterObjectAttribute> attributes,
-        @CustomType.Parameter("id") String id) {
-        this.attributes = attributes;
-        this.id = id;
-    }
-
+    private PipelineDefinitionParameterObject() {}
     /**
      * @return Configuration block for attributes of the parameter object. See below
      * 
@@ -53,21 +46,18 @@ public final class PipelineDefinitionParameterObject {
     public static Builder builder(PipelineDefinitionParameterObject defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PipelineDefinitionParameterObjectAttribute> attributes;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineDefinitionParameterObject defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attributes = defaults.attributes;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder attributes(@Nullable List<PipelineDefinitionParameterObjectAttribute> attributes) {
             this.attributes = attributes;
             return this;
@@ -75,11 +65,16 @@ public final class PipelineDefinitionParameterObject {
         public Builder attributes(PipelineDefinitionParameterObjectAttribute... attributes) {
             return attributes(List.of(attributes));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public PipelineDefinitionParameterObject build() {
-            return new PipelineDefinitionParameterObject(attributes, id);
+        }
+        public PipelineDefinitionParameterObject build() {
+            final var o = new PipelineDefinitionParameterObject();
+            o.attributes = attributes;
+            o.id = id;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHea
      * @return The name of the query header to inspect. This setting must be provided as lower case characters.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader() {}
     /**
      * @return The name of the query header to inspect. This setting must be provided as lower case characters.
      * 
@@ -35,24 +31,24 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHea
     public static Builder builder(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader build() {
-            return new RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(name);
+        }
+        public RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader build() {
+            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader();
+            o.name = name;
+            return o;
         }
     }
 }

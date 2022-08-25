@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateInstanceRequirementVcpuCount {
-    private final Integer max;
-    private final Integer min;
+    private Integer max;
+    private Integer min;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateInstanceRequirementVcpuCount(
-        @CustomType.Parameter("max") Integer max,
-        @CustomType.Parameter("min") Integer min) {
-        this.max = max;
-        this.min = min;
-    }
-
+    private GetLaunchTemplateInstanceRequirementVcpuCount() {}
     public Integer max() {
         return this.max;
     }
@@ -34,30 +27,32 @@ public final class GetLaunchTemplateInstanceRequirementVcpuCount {
     public static Builder builder(GetLaunchTemplateInstanceRequirementVcpuCount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer max;
         private Integer min;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateInstanceRequirementVcpuCount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.max = defaults.max;
     	      this.min = defaults.min;
         }
 
+        @CustomType.Setter
         public Builder max(Integer max) {
             this.max = Objects.requireNonNull(max);
             return this;
         }
+        @CustomType.Setter
         public Builder min(Integer min) {
             this.min = Objects.requireNonNull(min);
             return this;
-        }        public GetLaunchTemplateInstanceRequirementVcpuCount build() {
-            return new GetLaunchTemplateInstanceRequirementVcpuCount(max, min);
+        }
+        public GetLaunchTemplateInstanceRequirementVcpuCount build() {
+            final var o = new GetLaunchTemplateInstanceRequirementVcpuCount();
+            o.max = max;
+            o.min = min;
+            return o;
         }
     }
 }

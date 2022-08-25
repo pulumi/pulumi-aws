@@ -15,21 +15,14 @@ public final class GetReleaseLabelsFilters {
      * @return Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
      * 
      */
-    private final @Nullable String application;
+    private @Nullable String application;
     /**
      * @return Optional release label version prefix filter. For example, `emr-5`.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
 
-    @CustomType.Constructor
-    private GetReleaseLabelsFilters(
-        @CustomType.Parameter("application") @Nullable String application,
-        @CustomType.Parameter("prefix") @Nullable String prefix) {
-        this.application = application;
-        this.prefix = prefix;
-    }
-
+    private GetReleaseLabelsFilters() {}
     /**
      * @return Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
      * 
@@ -52,30 +45,32 @@ public final class GetReleaseLabelsFilters {
     public static Builder builder(GetReleaseLabelsFilters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String application;
         private @Nullable String prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetReleaseLabelsFilters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.application = defaults.application;
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder application(@Nullable String application) {
             this.application = application;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
-        }        public GetReleaseLabelsFilters build() {
-            return new GetReleaseLabelsFilters(application, prefix);
+        }
+        public GetReleaseLabelsFilters build() {
+            final var o = new GetReleaseLabelsFilters();
+            o.application = application;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

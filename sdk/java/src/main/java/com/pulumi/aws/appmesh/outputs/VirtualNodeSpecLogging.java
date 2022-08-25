@@ -15,13 +15,9 @@ public final class VirtualNodeSpecLogging {
      * @return The access log configuration for a virtual node.
      * 
      */
-    private final @Nullable VirtualNodeSpecLoggingAccessLog accessLog;
+    private @Nullable VirtualNodeSpecLoggingAccessLog accessLog;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecLogging(@CustomType.Parameter("accessLog") @Nullable VirtualNodeSpecLoggingAccessLog accessLog) {
-        this.accessLog = accessLog;
-    }
-
+    private VirtualNodeSpecLogging() {}
     /**
      * @return The access log configuration for a virtual node.
      * 
@@ -37,24 +33,24 @@ public final class VirtualNodeSpecLogging {
     public static Builder builder(VirtualNodeSpecLogging defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecLoggingAccessLog accessLog;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecLogging defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessLog = defaults.accessLog;
         }
 
+        @CustomType.Setter
         public Builder accessLog(@Nullable VirtualNodeSpecLoggingAccessLog accessLog) {
             this.accessLog = accessLog;
             return this;
-        }        public VirtualNodeSpecLogging build() {
-            return new VirtualNodeSpecLogging(accessLog);
+        }
+        public VirtualNodeSpecLogging build() {
+            final var o = new VirtualNodeSpecLogging();
+            o.accessLog = accessLog;
+            return o;
         }
     }
 }

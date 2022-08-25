@@ -14,21 +14,14 @@ public final class ClusterConfigurationInfo {
      * @return Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Revision of the MSK Configuration to use in the cluster.
      * 
      */
-    private final Integer revision;
+    private Integer revision;
 
-    @CustomType.Constructor
-    private ClusterConfigurationInfo(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("revision") Integer revision) {
-        this.arn = arn;
-        this.revision = revision;
-    }
-
+    private ClusterConfigurationInfo() {}
     /**
      * @return Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
      * 
@@ -51,30 +44,32 @@ public final class ClusterConfigurationInfo {
     public static Builder builder(ClusterConfigurationInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Integer revision;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterConfigurationInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.revision = defaults.revision;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder revision(Integer revision) {
             this.revision = Objects.requireNonNull(revision);
             return this;
-        }        public ClusterConfigurationInfo build() {
-            return new ClusterConfigurationInfo(arn, revision);
+        }
+        public ClusterConfigurationInfo build() {
+            final var o = new ClusterConfigurationInfo();
+            o.arn = arn;
+            o.revision = revision;
+            return o;
         }
     }
 }

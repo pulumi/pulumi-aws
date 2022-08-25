@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleOverrideActionNone {
-    @CustomType.Constructor
-    private WebAclRuleOverrideActionNone() {
-    }
-
+    private WebAclRuleOverrideActionNone() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleOverrideActionNone {
     public static Builder builder(WebAclRuleOverrideActionNone defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleOverrideActionNone defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleOverrideActionNone build() {
-            return new WebAclRuleOverrideActionNone();
+            final var o = new WebAclRuleOverrideActionNone();
+            return o;
         }
     }
 }

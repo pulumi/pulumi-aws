@@ -20,84 +20,59 @@ public final class GetDomainClusterConfig {
      * @return Configuration block containing cold storage configuration.
      * 
      */
-    private final List<GetDomainClusterConfigColdStorageOption> coldStorageOptions;
+    private List<GetDomainClusterConfigColdStorageOption> coldStorageOptions;
     /**
      * @return Number of dedicated master nodes in the cluster.
      * 
      */
-    private final Integer dedicatedMasterCount;
+    private Integer dedicatedMasterCount;
     /**
      * @return Indicates whether dedicated master nodes are enabled for the cluster.
      * 
      */
-    private final Boolean dedicatedMasterEnabled;
+    private Boolean dedicatedMasterEnabled;
     /**
      * @return Instance type of the dedicated master nodes in the cluster.
      * 
      */
-    private final String dedicatedMasterType;
+    private String dedicatedMasterType;
     /**
      * @return Number of instances in the cluster.
      * 
      */
-    private final Integer instanceCount;
+    private Integer instanceCount;
     /**
      * @return Instance type of data nodes in the cluster.
      * 
      */
-    private final String instanceType;
+    private String instanceType;
     /**
      * @return Number of warm nodes in the cluster.
      * 
      */
-    private final Integer warmCount;
+    private Integer warmCount;
     /**
      * @return Indicates warm storage is enabled.
      * 
      */
-    private final @Nullable Boolean warmEnabled;
+    private @Nullable Boolean warmEnabled;
     /**
      * @return Instance type for the OpenSearch cluster&#39;s warm nodes.
      * 
      */
-    private final String warmType;
+    private String warmType;
     /**
      * @return Configuration block containing zone awareness settings.
      * 
      */
-    private final List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs;
+    private List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs;
     /**
      * @return Indicates whether zone awareness is enabled.
      * 
      */
-    private final Boolean zoneAwarenessEnabled;
+    private Boolean zoneAwarenessEnabled;
 
-    @CustomType.Constructor
-    private GetDomainClusterConfig(
-        @CustomType.Parameter("coldStorageOptions") List<GetDomainClusterConfigColdStorageOption> coldStorageOptions,
-        @CustomType.Parameter("dedicatedMasterCount") Integer dedicatedMasterCount,
-        @CustomType.Parameter("dedicatedMasterEnabled") Boolean dedicatedMasterEnabled,
-        @CustomType.Parameter("dedicatedMasterType") String dedicatedMasterType,
-        @CustomType.Parameter("instanceCount") Integer instanceCount,
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("warmCount") Integer warmCount,
-        @CustomType.Parameter("warmEnabled") @Nullable Boolean warmEnabled,
-        @CustomType.Parameter("warmType") String warmType,
-        @CustomType.Parameter("zoneAwarenessConfigs") List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs,
-        @CustomType.Parameter("zoneAwarenessEnabled") Boolean zoneAwarenessEnabled) {
-        this.coldStorageOptions = coldStorageOptions;
-        this.dedicatedMasterCount = dedicatedMasterCount;
-        this.dedicatedMasterEnabled = dedicatedMasterEnabled;
-        this.dedicatedMasterType = dedicatedMasterType;
-        this.instanceCount = instanceCount;
-        this.instanceType = instanceType;
-        this.warmCount = warmCount;
-        this.warmEnabled = warmEnabled;
-        this.warmType = warmType;
-        this.zoneAwarenessConfigs = zoneAwarenessConfigs;
-        this.zoneAwarenessEnabled = zoneAwarenessEnabled;
-    }
-
+    private GetDomainClusterConfig() {}
     /**
      * @return Configuration block containing cold storage configuration.
      * 
@@ -183,7 +158,7 @@ public final class GetDomainClusterConfig {
     public static Builder builder(GetDomainClusterConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetDomainClusterConfigColdStorageOption> coldStorageOptions;
         private Integer dedicatedMasterCount;
@@ -196,11 +171,7 @@ public final class GetDomainClusterConfig {
         private String warmType;
         private List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs;
         private Boolean zoneAwarenessEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainClusterConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.coldStorageOptions = defaults.coldStorageOptions;
@@ -216,6 +187,7 @@ public final class GetDomainClusterConfig {
     	      this.zoneAwarenessEnabled = defaults.zoneAwarenessEnabled;
         }
 
+        @CustomType.Setter
         public Builder coldStorageOptions(List<GetDomainClusterConfigColdStorageOption> coldStorageOptions) {
             this.coldStorageOptions = Objects.requireNonNull(coldStorageOptions);
             return this;
@@ -223,38 +195,47 @@ public final class GetDomainClusterConfig {
         public Builder coldStorageOptions(GetDomainClusterConfigColdStorageOption... coldStorageOptions) {
             return coldStorageOptions(List.of(coldStorageOptions));
         }
+        @CustomType.Setter
         public Builder dedicatedMasterCount(Integer dedicatedMasterCount) {
             this.dedicatedMasterCount = Objects.requireNonNull(dedicatedMasterCount);
             return this;
         }
+        @CustomType.Setter
         public Builder dedicatedMasterEnabled(Boolean dedicatedMasterEnabled) {
             this.dedicatedMasterEnabled = Objects.requireNonNull(dedicatedMasterEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder dedicatedMasterType(String dedicatedMasterType) {
             this.dedicatedMasterType = Objects.requireNonNull(dedicatedMasterType);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceCount(Integer instanceCount) {
             this.instanceCount = Objects.requireNonNull(instanceCount);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder warmCount(Integer warmCount) {
             this.warmCount = Objects.requireNonNull(warmCount);
             return this;
         }
+        @CustomType.Setter
         public Builder warmEnabled(@Nullable Boolean warmEnabled) {
             this.warmEnabled = warmEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder warmType(String warmType) {
             this.warmType = Objects.requireNonNull(warmType);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneAwarenessConfigs(List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs) {
             this.zoneAwarenessConfigs = Objects.requireNonNull(zoneAwarenessConfigs);
             return this;
@@ -262,11 +243,25 @@ public final class GetDomainClusterConfig {
         public Builder zoneAwarenessConfigs(GetDomainClusterConfigZoneAwarenessConfig... zoneAwarenessConfigs) {
             return zoneAwarenessConfigs(List.of(zoneAwarenessConfigs));
         }
+        @CustomType.Setter
         public Builder zoneAwarenessEnabled(Boolean zoneAwarenessEnabled) {
             this.zoneAwarenessEnabled = Objects.requireNonNull(zoneAwarenessEnabled);
             return this;
-        }        public GetDomainClusterConfig build() {
-            return new GetDomainClusterConfig(coldStorageOptions, dedicatedMasterCount, dedicatedMasterEnabled, dedicatedMasterType, instanceCount, instanceType, warmCount, warmEnabled, warmType, zoneAwarenessConfigs, zoneAwarenessEnabled);
+        }
+        public GetDomainClusterConfig build() {
+            final var o = new GetDomainClusterConfig();
+            o.coldStorageOptions = coldStorageOptions;
+            o.dedicatedMasterCount = dedicatedMasterCount;
+            o.dedicatedMasterEnabled = dedicatedMasterEnabled;
+            o.dedicatedMasterType = dedicatedMasterType;
+            o.instanceCount = instanceCount;
+            o.instanceType = instanceType;
+            o.warmCount = warmCount;
+            o.warmEnabled = warmEnabled;
+            o.warmType = warmType;
+            o.zoneAwarenessConfigs = zoneAwarenessConfigs;
+            o.zoneAwarenessEnabled = zoneAwarenessEnabled;
+            return o;
         }
     }
 }

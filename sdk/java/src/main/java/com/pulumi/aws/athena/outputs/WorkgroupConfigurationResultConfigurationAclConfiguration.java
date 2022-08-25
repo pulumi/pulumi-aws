@@ -13,13 +13,9 @@ public final class WorkgroupConfigurationResultConfigurationAclConfiguration {
      * @return The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
      * 
      */
-    private final String s3AclOption;
+    private String s3AclOption;
 
-    @CustomType.Constructor
-    private WorkgroupConfigurationResultConfigurationAclConfiguration(@CustomType.Parameter("s3AclOption") String s3AclOption) {
-        this.s3AclOption = s3AclOption;
-    }
-
+    private WorkgroupConfigurationResultConfigurationAclConfiguration() {}
     /**
      * @return The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
      * 
@@ -35,24 +31,24 @@ public final class WorkgroupConfigurationResultConfigurationAclConfiguration {
     public static Builder builder(WorkgroupConfigurationResultConfigurationAclConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String s3AclOption;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkgroupConfigurationResultConfigurationAclConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3AclOption = defaults.s3AclOption;
         }
 
+        @CustomType.Setter
         public Builder s3AclOption(String s3AclOption) {
             this.s3AclOption = Objects.requireNonNull(s3AclOption);
             return this;
-        }        public WorkgroupConfigurationResultConfigurationAclConfiguration build() {
-            return new WorkgroupConfigurationResultConfigurationAclConfiguration(s3AclOption);
+        }
+        public WorkgroupConfigurationResultConfigurationAclConfiguration build() {
+            final var o = new WorkgroupConfigurationResultConfigurationAclConfiguration();
+            o.s3AclOption = s3AclOption;
+            return o;
         }
     }
 }

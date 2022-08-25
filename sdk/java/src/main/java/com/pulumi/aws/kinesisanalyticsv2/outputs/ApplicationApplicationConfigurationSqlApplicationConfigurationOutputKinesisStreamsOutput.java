@@ -13,13 +13,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return The ARN of the destination Kinesis data stream to write to.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput(@CustomType.Parameter("resourceArn") String resourceArn) {
-        this.resourceArn = resourceArn;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput() {}
     /**
      * @return The ARN of the destination Kinesis data stream to write to.
      * 
@@ -35,24 +31,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput(resourceArn);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput();
+            o.resourceArn = resourceArn;
+            return o;
         }
     }
 }

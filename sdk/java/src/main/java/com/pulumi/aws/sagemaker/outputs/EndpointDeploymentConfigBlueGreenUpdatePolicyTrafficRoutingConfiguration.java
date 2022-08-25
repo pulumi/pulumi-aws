@@ -18,35 +18,24 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
      * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
      * 
      */
-    private final @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize canarySize;
+    private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize canarySize;
     /**
      * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
      * 
      */
-    private final @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize linearStepSize;
+    private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize linearStepSize;
     /**
      * @return Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
      * 
      */
-    private final Integer waitIntervalInSeconds;
+    private Integer waitIntervalInSeconds;
 
-    @CustomType.Constructor
-    private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(
-        @CustomType.Parameter("canarySize") @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize canarySize,
-        @CustomType.Parameter("linearStepSize") @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize linearStepSize,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("waitIntervalInSeconds") Integer waitIntervalInSeconds) {
-        this.canarySize = canarySize;
-        this.linearStepSize = linearStepSize;
-        this.type = type;
-        this.waitIntervalInSeconds = waitIntervalInSeconds;
-    }
-
+    private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration() {}
     /**
      * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
      * 
@@ -83,17 +72,13 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
     public static Builder builder(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize canarySize;
         private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize linearStepSize;
         private String type;
         private Integer waitIntervalInSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.canarySize = defaults.canarySize;
@@ -102,23 +87,33 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
     	      this.waitIntervalInSeconds = defaults.waitIntervalInSeconds;
         }
 
+        @CustomType.Setter
         public Builder canarySize(@Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize canarySize) {
             this.canarySize = canarySize;
             return this;
         }
+        @CustomType.Setter
         public Builder linearStepSize(@Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize linearStepSize) {
             this.linearStepSize = linearStepSize;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder waitIntervalInSeconds(Integer waitIntervalInSeconds) {
             this.waitIntervalInSeconds = Objects.requireNonNull(waitIntervalInSeconds);
             return this;
-        }        public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration build() {
-            return new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(canarySize, linearStepSize, type, waitIntervalInSeconds);
+        }
+        public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration build() {
+            final var o = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration();
+            o.canarySize = canarySize;
+            o.linearStepSize = linearStepSize;
+            o.type = type;
+            o.waitIntervalInSeconds = waitIntervalInSeconds;
+            return o;
         }
     }
 }

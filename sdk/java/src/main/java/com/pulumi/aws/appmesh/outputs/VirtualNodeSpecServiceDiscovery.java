@@ -16,21 +16,14 @@ public final class VirtualNodeSpecServiceDiscovery {
      * @return Specifies any AWS Cloud Map information for the virtual node.
      * 
      */
-    private final @Nullable VirtualNodeSpecServiceDiscoveryAwsCloudMap awsCloudMap;
+    private @Nullable VirtualNodeSpecServiceDiscoveryAwsCloudMap awsCloudMap;
     /**
      * @return Specifies the DNS service name for the virtual node.
      * 
      */
-    private final @Nullable VirtualNodeSpecServiceDiscoveryDns dns;
+    private @Nullable VirtualNodeSpecServiceDiscoveryDns dns;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecServiceDiscovery(
-        @CustomType.Parameter("awsCloudMap") @Nullable VirtualNodeSpecServiceDiscoveryAwsCloudMap awsCloudMap,
-        @CustomType.Parameter("dns") @Nullable VirtualNodeSpecServiceDiscoveryDns dns) {
-        this.awsCloudMap = awsCloudMap;
-        this.dns = dns;
-    }
-
+    private VirtualNodeSpecServiceDiscovery() {}
     /**
      * @return Specifies any AWS Cloud Map information for the virtual node.
      * 
@@ -53,30 +46,32 @@ public final class VirtualNodeSpecServiceDiscovery {
     public static Builder builder(VirtualNodeSpecServiceDiscovery defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecServiceDiscoveryAwsCloudMap awsCloudMap;
         private @Nullable VirtualNodeSpecServiceDiscoveryDns dns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecServiceDiscovery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsCloudMap = defaults.awsCloudMap;
     	      this.dns = defaults.dns;
         }
 
+        @CustomType.Setter
         public Builder awsCloudMap(@Nullable VirtualNodeSpecServiceDiscoveryAwsCloudMap awsCloudMap) {
             this.awsCloudMap = awsCloudMap;
             return this;
         }
+        @CustomType.Setter
         public Builder dns(@Nullable VirtualNodeSpecServiceDiscoveryDns dns) {
             this.dns = dns;
             return this;
-        }        public VirtualNodeSpecServiceDiscovery build() {
-            return new VirtualNodeSpecServiceDiscovery(awsCloudMap, dns);
+        }
+        public VirtualNodeSpecServiceDiscovery build() {
+            final var o = new VirtualNodeSpecServiceDiscovery();
+            o.awsCloudMap = awsCloudMap;
+            o.dns = dns;
+            return o;
         }
     }
 }

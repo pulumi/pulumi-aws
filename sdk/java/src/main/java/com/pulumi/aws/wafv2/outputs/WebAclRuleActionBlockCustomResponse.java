@@ -18,28 +18,19 @@ public final class WebAclRuleActionBlockCustomResponse {
      * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
      * 
      */
-    private final @Nullable String customResponseBodyKey;
+    private @Nullable String customResponseBodyKey;
     /**
      * @return The HTTP status code to return to the client.
      * 
      */
-    private final Integer responseCode;
+    private Integer responseCode;
     /**
      * @return The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
      * 
      */
-    private final @Nullable List<WebAclRuleActionBlockCustomResponseResponseHeader> responseHeaders;
+    private @Nullable List<WebAclRuleActionBlockCustomResponseResponseHeader> responseHeaders;
 
-    @CustomType.Constructor
-    private WebAclRuleActionBlockCustomResponse(
-        @CustomType.Parameter("customResponseBodyKey") @Nullable String customResponseBodyKey,
-        @CustomType.Parameter("responseCode") Integer responseCode,
-        @CustomType.Parameter("responseHeaders") @Nullable List<WebAclRuleActionBlockCustomResponseResponseHeader> responseHeaders) {
-        this.customResponseBodyKey = customResponseBodyKey;
-        this.responseCode = responseCode;
-        this.responseHeaders = responseHeaders;
-    }
-
+    private WebAclRuleActionBlockCustomResponse() {}
     /**
      * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
      * 
@@ -69,16 +60,12 @@ public final class WebAclRuleActionBlockCustomResponse {
     public static Builder builder(WebAclRuleActionBlockCustomResponse defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String customResponseBodyKey;
         private Integer responseCode;
         private @Nullable List<WebAclRuleActionBlockCustomResponseResponseHeader> responseHeaders;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleActionBlockCustomResponse defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customResponseBodyKey = defaults.customResponseBodyKey;
@@ -86,22 +73,30 @@ public final class WebAclRuleActionBlockCustomResponse {
     	      this.responseHeaders = defaults.responseHeaders;
         }
 
+        @CustomType.Setter
         public Builder customResponseBodyKey(@Nullable String customResponseBodyKey) {
             this.customResponseBodyKey = customResponseBodyKey;
             return this;
         }
+        @CustomType.Setter
         public Builder responseCode(Integer responseCode) {
             this.responseCode = Objects.requireNonNull(responseCode);
             return this;
         }
+        @CustomType.Setter
         public Builder responseHeaders(@Nullable List<WebAclRuleActionBlockCustomResponseResponseHeader> responseHeaders) {
             this.responseHeaders = responseHeaders;
             return this;
         }
         public Builder responseHeaders(WebAclRuleActionBlockCustomResponseResponseHeader... responseHeaders) {
             return responseHeaders(List.of(responseHeaders));
-        }        public WebAclRuleActionBlockCustomResponse build() {
-            return new WebAclRuleActionBlockCustomResponse(customResponseBodyKey, responseCode, responseHeaders);
+        }
+        public WebAclRuleActionBlockCustomResponse build() {
+            final var o = new WebAclRuleActionBlockCustomResponse();
+            o.customResponseBodyKey = customResponseBodyKey;
+            o.responseCode = responseCode;
+            o.responseHeaders = responseHeaders;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class BucketLifecycleRuleNoncurrentVersionTransition {
      * @return Specifies the number of days noncurrent object versions transition.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
      * 
      */
-    private final String storageClass;
+    private String storageClass;
 
-    @CustomType.Constructor
-    private BucketLifecycleRuleNoncurrentVersionTransition(
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("storageClass") String storageClass) {
-        this.days = days;
-        this.storageClass = storageClass;
-    }
-
+    private BucketLifecycleRuleNoncurrentVersionTransition() {}
     /**
      * @return Specifies the number of days noncurrent object versions transition.
      * 
@@ -53,30 +46,32 @@ public final class BucketLifecycleRuleNoncurrentVersionTransition {
     public static Builder builder(BucketLifecycleRuleNoncurrentVersionTransition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
         private String storageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleRuleNoncurrentVersionTransition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
     	      this.storageClass = defaults.storageClass;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder storageClass(String storageClass) {
             this.storageClass = Objects.requireNonNull(storageClass);
             return this;
-        }        public BucketLifecycleRuleNoncurrentVersionTransition build() {
-            return new BucketLifecycleRuleNoncurrentVersionTransition(days, storageClass);
+        }
+        public BucketLifecycleRuleNoncurrentVersionTransition build() {
+            final var o = new BucketLifecycleRuleNoncurrentVersionTransition();
+            o.days = days;
+            o.storageClass = storageClass;
+            return o;
         }
     }
 }

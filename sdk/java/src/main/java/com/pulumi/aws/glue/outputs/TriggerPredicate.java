@@ -17,21 +17,14 @@ public final class TriggerPredicate {
      * @return A list of the conditions that determine when the trigger will fire. See Conditions.
      * 
      */
-    private final List<TriggerPredicateCondition> conditions;
+    private List<TriggerPredicateCondition> conditions;
     /**
      * @return How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
      * 
      */
-    private final @Nullable String logical;
+    private @Nullable String logical;
 
-    @CustomType.Constructor
-    private TriggerPredicate(
-        @CustomType.Parameter("conditions") List<TriggerPredicateCondition> conditions,
-        @CustomType.Parameter("logical") @Nullable String logical) {
-        this.conditions = conditions;
-        this.logical = logical;
-    }
-
+    private TriggerPredicate() {}
     /**
      * @return A list of the conditions that determine when the trigger will fire. See Conditions.
      * 
@@ -54,21 +47,18 @@ public final class TriggerPredicate {
     public static Builder builder(TriggerPredicate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<TriggerPredicateCondition> conditions;
         private @Nullable String logical;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerPredicate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditions = defaults.conditions;
     	      this.logical = defaults.logical;
         }
 
+        @CustomType.Setter
         public Builder conditions(List<TriggerPredicateCondition> conditions) {
             this.conditions = Objects.requireNonNull(conditions);
             return this;
@@ -76,11 +66,16 @@ public final class TriggerPredicate {
         public Builder conditions(TriggerPredicateCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder logical(@Nullable String logical) {
             this.logical = logical;
             return this;
-        }        public TriggerPredicate build() {
-            return new TriggerPredicate(conditions, logical);
+        }
+        public TriggerPredicate build() {
+            final var o = new TriggerPredicate();
+            o.conditions = conditions;
+            o.logical = logical;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class UserHierarchyGroupHierarchyPathLevelTwo {
      * @return The Amazon Resource Name (ARN) of the hierarchy group.
      * 
      */
-    private final @Nullable String arn;
+    private @Nullable String arn;
     /**
      * @return The identifier of the hierarchy group.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the user hierarchy group. Must not be more than 100 characters.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private UserHierarchyGroupHierarchyPathLevelTwo(
-        @CustomType.Parameter("arn") @Nullable String arn,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-    }
-
+    private UserHierarchyGroupHierarchyPathLevelTwo() {}
     /**
      * @return The Amazon Resource Name (ARN) of the hierarchy group.
      * 
@@ -66,16 +57,12 @@ public final class UserHierarchyGroupHierarchyPathLevelTwo {
     public static Builder builder(UserHierarchyGroupHierarchyPathLevelTwo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
         private @Nullable String id;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserHierarchyGroupHierarchyPathLevelTwo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -83,19 +70,27 @@ public final class UserHierarchyGroupHierarchyPathLevelTwo {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(@Nullable String arn) {
             this.arn = arn;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public UserHierarchyGroupHierarchyPathLevelTwo build() {
-            return new UserHierarchyGroupHierarchyPathLevelTwo(arn, id, name);
+        }
+        public UserHierarchyGroupHierarchyPathLevelTwo build() {
+            final var o = new UserHierarchyGroupHierarchyPathLevelTwo();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

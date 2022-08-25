@@ -11,44 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultActionAuthenticateOidc {
-    private final Map<String,String> authenticationRequestExtraParams;
-    private final String authorizationEndpoint;
-    private final String clientId;
-    private final String clientSecret;
-    private final String issuer;
-    private final String onUnauthenticatedRequest;
-    private final String scope;
-    private final String sessionCookieName;
-    private final Integer sessionTimeout;
-    private final String tokenEndpoint;
-    private final String userInfoEndpoint;
+    private Map<String,String> authenticationRequestExtraParams;
+    private String authorizationEndpoint;
+    private String clientId;
+    private String clientSecret;
+    private String issuer;
+    private String onUnauthenticatedRequest;
+    private String scope;
+    private String sessionCookieName;
+    private Integer sessionTimeout;
+    private String tokenEndpoint;
+    private String userInfoEndpoint;
 
-    @CustomType.Constructor
-    private GetListenerDefaultActionAuthenticateOidc(
-        @CustomType.Parameter("authenticationRequestExtraParams") Map<String,String> authenticationRequestExtraParams,
-        @CustomType.Parameter("authorizationEndpoint") String authorizationEndpoint,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("onUnauthenticatedRequest") String onUnauthenticatedRequest,
-        @CustomType.Parameter("scope") String scope,
-        @CustomType.Parameter("sessionCookieName") String sessionCookieName,
-        @CustomType.Parameter("sessionTimeout") Integer sessionTimeout,
-        @CustomType.Parameter("tokenEndpoint") String tokenEndpoint,
-        @CustomType.Parameter("userInfoEndpoint") String userInfoEndpoint) {
-        this.authenticationRequestExtraParams = authenticationRequestExtraParams;
-        this.authorizationEndpoint = authorizationEndpoint;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.issuer = issuer;
-        this.onUnauthenticatedRequest = onUnauthenticatedRequest;
-        this.scope = scope;
-        this.sessionCookieName = sessionCookieName;
-        this.sessionTimeout = sessionTimeout;
-        this.tokenEndpoint = tokenEndpoint;
-        this.userInfoEndpoint = userInfoEndpoint;
-    }
-
+    private GetListenerDefaultActionAuthenticateOidc() {}
     public Map<String,String> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams;
     }
@@ -90,7 +65,7 @@ public final class GetListenerDefaultActionAuthenticateOidc {
     public static Builder builder(GetListenerDefaultActionAuthenticateOidc defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> authenticationRequestExtraParams;
         private String authorizationEndpoint;
@@ -103,11 +78,7 @@ public final class GetListenerDefaultActionAuthenticateOidc {
         private Integer sessionTimeout;
         private String tokenEndpoint;
         private String userInfoEndpoint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetListenerDefaultActionAuthenticateOidc defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationRequestExtraParams = defaults.authenticationRequestExtraParams;
@@ -123,51 +94,75 @@ public final class GetListenerDefaultActionAuthenticateOidc {
     	      this.userInfoEndpoint = defaults.userInfoEndpoint;
         }
 
+        @CustomType.Setter
         public Builder authenticationRequestExtraParams(Map<String,String> authenticationRequestExtraParams) {
             this.authenticationRequestExtraParams = Objects.requireNonNull(authenticationRequestExtraParams);
             return this;
         }
+        @CustomType.Setter
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             this.authorizationEndpoint = Objects.requireNonNull(authorizationEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder onUnauthenticatedRequest(String onUnauthenticatedRequest) {
             this.onUnauthenticatedRequest = Objects.requireNonNull(onUnauthenticatedRequest);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(String scope) {
             this.scope = Objects.requireNonNull(scope);
             return this;
         }
+        @CustomType.Setter
         public Builder sessionCookieName(String sessionCookieName) {
             this.sessionCookieName = Objects.requireNonNull(sessionCookieName);
             return this;
         }
+        @CustomType.Setter
         public Builder sessionTimeout(Integer sessionTimeout) {
             this.sessionTimeout = Objects.requireNonNull(sessionTimeout);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenEndpoint(String tokenEndpoint) {
             this.tokenEndpoint = Objects.requireNonNull(tokenEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder userInfoEndpoint(String userInfoEndpoint) {
             this.userInfoEndpoint = Objects.requireNonNull(userInfoEndpoint);
             return this;
-        }        public GetListenerDefaultActionAuthenticateOidc build() {
-            return new GetListenerDefaultActionAuthenticateOidc(authenticationRequestExtraParams, authorizationEndpoint, clientId, clientSecret, issuer, onUnauthenticatedRequest, scope, sessionCookieName, sessionTimeout, tokenEndpoint, userInfoEndpoint);
+        }
+        public GetListenerDefaultActionAuthenticateOidc build() {
+            final var o = new GetListenerDefaultActionAuthenticateOidc();
+            o.authenticationRequestExtraParams = authenticationRequestExtraParams;
+            o.authorizationEndpoint = authorizationEndpoint;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.issuer = issuer;
+            o.onUnauthenticatedRequest = onUnauthenticatedRequest;
+            o.scope = scope;
+            o.sessionCookieName = sessionCookieName;
+            o.sessionTimeout = sessionTimeout;
+            o.tokenEndpoint = tokenEndpoint;
+            o.userInfoEndpoint = userInfoEndpoint;
+            return o;
         }
     }
 }

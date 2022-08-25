@@ -21,49 +21,34 @@ public final class GetTagsFilter {
      * @return Return results that match both `Dimension` objects.
      * 
      */
-    private final @Nullable List<GetTagsFilterAnd> ands;
+    private @Nullable List<GetTagsFilterAnd> ands;
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
      */
-    private final @Nullable GetTagsFilterCostCategory costCategory;
+    private @Nullable GetTagsFilterCostCategory costCategory;
     /**
      * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
-    private final @Nullable GetTagsFilterDimension dimension;
+    private @Nullable GetTagsFilterDimension dimension;
     /**
      * @return Return results that match both `Dimension` object.
      * 
      */
-    private final @Nullable GetTagsFilterNot not;
+    private @Nullable GetTagsFilterNot not;
     /**
      * @return Return results that match both `Dimension` object.
      * 
      */
-    private final @Nullable List<GetTagsFilterOr> ors;
+    private @Nullable List<GetTagsFilterOr> ors;
     /**
      * @return Tags that match your request.
      * 
      */
-    private final @Nullable GetTagsFilterTags tags;
+    private @Nullable GetTagsFilterTags tags;
 
-    @CustomType.Constructor
-    private GetTagsFilter(
-        @CustomType.Parameter("ands") @Nullable List<GetTagsFilterAnd> ands,
-        @CustomType.Parameter("costCategory") @Nullable GetTagsFilterCostCategory costCategory,
-        @CustomType.Parameter("dimension") @Nullable GetTagsFilterDimension dimension,
-        @CustomType.Parameter("not") @Nullable GetTagsFilterNot not,
-        @CustomType.Parameter("ors") @Nullable List<GetTagsFilterOr> ors,
-        @CustomType.Parameter("tags") @Nullable GetTagsFilterTags tags) {
-        this.ands = ands;
-        this.costCategory = costCategory;
-        this.dimension = dimension;
-        this.not = not;
-        this.ors = ors;
-        this.tags = tags;
-    }
-
+    private GetTagsFilter() {}
     /**
      * @return Return results that match both `Dimension` objects.
      * 
@@ -114,7 +99,7 @@ public final class GetTagsFilter {
     public static Builder builder(GetTagsFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetTagsFilterAnd> ands;
         private @Nullable GetTagsFilterCostCategory costCategory;
@@ -122,11 +107,7 @@ public final class GetTagsFilter {
         private @Nullable GetTagsFilterNot not;
         private @Nullable List<GetTagsFilterOr> ors;
         private @Nullable GetTagsFilterTags tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTagsFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ands = defaults.ands;
@@ -137,6 +118,7 @@ public final class GetTagsFilter {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder ands(@Nullable List<GetTagsFilterAnd> ands) {
             this.ands = ands;
             return this;
@@ -144,18 +126,22 @@ public final class GetTagsFilter {
         public Builder ands(GetTagsFilterAnd... ands) {
             return ands(List.of(ands));
         }
+        @CustomType.Setter
         public Builder costCategory(@Nullable GetTagsFilterCostCategory costCategory) {
             this.costCategory = costCategory;
             return this;
         }
+        @CustomType.Setter
         public Builder dimension(@Nullable GetTagsFilterDimension dimension) {
             this.dimension = dimension;
             return this;
         }
+        @CustomType.Setter
         public Builder not(@Nullable GetTagsFilterNot not) {
             this.not = not;
             return this;
         }
+        @CustomType.Setter
         public Builder ors(@Nullable List<GetTagsFilterOr> ors) {
             this.ors = ors;
             return this;
@@ -163,11 +149,20 @@ public final class GetTagsFilter {
         public Builder ors(GetTagsFilterOr... ors) {
             return ors(List.of(ors));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable GetTagsFilterTags tags) {
             this.tags = tags;
             return this;
-        }        public GetTagsFilter build() {
-            return new GetTagsFilter(ands, costCategory, dimension, not, ors, tags);
+        }
+        public GetTagsFilter build() {
+            final var o = new GetTagsFilter();
+            o.ands = ands;
+            o.costCategory = costCategory;
+            o.dimension = dimension;
+            o.not = not;
+            o.ors = ors;
+            o.tags = tags;
+            return o;
         }
     }
 }

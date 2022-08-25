@@ -17,35 +17,24 @@ public final class LoadBalancerAccessLogs {
      * @return The S3 bucket name to store the logs in.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return The S3 bucket prefix. Logs are stored in the root if not configured.
      * 
      */
-    private final @Nullable String bucketPrefix;
+    private @Nullable String bucketPrefix;
     /**
      * @return Boolean to enable / disable `access_logs`. Default is `true`
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The publishing interval in minutes. Default: 60 minutes.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
 
-    @CustomType.Constructor
-    private LoadBalancerAccessLogs(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("bucketPrefix") @Nullable String bucketPrefix,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("interval") @Nullable Integer interval) {
-        this.bucket = bucket;
-        this.bucketPrefix = bucketPrefix;
-        this.enabled = enabled;
-        this.interval = interval;
-    }
-
+    private LoadBalancerAccessLogs() {}
     /**
      * @return The S3 bucket name to store the logs in.
      * 
@@ -82,17 +71,13 @@ public final class LoadBalancerAccessLogs {
     public static Builder builder(LoadBalancerAccessLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private @Nullable String bucketPrefix;
         private @Nullable Boolean enabled;
         private @Nullable Integer interval;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LoadBalancerAccessLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -101,23 +86,33 @@ public final class LoadBalancerAccessLogs {
     	      this.interval = defaults.interval;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
-        }        public LoadBalancerAccessLogs build() {
-            return new LoadBalancerAccessLogs(bucket, bucketPrefix, enabled, interval);
+        }
+        public LoadBalancerAccessLogs build() {
+            final var o = new LoadBalancerAccessLogs();
+            o.bucket = bucket;
+            o.bucketPrefix = bucketPrefix;
+            o.enabled = enabled;
+            o.interval = interval;
+            return o;
         }
     }
 }

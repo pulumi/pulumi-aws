@@ -15,42 +15,29 @@ public final class ImageOutputResourceAmi {
      * @return Account identifier of the AMI.
      * 
      */
-    private final @Nullable String accountId;
+    private @Nullable String accountId;
     /**
      * @return Description of the AMI.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Identifier of the AMI.
      * 
      */
-    private final @Nullable String image;
+    private @Nullable String image;
     /**
      * @return Name of the AMI.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Region of the AMI.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
 
-    @CustomType.Constructor
-    private ImageOutputResourceAmi(
-        @CustomType.Parameter("accountId") @Nullable String accountId,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("image") @Nullable String image,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("region") @Nullable String region) {
-        this.accountId = accountId;
-        this.description = description;
-        this.image = image;
-        this.name = name;
-        this.region = region;
-    }
-
+    private ImageOutputResourceAmi() {}
     /**
      * @return Account identifier of the AMI.
      * 
@@ -94,18 +81,14 @@ public final class ImageOutputResourceAmi {
     public static Builder builder(ImageOutputResourceAmi defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accountId;
         private @Nullable String description;
         private @Nullable String image;
         private @Nullable String name;
         private @Nullable String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ImageOutputResourceAmi defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
@@ -115,27 +98,39 @@ public final class ImageOutputResourceAmi {
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
             this.accountId = accountId;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder image(@Nullable String image) {
             this.image = image;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
-        }        public ImageOutputResourceAmi build() {
-            return new ImageOutputResourceAmi(accountId, description, image, name, region);
+        }
+        public ImageOutputResourceAmi build() {
+            final var o = new ImageOutputResourceAmi();
+            o.accountId = accountId;
+            o.description = description;
+            o.image = image;
+            o.name = name;
+            o.region = region;
+            return o;
         }
     }
 }

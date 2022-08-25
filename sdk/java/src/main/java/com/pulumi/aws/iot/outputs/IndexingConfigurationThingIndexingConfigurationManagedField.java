@@ -15,21 +15,14 @@ public final class IndexingConfigurationThingIndexingConfigurationManagedField {
      * @return The name of the field.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The data type of the field. Valid values: `Number`, `String`, `Boolean`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private IndexingConfigurationThingIndexingConfigurationManagedField(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.name = name;
-        this.type = type;
-    }
-
+    private IndexingConfigurationThingIndexingConfigurationManagedField() {}
     /**
      * @return The name of the field.
      * 
@@ -52,30 +45,32 @@ public final class IndexingConfigurationThingIndexingConfigurationManagedField {
     public static Builder builder(IndexingConfigurationThingIndexingConfigurationManagedField defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexingConfigurationThingIndexingConfigurationManagedField defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public IndexingConfigurationThingIndexingConfigurationManagedField build() {
-            return new IndexingConfigurationThingIndexingConfigurationManagedField(name, type);
+        }
+        public IndexingConfigurationThingIndexingConfigurationManagedField build() {
+            final var o = new IndexingConfigurationThingIndexingConfigurationManagedField();
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -11,42 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLoggingV2TargetGrantGrantee {
-    private final @Nullable String displayName;
+    private @Nullable String displayName;
     /**
      * @return Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
      * 
      */
-    private final @Nullable String emailAddress;
+    private @Nullable String emailAddress;
     /**
      * @return The canonical user ID of the grantee.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return URI of the grantee group.
      * 
      */
-    private final @Nullable String uri;
+    private @Nullable String uri;
 
-    @CustomType.Constructor
-    private BucketLoggingV2TargetGrantGrantee(
-        @CustomType.Parameter("displayName") @Nullable String displayName,
-        @CustomType.Parameter("emailAddress") @Nullable String emailAddress,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("uri") @Nullable String uri) {
-        this.displayName = displayName;
-        this.emailAddress = emailAddress;
-        this.id = id;
-        this.type = type;
-        this.uri = uri;
-    }
-
+    private BucketLoggingV2TargetGrantGrantee() {}
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }
@@ -86,18 +73,14 @@ public final class BucketLoggingV2TargetGrantGrantee {
     public static Builder builder(BucketLoggingV2TargetGrantGrantee defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String displayName;
         private @Nullable String emailAddress;
         private @Nullable String id;
         private String type;
         private @Nullable String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLoggingV2TargetGrantGrantee defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
@@ -107,27 +90,39 @@ public final class BucketLoggingV2TargetGrantGrantee {
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
             this.displayName = displayName;
             return this;
         }
+        @CustomType.Setter
         public Builder emailAddress(@Nullable String emailAddress) {
             this.emailAddress = emailAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder uri(@Nullable String uri) {
             this.uri = uri;
             return this;
-        }        public BucketLoggingV2TargetGrantGrantee build() {
-            return new BucketLoggingV2TargetGrantGrantee(displayName, emailAddress, id, type, uri);
+        }
+        public BucketLoggingV2TargetGrantGrantee build() {
+            final var o = new BucketLoggingV2TargetGrantGrantee();
+            o.displayName = displayName;
+            o.emailAddress = emailAddress;
+            o.id = id;
+            o.type = type;
+            o.uri = uri;
+            return o;
         }
     }
 }

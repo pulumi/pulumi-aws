@@ -14,21 +14,14 @@ public final class RouteSpecGrpcRouteTimeoutPerRequest {
      * @return The unit of time. Valid values: `ms`, `s`.
      * 
      */
-    private final String unit;
+    private String unit;
     /**
      * @return The number of time units. Minimum value of `0`.
      * 
      */
-    private final Integer value;
+    private Integer value;
 
-    @CustomType.Constructor
-    private RouteSpecGrpcRouteTimeoutPerRequest(
-        @CustomType.Parameter("unit") String unit,
-        @CustomType.Parameter("value") Integer value) {
-        this.unit = unit;
-        this.value = value;
-    }
-
+    private RouteSpecGrpcRouteTimeoutPerRequest() {}
     /**
      * @return The unit of time. Valid values: `ms`, `s`.
      * 
@@ -51,30 +44,32 @@ public final class RouteSpecGrpcRouteTimeoutPerRequest {
     public static Builder builder(RouteSpecGrpcRouteTimeoutPerRequest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String unit;
         private Integer value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecGrpcRouteTimeoutPerRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.unit = defaults.unit;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder unit(String unit) {
             this.unit = Objects.requireNonNull(unit);
             return this;
         }
+        @CustomType.Setter
         public Builder value(Integer value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public RouteSpecGrpcRouteTimeoutPerRequest build() {
-            return new RouteSpecGrpcRouteTimeoutPerRequest(unit, value);
+        }
+        public RouteSpecGrpcRouteTimeoutPerRequest build() {
+            final var o = new RouteSpecGrpcRouteTimeoutPerRequest();
+            o.unit = unit;
+            o.value = value;
+            return o;
         }
     }
 }

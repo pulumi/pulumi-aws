@@ -16,63 +16,44 @@ public final class GetSnapshotResult {
      * @return The ARN of the snapshot.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The configuration of the cluster from which the snapshot was taken.
      * 
      */
-    private final List<GetSnapshotClusterConfiguration> clusterConfigurations;
+    private List<GetSnapshotClusterConfiguration> clusterConfigurations;
     /**
      * @return Name of the MemoryDB cluster that this snapshot was taken from.
      * 
      */
-    private final String clusterName;
+    private String clusterName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return ARN of the KMS key used to encrypt the snapshot at rest.
      * 
      */
-    private final String kmsKeyArn;
+    private String kmsKeyArn;
     /**
      * @return Name of the cluster.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      * 
      */
-    private final String source;
+    private String source;
     /**
      * @return A map of tags assigned to the snapshot.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetSnapshotResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("clusterConfigurations") List<GetSnapshotClusterConfiguration> clusterConfigurations,
-        @CustomType.Parameter("clusterName") String clusterName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyArn") String kmsKeyArn,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("source") String source,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.clusterConfigurations = clusterConfigurations;
-        this.clusterName = clusterName;
-        this.id = id;
-        this.kmsKeyArn = kmsKeyArn;
-        this.name = name;
-        this.source = source;
-        this.tags = tags;
-    }
-
+    private GetSnapshotResult() {}
     /**
      * @return The ARN of the snapshot.
      * 
@@ -137,7 +118,7 @@ public final class GetSnapshotResult {
     public static Builder builder(GetSnapshotResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetSnapshotClusterConfiguration> clusterConfigurations;
@@ -147,11 +128,7 @@ public final class GetSnapshotResult {
         private String name;
         private String source;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -164,10 +141,12 @@ public final class GetSnapshotResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterConfigurations(List<GetSnapshotClusterConfiguration> clusterConfigurations) {
             this.clusterConfigurations = Objects.requireNonNull(clusterConfigurations);
             return this;
@@ -175,31 +154,47 @@ public final class GetSnapshotResult {
         public Builder clusterConfigurations(GetSnapshotClusterConfiguration... clusterConfigurations) {
             return clusterConfigurations(List.of(clusterConfigurations));
         }
+        @CustomType.Setter
         public Builder clusterName(String clusterName) {
             this.clusterName = Objects.requireNonNull(clusterName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
             this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetSnapshotResult build() {
-            return new GetSnapshotResult(arn, clusterConfigurations, clusterName, id, kmsKeyArn, name, source, tags);
+        }
+        public GetSnapshotResult build() {
+            final var o = new GetSnapshotResult();
+            o.arn = arn;
+            o.clusterConfigurations = clusterConfigurations;
+            o.clusterName = clusterName;
+            o.id = id;
+            o.kmsKeyArn = kmsKeyArn;
+            o.name = name;
+            o.source = source;
+            o.tags = tags;
+            return o;
         }
     }
 }

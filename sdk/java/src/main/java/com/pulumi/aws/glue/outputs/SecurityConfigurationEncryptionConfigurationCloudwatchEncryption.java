@@ -15,21 +15,14 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
      * @return Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
      * 
      */
-    private final @Nullable String cloudwatchEncryptionMode;
+    private @Nullable String cloudwatchEncryptionMode;
     /**
      * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
 
-    @CustomType.Constructor
-    private SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(
-        @CustomType.Parameter("cloudwatchEncryptionMode") @Nullable String cloudwatchEncryptionMode,
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn) {
-        this.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
-        this.kmsKeyArn = kmsKeyArn;
-    }
-
+    private SecurityConfigurationEncryptionConfigurationCloudwatchEncryption() {}
     /**
      * @return Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
      * 
@@ -52,30 +45,32 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
     public static Builder builder(SecurityConfigurationEncryptionConfigurationCloudwatchEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cloudwatchEncryptionMode;
         private @Nullable String kmsKeyArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecurityConfigurationEncryptionConfigurationCloudwatchEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchEncryptionMode = defaults.cloudwatchEncryptionMode;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchEncryptionMode(@Nullable String cloudwatchEncryptionMode) {
             this.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
-        }        public SecurityConfigurationEncryptionConfigurationCloudwatchEncryption build() {
-            return new SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(cloudwatchEncryptionMode, kmsKeyArn);
+        }
+        public SecurityConfigurationEncryptionConfigurationCloudwatchEncryption build() {
+            final var o = new SecurityConfigurationEncryptionConfigurationCloudwatchEncryption();
+            o.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
+            o.kmsKeyArn = kmsKeyArn;
+            return o;
         }
     }
 }

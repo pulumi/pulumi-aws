@@ -15,21 +15,14 @@ public final class ConfigurationProfileValidator {
      * @return Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
      * 
      */
-    private final @Nullable String content;
+    private @Nullable String content;
     /**
      * @return The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ConfigurationProfileValidator(
-        @CustomType.Parameter("content") @Nullable String content,
-        @CustomType.Parameter("type") String type) {
-        this.content = content;
-        this.type = type;
-    }
-
+    private ConfigurationProfileValidator() {}
     /**
      * @return Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
      * 
@@ -52,30 +45,32 @@ public final class ConfigurationProfileValidator {
     public static Builder builder(ConfigurationProfileValidator defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String content;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfigurationProfileValidator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder content(@Nullable String content) {
             this.content = content;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ConfigurationProfileValidator build() {
-            return new ConfigurationProfileValidator(content, type);
+        }
+        public ConfigurationProfileValidator build() {
+            final var o = new ConfigurationProfileValidator();
+            o.content = content;
+            o.type = type;
+            return o;
         }
     }
 }

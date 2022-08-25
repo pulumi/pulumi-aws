@@ -16,17 +16,10 @@ public final class DomainEncryptAtRest {
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
      * 
      */
-    private final Boolean enabled;
-    private final @Nullable String kmsKeyId;
+    private Boolean enabled;
+    private @Nullable String kmsKeyId;
 
-    @CustomType.Constructor
-    private DomainEncryptAtRest(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId) {
-        this.enabled = enabled;
-        this.kmsKeyId = kmsKeyId;
-    }
-
+    private DomainEncryptAtRest() {}
     /**
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
      * 
@@ -45,30 +38,32 @@ public final class DomainEncryptAtRest {
     public static Builder builder(DomainEncryptAtRest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable String kmsKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainEncryptAtRest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.kmsKeyId = defaults.kmsKeyId;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
-        }        public DomainEncryptAtRest build() {
-            return new DomainEncryptAtRest(enabled, kmsKeyId);
+        }
+        public DomainEncryptAtRest build() {
+            final var o = new DomainEncryptAtRest();
+            o.enabled = enabled;
+            o.kmsKeyId = kmsKeyId;
+            return o;
         }
     }
 }

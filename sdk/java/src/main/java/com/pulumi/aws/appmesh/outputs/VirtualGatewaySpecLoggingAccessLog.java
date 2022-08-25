@@ -15,13 +15,9 @@ public final class VirtualGatewaySpecLoggingAccessLog {
      * @return The file object to send virtual gateway access logs to.
      * 
      */
-    private final @Nullable VirtualGatewaySpecLoggingAccessLogFile file;
+    private @Nullable VirtualGatewaySpecLoggingAccessLogFile file;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecLoggingAccessLog(@CustomType.Parameter("file") @Nullable VirtualGatewaySpecLoggingAccessLogFile file) {
-        this.file = file;
-    }
-
+    private VirtualGatewaySpecLoggingAccessLog() {}
     /**
      * @return The file object to send virtual gateway access logs to.
      * 
@@ -37,24 +33,24 @@ public final class VirtualGatewaySpecLoggingAccessLog {
     public static Builder builder(VirtualGatewaySpecLoggingAccessLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecLoggingAccessLogFile file;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecLoggingAccessLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.file = defaults.file;
         }
 
+        @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecLoggingAccessLogFile file) {
             this.file = file;
             return this;
-        }        public VirtualGatewaySpecLoggingAccessLog build() {
-            return new VirtualGatewaySpecLoggingAccessLog(file);
+        }
+        public VirtualGatewaySpecLoggingAccessLog build() {
+            final var o = new VirtualGatewaySpecLoggingAccessLog();
+            o.file = file;
+            return o;
         }
     }
 }

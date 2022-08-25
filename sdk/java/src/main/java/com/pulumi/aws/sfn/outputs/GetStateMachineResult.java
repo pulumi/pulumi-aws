@@ -13,52 +13,35 @@ public final class GetStateMachineResult {
      * @return Set to the arn of the state function.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The date the state machine was created.
      * 
      */
-    private final String creationDate;
+    private String creationDate;
     /**
      * @return Set to the state machine definition.
      * 
      */
-    private final String definition;
+    private String definition;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return Set to the role_arn used by the state function.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return Set to the current status of the state machine.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetStateMachineResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("creationDate") String creationDate,
-        @CustomType.Parameter("definition") String definition,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("status") String status) {
-        this.arn = arn;
-        this.creationDate = creationDate;
-        this.definition = definition;
-        this.id = id;
-        this.name = name;
-        this.roleArn = roleArn;
-        this.status = status;
-    }
-
+    private GetStateMachineResult() {}
     /**
      * @return Set to the arn of the state function.
      * 
@@ -112,7 +95,7 @@ public final class GetStateMachineResult {
     public static Builder builder(GetStateMachineResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String creationDate;
@@ -121,11 +104,7 @@ public final class GetStateMachineResult {
         private String name;
         private String roleArn;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStateMachineResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -137,35 +116,51 @@ public final class GetStateMachineResult {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder creationDate(String creationDate) {
             this.creationDate = Objects.requireNonNull(creationDate);
             return this;
         }
+        @CustomType.Setter
         public Builder definition(String definition) {
             this.definition = Objects.requireNonNull(definition);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetStateMachineResult build() {
-            return new GetStateMachineResult(arn, creationDate, definition, id, name, roleArn, status);
+        }
+        public GetStateMachineResult build() {
+            final var o = new GetStateMachineResult();
+            o.arn = arn;
+            o.creationDate = creationDate;
+            o.definition = definition;
+            o.id = id;
+            o.name = name;
+            o.roleArn = roleArn;
+            o.status = status;
+            return o;
         }
     }
 }

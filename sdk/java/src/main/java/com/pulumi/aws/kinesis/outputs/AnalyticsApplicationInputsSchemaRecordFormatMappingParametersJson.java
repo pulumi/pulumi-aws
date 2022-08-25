@@ -13,13 +13,9 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
      * @return Path to the top-level parent that contains the records.
      * 
      */
-    private final String recordRowPath;
+    private String recordRowPath;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson(@CustomType.Parameter("recordRowPath") String recordRowPath) {
-        this.recordRowPath = recordRowPath;
-    }
-
+    private AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson() {}
     /**
      * @return Path to the top-level parent that contains the records.
      * 
@@ -35,24 +31,24 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
     public static Builder builder(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String recordRowPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordRowPath = defaults.recordRowPath;
         }
 
+        @CustomType.Setter
         public Builder recordRowPath(String recordRowPath) {
             this.recordRowPath = Objects.requireNonNull(recordRowPath);
             return this;
-        }        public AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson build() {
-            return new AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson(recordRowPath);
+        }
+        public AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson build() {
+            final var o = new AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson();
+            o.recordRowPath = recordRowPath;
+            return o;
         }
     }
 }

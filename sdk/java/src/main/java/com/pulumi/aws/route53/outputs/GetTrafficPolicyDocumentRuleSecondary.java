@@ -16,35 +16,24 @@ public final class GetTrafficPolicyDocumentRuleSecondary {
      * @return References to an endpoint.
      * 
      */
-    private final @Nullable String endpointReference;
+    private @Nullable String endpointReference;
     /**
      * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
      * 
      */
-    private final @Nullable Boolean evaluateTargetHealth;
+    private @Nullable Boolean evaluateTargetHealth;
     /**
      * @return If you want to associate a health check with the endpoint or rule.
      * 
      */
-    private final @Nullable String healthCheck;
+    private @Nullable String healthCheck;
     /**
      * @return References to a rule.
      * 
      */
-    private final @Nullable String ruleReference;
+    private @Nullable String ruleReference;
 
-    @CustomType.Constructor
-    private GetTrafficPolicyDocumentRuleSecondary(
-        @CustomType.Parameter("endpointReference") @Nullable String endpointReference,
-        @CustomType.Parameter("evaluateTargetHealth") @Nullable Boolean evaluateTargetHealth,
-        @CustomType.Parameter("healthCheck") @Nullable String healthCheck,
-        @CustomType.Parameter("ruleReference") @Nullable String ruleReference) {
-        this.endpointReference = endpointReference;
-        this.evaluateTargetHealth = evaluateTargetHealth;
-        this.healthCheck = healthCheck;
-        this.ruleReference = ruleReference;
-    }
-
+    private GetTrafficPolicyDocumentRuleSecondary() {}
     /**
      * @return References to an endpoint.
      * 
@@ -81,17 +70,13 @@ public final class GetTrafficPolicyDocumentRuleSecondary {
     public static Builder builder(GetTrafficPolicyDocumentRuleSecondary defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String endpointReference;
         private @Nullable Boolean evaluateTargetHealth;
         private @Nullable String healthCheck;
         private @Nullable String ruleReference;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficPolicyDocumentRuleSecondary defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointReference = defaults.endpointReference;
@@ -100,23 +85,33 @@ public final class GetTrafficPolicyDocumentRuleSecondary {
     	      this.ruleReference = defaults.ruleReference;
         }
 
+        @CustomType.Setter
         public Builder endpointReference(@Nullable String endpointReference) {
             this.endpointReference = endpointReference;
             return this;
         }
+        @CustomType.Setter
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
             this.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
             this.healthCheck = healthCheck;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleReference(@Nullable String ruleReference) {
             this.ruleReference = ruleReference;
             return this;
-        }        public GetTrafficPolicyDocumentRuleSecondary build() {
-            return new GetTrafficPolicyDocumentRuleSecondary(endpointReference, evaluateTargetHealth, healthCheck, ruleReference);
+        }
+        public GetTrafficPolicyDocumentRuleSecondary build() {
+            final var o = new GetTrafficPolicyDocumentRuleSecondary();
+            o.endpointReference = endpointReference;
+            o.evaluateTargetHealth = evaluateTargetHealth;
+            o.healthCheck = healthCheck;
+            o.ruleReference = ruleReference;
+            return o;
         }
     }
 }

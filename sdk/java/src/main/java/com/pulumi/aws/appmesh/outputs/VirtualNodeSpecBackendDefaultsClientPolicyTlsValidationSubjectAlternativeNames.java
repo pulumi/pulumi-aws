@@ -13,13 +13,9 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
      * @return The criteria for determining a SAN&#39;s match.
      * 
      */
-    private final VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match;
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(@CustomType.Parameter("match") VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match) {
-        this.match = match;
-    }
-
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames() {}
     /**
      * @return The criteria for determining a SAN&#39;s match.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
     public static Builder builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.match = defaults.match;
         }
 
+        @CustomType.Setter
         public Builder match(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match) {
             this.match = Objects.requireNonNull(match);
             return this;
-        }        public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames build() {
-            return new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(match);
+        }
+        public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames build() {
+            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames();
+            o.match = match;
+            return o;
         }
     }
 }

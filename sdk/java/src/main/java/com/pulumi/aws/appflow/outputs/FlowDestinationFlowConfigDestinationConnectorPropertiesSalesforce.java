@@ -17,35 +17,24 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
      * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig;
     /**
      * @return The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
-    private final @Nullable List<String> idFieldNames;
+    private @Nullable List<String> idFieldNames;
     /**
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
     /**
      * @return This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
-    private final @Nullable String writeOperationType;
+    private @Nullable String writeOperationType;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(
-        @CustomType.Parameter("errorHandlingConfig") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig,
-        @CustomType.Parameter("idFieldNames") @Nullable List<String> idFieldNames,
-        @CustomType.Parameter("object") String object,
-        @CustomType.Parameter("writeOperationType") @Nullable String writeOperationType) {
-        this.errorHandlingConfig = errorHandlingConfig;
-        this.idFieldNames = idFieldNames;
-        this.object = object;
-        this.writeOperationType = writeOperationType;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce() {}
     /**
      * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
@@ -82,17 +71,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig;
         private @Nullable List<String> idFieldNames;
         private String object;
         private @Nullable String writeOperationType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.errorHandlingConfig = defaults.errorHandlingConfig;
@@ -101,10 +86,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
     	      this.writeOperationType = defaults.writeOperationType;
         }
 
+        @CustomType.Setter
         public Builder errorHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig) {
             this.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder idFieldNames(@Nullable List<String> idFieldNames) {
             this.idFieldNames = idFieldNames;
             return this;
@@ -112,15 +99,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
         public Builder idFieldNames(String... idFieldNames) {
             return idFieldNames(List.of(idFieldNames));
         }
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
         }
+        @CustomType.Setter
         public Builder writeOperationType(@Nullable String writeOperationType) {
             this.writeOperationType = writeOperationType;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(errorHandlingConfig, idFieldNames, object, writeOperationType);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce();
+            o.errorHandlingConfig = errorHandlingConfig;
+            o.idFieldNames = idFieldNames;
+            o.object = object;
+            o.writeOperationType = writeOperationType;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class ServerWorkflowDetails {
      * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
      * 
      */
-    private final @Nullable ServerWorkflowDetailsOnUpload onUpload;
+    private @Nullable ServerWorkflowDetailsOnUpload onUpload;
 
-    @CustomType.Constructor
-    private ServerWorkflowDetails(@CustomType.Parameter("onUpload") @Nullable ServerWorkflowDetailsOnUpload onUpload) {
-        this.onUpload = onUpload;
-    }
-
+    private ServerWorkflowDetails() {}
     /**
      * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
      * 
@@ -37,24 +33,24 @@ public final class ServerWorkflowDetails {
     public static Builder builder(ServerWorkflowDetails defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ServerWorkflowDetailsOnUpload onUpload;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerWorkflowDetails defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.onUpload = defaults.onUpload;
         }
 
+        @CustomType.Setter
         public Builder onUpload(@Nullable ServerWorkflowDetailsOnUpload onUpload) {
             this.onUpload = onUpload;
             return this;
-        }        public ServerWorkflowDetails build() {
-            return new ServerWorkflowDetails(onUpload);
+        }
+        public ServerWorkflowDetails build() {
+            final var o = new ServerWorkflowDetails();
+            o.onUpload = onUpload;
+            return o;
         }
     }
 }

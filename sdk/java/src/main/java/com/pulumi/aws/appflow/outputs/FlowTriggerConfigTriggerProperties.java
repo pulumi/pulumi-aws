@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowTriggerConfigTriggerProperties {
-    private final @Nullable FlowTriggerConfigTriggerPropertiesScheduled scheduled;
+    private @Nullable FlowTriggerConfigTriggerPropertiesScheduled scheduled;
 
-    @CustomType.Constructor
-    private FlowTriggerConfigTriggerProperties(@CustomType.Parameter("scheduled") @Nullable FlowTriggerConfigTriggerPropertiesScheduled scheduled) {
-        this.scheduled = scheduled;
-    }
-
+    private FlowTriggerConfigTriggerProperties() {}
     public Optional<FlowTriggerConfigTriggerPropertiesScheduled> scheduled() {
         return Optional.ofNullable(this.scheduled);
     }
@@ -29,24 +25,24 @@ public final class FlowTriggerConfigTriggerProperties {
     public static Builder builder(FlowTriggerConfigTriggerProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowTriggerConfigTriggerPropertiesScheduled scheduled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowTriggerConfigTriggerProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.scheduled = defaults.scheduled;
         }
 
+        @CustomType.Setter
         public Builder scheduled(@Nullable FlowTriggerConfigTriggerPropertiesScheduled scheduled) {
             this.scheduled = scheduled;
             return this;
-        }        public FlowTriggerConfigTriggerProperties build() {
-            return new FlowTriggerConfigTriggerProperties(scheduled);
+        }
+        public FlowTriggerConfigTriggerProperties build() {
+            final var o = new FlowTriggerConfigTriggerProperties();
+            o.scheduled = scheduled;
+            return o;
         }
     }
 }

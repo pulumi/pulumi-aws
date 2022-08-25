@@ -16,49 +16,34 @@ public final class ProductProvisioningArtifactParameters {
      * @return Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
      * 
      */
-    private final @Nullable Boolean disableTemplateValidation;
+    private @Nullable Boolean disableTemplateValidation;
     /**
      * @return Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      * 
      */
-    private final @Nullable String templatePhysicalId;
+    private @Nullable String templatePhysicalId;
     /**
      * @return Template source as URL of the CloudFormation template in Amazon S3.
      * 
      */
-    private final @Nullable String templateUrl;
+    private @Nullable String templateUrl;
     /**
      * @return Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ProductProvisioningArtifactParameters(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("disableTemplateValidation") @Nullable Boolean disableTemplateValidation,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("templatePhysicalId") @Nullable String templatePhysicalId,
-        @CustomType.Parameter("templateUrl") @Nullable String templateUrl,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.description = description;
-        this.disableTemplateValidation = disableTemplateValidation;
-        this.name = name;
-        this.templatePhysicalId = templatePhysicalId;
-        this.templateUrl = templateUrl;
-        this.type = type;
-    }
-
+    private ProductProvisioningArtifactParameters() {}
     /**
      * @return Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      * 
@@ -109,7 +94,7 @@ public final class ProductProvisioningArtifactParameters {
     public static Builder builder(ProductProvisioningArtifactParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable Boolean disableTemplateValidation;
@@ -117,11 +102,7 @@ public final class ProductProvisioningArtifactParameters {
         private @Nullable String templatePhysicalId;
         private @Nullable String templateUrl;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProductProvisioningArtifactParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -132,31 +113,45 @@ public final class ProductProvisioningArtifactParameters {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder disableTemplateValidation(@Nullable Boolean disableTemplateValidation) {
             this.disableTemplateValidation = disableTemplateValidation;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder templatePhysicalId(@Nullable String templatePhysicalId) {
             this.templatePhysicalId = templatePhysicalId;
             return this;
         }
+        @CustomType.Setter
         public Builder templateUrl(@Nullable String templateUrl) {
             this.templateUrl = templateUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ProductProvisioningArtifactParameters build() {
-            return new ProductProvisioningArtifactParameters(description, disableTemplateValidation, name, templatePhysicalId, templateUrl, type);
+        }
+        public ProductProvisioningArtifactParameters build() {
+            final var o = new ProductProvisioningArtifactParameters();
+            o.description = description;
+            o.disableTemplateValidation = disableTemplateValidation;
+            o.name = name;
+            o.templatePhysicalId = templatePhysicalId;
+            o.templateUrl = templateUrl;
+            o.type = type;
+            return o;
         }
     }
 }

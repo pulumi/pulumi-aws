@@ -15,21 +15,14 @@ public final class DatabaseEncryptionConfiguration {
      * @return The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
      * 
      */
-    private final String encryptionOption;
+    private String encryptionOption;
     /**
      * @return The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
      * 
      */
-    private final @Nullable String kmsKey;
+    private @Nullable String kmsKey;
 
-    @CustomType.Constructor
-    private DatabaseEncryptionConfiguration(
-        @CustomType.Parameter("encryptionOption") String encryptionOption,
-        @CustomType.Parameter("kmsKey") @Nullable String kmsKey) {
-        this.encryptionOption = encryptionOption;
-        this.kmsKey = kmsKey;
-    }
-
+    private DatabaseEncryptionConfiguration() {}
     /**
      * @return The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
      * 
@@ -52,30 +45,32 @@ public final class DatabaseEncryptionConfiguration {
     public static Builder builder(DatabaseEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String encryptionOption;
         private @Nullable String kmsKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatabaseEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionOption = defaults.encryptionOption;
     	      this.kmsKey = defaults.kmsKey;
         }
 
+        @CustomType.Setter
         public Builder encryptionOption(String encryptionOption) {
             this.encryptionOption = Objects.requireNonNull(encryptionOption);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKey(@Nullable String kmsKey) {
             this.kmsKey = kmsKey;
             return this;
-        }        public DatabaseEncryptionConfiguration build() {
-            return new DatabaseEncryptionConfiguration(encryptionOption, kmsKey);
+        }
+        public DatabaseEncryptionConfiguration build() {
+            final var o = new DatabaseEncryptionConfiguration();
+            o.encryptionOption = encryptionOption;
+            o.kmsKey = kmsKey;
+            return o;
         }
     }
 }

@@ -14,60 +14,35 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetObjectsResult {
-    private final String bucket;
+    private String bucket;
     /**
      * @return List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` &#34;directory&#34;); the list is only returned when you specify `delimiter`
      * 
      */
-    private final List<String> commonPrefixes;
-    private final @Nullable String delimiter;
-    private final @Nullable String encodingType;
-    private final @Nullable Boolean fetchOwner;
+    private List<String> commonPrefixes;
+    private @Nullable String delimiter;
+    private @Nullable String encodingType;
+    private @Nullable Boolean fetchOwner;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of strings representing object keys
      * 
      */
-    private final List<String> keys;
-    private final @Nullable Integer maxKeys;
+    private List<String> keys;
+    private @Nullable Integer maxKeys;
     /**
      * @return List of strings representing object owner IDs (see `fetch_owner` above)
      * 
      */
-    private final List<String> owners;
-    private final @Nullable String prefix;
-    private final @Nullable String startAfter;
+    private List<String> owners;
+    private @Nullable String prefix;
+    private @Nullable String startAfter;
 
-    @CustomType.Constructor
-    private GetObjectsResult(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("commonPrefixes") List<String> commonPrefixes,
-        @CustomType.Parameter("delimiter") @Nullable String delimiter,
-        @CustomType.Parameter("encodingType") @Nullable String encodingType,
-        @CustomType.Parameter("fetchOwner") @Nullable Boolean fetchOwner,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keys") List<String> keys,
-        @CustomType.Parameter("maxKeys") @Nullable Integer maxKeys,
-        @CustomType.Parameter("owners") List<String> owners,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("startAfter") @Nullable String startAfter) {
-        this.bucket = bucket;
-        this.commonPrefixes = commonPrefixes;
-        this.delimiter = delimiter;
-        this.encodingType = encodingType;
-        this.fetchOwner = fetchOwner;
-        this.id = id;
-        this.keys = keys;
-        this.maxKeys = maxKeys;
-        this.owners = owners;
-        this.prefix = prefix;
-        this.startAfter = startAfter;
-    }
-
+    private GetObjectsResult() {}
     public String bucket() {
         return this.bucket;
     }
@@ -125,7 +100,7 @@ public final class GetObjectsResult {
     public static Builder builder(GetObjectsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private List<String> commonPrefixes;
@@ -138,11 +113,7 @@ public final class GetObjectsResult {
         private List<String> owners;
         private @Nullable String prefix;
         private @Nullable String startAfter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetObjectsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -158,10 +129,12 @@ public final class GetObjectsResult {
     	      this.startAfter = defaults.startAfter;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder commonPrefixes(List<String> commonPrefixes) {
             this.commonPrefixes = Objects.requireNonNull(commonPrefixes);
             return this;
@@ -169,22 +142,27 @@ public final class GetObjectsResult {
         public Builder commonPrefixes(String... commonPrefixes) {
             return commonPrefixes(List.of(commonPrefixes));
         }
+        @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
             this.delimiter = delimiter;
             return this;
         }
+        @CustomType.Setter
         public Builder encodingType(@Nullable String encodingType) {
             this.encodingType = encodingType;
             return this;
         }
+        @CustomType.Setter
         public Builder fetchOwner(@Nullable Boolean fetchOwner) {
             this.fetchOwner = fetchOwner;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keys(List<String> keys) {
             this.keys = Objects.requireNonNull(keys);
             return this;
@@ -192,10 +170,12 @@ public final class GetObjectsResult {
         public Builder keys(String... keys) {
             return keys(List.of(keys));
         }
+        @CustomType.Setter
         public Builder maxKeys(@Nullable Integer maxKeys) {
             this.maxKeys = maxKeys;
             return this;
         }
+        @CustomType.Setter
         public Builder owners(List<String> owners) {
             this.owners = Objects.requireNonNull(owners);
             return this;
@@ -203,15 +183,30 @@ public final class GetObjectsResult {
         public Builder owners(String... owners) {
             return owners(List.of(owners));
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder startAfter(@Nullable String startAfter) {
             this.startAfter = startAfter;
             return this;
-        }        public GetObjectsResult build() {
-            return new GetObjectsResult(bucket, commonPrefixes, delimiter, encodingType, fetchOwner, id, keys, maxKeys, owners, prefix, startAfter);
+        }
+        public GetObjectsResult build() {
+            final var o = new GetObjectsResult();
+            o.bucket = bucket;
+            o.commonPrefixes = commonPrefixes;
+            o.delimiter = delimiter;
+            o.encodingType = encodingType;
+            o.fetchOwner = fetchOwner;
+            o.id = id;
+            o.keys = keys;
+            o.maxKeys = maxKeys;
+            o.owners = owners;
+            o.prefix = prefix;
+            o.startAfter = startAfter;
+            return o;
         }
     }
 }

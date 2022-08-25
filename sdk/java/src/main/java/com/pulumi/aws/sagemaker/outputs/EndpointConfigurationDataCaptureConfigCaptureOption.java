@@ -13,13 +13,9 @@ public final class EndpointConfigurationDataCaptureConfigCaptureOption {
      * @return Specifies the data to be captured. Should be one of `Input` or `Output`.
      * 
      */
-    private final String captureMode;
+    private String captureMode;
 
-    @CustomType.Constructor
-    private EndpointConfigurationDataCaptureConfigCaptureOption(@CustomType.Parameter("captureMode") String captureMode) {
-        this.captureMode = captureMode;
-    }
-
+    private EndpointConfigurationDataCaptureConfigCaptureOption() {}
     /**
      * @return Specifies the data to be captured. Should be one of `Input` or `Output`.
      * 
@@ -35,24 +31,24 @@ public final class EndpointConfigurationDataCaptureConfigCaptureOption {
     public static Builder builder(EndpointConfigurationDataCaptureConfigCaptureOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String captureMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConfigurationDataCaptureConfigCaptureOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.captureMode = defaults.captureMode;
         }
 
+        @CustomType.Setter
         public Builder captureMode(String captureMode) {
             this.captureMode = Objects.requireNonNull(captureMode);
             return this;
-        }        public EndpointConfigurationDataCaptureConfigCaptureOption build() {
-            return new EndpointConfigurationDataCaptureConfigCaptureOption(captureMode);
+        }
+        public EndpointConfigurationDataCaptureConfigCaptureOption build() {
+            final var o = new EndpointConfigurationDataCaptureConfigCaptureOption();
+            o.captureMode = captureMode;
+            return o;
         }
     }
 }

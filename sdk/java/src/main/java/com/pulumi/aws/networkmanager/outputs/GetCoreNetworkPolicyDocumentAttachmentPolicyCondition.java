@@ -15,35 +15,24 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
      * @return string value
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
      * 
      */
-    private final @Nullable String operator;
+    private @Nullable String operator;
     /**
      * @return Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return string value
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private GetCoreNetworkPolicyDocumentAttachmentPolicyCondition(
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("operator") @Nullable String operator,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.key = key;
-        this.operator = operator;
-        this.type = type;
-        this.value = value;
-    }
-
+    private GetCoreNetworkPolicyDocumentAttachmentPolicyCondition() {}
     /**
      * @return string value
      * 
@@ -80,17 +69,13 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
     public static Builder builder(GetCoreNetworkPolicyDocumentAttachmentPolicyCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String key;
         private @Nullable String operator;
         private String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentAttachmentPolicyCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -99,23 +84,33 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(@Nullable String operator) {
             this.operator = operator;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public GetCoreNetworkPolicyDocumentAttachmentPolicyCondition build() {
-            return new GetCoreNetworkPolicyDocumentAttachmentPolicyCondition(key, operator, type, value);
+        }
+        public GetCoreNetworkPolicyDocumentAttachmentPolicyCondition build() {
+            final var o = new GetCoreNetworkPolicyDocumentAttachmentPolicyCondition();
+            o.key = key;
+            o.operator = operator;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

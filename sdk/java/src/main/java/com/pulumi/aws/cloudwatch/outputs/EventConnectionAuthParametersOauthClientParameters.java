@@ -13,21 +13,14 @@ public final class EventConnectionAuthParametersOauthClientParameters {
      * @return The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
 
-    @CustomType.Constructor
-    private EventConnectionAuthParametersOauthClientParameters(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-    }
-
+    private EventConnectionAuthParametersOauthClientParameters() {}
     /**
      * @return The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
      * 
@@ -50,30 +43,32 @@ public final class EventConnectionAuthParametersOauthClientParameters {
     public static Builder builder(EventConnectionAuthParametersOauthClientParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String clientSecret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventConnectionAuthParametersOauthClientParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
     	      this.clientSecret = defaults.clientSecret;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
-        }        public EventConnectionAuthParametersOauthClientParameters build() {
-            return new EventConnectionAuthParametersOauthClientParameters(clientId, clientSecret);
+        }
+        public EventConnectionAuthParametersOauthClientParameters build() {
+            final var o = new EventConnectionAuthParametersOauthClientParameters();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            return o;
         }
     }
 }

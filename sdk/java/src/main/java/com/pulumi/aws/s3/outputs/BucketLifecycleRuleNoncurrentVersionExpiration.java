@@ -15,13 +15,9 @@ public final class BucketLifecycleRuleNoncurrentVersionExpiration {
      * @return Specifies the number of days noncurrent object versions expire.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
 
-    @CustomType.Constructor
-    private BucketLifecycleRuleNoncurrentVersionExpiration(@CustomType.Parameter("days") @Nullable Integer days) {
-        this.days = days;
-    }
-
+    private BucketLifecycleRuleNoncurrentVersionExpiration() {}
     /**
      * @return Specifies the number of days noncurrent object versions expire.
      * 
@@ -37,24 +33,24 @@ public final class BucketLifecycleRuleNoncurrentVersionExpiration {
     public static Builder builder(BucketLifecycleRuleNoncurrentVersionExpiration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleRuleNoncurrentVersionExpiration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
-        }        public BucketLifecycleRuleNoncurrentVersionExpiration build() {
-            return new BucketLifecycleRuleNoncurrentVersionExpiration(days);
+        }
+        public BucketLifecycleRuleNoncurrentVersionExpiration build() {
+            final var o = new BucketLifecycleRuleNoncurrentVersionExpiration();
+            o.days = days;
+            return o;
         }
     }
 }

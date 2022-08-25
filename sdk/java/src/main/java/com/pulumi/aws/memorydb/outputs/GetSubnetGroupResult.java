@@ -15,52 +15,35 @@ public final class GetSubnetGroupResult {
      * @return ARN of the subnet group.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Description of the subnet group.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return Set of VPC Subnet ID-s of the subnet group.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return A map of tags assigned to the subnet group.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The VPC in which the subnet group exists.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetSubnetGroupResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.subnetIds = subnetIds;
-        this.tags = tags;
-        this.vpcId = vpcId;
-    }
-
+    private GetSubnetGroupResult() {}
     /**
      * @return ARN of the subnet group.
      * 
@@ -114,7 +97,7 @@ public final class GetSubnetGroupResult {
     public static Builder builder(GetSubnetGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -123,11 +106,7 @@ public final class GetSubnetGroupResult {
         private List<String> subnetIds;
         private Map<String,String> tags;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSubnetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -139,22 +118,27 @@ public final class GetSubnetGroupResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -162,15 +146,26 @@ public final class GetSubnetGroupResult {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetSubnetGroupResult build() {
-            return new GetSubnetGroupResult(arn, description, id, name, subnetIds, tags, vpcId);
+        }
+        public GetSubnetGroupResult build() {
+            final var o = new GetSubnetGroupResult();
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.subnetIds = subnetIds;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

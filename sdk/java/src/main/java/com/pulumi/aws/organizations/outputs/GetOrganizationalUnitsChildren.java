@@ -13,28 +13,19 @@ public final class GetOrganizationalUnitsChildren {
      * @return ARN of the organizational unit
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Parent identifier of the organizational units.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Name of the organizational unit
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetOrganizationalUnitsChildren(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetOrganizationalUnitsChildren() {}
     /**
      * @return ARN of the organizational unit
      * 
@@ -64,16 +55,12 @@ public final class GetOrganizationalUnitsChildren {
     public static Builder builder(GetOrganizationalUnitsChildren defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrganizationalUnitsChildren defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -81,19 +68,27 @@ public final class GetOrganizationalUnitsChildren {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetOrganizationalUnitsChildren build() {
-            return new GetOrganizationalUnitsChildren(arn, id, name);
+        }
+        public GetOrganizationalUnitsChildren build() {
+            final var o = new GetOrganizationalUnitsChildren();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

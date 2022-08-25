@@ -13,13 +13,9 @@ public final class GatewayRouteSpecGrpcRouteMatch {
      * @return The fully qualified domain name for the service to match from the request.
      * 
      */
-    private final String serviceName;
+    private String serviceName;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecGrpcRouteMatch(@CustomType.Parameter("serviceName") String serviceName) {
-        this.serviceName = serviceName;
-    }
-
+    private GatewayRouteSpecGrpcRouteMatch() {}
     /**
      * @return The fully qualified domain name for the service to match from the request.
      * 
@@ -35,24 +31,24 @@ public final class GatewayRouteSpecGrpcRouteMatch {
     public static Builder builder(GatewayRouteSpecGrpcRouteMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String serviceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecGrpcRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.serviceName = defaults.serviceName;
         }
 
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
-        }        public GatewayRouteSpecGrpcRouteMatch build() {
-            return new GatewayRouteSpecGrpcRouteMatch(serviceName);
+        }
+        public GatewayRouteSpecGrpcRouteMatch build() {
+            final var o = new GatewayRouteSpecGrpcRouteMatch();
+            o.serviceName = serviceName;
+            return o;
         }
     }
 }

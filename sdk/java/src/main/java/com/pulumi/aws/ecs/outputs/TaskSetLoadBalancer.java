@@ -16,35 +16,24 @@ public final class TaskSetLoadBalancer {
      * @return The name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
-    private final String containerName;
+    private String containerName;
     /**
      * @return The port on the container to associate with the load balancer. Defaults to `0` if not specified.
      * 
      */
-    private final @Nullable Integer containerPort;
+    private @Nullable Integer containerPort;
     /**
      * @return The name of the ELB (Classic) to associate with the service.
      * 
      */
-    private final @Nullable String loadBalancerName;
+    private @Nullable String loadBalancerName;
     /**
      * @return The ARN of the Load Balancer target group to associate with the service.
      * 
      */
-    private final @Nullable String targetGroupArn;
+    private @Nullable String targetGroupArn;
 
-    @CustomType.Constructor
-    private TaskSetLoadBalancer(
-        @CustomType.Parameter("containerName") String containerName,
-        @CustomType.Parameter("containerPort") @Nullable Integer containerPort,
-        @CustomType.Parameter("loadBalancerName") @Nullable String loadBalancerName,
-        @CustomType.Parameter("targetGroupArn") @Nullable String targetGroupArn) {
-        this.containerName = containerName;
-        this.containerPort = containerPort;
-        this.loadBalancerName = loadBalancerName;
-        this.targetGroupArn = targetGroupArn;
-    }
-
+    private TaskSetLoadBalancer() {}
     /**
      * @return The name of the container to associate with the load balancer (as it appears in a container definition).
      * 
@@ -81,17 +70,13 @@ public final class TaskSetLoadBalancer {
     public static Builder builder(TaskSetLoadBalancer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String containerName;
         private @Nullable Integer containerPort;
         private @Nullable String loadBalancerName;
         private @Nullable String targetGroupArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskSetLoadBalancer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerName = defaults.containerName;
@@ -100,23 +85,33 @@ public final class TaskSetLoadBalancer {
     	      this.targetGroupArn = defaults.targetGroupArn;
         }
 
+        @CustomType.Setter
         public Builder containerName(String containerName) {
             this.containerName = Objects.requireNonNull(containerName);
             return this;
         }
+        @CustomType.Setter
         public Builder containerPort(@Nullable Integer containerPort) {
             this.containerPort = containerPort;
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancerName(@Nullable String loadBalancerName) {
             this.loadBalancerName = loadBalancerName;
             return this;
         }
+        @CustomType.Setter
         public Builder targetGroupArn(@Nullable String targetGroupArn) {
             this.targetGroupArn = targetGroupArn;
             return this;
-        }        public TaskSetLoadBalancer build() {
-            return new TaskSetLoadBalancer(containerName, containerPort, loadBalancerName, targetGroupArn);
+        }
+        public TaskSetLoadBalancer build() {
+            final var o = new TaskSetLoadBalancer();
+            o.containerName = containerName;
+            o.containerPort = containerPort;
+            o.loadBalancerName = loadBalancerName;
+            o.targetGroupArn = targetGroupArn;
+            return o;
         }
     }
 }

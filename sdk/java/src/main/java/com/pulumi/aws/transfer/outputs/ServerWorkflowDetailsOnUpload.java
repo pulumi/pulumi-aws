@@ -13,21 +13,14 @@ public final class ServerWorkflowDetailsOnUpload {
      * @return Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
      * 
      */
-    private final String executionRole;
+    private String executionRole;
     /**
      * @return A unique identifier for the workflow.
      * 
      */
-    private final String workflowId;
+    private String workflowId;
 
-    @CustomType.Constructor
-    private ServerWorkflowDetailsOnUpload(
-        @CustomType.Parameter("executionRole") String executionRole,
-        @CustomType.Parameter("workflowId") String workflowId) {
-        this.executionRole = executionRole;
-        this.workflowId = workflowId;
-    }
-
+    private ServerWorkflowDetailsOnUpload() {}
     /**
      * @return Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
      * 
@@ -50,30 +43,32 @@ public final class ServerWorkflowDetailsOnUpload {
     public static Builder builder(ServerWorkflowDetailsOnUpload defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String executionRole;
         private String workflowId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerWorkflowDetailsOnUpload defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.executionRole = defaults.executionRole;
     	      this.workflowId = defaults.workflowId;
         }
 
+        @CustomType.Setter
         public Builder executionRole(String executionRole) {
             this.executionRole = Objects.requireNonNull(executionRole);
             return this;
         }
+        @CustomType.Setter
         public Builder workflowId(String workflowId) {
             this.workflowId = Objects.requireNonNull(workflowId);
             return this;
-        }        public ServerWorkflowDetailsOnUpload build() {
-            return new ServerWorkflowDetailsOnUpload(executionRole, workflowId);
+        }
+        public ServerWorkflowDetailsOnUpload build() {
+            final var o = new ServerWorkflowDetailsOnUpload();
+            o.executionRole = executionRole;
+            o.workflowId = workflowId;
+            return o;
         }
     }
 }

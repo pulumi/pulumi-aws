@@ -9,26 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProxyAuth {
-    private final String authScheme;
-    private final String description;
-    private final String iamAuth;
-    private final String secretArn;
-    private final String username;
+    private String authScheme;
+    private String description;
+    private String iamAuth;
+    private String secretArn;
+    private String username;
 
-    @CustomType.Constructor
-    private GetProxyAuth(
-        @CustomType.Parameter("authScheme") String authScheme,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("iamAuth") String iamAuth,
-        @CustomType.Parameter("secretArn") String secretArn,
-        @CustomType.Parameter("username") String username) {
-        this.authScheme = authScheme;
-        this.description = description;
-        this.iamAuth = iamAuth;
-        this.secretArn = secretArn;
-        this.username = username;
-    }
-
+    private GetProxyAuth() {}
     public String authScheme() {
         return this.authScheme;
     }
@@ -52,18 +39,14 @@ public final class GetProxyAuth {
     public static Builder builder(GetProxyAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authScheme;
         private String description;
         private String iamAuth;
         private String secretArn;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetProxyAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authScheme = defaults.authScheme;
@@ -73,27 +56,39 @@ public final class GetProxyAuth {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder authScheme(String authScheme) {
             this.authScheme = Objects.requireNonNull(authScheme);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder iamAuth(String iamAuth) {
             this.iamAuth = Objects.requireNonNull(iamAuth);
             return this;
         }
+        @CustomType.Setter
         public Builder secretArn(String secretArn) {
             this.secretArn = Objects.requireNonNull(secretArn);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetProxyAuth build() {
-            return new GetProxyAuth(authScheme, description, iamAuth, secretArn, username);
+        }
+        public GetProxyAuth build() {
+            final var o = new GetProxyAuth();
+            o.authScheme = authScheme;
+            o.description = description;
+            o.iamAuth = iamAuth;
+            o.secretArn = secretArn;
+            o.username = username;
+            return o;
         }
     }
 }

@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction {
-    private final List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
+    private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
 
-    @CustomType.Constructor
-    private GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction(@CustomType.Parameter("dimensions") List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions) {
-        this.dimensions = dimensions;
-    }
-
+    private GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction() {}
     public List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions() {
         return this.dimensions;
     }
@@ -28,27 +24,27 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDef
     public static Builder builder(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
         }
 
+        @CustomType.Setter
         public Builder dimensions(List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions) {
             this.dimensions = Objects.requireNonNull(dimensions);
             return this;
         }
         public Builder dimensions(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension... dimensions) {
             return dimensions(List.of(dimensions));
-        }        public GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction build() {
-            return new GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction(dimensions);
+        }
+        public GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction build() {
+            final var o = new GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction();
+            o.dimensions = dimensions;
+            return o;
         }
     }
 }

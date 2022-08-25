@@ -15,28 +15,19 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplate {
      * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
      * 
      */
-    private final @Nullable String emailMessage;
+    private @Nullable String emailMessage;
     /**
      * @return Subject line for the email message template. Conflicts with `email_verification_subject` argument.
      * 
      */
-    private final @Nullable String emailSubject;
+    private @Nullable String emailSubject;
     /**
      * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
      * 
      */
-    private final @Nullable String smsMessage;
+    private @Nullable String smsMessage;
 
-    @CustomType.Constructor
-    private UserPoolAdminCreateUserConfigInviteMessageTemplate(
-        @CustomType.Parameter("emailMessage") @Nullable String emailMessage,
-        @CustomType.Parameter("emailSubject") @Nullable String emailSubject,
-        @CustomType.Parameter("smsMessage") @Nullable String smsMessage) {
-        this.emailMessage = emailMessage;
-        this.emailSubject = emailSubject;
-        this.smsMessage = smsMessage;
-    }
-
+    private UserPoolAdminCreateUserConfigInviteMessageTemplate() {}
     /**
      * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
      * 
@@ -66,16 +57,12 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplate {
     public static Builder builder(UserPoolAdminCreateUserConfigInviteMessageTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String emailMessage;
         private @Nullable String emailSubject;
         private @Nullable String smsMessage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolAdminCreateUserConfigInviteMessageTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.emailMessage = defaults.emailMessage;
@@ -83,19 +70,27 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplate {
     	      this.smsMessage = defaults.smsMessage;
         }
 
+        @CustomType.Setter
         public Builder emailMessage(@Nullable String emailMessage) {
             this.emailMessage = emailMessage;
             return this;
         }
+        @CustomType.Setter
         public Builder emailSubject(@Nullable String emailSubject) {
             this.emailSubject = emailSubject;
             return this;
         }
+        @CustomType.Setter
         public Builder smsMessage(@Nullable String smsMessage) {
             this.smsMessage = smsMessage;
             return this;
-        }        public UserPoolAdminCreateUserConfigInviteMessageTemplate build() {
-            return new UserPoolAdminCreateUserConfigInviteMessageTemplate(emailMessage, emailSubject, smsMessage);
+        }
+        public UserPoolAdminCreateUserConfigInviteMessageTemplate build() {
+            final var o = new UserPoolAdminCreateUserConfigInviteMessageTemplate();
+            o.emailMessage = emailMessage;
+            o.emailSubject = emailSubject;
+            o.smsMessage = smsMessage;
+            return o;
         }
     }
 }

@@ -15,35 +15,24 @@ public final class FleetComputeCapacity {
      * @return Number of currently available instances that can be used to stream sessions.
      * 
      */
-    private final @Nullable Integer available;
+    private @Nullable Integer available;
     /**
      * @return Desired number of streaming instances.
      * 
      */
-    private final Integer desiredInstances;
+    private Integer desiredInstances;
     /**
      * @return Number of instances in use for streaming.
      * 
      */
-    private final @Nullable Integer inUse;
+    private @Nullable Integer inUse;
     /**
      * @return Total number of simultaneous streaming instances that are running.
      * 
      */
-    private final @Nullable Integer running;
+    private @Nullable Integer running;
 
-    @CustomType.Constructor
-    private FleetComputeCapacity(
-        @CustomType.Parameter("available") @Nullable Integer available,
-        @CustomType.Parameter("desiredInstances") Integer desiredInstances,
-        @CustomType.Parameter("inUse") @Nullable Integer inUse,
-        @CustomType.Parameter("running") @Nullable Integer running) {
-        this.available = available;
-        this.desiredInstances = desiredInstances;
-        this.inUse = inUse;
-        this.running = running;
-    }
-
+    private FleetComputeCapacity() {}
     /**
      * @return Number of currently available instances that can be used to stream sessions.
      * 
@@ -80,17 +69,13 @@ public final class FleetComputeCapacity {
     public static Builder builder(FleetComputeCapacity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer available;
         private Integer desiredInstances;
         private @Nullable Integer inUse;
         private @Nullable Integer running;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetComputeCapacity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.available = defaults.available;
@@ -99,23 +84,33 @@ public final class FleetComputeCapacity {
     	      this.running = defaults.running;
         }
 
+        @CustomType.Setter
         public Builder available(@Nullable Integer available) {
             this.available = available;
             return this;
         }
+        @CustomType.Setter
         public Builder desiredInstances(Integer desiredInstances) {
             this.desiredInstances = Objects.requireNonNull(desiredInstances);
             return this;
         }
+        @CustomType.Setter
         public Builder inUse(@Nullable Integer inUse) {
             this.inUse = inUse;
             return this;
         }
+        @CustomType.Setter
         public Builder running(@Nullable Integer running) {
             this.running = running;
             return this;
-        }        public FleetComputeCapacity build() {
-            return new FleetComputeCapacity(available, desiredInstances, inUse, running);
+        }
+        public FleetComputeCapacity build() {
+            final var o = new FleetComputeCapacity();
+            o.available = available;
+            o.desiredInstances = desiredInstances;
+            o.inUse = inUse;
+            o.running = running;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class ServiceDeploymentController {
      * @return Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ServiceDeploymentController(@CustomType.Parameter("type") @Nullable String type) {
-        this.type = type;
-    }
-
+    private ServiceDeploymentController() {}
     /**
      * @return Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
      * 
@@ -37,24 +33,24 @@ public final class ServiceDeploymentController {
     public static Builder builder(ServiceDeploymentController defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceDeploymentController defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ServiceDeploymentController build() {
-            return new ServiceDeploymentController(type);
+        }
+        public ServiceDeploymentController build() {
+            final var o = new ServiceDeploymentController();
+            o.type = type;
+            return o;
         }
     }
 }

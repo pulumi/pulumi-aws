@@ -17,77 +17,54 @@ public final class AppAutoBranchCreationConfig {
      * @return The basic authorization credentials for the autocreated branch.
      * 
      */
-    private final @Nullable String basicAuthCredentials;
+    private @Nullable String basicAuthCredentials;
     /**
      * @return The build specification (build spec) for the autocreated branch.
      * 
      */
-    private final @Nullable String buildSpec;
+    private @Nullable String buildSpec;
     /**
      * @return Enables auto building for the autocreated branch.
      * 
      */
-    private final @Nullable Boolean enableAutoBuild;
+    private @Nullable Boolean enableAutoBuild;
     /**
      * @return Enables basic authorization for the autocreated branch.
      * 
      */
-    private final @Nullable Boolean enableBasicAuth;
+    private @Nullable Boolean enableBasicAuth;
     /**
      * @return Enables performance mode for the branch.
      * 
      */
-    private final @Nullable Boolean enablePerformanceMode;
+    private @Nullable Boolean enablePerformanceMode;
     /**
      * @return Enables pull request previews for the autocreated branch.
      * 
      */
-    private final @Nullable Boolean enablePullRequestPreview;
+    private @Nullable Boolean enablePullRequestPreview;
     /**
      * @return The environment variables for the autocreated branch.
      * 
      */
-    private final @Nullable Map<String,String> environmentVariables;
+    private @Nullable Map<String,String> environmentVariables;
     /**
      * @return The framework for the autocreated branch.
      * 
      */
-    private final @Nullable String framework;
+    private @Nullable String framework;
     /**
      * @return The Amplify environment name for the pull request.
      * 
      */
-    private final @Nullable String pullRequestEnvironmentName;
+    private @Nullable String pullRequestEnvironmentName;
     /**
      * @return Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      * 
      */
-    private final @Nullable String stage;
+    private @Nullable String stage;
 
-    @CustomType.Constructor
-    private AppAutoBranchCreationConfig(
-        @CustomType.Parameter("basicAuthCredentials") @Nullable String basicAuthCredentials,
-        @CustomType.Parameter("buildSpec") @Nullable String buildSpec,
-        @CustomType.Parameter("enableAutoBuild") @Nullable Boolean enableAutoBuild,
-        @CustomType.Parameter("enableBasicAuth") @Nullable Boolean enableBasicAuth,
-        @CustomType.Parameter("enablePerformanceMode") @Nullable Boolean enablePerformanceMode,
-        @CustomType.Parameter("enablePullRequestPreview") @Nullable Boolean enablePullRequestPreview,
-        @CustomType.Parameter("environmentVariables") @Nullable Map<String,String> environmentVariables,
-        @CustomType.Parameter("framework") @Nullable String framework,
-        @CustomType.Parameter("pullRequestEnvironmentName") @Nullable String pullRequestEnvironmentName,
-        @CustomType.Parameter("stage") @Nullable String stage) {
-        this.basicAuthCredentials = basicAuthCredentials;
-        this.buildSpec = buildSpec;
-        this.enableAutoBuild = enableAutoBuild;
-        this.enableBasicAuth = enableBasicAuth;
-        this.enablePerformanceMode = enablePerformanceMode;
-        this.enablePullRequestPreview = enablePullRequestPreview;
-        this.environmentVariables = environmentVariables;
-        this.framework = framework;
-        this.pullRequestEnvironmentName = pullRequestEnvironmentName;
-        this.stage = stage;
-    }
-
+    private AppAutoBranchCreationConfig() {}
     /**
      * @return The basic authorization credentials for the autocreated branch.
      * 
@@ -166,7 +143,7 @@ public final class AppAutoBranchCreationConfig {
     public static Builder builder(AppAutoBranchCreationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String basicAuthCredentials;
         private @Nullable String buildSpec;
@@ -178,11 +155,7 @@ public final class AppAutoBranchCreationConfig {
         private @Nullable String framework;
         private @Nullable String pullRequestEnvironmentName;
         private @Nullable String stage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppAutoBranchCreationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.basicAuthCredentials = defaults.basicAuthCredentials;
@@ -197,47 +170,69 @@ public final class AppAutoBranchCreationConfig {
     	      this.stage = defaults.stage;
         }
 
+        @CustomType.Setter
         public Builder basicAuthCredentials(@Nullable String basicAuthCredentials) {
             this.basicAuthCredentials = basicAuthCredentials;
             return this;
         }
+        @CustomType.Setter
         public Builder buildSpec(@Nullable String buildSpec) {
             this.buildSpec = buildSpec;
             return this;
         }
+        @CustomType.Setter
         public Builder enableAutoBuild(@Nullable Boolean enableAutoBuild) {
             this.enableAutoBuild = enableAutoBuild;
             return this;
         }
+        @CustomType.Setter
         public Builder enableBasicAuth(@Nullable Boolean enableBasicAuth) {
             this.enableBasicAuth = enableBasicAuth;
             return this;
         }
+        @CustomType.Setter
         public Builder enablePerformanceMode(@Nullable Boolean enablePerformanceMode) {
             this.enablePerformanceMode = enablePerformanceMode;
             return this;
         }
+        @CustomType.Setter
         public Builder enablePullRequestPreview(@Nullable Boolean enablePullRequestPreview) {
             this.enablePullRequestPreview = enablePullRequestPreview;
             return this;
         }
+        @CustomType.Setter
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
             this.environmentVariables = environmentVariables;
             return this;
         }
+        @CustomType.Setter
         public Builder framework(@Nullable String framework) {
             this.framework = framework;
             return this;
         }
+        @CustomType.Setter
         public Builder pullRequestEnvironmentName(@Nullable String pullRequestEnvironmentName) {
             this.pullRequestEnvironmentName = pullRequestEnvironmentName;
             return this;
         }
+        @CustomType.Setter
         public Builder stage(@Nullable String stage) {
             this.stage = stage;
             return this;
-        }        public AppAutoBranchCreationConfig build() {
-            return new AppAutoBranchCreationConfig(basicAuthCredentials, buildSpec, enableAutoBuild, enableBasicAuth, enablePerformanceMode, enablePullRequestPreview, environmentVariables, framework, pullRequestEnvironmentName, stage);
+        }
+        public AppAutoBranchCreationConfig build() {
+            final var o = new AppAutoBranchCreationConfig();
+            o.basicAuthCredentials = basicAuthCredentials;
+            o.buildSpec = buildSpec;
+            o.enableAutoBuild = enableAutoBuild;
+            o.enableBasicAuth = enableBasicAuth;
+            o.enablePerformanceMode = enablePerformanceMode;
+            o.enablePullRequestPreview = enablePullRequestPreview;
+            o.environmentVariables = environmentVariables;
+            o.framework = framework;
+            o.pullRequestEnvironmentName = pullRequestEnvironmentName;
+            o.stage = stage;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class OntapFileSystemDiskIopsConfiguration {
      * @return - The total number of SSD IOPS provisioned for the file system.
      * 
      */
-    private final @Nullable Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
      * 
      */
-    private final @Nullable String mode;
+    private @Nullable String mode;
 
-    @CustomType.Constructor
-    private OntapFileSystemDiskIopsConfiguration(
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("mode") @Nullable String mode) {
-        this.iops = iops;
-        this.mode = mode;
-    }
-
+    private OntapFileSystemDiskIopsConfiguration() {}
     /**
      * @return - The total number of SSD IOPS provisioned for the file system.
      * 
@@ -53,30 +46,32 @@ public final class OntapFileSystemDiskIopsConfiguration {
     public static Builder builder(OntapFileSystemDiskIopsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer iops;
         private @Nullable String mode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OntapFileSystemDiskIopsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.iops = defaults.iops;
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder mode(@Nullable String mode) {
             this.mode = mode;
             return this;
-        }        public OntapFileSystemDiskIopsConfiguration build() {
-            return new OntapFileSystemDiskIopsConfiguration(iops, mode);
+        }
+        public OntapFileSystemDiskIopsConfiguration build() {
+            final var o = new OntapFileSystemDiskIopsConfiguration();
+            o.iops = iops;
+            o.mode = mode;
+            return o;
         }
     }
 }

@@ -14,28 +14,19 @@ public final class GetPatchBaselineSource {
      * @return The value of the yum repo configuration.
      * 
      */
-    private final String configuration;
+    private String configuration;
     /**
      * @return The name specified to identify the patch source.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The specific operating system versions a patch repository applies to.
      * 
      */
-    private final List<String> products;
+    private List<String> products;
 
-    @CustomType.Constructor
-    private GetPatchBaselineSource(
-        @CustomType.Parameter("configuration") String configuration,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("products") List<String> products) {
-        this.configuration = configuration;
-        this.name = name;
-        this.products = products;
-    }
-
+    private GetPatchBaselineSource() {}
     /**
      * @return The value of the yum repo configuration.
      * 
@@ -65,16 +56,12 @@ public final class GetPatchBaselineSource {
     public static Builder builder(GetPatchBaselineSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String configuration;
         private String name;
         private List<String> products;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPatchBaselineSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configuration = defaults.configuration;
@@ -82,22 +69,30 @@ public final class GetPatchBaselineSource {
     	      this.products = defaults.products;
         }
 
+        @CustomType.Setter
         public Builder configuration(String configuration) {
             this.configuration = Objects.requireNonNull(configuration);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder products(List<String> products) {
             this.products = Objects.requireNonNull(products);
             return this;
         }
         public Builder products(String... products) {
             return products(List.of(products));
-        }        public GetPatchBaselineSource build() {
-            return new GetPatchBaselineSource(configuration, name, products);
+        }
+        public GetPatchBaselineSource build() {
+            final var o = new GetPatchBaselineSource();
+            o.configuration = configuration;
+            o.name = name;
+            o.products = products;
+            return o;
         }
     }
 }

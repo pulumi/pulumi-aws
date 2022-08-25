@@ -16,56 +16,39 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      * @return Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
      * 
      */
-    private final @Nullable String dataPullMode;
+    private @Nullable String dataPullMode;
     /**
      * @return Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
      * 
      */
-    private final @Nullable String firstExecutionFrom;
+    private @Nullable String firstExecutionFrom;
     /**
      * @return Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
-    private final @Nullable String scheduleEndTime;
+    private @Nullable String scheduleEndTime;
     /**
      * @return The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
      * 
      */
-    private final String scheduleExpression;
+    private String scheduleExpression;
     /**
      * @return Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
      * 
      */
-    private final @Nullable Integer scheduleOffset;
+    private @Nullable Integer scheduleOffset;
     /**
      * @return Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
-    private final @Nullable String scheduleStartTime;
+    private @Nullable String scheduleStartTime;
     /**
      * @return Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
      */
-    private final @Nullable String timezone;
+    private @Nullable String timezone;
 
-    @CustomType.Constructor
-    private FlowTriggerConfigTriggerPropertiesScheduled(
-        @CustomType.Parameter("dataPullMode") @Nullable String dataPullMode,
-        @CustomType.Parameter("firstExecutionFrom") @Nullable String firstExecutionFrom,
-        @CustomType.Parameter("scheduleEndTime") @Nullable String scheduleEndTime,
-        @CustomType.Parameter("scheduleExpression") String scheduleExpression,
-        @CustomType.Parameter("scheduleOffset") @Nullable Integer scheduleOffset,
-        @CustomType.Parameter("scheduleStartTime") @Nullable String scheduleStartTime,
-        @CustomType.Parameter("timezone") @Nullable String timezone) {
-        this.dataPullMode = dataPullMode;
-        this.firstExecutionFrom = firstExecutionFrom;
-        this.scheduleEndTime = scheduleEndTime;
-        this.scheduleExpression = scheduleExpression;
-        this.scheduleOffset = scheduleOffset;
-        this.scheduleStartTime = scheduleStartTime;
-        this.timezone = timezone;
-    }
-
+    private FlowTriggerConfigTriggerPropertiesScheduled() {}
     /**
      * @return Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
      * 
@@ -123,7 +106,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
     public static Builder builder(FlowTriggerConfigTriggerPropertiesScheduled defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dataPullMode;
         private @Nullable String firstExecutionFrom;
@@ -132,11 +115,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
         private @Nullable Integer scheduleOffset;
         private @Nullable String scheduleStartTime;
         private @Nullable String timezone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowTriggerConfigTriggerPropertiesScheduled defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataPullMode = defaults.dataPullMode;
@@ -148,35 +127,51 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
     	      this.timezone = defaults.timezone;
         }
 
+        @CustomType.Setter
         public Builder dataPullMode(@Nullable String dataPullMode) {
             this.dataPullMode = dataPullMode;
             return this;
         }
+        @CustomType.Setter
         public Builder firstExecutionFrom(@Nullable String firstExecutionFrom) {
             this.firstExecutionFrom = firstExecutionFrom;
             return this;
         }
+        @CustomType.Setter
         public Builder scheduleEndTime(@Nullable String scheduleEndTime) {
             this.scheduleEndTime = scheduleEndTime;
             return this;
         }
+        @CustomType.Setter
         public Builder scheduleExpression(String scheduleExpression) {
             this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
             return this;
         }
+        @CustomType.Setter
         public Builder scheduleOffset(@Nullable Integer scheduleOffset) {
             this.scheduleOffset = scheduleOffset;
             return this;
         }
+        @CustomType.Setter
         public Builder scheduleStartTime(@Nullable String scheduleStartTime) {
             this.scheduleStartTime = scheduleStartTime;
             return this;
         }
+        @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
             this.timezone = timezone;
             return this;
-        }        public FlowTriggerConfigTriggerPropertiesScheduled build() {
-            return new FlowTriggerConfigTriggerPropertiesScheduled(dataPullMode, firstExecutionFrom, scheduleEndTime, scheduleExpression, scheduleOffset, scheduleStartTime, timezone);
+        }
+        public FlowTriggerConfigTriggerPropertiesScheduled build() {
+            final var o = new FlowTriggerConfigTriggerPropertiesScheduled();
+            o.dataPullMode = dataPullMode;
+            o.firstExecutionFrom = firstExecutionFrom;
+            o.scheduleEndTime = scheduleEndTime;
+            o.scheduleExpression = scheduleExpression;
+            o.scheduleOffset = scheduleOffset;
+            o.scheduleStartTime = scheduleStartTime;
+            o.timezone = timezone;
+            return o;
         }
     }
 }

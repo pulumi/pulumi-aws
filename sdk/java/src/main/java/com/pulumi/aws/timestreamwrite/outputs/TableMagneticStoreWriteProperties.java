@@ -16,21 +16,14 @@ public final class TableMagneticStoreWriteProperties {
      * @return A flag to enable magnetic store writes.
      * 
      */
-    private final @Nullable Boolean enableMagneticStoreWrites;
+    private @Nullable Boolean enableMagneticStoreWrites;
     /**
      * @return The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
      * 
      */
-    private final @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation magneticStoreRejectedDataLocation;
+    private @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation magneticStoreRejectedDataLocation;
 
-    @CustomType.Constructor
-    private TableMagneticStoreWriteProperties(
-        @CustomType.Parameter("enableMagneticStoreWrites") @Nullable Boolean enableMagneticStoreWrites,
-        @CustomType.Parameter("magneticStoreRejectedDataLocation") @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation magneticStoreRejectedDataLocation) {
-        this.enableMagneticStoreWrites = enableMagneticStoreWrites;
-        this.magneticStoreRejectedDataLocation = magneticStoreRejectedDataLocation;
-    }
-
+    private TableMagneticStoreWriteProperties() {}
     /**
      * @return A flag to enable magnetic store writes.
      * 
@@ -53,30 +46,32 @@ public final class TableMagneticStoreWriteProperties {
     public static Builder builder(TableMagneticStoreWriteProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enableMagneticStoreWrites;
         private @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation magneticStoreRejectedDataLocation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableMagneticStoreWriteProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableMagneticStoreWrites = defaults.enableMagneticStoreWrites;
     	      this.magneticStoreRejectedDataLocation = defaults.magneticStoreRejectedDataLocation;
         }
 
+        @CustomType.Setter
         public Builder enableMagneticStoreWrites(@Nullable Boolean enableMagneticStoreWrites) {
             this.enableMagneticStoreWrites = enableMagneticStoreWrites;
             return this;
         }
+        @CustomType.Setter
         public Builder magneticStoreRejectedDataLocation(@Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation magneticStoreRejectedDataLocation) {
             this.magneticStoreRejectedDataLocation = magneticStoreRejectedDataLocation;
             return this;
-        }        public TableMagneticStoreWriteProperties build() {
-            return new TableMagneticStoreWriteProperties(enableMagneticStoreWrites, magneticStoreRejectedDataLocation);
+        }
+        public TableMagneticStoreWriteProperties build() {
+            final var o = new TableMagneticStoreWriteProperties();
+            o.enableMagneticStoreWrites = enableMagneticStoreWrites;
+            o.magneticStoreRejectedDataLocation = magneticStoreRejectedDataLocation;
+            return o;
         }
     }
 }

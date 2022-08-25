@@ -15,21 +15,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector 
      * @return The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
      */
-    private final @Nullable Map<String,String> customProperties;
+    private @Nullable Map<String,String> customProperties;
     /**
      * @return The entity specified in the custom connector as a source in the flow.
      * 
      */
-    private final String entityName;
+    private String entityName;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector(
-        @CustomType.Parameter("customProperties") @Nullable Map<String,String> customProperties,
-        @CustomType.Parameter("entityName") String entityName) {
-        this.customProperties = customProperties;
-        this.entityName = entityName;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector() {}
     /**
      * @return The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
@@ -52,30 +45,32 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector 
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> customProperties;
         private String entityName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customProperties = defaults.customProperties;
     	      this.entityName = defaults.entityName;
         }
 
+        @CustomType.Setter
         public Builder customProperties(@Nullable Map<String,String> customProperties) {
             this.customProperties = customProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder entityName(String entityName) {
             this.entityName = Objects.requireNonNull(entityName);
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector(customProperties, entityName);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector();
+            o.customProperties = customProperties;
+            o.entityName = entityName;
+            return o;
         }
     }
 }

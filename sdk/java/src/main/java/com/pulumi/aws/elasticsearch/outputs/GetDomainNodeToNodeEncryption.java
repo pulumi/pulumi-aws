@@ -13,13 +13,9 @@ public final class GetDomainNodeToNodeEncryption {
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetDomainNodeToNodeEncryption(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private GetDomainNodeToNodeEncryption() {}
     /**
      * @return Whether node to node encryption is enabled.
      * 
@@ -35,24 +31,24 @@ public final class GetDomainNodeToNodeEncryption {
     public static Builder builder(GetDomainNodeToNodeEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainNodeToNodeEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetDomainNodeToNodeEncryption build() {
-            return new GetDomainNodeToNodeEncryption(enabled);
+        }
+        public GetDomainNodeToNodeEncryption build() {
+            final var o = new GetDomainNodeToNodeEncryption();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

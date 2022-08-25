@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateEnclaveOption {
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateEnclaveOption(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private GetLaunchTemplateEnclaveOption() {}
     public Boolean enabled() {
         return this.enabled;
     }
@@ -27,24 +23,24 @@ public final class GetLaunchTemplateEnclaveOption {
     public static Builder builder(GetLaunchTemplateEnclaveOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateEnclaveOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetLaunchTemplateEnclaveOption build() {
-            return new GetLaunchTemplateEnclaveOption(enabled);
+        }
+        public GetLaunchTemplateEnclaveOption build() {
+            final var o = new GetLaunchTemplateEnclaveOption();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

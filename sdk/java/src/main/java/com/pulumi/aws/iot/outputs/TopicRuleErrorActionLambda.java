@@ -13,13 +13,9 @@ public final class TopicRuleErrorActionLambda {
      * @return The ARN of the Lambda function.
      * 
      */
-    private final String functionArn;
+    private String functionArn;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionLambda(@CustomType.Parameter("functionArn") String functionArn) {
-        this.functionArn = functionArn;
-    }
-
+    private TopicRuleErrorActionLambda() {}
     /**
      * @return The ARN of the Lambda function.
      * 
@@ -35,24 +31,24 @@ public final class TopicRuleErrorActionLambda {
     public static Builder builder(TopicRuleErrorActionLambda defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String functionArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionLambda defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functionArn = defaults.functionArn;
         }
 
+        @CustomType.Setter
         public Builder functionArn(String functionArn) {
             this.functionArn = Objects.requireNonNull(functionArn);
             return this;
-        }        public TopicRuleErrorActionLambda build() {
-            return new TopicRuleErrorActionLambda(functionArn);
+        }
+        public TopicRuleErrorActionLambda build() {
+            final var o = new TopicRuleErrorActionLambda();
+            o.functionArn = functionArn;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class LinkBandwidth {
      * @return Download speed in Mbps.
      * 
      */
-    private final @Nullable Integer downloadSpeed;
+    private @Nullable Integer downloadSpeed;
     /**
      * @return Upload speed in Mbps.
      * 
      */
-    private final @Nullable Integer uploadSpeed;
+    private @Nullable Integer uploadSpeed;
 
-    @CustomType.Constructor
-    private LinkBandwidth(
-        @CustomType.Parameter("downloadSpeed") @Nullable Integer downloadSpeed,
-        @CustomType.Parameter("uploadSpeed") @Nullable Integer uploadSpeed) {
-        this.downloadSpeed = downloadSpeed;
-        this.uploadSpeed = uploadSpeed;
-    }
-
+    private LinkBandwidth() {}
     /**
      * @return Download speed in Mbps.
      * 
@@ -52,30 +45,32 @@ public final class LinkBandwidth {
     public static Builder builder(LinkBandwidth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer downloadSpeed;
         private @Nullable Integer uploadSpeed;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkBandwidth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.downloadSpeed = defaults.downloadSpeed;
     	      this.uploadSpeed = defaults.uploadSpeed;
         }
 
+        @CustomType.Setter
         public Builder downloadSpeed(@Nullable Integer downloadSpeed) {
             this.downloadSpeed = downloadSpeed;
             return this;
         }
+        @CustomType.Setter
         public Builder uploadSpeed(@Nullable Integer uploadSpeed) {
             this.uploadSpeed = uploadSpeed;
             return this;
-        }        public LinkBandwidth build() {
-            return new LinkBandwidth(downloadSpeed, uploadSpeed);
+        }
+        public LinkBandwidth build() {
+            final var o = new LinkBandwidth();
+            o.downloadSpeed = downloadSpeed;
+            o.uploadSpeed = uploadSpeed;
+            return o;
         }
     }
 }

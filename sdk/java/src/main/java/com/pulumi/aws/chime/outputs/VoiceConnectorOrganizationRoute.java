@@ -16,42 +16,29 @@ public final class VoiceConnectorOrganizationRoute {
      * @return The FQDN or IP address to contact for origination traffic.
      * 
      */
-    private final String host;
+    private String host;
     /**
      * @return The designated origination route port. Defaults to `5060`.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
      * 
      */
-    private final Integer weight;
+    private Integer weight;
 
-    @CustomType.Constructor
-    private VoiceConnectorOrganizationRoute(
-        @CustomType.Parameter("host") String host,
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("weight") Integer weight) {
-        this.host = host;
-        this.port = port;
-        this.priority = priority;
-        this.protocol = protocol;
-        this.weight = weight;
-    }
-
+    private VoiceConnectorOrganizationRoute() {}
     /**
      * @return The FQDN or IP address to contact for origination traffic.
      * 
@@ -95,18 +82,14 @@ public final class VoiceConnectorOrganizationRoute {
     public static Builder builder(VoiceConnectorOrganizationRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String host;
         private @Nullable Integer port;
         private Integer priority;
         private String protocol;
         private Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VoiceConnectorOrganizationRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.host = defaults.host;
@@ -116,27 +99,39 @@ public final class VoiceConnectorOrganizationRoute {
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder host(String host) {
             this.host = Objects.requireNonNull(host);
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder weight(Integer weight) {
             this.weight = Objects.requireNonNull(weight);
             return this;
-        }        public VoiceConnectorOrganizationRoute build() {
-            return new VoiceConnectorOrganizationRoute(host, port, priority, protocol, weight);
+        }
+        public VoiceConnectorOrganizationRoute build() {
+            final var o = new VoiceConnectorOrganizationRoute();
+            o.host = host;
+            o.port = port;
+            o.priority = priority;
+            o.protocol = protocol;
+            o.weight = weight;
+            return o;
         }
     }
 }

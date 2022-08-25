@@ -15,28 +15,19 @@ public final class GetReportPlanReportSetting {
      * @return Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
      */
-    private final List<String> frameworkArns;
+    private List<String> frameworkArns;
     /**
      * @return Specifies the number of frameworks a report covers.
      * 
      */
-    private final Integer numberOfFrameworks;
+    private Integer numberOfFrameworks;
     /**
      * @return Identifies the report template for the report. Reports are built using a report template.
      * 
      */
-    private final String reportTemplate;
+    private String reportTemplate;
 
-    @CustomType.Constructor
-    private GetReportPlanReportSetting(
-        @CustomType.Parameter("frameworkArns") List<String> frameworkArns,
-        @CustomType.Parameter("numberOfFrameworks") Integer numberOfFrameworks,
-        @CustomType.Parameter("reportTemplate") String reportTemplate) {
-        this.frameworkArns = frameworkArns;
-        this.numberOfFrameworks = numberOfFrameworks;
-        this.reportTemplate = reportTemplate;
-    }
-
+    private GetReportPlanReportSetting() {}
     /**
      * @return Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
@@ -66,16 +57,12 @@ public final class GetReportPlanReportSetting {
     public static Builder builder(GetReportPlanReportSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> frameworkArns;
         private Integer numberOfFrameworks;
         private String reportTemplate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetReportPlanReportSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frameworkArns = defaults.frameworkArns;
@@ -83,6 +70,7 @@ public final class GetReportPlanReportSetting {
     	      this.reportTemplate = defaults.reportTemplate;
         }
 
+        @CustomType.Setter
         public Builder frameworkArns(List<String> frameworkArns) {
             this.frameworkArns = Objects.requireNonNull(frameworkArns);
             return this;
@@ -90,15 +78,22 @@ public final class GetReportPlanReportSetting {
         public Builder frameworkArns(String... frameworkArns) {
             return frameworkArns(List.of(frameworkArns));
         }
+        @CustomType.Setter
         public Builder numberOfFrameworks(Integer numberOfFrameworks) {
             this.numberOfFrameworks = Objects.requireNonNull(numberOfFrameworks);
             return this;
         }
+        @CustomType.Setter
         public Builder reportTemplate(String reportTemplate) {
             this.reportTemplate = Objects.requireNonNull(reportTemplate);
             return this;
-        }        public GetReportPlanReportSetting build() {
-            return new GetReportPlanReportSetting(frameworkArns, numberOfFrameworks, reportTemplate);
+        }
+        public GetReportPlanReportSetting build() {
+            final var o = new GetReportPlanReportSetting();
+            o.frameworkArns = frameworkArns;
+            o.numberOfFrameworks = numberOfFrameworks;
+            o.reportTemplate = reportTemplate;
+            return o;
         }
     }
 }

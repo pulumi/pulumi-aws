@@ -15,21 +15,14 @@ public final class GetTagsSortBy {
      * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
      * 
      */
-    private final @Nullable String sortOrder;
+    private @Nullable String sortOrder;
 
-    @CustomType.Constructor
-    private GetTagsSortBy(
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("sortOrder") @Nullable String sortOrder) {
-        this.key = key;
-        this.sortOrder = sortOrder;
-    }
-
+    private GetTagsSortBy() {}
     /**
      * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
      * 
@@ -52,30 +45,32 @@ public final class GetTagsSortBy {
     public static Builder builder(GetTagsSortBy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String key;
         private @Nullable String sortOrder;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTagsSortBy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.sortOrder = defaults.sortOrder;
         }
 
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder sortOrder(@Nullable String sortOrder) {
             this.sortOrder = sortOrder;
             return this;
-        }        public GetTagsSortBy build() {
-            return new GetTagsSortBy(key, sortOrder);
+        }
+        public GetTagsSortBy build() {
+            final var o = new GetTagsSortBy();
+            o.key = key;
+            o.sortOrder = sortOrder;
+            return o;
         }
     }
 }

@@ -17,30 +17,17 @@ public final class GetIpamPreviewNextCidrResult {
      * @return The previewed CIDR from the pool.
      * 
      */
-    private final String cidr;
-    private final @Nullable List<String> disallowedCidrs;
+    private String cidr;
+    private @Nullable List<String> disallowedCidrs;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String ipamPoolId;
-    private final @Nullable Integer netmaskLength;
+    private String id;
+    private String ipamPoolId;
+    private @Nullable Integer netmaskLength;
 
-    @CustomType.Constructor
-    private GetIpamPreviewNextCidrResult(
-        @CustomType.Parameter("cidr") String cidr,
-        @CustomType.Parameter("disallowedCidrs") @Nullable List<String> disallowedCidrs,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipamPoolId") String ipamPoolId,
-        @CustomType.Parameter("netmaskLength") @Nullable Integer netmaskLength) {
-        this.cidr = cidr;
-        this.disallowedCidrs = disallowedCidrs;
-        this.id = id;
-        this.ipamPoolId = ipamPoolId;
-        this.netmaskLength = netmaskLength;
-    }
-
+    private GetIpamPreviewNextCidrResult() {}
     /**
      * @return The previewed CIDR from the pool.
      * 
@@ -72,18 +59,14 @@ public final class GetIpamPreviewNextCidrResult {
     public static Builder builder(GetIpamPreviewNextCidrResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cidr;
         private @Nullable List<String> disallowedCidrs;
         private String id;
         private String ipamPoolId;
         private @Nullable Integer netmaskLength;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIpamPreviewNextCidrResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidr = defaults.cidr;
@@ -93,10 +76,12 @@ public final class GetIpamPreviewNextCidrResult {
     	      this.netmaskLength = defaults.netmaskLength;
         }
 
+        @CustomType.Setter
         public Builder cidr(String cidr) {
             this.cidr = Objects.requireNonNull(cidr);
             return this;
         }
+        @CustomType.Setter
         public Builder disallowedCidrs(@Nullable List<String> disallowedCidrs) {
             this.disallowedCidrs = disallowedCidrs;
             return this;
@@ -104,19 +89,29 @@ public final class GetIpamPreviewNextCidrResult {
         public Builder disallowedCidrs(String... disallowedCidrs) {
             return disallowedCidrs(List.of(disallowedCidrs));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipamPoolId(String ipamPoolId) {
             this.ipamPoolId = Objects.requireNonNull(ipamPoolId);
             return this;
         }
+        @CustomType.Setter
         public Builder netmaskLength(@Nullable Integer netmaskLength) {
             this.netmaskLength = netmaskLength;
             return this;
-        }        public GetIpamPreviewNextCidrResult build() {
-            return new GetIpamPreviewNextCidrResult(cidr, disallowedCidrs, id, ipamPoolId, netmaskLength);
+        }
+        public GetIpamPreviewNextCidrResult build() {
+            final var o = new GetIpamPreviewNextCidrResult();
+            o.cidr = cidr;
+            o.disallowedCidrs = disallowedCidrs;
+            o.id = id;
+            o.ipamPoolId = ipamPoolId;
+            o.netmaskLength = netmaskLength;
+            return o;
         }
     }
 }

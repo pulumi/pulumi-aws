@@ -16,28 +16,19 @@ public final class ReportPlanReportDeliveryChannel {
      * @return A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
      * 
      */
-    private final @Nullable List<String> formats;
+    private @Nullable List<String> formats;
     /**
      * @return The unique name of the S3 bucket that receives your reports.
      * 
      */
-    private final String s3BucketName;
+    private String s3BucketName;
     /**
      * @return The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
      * 
      */
-    private final @Nullable String s3KeyPrefix;
+    private @Nullable String s3KeyPrefix;
 
-    @CustomType.Constructor
-    private ReportPlanReportDeliveryChannel(
-        @CustomType.Parameter("formats") @Nullable List<String> formats,
-        @CustomType.Parameter("s3BucketName") String s3BucketName,
-        @CustomType.Parameter("s3KeyPrefix") @Nullable String s3KeyPrefix) {
-        this.formats = formats;
-        this.s3BucketName = s3BucketName;
-        this.s3KeyPrefix = s3KeyPrefix;
-    }
-
+    private ReportPlanReportDeliveryChannel() {}
     /**
      * @return A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
      * 
@@ -67,16 +58,12 @@ public final class ReportPlanReportDeliveryChannel {
     public static Builder builder(ReportPlanReportDeliveryChannel defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> formats;
         private String s3BucketName;
         private @Nullable String s3KeyPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReportPlanReportDeliveryChannel defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.formats = defaults.formats;
@@ -84,6 +71,7 @@ public final class ReportPlanReportDeliveryChannel {
     	      this.s3KeyPrefix = defaults.s3KeyPrefix;
         }
 
+        @CustomType.Setter
         public Builder formats(@Nullable List<String> formats) {
             this.formats = formats;
             return this;
@@ -91,15 +79,22 @@ public final class ReportPlanReportDeliveryChannel {
         public Builder formats(String... formats) {
             return formats(List.of(formats));
         }
+        @CustomType.Setter
         public Builder s3BucketName(String s3BucketName) {
             this.s3BucketName = Objects.requireNonNull(s3BucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder s3KeyPrefix(@Nullable String s3KeyPrefix) {
             this.s3KeyPrefix = s3KeyPrefix;
             return this;
-        }        public ReportPlanReportDeliveryChannel build() {
-            return new ReportPlanReportDeliveryChannel(formats, s3BucketName, s3KeyPrefix);
+        }
+        public ReportPlanReportDeliveryChannel build() {
+            final var o = new ReportPlanReportDeliveryChannel();
+            o.formats = formats;
+            o.s3BucketName = s3BucketName;
+            o.s3KeyPrefix = s3KeyPrefix;
+            return o;
         }
     }
 }

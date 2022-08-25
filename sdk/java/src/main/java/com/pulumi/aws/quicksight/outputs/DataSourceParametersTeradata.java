@@ -14,28 +14,19 @@ public final class DataSourceParametersTeradata {
      * @return The database to which to connect.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The host to which to connect.
      * 
      */
-    private final String host;
+    private String host;
     /**
      * @return The warehouse to which to connect.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private DataSourceParametersTeradata(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("host") String host,
-        @CustomType.Parameter("port") Integer port) {
-        this.database = database;
-        this.host = host;
-        this.port = port;
-    }
-
+    private DataSourceParametersTeradata() {}
     /**
      * @return The database to which to connect.
      * 
@@ -65,16 +56,12 @@ public final class DataSourceParametersTeradata {
     public static Builder builder(DataSourceParametersTeradata defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String host;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersTeradata defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -82,19 +69,27 @@ public final class DataSourceParametersTeradata {
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder host(String host) {
             this.host = Objects.requireNonNull(host);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public DataSourceParametersTeradata build() {
-            return new DataSourceParametersTeradata(database, host, port);
+        }
+        public DataSourceParametersTeradata build() {
+            final var o = new DataSourceParametersTeradata();
+            o.database = database;
+            o.host = host;
+            o.port = port;
+            return o;
         }
     }
 }

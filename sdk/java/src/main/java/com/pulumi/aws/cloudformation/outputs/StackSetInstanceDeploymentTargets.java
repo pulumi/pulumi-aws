@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackSetInstanceDeploymentTargets {
-    private final @Nullable List<String> organizationalUnitIds;
+    private @Nullable List<String> organizationalUnitIds;
 
-    @CustomType.Constructor
-    private StackSetInstanceDeploymentTargets(@CustomType.Parameter("organizationalUnitIds") @Nullable List<String> organizationalUnitIds) {
-        this.organizationalUnitIds = organizationalUnitIds;
-    }
-
+    private StackSetInstanceDeploymentTargets() {}
     public List<String> organizationalUnitIds() {
         return this.organizationalUnitIds == null ? List.of() : this.organizationalUnitIds;
     }
@@ -29,27 +25,27 @@ public final class StackSetInstanceDeploymentTargets {
     public static Builder builder(StackSetInstanceDeploymentTargets defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> organizationalUnitIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StackSetInstanceDeploymentTargets defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.organizationalUnitIds = defaults.organizationalUnitIds;
         }
 
+        @CustomType.Setter
         public Builder organizationalUnitIds(@Nullable List<String> organizationalUnitIds) {
             this.organizationalUnitIds = organizationalUnitIds;
             return this;
         }
         public Builder organizationalUnitIds(String... organizationalUnitIds) {
             return organizationalUnitIds(List.of(organizationalUnitIds));
-        }        public StackSetInstanceDeploymentTargets build() {
-            return new StackSetInstanceDeploymentTargets(organizationalUnitIds);
+        }
+        public StackSetInstanceDeploymentTargets build() {
+            final var o = new StackSetInstanceDeploymentTargets();
+            o.organizationalUnitIds = organizationalUnitIds;
+            return o;
         }
     }
 }

@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResponseHeadersPolicyCorsConfigAccessControlAllowMethods {
-    private final @Nullable List<String> items;
+    private @Nullable List<String> items;
 
-    @CustomType.Constructor
-    private ResponseHeadersPolicyCorsConfigAccessControlAllowMethods(@CustomType.Parameter("items") @Nullable List<String> items) {
-        this.items = items;
-    }
-
+    private ResponseHeadersPolicyCorsConfigAccessControlAllowMethods() {}
     public List<String> items() {
         return this.items == null ? List.of() : this.items;
     }
@@ -29,27 +25,27 @@ public final class ResponseHeadersPolicyCorsConfigAccessControlAllowMethods {
     public static Builder builder(ResponseHeadersPolicyCorsConfigAccessControlAllowMethods defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponseHeadersPolicyCorsConfigAccessControlAllowMethods defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
             this.items = items;
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public ResponseHeadersPolicyCorsConfigAccessControlAllowMethods build() {
-            return new ResponseHeadersPolicyCorsConfigAccessControlAllowMethods(items);
+        }
+        public ResponseHeadersPolicyCorsConfigAccessControlAllowMethods build() {
+            final var o = new ResponseHeadersPolicyCorsConfigAccessControlAllowMethods();
+            o.items = items;
+            return o;
         }
     }
 }

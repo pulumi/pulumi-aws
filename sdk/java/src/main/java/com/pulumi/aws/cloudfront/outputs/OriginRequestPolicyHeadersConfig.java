@@ -12,17 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OriginRequestPolicyHeadersConfig {
-    private final @Nullable String headerBehavior;
-    private final @Nullable OriginRequestPolicyHeadersConfigHeaders headers;
+    private @Nullable String headerBehavior;
+    private @Nullable OriginRequestPolicyHeadersConfigHeaders headers;
 
-    @CustomType.Constructor
-    private OriginRequestPolicyHeadersConfig(
-        @CustomType.Parameter("headerBehavior") @Nullable String headerBehavior,
-        @CustomType.Parameter("headers") @Nullable OriginRequestPolicyHeadersConfigHeaders headers) {
-        this.headerBehavior = headerBehavior;
-        this.headers = headers;
-    }
-
+    private OriginRequestPolicyHeadersConfig() {}
     public Optional<String> headerBehavior() {
         return Optional.ofNullable(this.headerBehavior);
     }
@@ -37,30 +30,32 @@ public final class OriginRequestPolicyHeadersConfig {
     public static Builder builder(OriginRequestPolicyHeadersConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String headerBehavior;
         private @Nullable OriginRequestPolicyHeadersConfigHeaders headers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OriginRequestPolicyHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headerBehavior = defaults.headerBehavior;
     	      this.headers = defaults.headers;
         }
 
+        @CustomType.Setter
         public Builder headerBehavior(@Nullable String headerBehavior) {
             this.headerBehavior = headerBehavior;
             return this;
         }
+        @CustomType.Setter
         public Builder headers(@Nullable OriginRequestPolicyHeadersConfigHeaders headers) {
             this.headers = headers;
             return this;
-        }        public OriginRequestPolicyHeadersConfig build() {
-            return new OriginRequestPolicyHeadersConfig(headerBehavior, headers);
+        }
+        public OriginRequestPolicyHeadersConfig build() {
+            final var o = new OriginRequestPolicyHeadersConfig();
+            o.headerBehavior = headerBehavior;
+            o.headers = headers;
+            return o;
         }
     }
 }

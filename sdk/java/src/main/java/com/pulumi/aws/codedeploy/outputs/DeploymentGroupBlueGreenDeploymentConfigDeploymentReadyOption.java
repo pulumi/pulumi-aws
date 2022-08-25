@@ -18,21 +18,14 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
      * * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
      * 
      */
-    private final @Nullable String actionOnTimeout;
+    private @Nullable String actionOnTimeout;
     /**
      * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
      * 
      */
-    private final @Nullable Integer waitTimeInMinutes;
+    private @Nullable Integer waitTimeInMinutes;
 
-    @CustomType.Constructor
-    private DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(
-        @CustomType.Parameter("actionOnTimeout") @Nullable String actionOnTimeout,
-        @CustomType.Parameter("waitTimeInMinutes") @Nullable Integer waitTimeInMinutes) {
-        this.actionOnTimeout = actionOnTimeout;
-        this.waitTimeInMinutes = waitTimeInMinutes;
-    }
-
+    private DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption() {}
     /**
      * @return When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
      * * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
@@ -57,30 +50,32 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
     public static Builder builder(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String actionOnTimeout;
         private @Nullable Integer waitTimeInMinutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionOnTimeout = defaults.actionOnTimeout;
     	      this.waitTimeInMinutes = defaults.waitTimeInMinutes;
         }
 
+        @CustomType.Setter
         public Builder actionOnTimeout(@Nullable String actionOnTimeout) {
             this.actionOnTimeout = actionOnTimeout;
             return this;
         }
+        @CustomType.Setter
         public Builder waitTimeInMinutes(@Nullable Integer waitTimeInMinutes) {
             this.waitTimeInMinutes = waitTimeInMinutes;
             return this;
-        }        public DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption build() {
-            return new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(actionOnTimeout, waitTimeInMinutes);
+        }
+        public DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption build() {
+            final var o = new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption();
+            o.actionOnTimeout = actionOnTimeout;
+            o.waitTimeInMinutes = waitTimeInMinutes;
+            return o;
         }
     }
 }

@@ -14,23 +14,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SelectionCondition {
-    private final @Nullable List<SelectionConditionStringEqual> stringEquals;
-    private final @Nullable List<SelectionConditionStringLike> stringLikes;
-    private final @Nullable List<SelectionConditionStringNotEqual> stringNotEquals;
-    private final @Nullable List<SelectionConditionStringNotLike> stringNotLikes;
+    private @Nullable List<SelectionConditionStringEqual> stringEquals;
+    private @Nullable List<SelectionConditionStringLike> stringLikes;
+    private @Nullable List<SelectionConditionStringNotEqual> stringNotEquals;
+    private @Nullable List<SelectionConditionStringNotLike> stringNotLikes;
 
-    @CustomType.Constructor
-    private SelectionCondition(
-        @CustomType.Parameter("stringEquals") @Nullable List<SelectionConditionStringEqual> stringEquals,
-        @CustomType.Parameter("stringLikes") @Nullable List<SelectionConditionStringLike> stringLikes,
-        @CustomType.Parameter("stringNotEquals") @Nullable List<SelectionConditionStringNotEqual> stringNotEquals,
-        @CustomType.Parameter("stringNotLikes") @Nullable List<SelectionConditionStringNotLike> stringNotLikes) {
-        this.stringEquals = stringEquals;
-        this.stringLikes = stringLikes;
-        this.stringNotEquals = stringNotEquals;
-        this.stringNotLikes = stringNotLikes;
-    }
-
+    private SelectionCondition() {}
     public List<SelectionConditionStringEqual> stringEquals() {
         return this.stringEquals == null ? List.of() : this.stringEquals;
     }
@@ -51,17 +40,13 @@ public final class SelectionCondition {
     public static Builder builder(SelectionCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<SelectionConditionStringEqual> stringEquals;
         private @Nullable List<SelectionConditionStringLike> stringLikes;
         private @Nullable List<SelectionConditionStringNotEqual> stringNotEquals;
         private @Nullable List<SelectionConditionStringNotLike> stringNotLikes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SelectionCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.stringEquals = defaults.stringEquals;
@@ -70,6 +55,7 @@ public final class SelectionCondition {
     	      this.stringNotLikes = defaults.stringNotLikes;
         }
 
+        @CustomType.Setter
         public Builder stringEquals(@Nullable List<SelectionConditionStringEqual> stringEquals) {
             this.stringEquals = stringEquals;
             return this;
@@ -77,6 +63,7 @@ public final class SelectionCondition {
         public Builder stringEquals(SelectionConditionStringEqual... stringEquals) {
             return stringEquals(List.of(stringEquals));
         }
+        @CustomType.Setter
         public Builder stringLikes(@Nullable List<SelectionConditionStringLike> stringLikes) {
             this.stringLikes = stringLikes;
             return this;
@@ -84,6 +71,7 @@ public final class SelectionCondition {
         public Builder stringLikes(SelectionConditionStringLike... stringLikes) {
             return stringLikes(List.of(stringLikes));
         }
+        @CustomType.Setter
         public Builder stringNotEquals(@Nullable List<SelectionConditionStringNotEqual> stringNotEquals) {
             this.stringNotEquals = stringNotEquals;
             return this;
@@ -91,14 +79,21 @@ public final class SelectionCondition {
         public Builder stringNotEquals(SelectionConditionStringNotEqual... stringNotEquals) {
             return stringNotEquals(List.of(stringNotEquals));
         }
+        @CustomType.Setter
         public Builder stringNotLikes(@Nullable List<SelectionConditionStringNotLike> stringNotLikes) {
             this.stringNotLikes = stringNotLikes;
             return this;
         }
         public Builder stringNotLikes(SelectionConditionStringNotLike... stringNotLikes) {
             return stringNotLikes(List.of(stringNotLikes));
-        }        public SelectionCondition build() {
-            return new SelectionCondition(stringEquals, stringLikes, stringNotEquals, stringNotLikes);
+        }
+        public SelectionCondition build() {
+            final var o = new SelectionCondition();
+            o.stringEquals = stringEquals;
+            o.stringLikes = stringLikes;
+            o.stringNotEquals = stringNotEquals;
+            o.stringNotLikes = stringNotLikes;
+            return o;
         }
     }
 }

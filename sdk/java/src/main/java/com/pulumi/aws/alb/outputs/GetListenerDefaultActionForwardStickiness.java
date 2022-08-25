@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultActionForwardStickiness {
-    private final Integer duration;
-    private final Boolean enabled;
+    private Integer duration;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetListenerDefaultActionForwardStickiness(
-        @CustomType.Parameter("duration") Integer duration,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.duration = duration;
-        this.enabled = enabled;
-    }
-
+    private GetListenerDefaultActionForwardStickiness() {}
     public Integer duration() {
         return this.duration;
     }
@@ -35,30 +28,32 @@ public final class GetListenerDefaultActionForwardStickiness {
     public static Builder builder(GetListenerDefaultActionForwardStickiness defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer duration;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetListenerDefaultActionForwardStickiness defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder duration(Integer duration) {
             this.duration = Objects.requireNonNull(duration);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetListenerDefaultActionForwardStickiness build() {
-            return new GetListenerDefaultActionForwardStickiness(duration, enabled);
+        }
+        public GetListenerDefaultActionForwardStickiness build() {
+            final var o = new GetListenerDefaultActionForwardStickiness();
+            o.duration = duration;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

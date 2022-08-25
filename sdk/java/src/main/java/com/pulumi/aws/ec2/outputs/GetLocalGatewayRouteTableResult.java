@@ -13,36 +13,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocalGatewayRouteTableResult {
-    private final @Nullable List<GetLocalGatewayRouteTableFilter> filters;
+    private @Nullable List<GetLocalGatewayRouteTableFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String localGatewayId;
-    private final String localGatewayRouteTableId;
-    private final String outpostArn;
-    private final String state;
-    private final Map<String,String> tags;
+    private String id;
+    private String localGatewayId;
+    private String localGatewayRouteTableId;
+    private String outpostArn;
+    private String state;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetLocalGatewayRouteTableResult(
-        @CustomType.Parameter("filters") @Nullable List<GetLocalGatewayRouteTableFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("localGatewayId") String localGatewayId,
-        @CustomType.Parameter("localGatewayRouteTableId") String localGatewayRouteTableId,
-        @CustomType.Parameter("outpostArn") String outpostArn,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.filters = filters;
-        this.id = id;
-        this.localGatewayId = localGatewayId;
-        this.localGatewayRouteTableId = localGatewayRouteTableId;
-        this.outpostArn = outpostArn;
-        this.state = state;
-        this.tags = tags;
-    }
-
+    private GetLocalGatewayRouteTableResult() {}
     public List<GetLocalGatewayRouteTableFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -76,7 +59,7 @@ public final class GetLocalGatewayRouteTableResult {
     public static Builder builder(GetLocalGatewayRouteTableResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetLocalGatewayRouteTableFilter> filters;
         private String id;
@@ -85,11 +68,7 @@ public final class GetLocalGatewayRouteTableResult {
         private String outpostArn;
         private String state;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLocalGatewayRouteTableResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -101,6 +80,7 @@ public final class GetLocalGatewayRouteTableResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetLocalGatewayRouteTableFilter> filters) {
             this.filters = filters;
             return this;
@@ -108,31 +88,46 @@ public final class GetLocalGatewayRouteTableResult {
         public Builder filters(GetLocalGatewayRouteTableFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder localGatewayId(String localGatewayId) {
             this.localGatewayId = Objects.requireNonNull(localGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder localGatewayRouteTableId(String localGatewayRouteTableId) {
             this.localGatewayRouteTableId = Objects.requireNonNull(localGatewayRouteTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
             this.outpostArn = Objects.requireNonNull(outpostArn);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetLocalGatewayRouteTableResult build() {
-            return new GetLocalGatewayRouteTableResult(filters, id, localGatewayId, localGatewayRouteTableId, outpostArn, state, tags);
+        }
+        public GetLocalGatewayRouteTableResult build() {
+            final var o = new GetLocalGatewayRouteTableResult();
+            o.filters = filters;
+            o.id = id;
+            o.localGatewayId = localGatewayId;
+            o.localGatewayRouteTableId = localGatewayRouteTableId;
+            o.outpostArn = outpostArn;
+            o.state = state;
+            o.tags = tags;
+            return o;
         }
     }
 }

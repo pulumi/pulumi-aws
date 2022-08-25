@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRestApiEndpointConfiguration {
-    private final List<String> types;
-    private final List<String> vpcEndpointIds;
+    private List<String> types;
+    private List<String> vpcEndpointIds;
 
-    @CustomType.Constructor
-    private GetRestApiEndpointConfiguration(
-        @CustomType.Parameter("types") List<String> types,
-        @CustomType.Parameter("vpcEndpointIds") List<String> vpcEndpointIds) {
-        this.types = types;
-        this.vpcEndpointIds = vpcEndpointIds;
-    }
-
+    private GetRestApiEndpointConfiguration() {}
     public List<String> types() {
         return this.types;
     }
@@ -35,21 +28,18 @@ public final class GetRestApiEndpointConfiguration {
     public static Builder builder(GetRestApiEndpointConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> types;
         private List<String> vpcEndpointIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRestApiEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.types = defaults.types;
     	      this.vpcEndpointIds = defaults.vpcEndpointIds;
         }
 
+        @CustomType.Setter
         public Builder types(List<String> types) {
             this.types = Objects.requireNonNull(types);
             return this;
@@ -57,14 +47,19 @@ public final class GetRestApiEndpointConfiguration {
         public Builder types(String... types) {
             return types(List.of(types));
         }
+        @CustomType.Setter
         public Builder vpcEndpointIds(List<String> vpcEndpointIds) {
             this.vpcEndpointIds = Objects.requireNonNull(vpcEndpointIds);
             return this;
         }
         public Builder vpcEndpointIds(String... vpcEndpointIds) {
             return vpcEndpointIds(List.of(vpcEndpointIds));
-        }        public GetRestApiEndpointConfiguration build() {
-            return new GetRestApiEndpointConfiguration(types, vpcEndpointIds);
+        }
+        public GetRestApiEndpointConfiguration build() {
+            final var o = new GetRestApiEndpointConfiguration();
+            o.types = types;
+            o.vpcEndpointIds = vpcEndpointIds;
+            return o;
         }
     }
 }

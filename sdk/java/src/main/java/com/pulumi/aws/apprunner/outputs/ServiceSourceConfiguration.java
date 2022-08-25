@@ -18,35 +18,24 @@ public final class ServiceSourceConfiguration {
      * @return Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
      * 
      */
-    private final @Nullable ServiceSourceConfigurationAuthenticationConfiguration authenticationConfiguration;
+    private @Nullable ServiceSourceConfigurationAuthenticationConfiguration authenticationConfiguration;
     /**
      * @return Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean autoDeploymentsEnabled;
+    private @Nullable Boolean autoDeploymentsEnabled;
     /**
      * @return Description of a source code repository. See Code Repository below for more details.
      * 
      */
-    private final @Nullable ServiceSourceConfigurationCodeRepository codeRepository;
+    private @Nullable ServiceSourceConfigurationCodeRepository codeRepository;
     /**
      * @return Description of a source image repository. See Image Repository below for more details.
      * 
      */
-    private final @Nullable ServiceSourceConfigurationImageRepository imageRepository;
+    private @Nullable ServiceSourceConfigurationImageRepository imageRepository;
 
-    @CustomType.Constructor
-    private ServiceSourceConfiguration(
-        @CustomType.Parameter("authenticationConfiguration") @Nullable ServiceSourceConfigurationAuthenticationConfiguration authenticationConfiguration,
-        @CustomType.Parameter("autoDeploymentsEnabled") @Nullable Boolean autoDeploymentsEnabled,
-        @CustomType.Parameter("codeRepository") @Nullable ServiceSourceConfigurationCodeRepository codeRepository,
-        @CustomType.Parameter("imageRepository") @Nullable ServiceSourceConfigurationImageRepository imageRepository) {
-        this.authenticationConfiguration = authenticationConfiguration;
-        this.autoDeploymentsEnabled = autoDeploymentsEnabled;
-        this.codeRepository = codeRepository;
-        this.imageRepository = imageRepository;
-    }
-
+    private ServiceSourceConfiguration() {}
     /**
      * @return Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
      * 
@@ -83,17 +72,13 @@ public final class ServiceSourceConfiguration {
     public static Builder builder(ServiceSourceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ServiceSourceConfigurationAuthenticationConfiguration authenticationConfiguration;
         private @Nullable Boolean autoDeploymentsEnabled;
         private @Nullable ServiceSourceConfigurationCodeRepository codeRepository;
         private @Nullable ServiceSourceConfigurationImageRepository imageRepository;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationConfiguration = defaults.authenticationConfiguration;
@@ -102,23 +87,33 @@ public final class ServiceSourceConfiguration {
     	      this.imageRepository = defaults.imageRepository;
         }
 
+        @CustomType.Setter
         public Builder authenticationConfiguration(@Nullable ServiceSourceConfigurationAuthenticationConfiguration authenticationConfiguration) {
             this.authenticationConfiguration = authenticationConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder autoDeploymentsEnabled(@Nullable Boolean autoDeploymentsEnabled) {
             this.autoDeploymentsEnabled = autoDeploymentsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder codeRepository(@Nullable ServiceSourceConfigurationCodeRepository codeRepository) {
             this.codeRepository = codeRepository;
             return this;
         }
+        @CustomType.Setter
         public Builder imageRepository(@Nullable ServiceSourceConfigurationImageRepository imageRepository) {
             this.imageRepository = imageRepository;
             return this;
-        }        public ServiceSourceConfiguration build() {
-            return new ServiceSourceConfiguration(authenticationConfiguration, autoDeploymentsEnabled, codeRepository, imageRepository);
+        }
+        public ServiceSourceConfiguration build() {
+            final var o = new ServiceSourceConfiguration();
+            o.authenticationConfiguration = authenticationConfiguration;
+            o.autoDeploymentsEnabled = autoDeploymentsEnabled;
+            o.codeRepository = codeRepository;
+            o.imageRepository = imageRepository;
+            return o;
         }
     }
 }

@@ -14,28 +14,19 @@ public final class DeploymentGroupTriggerConfiguration {
      * @return The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
      * 
      */
-    private final List<String> triggerEvents;
+    private List<String> triggerEvents;
     /**
      * @return The name of the notification trigger.
      * 
      */
-    private final String triggerName;
+    private String triggerName;
     /**
      * @return The ARN of the SNS topic through which notifications are sent.
      * 
      */
-    private final String triggerTargetArn;
+    private String triggerTargetArn;
 
-    @CustomType.Constructor
-    private DeploymentGroupTriggerConfiguration(
-        @CustomType.Parameter("triggerEvents") List<String> triggerEvents,
-        @CustomType.Parameter("triggerName") String triggerName,
-        @CustomType.Parameter("triggerTargetArn") String triggerTargetArn) {
-        this.triggerEvents = triggerEvents;
-        this.triggerName = triggerName;
-        this.triggerTargetArn = triggerTargetArn;
-    }
-
+    private DeploymentGroupTriggerConfiguration() {}
     /**
      * @return The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
      * 
@@ -65,16 +56,12 @@ public final class DeploymentGroupTriggerConfiguration {
     public static Builder builder(DeploymentGroupTriggerConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> triggerEvents;
         private String triggerName;
         private String triggerTargetArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupTriggerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.triggerEvents = defaults.triggerEvents;
@@ -82,6 +69,7 @@ public final class DeploymentGroupTriggerConfiguration {
     	      this.triggerTargetArn = defaults.triggerTargetArn;
         }
 
+        @CustomType.Setter
         public Builder triggerEvents(List<String> triggerEvents) {
             this.triggerEvents = Objects.requireNonNull(triggerEvents);
             return this;
@@ -89,15 +77,22 @@ public final class DeploymentGroupTriggerConfiguration {
         public Builder triggerEvents(String... triggerEvents) {
             return triggerEvents(List.of(triggerEvents));
         }
+        @CustomType.Setter
         public Builder triggerName(String triggerName) {
             this.triggerName = Objects.requireNonNull(triggerName);
             return this;
         }
+        @CustomType.Setter
         public Builder triggerTargetArn(String triggerTargetArn) {
             this.triggerTargetArn = Objects.requireNonNull(triggerTargetArn);
             return this;
-        }        public DeploymentGroupTriggerConfiguration build() {
-            return new DeploymentGroupTriggerConfiguration(triggerEvents, triggerName, triggerTargetArn);
+        }
+        public DeploymentGroupTriggerConfiguration build() {
+            final var o = new DeploymentGroupTriggerConfiguration();
+            o.triggerEvents = triggerEvents;
+            o.triggerName = triggerName;
+            o.triggerTargetArn = triggerTargetArn;
+            return o;
         }
     }
 }

@@ -14,29 +14,20 @@ public final class GetAccessPointPosixUser {
      * @return Group ID
      * 
      */
-    private final Integer gid;
+    private Integer gid;
     /**
      * @return Secondary group IDs
      * 
      */
-    private final List<Integer> secondaryGids;
+    private List<Integer> secondaryGids;
     /**
      * @return User Id
      * * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      * 
      */
-    private final Integer uid;
+    private Integer uid;
 
-    @CustomType.Constructor
-    private GetAccessPointPosixUser(
-        @CustomType.Parameter("gid") Integer gid,
-        @CustomType.Parameter("secondaryGids") List<Integer> secondaryGids,
-        @CustomType.Parameter("uid") Integer uid) {
-        this.gid = gid;
-        this.secondaryGids = secondaryGids;
-        this.uid = uid;
-    }
-
+    private GetAccessPointPosixUser() {}
     /**
      * @return Group ID
      * 
@@ -67,16 +58,12 @@ public final class GetAccessPointPosixUser {
     public static Builder builder(GetAccessPointPosixUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer gid;
         private List<Integer> secondaryGids;
         private Integer uid;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccessPointPosixUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.gid = defaults.gid;
@@ -84,10 +71,12 @@ public final class GetAccessPointPosixUser {
     	      this.uid = defaults.uid;
         }
 
+        @CustomType.Setter
         public Builder gid(Integer gid) {
             this.gid = Objects.requireNonNull(gid);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryGids(List<Integer> secondaryGids) {
             this.secondaryGids = Objects.requireNonNull(secondaryGids);
             return this;
@@ -95,11 +84,17 @@ public final class GetAccessPointPosixUser {
         public Builder secondaryGids(Integer... secondaryGids) {
             return secondaryGids(List.of(secondaryGids));
         }
+        @CustomType.Setter
         public Builder uid(Integer uid) {
             this.uid = Objects.requireNonNull(uid);
             return this;
-        }        public GetAccessPointPosixUser build() {
-            return new GetAccessPointPosixUser(gid, secondaryGids, uid);
+        }
+        public GetAccessPointPosixUser build() {
+            final var o = new GetAccessPointPosixUser();
+            o.gid = gid;
+            o.secondaryGids = secondaryGids;
+            o.uid = uid;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetBotAssociationLexBot {
      * @return The Region that the Amazon Lex (V1) bot was created in.
      * 
      */
-    private final String lexRegion;
+    private String lexRegion;
     /**
      * @return The name of the Amazon Lex (V1) bot.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetBotAssociationLexBot(
-        @CustomType.Parameter("lexRegion") String lexRegion,
-        @CustomType.Parameter("name") String name) {
-        this.lexRegion = lexRegion;
-        this.name = name;
-    }
-
+    private GetBotAssociationLexBot() {}
     /**
      * @return The Region that the Amazon Lex (V1) bot was created in.
      * 
@@ -50,30 +43,32 @@ public final class GetBotAssociationLexBot {
     public static Builder builder(GetBotAssociationLexBot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String lexRegion;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBotAssociationLexBot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lexRegion = defaults.lexRegion;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder lexRegion(String lexRegion) {
             this.lexRegion = Objects.requireNonNull(lexRegion);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetBotAssociationLexBot build() {
-            return new GetBotAssociationLexBot(lexRegion, name);
+        }
+        public GetBotAssociationLexBot build() {
+            final var o = new GetBotAssociationLexBot();
+            o.lexRegion = lexRegion;
+            o.name = name;
+            return o;
         }
     }
 }

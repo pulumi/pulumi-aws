@@ -14,21 +14,14 @@ public final class GetEncryptionByDefaultResult {
      * @return Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetEncryptionByDefaultResult(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("id") String id) {
-        this.enabled = enabled;
-        this.id = id;
-    }
-
+    private GetEncryptionByDefaultResult() {}
     /**
      * @return Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
      * 
@@ -51,30 +44,32 @@ public final class GetEncryptionByDefaultResult {
     public static Builder builder(GetEncryptionByDefaultResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEncryptionByDefaultResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetEncryptionByDefaultResult build() {
-            return new GetEncryptionByDefaultResult(enabled, id);
+        }
+        public GetEncryptionByDefaultResult build() {
+            final var o = new GetEncryptionByDefaultResult();
+            o.enabled = enabled;
+            o.id = id;
+            return o;
         }
     }
 }

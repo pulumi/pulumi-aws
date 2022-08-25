@@ -14,21 +14,14 @@ public final class DataSourceParametersTwitter {
      * @return The maximum number of rows to query.
      * 
      */
-    private final Integer maxRows;
+    private Integer maxRows;
     /**
      * @return The Twitter query to retrieve the data.
      * 
      */
-    private final String query;
+    private String query;
 
-    @CustomType.Constructor
-    private DataSourceParametersTwitter(
-        @CustomType.Parameter("maxRows") Integer maxRows,
-        @CustomType.Parameter("query") String query) {
-        this.maxRows = maxRows;
-        this.query = query;
-    }
-
+    private DataSourceParametersTwitter() {}
     /**
      * @return The maximum number of rows to query.
      * 
@@ -51,30 +44,32 @@ public final class DataSourceParametersTwitter {
     public static Builder builder(DataSourceParametersTwitter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxRows;
         private String query;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersTwitter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxRows = defaults.maxRows;
     	      this.query = defaults.query;
         }
 
+        @CustomType.Setter
         public Builder maxRows(Integer maxRows) {
             this.maxRows = Objects.requireNonNull(maxRows);
             return this;
         }
+        @CustomType.Setter
         public Builder query(String query) {
             this.query = Objects.requireNonNull(query);
             return this;
-        }        public DataSourceParametersTwitter build() {
-            return new DataSourceParametersTwitter(maxRows, query);
+        }
+        public DataSourceParametersTwitter build() {
+            final var o = new DataSourceParametersTwitter();
+            o.maxRows = maxRows;
+            o.query = query;
+            return o;
         }
     }
 }

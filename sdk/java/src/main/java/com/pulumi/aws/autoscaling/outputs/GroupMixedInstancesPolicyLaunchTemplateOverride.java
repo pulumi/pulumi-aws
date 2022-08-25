@@ -17,35 +17,24 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverride {
      * @return Override the instance type in the Launch Template with instance types that satisfy the requirements.
      * 
      */
-    private final @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements instanceRequirements;
+    private @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements instanceRequirements;
     /**
      * @return Override the instance type in the Launch Template.
      * 
      */
-    private final @Nullable String instanceType;
+    private @Nullable String instanceType;
     /**
      * @return Override the instance launch template specification in the Launch Template.
      * 
      */
-    private final @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification launchTemplateSpecification;
+    private @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification launchTemplateSpecification;
     /**
      * @return The number of capacity units, which gives the instance type a proportional weight to other instance types.
      * 
      */
-    private final @Nullable String weightedCapacity;
+    private @Nullable String weightedCapacity;
 
-    @CustomType.Constructor
-    private GroupMixedInstancesPolicyLaunchTemplateOverride(
-        @CustomType.Parameter("instanceRequirements") @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements instanceRequirements,
-        @CustomType.Parameter("instanceType") @Nullable String instanceType,
-        @CustomType.Parameter("launchTemplateSpecification") @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification launchTemplateSpecification,
-        @CustomType.Parameter("weightedCapacity") @Nullable String weightedCapacity) {
-        this.instanceRequirements = instanceRequirements;
-        this.instanceType = instanceType;
-        this.launchTemplateSpecification = launchTemplateSpecification;
-        this.weightedCapacity = weightedCapacity;
-    }
-
+    private GroupMixedInstancesPolicyLaunchTemplateOverride() {}
     /**
      * @return Override the instance type in the Launch Template with instance types that satisfy the requirements.
      * 
@@ -82,17 +71,13 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverride {
     public static Builder builder(GroupMixedInstancesPolicyLaunchTemplateOverride defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements instanceRequirements;
         private @Nullable String instanceType;
         private @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification launchTemplateSpecification;
         private @Nullable String weightedCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupMixedInstancesPolicyLaunchTemplateOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceRequirements = defaults.instanceRequirements;
@@ -101,23 +86,33 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverride {
     	      this.weightedCapacity = defaults.weightedCapacity;
         }
 
+        @CustomType.Setter
         public Builder instanceRequirements(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements instanceRequirements) {
             this.instanceRequirements = instanceRequirements;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
             this.instanceType = instanceType;
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplateSpecification(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification launchTemplateSpecification) {
             this.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder weightedCapacity(@Nullable String weightedCapacity) {
             this.weightedCapacity = weightedCapacity;
             return this;
-        }        public GroupMixedInstancesPolicyLaunchTemplateOverride build() {
-            return new GroupMixedInstancesPolicyLaunchTemplateOverride(instanceRequirements, instanceType, launchTemplateSpecification, weightedCapacity);
+        }
+        public GroupMixedInstancesPolicyLaunchTemplateOverride build() {
+            final var o = new GroupMixedInstancesPolicyLaunchTemplateOverride();
+            o.instanceRequirements = instanceRequirements;
+            o.instanceType = instanceType;
+            o.launchTemplateSpecification = launchTemplateSpecification;
+            o.weightedCapacity = weightedCapacity;
+            return o;
         }
     }
 }

@@ -17,28 +17,19 @@ public final class PermissionsLfTagPolicy {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private final @Nullable String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
      */
-    private final List<PermissionsLfTagPolicyExpression> expressions;
+    private List<PermissionsLfTagPolicyExpression> expressions;
     /**
      * @return The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
      * 
      */
-    private final String resourceType;
+    private String resourceType;
 
-    @CustomType.Constructor
-    private PermissionsLfTagPolicy(
-        @CustomType.Parameter("catalogId") @Nullable String catalogId,
-        @CustomType.Parameter("expressions") List<PermissionsLfTagPolicyExpression> expressions,
-        @CustomType.Parameter("resourceType") String resourceType) {
-        this.catalogId = catalogId;
-        this.expressions = expressions;
-        this.resourceType = resourceType;
-    }
-
+    private PermissionsLfTagPolicy() {}
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
@@ -68,16 +59,12 @@ public final class PermissionsLfTagPolicy {
     public static Builder builder(PermissionsLfTagPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String catalogId;
         private List<PermissionsLfTagPolicyExpression> expressions;
         private String resourceType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PermissionsLfTagPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -85,10 +72,12 @@ public final class PermissionsLfTagPolicy {
     	      this.resourceType = defaults.resourceType;
         }
 
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
         }
+        @CustomType.Setter
         public Builder expressions(List<PermissionsLfTagPolicyExpression> expressions) {
             this.expressions = Objects.requireNonNull(expressions);
             return this;
@@ -96,11 +85,17 @@ public final class PermissionsLfTagPolicy {
         public Builder expressions(PermissionsLfTagPolicyExpression... expressions) {
             return expressions(List.of(expressions));
         }
+        @CustomType.Setter
         public Builder resourceType(String resourceType) {
             this.resourceType = Objects.requireNonNull(resourceType);
             return this;
-        }        public PermissionsLfTagPolicy build() {
-            return new PermissionsLfTagPolicy(catalogId, expressions, resourceType);
+        }
+        public PermissionsLfTagPolicy build() {
+            final var o = new PermissionsLfTagPolicy();
+            o.catalogId = catalogId;
+            o.expressions = expressions;
+            o.resourceType = resourceType;
+            return o;
         }
     }
 }

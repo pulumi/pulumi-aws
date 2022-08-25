@@ -16,21 +16,14 @@ public final class TableServerSideEncryption {
      * @return Whether TTL is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
 
-    @CustomType.Constructor
-    private TableServerSideEncryption(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn) {
-        this.enabled = enabled;
-        this.kmsKeyArn = kmsKeyArn;
-    }
-
+    private TableServerSideEncryption() {}
     /**
      * @return Whether TTL is enabled.
      * 
@@ -53,30 +46,32 @@ public final class TableServerSideEncryption {
     public static Builder builder(TableServerSideEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable String kmsKeyArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableServerSideEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
-        }        public TableServerSideEncryption build() {
-            return new TableServerSideEncryption(enabled, kmsKeyArn);
+        }
+        public TableServerSideEncryption build() {
+            final var o = new TableServerSideEncryption();
+            o.enabled = enabled;
+            o.kmsKeyArn = kmsKeyArn;
+            return o;
         }
     }
 }

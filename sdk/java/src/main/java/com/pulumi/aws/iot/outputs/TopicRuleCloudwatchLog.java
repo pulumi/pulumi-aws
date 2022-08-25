@@ -13,21 +13,14 @@ public final class TopicRuleCloudwatchLog {
      * @return The CloudWatch log group name.
      * 
      */
-    private final String logGroupName;
+    private String logGroupName;
     /**
      * @return The IAM role ARN that allows access to the CloudWatch alarm.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private TopicRuleCloudwatchLog(
-        @CustomType.Parameter("logGroupName") String logGroupName,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.logGroupName = logGroupName;
-        this.roleArn = roleArn;
-    }
-
+    private TopicRuleCloudwatchLog() {}
     /**
      * @return The CloudWatch log group name.
      * 
@@ -50,30 +43,32 @@ public final class TopicRuleCloudwatchLog {
     public static Builder builder(TopicRuleCloudwatchLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String logGroupName;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleCloudwatchLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logGroupName = defaults.logGroupName;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
             this.logGroupName = Objects.requireNonNull(logGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public TopicRuleCloudwatchLog build() {
-            return new TopicRuleCloudwatchLog(logGroupName, roleArn);
+        }
+        public TopicRuleCloudwatchLog build() {
+            final var o = new TopicRuleCloudwatchLog();
+            o.logGroupName = logGroupName;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

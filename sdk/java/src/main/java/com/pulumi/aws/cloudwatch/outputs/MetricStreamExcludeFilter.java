@@ -13,13 +13,9 @@ public final class MetricStreamExcludeFilter {
      * @return The namespace of the metric.
      * 
      */
-    private final String namespace;
+    private String namespace;
 
-    @CustomType.Constructor
-    private MetricStreamExcludeFilter(@CustomType.Parameter("namespace") String namespace) {
-        this.namespace = namespace;
-    }
-
+    private MetricStreamExcludeFilter() {}
     /**
      * @return The namespace of the metric.
      * 
@@ -35,24 +31,24 @@ public final class MetricStreamExcludeFilter {
     public static Builder builder(MetricStreamExcludeFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String namespace;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MetricStreamExcludeFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.namespace = defaults.namespace;
         }
 
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
-        }        public MetricStreamExcludeFilter build() {
-            return new MetricStreamExcludeFilter(namespace);
+        }
+        public MetricStreamExcludeFilter build() {
+            final var o = new MetricStreamExcludeFilter();
+            o.namespace = namespace;
+            return o;
         }
     }
 }

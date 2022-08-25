@@ -14,48 +14,31 @@ public final class GetDnsNamespaceResult {
      * @return The Amazon Resource Name (ARN) of the namespace.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return A description of the namespace.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      * 
      */
-    private final String hostedZone;
+    private String hostedZone;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return A map of tags for the resource.
      * 
      */
-    private final Map<String,String> tags;
-    private final String type;
+    private Map<String,String> tags;
+    private String type;
 
-    @CustomType.Constructor
-    private GetDnsNamespaceResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("hostedZone") String hostedZone,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type) {
-        this.arn = arn;
-        this.description = description;
-        this.hostedZone = hostedZone;
-        this.id = id;
-        this.name = name;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private GetDnsNamespaceResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the namespace.
      * 
@@ -105,7 +88,7 @@ public final class GetDnsNamespaceResult {
     public static Builder builder(GetDnsNamespaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -114,11 +97,7 @@ public final class GetDnsNamespaceResult {
         private String name;
         private Map<String,String> tags;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDnsNamespaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -130,35 +109,51 @@ public final class GetDnsNamespaceResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder hostedZone(String hostedZone) {
             this.hostedZone = Objects.requireNonNull(hostedZone);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetDnsNamespaceResult build() {
-            return new GetDnsNamespaceResult(arn, description, hostedZone, id, name, tags, type);
+        }
+        public GetDnsNamespaceResult build() {
+            final var o = new GetDnsNamespaceResult();
+            o.arn = arn;
+            o.description = description;
+            o.hostedZone = hostedZone;
+            o.id = id;
+            o.name = name;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

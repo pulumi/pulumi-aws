@@ -14,13 +14,9 @@ public final class DetectorDatasourcesS3Logs {
      * Defaults to `true`.
      * 
      */
-    private final Boolean enable;
+    private Boolean enable;
 
-    @CustomType.Constructor
-    private DetectorDatasourcesS3Logs(@CustomType.Parameter("enable") Boolean enable) {
-        this.enable = enable;
-    }
-
+    private DetectorDatasourcesS3Logs() {}
     /**
      * @return If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
      * Defaults to `true`.
@@ -37,24 +33,24 @@ public final class DetectorDatasourcesS3Logs {
     public static Builder builder(DetectorDatasourcesS3Logs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DetectorDatasourcesS3Logs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enable = defaults.enable;
         }
 
+        @CustomType.Setter
         public Builder enable(Boolean enable) {
             this.enable = Objects.requireNonNull(enable);
             return this;
-        }        public DetectorDatasourcesS3Logs build() {
-            return new DetectorDatasourcesS3Logs(enable);
+        }
+        public DetectorDatasourcesS3Logs build() {
+            final var o = new DetectorDatasourcesS3Logs();
+            o.enable = enable;
+            return o;
         }
     }
 }

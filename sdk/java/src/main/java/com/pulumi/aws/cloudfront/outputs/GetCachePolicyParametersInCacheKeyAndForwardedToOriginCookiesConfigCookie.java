@@ -14,13 +14,9 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookies
      * @return A list of item names (`cookies`, `headers`, or `query_strings`).
      * 
      */
-    private final List<String> items;
+    private List<String> items;
 
-    @CustomType.Constructor
-    private GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie(@CustomType.Parameter("items") List<String> items) {
-        this.items = items;
-    }
-
+    private GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie() {}
     /**
      * @return A list of item names (`cookies`, `headers`, or `query_strings`).
      * 
@@ -36,27 +32,27 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookies
     public static Builder builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(List<String> items) {
             this.items = Objects.requireNonNull(items);
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie build() {
-            return new GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie(items);
+        }
+        public GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie build() {
+            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie();
+            o.items = items;
+            return o;
         }
     }
 }

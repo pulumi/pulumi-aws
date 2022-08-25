@@ -13,39 +13,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetParametersByPathResult {
-    private final List<String> arns;
+    private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final List<String> names;
-    private final String path;
-    private final @Nullable Boolean recursive;
-    private final List<String> types;
-    private final List<String> values;
-    private final @Nullable Boolean withDecryption;
+    private String id;
+    private List<String> names;
+    private String path;
+    private @Nullable Boolean recursive;
+    private List<String> types;
+    private List<String> values;
+    private @Nullable Boolean withDecryption;
 
-    @CustomType.Constructor
-    private GetParametersByPathResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("names") List<String> names,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("recursive") @Nullable Boolean recursive,
-        @CustomType.Parameter("types") List<String> types,
-        @CustomType.Parameter("values") List<String> values,
-        @CustomType.Parameter("withDecryption") @Nullable Boolean withDecryption) {
-        this.arns = arns;
-        this.id = id;
-        this.names = names;
-        this.path = path;
-        this.recursive = recursive;
-        this.types = types;
-        this.values = values;
-        this.withDecryption = withDecryption;
-    }
-
+    private GetParametersByPathResult() {}
     public List<String> arns() {
         return this.arns;
     }
@@ -82,7 +63,7 @@ public final class GetParametersByPathResult {
     public static Builder builder(GetParametersByPathResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private String id;
@@ -92,11 +73,7 @@ public final class GetParametersByPathResult {
         private List<String> types;
         private List<String> values;
         private @Nullable Boolean withDecryption;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetParametersByPathResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -109,6 +86,7 @@ public final class GetParametersByPathResult {
     	      this.withDecryption = defaults.withDecryption;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -116,10 +94,12 @@ public final class GetParametersByPathResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder names(List<String> names) {
             this.names = Objects.requireNonNull(names);
             return this;
@@ -127,14 +107,17 @@ public final class GetParametersByPathResult {
         public Builder names(String... names) {
             return names(List.of(names));
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder recursive(@Nullable Boolean recursive) {
             this.recursive = recursive;
             return this;
         }
+        @CustomType.Setter
         public Builder types(List<String> types) {
             this.types = Objects.requireNonNull(types);
             return this;
@@ -142,6 +125,7 @@ public final class GetParametersByPathResult {
         public Builder types(String... types) {
             return types(List.of(types));
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
@@ -149,11 +133,22 @@ public final class GetParametersByPathResult {
         public Builder values(String... values) {
             return values(List.of(values));
         }
+        @CustomType.Setter
         public Builder withDecryption(@Nullable Boolean withDecryption) {
             this.withDecryption = withDecryption;
             return this;
-        }        public GetParametersByPathResult build() {
-            return new GetParametersByPathResult(arns, id, names, path, recursive, types, values, withDecryption);
+        }
+        public GetParametersByPathResult build() {
+            final var o = new GetParametersByPathResult();
+            o.arns = arns;
+            o.id = id;
+            o.names = names;
+            o.path = path;
+            o.recursive = recursive;
+            o.types = types;
+            o.values = values;
+            o.withDecryption = withDecryption;
+            return o;
         }
     }
 }

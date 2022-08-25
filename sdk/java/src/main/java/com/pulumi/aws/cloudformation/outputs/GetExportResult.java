@@ -13,31 +13,20 @@ public final class GetExportResult {
      * @return The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
-    private final String exportingStackId;
+    private String exportingStackId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetExportResult(
-        @CustomType.Parameter("exportingStackId") String exportingStackId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.exportingStackId = exportingStackId;
-        this.id = id;
-        this.name = name;
-        this.value = value;
-    }
-
+    private GetExportResult() {}
     /**
      * @return The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
@@ -70,17 +59,13 @@ public final class GetExportResult {
     public static Builder builder(GetExportResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String exportingStackId;
         private String id;
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExportResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exportingStackId = defaults.exportingStackId;
@@ -89,23 +74,33 @@ public final class GetExportResult {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder exportingStackId(String exportingStackId) {
             this.exportingStackId = Objects.requireNonNull(exportingStackId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetExportResult build() {
-            return new GetExportResult(exportingStackId, id, name, value);
+        }
+        public GetExportResult build() {
+            final var o = new GetExportResult();
+            o.exportingStackId = exportingStackId;
+            o.id = id;
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

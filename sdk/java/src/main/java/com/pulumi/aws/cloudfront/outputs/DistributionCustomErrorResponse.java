@@ -18,38 +18,27 @@ public final class DistributionCustomErrorResponse {
      * origin to see whether the object has been updated.
      * 
      */
-    private final @Nullable Integer errorCachingMinTtl;
+    private @Nullable Integer errorCachingMinTtl;
     /**
      * @return The 4xx or 5xx HTTP status code that you want to
      * customize.
      * 
      */
-    private final Integer errorCode;
+    private Integer errorCode;
     /**
      * @return The HTTP status code that you want CloudFront
      * to return with the custom error page to the viewer.
      * 
      */
-    private final @Nullable Integer responseCode;
+    private @Nullable Integer responseCode;
     /**
      * @return The path of the custom error page (for
      * example, `/custom_404.html`).
      * 
      */
-    private final @Nullable String responsePagePath;
+    private @Nullable String responsePagePath;
 
-    @CustomType.Constructor
-    private DistributionCustomErrorResponse(
-        @CustomType.Parameter("errorCachingMinTtl") @Nullable Integer errorCachingMinTtl,
-        @CustomType.Parameter("errorCode") Integer errorCode,
-        @CustomType.Parameter("responseCode") @Nullable Integer responseCode,
-        @CustomType.Parameter("responsePagePath") @Nullable String responsePagePath) {
-        this.errorCachingMinTtl = errorCachingMinTtl;
-        this.errorCode = errorCode;
-        this.responseCode = responseCode;
-        this.responsePagePath = responsePagePath;
-    }
-
+    private DistributionCustomErrorResponse() {}
     /**
      * @return The minimum amount of time you want
      * HTTP error codes to stay in CloudFront caches before CloudFront queries your
@@ -91,17 +80,13 @@ public final class DistributionCustomErrorResponse {
     public static Builder builder(DistributionCustomErrorResponse defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer errorCachingMinTtl;
         private Integer errorCode;
         private @Nullable Integer responseCode;
         private @Nullable String responsePagePath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionCustomErrorResponse defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.errorCachingMinTtl = defaults.errorCachingMinTtl;
@@ -110,23 +95,33 @@ public final class DistributionCustomErrorResponse {
     	      this.responsePagePath = defaults.responsePagePath;
         }
 
+        @CustomType.Setter
         public Builder errorCachingMinTtl(@Nullable Integer errorCachingMinTtl) {
             this.errorCachingMinTtl = errorCachingMinTtl;
             return this;
         }
+        @CustomType.Setter
         public Builder errorCode(Integer errorCode) {
             this.errorCode = Objects.requireNonNull(errorCode);
             return this;
         }
+        @CustomType.Setter
         public Builder responseCode(@Nullable Integer responseCode) {
             this.responseCode = responseCode;
             return this;
         }
+        @CustomType.Setter
         public Builder responsePagePath(@Nullable String responsePagePath) {
             this.responsePagePath = responsePagePath;
             return this;
-        }        public DistributionCustomErrorResponse build() {
-            return new DistributionCustomErrorResponse(errorCachingMinTtl, errorCode, responseCode, responsePagePath);
+        }
+        public DistributionCustomErrorResponse build() {
+            final var o = new DistributionCustomErrorResponse();
+            o.errorCachingMinTtl = errorCachingMinTtl;
+            o.errorCode = errorCode;
+            o.responseCode = responseCode;
+            o.responsePagePath = responsePagePath;
+            return o;
         }
     }
 }

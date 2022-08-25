@@ -19,42 +19,29 @@ public final class DistributionConfigurationDistributionFastLaunchConfiguration 
      * @return The account ID that this configuration applies to.
      * 
      */
-    private final String accountId;
+    private String accountId;
     /**
      * @return A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
      * 
      */
-    private final @Nullable DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate launchTemplate;
+    private @Nullable DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate launchTemplate;
     /**
      * @return The maximum number of parallel instances that are launched for creating resources.
      * 
      */
-    private final @Nullable Integer maxParallelLaunches;
+    private @Nullable Integer maxParallelLaunches;
     /**
      * @return Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
      * 
      */
-    private final @Nullable DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration snapshotConfiguration;
+    private @Nullable DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration snapshotConfiguration;
 
-    @CustomType.Constructor
-    private DistributionConfigurationDistributionFastLaunchConfiguration(
-        @CustomType.Parameter("accountId") String accountId,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("launchTemplate") @Nullable DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate launchTemplate,
-        @CustomType.Parameter("maxParallelLaunches") @Nullable Integer maxParallelLaunches,
-        @CustomType.Parameter("snapshotConfiguration") @Nullable DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration snapshotConfiguration) {
-        this.accountId = accountId;
-        this.enabled = enabled;
-        this.launchTemplate = launchTemplate;
-        this.maxParallelLaunches = maxParallelLaunches;
-        this.snapshotConfiguration = snapshotConfiguration;
-    }
-
+    private DistributionConfigurationDistributionFastLaunchConfiguration() {}
     /**
      * @return The account ID that this configuration applies to.
      * 
@@ -98,18 +85,14 @@ public final class DistributionConfigurationDistributionFastLaunchConfiguration 
     public static Builder builder(DistributionConfigurationDistributionFastLaunchConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountId;
         private Boolean enabled;
         private @Nullable DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate launchTemplate;
         private @Nullable Integer maxParallelLaunches;
         private @Nullable DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration snapshotConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionConfigurationDistributionFastLaunchConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
@@ -119,27 +102,39 @@ public final class DistributionConfigurationDistributionFastLaunchConfiguration 
     	      this.snapshotConfiguration = defaults.snapshotConfiguration;
         }
 
+        @CustomType.Setter
         public Builder accountId(String accountId) {
             this.accountId = Objects.requireNonNull(accountId);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplate(@Nullable DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate launchTemplate) {
             this.launchTemplate = launchTemplate;
             return this;
         }
+        @CustomType.Setter
         public Builder maxParallelLaunches(@Nullable Integer maxParallelLaunches) {
             this.maxParallelLaunches = maxParallelLaunches;
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotConfiguration(@Nullable DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration snapshotConfiguration) {
             this.snapshotConfiguration = snapshotConfiguration;
             return this;
-        }        public DistributionConfigurationDistributionFastLaunchConfiguration build() {
-            return new DistributionConfigurationDistributionFastLaunchConfiguration(accountId, enabled, launchTemplate, maxParallelLaunches, snapshotConfiguration);
+        }
+        public DistributionConfigurationDistributionFastLaunchConfiguration build() {
+            final var o = new DistributionConfigurationDistributionFastLaunchConfiguration();
+            o.accountId = accountId;
+            o.enabled = enabled;
+            o.launchTemplate = launchTemplate;
+            o.maxParallelLaunches = maxParallelLaunches;
+            o.snapshotConfiguration = snapshotConfiguration;
+            return o;
         }
     }
 }

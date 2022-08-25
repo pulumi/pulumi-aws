@@ -16,34 +16,21 @@ public final class GetRolesResult {
      * @return Set of ARNs of the matched IAM roles.
      * 
      */
-    private final List<String> arns;
+    private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String nameRegex;
+    private String id;
+    private @Nullable String nameRegex;
     /**
      * @return Set of Names of the matched IAM roles.
      * 
      */
-    private final List<String> names;
-    private final @Nullable String pathPrefix;
+    private List<String> names;
+    private @Nullable String pathPrefix;
 
-    @CustomType.Constructor
-    private GetRolesResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("nameRegex") @Nullable String nameRegex,
-        @CustomType.Parameter("names") List<String> names,
-        @CustomType.Parameter("pathPrefix") @Nullable String pathPrefix) {
-        this.arns = arns;
-        this.id = id;
-        this.nameRegex = nameRegex;
-        this.names = names;
-        this.pathPrefix = pathPrefix;
-    }
-
+    private GetRolesResult() {}
     /**
      * @return Set of ARNs of the matched IAM roles.
      * 
@@ -79,18 +66,14 @@ public final class GetRolesResult {
     public static Builder builder(GetRolesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private String id;
         private @Nullable String nameRegex;
         private List<String> names;
         private @Nullable String pathPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRolesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -100,6 +83,7 @@ public final class GetRolesResult {
     	      this.pathPrefix = defaults.pathPrefix;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -107,14 +91,17 @@ public final class GetRolesResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
             this.nameRegex = nameRegex;
             return this;
         }
+        @CustomType.Setter
         public Builder names(List<String> names) {
             this.names = Objects.requireNonNull(names);
             return this;
@@ -122,11 +109,19 @@ public final class GetRolesResult {
         public Builder names(String... names) {
             return names(List.of(names));
         }
+        @CustomType.Setter
         public Builder pathPrefix(@Nullable String pathPrefix) {
             this.pathPrefix = pathPrefix;
             return this;
-        }        public GetRolesResult build() {
-            return new GetRolesResult(arns, id, nameRegex, names, pathPrefix);
+        }
+        public GetRolesResult build() {
+            final var o = new GetRolesResult();
+            o.arns = arns;
+            o.id = id;
+            o.nameRegex = nameRegex;
+            o.names = names;
+            o.pathPrefix = pathPrefix;
+            return o;
         }
     }
 }

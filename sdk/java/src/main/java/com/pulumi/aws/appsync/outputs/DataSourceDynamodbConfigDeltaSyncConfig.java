@@ -12,20 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceDynamodbConfigDeltaSyncConfig {
-    private final @Nullable Integer baseTableTtl;
-    private final String deltaSyncTableName;
-    private final @Nullable Integer deltaSyncTableTtl;
+    private @Nullable Integer baseTableTtl;
+    private String deltaSyncTableName;
+    private @Nullable Integer deltaSyncTableTtl;
 
-    @CustomType.Constructor
-    private DataSourceDynamodbConfigDeltaSyncConfig(
-        @CustomType.Parameter("baseTableTtl") @Nullable Integer baseTableTtl,
-        @CustomType.Parameter("deltaSyncTableName") String deltaSyncTableName,
-        @CustomType.Parameter("deltaSyncTableTtl") @Nullable Integer deltaSyncTableTtl) {
-        this.baseTableTtl = baseTableTtl;
-        this.deltaSyncTableName = deltaSyncTableName;
-        this.deltaSyncTableTtl = deltaSyncTableTtl;
-    }
-
+    private DataSourceDynamodbConfigDeltaSyncConfig() {}
     public Optional<Integer> baseTableTtl() {
         return Optional.ofNullable(this.baseTableTtl);
     }
@@ -43,16 +34,12 @@ public final class DataSourceDynamodbConfigDeltaSyncConfig {
     public static Builder builder(DataSourceDynamodbConfigDeltaSyncConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer baseTableTtl;
         private String deltaSyncTableName;
         private @Nullable Integer deltaSyncTableTtl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceDynamodbConfigDeltaSyncConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.baseTableTtl = defaults.baseTableTtl;
@@ -60,19 +47,27 @@ public final class DataSourceDynamodbConfigDeltaSyncConfig {
     	      this.deltaSyncTableTtl = defaults.deltaSyncTableTtl;
         }
 
+        @CustomType.Setter
         public Builder baseTableTtl(@Nullable Integer baseTableTtl) {
             this.baseTableTtl = baseTableTtl;
             return this;
         }
+        @CustomType.Setter
         public Builder deltaSyncTableName(String deltaSyncTableName) {
             this.deltaSyncTableName = Objects.requireNonNull(deltaSyncTableName);
             return this;
         }
+        @CustomType.Setter
         public Builder deltaSyncTableTtl(@Nullable Integer deltaSyncTableTtl) {
             this.deltaSyncTableTtl = deltaSyncTableTtl;
             return this;
-        }        public DataSourceDynamodbConfigDeltaSyncConfig build() {
-            return new DataSourceDynamodbConfigDeltaSyncConfig(baseTableTtl, deltaSyncTableName, deltaSyncTableTtl);
+        }
+        public DataSourceDynamodbConfigDeltaSyncConfig build() {
+            final var o = new DataSourceDynamodbConfigDeltaSyncConfig();
+            o.baseTableTtl = baseTableTtl;
+            o.deltaSyncTableName = deltaSyncTableName;
+            o.deltaSyncTableTtl = deltaSyncTableTtl;
+            return o;
         }
     }
 }

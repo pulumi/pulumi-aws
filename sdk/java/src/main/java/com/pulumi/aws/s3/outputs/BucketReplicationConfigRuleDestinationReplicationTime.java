@@ -14,21 +14,14 @@ public final class BucketReplicationConfigRuleDestinationReplicationTime {
      * @return The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
      * 
      */
-    private final BucketReplicationConfigRuleDestinationReplicationTimeTime time;
+    private BucketReplicationConfigRuleDestinationReplicationTimeTime time;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleDestinationReplicationTime(
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("time") BucketReplicationConfigRuleDestinationReplicationTimeTime time) {
-        this.status = status;
-        this.time = time;
-    }
-
+    private BucketReplicationConfigRuleDestinationReplicationTime() {}
     /**
      * @return The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
@@ -51,30 +44,32 @@ public final class BucketReplicationConfigRuleDestinationReplicationTime {
     public static Builder builder(BucketReplicationConfigRuleDestinationReplicationTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String status;
         private BucketReplicationConfigRuleDestinationReplicationTimeTime time;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleDestinationReplicationTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.status = defaults.status;
     	      this.time = defaults.time;
         }
 
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder time(BucketReplicationConfigRuleDestinationReplicationTimeTime time) {
             this.time = Objects.requireNonNull(time);
             return this;
-        }        public BucketReplicationConfigRuleDestinationReplicationTime build() {
-            return new BucketReplicationConfigRuleDestinationReplicationTime(status, time);
+        }
+        public BucketReplicationConfigRuleDestinationReplicationTime build() {
+            final var o = new BucketReplicationConfigRuleDestinationReplicationTime();
+            o.status = status;
+            o.time = time;
+            return o;
         }
     }
 }

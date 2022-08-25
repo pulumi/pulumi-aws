@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEndpointClientConnectOption {
-    private final Boolean enabled;
-    private final String lambdaFunctionArn;
+    private Boolean enabled;
+    private String lambdaFunctionArn;
 
-    @CustomType.Constructor
-    private GetEndpointClientConnectOption(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("lambdaFunctionArn") String lambdaFunctionArn) {
-        this.enabled = enabled;
-        this.lambdaFunctionArn = lambdaFunctionArn;
-    }
-
+    private GetEndpointClientConnectOption() {}
     public Boolean enabled() {
         return this.enabled;
     }
@@ -35,30 +28,32 @@ public final class GetEndpointClientConnectOption {
     public static Builder builder(GetEndpointClientConnectOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String lambdaFunctionArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEndpointClientConnectOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.lambdaFunctionArn = defaults.lambdaFunctionArn;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaFunctionArn(String lambdaFunctionArn) {
             this.lambdaFunctionArn = Objects.requireNonNull(lambdaFunctionArn);
             return this;
-        }        public GetEndpointClientConnectOption build() {
-            return new GetEndpointClientConnectOption(enabled, lambdaFunctionArn);
+        }
+        public GetEndpointClientConnectOption build() {
+            final var o = new GetEndpointClientConnectOption();
+            o.enabled = enabled;
+            o.lambdaFunctionArn = lambdaFunctionArn;
+            return o;
         }
     }
 }

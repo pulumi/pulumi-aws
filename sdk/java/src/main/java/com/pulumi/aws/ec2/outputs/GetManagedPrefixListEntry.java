@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetManagedPrefixListEntry {
-    private final String cidr;
-    private final String description;
+    private String cidr;
+    private String description;
 
-    @CustomType.Constructor
-    private GetManagedPrefixListEntry(
-        @CustomType.Parameter("cidr") String cidr,
-        @CustomType.Parameter("description") String description) {
-        this.cidr = cidr;
-        this.description = description;
-    }
-
+    private GetManagedPrefixListEntry() {}
     public String cidr() {
         return this.cidr;
     }
@@ -34,30 +27,32 @@ public final class GetManagedPrefixListEntry {
     public static Builder builder(GetManagedPrefixListEntry defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cidr;
         private String description;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetManagedPrefixListEntry defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidr = defaults.cidr;
     	      this.description = defaults.description;
         }
 
+        @CustomType.Setter
         public Builder cidr(String cidr) {
             this.cidr = Objects.requireNonNull(cidr);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
-        }        public GetManagedPrefixListEntry build() {
-            return new GetManagedPrefixListEntry(cidr, description);
+        }
+        public GetManagedPrefixListEntry build() {
+            final var o = new GetManagedPrefixListEntry();
+            o.cidr = cidr;
+            o.description = description;
+            return o;
         }
     }
 }

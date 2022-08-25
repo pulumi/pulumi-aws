@@ -13,13 +13,9 @@ public final class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationCon
      * @return A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
      * 
      */
-    private final String humanLoopActivationConditions;
+    private String humanLoopActivationConditions;
 
-    @CustomType.Constructor
-    private FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig(@CustomType.Parameter("humanLoopActivationConditions") String humanLoopActivationConditions) {
-        this.humanLoopActivationConditions = humanLoopActivationConditions;
-    }
-
+    private FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig() {}
     /**
      * @return A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
      * 
@@ -35,24 +31,24 @@ public final class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationCon
     public static Builder builder(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String humanLoopActivationConditions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.humanLoopActivationConditions = defaults.humanLoopActivationConditions;
         }
 
+        @CustomType.Setter
         public Builder humanLoopActivationConditions(String humanLoopActivationConditions) {
             this.humanLoopActivationConditions = Objects.requireNonNull(humanLoopActivationConditions);
             return this;
-        }        public FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig build() {
-            return new FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig(humanLoopActivationConditions);
+        }
+        public FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig build() {
+            final var o = new FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig();
+            o.humanLoopActivationConditions = humanLoopActivationConditions;
+            return o;
         }
     }
 }

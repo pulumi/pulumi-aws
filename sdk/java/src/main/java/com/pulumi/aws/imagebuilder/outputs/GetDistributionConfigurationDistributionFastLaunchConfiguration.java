@@ -18,42 +18,29 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
      * @return The account ID that this configuration applies to.
      * 
      */
-    private final String accountId;
+    private String accountId;
     /**
      * @return A Boolean that represents the current state of faster launching for the Windows AMI.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
      * 
      */
-    private final List<GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate> launchTemplates;
+    private List<GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate> launchTemplates;
     /**
      * @return The maximum number of parallel instances that are launched for creating resources.
      * 
      */
-    private final Integer maxParallelLaunches;
+    private Integer maxParallelLaunches;
     /**
      * @return Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
      * 
      */
-    private final List<GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration> snapshotConfigurations;
+    private List<GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration> snapshotConfigurations;
 
-    @CustomType.Constructor
-    private GetDistributionConfigurationDistributionFastLaunchConfiguration(
-        @CustomType.Parameter("accountId") String accountId,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("launchTemplates") List<GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate> launchTemplates,
-        @CustomType.Parameter("maxParallelLaunches") Integer maxParallelLaunches,
-        @CustomType.Parameter("snapshotConfigurations") List<GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration> snapshotConfigurations) {
-        this.accountId = accountId;
-        this.enabled = enabled;
-        this.launchTemplates = launchTemplates;
-        this.maxParallelLaunches = maxParallelLaunches;
-        this.snapshotConfigurations = snapshotConfigurations;
-    }
-
+    private GetDistributionConfigurationDistributionFastLaunchConfiguration() {}
     /**
      * @return The account ID that this configuration applies to.
      * 
@@ -97,18 +84,14 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
     public static Builder builder(GetDistributionConfigurationDistributionFastLaunchConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountId;
         private Boolean enabled;
         private List<GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate> launchTemplates;
         private Integer maxParallelLaunches;
         private List<GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration> snapshotConfigurations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDistributionConfigurationDistributionFastLaunchConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
@@ -118,14 +101,17 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
     	      this.snapshotConfigurations = defaults.snapshotConfigurations;
         }
 
+        @CustomType.Setter
         public Builder accountId(String accountId) {
             this.accountId = Objects.requireNonNull(accountId);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplates(List<GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate> launchTemplates) {
             this.launchTemplates = Objects.requireNonNull(launchTemplates);
             return this;
@@ -133,18 +119,27 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
         public Builder launchTemplates(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate... launchTemplates) {
             return launchTemplates(List.of(launchTemplates));
         }
+        @CustomType.Setter
         public Builder maxParallelLaunches(Integer maxParallelLaunches) {
             this.maxParallelLaunches = Objects.requireNonNull(maxParallelLaunches);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotConfigurations(List<GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration> snapshotConfigurations) {
             this.snapshotConfigurations = Objects.requireNonNull(snapshotConfigurations);
             return this;
         }
         public Builder snapshotConfigurations(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration... snapshotConfigurations) {
             return snapshotConfigurations(List.of(snapshotConfigurations));
-        }        public GetDistributionConfigurationDistributionFastLaunchConfiguration build() {
-            return new GetDistributionConfigurationDistributionFastLaunchConfiguration(accountId, enabled, launchTemplates, maxParallelLaunches, snapshotConfigurations);
+        }
+        public GetDistributionConfigurationDistributionFastLaunchConfiguration build() {
+            final var o = new GetDistributionConfigurationDistributionFastLaunchConfiguration();
+            o.accountId = accountId;
+            o.enabled = enabled;
+            o.launchTemplates = launchTemplates;
+            o.maxParallelLaunches = maxParallelLaunches;
+            o.snapshotConfigurations = snapshotConfigurations;
+            return o;
         }
     }
 }

@@ -15,17 +15,10 @@ public final class EntityRecognizerInputDataConfigAnnotations {
      * @return Location of entity list.
      * 
      */
-    private final String s3Uri;
-    private final @Nullable String testS3Uri;
+    private String s3Uri;
+    private @Nullable String testS3Uri;
 
-    @CustomType.Constructor
-    private EntityRecognizerInputDataConfigAnnotations(
-        @CustomType.Parameter("s3Uri") String s3Uri,
-        @CustomType.Parameter("testS3Uri") @Nullable String testS3Uri) {
-        this.s3Uri = s3Uri;
-        this.testS3Uri = testS3Uri;
-    }
-
+    private EntityRecognizerInputDataConfigAnnotations() {}
     /**
      * @return Location of entity list.
      * 
@@ -44,30 +37,32 @@ public final class EntityRecognizerInputDataConfigAnnotations {
     public static Builder builder(EntityRecognizerInputDataConfigAnnotations defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String s3Uri;
         private @Nullable String testS3Uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EntityRecognizerInputDataConfigAnnotations defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Uri = defaults.s3Uri;
     	      this.testS3Uri = defaults.testS3Uri;
         }
 
+        @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
             this.s3Uri = Objects.requireNonNull(s3Uri);
             return this;
         }
+        @CustomType.Setter
         public Builder testS3Uri(@Nullable String testS3Uri) {
             this.testS3Uri = testS3Uri;
             return this;
-        }        public EntityRecognizerInputDataConfigAnnotations build() {
-            return new EntityRecognizerInputDataConfigAnnotations(s3Uri, testS3Uri);
+        }
+        public EntityRecognizerInputDataConfigAnnotations build() {
+            final var o = new EntityRecognizerInputDataConfigAnnotations();
+            o.s3Uri = s3Uri;
+            o.testS3Uri = testS3Uri;
+            return o;
         }
     }
 }

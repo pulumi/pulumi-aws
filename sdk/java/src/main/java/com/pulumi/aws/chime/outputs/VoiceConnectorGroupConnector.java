@@ -14,21 +14,14 @@ public final class VoiceConnectorGroupConnector {
      * @return The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The Amazon Chime Voice Connector ID.
      * 
      */
-    private final String voiceConnectorId;
+    private String voiceConnectorId;
 
-    @CustomType.Constructor
-    private VoiceConnectorGroupConnector(
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("voiceConnectorId") String voiceConnectorId) {
-        this.priority = priority;
-        this.voiceConnectorId = voiceConnectorId;
-    }
-
+    private VoiceConnectorGroupConnector() {}
     /**
      * @return The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
      * 
@@ -51,30 +44,32 @@ public final class VoiceConnectorGroupConnector {
     public static Builder builder(VoiceConnectorGroupConnector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer priority;
         private String voiceConnectorId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VoiceConnectorGroupConnector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.priority = defaults.priority;
     	      this.voiceConnectorId = defaults.voiceConnectorId;
         }
 
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder voiceConnectorId(String voiceConnectorId) {
             this.voiceConnectorId = Objects.requireNonNull(voiceConnectorId);
             return this;
-        }        public VoiceConnectorGroupConnector build() {
-            return new VoiceConnectorGroupConnector(priority, voiceConnectorId);
+        }
+        public VoiceConnectorGroupConnector build() {
+            final var o = new VoiceConnectorGroupConnector();
+            o.priority = priority;
+            o.voiceConnectorId = voiceConnectorId;
+            return o;
         }
     }
 }

@@ -15,84 +15,59 @@ public final class BudgetCostTypes {
      * @return A boolean value whether to include credits in the cost budget. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean includeCredit;
+    private @Nullable Boolean includeCredit;
     /**
      * @return Specifies whether a budget includes discounts. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean includeDiscount;
+    private @Nullable Boolean includeDiscount;
     /**
      * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean includeOtherSubscription;
+    private @Nullable Boolean includeOtherSubscription;
     /**
      * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean includeRecurring;
+    private @Nullable Boolean includeRecurring;
     /**
      * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean includeRefund;
+    private @Nullable Boolean includeRefund;
     /**
      * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean includeSubscription;
+    private @Nullable Boolean includeSubscription;
     /**
      * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean includeSupport;
+    private @Nullable Boolean includeSupport;
     /**
      * @return A boolean value whether to include tax in the cost budget. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean includeTax;
+    private @Nullable Boolean includeTax;
     /**
      * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean includeUpfront;
+    private @Nullable Boolean includeUpfront;
     /**
      * @return Specifies whether a budget uses the amortized rate. Defaults to `false`
      * 
      */
-    private final @Nullable Boolean useAmortized;
+    private @Nullable Boolean useAmortized;
     /**
      * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`
      * 
      */
-    private final @Nullable Boolean useBlended;
+    private @Nullable Boolean useBlended;
 
-    @CustomType.Constructor
-    private BudgetCostTypes(
-        @CustomType.Parameter("includeCredit") @Nullable Boolean includeCredit,
-        @CustomType.Parameter("includeDiscount") @Nullable Boolean includeDiscount,
-        @CustomType.Parameter("includeOtherSubscription") @Nullable Boolean includeOtherSubscription,
-        @CustomType.Parameter("includeRecurring") @Nullable Boolean includeRecurring,
-        @CustomType.Parameter("includeRefund") @Nullable Boolean includeRefund,
-        @CustomType.Parameter("includeSubscription") @Nullable Boolean includeSubscription,
-        @CustomType.Parameter("includeSupport") @Nullable Boolean includeSupport,
-        @CustomType.Parameter("includeTax") @Nullable Boolean includeTax,
-        @CustomType.Parameter("includeUpfront") @Nullable Boolean includeUpfront,
-        @CustomType.Parameter("useAmortized") @Nullable Boolean useAmortized,
-        @CustomType.Parameter("useBlended") @Nullable Boolean useBlended) {
-        this.includeCredit = includeCredit;
-        this.includeDiscount = includeDiscount;
-        this.includeOtherSubscription = includeOtherSubscription;
-        this.includeRecurring = includeRecurring;
-        this.includeRefund = includeRefund;
-        this.includeSubscription = includeSubscription;
-        this.includeSupport = includeSupport;
-        this.includeTax = includeTax;
-        this.includeUpfront = includeUpfront;
-        this.useAmortized = useAmortized;
-        this.useBlended = useBlended;
-    }
-
+    private BudgetCostTypes() {}
     /**
      * @return A boolean value whether to include credits in the cost budget. Defaults to `true`
      * 
@@ -178,7 +153,7 @@ public final class BudgetCostTypes {
     public static Builder builder(BudgetCostTypes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean includeCredit;
         private @Nullable Boolean includeDiscount;
@@ -191,11 +166,7 @@ public final class BudgetCostTypes {
         private @Nullable Boolean includeUpfront;
         private @Nullable Boolean useAmortized;
         private @Nullable Boolean useBlended;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetCostTypes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.includeCredit = defaults.includeCredit;
@@ -211,51 +182,75 @@ public final class BudgetCostTypes {
     	      this.useBlended = defaults.useBlended;
         }
 
+        @CustomType.Setter
         public Builder includeCredit(@Nullable Boolean includeCredit) {
             this.includeCredit = includeCredit;
             return this;
         }
+        @CustomType.Setter
         public Builder includeDiscount(@Nullable Boolean includeDiscount) {
             this.includeDiscount = includeDiscount;
             return this;
         }
+        @CustomType.Setter
         public Builder includeOtherSubscription(@Nullable Boolean includeOtherSubscription) {
             this.includeOtherSubscription = includeOtherSubscription;
             return this;
         }
+        @CustomType.Setter
         public Builder includeRecurring(@Nullable Boolean includeRecurring) {
             this.includeRecurring = includeRecurring;
             return this;
         }
+        @CustomType.Setter
         public Builder includeRefund(@Nullable Boolean includeRefund) {
             this.includeRefund = includeRefund;
             return this;
         }
+        @CustomType.Setter
         public Builder includeSubscription(@Nullable Boolean includeSubscription) {
             this.includeSubscription = includeSubscription;
             return this;
         }
+        @CustomType.Setter
         public Builder includeSupport(@Nullable Boolean includeSupport) {
             this.includeSupport = includeSupport;
             return this;
         }
+        @CustomType.Setter
         public Builder includeTax(@Nullable Boolean includeTax) {
             this.includeTax = includeTax;
             return this;
         }
+        @CustomType.Setter
         public Builder includeUpfront(@Nullable Boolean includeUpfront) {
             this.includeUpfront = includeUpfront;
             return this;
         }
+        @CustomType.Setter
         public Builder useAmortized(@Nullable Boolean useAmortized) {
             this.useAmortized = useAmortized;
             return this;
         }
+        @CustomType.Setter
         public Builder useBlended(@Nullable Boolean useBlended) {
             this.useBlended = useBlended;
             return this;
-        }        public BudgetCostTypes build() {
-            return new BudgetCostTypes(includeCredit, includeDiscount, includeOtherSubscription, includeRecurring, includeRefund, includeSubscription, includeSupport, includeTax, includeUpfront, useAmortized, useBlended);
+        }
+        public BudgetCostTypes build() {
+            final var o = new BudgetCostTypes();
+            o.includeCredit = includeCredit;
+            o.includeDiscount = includeDiscount;
+            o.includeOtherSubscription = includeOtherSubscription;
+            o.includeRecurring = includeRecurring;
+            o.includeRefund = includeRefund;
+            o.includeSubscription = includeSubscription;
+            o.includeSupport = includeSupport;
+            o.includeTax = includeTax;
+            o.includeUpfront = includeUpfront;
+            o.useAmortized = useAmortized;
+            o.useBlended = useBlended;
+            return o;
         }
     }
 }

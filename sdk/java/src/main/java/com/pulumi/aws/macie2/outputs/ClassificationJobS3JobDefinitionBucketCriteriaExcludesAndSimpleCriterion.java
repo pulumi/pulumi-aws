@@ -16,28 +16,19 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
      * @return The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
      * 
      */
-    private final @Nullable String comparator;
+    private @Nullable String comparator;
     /**
      * @return The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
      * 
      */
-    private final @Nullable List<String> values;
+    private @Nullable List<String> values;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion(
-        @CustomType.Parameter("comparator") @Nullable String comparator,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("values") @Nullable List<String> values) {
-        this.comparator = comparator;
-        this.key = key;
-        this.values = values;
-    }
-
+    private ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion() {}
     /**
      * @return The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
      * 
@@ -67,16 +58,12 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
     public static Builder builder(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String comparator;
         private @Nullable String key;
         private @Nullable List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparator = defaults.comparator;
@@ -84,22 +71,30 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder comparator(@Nullable String comparator) {
             this.comparator = comparator;
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion build() {
-            return new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion(comparator, key, values);
+        }
+        public ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion build() {
+            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion();
+            o.comparator = comparator;
+            o.key = key;
+            o.values = values;
+            return o;
         }
     }
 }

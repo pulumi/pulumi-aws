@@ -18,49 +18,34 @@ public final class GetDistributionConfigurationDistribution {
      * @return Nested list of AMI distribution configuration.
      * 
      */
-    private final List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations;
+    private List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations;
     /**
      * @return Nested list of container distribution configurations.
      * 
      */
-    private final List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations;
+    private List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations;
     /**
      * @return Nested list of Windows faster-launching configurations to use for AMI distribution.
      * 
      */
-    private final List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations;
+    private List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations;
     /**
      * @return Nested list of launch template configurations.
      * 
      */
-    private final List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
+    private List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
     /**
      * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
      * 
      */
-    private final List<String> licenseConfigurationArns;
+    private List<String> licenseConfigurationArns;
     /**
      * @return AWS Region of distribution.
      * 
      */
-    private final String region;
+    private String region;
 
-    @CustomType.Constructor
-    private GetDistributionConfigurationDistribution(
-        @CustomType.Parameter("amiDistributionConfigurations") List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations,
-        @CustomType.Parameter("containerDistributionConfigurations") List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations,
-        @CustomType.Parameter("fastLaunchConfigurations") List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations,
-        @CustomType.Parameter("launchTemplateConfigurations") List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations,
-        @CustomType.Parameter("licenseConfigurationArns") List<String> licenseConfigurationArns,
-        @CustomType.Parameter("region") String region) {
-        this.amiDistributionConfigurations = amiDistributionConfigurations;
-        this.containerDistributionConfigurations = containerDistributionConfigurations;
-        this.fastLaunchConfigurations = fastLaunchConfigurations;
-        this.launchTemplateConfigurations = launchTemplateConfigurations;
-        this.licenseConfigurationArns = licenseConfigurationArns;
-        this.region = region;
-    }
-
+    private GetDistributionConfigurationDistribution() {}
     /**
      * @return Nested list of AMI distribution configuration.
      * 
@@ -111,7 +96,7 @@ public final class GetDistributionConfigurationDistribution {
     public static Builder builder(GetDistributionConfigurationDistribution defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations;
         private List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations;
@@ -119,11 +104,7 @@ public final class GetDistributionConfigurationDistribution {
         private List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
         private List<String> licenseConfigurationArns;
         private String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDistributionConfigurationDistribution defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amiDistributionConfigurations = defaults.amiDistributionConfigurations;
@@ -134,6 +115,7 @@ public final class GetDistributionConfigurationDistribution {
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder amiDistributionConfigurations(List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations) {
             this.amiDistributionConfigurations = Objects.requireNonNull(amiDistributionConfigurations);
             return this;
@@ -141,6 +123,7 @@ public final class GetDistributionConfigurationDistribution {
         public Builder amiDistributionConfigurations(GetDistributionConfigurationDistributionAmiDistributionConfiguration... amiDistributionConfigurations) {
             return amiDistributionConfigurations(List.of(amiDistributionConfigurations));
         }
+        @CustomType.Setter
         public Builder containerDistributionConfigurations(List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations) {
             this.containerDistributionConfigurations = Objects.requireNonNull(containerDistributionConfigurations);
             return this;
@@ -148,6 +131,7 @@ public final class GetDistributionConfigurationDistribution {
         public Builder containerDistributionConfigurations(GetDistributionConfigurationDistributionContainerDistributionConfiguration... containerDistributionConfigurations) {
             return containerDistributionConfigurations(List.of(containerDistributionConfigurations));
         }
+        @CustomType.Setter
         public Builder fastLaunchConfigurations(List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations) {
             this.fastLaunchConfigurations = Objects.requireNonNull(fastLaunchConfigurations);
             return this;
@@ -155,6 +139,7 @@ public final class GetDistributionConfigurationDistribution {
         public Builder fastLaunchConfigurations(GetDistributionConfigurationDistributionFastLaunchConfiguration... fastLaunchConfigurations) {
             return fastLaunchConfigurations(List.of(fastLaunchConfigurations));
         }
+        @CustomType.Setter
         public Builder launchTemplateConfigurations(List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations) {
             this.launchTemplateConfigurations = Objects.requireNonNull(launchTemplateConfigurations);
             return this;
@@ -162,6 +147,7 @@ public final class GetDistributionConfigurationDistribution {
         public Builder launchTemplateConfigurations(GetDistributionConfigurationDistributionLaunchTemplateConfiguration... launchTemplateConfigurations) {
             return launchTemplateConfigurations(List.of(launchTemplateConfigurations));
         }
+        @CustomType.Setter
         public Builder licenseConfigurationArns(List<String> licenseConfigurationArns) {
             this.licenseConfigurationArns = Objects.requireNonNull(licenseConfigurationArns);
             return this;
@@ -169,11 +155,20 @@ public final class GetDistributionConfigurationDistribution {
         public Builder licenseConfigurationArns(String... licenseConfigurationArns) {
             return licenseConfigurationArns(List.of(licenseConfigurationArns));
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
-        }        public GetDistributionConfigurationDistribution build() {
-            return new GetDistributionConfigurationDistribution(amiDistributionConfigurations, containerDistributionConfigurations, fastLaunchConfigurations, launchTemplateConfigurations, licenseConfigurationArns, region);
+        }
+        public GetDistributionConfigurationDistribution build() {
+            final var o = new GetDistributionConfigurationDistribution();
+            o.amiDistributionConfigurations = amiDistributionConfigurations;
+            o.containerDistributionConfigurations = containerDistributionConfigurations;
+            o.fastLaunchConfigurations = fastLaunchConfigurations;
+            o.launchTemplateConfigurations = launchTemplateConfigurations;
+            o.licenseConfigurationArns = licenseConfigurationArns;
+            o.region = region;
+            return o;
         }
     }
 }

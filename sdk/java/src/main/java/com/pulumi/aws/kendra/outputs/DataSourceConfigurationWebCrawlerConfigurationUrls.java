@@ -16,21 +16,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrls {
      * @return A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
      * 
      */
-    private final @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration seedUrlConfiguration;
+    private @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration seedUrlConfiguration;
     /**
      * @return A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
      * 
      */
-    private final @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration siteMapsConfiguration;
+    private @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration siteMapsConfiguration;
 
-    @CustomType.Constructor
-    private DataSourceConfigurationWebCrawlerConfigurationUrls(
-        @CustomType.Parameter("seedUrlConfiguration") @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration seedUrlConfiguration,
-        @CustomType.Parameter("siteMapsConfiguration") @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration siteMapsConfiguration) {
-        this.seedUrlConfiguration = seedUrlConfiguration;
-        this.siteMapsConfiguration = siteMapsConfiguration;
-    }
-
+    private DataSourceConfigurationWebCrawlerConfigurationUrls() {}
     /**
      * @return A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
      * 
@@ -53,30 +46,32 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrls {
     public static Builder builder(DataSourceConfigurationWebCrawlerConfigurationUrls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration seedUrlConfiguration;
         private @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration siteMapsConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfigurationWebCrawlerConfigurationUrls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.seedUrlConfiguration = defaults.seedUrlConfiguration;
     	      this.siteMapsConfiguration = defaults.siteMapsConfiguration;
         }
 
+        @CustomType.Setter
         public Builder seedUrlConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration seedUrlConfiguration) {
             this.seedUrlConfiguration = seedUrlConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder siteMapsConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration siteMapsConfiguration) {
             this.siteMapsConfiguration = siteMapsConfiguration;
             return this;
-        }        public DataSourceConfigurationWebCrawlerConfigurationUrls build() {
-            return new DataSourceConfigurationWebCrawlerConfigurationUrls(seedUrlConfiguration, siteMapsConfiguration);
+        }
+        public DataSourceConfigurationWebCrawlerConfigurationUrls build() {
+            final var o = new DataSourceConfigurationWebCrawlerConfigurationUrls();
+            o.seedUrlConfiguration = seedUrlConfiguration;
+            o.siteMapsConfiguration = siteMapsConfiguration;
+            return o;
         }
     }
 }

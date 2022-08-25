@@ -13,13 +13,9 @@ public final class VirtualNodeSpecListenerTlsValidationTrustFile {
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String certificateChain;
+    private String certificateChain;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTlsValidationTrustFile(@CustomType.Parameter("certificateChain") String certificateChain) {
-        this.certificateChain = certificateChain;
-    }
-
+    private VirtualNodeSpecListenerTlsValidationTrustFile() {}
     /**
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecListenerTlsValidationTrustFile {
     public static Builder builder(VirtualNodeSpecListenerTlsValidationTrustFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateChain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTlsValidationTrustFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateChain = defaults.certificateChain;
         }
 
+        @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
             this.certificateChain = Objects.requireNonNull(certificateChain);
             return this;
-        }        public VirtualNodeSpecListenerTlsValidationTrustFile build() {
-            return new VirtualNodeSpecListenerTlsValidationTrustFile(certificateChain);
+        }
+        public VirtualNodeSpecListenerTlsValidationTrustFile build() {
+            final var o = new VirtualNodeSpecListenerTlsValidationTrustFile();
+            o.certificateChain = certificateChain;
+            return o;
         }
     }
 }

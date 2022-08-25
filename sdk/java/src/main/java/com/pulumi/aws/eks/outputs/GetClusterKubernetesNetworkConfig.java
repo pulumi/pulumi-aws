@@ -9,21 +9,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterKubernetesNetworkConfig {
-    private final String ipFamily;
+    private String ipFamily;
     /**
      * @return The CIDR block to assign Kubernetes service IP addresses from.
      * 
      */
-    private final String serviceIpv4Cidr;
+    private String serviceIpv4Cidr;
 
-    @CustomType.Constructor
-    private GetClusterKubernetesNetworkConfig(
-        @CustomType.Parameter("ipFamily") String ipFamily,
-        @CustomType.Parameter("serviceIpv4Cidr") String serviceIpv4Cidr) {
-        this.ipFamily = ipFamily;
-        this.serviceIpv4Cidr = serviceIpv4Cidr;
-    }
-
+    private GetClusterKubernetesNetworkConfig() {}
     public String ipFamily() {
         return this.ipFamily;
     }
@@ -42,30 +35,32 @@ public final class GetClusterKubernetesNetworkConfig {
     public static Builder builder(GetClusterKubernetesNetworkConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ipFamily;
         private String serviceIpv4Cidr;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterKubernetesNetworkConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipFamily = defaults.ipFamily;
     	      this.serviceIpv4Cidr = defaults.serviceIpv4Cidr;
         }
 
+        @CustomType.Setter
         public Builder ipFamily(String ipFamily) {
             this.ipFamily = Objects.requireNonNull(ipFamily);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceIpv4Cidr(String serviceIpv4Cidr) {
             this.serviceIpv4Cidr = Objects.requireNonNull(serviceIpv4Cidr);
             return this;
-        }        public GetClusterKubernetesNetworkConfig build() {
-            return new GetClusterKubernetesNetworkConfig(ipFamily, serviceIpv4Cidr);
+        }
+        public GetClusterKubernetesNetworkConfig build() {
+            final var o = new GetClusterKubernetesNetworkConfig();
+            o.ipFamily = ipFamily;
+            o.serviceIpv4Cidr = serviceIpv4Cidr;
+            return o;
         }
     }
 }

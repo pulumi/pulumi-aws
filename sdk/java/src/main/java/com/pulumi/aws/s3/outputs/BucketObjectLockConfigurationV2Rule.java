@@ -13,13 +13,9 @@ public final class BucketObjectLockConfigurationV2Rule {
      * @return A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
      * 
      */
-    private final BucketObjectLockConfigurationV2RuleDefaultRetention defaultRetention;
+    private BucketObjectLockConfigurationV2RuleDefaultRetention defaultRetention;
 
-    @CustomType.Constructor
-    private BucketObjectLockConfigurationV2Rule(@CustomType.Parameter("defaultRetention") BucketObjectLockConfigurationV2RuleDefaultRetention defaultRetention) {
-        this.defaultRetention = defaultRetention;
-    }
-
+    private BucketObjectLockConfigurationV2Rule() {}
     /**
      * @return A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
      * 
@@ -35,24 +31,24 @@ public final class BucketObjectLockConfigurationV2Rule {
     public static Builder builder(BucketObjectLockConfigurationV2Rule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private BucketObjectLockConfigurationV2RuleDefaultRetention defaultRetention;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketObjectLockConfigurationV2Rule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultRetention = defaults.defaultRetention;
         }
 
+        @CustomType.Setter
         public Builder defaultRetention(BucketObjectLockConfigurationV2RuleDefaultRetention defaultRetention) {
             this.defaultRetention = Objects.requireNonNull(defaultRetention);
             return this;
-        }        public BucketObjectLockConfigurationV2Rule build() {
-            return new BucketObjectLockConfigurationV2Rule(defaultRetention);
+        }
+        public BucketObjectLockConfigurationV2Rule build() {
+            final var o = new BucketObjectLockConfigurationV2Rule();
+            o.defaultRetention = defaultRetention;
+            return o;
         }
     }
 }

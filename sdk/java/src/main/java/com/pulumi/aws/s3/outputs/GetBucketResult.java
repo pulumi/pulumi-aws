@@ -13,66 +13,45 @@ public final class GetBucketResult {
      * @return The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
      */
-    private final String arn;
-    private final String bucket;
+    private String arn;
+    private String bucket;
     /**
      * @return The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      * 
      */
-    private final String bucketDomainName;
+    private String bucketDomainName;
     /**
      * @return The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
      * 
      */
-    private final String bucketRegionalDomainName;
+    private String bucketRegionalDomainName;
     /**
      * @return The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket&#39;s region.
      * 
      */
-    private final String hostedZoneId;
+    private String hostedZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The AWS region this bucket resides in.
      * 
      */
-    private final String region;
+    private String region;
     /**
      * @return The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      * 
      */
-    private final String websiteDomain;
+    private String websiteDomain;
     /**
      * @return The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      * 
      */
-    private final String websiteEndpoint;
+    private String websiteEndpoint;
 
-    @CustomType.Constructor
-    private GetBucketResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("bucketDomainName") String bucketDomainName,
-        @CustomType.Parameter("bucketRegionalDomainName") String bucketRegionalDomainName,
-        @CustomType.Parameter("hostedZoneId") String hostedZoneId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("websiteDomain") String websiteDomain,
-        @CustomType.Parameter("websiteEndpoint") String websiteEndpoint) {
-        this.arn = arn;
-        this.bucket = bucket;
-        this.bucketDomainName = bucketDomainName;
-        this.bucketRegionalDomainName = bucketRegionalDomainName;
-        this.hostedZoneId = hostedZoneId;
-        this.id = id;
-        this.region = region;
-        this.websiteDomain = websiteDomain;
-        this.websiteEndpoint = websiteEndpoint;
-    }
-
+    private GetBucketResult() {}
     /**
      * @return The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
@@ -140,7 +119,7 @@ public final class GetBucketResult {
     public static Builder builder(GetBucketResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String bucket;
@@ -151,11 +130,7 @@ public final class GetBucketResult {
         private String region;
         private String websiteDomain;
         private String websiteEndpoint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBucketResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -169,43 +144,63 @@ public final class GetBucketResult {
     	      this.websiteEndpoint = defaults.websiteEndpoint;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketDomainName(String bucketDomainName) {
             this.bucketDomainName = Objects.requireNonNull(bucketDomainName);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketRegionalDomainName(String bucketRegionalDomainName) {
             this.bucketRegionalDomainName = Objects.requireNonNull(bucketRegionalDomainName);
             return this;
         }
+        @CustomType.Setter
         public Builder hostedZoneId(String hostedZoneId) {
             this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder websiteDomain(String websiteDomain) {
             this.websiteDomain = Objects.requireNonNull(websiteDomain);
             return this;
         }
+        @CustomType.Setter
         public Builder websiteEndpoint(String websiteEndpoint) {
             this.websiteEndpoint = Objects.requireNonNull(websiteEndpoint);
             return this;
-        }        public GetBucketResult build() {
-            return new GetBucketResult(arn, bucket, bucketDomainName, bucketRegionalDomainName, hostedZoneId, id, region, websiteDomain, websiteEndpoint);
+        }
+        public GetBucketResult build() {
+            final var o = new GetBucketResult();
+            o.arn = arn;
+            o.bucket = bucket;
+            o.bucketDomainName = bucketDomainName;
+            o.bucketRegionalDomainName = bucketRegionalDomainName;
+            o.hostedZoneId = hostedZoneId;
+            o.id = id;
+            o.region = region;
+            o.websiteDomain = websiteDomain;
+            o.websiteEndpoint = websiteEndpoint;
+            return o;
         }
     }
 }

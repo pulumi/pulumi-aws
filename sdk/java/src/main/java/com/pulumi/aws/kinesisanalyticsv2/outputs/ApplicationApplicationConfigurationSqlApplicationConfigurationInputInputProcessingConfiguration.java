@@ -13,13 +13,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
      * 
      */
-    private final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor inputLambdaProcessor;
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor inputLambdaProcessor;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration(@CustomType.Parameter("inputLambdaProcessor") ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor inputLambdaProcessor) {
-        this.inputLambdaProcessor = inputLambdaProcessor;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration() {}
     /**
      * @return Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
      * 
@@ -35,24 +31,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor inputLambdaProcessor;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inputLambdaProcessor = defaults.inputLambdaProcessor;
         }
 
+        @CustomType.Setter
         public Builder inputLambdaProcessor(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor inputLambdaProcessor) {
             this.inputLambdaProcessor = Objects.requireNonNull(inputLambdaProcessor);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration(inputLambdaProcessor);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration();
+            o.inputLambdaProcessor = inputLambdaProcessor;
+            return o;
         }
     }
 }

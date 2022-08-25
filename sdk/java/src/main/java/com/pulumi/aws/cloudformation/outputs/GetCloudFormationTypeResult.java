@@ -14,110 +14,73 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCloudFormationTypeResult {
-    private final String arn;
+    private String arn;
     /**
      * @return Identifier of the CloudFormation Type default version.
      * 
      */
-    private final String defaultVersionId;
+    private String defaultVersionId;
     /**
      * @return Deprecation status of the CloudFormation Type.
      * 
      */
-    private final String deprecatedStatus;
+    private String deprecatedStatus;
     /**
      * @return Description of the CloudFormation Type.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return URL of the documentation for the CloudFormation Type.
      * 
      */
-    private final String documentationUrl;
+    private String documentationUrl;
     /**
      * @return Amazon Resource Name (ARN) of the IAM Role used to register the CloudFormation Type.
      * 
      */
-    private final String executionRoleArn;
+    private String executionRoleArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Whether the CloudFormation Type version is the default version.
      * 
      */
-    private final Boolean isDefaultVersion;
+    private Boolean isDefaultVersion;
     /**
      * @return List of objects containing logging configuration.
      * 
      */
-    private final List<GetCloudFormationTypeLoggingConfig> loggingConfigs;
+    private List<GetCloudFormationTypeLoggingConfig> loggingConfigs;
     /**
      * @return Provisioning behavior of the CloudFormation Type.
      * 
      */
-    private final String provisioningType;
+    private String provisioningType;
     /**
      * @return JSON document of the CloudFormation Type schema.
      * 
      */
-    private final String schema;
+    private String schema;
     /**
      * @return URL of the source code for the CloudFormation Type.
      * 
      */
-    private final String sourceUrl;
-    private final String type;
-    private final String typeArn;
-    private final String typeName;
-    private final @Nullable String versionId;
+    private String sourceUrl;
+    private String type;
+    private String typeArn;
+    private String typeName;
+    private @Nullable String versionId;
     /**
      * @return Scope of the CloudFormation Type.
      * 
      */
-    private final String visibility;
+    private String visibility;
 
-    @CustomType.Constructor
-    private GetCloudFormationTypeResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("defaultVersionId") String defaultVersionId,
-        @CustomType.Parameter("deprecatedStatus") String deprecatedStatus,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("documentationUrl") String documentationUrl,
-        @CustomType.Parameter("executionRoleArn") String executionRoleArn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("isDefaultVersion") Boolean isDefaultVersion,
-        @CustomType.Parameter("loggingConfigs") List<GetCloudFormationTypeLoggingConfig> loggingConfigs,
-        @CustomType.Parameter("provisioningType") String provisioningType,
-        @CustomType.Parameter("schema") String schema,
-        @CustomType.Parameter("sourceUrl") String sourceUrl,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("typeArn") String typeArn,
-        @CustomType.Parameter("typeName") String typeName,
-        @CustomType.Parameter("versionId") @Nullable String versionId,
-        @CustomType.Parameter("visibility") String visibility) {
-        this.arn = arn;
-        this.defaultVersionId = defaultVersionId;
-        this.deprecatedStatus = deprecatedStatus;
-        this.description = description;
-        this.documentationUrl = documentationUrl;
-        this.executionRoleArn = executionRoleArn;
-        this.id = id;
-        this.isDefaultVersion = isDefaultVersion;
-        this.loggingConfigs = loggingConfigs;
-        this.provisioningType = provisioningType;
-        this.schema = schema;
-        this.sourceUrl = sourceUrl;
-        this.type = type;
-        this.typeArn = typeArn;
-        this.typeName = typeName;
-        this.versionId = versionId;
-        this.visibility = visibility;
-    }
-
+    private GetCloudFormationTypeResult() {}
     public String arn() {
         return this.arn;
     }
@@ -225,7 +188,7 @@ public final class GetCloudFormationTypeResult {
     public static Builder builder(GetCloudFormationTypeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String defaultVersionId;
@@ -244,11 +207,7 @@ public final class GetCloudFormationTypeResult {
         private String typeName;
         private @Nullable String versionId;
         private String visibility;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCloudFormationTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -270,38 +229,47 @@ public final class GetCloudFormationTypeResult {
     	      this.visibility = defaults.visibility;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultVersionId(String defaultVersionId) {
             this.defaultVersionId = Objects.requireNonNull(defaultVersionId);
             return this;
         }
+        @CustomType.Setter
         public Builder deprecatedStatus(String deprecatedStatus) {
             this.deprecatedStatus = Objects.requireNonNull(deprecatedStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder documentationUrl(String documentationUrl) {
             this.documentationUrl = Objects.requireNonNull(documentationUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder executionRoleArn(String executionRoleArn) {
             this.executionRoleArn = Objects.requireNonNull(executionRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder isDefaultVersion(Boolean isDefaultVersion) {
             this.isDefaultVersion = Objects.requireNonNull(isDefaultVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder loggingConfigs(List<GetCloudFormationTypeLoggingConfig> loggingConfigs) {
             this.loggingConfigs = Objects.requireNonNull(loggingConfigs);
             return this;
@@ -309,39 +277,66 @@ public final class GetCloudFormationTypeResult {
         public Builder loggingConfigs(GetCloudFormationTypeLoggingConfig... loggingConfigs) {
             return loggingConfigs(List.of(loggingConfigs));
         }
+        @CustomType.Setter
         public Builder provisioningType(String provisioningType) {
             this.provisioningType = Objects.requireNonNull(provisioningType);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceUrl(String sourceUrl) {
             this.sourceUrl = Objects.requireNonNull(sourceUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder typeArn(String typeArn) {
             this.typeArn = Objects.requireNonNull(typeArn);
             return this;
         }
+        @CustomType.Setter
         public Builder typeName(String typeName) {
             this.typeName = Objects.requireNonNull(typeName);
             return this;
         }
+        @CustomType.Setter
         public Builder versionId(@Nullable String versionId) {
             this.versionId = versionId;
             return this;
         }
+        @CustomType.Setter
         public Builder visibility(String visibility) {
             this.visibility = Objects.requireNonNull(visibility);
             return this;
-        }        public GetCloudFormationTypeResult build() {
-            return new GetCloudFormationTypeResult(arn, defaultVersionId, deprecatedStatus, description, documentationUrl, executionRoleArn, id, isDefaultVersion, loggingConfigs, provisioningType, schema, sourceUrl, type, typeArn, typeName, versionId, visibility);
+        }
+        public GetCloudFormationTypeResult build() {
+            final var o = new GetCloudFormationTypeResult();
+            o.arn = arn;
+            o.defaultVersionId = defaultVersionId;
+            o.deprecatedStatus = deprecatedStatus;
+            o.description = description;
+            o.documentationUrl = documentationUrl;
+            o.executionRoleArn = executionRoleArn;
+            o.id = id;
+            o.isDefaultVersion = isDefaultVersion;
+            o.loggingConfigs = loggingConfigs;
+            o.provisioningType = provisioningType;
+            o.schema = schema;
+            o.sourceUrl = sourceUrl;
+            o.type = type;
+            o.typeArn = typeArn;
+            o.typeName = typeName;
+            o.versionId = versionId;
+            o.visibility = visibility;
+            return o;
         }
     }
 }

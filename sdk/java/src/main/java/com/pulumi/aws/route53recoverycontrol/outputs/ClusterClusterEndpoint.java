@@ -15,21 +15,14 @@ public final class ClusterClusterEndpoint {
      * @return Cluster endpoint.
      * 
      */
-    private final @Nullable String endpoint;
+    private @Nullable String endpoint;
     /**
      * @return Region of the endpoint.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
 
-    @CustomType.Constructor
-    private ClusterClusterEndpoint(
-        @CustomType.Parameter("endpoint") @Nullable String endpoint,
-        @CustomType.Parameter("region") @Nullable String region) {
-        this.endpoint = endpoint;
-        this.region = region;
-    }
-
+    private ClusterClusterEndpoint() {}
     /**
      * @return Cluster endpoint.
      * 
@@ -52,30 +45,32 @@ public final class ClusterClusterEndpoint {
     public static Builder builder(ClusterClusterEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String endpoint;
         private @Nullable String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterClusterEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder endpoint(@Nullable String endpoint) {
             this.endpoint = endpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
-        }        public ClusterClusterEndpoint build() {
-            return new ClusterClusterEndpoint(endpoint, region);
+        }
+        public ClusterClusterEndpoint build() {
+            final var o = new ClusterClusterEndpoint();
+            o.endpoint = endpoint;
+            o.region = region;
+            return o;
         }
     }
 }

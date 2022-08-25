@@ -17,40 +17,23 @@ public final class GetCoipPoolResult {
      * @return ARN of the COIP pool
      * 
      */
-    private final String arn;
-    private final @Nullable List<GetCoipPoolFilter> filters;
+    private String arn;
+    private @Nullable List<GetCoipPoolFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String localGatewayRouteTableId;
+    private String id;
+    private String localGatewayRouteTableId;
     /**
      * @return Set of CIDR blocks in pool
      * 
      */
-    private final List<String> poolCidrs;
-    private final String poolId;
-    private final Map<String,String> tags;
+    private List<String> poolCidrs;
+    private String poolId;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetCoipPoolResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("filters") @Nullable List<GetCoipPoolFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("localGatewayRouteTableId") String localGatewayRouteTableId,
-        @CustomType.Parameter("poolCidrs") List<String> poolCidrs,
-        @CustomType.Parameter("poolId") String poolId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.filters = filters;
-        this.id = id;
-        this.localGatewayRouteTableId = localGatewayRouteTableId;
-        this.poolCidrs = poolCidrs;
-        this.poolId = poolId;
-        this.tags = tags;
-    }
-
+    private GetCoipPoolResult() {}
     /**
      * @return ARN of the COIP pool
      * 
@@ -92,7 +75,7 @@ public final class GetCoipPoolResult {
     public static Builder builder(GetCoipPoolResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private @Nullable List<GetCoipPoolFilter> filters;
@@ -101,11 +84,7 @@ public final class GetCoipPoolResult {
         private List<String> poolCidrs;
         private String poolId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoipPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -117,10 +96,12 @@ public final class GetCoipPoolResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetCoipPoolFilter> filters) {
             this.filters = filters;
             return this;
@@ -128,14 +109,17 @@ public final class GetCoipPoolResult {
         public Builder filters(GetCoipPoolFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder localGatewayRouteTableId(String localGatewayRouteTableId) {
             this.localGatewayRouteTableId = Objects.requireNonNull(localGatewayRouteTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder poolCidrs(List<String> poolCidrs) {
             this.poolCidrs = Objects.requireNonNull(poolCidrs);
             return this;
@@ -143,15 +127,26 @@ public final class GetCoipPoolResult {
         public Builder poolCidrs(String... poolCidrs) {
             return poolCidrs(List.of(poolCidrs));
         }
+        @CustomType.Setter
         public Builder poolId(String poolId) {
             this.poolId = Objects.requireNonNull(poolId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetCoipPoolResult build() {
-            return new GetCoipPoolResult(arn, filters, id, localGatewayRouteTableId, poolCidrs, poolId, tags);
+        }
+        public GetCoipPoolResult build() {
+            final var o = new GetCoipPoolResult();
+            o.arn = arn;
+            o.filters = filters;
+            o.id = id;
+            o.localGatewayRouteTableId = localGatewayRouteTableId;
+            o.poolCidrs = poolCidrs;
+            o.poolId = poolId;
+            o.tags = tags;
+            return o;
         }
     }
 }

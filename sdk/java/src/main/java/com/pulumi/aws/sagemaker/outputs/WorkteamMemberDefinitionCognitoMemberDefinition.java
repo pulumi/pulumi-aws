@@ -13,28 +13,19 @@ public final class WorkteamMemberDefinitionCognitoMemberDefinition {
      * @return An identifier for an application client. You must create the app client ID using Amazon Cognito.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return An identifier for a user group.
      * 
      */
-    private final String userGroup;
+    private String userGroup;
     /**
      * @return An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
      * 
      */
-    private final String userPool;
+    private String userPool;
 
-    @CustomType.Constructor
-    private WorkteamMemberDefinitionCognitoMemberDefinition(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("userGroup") String userGroup,
-        @CustomType.Parameter("userPool") String userPool) {
-        this.clientId = clientId;
-        this.userGroup = userGroup;
-        this.userPool = userPool;
-    }
-
+    private WorkteamMemberDefinitionCognitoMemberDefinition() {}
     /**
      * @return An identifier for an application client. You must create the app client ID using Amazon Cognito.
      * 
@@ -64,16 +55,12 @@ public final class WorkteamMemberDefinitionCognitoMemberDefinition {
     public static Builder builder(WorkteamMemberDefinitionCognitoMemberDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String userGroup;
         private String userPool;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkteamMemberDefinitionCognitoMemberDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -81,19 +68,27 @@ public final class WorkteamMemberDefinitionCognitoMemberDefinition {
     	      this.userPool = defaults.userPool;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder userGroup(String userGroup) {
             this.userGroup = Objects.requireNonNull(userGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder userPool(String userPool) {
             this.userPool = Objects.requireNonNull(userPool);
             return this;
-        }        public WorkteamMemberDefinitionCognitoMemberDefinition build() {
-            return new WorkteamMemberDefinitionCognitoMemberDefinition(clientId, userGroup, userPool);
+        }
+        public WorkteamMemberDefinitionCognitoMemberDefinition build() {
+            final var o = new WorkteamMemberDefinitionCognitoMemberDefinition();
+            o.clientId = clientId;
+            o.userGroup = userGroup;
+            o.userPool = userPool;
+            return o;
         }
     }
 }

@@ -14,13 +14,9 @@ public final class EventSourceMappingSelfManagedEventSource {
      * @return A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
      * 
      */
-    private final Map<String,String> endpoints;
+    private Map<String,String> endpoints;
 
-    @CustomType.Constructor
-    private EventSourceMappingSelfManagedEventSource(@CustomType.Parameter("endpoints") Map<String,String> endpoints) {
-        this.endpoints = endpoints;
-    }
-
+    private EventSourceMappingSelfManagedEventSource() {}
     /**
      * @return A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
      * 
@@ -36,24 +32,24 @@ public final class EventSourceMappingSelfManagedEventSource {
     public static Builder builder(EventSourceMappingSelfManagedEventSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> endpoints;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSourceMappingSelfManagedEventSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoints = defaults.endpoints;
         }
 
+        @CustomType.Setter
         public Builder endpoints(Map<String,String> endpoints) {
             this.endpoints = Objects.requireNonNull(endpoints);
             return this;
-        }        public EventSourceMappingSelfManagedEventSource build() {
-            return new EventSourceMappingSelfManagedEventSource(endpoints);
+        }
+        public EventSourceMappingSelfManagedEventSource build() {
+            final var o = new EventSourceMappingSelfManagedEventSource();
+            o.endpoints = endpoints;
+            return o;
         }
     }
 }

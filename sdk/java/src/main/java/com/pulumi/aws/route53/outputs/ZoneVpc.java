@@ -15,21 +15,14 @@ public final class ZoneVpc {
      * @return ID of the VPC to associate.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
     /**
      * @return Region of the VPC to associate. Defaults to AWS provider region.
      * 
      */
-    private final @Nullable String vpcRegion;
+    private @Nullable String vpcRegion;
 
-    @CustomType.Constructor
-    private ZoneVpc(
-        @CustomType.Parameter("vpcId") String vpcId,
-        @CustomType.Parameter("vpcRegion") @Nullable String vpcRegion) {
-        this.vpcId = vpcId;
-        this.vpcRegion = vpcRegion;
-    }
-
+    private ZoneVpc() {}
     /**
      * @return ID of the VPC to associate.
      * 
@@ -52,30 +45,32 @@ public final class ZoneVpc {
     public static Builder builder(ZoneVpc defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String vpcId;
         private @Nullable String vpcRegion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ZoneVpc defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.vpcId = defaults.vpcId;
     	      this.vpcRegion = defaults.vpcRegion;
         }
 
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcRegion(@Nullable String vpcRegion) {
             this.vpcRegion = vpcRegion;
             return this;
-        }        public ZoneVpc build() {
-            return new ZoneVpc(vpcId, vpcRegion);
+        }
+        public ZoneVpc build() {
+            final var o = new ZoneVpc();
+            o.vpcId = vpcId;
+            o.vpcRegion = vpcRegion;
+            return o;
         }
     }
 }

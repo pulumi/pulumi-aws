@@ -14,35 +14,24 @@ public final class GetInstanceMetadataOption {
      * @return The state of the metadata service: `enabled`, `disabled`.
      * 
      */
-    private final String httpEndpoint;
+    private String httpEndpoint;
     /**
      * @return The desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
-    private final Integer httpPutResponseHopLimit;
+    private Integer httpPutResponseHopLimit;
     /**
      * @return If session tokens are required: `optional`, `required`.
      * 
      */
-    private final String httpTokens;
+    private String httpTokens;
     /**
      * @return If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
      * 
      */
-    private final String instanceMetadataTags;
+    private String instanceMetadataTags;
 
-    @CustomType.Constructor
-    private GetInstanceMetadataOption(
-        @CustomType.Parameter("httpEndpoint") String httpEndpoint,
-        @CustomType.Parameter("httpPutResponseHopLimit") Integer httpPutResponseHopLimit,
-        @CustomType.Parameter("httpTokens") String httpTokens,
-        @CustomType.Parameter("instanceMetadataTags") String instanceMetadataTags) {
-        this.httpEndpoint = httpEndpoint;
-        this.httpPutResponseHopLimit = httpPutResponseHopLimit;
-        this.httpTokens = httpTokens;
-        this.instanceMetadataTags = instanceMetadataTags;
-    }
-
+    private GetInstanceMetadataOption() {}
     /**
      * @return The state of the metadata service: `enabled`, `disabled`.
      * 
@@ -79,17 +68,13 @@ public final class GetInstanceMetadataOption {
     public static Builder builder(GetInstanceMetadataOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String httpEndpoint;
         private Integer httpPutResponseHopLimit;
         private String httpTokens;
         private String instanceMetadataTags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceMetadataOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpEndpoint = defaults.httpEndpoint;
@@ -98,23 +83,33 @@ public final class GetInstanceMetadataOption {
     	      this.instanceMetadataTags = defaults.instanceMetadataTags;
         }
 
+        @CustomType.Setter
         public Builder httpEndpoint(String httpEndpoint) {
             this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
             this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder httpTokens(String httpTokens) {
             this.httpTokens = Objects.requireNonNull(httpTokens);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceMetadataTags(String instanceMetadataTags) {
             this.instanceMetadataTags = Objects.requireNonNull(instanceMetadataTags);
             return this;
-        }        public GetInstanceMetadataOption build() {
-            return new GetInstanceMetadataOption(httpEndpoint, httpPutResponseHopLimit, httpTokens, instanceMetadataTags);
+        }
+        public GetInstanceMetadataOption build() {
+            final var o = new GetInstanceMetadataOption();
+            o.httpEndpoint = httpEndpoint;
+            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            o.httpTokens = httpTokens;
+            o.instanceMetadataTags = instanceMetadataTags;
+            return o;
         }
     }
 }

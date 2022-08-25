@@ -13,41 +13,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSpotPriceResult {
-    private final @Nullable String availabilityZone;
-    private final @Nullable List<GetSpotPriceFilter> filters;
+    private @Nullable String availabilityZone;
+    private @Nullable List<GetSpotPriceFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String instanceType;
+    private String id;
+    private @Nullable String instanceType;
     /**
      * @return The most recent Spot Price value for the given instance type and AZ.
      * 
      */
-    private final String spotPrice;
+    private String spotPrice;
     /**
      * @return The timestamp at which the Spot Price value was published.
      * 
      */
-    private final String spotPriceTimestamp;
+    private String spotPriceTimestamp;
 
-    @CustomType.Constructor
-    private GetSpotPriceResult(
-        @CustomType.Parameter("availabilityZone") @Nullable String availabilityZone,
-        @CustomType.Parameter("filters") @Nullable List<GetSpotPriceFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceType") @Nullable String instanceType,
-        @CustomType.Parameter("spotPrice") String spotPrice,
-        @CustomType.Parameter("spotPriceTimestamp") String spotPriceTimestamp) {
-        this.availabilityZone = availabilityZone;
-        this.filters = filters;
-        this.id = id;
-        this.instanceType = instanceType;
-        this.spotPrice = spotPrice;
-        this.spotPriceTimestamp = spotPriceTimestamp;
-    }
-
+    private GetSpotPriceResult() {}
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
@@ -86,7 +71,7 @@ public final class GetSpotPriceResult {
     public static Builder builder(GetSpotPriceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String availabilityZone;
         private @Nullable List<GetSpotPriceFilter> filters;
@@ -94,11 +79,7 @@ public final class GetSpotPriceResult {
         private @Nullable String instanceType;
         private String spotPrice;
         private String spotPriceTimestamp;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSpotPriceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZone = defaults.availabilityZone;
@@ -109,10 +90,12 @@ public final class GetSpotPriceResult {
     	      this.spotPriceTimestamp = defaults.spotPriceTimestamp;
         }
 
+        @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
             this.availabilityZone = availabilityZone;
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetSpotPriceFilter> filters) {
             this.filters = filters;
             return this;
@@ -120,23 +103,35 @@ public final class GetSpotPriceResult {
         public Builder filters(GetSpotPriceFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
             this.instanceType = instanceType;
             return this;
         }
+        @CustomType.Setter
         public Builder spotPrice(String spotPrice) {
             this.spotPrice = Objects.requireNonNull(spotPrice);
             return this;
         }
+        @CustomType.Setter
         public Builder spotPriceTimestamp(String spotPriceTimestamp) {
             this.spotPriceTimestamp = Objects.requireNonNull(spotPriceTimestamp);
             return this;
-        }        public GetSpotPriceResult build() {
-            return new GetSpotPriceResult(availabilityZone, filters, id, instanceType, spotPrice, spotPriceTimestamp);
+        }
+        public GetSpotPriceResult build() {
+            final var o = new GetSpotPriceResult();
+            o.availabilityZone = availabilityZone;
+            o.filters = filters;
+            o.id = id;
+            o.instanceType = instanceType;
+            o.spotPrice = spotPrice;
+            o.spotPriceTimestamp = spotPriceTimestamp;
+            return o;
         }
     }
 }

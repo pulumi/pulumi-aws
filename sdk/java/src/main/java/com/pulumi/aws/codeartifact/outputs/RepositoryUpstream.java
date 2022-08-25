@@ -13,13 +13,9 @@ public final class RepositoryUpstream {
      * @return The name of an upstream repository.
      * 
      */
-    private final String repositoryName;
+    private String repositoryName;
 
-    @CustomType.Constructor
-    private RepositoryUpstream(@CustomType.Parameter("repositoryName") String repositoryName) {
-        this.repositoryName = repositoryName;
-    }
-
+    private RepositoryUpstream() {}
     /**
      * @return The name of an upstream repository.
      * 
@@ -35,24 +31,24 @@ public final class RepositoryUpstream {
     public static Builder builder(RepositoryUpstream defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String repositoryName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RepositoryUpstream defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.repositoryName = defaults.repositoryName;
         }
 
+        @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
             this.repositoryName = Objects.requireNonNull(repositoryName);
             return this;
-        }        public RepositoryUpstream build() {
-            return new RepositoryUpstream(repositoryName);
+        }
+        public RepositoryUpstream build() {
+            final var o = new RepositoryUpstream();
+            o.repositoryName = repositoryName;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class DomainScalingParameters {
      * @return The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
      * 
      */
-    private final @Nullable String desiredInstanceType;
+    private @Nullable String desiredInstanceType;
     /**
      * @return The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
      * 
      */
-    private final @Nullable Integer desiredPartitionCount;
+    private @Nullable Integer desiredPartitionCount;
     /**
      * @return The number of replicas you want to preconfigure for each index partition.
      * 
      */
-    private final @Nullable Integer desiredReplicationCount;
+    private @Nullable Integer desiredReplicationCount;
 
-    @CustomType.Constructor
-    private DomainScalingParameters(
-        @CustomType.Parameter("desiredInstanceType") @Nullable String desiredInstanceType,
-        @CustomType.Parameter("desiredPartitionCount") @Nullable Integer desiredPartitionCount,
-        @CustomType.Parameter("desiredReplicationCount") @Nullable Integer desiredReplicationCount) {
-        this.desiredInstanceType = desiredInstanceType;
-        this.desiredPartitionCount = desiredPartitionCount;
-        this.desiredReplicationCount = desiredReplicationCount;
-    }
-
+    private DomainScalingParameters() {}
     /**
      * @return The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
      * 
@@ -67,16 +58,12 @@ public final class DomainScalingParameters {
     public static Builder builder(DomainScalingParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String desiredInstanceType;
         private @Nullable Integer desiredPartitionCount;
         private @Nullable Integer desiredReplicationCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainScalingParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.desiredInstanceType = defaults.desiredInstanceType;
@@ -84,19 +71,27 @@ public final class DomainScalingParameters {
     	      this.desiredReplicationCount = defaults.desiredReplicationCount;
         }
 
+        @CustomType.Setter
         public Builder desiredInstanceType(@Nullable String desiredInstanceType) {
             this.desiredInstanceType = desiredInstanceType;
             return this;
         }
+        @CustomType.Setter
         public Builder desiredPartitionCount(@Nullable Integer desiredPartitionCount) {
             this.desiredPartitionCount = desiredPartitionCount;
             return this;
         }
+        @CustomType.Setter
         public Builder desiredReplicationCount(@Nullable Integer desiredReplicationCount) {
             this.desiredReplicationCount = desiredReplicationCount;
             return this;
-        }        public DomainScalingParameters build() {
-            return new DomainScalingParameters(desiredInstanceType, desiredPartitionCount, desiredReplicationCount);
+        }
+        public DomainScalingParameters build() {
+            final var o = new DomainScalingParameters();
+            o.desiredInstanceType = desiredInstanceType;
+            o.desiredPartitionCount = desiredPartitionCount;
+            o.desiredReplicationCount = desiredReplicationCount;
+            return o;
         }
     }
 }

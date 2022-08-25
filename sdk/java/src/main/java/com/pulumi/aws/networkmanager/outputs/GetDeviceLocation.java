@@ -13,28 +13,19 @@ public final class GetDeviceLocation {
      * @return The physical address.
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return The latitude.
      * 
      */
-    private final String latitude;
+    private String latitude;
     /**
      * @return The longitude.
      * 
      */
-    private final String longitude;
+    private String longitude;
 
-    @CustomType.Constructor
-    private GetDeviceLocation(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("latitude") String latitude,
-        @CustomType.Parameter("longitude") String longitude) {
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
+    private GetDeviceLocation() {}
     /**
      * @return The physical address.
      * 
@@ -64,16 +55,12 @@ public final class GetDeviceLocation {
     public static Builder builder(GetDeviceLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private String latitude;
         private String longitude;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDeviceLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -81,19 +68,27 @@ public final class GetDeviceLocation {
     	      this.longitude = defaults.longitude;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder latitude(String latitude) {
             this.latitude = Objects.requireNonNull(latitude);
             return this;
         }
+        @CustomType.Setter
         public Builder longitude(String longitude) {
             this.longitude = Objects.requireNonNull(longitude);
             return this;
-        }        public GetDeviceLocation build() {
-            return new GetDeviceLocation(address, latitude, longitude);
+        }
+        public GetDeviceLocation build() {
+            final var o = new GetDeviceLocation();
+            o.address = address;
+            o.latitude = latitude;
+            o.longitude = longitude;
+            return o;
         }
     }
 }

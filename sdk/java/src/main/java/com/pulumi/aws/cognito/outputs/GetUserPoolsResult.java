@@ -14,31 +14,20 @@ public final class GetUserPoolsResult {
      * @return The set of cognito user pool Amazon Resource Names (ARNs).
      * 
      */
-    private final List<String> arns;
+    private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The set of cognito user pool ids.
      * 
      */
-    private final List<String> ids;
-    private final String name;
+    private List<String> ids;
+    private String name;
 
-    @CustomType.Constructor
-    private GetUserPoolsResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("name") String name) {
-        this.arns = arns;
-        this.id = id;
-        this.ids = ids;
-        this.name = name;
-    }
-
+    private GetUserPoolsResult() {}
     /**
      * @return The set of cognito user pool Amazon Resource Names (ARNs).
      * 
@@ -71,17 +60,13 @@ public final class GetUserPoolsResult {
     public static Builder builder(GetUserPoolsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private String id;
         private List<String> ids;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserPoolsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -90,6 +75,7 @@ public final class GetUserPoolsResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -97,10 +83,12 @@ public final class GetUserPoolsResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -108,11 +96,18 @@ public final class GetUserPoolsResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetUserPoolsResult build() {
-            return new GetUserPoolsResult(arns, id, ids, name);
+        }
+        public GetUserPoolsResult build() {
+            final var o = new GetUserPoolsResult();
+            o.arns = arns;
+            o.id = id;
+            o.ids = ids;
+            o.name = name;
+            return o;
         }
     }
 }

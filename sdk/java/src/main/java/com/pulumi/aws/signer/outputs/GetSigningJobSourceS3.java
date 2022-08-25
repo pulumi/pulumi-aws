@@ -9,20 +9,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSigningJobSourceS3 {
-    private final String bucket;
-    private final String key;
-    private final String version;
+    private String bucket;
+    private String key;
+    private String version;
 
-    @CustomType.Constructor
-    private GetSigningJobSourceS3(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("version") String version) {
-        this.bucket = bucket;
-        this.key = key;
-        this.version = version;
-    }
-
+    private GetSigningJobSourceS3() {}
     public String bucket() {
         return this.bucket;
     }
@@ -40,16 +31,12 @@ public final class GetSigningJobSourceS3 {
     public static Builder builder(GetSigningJobSourceS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private String key;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSigningJobSourceS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -57,19 +44,27 @@ public final class GetSigningJobSourceS3 {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetSigningJobSourceS3 build() {
-            return new GetSigningJobSourceS3(bucket, key, version);
+        }
+        public GetSigningJobSourceS3 build() {
+            final var o = new GetSigningJobSourceS3();
+            o.bucket = bucket;
+            o.key = key;
+            o.version = version;
+            return o;
         }
     }
 }

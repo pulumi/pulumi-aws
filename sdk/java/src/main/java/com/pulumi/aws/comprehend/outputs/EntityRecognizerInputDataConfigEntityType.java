@@ -14,13 +14,9 @@ public final class EntityRecognizerInputDataConfigEntityType {
      * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private EntityRecognizerInputDataConfigEntityType(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private EntityRecognizerInputDataConfigEntityType() {}
     /**
      * @return An entity type to be matched by the Entity Recognizer.
      * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
@@ -37,24 +33,24 @@ public final class EntityRecognizerInputDataConfigEntityType {
     public static Builder builder(EntityRecognizerInputDataConfigEntityType defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EntityRecognizerInputDataConfigEntityType defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public EntityRecognizerInputDataConfigEntityType build() {
-            return new EntityRecognizerInputDataConfigEntityType(type);
+        }
+        public EntityRecognizerInputDataConfigEntityType build() {
+            final var o = new EntityRecognizerInputDataConfigEntityType();
+            o.type = type;
+            return o;
         }
     }
 }

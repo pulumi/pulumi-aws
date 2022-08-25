@@ -15,28 +15,19 @@ public final class CrawlerDeltaTarget {
      * @return The name of the connection to use to connect to the Delta table target.
      * 
      */
-    private final String connectionName;
+    private String connectionName;
     /**
      * @return A list of the Amazon S3 paths to the Delta tables.
      * 
      */
-    private final List<String> deltaTables;
+    private List<String> deltaTables;
     /**
      * @return Specifies whether to write the manifest files to the Delta table path.
      * 
      */
-    private final Boolean writeManifest;
+    private Boolean writeManifest;
 
-    @CustomType.Constructor
-    private CrawlerDeltaTarget(
-        @CustomType.Parameter("connectionName") String connectionName,
-        @CustomType.Parameter("deltaTables") List<String> deltaTables,
-        @CustomType.Parameter("writeManifest") Boolean writeManifest) {
-        this.connectionName = connectionName;
-        this.deltaTables = deltaTables;
-        this.writeManifest = writeManifest;
-    }
-
+    private CrawlerDeltaTarget() {}
     /**
      * @return The name of the connection to use to connect to the Delta table target.
      * 
@@ -66,16 +57,12 @@ public final class CrawlerDeltaTarget {
     public static Builder builder(CrawlerDeltaTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String connectionName;
         private List<String> deltaTables;
         private Boolean writeManifest;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CrawlerDeltaTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionName = defaults.connectionName;
@@ -83,10 +70,12 @@ public final class CrawlerDeltaTarget {
     	      this.writeManifest = defaults.writeManifest;
         }
 
+        @CustomType.Setter
         public Builder connectionName(String connectionName) {
             this.connectionName = Objects.requireNonNull(connectionName);
             return this;
         }
+        @CustomType.Setter
         public Builder deltaTables(List<String> deltaTables) {
             this.deltaTables = Objects.requireNonNull(deltaTables);
             return this;
@@ -94,11 +83,17 @@ public final class CrawlerDeltaTarget {
         public Builder deltaTables(String... deltaTables) {
             return deltaTables(List.of(deltaTables));
         }
+        @CustomType.Setter
         public Builder writeManifest(Boolean writeManifest) {
             this.writeManifest = Objects.requireNonNull(writeManifest);
             return this;
-        }        public CrawlerDeltaTarget build() {
-            return new CrawlerDeltaTarget(connectionName, deltaTables, writeManifest);
+        }
+        public CrawlerDeltaTarget build() {
+            final var o = new CrawlerDeltaTarget();
+            o.connectionName = connectionName;
+            o.deltaTables = deltaTables;
+            o.writeManifest = writeManifest;
+            return o;
         }
     }
 }

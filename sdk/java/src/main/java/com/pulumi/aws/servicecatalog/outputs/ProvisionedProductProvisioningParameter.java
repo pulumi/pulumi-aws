@@ -16,28 +16,19 @@ public final class ProvisionedProductProvisioningParameter {
      * @return Parameter key.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
      * 
      */
-    private final @Nullable Boolean usePreviousValue;
+    private @Nullable Boolean usePreviousValue;
     /**
      * @return Parameter value.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ProvisionedProductProvisioningParameter(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("usePreviousValue") @Nullable Boolean usePreviousValue,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.key = key;
-        this.usePreviousValue = usePreviousValue;
-        this.value = value;
-    }
-
+    private ProvisionedProductProvisioningParameter() {}
     /**
      * @return Parameter key.
      * 
@@ -67,16 +58,12 @@ public final class ProvisionedProductProvisioningParameter {
     public static Builder builder(ProvisionedProductProvisioningParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private @Nullable Boolean usePreviousValue;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProvisionedProductProvisioningParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -84,19 +71,27 @@ public final class ProvisionedProductProvisioningParameter {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder usePreviousValue(@Nullable Boolean usePreviousValue) {
             this.usePreviousValue = usePreviousValue;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ProvisionedProductProvisioningParameter build() {
-            return new ProvisionedProductProvisioningParameter(key, usePreviousValue, value);
+        }
+        public ProvisionedProductProvisioningParameter build() {
+            final var o = new ProvisionedProductProvisioningParameter();
+            o.key = key;
+            o.usePreviousValue = usePreviousValue;
+            o.value = value;
+            return o;
         }
     }
 }

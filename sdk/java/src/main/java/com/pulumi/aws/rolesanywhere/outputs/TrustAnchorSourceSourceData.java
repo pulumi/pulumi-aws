@@ -15,17 +15,10 @@ public final class TrustAnchorSourceSourceData {
      * @return The ARN of an ACM Private Certificate Authority.
      * 
      */
-    private final @Nullable String acmPcaArn;
-    private final @Nullable String x509CertificateData;
+    private @Nullable String acmPcaArn;
+    private @Nullable String x509CertificateData;
 
-    @CustomType.Constructor
-    private TrustAnchorSourceSourceData(
-        @CustomType.Parameter("acmPcaArn") @Nullable String acmPcaArn,
-        @CustomType.Parameter("x509CertificateData") @Nullable String x509CertificateData) {
-        this.acmPcaArn = acmPcaArn;
-        this.x509CertificateData = x509CertificateData;
-    }
-
+    private TrustAnchorSourceSourceData() {}
     /**
      * @return The ARN of an ACM Private Certificate Authority.
      * 
@@ -44,30 +37,32 @@ public final class TrustAnchorSourceSourceData {
     public static Builder builder(TrustAnchorSourceSourceData defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String acmPcaArn;
         private @Nullable String x509CertificateData;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrustAnchorSourceSourceData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acmPcaArn = defaults.acmPcaArn;
     	      this.x509CertificateData = defaults.x509CertificateData;
         }
 
+        @CustomType.Setter
         public Builder acmPcaArn(@Nullable String acmPcaArn) {
             this.acmPcaArn = acmPcaArn;
             return this;
         }
+        @CustomType.Setter
         public Builder x509CertificateData(@Nullable String x509CertificateData) {
             this.x509CertificateData = x509CertificateData;
             return this;
-        }        public TrustAnchorSourceSourceData build() {
-            return new TrustAnchorSourceSourceData(acmPcaArn, x509CertificateData);
+        }
+        public TrustAnchorSourceSourceData build() {
+            final var o = new TrustAnchorSourceSourceData();
+            o.acmPcaArn = acmPcaArn;
+            o.x509CertificateData = x509CertificateData;
+            return o;
         }
     }
 }

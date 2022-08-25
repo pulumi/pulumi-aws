@@ -14,21 +14,14 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpc {
      * @return The security groups for the connector.
      * 
      */
-    private final List<String> securityGroups;
+    private List<String> securityGroups;
     /**
      * @return The subnets for the connector.
      * 
      */
-    private final List<String> subnets;
+    private List<String> subnets;
 
-    @CustomType.Constructor
-    private ConnectorKafkaClusterApacheKafkaClusterVpc(
-        @CustomType.Parameter("securityGroups") List<String> securityGroups,
-        @CustomType.Parameter("subnets") List<String> subnets) {
-        this.securityGroups = securityGroups;
-        this.subnets = subnets;
-    }
-
+    private ConnectorKafkaClusterApacheKafkaClusterVpc() {}
     /**
      * @return The security groups for the connector.
      * 
@@ -51,21 +44,18 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpc {
     public static Builder builder(ConnectorKafkaClusterApacheKafkaClusterVpc defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroups;
         private List<String> subnets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorKafkaClusterApacheKafkaClusterVpc defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroups = defaults.securityGroups;
     	      this.subnets = defaults.subnets;
         }
 
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             this.securityGroups = Objects.requireNonNull(securityGroups);
             return this;
@@ -73,14 +63,19 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpc {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
         }
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
-        }        public ConnectorKafkaClusterApacheKafkaClusterVpc build() {
-            return new ConnectorKafkaClusterApacheKafkaClusterVpc(securityGroups, subnets);
+        }
+        public ConnectorKafkaClusterApacheKafkaClusterVpc build() {
+            final var o = new ConnectorKafkaClusterApacheKafkaClusterVpc();
+            o.securityGroups = securityGroups;
+            o.subnets = subnets;
+            return o;
         }
     }
 }

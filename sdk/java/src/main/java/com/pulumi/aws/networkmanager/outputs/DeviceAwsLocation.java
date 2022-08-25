@@ -15,21 +15,14 @@ public final class DeviceAwsLocation {
      * @return The Amazon Resource Name (ARN) of the subnet that the device is located in.
      * 
      */
-    private final @Nullable String subnetArn;
+    private @Nullable String subnetArn;
     /**
      * @return The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
      * 
      */
-    private final @Nullable String zone;
+    private @Nullable String zone;
 
-    @CustomType.Constructor
-    private DeviceAwsLocation(
-        @CustomType.Parameter("subnetArn") @Nullable String subnetArn,
-        @CustomType.Parameter("zone") @Nullable String zone) {
-        this.subnetArn = subnetArn;
-        this.zone = zone;
-    }
-
+    private DeviceAwsLocation() {}
     /**
      * @return The Amazon Resource Name (ARN) of the subnet that the device is located in.
      * 
@@ -52,30 +45,32 @@ public final class DeviceAwsLocation {
     public static Builder builder(DeviceAwsLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String subnetArn;
         private @Nullable String zone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeviceAwsLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subnetArn = defaults.subnetArn;
     	      this.zone = defaults.zone;
         }
 
+        @CustomType.Setter
         public Builder subnetArn(@Nullable String subnetArn) {
             this.subnetArn = subnetArn;
             return this;
         }
+        @CustomType.Setter
         public Builder zone(@Nullable String zone) {
             this.zone = zone;
             return this;
-        }        public DeviceAwsLocation build() {
-            return new DeviceAwsLocation(subnetArn, zone);
+        }
+        public DeviceAwsLocation build() {
+            final var o = new DeviceAwsLocation();
+            o.subnetArn = subnetArn;
+            o.zone = zone;
+            return o;
         }
     }
 }

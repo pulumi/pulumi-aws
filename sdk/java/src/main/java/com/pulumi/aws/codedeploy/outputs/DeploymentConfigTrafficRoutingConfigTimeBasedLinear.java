@@ -15,21 +15,14 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
      * @return The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
     /**
      * @return The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
      * 
      */
-    private final @Nullable Integer percentage;
+    private @Nullable Integer percentage;
 
-    @CustomType.Constructor
-    private DeploymentConfigTrafficRoutingConfigTimeBasedLinear(
-        @CustomType.Parameter("interval") @Nullable Integer interval,
-        @CustomType.Parameter("percentage") @Nullable Integer percentage) {
-        this.interval = interval;
-        this.percentage = percentage;
-    }
-
+    private DeploymentConfigTrafficRoutingConfigTimeBasedLinear() {}
     /**
      * @return The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
      * 
@@ -52,30 +45,32 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
     public static Builder builder(DeploymentConfigTrafficRoutingConfigTimeBasedLinear defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer interval;
         private @Nullable Integer percentage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentConfigTrafficRoutingConfigTimeBasedLinear defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.interval = defaults.interval;
     	      this.percentage = defaults.percentage;
         }
 
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
         }
+        @CustomType.Setter
         public Builder percentage(@Nullable Integer percentage) {
             this.percentage = percentage;
             return this;
-        }        public DeploymentConfigTrafficRoutingConfigTimeBasedLinear build() {
-            return new DeploymentConfigTrafficRoutingConfigTimeBasedLinear(interval, percentage);
+        }
+        public DeploymentConfigTrafficRoutingConfigTimeBasedLinear build() {
+            final var o = new DeploymentConfigTrafficRoutingConfigTimeBasedLinear();
+            o.interval = interval;
+            o.percentage = percentage;
+            return o;
         }
     }
 }

@@ -17,21 +17,14 @@ public final class FirewallFirewallStatusSyncState {
      * @return Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
      * 
      */
-    private final @Nullable List<FirewallFirewallStatusSyncStateAttachment> attachments;
+    private @Nullable List<FirewallFirewallStatusSyncStateAttachment> attachments;
     /**
      * @return The Availability Zone where the subnet is configured.
      * 
      */
-    private final @Nullable String availabilityZone;
+    private @Nullable String availabilityZone;
 
-    @CustomType.Constructor
-    private FirewallFirewallStatusSyncState(
-        @CustomType.Parameter("attachments") @Nullable List<FirewallFirewallStatusSyncStateAttachment> attachments,
-        @CustomType.Parameter("availabilityZone") @Nullable String availabilityZone) {
-        this.attachments = attachments;
-        this.availabilityZone = availabilityZone;
-    }
-
+    private FirewallFirewallStatusSyncState() {}
     /**
      * @return Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
      * 
@@ -54,21 +47,18 @@ public final class FirewallFirewallStatusSyncState {
     public static Builder builder(FirewallFirewallStatusSyncState defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FirewallFirewallStatusSyncStateAttachment> attachments;
         private @Nullable String availabilityZone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallFirewallStatusSyncState defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attachments = defaults.attachments;
     	      this.availabilityZone = defaults.availabilityZone;
         }
 
+        @CustomType.Setter
         public Builder attachments(@Nullable List<FirewallFirewallStatusSyncStateAttachment> attachments) {
             this.attachments = attachments;
             return this;
@@ -76,11 +66,16 @@ public final class FirewallFirewallStatusSyncState {
         public Builder attachments(FirewallFirewallStatusSyncStateAttachment... attachments) {
             return attachments(List.of(attachments));
         }
+        @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
             this.availabilityZone = availabilityZone;
             return this;
-        }        public FirewallFirewallStatusSyncState build() {
-            return new FirewallFirewallStatusSyncState(attachments, availabilityZone);
+        }
+        public FirewallFirewallStatusSyncState build() {
+            final var o = new FirewallFirewallStatusSyncState();
+            o.attachments = attachments;
+            o.availabilityZone = availabilityZone;
+            return o;
         }
     }
 }

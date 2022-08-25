@@ -14,13 +14,9 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
      * @return The values sent must match the specified values exactly.
      * 
      */
-    private final List<String> exacts;
+    private List<String> exacts;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(@CustomType.Parameter("exacts") List<String> exacts) {
-        this.exacts = exacts;
-    }
-
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch() {}
     /**
      * @return The values sent must match the specified values exactly.
      * 
@@ -36,27 +32,27 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
     public static Builder builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> exacts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exacts = defaults.exacts;
         }
 
+        @CustomType.Setter
         public Builder exacts(List<String> exacts) {
             this.exacts = Objects.requireNonNull(exacts);
             return this;
         }
         public Builder exacts(String... exacts) {
             return exacts(List.of(exacts));
-        }        public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch build() {
-            return new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(exacts);
+        }
+        public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch build() {
+            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch();
+            o.exacts = exacts;
+            return o;
         }
     }
 }

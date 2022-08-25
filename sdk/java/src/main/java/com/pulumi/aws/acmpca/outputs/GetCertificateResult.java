@@ -9,38 +9,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateResult {
-    private final String arn;
+    private String arn;
     /**
      * @return The PEM-encoded certificate value.
      * 
      */
-    private final String certificate;
-    private final String certificateAuthorityArn;
+    private String certificate;
+    private String certificateAuthorityArn;
     /**
      * @return The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
-    private final String certificateChain;
+    private String certificateChain;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetCertificateResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("certificate") String certificate,
-        @CustomType.Parameter("certificateAuthorityArn") String certificateAuthorityArn,
-        @CustomType.Parameter("certificateChain") String certificateChain,
-        @CustomType.Parameter("id") String id) {
-        this.arn = arn;
-        this.certificate = certificate;
-        this.certificateAuthorityArn = certificateAuthorityArn;
-        this.certificateChain = certificateChain;
-        this.id = id;
-    }
-
+    private GetCertificateResult() {}
     public String arn() {
         return this.arn;
     }
@@ -76,18 +63,14 @@ public final class GetCertificateResult {
     public static Builder builder(GetCertificateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String certificate;
         private String certificateAuthorityArn;
         private String certificateChain;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -97,27 +80,39 @@ public final class GetCertificateResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificate(String certificate) {
             this.certificate = Objects.requireNonNull(certificate);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateAuthorityArn(String certificateAuthorityArn) {
             this.certificateAuthorityArn = Objects.requireNonNull(certificateAuthorityArn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
             this.certificateChain = Objects.requireNonNull(certificateChain);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetCertificateResult build() {
-            return new GetCertificateResult(arn, certificate, certificateAuthorityArn, certificateChain, id);
+        }
+        public GetCertificateResult build() {
+            final var o = new GetCertificateResult();
+            o.arn = arn;
+            o.certificate = certificate;
+            o.certificateAuthorityArn = certificateAuthorityArn;
+            o.certificateChain = certificateChain;
+            o.id = id;
+            return o;
         }
     }
 }

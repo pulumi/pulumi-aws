@@ -13,13 +13,9 @@ public final class VirtualRouterSpecListener {
      * @return The port mapping information for the listener.
      * 
      */
-    private final VirtualRouterSpecListenerPortMapping portMapping;
+    private VirtualRouterSpecListenerPortMapping portMapping;
 
-    @CustomType.Constructor
-    private VirtualRouterSpecListener(@CustomType.Parameter("portMapping") VirtualRouterSpecListenerPortMapping portMapping) {
-        this.portMapping = portMapping;
-    }
-
+    private VirtualRouterSpecListener() {}
     /**
      * @return The port mapping information for the listener.
      * 
@@ -35,24 +31,24 @@ public final class VirtualRouterSpecListener {
     public static Builder builder(VirtualRouterSpecListener defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualRouterSpecListenerPortMapping portMapping;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualRouterSpecListener defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.portMapping = defaults.portMapping;
         }
 
+        @CustomType.Setter
         public Builder portMapping(VirtualRouterSpecListenerPortMapping portMapping) {
             this.portMapping = Objects.requireNonNull(portMapping);
             return this;
-        }        public VirtualRouterSpecListener build() {
-            return new VirtualRouterSpecListener(portMapping);
+        }
+        public VirtualRouterSpecListener build() {
+            final var o = new VirtualRouterSpecListener();
+            o.portMapping = portMapping;
+            return o;
         }
     }
 }

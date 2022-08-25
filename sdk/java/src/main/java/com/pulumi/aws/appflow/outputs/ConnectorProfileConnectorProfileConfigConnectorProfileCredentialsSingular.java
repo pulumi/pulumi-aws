@@ -13,13 +13,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
-    private final String apiKey;
+    private String apiKey;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular(@CustomType.Parameter("apiKey") String apiKey) {
-        this.apiKey = apiKey;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular() {}
     /**
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
         }
 
+        @CustomType.Setter
         public Builder apiKey(String apiKey) {
             this.apiKey = Objects.requireNonNull(apiKey);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular(apiKey);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular();
+            o.apiKey = apiKey;
+            return o;
         }
     }
 }

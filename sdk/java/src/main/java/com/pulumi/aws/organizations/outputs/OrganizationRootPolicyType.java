@@ -15,17 +15,10 @@ public final class OrganizationRootPolicyType {
      * @return The status of the policy type as it relates to the associated root
      * 
      */
-    private final @Nullable String status;
-    private final @Nullable String type;
+    private @Nullable String status;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private OrganizationRootPolicyType(
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.status = status;
-        this.type = type;
-    }
-
+    private OrganizationRootPolicyType() {}
     /**
      * @return The status of the policy type as it relates to the associated root
      * 
@@ -44,30 +37,32 @@ public final class OrganizationRootPolicyType {
     public static Builder builder(OrganizationRootPolicyType defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String status;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationRootPolicyType defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.status = defaults.status;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public OrganizationRootPolicyType build() {
-            return new OrganizationRootPolicyType(status, type);
+        }
+        public OrganizationRootPolicyType build() {
+            final var o = new OrganizationRootPolicyType();
+            o.status = status;
+            o.type = type;
+            return o;
         }
     }
 }

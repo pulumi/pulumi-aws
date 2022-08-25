@@ -16,28 +16,19 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicy {
      * @return Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
      * 
      */
-    private final @Nullable Integer maximumExecutionTimeoutInSeconds;
+    private @Nullable Integer maximumExecutionTimeoutInSeconds;
     /**
      * @return Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
      * 
      */
-    private final @Nullable Integer terminationWaitInSeconds;
+    private @Nullable Integer terminationWaitInSeconds;
     /**
      * @return Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
      * 
      */
-    private final EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration trafficRoutingConfiguration;
+    private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration trafficRoutingConfiguration;
 
-    @CustomType.Constructor
-    private EndpointDeploymentConfigBlueGreenUpdatePolicy(
-        @CustomType.Parameter("maximumExecutionTimeoutInSeconds") @Nullable Integer maximumExecutionTimeoutInSeconds,
-        @CustomType.Parameter("terminationWaitInSeconds") @Nullable Integer terminationWaitInSeconds,
-        @CustomType.Parameter("trafficRoutingConfiguration") EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration trafficRoutingConfiguration) {
-        this.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
-        this.terminationWaitInSeconds = terminationWaitInSeconds;
-        this.trafficRoutingConfiguration = trafficRoutingConfiguration;
-    }
-
+    private EndpointDeploymentConfigBlueGreenUpdatePolicy() {}
     /**
      * @return Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
      * 
@@ -67,16 +58,12 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicy {
     public static Builder builder(EndpointDeploymentConfigBlueGreenUpdatePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maximumExecutionTimeoutInSeconds;
         private @Nullable Integer terminationWaitInSeconds;
         private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration trafficRoutingConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeploymentConfigBlueGreenUpdatePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maximumExecutionTimeoutInSeconds = defaults.maximumExecutionTimeoutInSeconds;
@@ -84,19 +71,27 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicy {
     	      this.trafficRoutingConfiguration = defaults.trafficRoutingConfiguration;
         }
 
+        @CustomType.Setter
         public Builder maximumExecutionTimeoutInSeconds(@Nullable Integer maximumExecutionTimeoutInSeconds) {
             this.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder terminationWaitInSeconds(@Nullable Integer terminationWaitInSeconds) {
             this.terminationWaitInSeconds = terminationWaitInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder trafficRoutingConfiguration(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration trafficRoutingConfiguration) {
             this.trafficRoutingConfiguration = Objects.requireNonNull(trafficRoutingConfiguration);
             return this;
-        }        public EndpointDeploymentConfigBlueGreenUpdatePolicy build() {
-            return new EndpointDeploymentConfigBlueGreenUpdatePolicy(maximumExecutionTimeoutInSeconds, terminationWaitInSeconds, trafficRoutingConfiguration);
+        }
+        public EndpointDeploymentConfigBlueGreenUpdatePolicy build() {
+            final var o = new EndpointDeploymentConfigBlueGreenUpdatePolicy();
+            o.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
+            o.terminationWaitInSeconds = terminationWaitInSeconds;
+            o.trafficRoutingConfiguration = trafficRoutingConfiguration;
+            return o;
         }
     }
 }

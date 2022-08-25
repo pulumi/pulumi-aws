@@ -16,21 +16,14 @@ public final class ProjectLogsConfig {
      * @return Configuration block. Detailed below.
      * 
      */
-    private final @Nullable ProjectLogsConfigCloudwatchLogs cloudwatchLogs;
+    private @Nullable ProjectLogsConfigCloudwatchLogs cloudwatchLogs;
     /**
      * @return Configuration block. Detailed below.
      * 
      */
-    private final @Nullable ProjectLogsConfigS3Logs s3Logs;
+    private @Nullable ProjectLogsConfigS3Logs s3Logs;
 
-    @CustomType.Constructor
-    private ProjectLogsConfig(
-        @CustomType.Parameter("cloudwatchLogs") @Nullable ProjectLogsConfigCloudwatchLogs cloudwatchLogs,
-        @CustomType.Parameter("s3Logs") @Nullable ProjectLogsConfigS3Logs s3Logs) {
-        this.cloudwatchLogs = cloudwatchLogs;
-        this.s3Logs = s3Logs;
-    }
-
+    private ProjectLogsConfig() {}
     /**
      * @return Configuration block. Detailed below.
      * 
@@ -53,30 +46,32 @@ public final class ProjectLogsConfig {
     public static Builder builder(ProjectLogsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ProjectLogsConfigCloudwatchLogs cloudwatchLogs;
         private @Nullable ProjectLogsConfigS3Logs s3Logs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectLogsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogs = defaults.cloudwatchLogs;
     	      this.s3Logs = defaults.s3Logs;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ProjectLogsConfigCloudwatchLogs cloudwatchLogs) {
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder s3Logs(@Nullable ProjectLogsConfigS3Logs s3Logs) {
             this.s3Logs = s3Logs;
             return this;
-        }        public ProjectLogsConfig build() {
-            return new ProjectLogsConfig(cloudwatchLogs, s3Logs);
+        }
+        public ProjectLogsConfig build() {
+            final var o = new ProjectLogsConfig();
+            o.cloudwatchLogs = cloudwatchLogs;
+            o.s3Logs = s3Logs;
+            return o;
         }
     }
 }

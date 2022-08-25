@@ -12,31 +12,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCacheNode {
-    private final @Nullable String address;
+    private @Nullable String address;
     /**
      * @return Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      * 
      */
-    private final @Nullable String availabilityZone;
-    private final @Nullable String id;
+    private @Nullable String availabilityZone;
+    private @Nullable String id;
     /**
      * @return The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
 
-    @CustomType.Constructor
-    private ClusterCacheNode(
-        @CustomType.Parameter("address") @Nullable String address,
-        @CustomType.Parameter("availabilityZone") @Nullable String availabilityZone,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("port") @Nullable Integer port) {
-        this.address = address;
-        this.availabilityZone = availabilityZone;
-        this.id = id;
-        this.port = port;
-    }
-
+    private ClusterCacheNode() {}
     public Optional<String> address() {
         return Optional.ofNullable(this.address);
     }
@@ -65,17 +54,13 @@ public final class ClusterCacheNode {
     public static Builder builder(ClusterCacheNode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String address;
         private @Nullable String availabilityZone;
         private @Nullable String id;
         private @Nullable Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterCacheNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -84,23 +69,33 @@ public final class ClusterCacheNode {
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder address(@Nullable String address) {
             this.address = address;
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
             this.availabilityZone = availabilityZone;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
-        }        public ClusterCacheNode build() {
-            return new ClusterCacheNode(address, availabilityZone, id, port);
+        }
+        public ClusterCacheNode build() {
+            final var o = new ClusterCacheNode();
+            o.address = address;
+            o.availabilityZone = availabilityZone;
+            o.id = id;
+            o.port = port;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class DataSourceParametersAmazonElasticsearch {
      * @return The OpenSearch domain.
      * 
      */
-    private final String domain;
+    private String domain;
 
-    @CustomType.Constructor
-    private DataSourceParametersAmazonElasticsearch(@CustomType.Parameter("domain") String domain) {
-        this.domain = domain;
-    }
-
+    private DataSourceParametersAmazonElasticsearch() {}
     /**
      * @return The OpenSearch domain.
      * 
@@ -35,24 +31,24 @@ public final class DataSourceParametersAmazonElasticsearch {
     public static Builder builder(DataSourceParametersAmazonElasticsearch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersAmazonElasticsearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domain = defaults.domain;
         }
 
+        @CustomType.Setter
         public Builder domain(String domain) {
             this.domain = Objects.requireNonNull(domain);
             return this;
-        }        public DataSourceParametersAmazonElasticsearch build() {
-            return new DataSourceParametersAmazonElasticsearch(domain);
+        }
+        public DataSourceParametersAmazonElasticsearch build() {
+            final var o = new DataSourceParametersAmazonElasticsearch();
+            o.domain = domain;
+            return o;
         }
     }
 }

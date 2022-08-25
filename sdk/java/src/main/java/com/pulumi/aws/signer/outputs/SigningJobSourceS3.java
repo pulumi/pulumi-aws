@@ -13,28 +13,19 @@ public final class SigningJobSourceS3 {
      * @return Name of the S3 bucket.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return Key name of the object that contains your unsigned code.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Version of your source image in your version enabled S3 bucket.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private SigningJobSourceS3(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("version") String version) {
-        this.bucket = bucket;
-        this.key = key;
-        this.version = version;
-    }
-
+    private SigningJobSourceS3() {}
     /**
      * @return Name of the S3 bucket.
      * 
@@ -64,16 +55,12 @@ public final class SigningJobSourceS3 {
     public static Builder builder(SigningJobSourceS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private String key;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SigningJobSourceS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -81,19 +68,27 @@ public final class SigningJobSourceS3 {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public SigningJobSourceS3 build() {
-            return new SigningJobSourceS3(bucket, key, version);
+        }
+        public SigningJobSourceS3 build() {
+            final var o = new SigningJobSourceS3();
+            o.bucket = bucket;
+            o.key = key;
+            o.version = version;
+            return o;
         }
     }
 }

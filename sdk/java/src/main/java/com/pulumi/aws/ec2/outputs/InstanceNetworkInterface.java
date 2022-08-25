@@ -17,35 +17,24 @@ public final class InstanceNetworkInterface {
      * @return Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
      * 
      */
-    private final @Nullable Boolean deleteOnTermination;
+    private @Nullable Boolean deleteOnTermination;
     /**
      * @return Integer index of the network interface attachment. Limited by instance type.
      * 
      */
-    private final Integer deviceIndex;
+    private Integer deviceIndex;
     /**
      * @return Integer index of the network card. Limited by instance type. The default index is `0`.
      * 
      */
-    private final @Nullable Integer networkCardIndex;
+    private @Nullable Integer networkCardIndex;
     /**
      * @return ID of the network interface to attach.
      * 
      */
-    private final String networkInterfaceId;
+    private String networkInterfaceId;
 
-    @CustomType.Constructor
-    private InstanceNetworkInterface(
-        @CustomType.Parameter("deleteOnTermination") @Nullable Boolean deleteOnTermination,
-        @CustomType.Parameter("deviceIndex") Integer deviceIndex,
-        @CustomType.Parameter("networkCardIndex") @Nullable Integer networkCardIndex,
-        @CustomType.Parameter("networkInterfaceId") String networkInterfaceId) {
-        this.deleteOnTermination = deleteOnTermination;
-        this.deviceIndex = deviceIndex;
-        this.networkCardIndex = networkCardIndex;
-        this.networkInterfaceId = networkInterfaceId;
-    }
-
+    private InstanceNetworkInterface() {}
     /**
      * @return Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
      * 
@@ -82,17 +71,13 @@ public final class InstanceNetworkInterface {
     public static Builder builder(InstanceNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean deleteOnTermination;
         private Integer deviceIndex;
         private @Nullable Integer networkCardIndex;
         private String networkInterfaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOnTermination = defaults.deleteOnTermination;
@@ -101,23 +86,33 @@ public final class InstanceNetworkInterface {
     	      this.networkInterfaceId = defaults.networkInterfaceId;
         }
 
+        @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
+        @CustomType.Setter
         public Builder deviceIndex(Integer deviceIndex) {
             this.deviceIndex = Objects.requireNonNull(deviceIndex);
             return this;
         }
+        @CustomType.Setter
         public Builder networkCardIndex(@Nullable Integer networkCardIndex) {
             this.networkCardIndex = networkCardIndex;
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
             this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
             return this;
-        }        public InstanceNetworkInterface build() {
-            return new InstanceNetworkInterface(deleteOnTermination, deviceIndex, networkCardIndex, networkInterfaceId);
+        }
+        public InstanceNetworkInterface build() {
+            final var o = new InstanceNetworkInterface();
+            o.deleteOnTermination = deleteOnTermination;
+            o.deviceIndex = deviceIndex;
+            o.networkCardIndex = networkCardIndex;
+            o.networkInterfaceId = networkInterfaceId;
+            return o;
         }
     }
 }

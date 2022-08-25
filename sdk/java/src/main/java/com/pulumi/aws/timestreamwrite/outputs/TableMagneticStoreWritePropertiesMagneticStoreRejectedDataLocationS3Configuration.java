@@ -15,35 +15,24 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
      * @return Bucket name of the customer S3 bucket.
      * 
      */
-    private final @Nullable String bucketName;
+    private @Nullable String bucketName;
     /**
      * @return Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
      * 
      */
-    private final @Nullable String encryptionOption;
+    private @Nullable String encryptionOption;
     /**
      * @return KMS key arn for the customer s3 location when encrypting with a KMS managed key.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Object key prefix for the customer S3 location.
      * 
      */
-    private final @Nullable String objectKeyPrefix;
+    private @Nullable String objectKeyPrefix;
 
-    @CustomType.Constructor
-    private TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration(
-        @CustomType.Parameter("bucketName") @Nullable String bucketName,
-        @CustomType.Parameter("encryptionOption") @Nullable String encryptionOption,
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("objectKeyPrefix") @Nullable String objectKeyPrefix) {
-        this.bucketName = bucketName;
-        this.encryptionOption = encryptionOption;
-        this.kmsKeyId = kmsKeyId;
-        this.objectKeyPrefix = objectKeyPrefix;
-    }
-
+    private TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration() {}
     /**
      * @return Bucket name of the customer S3 bucket.
      * 
@@ -80,17 +69,13 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
     public static Builder builder(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucketName;
         private @Nullable String encryptionOption;
         private @Nullable String kmsKeyId;
         private @Nullable String objectKeyPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -99,23 +84,33 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
     	      this.objectKeyPrefix = defaults.objectKeyPrefix;
         }
 
+        @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
             this.bucketName = bucketName;
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionOption(@Nullable String encryptionOption) {
             this.encryptionOption = encryptionOption;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder objectKeyPrefix(@Nullable String objectKeyPrefix) {
             this.objectKeyPrefix = objectKeyPrefix;
             return this;
-        }        public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration build() {
-            return new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration(bucketName, encryptionOption, kmsKeyId, objectKeyPrefix);
+        }
+        public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration build() {
+            final var o = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration();
+            o.bucketName = bucketName;
+            o.encryptionOption = encryptionOption;
+            o.kmsKeyId = kmsKeyId;
+            o.objectKeyPrefix = objectKeyPrefix;
+            return o;
         }
     }
 }

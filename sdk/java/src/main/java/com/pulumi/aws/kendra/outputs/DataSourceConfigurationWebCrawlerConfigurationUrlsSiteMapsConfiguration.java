@@ -14,13 +14,9 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
      * @return The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
      * 
      */
-    private final List<String> siteMaps;
+    private List<String> siteMaps;
 
-    @CustomType.Constructor
-    private DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration(@CustomType.Parameter("siteMaps") List<String> siteMaps) {
-        this.siteMaps = siteMaps;
-    }
-
+    private DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration() {}
     /**
      * @return The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
      * 
@@ -36,27 +32,27 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
     public static Builder builder(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> siteMaps;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.siteMaps = defaults.siteMaps;
         }
 
+        @CustomType.Setter
         public Builder siteMaps(List<String> siteMaps) {
             this.siteMaps = Objects.requireNonNull(siteMaps);
             return this;
         }
         public Builder siteMaps(String... siteMaps) {
             return siteMaps(List.of(siteMaps));
-        }        public DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration build() {
-            return new DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration(siteMaps);
+        }
+        public DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration build() {
+            final var o = new DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration();
+            o.siteMaps = siteMaps;
+            return o;
         }
     }
 }

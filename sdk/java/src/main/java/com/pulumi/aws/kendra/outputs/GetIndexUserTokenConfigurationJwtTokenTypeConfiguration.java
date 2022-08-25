@@ -13,56 +13,39 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
      * @return The regular expression that identifies the claim.
      * 
      */
-    private final String claimRegex;
+    private String claimRegex;
     /**
      * @return The group attribute field.
      * 
      */
-    private final String groupAttributeField;
+    private String groupAttributeField;
     /**
      * @return The issuer of the token.
      * 
      */
-    private final String issuer;
+    private String issuer;
     /**
      * @return The location of the key. Valid values are `URL` or `SECRET_MANAGER`
      * 
      */
-    private final String keyLocation;
+    private String keyLocation;
     /**
      * @return The Amazon Resource Name (ARN) of the secret.
      * 
      */
-    private final String secretsManagerArn;
+    private String secretsManagerArn;
     /**
      * @return The signing key URL.
      * 
      */
-    private final String url;
+    private String url;
     /**
      * @return The user name attribute field.
      * 
      */
-    private final String userNameAttributeField;
+    private String userNameAttributeField;
 
-    @CustomType.Constructor
-    private GetIndexUserTokenConfigurationJwtTokenTypeConfiguration(
-        @CustomType.Parameter("claimRegex") String claimRegex,
-        @CustomType.Parameter("groupAttributeField") String groupAttributeField,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("keyLocation") String keyLocation,
-        @CustomType.Parameter("secretsManagerArn") String secretsManagerArn,
-        @CustomType.Parameter("url") String url,
-        @CustomType.Parameter("userNameAttributeField") String userNameAttributeField) {
-        this.claimRegex = claimRegex;
-        this.groupAttributeField = groupAttributeField;
-        this.issuer = issuer;
-        this.keyLocation = keyLocation;
-        this.secretsManagerArn = secretsManagerArn;
-        this.url = url;
-        this.userNameAttributeField = userNameAttributeField;
-    }
-
+    private GetIndexUserTokenConfigurationJwtTokenTypeConfiguration() {}
     /**
      * @return The regular expression that identifies the claim.
      * 
@@ -120,7 +103,7 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
     public static Builder builder(GetIndexUserTokenConfigurationJwtTokenTypeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String claimRegex;
         private String groupAttributeField;
@@ -129,11 +112,7 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
         private String secretsManagerArn;
         private String url;
         private String userNameAttributeField;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIndexUserTokenConfigurationJwtTokenTypeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.claimRegex = defaults.claimRegex;
@@ -145,35 +124,51 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
     	      this.userNameAttributeField = defaults.userNameAttributeField;
         }
 
+        @CustomType.Setter
         public Builder claimRegex(String claimRegex) {
             this.claimRegex = Objects.requireNonNull(claimRegex);
             return this;
         }
+        @CustomType.Setter
         public Builder groupAttributeField(String groupAttributeField) {
             this.groupAttributeField = Objects.requireNonNull(groupAttributeField);
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder keyLocation(String keyLocation) {
             this.keyLocation = Objects.requireNonNull(keyLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder secretsManagerArn(String secretsManagerArn) {
             this.secretsManagerArn = Objects.requireNonNull(secretsManagerArn);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
         }
+        @CustomType.Setter
         public Builder userNameAttributeField(String userNameAttributeField) {
             this.userNameAttributeField = Objects.requireNonNull(userNameAttributeField);
             return this;
-        }        public GetIndexUserTokenConfigurationJwtTokenTypeConfiguration build() {
-            return new GetIndexUserTokenConfigurationJwtTokenTypeConfiguration(claimRegex, groupAttributeField, issuer, keyLocation, secretsManagerArn, url, userNameAttributeField);
+        }
+        public GetIndexUserTokenConfigurationJwtTokenTypeConfiguration build() {
+            final var o = new GetIndexUserTokenConfigurationJwtTokenTypeConfiguration();
+            o.claimRegex = claimRegex;
+            o.groupAttributeField = groupAttributeField;
+            o.issuer = issuer;
+            o.keyLocation = keyLocation;
+            o.secretsManagerArn = secretsManagerArn;
+            o.url = url;
+            o.userNameAttributeField = userNameAttributeField;
+            return o;
         }
     }
 }

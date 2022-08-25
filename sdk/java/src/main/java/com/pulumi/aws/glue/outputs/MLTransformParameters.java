@@ -14,21 +14,14 @@ public final class MLTransformParameters {
      * @return The parameters for the find matches algorithm. see Find Matches Parameters.
      * 
      */
-    private final MLTransformParametersFindMatchesParameters findMatchesParameters;
+    private MLTransformParametersFindMatchesParameters findMatchesParameters;
     /**
      * @return The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
      * 
      */
-    private final String transformType;
+    private String transformType;
 
-    @CustomType.Constructor
-    private MLTransformParameters(
-        @CustomType.Parameter("findMatchesParameters") MLTransformParametersFindMatchesParameters findMatchesParameters,
-        @CustomType.Parameter("transformType") String transformType) {
-        this.findMatchesParameters = findMatchesParameters;
-        this.transformType = transformType;
-    }
-
+    private MLTransformParameters() {}
     /**
      * @return The parameters for the find matches algorithm. see Find Matches Parameters.
      * 
@@ -51,30 +44,32 @@ public final class MLTransformParameters {
     public static Builder builder(MLTransformParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private MLTransformParametersFindMatchesParameters findMatchesParameters;
         private String transformType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MLTransformParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.findMatchesParameters = defaults.findMatchesParameters;
     	      this.transformType = defaults.transformType;
         }
 
+        @CustomType.Setter
         public Builder findMatchesParameters(MLTransformParametersFindMatchesParameters findMatchesParameters) {
             this.findMatchesParameters = Objects.requireNonNull(findMatchesParameters);
             return this;
         }
+        @CustomType.Setter
         public Builder transformType(String transformType) {
             this.transformType = Objects.requireNonNull(transformType);
             return this;
-        }        public MLTransformParameters build() {
-            return new MLTransformParameters(findMatchesParameters, transformType);
+        }
+        public MLTransformParameters build() {
+            final var o = new MLTransformParameters();
+            o.findMatchesParameters = findMatchesParameters;
+            o.transformType = transformType;
+            return o;
         }
     }
 }

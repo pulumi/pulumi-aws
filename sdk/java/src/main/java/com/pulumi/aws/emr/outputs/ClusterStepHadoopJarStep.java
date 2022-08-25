@@ -17,35 +17,24 @@ public final class ClusterStepHadoopJarStep {
      * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
      * 
      */
-    private final @Nullable List<String> args;
+    private @Nullable List<String> args;
     /**
      * @return Path to a JAR file run during the step.
      * 
      */
-    private final String jar;
+    private String jar;
     /**
      * @return Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
      * 
      */
-    private final @Nullable String mainClass;
+    private @Nullable String mainClass;
     /**
      * @return Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
      * 
      */
-    private final @Nullable Map<String,String> properties;
+    private @Nullable Map<String,String> properties;
 
-    @CustomType.Constructor
-    private ClusterStepHadoopJarStep(
-        @CustomType.Parameter("args") @Nullable List<String> args,
-        @CustomType.Parameter("jar") String jar,
-        @CustomType.Parameter("mainClass") @Nullable String mainClass,
-        @CustomType.Parameter("properties") @Nullable Map<String,String> properties) {
-        this.args = args;
-        this.jar = jar;
-        this.mainClass = mainClass;
-        this.properties = properties;
-    }
-
+    private ClusterStepHadoopJarStep() {}
     /**
      * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
      * 
@@ -82,17 +71,13 @@ public final class ClusterStepHadoopJarStep {
     public static Builder builder(ClusterStepHadoopJarStep defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> args;
         private String jar;
         private @Nullable String mainClass;
         private @Nullable Map<String,String> properties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterStepHadoopJarStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.args = defaults.args;
@@ -101,6 +86,7 @@ public final class ClusterStepHadoopJarStep {
     	      this.properties = defaults.properties;
         }
 
+        @CustomType.Setter
         public Builder args(@Nullable List<String> args) {
             this.args = args;
             return this;
@@ -108,19 +94,28 @@ public final class ClusterStepHadoopJarStep {
         public Builder args(String... args) {
             return args(List.of(args));
         }
+        @CustomType.Setter
         public Builder jar(String jar) {
             this.jar = Objects.requireNonNull(jar);
             return this;
         }
+        @CustomType.Setter
         public Builder mainClass(@Nullable String mainClass) {
             this.mainClass = mainClass;
             return this;
         }
+        @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
             this.properties = properties;
             return this;
-        }        public ClusterStepHadoopJarStep build() {
-            return new ClusterStepHadoopJarStep(args, jar, mainClass, properties);
+        }
+        public ClusterStepHadoopJarStep build() {
+            final var o = new ClusterStepHadoopJarStep();
+            o.args = args;
+            o.jar = jar;
+            o.mainClass = mainClass;
+            o.properties = properties;
+            return o;
         }
     }
 }

@@ -14,13 +14,9 @@ public final class ApplicationApplicationConfigurationEnvironmentProperties {
      * @return Describes the execution property groups.
      * 
      */
-    private final List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups;
+    private List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationEnvironmentProperties(@CustomType.Parameter("propertyGroups") List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups) {
-        this.propertyGroups = propertyGroups;
-    }
-
+    private ApplicationApplicationConfigurationEnvironmentProperties() {}
     /**
      * @return Describes the execution property groups.
      * 
@@ -36,27 +32,27 @@ public final class ApplicationApplicationConfigurationEnvironmentProperties {
     public static Builder builder(ApplicationApplicationConfigurationEnvironmentProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationEnvironmentProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.propertyGroups = defaults.propertyGroups;
         }
 
+        @CustomType.Setter
         public Builder propertyGroups(List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups) {
             this.propertyGroups = Objects.requireNonNull(propertyGroups);
             return this;
         }
         public Builder propertyGroups(ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup... propertyGroups) {
             return propertyGroups(List.of(propertyGroups));
-        }        public ApplicationApplicationConfigurationEnvironmentProperties build() {
-            return new ApplicationApplicationConfigurationEnvironmentProperties(propertyGroups);
+        }
+        public ApplicationApplicationConfigurationEnvironmentProperties build() {
+            final var o = new ApplicationApplicationConfigurationEnvironmentProperties();
+            o.propertyGroups = propertyGroups;
+            return o;
         }
     }
 }

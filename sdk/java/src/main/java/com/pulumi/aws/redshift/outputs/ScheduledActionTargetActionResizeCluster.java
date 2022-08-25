@@ -17,42 +17,29 @@ public final class ScheduledActionTargetActionResizeCluster {
      * @return A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
      * 
      */
-    private final @Nullable Boolean classic;
+    private @Nullable Boolean classic;
     /**
      * @return The identifier of the cluster to be resumed.
      * 
      */
-    private final String clusterIdentifier;
+    private String clusterIdentifier;
     /**
      * @return The new cluster type for the specified cluster.
      * 
      */
-    private final @Nullable String clusterType;
+    private @Nullable String clusterType;
     /**
      * @return The new node type for the nodes you are adding.
      * 
      */
-    private final @Nullable String nodeType;
+    private @Nullable String nodeType;
     /**
      * @return The new number of nodes for the cluster.
      * 
      */
-    private final @Nullable Integer numberOfNodes;
+    private @Nullable Integer numberOfNodes;
 
-    @CustomType.Constructor
-    private ScheduledActionTargetActionResizeCluster(
-        @CustomType.Parameter("classic") @Nullable Boolean classic,
-        @CustomType.Parameter("clusterIdentifier") String clusterIdentifier,
-        @CustomType.Parameter("clusterType") @Nullable String clusterType,
-        @CustomType.Parameter("nodeType") @Nullable String nodeType,
-        @CustomType.Parameter("numberOfNodes") @Nullable Integer numberOfNodes) {
-        this.classic = classic;
-        this.clusterIdentifier = clusterIdentifier;
-        this.clusterType = clusterType;
-        this.nodeType = nodeType;
-        this.numberOfNodes = numberOfNodes;
-    }
-
+    private ScheduledActionTargetActionResizeCluster() {}
     /**
      * @return A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
      * 
@@ -96,18 +83,14 @@ public final class ScheduledActionTargetActionResizeCluster {
     public static Builder builder(ScheduledActionTargetActionResizeCluster defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean classic;
         private String clusterIdentifier;
         private @Nullable String clusterType;
         private @Nullable String nodeType;
         private @Nullable Integer numberOfNodes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduledActionTargetActionResizeCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.classic = defaults.classic;
@@ -117,27 +100,39 @@ public final class ScheduledActionTargetActionResizeCluster {
     	      this.numberOfNodes = defaults.numberOfNodes;
         }
 
+        @CustomType.Setter
         public Builder classic(@Nullable Boolean classic) {
             this.classic = classic;
             return this;
         }
+        @CustomType.Setter
         public Builder clusterIdentifier(String clusterIdentifier) {
             this.clusterIdentifier = Objects.requireNonNull(clusterIdentifier);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterType(@Nullable String clusterType) {
             this.clusterType = clusterType;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeType(@Nullable String nodeType) {
             this.nodeType = nodeType;
             return this;
         }
+        @CustomType.Setter
         public Builder numberOfNodes(@Nullable Integer numberOfNodes) {
             this.numberOfNodes = numberOfNodes;
             return this;
-        }        public ScheduledActionTargetActionResizeCluster build() {
-            return new ScheduledActionTargetActionResizeCluster(classic, clusterIdentifier, clusterType, nodeType, numberOfNodes);
+        }
+        public ScheduledActionTargetActionResizeCluster build() {
+            final var o = new ScheduledActionTargetActionResizeCluster();
+            o.classic = classic;
+            o.clusterIdentifier = clusterIdentifier;
+            o.clusterType = clusterType;
+            o.nodeType = nodeType;
+            o.numberOfNodes = numberOfNodes;
+            return o;
         }
     }
 }

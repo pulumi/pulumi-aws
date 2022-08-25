@@ -16,28 +16,19 @@ public final class TaskSetCapacityProviderStrategy {
      * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
      * 
      */
-    private final @Nullable Integer base;
+    private @Nullable Integer base;
     /**
      * @return The short name or full Amazon Resource Name (ARN) of the capacity provider.
      * 
      */
-    private final String capacityProvider;
+    private String capacityProvider;
     /**
      * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider.
      * 
      */
-    private final Integer weight;
+    private Integer weight;
 
-    @CustomType.Constructor
-    private TaskSetCapacityProviderStrategy(
-        @CustomType.Parameter("base") @Nullable Integer base,
-        @CustomType.Parameter("capacityProvider") String capacityProvider,
-        @CustomType.Parameter("weight") Integer weight) {
-        this.base = base;
-        this.capacityProvider = capacityProvider;
-        this.weight = weight;
-    }
-
+    private TaskSetCapacityProviderStrategy() {}
     /**
      * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
      * 
@@ -67,16 +58,12 @@ public final class TaskSetCapacityProviderStrategy {
     public static Builder builder(TaskSetCapacityProviderStrategy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer base;
         private String capacityProvider;
         private Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskSetCapacityProviderStrategy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.base = defaults.base;
@@ -84,19 +71,27 @@ public final class TaskSetCapacityProviderStrategy {
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder base(@Nullable Integer base) {
             this.base = base;
             return this;
         }
+        @CustomType.Setter
         public Builder capacityProvider(String capacityProvider) {
             this.capacityProvider = Objects.requireNonNull(capacityProvider);
             return this;
         }
+        @CustomType.Setter
         public Builder weight(Integer weight) {
             this.weight = Objects.requireNonNull(weight);
             return this;
-        }        public TaskSetCapacityProviderStrategy build() {
-            return new TaskSetCapacityProviderStrategy(base, capacityProvider, weight);
+        }
+        public TaskSetCapacityProviderStrategy build() {
+            final var o = new TaskSetCapacityProviderStrategy();
+            o.base = base;
+            o.capacityProvider = capacityProvider;
+            o.weight = weight;
+            return o;
         }
     }
 }

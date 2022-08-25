@@ -13,28 +13,19 @@ public final class CatalogTableTargetTable {
      * @return ID of the Data Catalog in which the table resides.
      * 
      */
-    private final String catalogId;
+    private String catalogId;
     /**
      * @return Name of the catalog database that contains the target table.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return Name of the target table.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private CatalogTableTargetTable(
-        @CustomType.Parameter("catalogId") String catalogId,
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("name") String name) {
-        this.catalogId = catalogId;
-        this.databaseName = databaseName;
-        this.name = name;
-    }
-
+    private CatalogTableTargetTable() {}
     /**
      * @return ID of the Data Catalog in which the table resides.
      * 
@@ -64,16 +55,12 @@ public final class CatalogTableTargetTable {
     public static Builder builder(CatalogTableTargetTable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String catalogId;
         private String databaseName;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogTableTargetTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -81,19 +68,27 @@ public final class CatalogTableTargetTable {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder catalogId(String catalogId) {
             this.catalogId = Objects.requireNonNull(catalogId);
             return this;
         }
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public CatalogTableTargetTable build() {
-            return new CatalogTableTargetTable(catalogId, databaseName, name);
+        }
+        public CatalogTableTargetTable build() {
+            final var o = new CatalogTableTargetTable();
+            o.catalogId = catalogId;
+            o.databaseName = databaseName;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig {
      * @return The type of encryption. Valid Values: `KMS`.
      * 
      */
-    private final String encryptionType;
+    private String encryptionType;
     /**
      * @return The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
      * 
      */
-    private final String keyId;
+    private String keyId;
 
-    @CustomType.Constructor
-    private InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig(
-        @CustomType.Parameter("encryptionType") String encryptionType,
-        @CustomType.Parameter("keyId") String keyId) {
-        this.encryptionType = encryptionType;
-        this.keyId = keyId;
-    }
-
+    private InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig() {}
     /**
      * @return The type of encryption. Valid Values: `KMS`.
      * 
@@ -50,30 +43,32 @@ public final class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig {
     public static Builder builder(InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String encryptionType;
         private String keyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionType = defaults.encryptionType;
     	      this.keyId = defaults.keyId;
         }
 
+        @CustomType.Setter
         public Builder encryptionType(String encryptionType) {
             this.encryptionType = Objects.requireNonNull(encryptionType);
             return this;
         }
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
-        }        public InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig build() {
-            return new InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig(encryptionType, keyId);
+        }
+        public InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig build() {
+            final var o = new InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig();
+            o.encryptionType = encryptionType;
+            o.keyId = keyId;
+            return o;
         }
     }
 }

@@ -14,59 +14,40 @@ public final class GetWorkspaceResult {
      * @return The Prometheus workspace alias.
      * 
      */
-    private final String alias;
+    private String alias;
     /**
      * @return The Amazon Resource Name (ARN) of the Prometheus workspace.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The creation date of the Prometheus workspace.
      * 
      */
-    private final String createdDate;
+    private String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The endpoint of the Prometheus workspace.
      * 
      */
-    private final String prometheusEndpoint;
+    private String prometheusEndpoint;
     /**
      * @return The status of the Prometheus workspace.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
-    private final String workspaceId;
+    private Map<String,String> tags;
+    private String workspaceId;
 
-    @CustomType.Constructor
-    private GetWorkspaceResult(
-        @CustomType.Parameter("alias") String alias,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("prometheusEndpoint") String prometheusEndpoint,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("workspaceId") String workspaceId) {
-        this.alias = alias;
-        this.arn = arn;
-        this.createdDate = createdDate;
-        this.id = id;
-        this.prometheusEndpoint = prometheusEndpoint;
-        this.status = status;
-        this.tags = tags;
-        this.workspaceId = workspaceId;
-    }
-
+    private GetWorkspaceResult() {}
     /**
      * @return The Prometheus workspace alias.
      * 
@@ -127,7 +108,7 @@ public final class GetWorkspaceResult {
     public static Builder builder(GetWorkspaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String alias;
         private String arn;
@@ -137,11 +118,7 @@ public final class GetWorkspaceResult {
         private String status;
         private Map<String,String> tags;
         private String workspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alias = defaults.alias;
@@ -154,39 +131,57 @@ public final class GetWorkspaceResult {
     	      this.workspaceId = defaults.workspaceId;
         }
 
+        @CustomType.Setter
         public Builder alias(String alias) {
             this.alias = Objects.requireNonNull(alias);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder prometheusEndpoint(String prometheusEndpoint) {
             this.prometheusEndpoint = Objects.requireNonNull(prometheusEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
-        }        public GetWorkspaceResult build() {
-            return new GetWorkspaceResult(alias, arn, createdDate, id, prometheusEndpoint, status, tags, workspaceId);
+        }
+        public GetWorkspaceResult build() {
+            final var o = new GetWorkspaceResult();
+            o.alias = alias;
+            o.arn = arn;
+            o.createdDate = createdDate;
+            o.id = id;
+            o.prometheusEndpoint = prometheusEndpoint;
+            o.status = status;
+            o.tags = tags;
+            o.workspaceId = workspaceId;
+            return o;
         }
     }
 }

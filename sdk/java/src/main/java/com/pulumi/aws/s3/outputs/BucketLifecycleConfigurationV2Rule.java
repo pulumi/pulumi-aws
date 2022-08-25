@@ -22,32 +22,32 @@ public final class BucketLifecycleConfigurationV2Rule {
      * @return Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload documented below.
      * 
      */
-    private final @Nullable BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload;
+    private @Nullable BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload;
     /**
      * @return Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker documented below.
      * 
      */
-    private final @Nullable BucketLifecycleConfigurationV2RuleExpiration expiration;
+    private @Nullable BucketLifecycleConfigurationV2RuleExpiration expiration;
     /**
      * @return Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
      * 
      */
-    private final @Nullable BucketLifecycleConfigurationV2RuleFilter filter;
+    private @Nullable BucketLifecycleConfigurationV2RuleFilter filter;
     /**
      * @return Unique identifier for the rule. The value cannot be longer than 255 characters.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Configuration block that specifies when noncurrent object versions expire documented below.
      * 
      */
-    private final @Nullable BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration noncurrentVersionExpiration;
+    private @Nullable BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration noncurrentVersionExpiration;
     /**
      * @return Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
      * 
      */
-    private final @Nullable List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> noncurrentVersionTransitions;
+    private @Nullable List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> noncurrentVersionTransitions;
     /**
      * @return **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
      * 
@@ -56,40 +56,19 @@ public final class BucketLifecycleConfigurationV2Rule {
      * 
      */
     @Deprecated /* Use filter instead */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class documented below.
      * 
      */
-    private final @Nullable List<BucketLifecycleConfigurationV2RuleTransition> transitions;
+    private @Nullable List<BucketLifecycleConfigurationV2RuleTransition> transitions;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationV2Rule(
-        @CustomType.Parameter("abortIncompleteMultipartUpload") @Nullable BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload,
-        @CustomType.Parameter("expiration") @Nullable BucketLifecycleConfigurationV2RuleExpiration expiration,
-        @CustomType.Parameter("filter") @Nullable BucketLifecycleConfigurationV2RuleFilter filter,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("noncurrentVersionExpiration") @Nullable BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration noncurrentVersionExpiration,
-        @CustomType.Parameter("noncurrentVersionTransitions") @Nullable List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> noncurrentVersionTransitions,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("transitions") @Nullable List<BucketLifecycleConfigurationV2RuleTransition> transitions) {
-        this.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
-        this.expiration = expiration;
-        this.filter = filter;
-        this.id = id;
-        this.noncurrentVersionExpiration = noncurrentVersionExpiration;
-        this.noncurrentVersionTransitions = noncurrentVersionTransitions;
-        this.prefix = prefix;
-        this.status = status;
-        this.transitions = transitions;
-    }
-
+    private BucketLifecycleConfigurationV2Rule() {}
     /**
      * @return Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload documented below.
      * 
@@ -165,7 +144,7 @@ public final class BucketLifecycleConfigurationV2Rule {
     public static Builder builder(BucketLifecycleConfigurationV2Rule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload;
         private @Nullable BucketLifecycleConfigurationV2RuleExpiration expiration;
@@ -176,11 +155,7 @@ public final class BucketLifecycleConfigurationV2Rule {
         private @Nullable String prefix;
         private String status;
         private @Nullable List<BucketLifecycleConfigurationV2RuleTransition> transitions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationV2Rule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.abortIncompleteMultipartUpload = defaults.abortIncompleteMultipartUpload;
@@ -194,26 +169,32 @@ public final class BucketLifecycleConfigurationV2Rule {
     	      this.transitions = defaults.transitions;
         }
 
+        @CustomType.Setter
         public Builder abortIncompleteMultipartUpload(@Nullable BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload) {
             this.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
             return this;
         }
+        @CustomType.Setter
         public Builder expiration(@Nullable BucketLifecycleConfigurationV2RuleExpiration expiration) {
             this.expiration = expiration;
             return this;
         }
+        @CustomType.Setter
         public Builder filter(@Nullable BucketLifecycleConfigurationV2RuleFilter filter) {
             this.filter = filter;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder noncurrentVersionExpiration(@Nullable BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration noncurrentVersionExpiration) {
             this.noncurrentVersionExpiration = noncurrentVersionExpiration;
             return this;
         }
+        @CustomType.Setter
         public Builder noncurrentVersionTransitions(@Nullable List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> noncurrentVersionTransitions) {
             this.noncurrentVersionTransitions = noncurrentVersionTransitions;
             return this;
@@ -221,22 +202,36 @@ public final class BucketLifecycleConfigurationV2Rule {
         public Builder noncurrentVersionTransitions(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition... noncurrentVersionTransitions) {
             return noncurrentVersionTransitions(List.of(noncurrentVersionTransitions));
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder transitions(@Nullable List<BucketLifecycleConfigurationV2RuleTransition> transitions) {
             this.transitions = transitions;
             return this;
         }
         public Builder transitions(BucketLifecycleConfigurationV2RuleTransition... transitions) {
             return transitions(List.of(transitions));
-        }        public BucketLifecycleConfigurationV2Rule build() {
-            return new BucketLifecycleConfigurationV2Rule(abortIncompleteMultipartUpload, expiration, filter, id, noncurrentVersionExpiration, noncurrentVersionTransitions, prefix, status, transitions);
+        }
+        public BucketLifecycleConfigurationV2Rule build() {
+            final var o = new BucketLifecycleConfigurationV2Rule();
+            o.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
+            o.expiration = expiration;
+            o.filter = filter;
+            o.id = id;
+            o.noncurrentVersionExpiration = noncurrentVersionExpiration;
+            o.noncurrentVersionTransitions = noncurrentVersionTransitions;
+            o.prefix = prefix;
+            o.status = status;
+            o.transitions = transitions;
+            return o;
         }
     }
 }

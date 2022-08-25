@@ -19,35 +19,24 @@ public final class ClusterShard {
      * * `endpoint`
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Set of nodes in this shard.
      * 
      */
-    private final @Nullable List<ClusterShardNode> nodes;
+    private @Nullable List<ClusterShardNode> nodes;
     /**
      * @return Number of individual nodes in this shard.
      * 
      */
-    private final @Nullable Integer numNodes;
+    private @Nullable Integer numNodes;
     /**
      * @return Keyspace for this shard. Example: `0-16383`.
      * 
      */
-    private final @Nullable String slots;
+    private @Nullable String slots;
 
-    @CustomType.Constructor
-    private ClusterShard(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("nodes") @Nullable List<ClusterShardNode> nodes,
-        @CustomType.Parameter("numNodes") @Nullable Integer numNodes,
-        @CustomType.Parameter("slots") @Nullable String slots) {
-        this.name = name;
-        this.nodes = nodes;
-        this.numNodes = numNodes;
-        this.slots = slots;
-    }
-
+    private ClusterShard() {}
     /**
      * @return Name of this node.
      * * `endpoint`
@@ -85,17 +74,13 @@ public final class ClusterShard {
     public static Builder builder(ClusterShard defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable List<ClusterShardNode> nodes;
         private @Nullable Integer numNodes;
         private @Nullable String slots;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterShard defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -104,10 +89,12 @@ public final class ClusterShard {
     	      this.slots = defaults.slots;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder nodes(@Nullable List<ClusterShardNode> nodes) {
             this.nodes = nodes;
             return this;
@@ -115,15 +102,23 @@ public final class ClusterShard {
         public Builder nodes(ClusterShardNode... nodes) {
             return nodes(List.of(nodes));
         }
+        @CustomType.Setter
         public Builder numNodes(@Nullable Integer numNodes) {
             this.numNodes = numNodes;
             return this;
         }
+        @CustomType.Setter
         public Builder slots(@Nullable String slots) {
             this.slots = slots;
             return this;
-        }        public ClusterShard build() {
-            return new ClusterShard(name, nodes, numNodes, slots);
+        }
+        public ClusterShard build() {
+            final var o = new ClusterShard();
+            o.name = name;
+            o.nodes = nodes;
+            o.numNodes = numNodes;
+            o.slots = slots;
+            return o;
         }
     }
 }

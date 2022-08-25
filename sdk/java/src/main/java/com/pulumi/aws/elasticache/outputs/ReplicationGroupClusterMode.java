@@ -19,7 +19,7 @@ public final class ReplicationGroupClusterMode {
      * 
      */
     @Deprecated /* Use root-level num_node_groups instead */
-    private final @Nullable Integer numNodeGroups;
+    private @Nullable Integer numNodeGroups;
     /**
      * @return Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
      * 
@@ -28,16 +28,9 @@ public final class ReplicationGroupClusterMode {
      * 
      */
     @Deprecated /* Use root-level replicas_per_node_group instead */
-    private final @Nullable Integer replicasPerNodeGroup;
+    private @Nullable Integer replicasPerNodeGroup;
 
-    @CustomType.Constructor
-    private ReplicationGroupClusterMode(
-        @CustomType.Parameter("numNodeGroups") @Nullable Integer numNodeGroups,
-        @CustomType.Parameter("replicasPerNodeGroup") @Nullable Integer replicasPerNodeGroup) {
-        this.numNodeGroups = numNodeGroups;
-        this.replicasPerNodeGroup = replicasPerNodeGroup;
-    }
-
+    private ReplicationGroupClusterMode() {}
     /**
      * @return Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
      * 
@@ -68,30 +61,32 @@ public final class ReplicationGroupClusterMode {
     public static Builder builder(ReplicationGroupClusterMode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer numNodeGroups;
         private @Nullable Integer replicasPerNodeGroup;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicationGroupClusterMode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.numNodeGroups = defaults.numNodeGroups;
     	      this.replicasPerNodeGroup = defaults.replicasPerNodeGroup;
         }
 
+        @CustomType.Setter
         public Builder numNodeGroups(@Nullable Integer numNodeGroups) {
             this.numNodeGroups = numNodeGroups;
             return this;
         }
+        @CustomType.Setter
         public Builder replicasPerNodeGroup(@Nullable Integer replicasPerNodeGroup) {
             this.replicasPerNodeGroup = replicasPerNodeGroup;
             return this;
-        }        public ReplicationGroupClusterMode build() {
-            return new ReplicationGroupClusterMode(numNodeGroups, replicasPerNodeGroup);
+        }
+        public ReplicationGroupClusterMode build() {
+            final var o = new ReplicationGroupClusterMode();
+            o.numNodeGroups = numNodeGroups;
+            o.replicasPerNodeGroup = replicasPerNodeGroup;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class ConnectorPlugin {
      * @return Details about a custom plugin. See below.
      * 
      */
-    private final ConnectorPluginCustomPlugin customPlugin;
+    private ConnectorPluginCustomPlugin customPlugin;
 
-    @CustomType.Constructor
-    private ConnectorPlugin(@CustomType.Parameter("customPlugin") ConnectorPluginCustomPlugin customPlugin) {
-        this.customPlugin = customPlugin;
-    }
-
+    private ConnectorPlugin() {}
     /**
      * @return Details about a custom plugin. See below.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorPlugin {
     public static Builder builder(ConnectorPlugin defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ConnectorPluginCustomPlugin customPlugin;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorPlugin defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customPlugin = defaults.customPlugin;
         }
 
+        @CustomType.Setter
         public Builder customPlugin(ConnectorPluginCustomPlugin customPlugin) {
             this.customPlugin = Objects.requireNonNull(customPlugin);
             return this;
-        }        public ConnectorPlugin build() {
-            return new ConnectorPlugin(customPlugin);
+        }
+        public ConnectorPlugin build() {
+            final var o = new ConnectorPlugin();
+            o.customPlugin = customPlugin;
+            return o;
         }
     }
 }

@@ -15,35 +15,24 @@ public final class TopicRuleErrorActionS3 {
      * @return The Amazon S3 bucket name.
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      * 
      */
-    private final @Nullable String cannedAcl;
+    private @Nullable String cannedAcl;
     /**
      * @return The name of the HTTP header.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The IAM role ARN that allows access to the CloudWatch alarm.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionS3(
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("cannedAcl") @Nullable String cannedAcl,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.bucketName = bucketName;
-        this.cannedAcl = cannedAcl;
-        this.key = key;
-        this.roleArn = roleArn;
-    }
-
+    private TopicRuleErrorActionS3() {}
     /**
      * @return The Amazon S3 bucket name.
      * 
@@ -80,17 +69,13 @@ public final class TopicRuleErrorActionS3 {
     public static Builder builder(TopicRuleErrorActionS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketName;
         private @Nullable String cannedAcl;
         private String key;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -99,23 +84,33 @@ public final class TopicRuleErrorActionS3 {
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder cannedAcl(@Nullable String cannedAcl) {
             this.cannedAcl = cannedAcl;
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public TopicRuleErrorActionS3 build() {
-            return new TopicRuleErrorActionS3(bucketName, cannedAcl, key, roleArn);
+        }
+        public TopicRuleErrorActionS3 build() {
+            final var o = new TopicRuleErrorActionS3();
+            o.bucketName = bucketName;
+            o.cannedAcl = cannedAcl;
+            o.key = key;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

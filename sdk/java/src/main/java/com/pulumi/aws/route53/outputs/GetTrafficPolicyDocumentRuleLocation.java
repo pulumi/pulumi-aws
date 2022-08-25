@@ -16,63 +16,44 @@ public final class GetTrafficPolicyDocumentRuleLocation {
      * @return Value of a continent.
      * 
      */
-    private final @Nullable String continent;
+    private @Nullable String continent;
     /**
      * @return Value of a country.
      * 
      */
-    private final @Nullable String country;
+    private @Nullable String country;
     /**
      * @return References to an endpoint.
      * 
      */
-    private final @Nullable String endpointReference;
+    private @Nullable String endpointReference;
     /**
      * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
      * 
      */
-    private final @Nullable Boolean evaluateTargetHealth;
+    private @Nullable Boolean evaluateTargetHealth;
     /**
      * @return If you want to associate a health check with the endpoint or rule.
      * 
      */
-    private final @Nullable String healthCheck;
+    private @Nullable String healthCheck;
     /**
      * @return Indicates whether this set of values represents the default location.
      * 
      */
-    private final @Nullable Boolean isDefault;
+    private @Nullable Boolean isDefault;
     /**
      * @return References to a rule.
      * 
      */
-    private final @Nullable String ruleReference;
+    private @Nullable String ruleReference;
     /**
      * @return Value of a subdivision.
      * 
      */
-    private final @Nullable String subdivision;
+    private @Nullable String subdivision;
 
-    @CustomType.Constructor
-    private GetTrafficPolicyDocumentRuleLocation(
-        @CustomType.Parameter("continent") @Nullable String continent,
-        @CustomType.Parameter("country") @Nullable String country,
-        @CustomType.Parameter("endpointReference") @Nullable String endpointReference,
-        @CustomType.Parameter("evaluateTargetHealth") @Nullable Boolean evaluateTargetHealth,
-        @CustomType.Parameter("healthCheck") @Nullable String healthCheck,
-        @CustomType.Parameter("isDefault") @Nullable Boolean isDefault,
-        @CustomType.Parameter("ruleReference") @Nullable String ruleReference,
-        @CustomType.Parameter("subdivision") @Nullable String subdivision) {
-        this.continent = continent;
-        this.country = country;
-        this.endpointReference = endpointReference;
-        this.evaluateTargetHealth = evaluateTargetHealth;
-        this.healthCheck = healthCheck;
-        this.isDefault = isDefault;
-        this.ruleReference = ruleReference;
-        this.subdivision = subdivision;
-    }
-
+    private GetTrafficPolicyDocumentRuleLocation() {}
     /**
      * @return Value of a continent.
      * 
@@ -137,7 +118,7 @@ public final class GetTrafficPolicyDocumentRuleLocation {
     public static Builder builder(GetTrafficPolicyDocumentRuleLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String continent;
         private @Nullable String country;
@@ -147,11 +128,7 @@ public final class GetTrafficPolicyDocumentRuleLocation {
         private @Nullable Boolean isDefault;
         private @Nullable String ruleReference;
         private @Nullable String subdivision;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficPolicyDocumentRuleLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.continent = defaults.continent;
@@ -164,39 +141,57 @@ public final class GetTrafficPolicyDocumentRuleLocation {
     	      this.subdivision = defaults.subdivision;
         }
 
+        @CustomType.Setter
         public Builder continent(@Nullable String continent) {
             this.continent = continent;
             return this;
         }
+        @CustomType.Setter
         public Builder country(@Nullable String country) {
             this.country = country;
             return this;
         }
+        @CustomType.Setter
         public Builder endpointReference(@Nullable String endpointReference) {
             this.endpointReference = endpointReference;
             return this;
         }
+        @CustomType.Setter
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
             this.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
             this.healthCheck = healthCheck;
             return this;
         }
+        @CustomType.Setter
         public Builder isDefault(@Nullable Boolean isDefault) {
             this.isDefault = isDefault;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleReference(@Nullable String ruleReference) {
             this.ruleReference = ruleReference;
             return this;
         }
+        @CustomType.Setter
         public Builder subdivision(@Nullable String subdivision) {
             this.subdivision = subdivision;
             return this;
-        }        public GetTrafficPolicyDocumentRuleLocation build() {
-            return new GetTrafficPolicyDocumentRuleLocation(continent, country, endpointReference, evaluateTargetHealth, healthCheck, isDefault, ruleReference, subdivision);
+        }
+        public GetTrafficPolicyDocumentRuleLocation build() {
+            final var o = new GetTrafficPolicyDocumentRuleLocation();
+            o.continent = continent;
+            o.country = country;
+            o.endpointReference = endpointReference;
+            o.evaluateTargetHealth = evaluateTargetHealth;
+            o.healthCheck = healthCheck;
+            o.isDefault = isDefault;
+            o.ruleReference = ruleReference;
+            o.subdivision = subdivision;
+            return o;
         }
     }
 }

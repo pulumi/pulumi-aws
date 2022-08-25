@@ -15,52 +15,35 @@ public final class GetConfigurationResult {
      * @return Amazon Resource Name (ARN) of the configuration.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Description of the configuration.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of Apache Kafka versions which can use this configuration.
      * 
      */
-    private final List<String> kafkaVersions;
+    private List<String> kafkaVersions;
     /**
      * @return Latest revision of the configuration.
      * 
      */
-    private final Integer latestRevision;
-    private final String name;
+    private Integer latestRevision;
+    private String name;
     /**
      * @return Contents of the server.properties file.
      * 
      */
-    private final String serverProperties;
+    private String serverProperties;
 
-    @CustomType.Constructor
-    private GetConfigurationResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kafkaVersions") List<String> kafkaVersions,
-        @CustomType.Parameter("latestRevision") Integer latestRevision,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("serverProperties") String serverProperties) {
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.kafkaVersions = kafkaVersions;
-        this.latestRevision = latestRevision;
-        this.name = name;
-        this.serverProperties = serverProperties;
-    }
-
+    private GetConfigurationResult() {}
     /**
      * @return Amazon Resource Name (ARN) of the configuration.
      * 
@@ -114,7 +97,7 @@ public final class GetConfigurationResult {
     public static Builder builder(GetConfigurationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -123,11 +106,7 @@ public final class GetConfigurationResult {
         private Integer latestRevision;
         private String name;
         private String serverProperties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -139,18 +118,22 @@ public final class GetConfigurationResult {
     	      this.serverProperties = defaults.serverProperties;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kafkaVersions(List<String> kafkaVersions) {
             this.kafkaVersions = Objects.requireNonNull(kafkaVersions);
             return this;
@@ -158,19 +141,31 @@ public final class GetConfigurationResult {
         public Builder kafkaVersions(String... kafkaVersions) {
             return kafkaVersions(List.of(kafkaVersions));
         }
+        @CustomType.Setter
         public Builder latestRevision(Integer latestRevision) {
             this.latestRevision = Objects.requireNonNull(latestRevision);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder serverProperties(String serverProperties) {
             this.serverProperties = Objects.requireNonNull(serverProperties);
             return this;
-        }        public GetConfigurationResult build() {
-            return new GetConfigurationResult(arn, description, id, kafkaVersions, latestRevision, name, serverProperties);
+        }
+        public GetConfigurationResult build() {
+            final var o = new GetConfigurationResult();
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.kafkaVersions = kafkaVersions;
+            o.latestRevision = latestRevision;
+            o.name = name;
+            o.serverProperties = serverProperties;
+            return o;
         }
     }
 }

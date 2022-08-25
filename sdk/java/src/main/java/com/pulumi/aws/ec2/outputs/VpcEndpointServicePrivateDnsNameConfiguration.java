@@ -15,35 +15,24 @@ public final class VpcEndpointServicePrivateDnsNameConfiguration {
      * @return Name of the record subdomain the service provider needs to create.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      * 
      */
-    private final @Nullable String state;
+    private @Nullable String state;
     /**
      * @return Endpoint service verification type, for example `TXT`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Value the service provider adds to the private DNS name domain record before verification.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private VpcEndpointServicePrivateDnsNameConfiguration(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("state") @Nullable String state,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.name = name;
-        this.state = state;
-        this.type = type;
-        this.value = value;
-    }
-
+    private VpcEndpointServicePrivateDnsNameConfiguration() {}
     /**
      * @return Name of the record subdomain the service provider needs to create.
      * 
@@ -80,17 +69,13 @@ public final class VpcEndpointServicePrivateDnsNameConfiguration {
     public static Builder builder(VpcEndpointServicePrivateDnsNameConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String state;
         private @Nullable String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpcEndpointServicePrivateDnsNameConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -99,23 +84,33 @@ public final class VpcEndpointServicePrivateDnsNameConfiguration {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder state(@Nullable String state) {
             this.state = state;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public VpcEndpointServicePrivateDnsNameConfiguration build() {
-            return new VpcEndpointServicePrivateDnsNameConfiguration(name, state, type, value);
+        }
+        public VpcEndpointServicePrivateDnsNameConfiguration build() {
+            final var o = new VpcEndpointServicePrivateDnsNameConfiguration();
+            o.name = name;
+            o.state = state;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

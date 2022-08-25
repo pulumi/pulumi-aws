@@ -13,31 +13,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoipPoolsResult {
-    private final @Nullable List<GetCoipPoolsFilter> filters;
+    private @Nullable List<GetCoipPoolsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of COIP Pool Identifiers
      * 
      */
-    private final List<String> poolIds;
-    private final Map<String,String> tags;
+    private List<String> poolIds;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetCoipPoolsResult(
-        @CustomType.Parameter("filters") @Nullable List<GetCoipPoolsFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("poolIds") List<String> poolIds,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.filters = filters;
-        this.id = id;
-        this.poolIds = poolIds;
-        this.tags = tags;
-    }
-
+    private GetCoipPoolsResult() {}
     public List<GetCoipPoolsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -66,17 +55,13 @@ public final class GetCoipPoolsResult {
     public static Builder builder(GetCoipPoolsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetCoipPoolsFilter> filters;
         private String id;
         private List<String> poolIds;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoipPoolsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -85,6 +70,7 @@ public final class GetCoipPoolsResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetCoipPoolsFilter> filters) {
             this.filters = filters;
             return this;
@@ -92,10 +78,12 @@ public final class GetCoipPoolsResult {
         public Builder filters(GetCoipPoolsFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder poolIds(List<String> poolIds) {
             this.poolIds = Objects.requireNonNull(poolIds);
             return this;
@@ -103,11 +91,18 @@ public final class GetCoipPoolsResult {
         public Builder poolIds(String... poolIds) {
             return poolIds(List.of(poolIds));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetCoipPoolsResult build() {
-            return new GetCoipPoolsResult(filters, id, poolIds, tags);
+        }
+        public GetCoipPoolsResult build() {
+            final var o = new GetCoipPoolsResult();
+            o.filters = filters;
+            o.id = id;
+            o.poolIds = poolIds;
+            o.tags = tags;
+            return o;
         }
     }
 }

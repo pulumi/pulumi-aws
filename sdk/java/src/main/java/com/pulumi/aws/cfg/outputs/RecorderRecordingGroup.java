@@ -17,28 +17,19 @@ public final class RecorderRecordingGroup {
      * @return Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean allSupported;
+    private @Nullable Boolean allSupported;
     /**
      * @return Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
      * 
      */
-    private final @Nullable Boolean includeGlobalResourceTypes;
+    private @Nullable Boolean includeGlobalResourceTypes;
     /**
      * @return A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
      * 
      */
-    private final @Nullable List<String> resourceTypes;
+    private @Nullable List<String> resourceTypes;
 
-    @CustomType.Constructor
-    private RecorderRecordingGroup(
-        @CustomType.Parameter("allSupported") @Nullable Boolean allSupported,
-        @CustomType.Parameter("includeGlobalResourceTypes") @Nullable Boolean includeGlobalResourceTypes,
-        @CustomType.Parameter("resourceTypes") @Nullable List<String> resourceTypes) {
-        this.allSupported = allSupported;
-        this.includeGlobalResourceTypes = includeGlobalResourceTypes;
-        this.resourceTypes = resourceTypes;
-    }
-
+    private RecorderRecordingGroup() {}
     /**
      * @return Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
      * 
@@ -68,16 +59,12 @@ public final class RecorderRecordingGroup {
     public static Builder builder(RecorderRecordingGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allSupported;
         private @Nullable Boolean includeGlobalResourceTypes;
         private @Nullable List<String> resourceTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RecorderRecordingGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allSupported = defaults.allSupported;
@@ -85,22 +72,30 @@ public final class RecorderRecordingGroup {
     	      this.resourceTypes = defaults.resourceTypes;
         }
 
+        @CustomType.Setter
         public Builder allSupported(@Nullable Boolean allSupported) {
             this.allSupported = allSupported;
             return this;
         }
+        @CustomType.Setter
         public Builder includeGlobalResourceTypes(@Nullable Boolean includeGlobalResourceTypes) {
             this.includeGlobalResourceTypes = includeGlobalResourceTypes;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceTypes(@Nullable List<String> resourceTypes) {
             this.resourceTypes = resourceTypes;
             return this;
         }
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
-        }        public RecorderRecordingGroup build() {
-            return new RecorderRecordingGroup(allSupported, includeGlobalResourceTypes, resourceTypes);
+        }
+        public RecorderRecordingGroup build() {
+            final var o = new RecorderRecordingGroup();
+            o.allSupported = allSupported;
+            o.includeGlobalResourceTypes = includeGlobalResourceTypes;
+            o.resourceTypes = resourceTypes;
+            return o;
         }
     }
 }

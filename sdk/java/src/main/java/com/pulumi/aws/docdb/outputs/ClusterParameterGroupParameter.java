@@ -15,28 +15,19 @@ public final class ClusterParameterGroupParameter {
      * @return Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
      * 
      */
-    private final @Nullable String applyMethod;
+    private @Nullable String applyMethod;
     /**
      * @return The name of the documentDB parameter.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The value of the documentDB parameter.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ClusterParameterGroupParameter(
-        @CustomType.Parameter("applyMethod") @Nullable String applyMethod,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.applyMethod = applyMethod;
-        this.name = name;
-        this.value = value;
-    }
-
+    private ClusterParameterGroupParameter() {}
     /**
      * @return Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
      * 
@@ -66,16 +57,12 @@ public final class ClusterParameterGroupParameter {
     public static Builder builder(ClusterParameterGroupParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String applyMethod;
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterParameterGroupParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applyMethod = defaults.applyMethod;
@@ -83,19 +70,27 @@ public final class ClusterParameterGroupParameter {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder applyMethod(@Nullable String applyMethod) {
             this.applyMethod = applyMethod;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ClusterParameterGroupParameter build() {
-            return new ClusterParameterGroupParameter(applyMethod, name, value);
+        }
+        public ClusterParameterGroupParameter build() {
+            final var o = new ClusterParameterGroupParameter();
+            o.applyMethod = applyMethod;
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

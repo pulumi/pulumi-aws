@@ -17,31 +17,20 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
      * @return A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
      * 
      */
-    private final @Nullable String dateValue;
+    private @Nullable String dateValue;
     /**
      * @return A long integer value.
      * 
      */
-    private final @Nullable Integer longValue;
+    private @Nullable Integer longValue;
     /**
      * @return A list of strings.
      * 
      */
-    private final @Nullable List<String> stringListValues;
-    private final @Nullable String stringValue;
+    private @Nullable List<String> stringListValues;
+    private @Nullable String stringValue;
 
-    @CustomType.Constructor
-    private DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue(
-        @CustomType.Parameter("dateValue") @Nullable String dateValue,
-        @CustomType.Parameter("longValue") @Nullable Integer longValue,
-        @CustomType.Parameter("stringListValues") @Nullable List<String> stringListValues,
-        @CustomType.Parameter("stringValue") @Nullable String stringValue) {
-        this.dateValue = dateValue;
-        this.longValue = longValue;
-        this.stringListValues = stringListValues;
-        this.stringValue = stringValue;
-    }
-
+    private DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue() {}
     /**
      * @return A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
      * 
@@ -74,17 +63,13 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
     public static Builder builder(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dateValue;
         private @Nullable Integer longValue;
         private @Nullable List<String> stringListValues;
         private @Nullable String stringValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dateValue = defaults.dateValue;
@@ -93,14 +78,17 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
     	      this.stringValue = defaults.stringValue;
         }
 
+        @CustomType.Setter
         public Builder dateValue(@Nullable String dateValue) {
             this.dateValue = dateValue;
             return this;
         }
+        @CustomType.Setter
         public Builder longValue(@Nullable Integer longValue) {
             this.longValue = longValue;
             return this;
         }
+        @CustomType.Setter
         public Builder stringListValues(@Nullable List<String> stringListValues) {
             this.stringListValues = stringListValues;
             return this;
@@ -108,11 +96,18 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         public Builder stringListValues(String... stringListValues) {
             return stringListValues(List.of(stringListValues));
         }
+        @CustomType.Setter
         public Builder stringValue(@Nullable String stringValue) {
             this.stringValue = stringValue;
             return this;
-        }        public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue build() {
-            return new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue(dateValue, longValue, stringListValues, stringValue);
+        }
+        public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue build() {
+            final var o = new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue();
+            o.dateValue = dateValue;
+            o.longValue = longValue;
+            o.stringListValues = stringListValues;
+            o.stringValue = stringValue;
+            return o;
         }
     }
 }

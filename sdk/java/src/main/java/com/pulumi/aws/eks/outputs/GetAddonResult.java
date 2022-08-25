@@ -10,63 +10,42 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAddonResult {
-    private final String addonName;
+    private String addonName;
     /**
      * @return The version of EKS add-on.
      * 
      */
-    private final String addonVersion;
+    private String addonVersion;
     /**
      * @return Amazon Resource Name (ARN) of the EKS add-on.
      * 
      */
-    private final String arn;
-    private final String clusterName;
+    private String arn;
+    private String clusterName;
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
-    private final String createdAt;
+    private String createdAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
-    private final String modifiedAt;
+    private String modifiedAt;
     /**
      * @return ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.
      * 
      */
-    private final String serviceAccountRoleArn;
-    private final Map<String,String> tags;
+    private String serviceAccountRoleArn;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetAddonResult(
-        @CustomType.Parameter("addonName") String addonName,
-        @CustomType.Parameter("addonVersion") String addonVersion,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("clusterName") String clusterName,
-        @CustomType.Parameter("createdAt") String createdAt,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("modifiedAt") String modifiedAt,
-        @CustomType.Parameter("serviceAccountRoleArn") String serviceAccountRoleArn,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.addonName = addonName;
-        this.addonVersion = addonVersion;
-        this.arn = arn;
-        this.clusterName = clusterName;
-        this.createdAt = createdAt;
-        this.id = id;
-        this.modifiedAt = modifiedAt;
-        this.serviceAccountRoleArn = serviceAccountRoleArn;
-        this.tags = tags;
-    }
-
+    private GetAddonResult() {}
     public String addonName() {
         return this.addonName;
     }
@@ -127,7 +106,7 @@ public final class GetAddonResult {
     public static Builder builder(GetAddonResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addonName;
         private String addonVersion;
@@ -138,11 +117,7 @@ public final class GetAddonResult {
         private String modifiedAt;
         private String serviceAccountRoleArn;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAddonResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addonName = defaults.addonName;
@@ -156,43 +131,63 @@ public final class GetAddonResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder addonName(String addonName) {
             this.addonName = Objects.requireNonNull(addonName);
             return this;
         }
+        @CustomType.Setter
         public Builder addonVersion(String addonVersion) {
             this.addonVersion = Objects.requireNonNull(addonVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterName(String clusterName) {
             this.clusterName = Objects.requireNonNull(clusterName);
             return this;
         }
+        @CustomType.Setter
         public Builder createdAt(String createdAt) {
             this.createdAt = Objects.requireNonNull(createdAt);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder modifiedAt(String modifiedAt) {
             this.modifiedAt = Objects.requireNonNull(modifiedAt);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccountRoleArn(String serviceAccountRoleArn) {
             this.serviceAccountRoleArn = Objects.requireNonNull(serviceAccountRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetAddonResult build() {
-            return new GetAddonResult(addonName, addonVersion, arn, clusterName, createdAt, id, modifiedAt, serviceAccountRoleArn, tags);
+        }
+        public GetAddonResult build() {
+            final var o = new GetAddonResult();
+            o.addonName = addonName;
+            o.addonVersion = addonVersion;
+            o.arn = arn;
+            o.clusterName = clusterName;
+            o.createdAt = createdAt;
+            o.id = id;
+            o.modifiedAt = modifiedAt;
+            o.serviceAccountRoleArn = serviceAccountRoleArn;
+            o.tags = tags;
+            return o;
         }
     }
 }

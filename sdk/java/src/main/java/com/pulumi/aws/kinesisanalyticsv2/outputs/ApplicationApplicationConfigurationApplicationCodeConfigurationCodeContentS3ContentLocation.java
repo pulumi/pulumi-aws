@@ -15,28 +15,19 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
      * @return The ARN for the S3 bucket containing the application code.
      * 
      */
-    private final String bucketArn;
+    private String bucketArn;
     /**
      * @return The file key for the object containing the application code.
      * 
      */
-    private final String fileKey;
+    private String fileKey;
     /**
      * @return The version of the object containing the application code.
      * 
      */
-    private final @Nullable String objectVersion;
+    private @Nullable String objectVersion;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation(
-        @CustomType.Parameter("bucketArn") String bucketArn,
-        @CustomType.Parameter("fileKey") String fileKey,
-        @CustomType.Parameter("objectVersion") @Nullable String objectVersion) {
-        this.bucketArn = bucketArn;
-        this.fileKey = fileKey;
-        this.objectVersion = objectVersion;
-    }
-
+    private ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation() {}
     /**
      * @return The ARN for the S3 bucket containing the application code.
      * 
@@ -66,16 +57,12 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     public static Builder builder(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketArn;
         private String fileKey;
         private @Nullable String objectVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketArn = defaults.bucketArn;
@@ -83,19 +70,27 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     	      this.objectVersion = defaults.objectVersion;
         }
 
+        @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
             this.bucketArn = Objects.requireNonNull(bucketArn);
             return this;
         }
+        @CustomType.Setter
         public Builder fileKey(String fileKey) {
             this.fileKey = Objects.requireNonNull(fileKey);
             return this;
         }
+        @CustomType.Setter
         public Builder objectVersion(@Nullable String objectVersion) {
             this.objectVersion = objectVersion;
             return this;
-        }        public ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation build() {
-            return new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation(bucketArn, fileKey, objectVersion);
+        }
+        public ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation build() {
+            final var o = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation();
+            o.bucketArn = bucketArn;
+            o.fileKey = fileKey;
+            o.objectVersion = objectVersion;
+            return o;
         }
     }
 }

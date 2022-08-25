@@ -15,77 +15,54 @@ public final class PresetVideoWatermark {
      * @return The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
      * 
      */
-    private final @Nullable String horizontalAlign;
+    private @Nullable String horizontalAlign;
     /**
      * @return The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
      * 
      */
-    private final @Nullable String horizontalOffset;
+    private @Nullable String horizontalOffset;
     /**
      * @return A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The maximum height of the watermark.
      * 
      */
-    private final @Nullable String maxHeight;
+    private @Nullable String maxHeight;
     /**
      * @return The maximum width of the watermark.
      * 
      */
-    private final @Nullable String maxWidth;
+    private @Nullable String maxWidth;
     /**
      * @return A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
      * 
      */
-    private final @Nullable String opacity;
+    private @Nullable String opacity;
     /**
      * @return A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
      * 
      */
-    private final @Nullable String sizingPolicy;
+    private @Nullable String sizingPolicy;
     /**
      * @return A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
      * 
      */
-    private final @Nullable String target;
+    private @Nullable String target;
     /**
      * @return The vertical position of the watermark unless you specify a nonzero value for `vertical_align`. Valid values are `Top`, `Bottom`, `Center`.
      * 
      */
-    private final @Nullable String verticalAlign;
+    private @Nullable String verticalAlign;
     /**
      * @return The amount by which you want the vertical position of the watermark to be offset from the position specified by `vertical_align`
      * 
      */
-    private final @Nullable String verticalOffset;
+    private @Nullable String verticalOffset;
 
-    @CustomType.Constructor
-    private PresetVideoWatermark(
-        @CustomType.Parameter("horizontalAlign") @Nullable String horizontalAlign,
-        @CustomType.Parameter("horizontalOffset") @Nullable String horizontalOffset,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("maxHeight") @Nullable String maxHeight,
-        @CustomType.Parameter("maxWidth") @Nullable String maxWidth,
-        @CustomType.Parameter("opacity") @Nullable String opacity,
-        @CustomType.Parameter("sizingPolicy") @Nullable String sizingPolicy,
-        @CustomType.Parameter("target") @Nullable String target,
-        @CustomType.Parameter("verticalAlign") @Nullable String verticalAlign,
-        @CustomType.Parameter("verticalOffset") @Nullable String verticalOffset) {
-        this.horizontalAlign = horizontalAlign;
-        this.horizontalOffset = horizontalOffset;
-        this.id = id;
-        this.maxHeight = maxHeight;
-        this.maxWidth = maxWidth;
-        this.opacity = opacity;
-        this.sizingPolicy = sizingPolicy;
-        this.target = target;
-        this.verticalAlign = verticalAlign;
-        this.verticalOffset = verticalOffset;
-    }
-
+    private PresetVideoWatermark() {}
     /**
      * @return The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
      * 
@@ -164,7 +141,7 @@ public final class PresetVideoWatermark {
     public static Builder builder(PresetVideoWatermark defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String horizontalAlign;
         private @Nullable String horizontalOffset;
@@ -176,11 +153,7 @@ public final class PresetVideoWatermark {
         private @Nullable String target;
         private @Nullable String verticalAlign;
         private @Nullable String verticalOffset;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PresetVideoWatermark defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.horizontalAlign = defaults.horizontalAlign;
@@ -195,47 +168,69 @@ public final class PresetVideoWatermark {
     	      this.verticalOffset = defaults.verticalOffset;
         }
 
+        @CustomType.Setter
         public Builder horizontalAlign(@Nullable String horizontalAlign) {
             this.horizontalAlign = horizontalAlign;
             return this;
         }
+        @CustomType.Setter
         public Builder horizontalOffset(@Nullable String horizontalOffset) {
             this.horizontalOffset = horizontalOffset;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder maxHeight(@Nullable String maxHeight) {
             this.maxHeight = maxHeight;
             return this;
         }
+        @CustomType.Setter
         public Builder maxWidth(@Nullable String maxWidth) {
             this.maxWidth = maxWidth;
             return this;
         }
+        @CustomType.Setter
         public Builder opacity(@Nullable String opacity) {
             this.opacity = opacity;
             return this;
         }
+        @CustomType.Setter
         public Builder sizingPolicy(@Nullable String sizingPolicy) {
             this.sizingPolicy = sizingPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder target(@Nullable String target) {
             this.target = target;
             return this;
         }
+        @CustomType.Setter
         public Builder verticalAlign(@Nullable String verticalAlign) {
             this.verticalAlign = verticalAlign;
             return this;
         }
+        @CustomType.Setter
         public Builder verticalOffset(@Nullable String verticalOffset) {
             this.verticalOffset = verticalOffset;
             return this;
-        }        public PresetVideoWatermark build() {
-            return new PresetVideoWatermark(horizontalAlign, horizontalOffset, id, maxHeight, maxWidth, opacity, sizingPolicy, target, verticalAlign, verticalOffset);
+        }
+        public PresetVideoWatermark build() {
+            final var o = new PresetVideoWatermark();
+            o.horizontalAlign = horizontalAlign;
+            o.horizontalOffset = horizontalOffset;
+            o.id = id;
+            o.maxHeight = maxHeight;
+            o.maxWidth = maxWidth;
+            o.opacity = opacity;
+            o.sizingPolicy = sizingPolicy;
+            o.target = target;
+            o.verticalAlign = verticalAlign;
+            o.verticalOffset = verticalOffset;
+            return o;
         }
     }
 }

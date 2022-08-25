@@ -16,21 +16,14 @@ public final class BrokerEncryptionOptions {
      * @return Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
      * 
      */
-    private final @Nullable Boolean useAwsOwnedKey;
+    private @Nullable Boolean useAwsOwnedKey;
 
-    @CustomType.Constructor
-    private BrokerEncryptionOptions(
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("useAwsOwnedKey") @Nullable Boolean useAwsOwnedKey) {
-        this.kmsKeyId = kmsKeyId;
-        this.useAwsOwnedKey = useAwsOwnedKey;
-    }
-
+    private BrokerEncryptionOptions() {}
     /**
      * @return Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
      * 
@@ -53,30 +46,32 @@ public final class BrokerEncryptionOptions {
     public static Builder builder(BrokerEncryptionOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyId;
         private @Nullable Boolean useAwsOwnedKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BrokerEncryptionOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.useAwsOwnedKey = defaults.useAwsOwnedKey;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder useAwsOwnedKey(@Nullable Boolean useAwsOwnedKey) {
             this.useAwsOwnedKey = useAwsOwnedKey;
             return this;
-        }        public BrokerEncryptionOptions build() {
-            return new BrokerEncryptionOptions(kmsKeyId, useAwsOwnedKey);
+        }
+        public BrokerEncryptionOptions build() {
+            final var o = new BrokerEncryptionOptions();
+            o.kmsKeyId = kmsKeyId;
+            o.useAwsOwnedKey = useAwsOwnedKey;
+            return o;
         }
     }
 }

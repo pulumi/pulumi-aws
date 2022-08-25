@@ -18,38 +18,27 @@ public final class AccessPointPublicAccessBlockConfiguration {
      * * PUT Bucket calls fail if the request includes a public ACL.
      * 
      */
-    private final @Nullable Boolean blockPublicAcls;
+    private @Nullable Boolean blockPublicAcls;
     /**
      * @return Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      * 
      */
-    private final @Nullable Boolean blockPublicPolicy;
+    private @Nullable Boolean blockPublicPolicy;
     /**
      * @return Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn&#39;t prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
      * * Ignore all public ACLs on buckets in this account and any objects that they contain.
      * 
      */
-    private final @Nullable Boolean ignorePublicAcls;
+    private @Nullable Boolean ignorePublicAcls;
     /**
      * @return Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access buckets with public policies.
      * 
      */
-    private final @Nullable Boolean restrictPublicBuckets;
+    private @Nullable Boolean restrictPublicBuckets;
 
-    @CustomType.Constructor
-    private AccessPointPublicAccessBlockConfiguration(
-        @CustomType.Parameter("blockPublicAcls") @Nullable Boolean blockPublicAcls,
-        @CustomType.Parameter("blockPublicPolicy") @Nullable Boolean blockPublicPolicy,
-        @CustomType.Parameter("ignorePublicAcls") @Nullable Boolean ignorePublicAcls,
-        @CustomType.Parameter("restrictPublicBuckets") @Nullable Boolean restrictPublicBuckets) {
-        this.blockPublicAcls = blockPublicAcls;
-        this.blockPublicPolicy = blockPublicPolicy;
-        this.ignorePublicAcls = ignorePublicAcls;
-        this.restrictPublicBuckets = restrictPublicBuckets;
-    }
-
+    private AccessPointPublicAccessBlockConfiguration() {}
     /**
      * @return Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
      * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
@@ -92,17 +81,13 @@ public final class AccessPointPublicAccessBlockConfiguration {
     public static Builder builder(AccessPointPublicAccessBlockConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean blockPublicAcls;
         private @Nullable Boolean blockPublicPolicy;
         private @Nullable Boolean ignorePublicAcls;
         private @Nullable Boolean restrictPublicBuckets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccessPointPublicAccessBlockConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blockPublicAcls = defaults.blockPublicAcls;
@@ -111,23 +96,33 @@ public final class AccessPointPublicAccessBlockConfiguration {
     	      this.restrictPublicBuckets = defaults.restrictPublicBuckets;
         }
 
+        @CustomType.Setter
         public Builder blockPublicAcls(@Nullable Boolean blockPublicAcls) {
             this.blockPublicAcls = blockPublicAcls;
             return this;
         }
+        @CustomType.Setter
         public Builder blockPublicPolicy(@Nullable Boolean blockPublicPolicy) {
             this.blockPublicPolicy = blockPublicPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder ignorePublicAcls(@Nullable Boolean ignorePublicAcls) {
             this.ignorePublicAcls = ignorePublicAcls;
             return this;
         }
+        @CustomType.Setter
         public Builder restrictPublicBuckets(@Nullable Boolean restrictPublicBuckets) {
             this.restrictPublicBuckets = restrictPublicBuckets;
             return this;
-        }        public AccessPointPublicAccessBlockConfiguration build() {
-            return new AccessPointPublicAccessBlockConfiguration(blockPublicAcls, blockPublicPolicy, ignorePublicAcls, restrictPublicBuckets);
+        }
+        public AccessPointPublicAccessBlockConfiguration build() {
+            final var o = new AccessPointPublicAccessBlockConfiguration();
+            o.blockPublicAcls = blockPublicAcls;
+            o.blockPublicPolicy = blockPublicPolicy;
+            o.ignorePublicAcls = ignorePublicAcls;
+            o.restrictPublicBuckets = restrictPublicBuckets;
+            return o;
         }
     }
 }

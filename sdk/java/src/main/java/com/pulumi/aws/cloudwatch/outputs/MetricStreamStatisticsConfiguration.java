@@ -15,21 +15,14 @@ public final class MetricStreamStatisticsConfiguration {
      * @return The additional statistics to stream for the metrics listed in `include_metrics`.
      * 
      */
-    private final List<String> additionalStatistics;
+    private List<String> additionalStatistics;
     /**
      * @return An array that defines the metrics that are to have additional statistics streamed. See details below.
      * 
      */
-    private final List<MetricStreamStatisticsConfigurationIncludeMetric> includeMetrics;
+    private List<MetricStreamStatisticsConfigurationIncludeMetric> includeMetrics;
 
-    @CustomType.Constructor
-    private MetricStreamStatisticsConfiguration(
-        @CustomType.Parameter("additionalStatistics") List<String> additionalStatistics,
-        @CustomType.Parameter("includeMetrics") List<MetricStreamStatisticsConfigurationIncludeMetric> includeMetrics) {
-        this.additionalStatistics = additionalStatistics;
-        this.includeMetrics = includeMetrics;
-    }
-
+    private MetricStreamStatisticsConfiguration() {}
     /**
      * @return The additional statistics to stream for the metrics listed in `include_metrics`.
      * 
@@ -52,21 +45,18 @@ public final class MetricStreamStatisticsConfiguration {
     public static Builder builder(MetricStreamStatisticsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> additionalStatistics;
         private List<MetricStreamStatisticsConfigurationIncludeMetric> includeMetrics;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MetricStreamStatisticsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalStatistics = defaults.additionalStatistics;
     	      this.includeMetrics = defaults.includeMetrics;
         }
 
+        @CustomType.Setter
         public Builder additionalStatistics(List<String> additionalStatistics) {
             this.additionalStatistics = Objects.requireNonNull(additionalStatistics);
             return this;
@@ -74,14 +64,19 @@ public final class MetricStreamStatisticsConfiguration {
         public Builder additionalStatistics(String... additionalStatistics) {
             return additionalStatistics(List.of(additionalStatistics));
         }
+        @CustomType.Setter
         public Builder includeMetrics(List<MetricStreamStatisticsConfigurationIncludeMetric> includeMetrics) {
             this.includeMetrics = Objects.requireNonNull(includeMetrics);
             return this;
         }
         public Builder includeMetrics(MetricStreamStatisticsConfigurationIncludeMetric... includeMetrics) {
             return includeMetrics(List.of(includeMetrics));
-        }        public MetricStreamStatisticsConfiguration build() {
-            return new MetricStreamStatisticsConfiguration(additionalStatistics, includeMetrics);
+        }
+        public MetricStreamStatisticsConfiguration build() {
+            final var o = new MetricStreamStatisticsConfiguration();
+            o.additionalStatistics = additionalStatistics;
+            o.includeMetrics = includeMetrics;
+            return o;
         }
     }
 }

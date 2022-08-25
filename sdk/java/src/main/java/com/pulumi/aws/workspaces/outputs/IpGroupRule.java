@@ -15,21 +15,14 @@ public final class IpGroupRule {
      * @return The description.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
      * 
      */
-    private final String source;
+    private String source;
 
-    @CustomType.Constructor
-    private IpGroupRule(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("source") String source) {
-        this.description = description;
-        this.source = source;
-    }
-
+    private IpGroupRule() {}
     /**
      * @return The description.
      * 
@@ -52,30 +45,32 @@ public final class IpGroupRule {
     public static Builder builder(IpGroupRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String source;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IpGroupRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.source = defaults.source;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
-        }        public IpGroupRule build() {
-            return new IpGroupRule(description, source);
+        }
+        public IpGroupRule build() {
+            final var o = new IpGroupRule();
+            o.description = description;
+            o.source = source;
+            return o;
         }
     }
 }

@@ -17,49 +17,34 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
      * @return One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
      * 
      */
-    private final @Nullable List<String> accounts;
+    private @Nullable List<String> accounts;
     /**
      * @return Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn&#39;t attempt the operation in any subsequent regions. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both. The default value is 0 if no value is specified.
      * 
      */
-    private final @Nullable Integer failureToleranceCount;
+    private @Nullable Integer failureToleranceCount;
     /**
      * @return Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn&#39;t attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both.
      * 
      */
-    private final @Nullable Integer failureTolerancePercentage;
+    private @Nullable Integer failureTolerancePercentage;
     /**
      * @return Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failure_tolerance_count`. `max_concurrency_count` is at most one more than the `failure_tolerance_count`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
      * 
      */
-    private final @Nullable Integer maxConcurrencyCount;
+    private @Nullable Integer maxConcurrencyCount;
     /**
      * @return Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
      * 
      */
-    private final @Nullable Integer maxConcurrencyPercentage;
+    private @Nullable Integer maxConcurrencyPercentage;
     /**
      * @return One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
      * 
      */
-    private final @Nullable List<String> regions;
+    private @Nullable List<String> regions;
 
-    @CustomType.Constructor
-    private ProvisionedProductStackSetProvisioningPreferences(
-        @CustomType.Parameter("accounts") @Nullable List<String> accounts,
-        @CustomType.Parameter("failureToleranceCount") @Nullable Integer failureToleranceCount,
-        @CustomType.Parameter("failureTolerancePercentage") @Nullable Integer failureTolerancePercentage,
-        @CustomType.Parameter("maxConcurrencyCount") @Nullable Integer maxConcurrencyCount,
-        @CustomType.Parameter("maxConcurrencyPercentage") @Nullable Integer maxConcurrencyPercentage,
-        @CustomType.Parameter("regions") @Nullable List<String> regions) {
-        this.accounts = accounts;
-        this.failureToleranceCount = failureToleranceCount;
-        this.failureTolerancePercentage = failureTolerancePercentage;
-        this.maxConcurrencyCount = maxConcurrencyCount;
-        this.maxConcurrencyPercentage = maxConcurrencyPercentage;
-        this.regions = regions;
-    }
-
+    private ProvisionedProductStackSetProvisioningPreferences() {}
     /**
      * @return One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
      * 
@@ -110,7 +95,7 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
     public static Builder builder(ProvisionedProductStackSetProvisioningPreferences defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> accounts;
         private @Nullable Integer failureToleranceCount;
@@ -118,11 +103,7 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
         private @Nullable Integer maxConcurrencyCount;
         private @Nullable Integer maxConcurrencyPercentage;
         private @Nullable List<String> regions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProvisionedProductStackSetProvisioningPreferences defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accounts = defaults.accounts;
@@ -133,6 +114,7 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
     	      this.regions = defaults.regions;
         }
 
+        @CustomType.Setter
         public Builder accounts(@Nullable List<String> accounts) {
             this.accounts = accounts;
             return this;
@@ -140,30 +122,43 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
         public Builder accounts(String... accounts) {
             return accounts(List.of(accounts));
         }
+        @CustomType.Setter
         public Builder failureToleranceCount(@Nullable Integer failureToleranceCount) {
             this.failureToleranceCount = failureToleranceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder failureTolerancePercentage(@Nullable Integer failureTolerancePercentage) {
             this.failureTolerancePercentage = failureTolerancePercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder maxConcurrencyCount(@Nullable Integer maxConcurrencyCount) {
             this.maxConcurrencyCount = maxConcurrencyCount;
             return this;
         }
+        @CustomType.Setter
         public Builder maxConcurrencyPercentage(@Nullable Integer maxConcurrencyPercentage) {
             this.maxConcurrencyPercentage = maxConcurrencyPercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
             this.regions = regions;
             return this;
         }
         public Builder regions(String... regions) {
             return regions(List.of(regions));
-        }        public ProvisionedProductStackSetProvisioningPreferences build() {
-            return new ProvisionedProductStackSetProvisioningPreferences(accounts, failureToleranceCount, failureTolerancePercentage, maxConcurrencyCount, maxConcurrencyPercentage, regions);
+        }
+        public ProvisionedProductStackSetProvisioningPreferences build() {
+            final var o = new ProvisionedProductStackSetProvisioningPreferences();
+            o.accounts = accounts;
+            o.failureToleranceCount = failureToleranceCount;
+            o.failureTolerancePercentage = failureTolerancePercentage;
+            o.maxConcurrencyCount = maxConcurrencyCount;
+            o.maxConcurrencyPercentage = maxConcurrencyPercentage;
+            o.regions = regions;
+            return o;
         }
     }
 }

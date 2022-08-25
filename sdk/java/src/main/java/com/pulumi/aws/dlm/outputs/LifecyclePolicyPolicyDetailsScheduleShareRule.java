@@ -17,20 +17,11 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRule {
      * @return The IDs of the AWS accounts with which to share the snapshots.
      * 
      */
-    private final List<String> targetAccounts;
-    private final @Nullable Integer unshareInterval;
-    private final @Nullable String unshareIntervalUnit;
+    private List<String> targetAccounts;
+    private @Nullable Integer unshareInterval;
+    private @Nullable String unshareIntervalUnit;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsScheduleShareRule(
-        @CustomType.Parameter("targetAccounts") List<String> targetAccounts,
-        @CustomType.Parameter("unshareInterval") @Nullable Integer unshareInterval,
-        @CustomType.Parameter("unshareIntervalUnit") @Nullable String unshareIntervalUnit) {
-        this.targetAccounts = targetAccounts;
-        this.unshareInterval = unshareInterval;
-        this.unshareIntervalUnit = unshareIntervalUnit;
-    }
-
+    private LifecyclePolicyPolicyDetailsScheduleShareRule() {}
     /**
      * @return The IDs of the AWS accounts with which to share the snapshots.
      * 
@@ -52,16 +43,12 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRule {
     public static Builder builder(LifecyclePolicyPolicyDetailsScheduleShareRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> targetAccounts;
         private @Nullable Integer unshareInterval;
         private @Nullable String unshareIntervalUnit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsScheduleShareRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.targetAccounts = defaults.targetAccounts;
@@ -69,6 +56,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRule {
     	      this.unshareIntervalUnit = defaults.unshareIntervalUnit;
         }
 
+        @CustomType.Setter
         public Builder targetAccounts(List<String> targetAccounts) {
             this.targetAccounts = Objects.requireNonNull(targetAccounts);
             return this;
@@ -76,15 +64,22 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRule {
         public Builder targetAccounts(String... targetAccounts) {
             return targetAccounts(List.of(targetAccounts));
         }
+        @CustomType.Setter
         public Builder unshareInterval(@Nullable Integer unshareInterval) {
             this.unshareInterval = unshareInterval;
             return this;
         }
+        @CustomType.Setter
         public Builder unshareIntervalUnit(@Nullable String unshareIntervalUnit) {
             this.unshareIntervalUnit = unshareIntervalUnit;
             return this;
-        }        public LifecyclePolicyPolicyDetailsScheduleShareRule build() {
-            return new LifecyclePolicyPolicyDetailsScheduleShareRule(targetAccounts, unshareInterval, unshareIntervalUnit);
+        }
+        public LifecyclePolicyPolicyDetailsScheduleShareRule build() {
+            final var o = new LifecyclePolicyPolicyDetailsScheduleShareRule();
+            o.targetAccounts = targetAccounts;
+            o.unshareInterval = unshareInterval;
+            o.unshareIntervalUnit = unshareIntervalUnit;
+            return o;
         }
     }
 }

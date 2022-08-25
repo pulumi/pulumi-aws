@@ -11,27 +11,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOutpostInstanceTypeResult {
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceType;
-    private final @Nullable List<String> preferredInstanceTypes;
+    private String id;
+    private String instanceType;
+    private @Nullable List<String> preferredInstanceTypes;
 
-    @CustomType.Constructor
-    private GetOutpostInstanceTypeResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("preferredInstanceTypes") @Nullable List<String> preferredInstanceTypes) {
-        this.arn = arn;
-        this.id = id;
-        this.instanceType = instanceType;
-        this.preferredInstanceTypes = preferredInstanceTypes;
-    }
-
+    private GetOutpostInstanceTypeResult() {}
     public String arn() {
         return this.arn;
     }
@@ -56,17 +45,13 @@ public final class GetOutpostInstanceTypeResult {
     public static Builder builder(GetOutpostInstanceTypeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private String instanceType;
         private @Nullable List<String> preferredInstanceTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOutpostInstanceTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -75,26 +60,36 @@ public final class GetOutpostInstanceTypeResult {
     	      this.preferredInstanceTypes = defaults.preferredInstanceTypes;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder preferredInstanceTypes(@Nullable List<String> preferredInstanceTypes) {
             this.preferredInstanceTypes = preferredInstanceTypes;
             return this;
         }
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
-        }        public GetOutpostInstanceTypeResult build() {
-            return new GetOutpostInstanceTypeResult(arn, id, instanceType, preferredInstanceTypes);
+        }
+        public GetOutpostInstanceTypeResult build() {
+            final var o = new GetOutpostInstanceTypeResult();
+            o.arn = arn;
+            o.id = id;
+            o.instanceType = instanceType;
+            o.preferredInstanceTypes = preferredInstanceTypes;
+            return o;
         }
     }
 }

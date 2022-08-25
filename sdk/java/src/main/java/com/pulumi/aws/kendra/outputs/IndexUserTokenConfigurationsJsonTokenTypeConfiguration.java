@@ -13,21 +13,14 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfiguration {
      * @return The group attribute field. Minimum length of 1. Maximum length of 2048.
      * 
      */
-    private final String groupAttributeField;
+    private String groupAttributeField;
     /**
      * @return The user name attribute field. Minimum length of 1. Maximum length of 2048.
      * 
      */
-    private final String userNameAttributeField;
+    private String userNameAttributeField;
 
-    @CustomType.Constructor
-    private IndexUserTokenConfigurationsJsonTokenTypeConfiguration(
-        @CustomType.Parameter("groupAttributeField") String groupAttributeField,
-        @CustomType.Parameter("userNameAttributeField") String userNameAttributeField) {
-        this.groupAttributeField = groupAttributeField;
-        this.userNameAttributeField = userNameAttributeField;
-    }
-
+    private IndexUserTokenConfigurationsJsonTokenTypeConfiguration() {}
     /**
      * @return The group attribute field. Minimum length of 1. Maximum length of 2048.
      * 
@@ -50,30 +43,32 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfiguration {
     public static Builder builder(IndexUserTokenConfigurationsJsonTokenTypeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String groupAttributeField;
         private String userNameAttributeField;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexUserTokenConfigurationsJsonTokenTypeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groupAttributeField = defaults.groupAttributeField;
     	      this.userNameAttributeField = defaults.userNameAttributeField;
         }
 
+        @CustomType.Setter
         public Builder groupAttributeField(String groupAttributeField) {
             this.groupAttributeField = Objects.requireNonNull(groupAttributeField);
             return this;
         }
+        @CustomType.Setter
         public Builder userNameAttributeField(String userNameAttributeField) {
             this.userNameAttributeField = Objects.requireNonNull(userNameAttributeField);
             return this;
-        }        public IndexUserTokenConfigurationsJsonTokenTypeConfiguration build() {
-            return new IndexUserTokenConfigurationsJsonTokenTypeConfiguration(groupAttributeField, userNameAttributeField);
+        }
+        public IndexUserTokenConfigurationsJsonTokenTypeConfiguration build() {
+            final var o = new IndexUserTokenConfigurationsJsonTokenTypeConfiguration();
+            o.groupAttributeField = groupAttributeField;
+            o.userNameAttributeField = userNameAttributeField;
+            return o;
         }
     }
 }

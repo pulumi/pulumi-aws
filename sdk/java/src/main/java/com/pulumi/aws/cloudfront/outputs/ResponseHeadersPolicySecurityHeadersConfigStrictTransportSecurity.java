@@ -16,35 +16,24 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
      * @return A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
      * 
      */
-    private final Integer accessControlMaxAgeSec;
+    private Integer accessControlMaxAgeSec;
     /**
      * @return A Boolean value that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
      * 
      */
-    private final @Nullable Boolean includeSubdomains;
+    private @Nullable Boolean includeSubdomains;
     /**
      * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private final Boolean override;
+    private Boolean override;
     /**
      * @return A Boolean value that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
      * 
      */
-    private final @Nullable Boolean preload;
+    private @Nullable Boolean preload;
 
-    @CustomType.Constructor
-    private ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(
-        @CustomType.Parameter("accessControlMaxAgeSec") Integer accessControlMaxAgeSec,
-        @CustomType.Parameter("includeSubdomains") @Nullable Boolean includeSubdomains,
-        @CustomType.Parameter("override") Boolean override,
-        @CustomType.Parameter("preload") @Nullable Boolean preload) {
-        this.accessControlMaxAgeSec = accessControlMaxAgeSec;
-        this.includeSubdomains = includeSubdomains;
-        this.override = override;
-        this.preload = preload;
-    }
-
+    private ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity() {}
     /**
      * @return A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
      * 
@@ -81,17 +70,13 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
     public static Builder builder(ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer accessControlMaxAgeSec;
         private @Nullable Boolean includeSubdomains;
         private Boolean override;
         private @Nullable Boolean preload;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessControlMaxAgeSec = defaults.accessControlMaxAgeSec;
@@ -100,23 +85,33 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
     	      this.preload = defaults.preload;
         }
 
+        @CustomType.Setter
         public Builder accessControlMaxAgeSec(Integer accessControlMaxAgeSec) {
             this.accessControlMaxAgeSec = Objects.requireNonNull(accessControlMaxAgeSec);
             return this;
         }
+        @CustomType.Setter
         public Builder includeSubdomains(@Nullable Boolean includeSubdomains) {
             this.includeSubdomains = includeSubdomains;
             return this;
         }
+        @CustomType.Setter
         public Builder override(Boolean override) {
             this.override = Objects.requireNonNull(override);
             return this;
         }
+        @CustomType.Setter
         public Builder preload(@Nullable Boolean preload) {
             this.preload = preload;
             return this;
-        }        public ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity build() {
-            return new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(accessControlMaxAgeSec, includeSubdomains, override, preload);
+        }
+        public ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity build() {
+            final var o = new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity();
+            o.accessControlMaxAgeSec = accessControlMaxAgeSec;
+            o.includeSubdomains = includeSubdomains;
+            o.override = override;
+            o.preload = preload;
+            return o;
         }
     }
 }

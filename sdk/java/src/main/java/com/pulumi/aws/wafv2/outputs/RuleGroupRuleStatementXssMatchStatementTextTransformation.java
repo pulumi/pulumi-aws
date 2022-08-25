@@ -14,21 +14,14 @@ public final class RuleGroupRuleStatementXssMatchStatementTextTransformation {
      * @return The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementXssMatchStatementTextTransformation(
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("type") String type) {
-        this.priority = priority;
-        this.type = type;
-    }
-
+    private RuleGroupRuleStatementXssMatchStatementTextTransformation() {}
     /**
      * @return The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
      * 
@@ -51,30 +44,32 @@ public final class RuleGroupRuleStatementXssMatchStatementTextTransformation {
     public static Builder builder(RuleGroupRuleStatementXssMatchStatementTextTransformation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer priority;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementXssMatchStatementTextTransformation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.priority = defaults.priority;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public RuleGroupRuleStatementXssMatchStatementTextTransformation build() {
-            return new RuleGroupRuleStatementXssMatchStatementTextTransformation(priority, type);
+        }
+        public RuleGroupRuleStatementXssMatchStatementTextTransformation build() {
+            final var o = new RuleGroupRuleStatementXssMatchStatementTextTransformation();
+            o.priority = priority;
+            o.type = type;
+            return o;
         }
     }
 }

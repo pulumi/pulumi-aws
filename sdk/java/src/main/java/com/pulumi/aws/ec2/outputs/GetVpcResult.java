@@ -19,96 +19,61 @@ public final class GetVpcResult {
      * @return Amazon Resource Name (ARN) of VPC
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The CIDR block for the association.
      * 
      */
-    private final String cidrBlock;
-    private final List<GetVpcCidrBlockAssociation> cidrBlockAssociations;
-    private final Boolean default_;
-    private final String dhcpOptionsId;
+    private String cidrBlock;
+    private List<GetVpcCidrBlockAssociation> cidrBlockAssociations;
+    private Boolean default_;
+    private String dhcpOptionsId;
     /**
      * @return Whether or not the VPC has DNS hostname support
      * 
      */
-    private final Boolean enableDnsHostnames;
+    private Boolean enableDnsHostnames;
     /**
      * @return Whether or not the VPC has DNS support
      * 
      */
-    private final Boolean enableDnsSupport;
-    private final @Nullable List<GetVpcFilter> filters;
-    private final String id;
+    private Boolean enableDnsSupport;
+    private @Nullable List<GetVpcFilter> filters;
+    private String id;
     /**
      * @return The allowed tenancy of instances launched into the
      * selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
      * 
      */
-    private final String instanceTenancy;
+    private String instanceTenancy;
     /**
      * @return The association ID for the IPv6 CIDR block.
      * 
      */
-    private final String ipv6AssociationId;
+    private String ipv6AssociationId;
     /**
      * @return The IPv6 CIDR block.
      * 
      */
-    private final String ipv6CidrBlock;
+    private String ipv6CidrBlock;
     /**
      * @return The ID of the main route table associated with this VPC.
      * 
      */
-    private final String mainRouteTableId;
+    private String mainRouteTableId;
     /**
      * @return The ID of the AWS account that owns the VPC.
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return The State of the association.
      * 
      */
-    private final String state;
-    private final Map<String,String> tags;
+    private String state;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetVpcResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("cidrBlock") String cidrBlock,
-        @CustomType.Parameter("cidrBlockAssociations") List<GetVpcCidrBlockAssociation> cidrBlockAssociations,
-        @CustomType.Parameter("default") Boolean default_,
-        @CustomType.Parameter("dhcpOptionsId") String dhcpOptionsId,
-        @CustomType.Parameter("enableDnsHostnames") Boolean enableDnsHostnames,
-        @CustomType.Parameter("enableDnsSupport") Boolean enableDnsSupport,
-        @CustomType.Parameter("filters") @Nullable List<GetVpcFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceTenancy") String instanceTenancy,
-        @CustomType.Parameter("ipv6AssociationId") String ipv6AssociationId,
-        @CustomType.Parameter("ipv6CidrBlock") String ipv6CidrBlock,
-        @CustomType.Parameter("mainRouteTableId") String mainRouteTableId,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.cidrBlock = cidrBlock;
-        this.cidrBlockAssociations = cidrBlockAssociations;
-        this.default_ = default_;
-        this.dhcpOptionsId = dhcpOptionsId;
-        this.enableDnsHostnames = enableDnsHostnames;
-        this.enableDnsSupport = enableDnsSupport;
-        this.filters = filters;
-        this.id = id;
-        this.instanceTenancy = instanceTenancy;
-        this.ipv6AssociationId = ipv6AssociationId;
-        this.ipv6CidrBlock = ipv6CidrBlock;
-        this.mainRouteTableId = mainRouteTableId;
-        this.ownerId = ownerId;
-        this.state = state;
-        this.tags = tags;
-    }
-
+    private GetVpcResult() {}
     /**
      * @return Amazon Resource Name (ARN) of VPC
      * 
@@ -206,7 +171,7 @@ public final class GetVpcResult {
     public static Builder builder(GetVpcResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String cidrBlock;
@@ -224,11 +189,7 @@ public final class GetVpcResult {
         private String ownerId;
         private String state;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -249,14 +210,17 @@ public final class GetVpcResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
             this.cidrBlock = Objects.requireNonNull(cidrBlock);
             return this;
         }
+        @CustomType.Setter
         public Builder cidrBlockAssociations(List<GetVpcCidrBlockAssociation> cidrBlockAssociations) {
             this.cidrBlockAssociations = Objects.requireNonNull(cidrBlockAssociations);
             return this;
@@ -264,22 +228,27 @@ public final class GetVpcResult {
         public Builder cidrBlockAssociations(GetVpcCidrBlockAssociation... cidrBlockAssociations) {
             return cidrBlockAssociations(List.of(cidrBlockAssociations));
         }
+        @CustomType.Setter("default")
         public Builder default_(Boolean default_) {
             this.default_ = Objects.requireNonNull(default_);
             return this;
         }
+        @CustomType.Setter
         public Builder dhcpOptionsId(String dhcpOptionsId) {
             this.dhcpOptionsId = Objects.requireNonNull(dhcpOptionsId);
             return this;
         }
+        @CustomType.Setter
         public Builder enableDnsHostnames(Boolean enableDnsHostnames) {
             this.enableDnsHostnames = Objects.requireNonNull(enableDnsHostnames);
             return this;
         }
+        @CustomType.Setter
         public Builder enableDnsSupport(Boolean enableDnsSupport) {
             this.enableDnsSupport = Objects.requireNonNull(enableDnsSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcFilter> filters) {
             this.filters = filters;
             return this;
@@ -287,39 +256,65 @@ public final class GetVpcResult {
         public Builder filters(GetVpcFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceTenancy(String instanceTenancy) {
             this.instanceTenancy = Objects.requireNonNull(instanceTenancy);
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6AssociationId(String ipv6AssociationId) {
             this.ipv6AssociationId = Objects.requireNonNull(ipv6AssociationId);
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6CidrBlock(String ipv6CidrBlock) {
             this.ipv6CidrBlock = Objects.requireNonNull(ipv6CidrBlock);
             return this;
         }
+        @CustomType.Setter
         public Builder mainRouteTableId(String mainRouteTableId) {
             this.mainRouteTableId = Objects.requireNonNull(mainRouteTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetVpcResult build() {
-            return new GetVpcResult(arn, cidrBlock, cidrBlockAssociations, default_, dhcpOptionsId, enableDnsHostnames, enableDnsSupport, filters, id, instanceTenancy, ipv6AssociationId, ipv6CidrBlock, mainRouteTableId, ownerId, state, tags);
+        }
+        public GetVpcResult build() {
+            final var o = new GetVpcResult();
+            o.arn = arn;
+            o.cidrBlock = cidrBlock;
+            o.cidrBlockAssociations = cidrBlockAssociations;
+            o.default_ = default_;
+            o.dhcpOptionsId = dhcpOptionsId;
+            o.enableDnsHostnames = enableDnsHostnames;
+            o.enableDnsSupport = enableDnsSupport;
+            o.filters = filters;
+            o.id = id;
+            o.instanceTenancy = instanceTenancy;
+            o.ipv6AssociationId = ipv6AssociationId;
+            o.ipv6CidrBlock = ipv6CidrBlock;
+            o.mainRouteTableId = mainRouteTableId;
+            o.ownerId = ownerId;
+            o.state = state;
+            o.tags = tags;
+            return o;
         }
     }
 }

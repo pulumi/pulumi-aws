@@ -13,13 +13,9 @@ public final class FirewallSubnetMapping {
      * @return The unique identifier for the subnet.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private FirewallSubnetMapping(@CustomType.Parameter("subnetId") String subnetId) {
-        this.subnetId = subnetId;
-    }
-
+    private FirewallSubnetMapping() {}
     /**
      * @return The unique identifier for the subnet.
      * 
@@ -35,24 +31,24 @@ public final class FirewallSubnetMapping {
     public static Builder builder(FirewallSubnetMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallSubnetMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public FirewallSubnetMapping build() {
-            return new FirewallSubnetMapping(subnetId);
+        }
+        public FirewallSubnetMapping build() {
+            final var o = new FirewallSubnetMapping();
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

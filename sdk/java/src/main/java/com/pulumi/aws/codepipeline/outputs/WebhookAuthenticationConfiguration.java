@@ -15,21 +15,14 @@ public final class WebhookAuthenticationConfiguration {
      * @return A valid CIDR block for `IP` filtering. Required for `IP`.
      * 
      */
-    private final @Nullable String allowedIpRange;
+    private @Nullable String allowedIpRange;
     /**
      * @return The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
      * 
      */
-    private final @Nullable String secretToken;
+    private @Nullable String secretToken;
 
-    @CustomType.Constructor
-    private WebhookAuthenticationConfiguration(
-        @CustomType.Parameter("allowedIpRange") @Nullable String allowedIpRange,
-        @CustomType.Parameter("secretToken") @Nullable String secretToken) {
-        this.allowedIpRange = allowedIpRange;
-        this.secretToken = secretToken;
-    }
-
+    private WebhookAuthenticationConfiguration() {}
     /**
      * @return A valid CIDR block for `IP` filtering. Required for `IP`.
      * 
@@ -52,30 +45,32 @@ public final class WebhookAuthenticationConfiguration {
     public static Builder builder(WebhookAuthenticationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String allowedIpRange;
         private @Nullable String secretToken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebhookAuthenticationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedIpRange = defaults.allowedIpRange;
     	      this.secretToken = defaults.secretToken;
         }
 
+        @CustomType.Setter
         public Builder allowedIpRange(@Nullable String allowedIpRange) {
             this.allowedIpRange = allowedIpRange;
             return this;
         }
+        @CustomType.Setter
         public Builder secretToken(@Nullable String secretToken) {
             this.secretToken = secretToken;
             return this;
-        }        public WebhookAuthenticationConfiguration build() {
-            return new WebhookAuthenticationConfiguration(allowedIpRange, secretToken);
+        }
+        public WebhookAuthenticationConfiguration build() {
+            final var o = new WebhookAuthenticationConfiguration();
+            o.allowedIpRange = allowedIpRange;
+            o.secretToken = secretToken;
+            return o;
         }
     }
 }

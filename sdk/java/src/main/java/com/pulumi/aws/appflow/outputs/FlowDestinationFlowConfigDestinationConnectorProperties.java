@@ -27,94 +27,65 @@ public final class FlowDestinationFlowConfigDestinationConnectorProperties {
      * @return Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector;
     /**
      * @return The properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles;
     /**
      * @return The properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge eventBridge;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge eventBridge;
     /**
      * @return The properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode honeycode;
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics lookoutMetrics;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode honeycode;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics lookoutMetrics;
     /**
      * @return The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo marketo;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo marketo;
     /**
      * @return The properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift redshift;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift redshift;
     /**
      * @return The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 s3;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 s3;
     /**
      * @return The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce salesforce;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce salesforce;
     /**
      * @return The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData sapoData;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData sapoData;
     /**
      * @return The properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake;
     /**
      * @return The properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver;
     /**
      * @return The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorProperties(
-        @CustomType.Parameter("customConnector") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector,
-        @CustomType.Parameter("customerProfiles") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles,
-        @CustomType.Parameter("eventBridge") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge eventBridge,
-        @CustomType.Parameter("honeycode") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode honeycode,
-        @CustomType.Parameter("lookoutMetrics") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics lookoutMetrics,
-        @CustomType.Parameter("marketo") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo marketo,
-        @CustomType.Parameter("redshift") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift redshift,
-        @CustomType.Parameter("s3") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 s3,
-        @CustomType.Parameter("salesforce") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce salesforce,
-        @CustomType.Parameter("sapoData") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData sapoData,
-        @CustomType.Parameter("snowflake") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake,
-        @CustomType.Parameter("upsolver") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver,
-        @CustomType.Parameter("zendesk") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk) {
-        this.customConnector = customConnector;
-        this.customerProfiles = customerProfiles;
-        this.eventBridge = eventBridge;
-        this.honeycode = honeycode;
-        this.lookoutMetrics = lookoutMetrics;
-        this.marketo = marketo;
-        this.redshift = redshift;
-        this.s3 = s3;
-        this.salesforce = salesforce;
-        this.sapoData = sapoData;
-        this.snowflake = snowflake;
-        this.upsolver = upsolver;
-        this.zendesk = zendesk;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorProperties() {}
     /**
      * @return Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
@@ -210,7 +181,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorProperties {
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector;
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles;
@@ -225,11 +196,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorProperties {
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake;
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver;
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customConnector = defaults.customConnector;
@@ -247,59 +214,87 @@ public final class FlowDestinationFlowConfigDestinationConnectorProperties {
     	      this.zendesk = defaults.zendesk;
         }
 
+        @CustomType.Setter
         public Builder customConnector(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector) {
             this.customConnector = customConnector;
             return this;
         }
+        @CustomType.Setter
         public Builder customerProfiles(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles) {
             this.customerProfiles = customerProfiles;
             return this;
         }
+        @CustomType.Setter
         public Builder eventBridge(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge eventBridge) {
             this.eventBridge = eventBridge;
             return this;
         }
+        @CustomType.Setter
         public Builder honeycode(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode honeycode) {
             this.honeycode = honeycode;
             return this;
         }
+        @CustomType.Setter
         public Builder lookoutMetrics(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics lookoutMetrics) {
             this.lookoutMetrics = lookoutMetrics;
             return this;
         }
+        @CustomType.Setter
         public Builder marketo(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo marketo) {
             this.marketo = marketo;
             return this;
         }
+        @CustomType.Setter
         public Builder redshift(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift redshift) {
             this.redshift = redshift;
             return this;
         }
+        @CustomType.Setter
         public Builder s3(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 s3) {
             this.s3 = s3;
             return this;
         }
+        @CustomType.Setter
         public Builder salesforce(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce salesforce) {
             this.salesforce = salesforce;
             return this;
         }
+        @CustomType.Setter
         public Builder sapoData(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData sapoData) {
             this.sapoData = sapoData;
             return this;
         }
+        @CustomType.Setter
         public Builder snowflake(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake) {
             this.snowflake = snowflake;
             return this;
         }
+        @CustomType.Setter
         public Builder upsolver(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver) {
             this.upsolver = upsolver;
             return this;
         }
+        @CustomType.Setter
         public Builder zendesk(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk) {
             this.zendesk = zendesk;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorProperties build() {
-            return new FlowDestinationFlowConfigDestinationConnectorProperties(customConnector, customerProfiles, eventBridge, honeycode, lookoutMetrics, marketo, redshift, s3, salesforce, sapoData, snowflake, upsolver, zendesk);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorProperties build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorProperties();
+            o.customConnector = customConnector;
+            o.customerProfiles = customerProfiles;
+            o.eventBridge = eventBridge;
+            o.honeycode = honeycode;
+            o.lookoutMetrics = lookoutMetrics;
+            o.marketo = marketo;
+            o.redshift = redshift;
+            o.s3 = s3;
+            o.salesforce = salesforce;
+            o.sapoData = sapoData;
+            o.snowflake = snowflake;
+            o.upsolver = upsolver;
+            o.zendesk = zendesk;
+            return o;
         }
     }
 }

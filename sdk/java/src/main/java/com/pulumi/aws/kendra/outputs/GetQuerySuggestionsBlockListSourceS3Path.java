@@ -13,21 +13,14 @@ public final class GetQuerySuggestionsBlockListSourceS3Path {
      * @return The name of the S3 bucket that contains the file.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return The name of the file.
      * 
      */
-    private final String key;
+    private String key;
 
-    @CustomType.Constructor
-    private GetQuerySuggestionsBlockListSourceS3Path(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("key") String key) {
-        this.bucket = bucket;
-        this.key = key;
-    }
-
+    private GetQuerySuggestionsBlockListSourceS3Path() {}
     /**
      * @return The name of the S3 bucket that contains the file.
      * 
@@ -50,30 +43,32 @@ public final class GetQuerySuggestionsBlockListSourceS3Path {
     public static Builder builder(GetQuerySuggestionsBlockListSourceS3Path defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetQuerySuggestionsBlockListSourceS3Path defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public GetQuerySuggestionsBlockListSourceS3Path build() {
-            return new GetQuerySuggestionsBlockListSourceS3Path(bucket, key);
+        }
+        public GetQuerySuggestionsBlockListSourceS3Path build() {
+            final var o = new GetQuerySuggestionsBlockListSourceS3Path();
+            o.bucket = bucket;
+            o.key = key;
+            return o;
         }
     }
 }

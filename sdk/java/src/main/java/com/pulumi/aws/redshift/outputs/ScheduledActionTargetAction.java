@@ -17,28 +17,19 @@ public final class ScheduledActionTargetAction {
      * @return An action that runs a `PauseCluster` API operation. Documented below.
      * 
      */
-    private final @Nullable ScheduledActionTargetActionPauseCluster pauseCluster;
+    private @Nullable ScheduledActionTargetActionPauseCluster pauseCluster;
     /**
      * @return An action that runs a `ResizeCluster` API operation. Documented below.
      * 
      */
-    private final @Nullable ScheduledActionTargetActionResizeCluster resizeCluster;
+    private @Nullable ScheduledActionTargetActionResizeCluster resizeCluster;
     /**
      * @return An action that runs a `ResumeCluster` API operation. Documented below.
      * 
      */
-    private final @Nullable ScheduledActionTargetActionResumeCluster resumeCluster;
+    private @Nullable ScheduledActionTargetActionResumeCluster resumeCluster;
 
-    @CustomType.Constructor
-    private ScheduledActionTargetAction(
-        @CustomType.Parameter("pauseCluster") @Nullable ScheduledActionTargetActionPauseCluster pauseCluster,
-        @CustomType.Parameter("resizeCluster") @Nullable ScheduledActionTargetActionResizeCluster resizeCluster,
-        @CustomType.Parameter("resumeCluster") @Nullable ScheduledActionTargetActionResumeCluster resumeCluster) {
-        this.pauseCluster = pauseCluster;
-        this.resizeCluster = resizeCluster;
-        this.resumeCluster = resumeCluster;
-    }
-
+    private ScheduledActionTargetAction() {}
     /**
      * @return An action that runs a `PauseCluster` API operation. Documented below.
      * 
@@ -68,16 +59,12 @@ public final class ScheduledActionTargetAction {
     public static Builder builder(ScheduledActionTargetAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ScheduledActionTargetActionPauseCluster pauseCluster;
         private @Nullable ScheduledActionTargetActionResizeCluster resizeCluster;
         private @Nullable ScheduledActionTargetActionResumeCluster resumeCluster;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduledActionTargetAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.pauseCluster = defaults.pauseCluster;
@@ -85,19 +72,27 @@ public final class ScheduledActionTargetAction {
     	      this.resumeCluster = defaults.resumeCluster;
         }
 
+        @CustomType.Setter
         public Builder pauseCluster(@Nullable ScheduledActionTargetActionPauseCluster pauseCluster) {
             this.pauseCluster = pauseCluster;
             return this;
         }
+        @CustomType.Setter
         public Builder resizeCluster(@Nullable ScheduledActionTargetActionResizeCluster resizeCluster) {
             this.resizeCluster = resizeCluster;
             return this;
         }
+        @CustomType.Setter
         public Builder resumeCluster(@Nullable ScheduledActionTargetActionResumeCluster resumeCluster) {
             this.resumeCluster = resumeCluster;
             return this;
-        }        public ScheduledActionTargetAction build() {
-            return new ScheduledActionTargetAction(pauseCluster, resizeCluster, resumeCluster);
+        }
+        public ScheduledActionTargetAction build() {
+            final var o = new ScheduledActionTargetAction();
+            o.pauseCluster = pauseCluster;
+            o.resizeCluster = resizeCluster;
+            o.resumeCluster = resumeCluster;
+            return o;
         }
     }
 }

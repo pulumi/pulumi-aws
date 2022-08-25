@@ -14,21 +14,14 @@ public final class CrawlerCatalogTarget {
      * @return The name of the Glue database to be synchronized.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return A list of catalog tables to be synchronized.
      * 
      */
-    private final List<String> tables;
+    private List<String> tables;
 
-    @CustomType.Constructor
-    private CrawlerCatalogTarget(
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("tables") List<String> tables) {
-        this.databaseName = databaseName;
-        this.tables = tables;
-    }
-
+    private CrawlerCatalogTarget() {}
     /**
      * @return The name of the Glue database to be synchronized.
      * 
@@ -51,33 +44,35 @@ public final class CrawlerCatalogTarget {
     public static Builder builder(CrawlerCatalogTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String databaseName;
         private List<String> tables;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CrawlerCatalogTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.databaseName = defaults.databaseName;
     	      this.tables = defaults.tables;
         }
 
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder tables(List<String> tables) {
             this.tables = Objects.requireNonNull(tables);
             return this;
         }
         public Builder tables(String... tables) {
             return tables(List.of(tables));
-        }        public CrawlerCatalogTarget build() {
-            return new CrawlerCatalogTarget(databaseName, tables);
+        }
+        public CrawlerCatalogTarget build() {
+            final var o = new CrawlerCatalogTarget();
+            o.databaseName = databaseName;
+            o.tables = tables;
+            return o;
         }
     }
 }

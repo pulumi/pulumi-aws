@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class OpenZfsVolumeOriginSnapshot {
-    private final String copyStrategy;
-    private final String snapshotArn;
+    private String copyStrategy;
+    private String snapshotArn;
 
-    @CustomType.Constructor
-    private OpenZfsVolumeOriginSnapshot(
-        @CustomType.Parameter("copyStrategy") String copyStrategy,
-        @CustomType.Parameter("snapshotArn") String snapshotArn) {
-        this.copyStrategy = copyStrategy;
-        this.snapshotArn = snapshotArn;
-    }
-
+    private OpenZfsVolumeOriginSnapshot() {}
     public String copyStrategy() {
         return this.copyStrategy;
     }
@@ -34,30 +27,32 @@ public final class OpenZfsVolumeOriginSnapshot {
     public static Builder builder(OpenZfsVolumeOriginSnapshot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String copyStrategy;
         private String snapshotArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OpenZfsVolumeOriginSnapshot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.copyStrategy = defaults.copyStrategy;
     	      this.snapshotArn = defaults.snapshotArn;
         }
 
+        @CustomType.Setter
         public Builder copyStrategy(String copyStrategy) {
             this.copyStrategy = Objects.requireNonNull(copyStrategy);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotArn(String snapshotArn) {
             this.snapshotArn = Objects.requireNonNull(snapshotArn);
             return this;
-        }        public OpenZfsVolumeOriginSnapshot build() {
-            return new OpenZfsVolumeOriginSnapshot(copyStrategy, snapshotArn);
+        }
+        public OpenZfsVolumeOriginSnapshot build() {
+            final var o = new OpenZfsVolumeOriginSnapshot();
+            o.copyStrategy = copyStrategy;
+            o.snapshotArn = snapshotArn;
+            return o;
         }
     }
 }

@@ -13,60 +13,41 @@ public final class GetInstanceProfileResult {
      * @return The Amazon Resource Name (ARN) specifying the instance profile.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The string representation of the date the instance profile
      * was created.
      * 
      */
-    private final String createDate;
+    private String createDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The path to the instance profile.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return The role arn associated with this instance profile.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The role id associated with this instance profile.
      * 
      */
-    private final String roleId;
+    private String roleId;
     /**
      * @return The role name associated with this instance profile.
      * 
      */
-    private final String roleName;
+    private String roleName;
 
-    @CustomType.Constructor
-    private GetInstanceProfileResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("createDate") String createDate,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("roleId") String roleId,
-        @CustomType.Parameter("roleName") String roleName) {
-        this.arn = arn;
-        this.createDate = createDate;
-        this.id = id;
-        this.name = name;
-        this.path = path;
-        this.roleArn = roleArn;
-        this.roleId = roleId;
-        this.roleName = roleName;
-    }
-
+    private GetInstanceProfileResult() {}
     /**
      * @return The Amazon Resource Name (ARN) specifying the instance profile.
      * 
@@ -128,7 +109,7 @@ public final class GetInstanceProfileResult {
     public static Builder builder(GetInstanceProfileResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String createDate;
@@ -138,11 +119,7 @@ public final class GetInstanceProfileResult {
         private String roleArn;
         private String roleId;
         private String roleName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -155,39 +132,57 @@ public final class GetInstanceProfileResult {
     	      this.roleName = defaults.roleName;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder createDate(String createDate) {
             this.createDate = Objects.requireNonNull(createDate);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder roleId(String roleId) {
             this.roleId = Objects.requireNonNull(roleId);
             return this;
         }
+        @CustomType.Setter
         public Builder roleName(String roleName) {
             this.roleName = Objects.requireNonNull(roleName);
             return this;
-        }        public GetInstanceProfileResult build() {
-            return new GetInstanceProfileResult(arn, createDate, id, name, path, roleArn, roleId, roleName);
+        }
+        public GetInstanceProfileResult build() {
+            final var o = new GetInstanceProfileResult();
+            o.arn = arn;
+            o.createDate = createDate;
+            o.id = id;
+            o.name = name;
+            o.path = path;
+            o.roleArn = roleArn;
+            o.roleId = roleId;
+            o.roleName = roleName;
+            return o;
         }
     }
 }

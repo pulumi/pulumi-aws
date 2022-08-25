@@ -17,28 +17,19 @@ public final class ClusterClientAuthentication {
      * @return Configuration block for specifying SASL client authentication. See below.
      * 
      */
-    private final @Nullable ClusterClientAuthenticationSasl sasl;
+    private @Nullable ClusterClientAuthenticationSasl sasl;
     /**
      * @return Configuration block for specifying TLS client authentication. See below.
      * 
      */
-    private final @Nullable ClusterClientAuthenticationTls tls;
+    private @Nullable ClusterClientAuthenticationTls tls;
     /**
      * @return Enables unauthenticated access.
      * 
      */
-    private final @Nullable Boolean unauthenticated;
+    private @Nullable Boolean unauthenticated;
 
-    @CustomType.Constructor
-    private ClusterClientAuthentication(
-        @CustomType.Parameter("sasl") @Nullable ClusterClientAuthenticationSasl sasl,
-        @CustomType.Parameter("tls") @Nullable ClusterClientAuthenticationTls tls,
-        @CustomType.Parameter("unauthenticated") @Nullable Boolean unauthenticated) {
-        this.sasl = sasl;
-        this.tls = tls;
-        this.unauthenticated = unauthenticated;
-    }
-
+    private ClusterClientAuthentication() {}
     /**
      * @return Configuration block for specifying SASL client authentication. See below.
      * 
@@ -68,16 +59,12 @@ public final class ClusterClientAuthentication {
     public static Builder builder(ClusterClientAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterClientAuthenticationSasl sasl;
         private @Nullable ClusterClientAuthenticationTls tls;
         private @Nullable Boolean unauthenticated;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterClientAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sasl = defaults.sasl;
@@ -85,19 +72,27 @@ public final class ClusterClientAuthentication {
     	      this.unauthenticated = defaults.unauthenticated;
         }
 
+        @CustomType.Setter
         public Builder sasl(@Nullable ClusterClientAuthenticationSasl sasl) {
             this.sasl = sasl;
             return this;
         }
+        @CustomType.Setter
         public Builder tls(@Nullable ClusterClientAuthenticationTls tls) {
             this.tls = tls;
             return this;
         }
+        @CustomType.Setter
         public Builder unauthenticated(@Nullable Boolean unauthenticated) {
             this.unauthenticated = unauthenticated;
             return this;
-        }        public ClusterClientAuthentication build() {
-            return new ClusterClientAuthentication(sasl, tls, unauthenticated);
+        }
+        public ClusterClientAuthentication build() {
+            final var o = new ClusterClientAuthentication();
+            o.sasl = sasl;
+            o.tls = tls;
+            o.unauthenticated = unauthenticated;
+            return o;
         }
     }
 }

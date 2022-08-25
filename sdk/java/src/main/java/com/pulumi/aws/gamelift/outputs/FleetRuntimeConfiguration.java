@@ -17,28 +17,19 @@ public final class FleetRuntimeConfiguration {
      * @return Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
      * 
      */
-    private final @Nullable Integer gameSessionActivationTimeoutSeconds;
+    private @Nullable Integer gameSessionActivationTimeoutSeconds;
     /**
      * @return Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
      * 
      */
-    private final @Nullable Integer maxConcurrentGameSessionActivations;
+    private @Nullable Integer maxConcurrentGameSessionActivations;
     /**
      * @return Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
      * 
      */
-    private final @Nullable List<FleetRuntimeConfigurationServerProcess> serverProcesses;
+    private @Nullable List<FleetRuntimeConfigurationServerProcess> serverProcesses;
 
-    @CustomType.Constructor
-    private FleetRuntimeConfiguration(
-        @CustomType.Parameter("gameSessionActivationTimeoutSeconds") @Nullable Integer gameSessionActivationTimeoutSeconds,
-        @CustomType.Parameter("maxConcurrentGameSessionActivations") @Nullable Integer maxConcurrentGameSessionActivations,
-        @CustomType.Parameter("serverProcesses") @Nullable List<FleetRuntimeConfigurationServerProcess> serverProcesses) {
-        this.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
-        this.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
-        this.serverProcesses = serverProcesses;
-    }
-
+    private FleetRuntimeConfiguration() {}
     /**
      * @return Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
      * 
@@ -68,16 +59,12 @@ public final class FleetRuntimeConfiguration {
     public static Builder builder(FleetRuntimeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer gameSessionActivationTimeoutSeconds;
         private @Nullable Integer maxConcurrentGameSessionActivations;
         private @Nullable List<FleetRuntimeConfigurationServerProcess> serverProcesses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetRuntimeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.gameSessionActivationTimeoutSeconds = defaults.gameSessionActivationTimeoutSeconds;
@@ -85,22 +72,30 @@ public final class FleetRuntimeConfiguration {
     	      this.serverProcesses = defaults.serverProcesses;
         }
 
+        @CustomType.Setter
         public Builder gameSessionActivationTimeoutSeconds(@Nullable Integer gameSessionActivationTimeoutSeconds) {
             this.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder maxConcurrentGameSessionActivations(@Nullable Integer maxConcurrentGameSessionActivations) {
             this.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
             return this;
         }
+        @CustomType.Setter
         public Builder serverProcesses(@Nullable List<FleetRuntimeConfigurationServerProcess> serverProcesses) {
             this.serverProcesses = serverProcesses;
             return this;
         }
         public Builder serverProcesses(FleetRuntimeConfigurationServerProcess... serverProcesses) {
             return serverProcesses(List.of(serverProcesses));
-        }        public FleetRuntimeConfiguration build() {
-            return new FleetRuntimeConfiguration(gameSessionActivationTimeoutSeconds, maxConcurrentGameSessionActivations, serverProcesses);
+        }
+        public FleetRuntimeConfiguration build() {
+            final var o = new FleetRuntimeConfiguration();
+            o.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
+            o.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
+            o.serverProcesses = serverProcesses;
+            return o;
         }
     }
 }

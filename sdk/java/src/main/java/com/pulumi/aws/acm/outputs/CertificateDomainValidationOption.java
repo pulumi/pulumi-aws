@@ -15,35 +15,24 @@ public final class CertificateDomainValidationOption {
      * @return A fully qualified domain name (FQDN) in the certificate.
      * 
      */
-    private final @Nullable String domainName;
+    private @Nullable String domainName;
     /**
      * @return The name of the DNS record to create to validate the certificate
      * 
      */
-    private final @Nullable String resourceRecordName;
+    private @Nullable String resourceRecordName;
     /**
      * @return The type of DNS record to create
      * 
      */
-    private final @Nullable String resourceRecordType;
+    private @Nullable String resourceRecordType;
     /**
      * @return The value the DNS record needs to have
      * 
      */
-    private final @Nullable String resourceRecordValue;
+    private @Nullable String resourceRecordValue;
 
-    @CustomType.Constructor
-    private CertificateDomainValidationOption(
-        @CustomType.Parameter("domainName") @Nullable String domainName,
-        @CustomType.Parameter("resourceRecordName") @Nullable String resourceRecordName,
-        @CustomType.Parameter("resourceRecordType") @Nullable String resourceRecordType,
-        @CustomType.Parameter("resourceRecordValue") @Nullable String resourceRecordValue) {
-        this.domainName = domainName;
-        this.resourceRecordName = resourceRecordName;
-        this.resourceRecordType = resourceRecordType;
-        this.resourceRecordValue = resourceRecordValue;
-    }
-
+    private CertificateDomainValidationOption() {}
     /**
      * @return A fully qualified domain name (FQDN) in the certificate.
      * 
@@ -80,17 +69,13 @@ public final class CertificateDomainValidationOption {
     public static Builder builder(CertificateDomainValidationOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String domainName;
         private @Nullable String resourceRecordName;
         private @Nullable String resourceRecordType;
         private @Nullable String resourceRecordValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateDomainValidationOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainName = defaults.domainName;
@@ -99,23 +84,33 @@ public final class CertificateDomainValidationOption {
     	      this.resourceRecordValue = defaults.resourceRecordValue;
         }
 
+        @CustomType.Setter
         public Builder domainName(@Nullable String domainName) {
             this.domainName = domainName;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceRecordName(@Nullable String resourceRecordName) {
             this.resourceRecordName = resourceRecordName;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceRecordType(@Nullable String resourceRecordType) {
             this.resourceRecordType = resourceRecordType;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceRecordValue(@Nullable String resourceRecordValue) {
             this.resourceRecordValue = resourceRecordValue;
             return this;
-        }        public CertificateDomainValidationOption build() {
-            return new CertificateDomainValidationOption(domainName, resourceRecordName, resourceRecordType, resourceRecordValue);
+        }
+        public CertificateDomainValidationOption build() {
+            final var o = new CertificateDomainValidationOption();
+            o.domainName = domainName;
+            o.resourceRecordName = resourceRecordName;
+            o.resourceRecordType = resourceRecordType;
+            o.resourceRecordValue = resourceRecordValue;
+            return o;
         }
     }
 }

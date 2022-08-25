@@ -16,21 +16,14 @@ public final class BucketMetricFilter {
      * @return Object prefix for filtering (singular).
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return Object tags for filtering (up to 10).
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private BucketMetricFilter(
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.prefix = prefix;
-        this.tags = tags;
-    }
-
+    private BucketMetricFilter() {}
     /**
      * @return Object prefix for filtering (singular).
      * 
@@ -53,30 +46,32 @@ public final class BucketMetricFilter {
     public static Builder builder(BucketMetricFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String prefix;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketMetricFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prefix = defaults.prefix;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public BucketMetricFilter build() {
-            return new BucketMetricFilter(prefix, tags);
+        }
+        public BucketMetricFilter build() {
+            final var o = new BucketMetricFilter();
+            o.prefix = prefix;
+            o.tags = tags;
+            return o;
         }
     }
 }

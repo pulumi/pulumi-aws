@@ -13,13 +13,9 @@ public final class ClusterOpenMonitoringPrometheusJmxExporter {
      * @return Indicates whether you want to enable or disable the JMX Exporter.
      * 
      */
-    private final Boolean enabledInBroker;
+    private Boolean enabledInBroker;
 
-    @CustomType.Constructor
-    private ClusterOpenMonitoringPrometheusJmxExporter(@CustomType.Parameter("enabledInBroker") Boolean enabledInBroker) {
-        this.enabledInBroker = enabledInBroker;
-    }
-
+    private ClusterOpenMonitoringPrometheusJmxExporter() {}
     /**
      * @return Indicates whether you want to enable or disable the JMX Exporter.
      * 
@@ -35,24 +31,24 @@ public final class ClusterOpenMonitoringPrometheusJmxExporter {
     public static Builder builder(ClusterOpenMonitoringPrometheusJmxExporter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabledInBroker;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterOpenMonitoringPrometheusJmxExporter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabledInBroker = defaults.enabledInBroker;
         }
 
+        @CustomType.Setter
         public Builder enabledInBroker(Boolean enabledInBroker) {
             this.enabledInBroker = Objects.requireNonNull(enabledInBroker);
             return this;
-        }        public ClusterOpenMonitoringPrometheusJmxExporter build() {
-            return new ClusterOpenMonitoringPrometheusJmxExporter(enabledInBroker);
+        }
+        public ClusterOpenMonitoringPrometheusJmxExporter build() {
+            final var o = new ClusterOpenMonitoringPrometheusJmxExporter();
+            o.enabledInBroker = enabledInBroker;
+            return o;
         }
     }
 }

@@ -18,91 +18,64 @@ public final class PipelineStageAction {
      * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
      * 
      */
-    private final String category;
+    private String category;
     /**
      * @return A map of the action declaration&#39;s configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
      * 
      */
-    private final @Nullable Map<String,String> configuration;
+    private @Nullable Map<String,String> configuration;
     /**
      * @return A list of artifact names to be worked on.
      * 
      */
-    private final @Nullable List<String> inputArtifacts;
+    private @Nullable List<String> inputArtifacts;
     /**
      * @return The action declaration&#39;s name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The namespace all output variables will be accessed from.
      * 
      */
-    private final @Nullable String namespace;
+    private @Nullable String namespace;
     /**
      * @return A list of artifact names to output. Output artifact names must be unique within a pipeline.
      * 
      */
-    private final @Nullable List<String> outputArtifacts;
+    private @Nullable List<String> outputArtifacts;
     /**
      * @return The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
      * 
      */
-    private final String owner;
+    private String owner;
     /**
      * @return The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
      * 
      */
-    private final String provider;
+    private String provider;
     /**
      * @return The region in which to run the action.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
     /**
      * @return The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
      * 
      */
-    private final @Nullable String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return The order in which actions are run.
      * 
      */
-    private final @Nullable Integer runOrder;
+    private @Nullable Integer runOrder;
     /**
      * @return A string that identifies the action type.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private PipelineStageAction(
-        @CustomType.Parameter("category") String category,
-        @CustomType.Parameter("configuration") @Nullable Map<String,String> configuration,
-        @CustomType.Parameter("inputArtifacts") @Nullable List<String> inputArtifacts,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespace") @Nullable String namespace,
-        @CustomType.Parameter("outputArtifacts") @Nullable List<String> outputArtifacts,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("provider") String provider,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("roleArn") @Nullable String roleArn,
-        @CustomType.Parameter("runOrder") @Nullable Integer runOrder,
-        @CustomType.Parameter("version") String version) {
-        this.category = category;
-        this.configuration = configuration;
-        this.inputArtifacts = inputArtifacts;
-        this.name = name;
-        this.namespace = namespace;
-        this.outputArtifacts = outputArtifacts;
-        this.owner = owner;
-        this.provider = provider;
-        this.region = region;
-        this.roleArn = roleArn;
-        this.runOrder = runOrder;
-        this.version = version;
-    }
-
+    private PipelineStageAction() {}
     /**
      * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
      * 
@@ -195,7 +168,7 @@ public final class PipelineStageAction {
     public static Builder builder(PipelineStageAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String category;
         private @Nullable Map<String,String> configuration;
@@ -209,11 +182,7 @@ public final class PipelineStageAction {
         private @Nullable String roleArn;
         private @Nullable Integer runOrder;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineStageAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
@@ -230,14 +199,17 @@ public final class PipelineStageAction {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder category(String category) {
             this.category = Objects.requireNonNull(category);
             return this;
         }
+        @CustomType.Setter
         public Builder configuration(@Nullable Map<String,String> configuration) {
             this.configuration = configuration;
             return this;
         }
+        @CustomType.Setter
         public Builder inputArtifacts(@Nullable List<String> inputArtifacts) {
             this.inputArtifacts = inputArtifacts;
             return this;
@@ -245,14 +217,17 @@ public final class PipelineStageAction {
         public Builder inputArtifacts(String... inputArtifacts) {
             return inputArtifacts(List.of(inputArtifacts));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
             this.namespace = namespace;
             return this;
         }
+        @CustomType.Setter
         public Builder outputArtifacts(@Nullable List<String> outputArtifacts) {
             this.outputArtifacts = outputArtifacts;
             return this;
@@ -260,31 +235,51 @@ public final class PipelineStageAction {
         public Builder outputArtifacts(String... outputArtifacts) {
             return outputArtifacts(List.of(outputArtifacts));
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder provider(String provider) {
             this.provider = Objects.requireNonNull(provider);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
             this.roleArn = roleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder runOrder(@Nullable Integer runOrder) {
             this.runOrder = runOrder;
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public PipelineStageAction build() {
-            return new PipelineStageAction(category, configuration, inputArtifacts, name, namespace, outputArtifacts, owner, provider, region, roleArn, runOrder, version);
+        }
+        public PipelineStageAction build() {
+            final var o = new PipelineStageAction();
+            o.category = category;
+            o.configuration = configuration;
+            o.inputArtifacts = inputArtifacts;
+            o.name = name;
+            o.namespace = namespace;
+            o.outputArtifacts = outputArtifacts;
+            o.owner = owner;
+            o.provider = provider;
+            o.region = region;
+            o.roleArn = roleArn;
+            o.runOrder = runOrder;
+            o.version = version;
+            return o;
         }
     }
 }

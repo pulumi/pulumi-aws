@@ -16,28 +16,19 @@ public final class PipelineContentConfigPermission {
      * @return The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
      * 
      */
-    private final @Nullable List<String> accesses;
+    private @Nullable List<String> accesses;
     /**
      * @return The AWS user or group that you want to have access to transcoded files and playlists.
      * 
      */
-    private final @Nullable String grantee;
+    private @Nullable String grantee;
     /**
      * @return Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
      * 
      */
-    private final @Nullable String granteeType;
+    private @Nullable String granteeType;
 
-    @CustomType.Constructor
-    private PipelineContentConfigPermission(
-        @CustomType.Parameter("accesses") @Nullable List<String> accesses,
-        @CustomType.Parameter("grantee") @Nullable String grantee,
-        @CustomType.Parameter("granteeType") @Nullable String granteeType) {
-        this.accesses = accesses;
-        this.grantee = grantee;
-        this.granteeType = granteeType;
-    }
-
+    private PipelineContentConfigPermission() {}
     /**
      * @return The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
      * 
@@ -67,16 +58,12 @@ public final class PipelineContentConfigPermission {
     public static Builder builder(PipelineContentConfigPermission defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> accesses;
         private @Nullable String grantee;
         private @Nullable String granteeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineContentConfigPermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accesses = defaults.accesses;
@@ -84,6 +71,7 @@ public final class PipelineContentConfigPermission {
     	      this.granteeType = defaults.granteeType;
         }
 
+        @CustomType.Setter
         public Builder accesses(@Nullable List<String> accesses) {
             this.accesses = accesses;
             return this;
@@ -91,15 +79,22 @@ public final class PipelineContentConfigPermission {
         public Builder accesses(String... accesses) {
             return accesses(List.of(accesses));
         }
+        @CustomType.Setter
         public Builder grantee(@Nullable String grantee) {
             this.grantee = grantee;
             return this;
         }
+        @CustomType.Setter
         public Builder granteeType(@Nullable String granteeType) {
             this.granteeType = granteeType;
             return this;
-        }        public PipelineContentConfigPermission build() {
-            return new PipelineContentConfigPermission(accesses, grantee, granteeType);
+        }
+        public PipelineContentConfigPermission build() {
+            final var o = new PipelineContentConfigPermission();
+            o.accesses = accesses;
+            o.grantee = grantee;
+            o.granteeType = granteeType;
+            return o;
         }
     }
 }

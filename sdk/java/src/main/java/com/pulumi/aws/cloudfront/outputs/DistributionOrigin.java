@@ -21,80 +21,59 @@ public final class DistributionOrigin {
      * @return The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
      * 
      */
-    private final @Nullable Integer connectionAttempts;
+    private @Nullable Integer connectionAttempts;
     /**
      * @return The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
      * 
      */
-    private final @Nullable Integer connectionTimeout;
+    private @Nullable Integer connectionTimeout;
     /**
      * @return One or more sub-resources with `name` and
      * `value` parameters that specify header data that will be sent to the origin
      * (multiples allowed).
      * 
      */
-    private final @Nullable List<DistributionOriginCustomHeader> customHeaders;
+    private @Nullable List<DistributionOriginCustomHeader> customHeaders;
     /**
      * @return The CloudFront custom
      * origin configuration information. If an S3
      * origin is required, use `s3_origin_config` instead.
      * 
      */
-    private final @Nullable DistributionOriginCustomOriginConfig customOriginConfig;
+    private @Nullable DistributionOriginCustomOriginConfig customOriginConfig;
     /**
      * @return The DNS domain name of either the S3 bucket, or
      * web site of your custom origin.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return The unique identifier of the member origin
      * 
      */
-    private final String originId;
+    private String originId;
     /**
      * @return An optional element that causes CloudFront to
      * request your content from a directory in your Amazon S3 bucket or your
      * custom origin.
      * 
      */
-    private final @Nullable String originPath;
+    private @Nullable String originPath;
     /**
      * @return The CloudFront Origin Shield
      * configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
      * 
      */
-    private final @Nullable DistributionOriginOriginShield originShield;
+    private @Nullable DistributionOriginOriginShield originShield;
     /**
      * @return The CloudFront S3 origin
      * configuration information. If a custom origin is required, use
      * `custom_origin_config` instead.
      * 
      */
-    private final @Nullable DistributionOriginS3OriginConfig s3OriginConfig;
+    private @Nullable DistributionOriginS3OriginConfig s3OriginConfig;
 
-    @CustomType.Constructor
-    private DistributionOrigin(
-        @CustomType.Parameter("connectionAttempts") @Nullable Integer connectionAttempts,
-        @CustomType.Parameter("connectionTimeout") @Nullable Integer connectionTimeout,
-        @CustomType.Parameter("customHeaders") @Nullable List<DistributionOriginCustomHeader> customHeaders,
-        @CustomType.Parameter("customOriginConfig") @Nullable DistributionOriginCustomOriginConfig customOriginConfig,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("originId") String originId,
-        @CustomType.Parameter("originPath") @Nullable String originPath,
-        @CustomType.Parameter("originShield") @Nullable DistributionOriginOriginShield originShield,
-        @CustomType.Parameter("s3OriginConfig") @Nullable DistributionOriginS3OriginConfig s3OriginConfig) {
-        this.connectionAttempts = connectionAttempts;
-        this.connectionTimeout = connectionTimeout;
-        this.customHeaders = customHeaders;
-        this.customOriginConfig = customOriginConfig;
-        this.domainName = domainName;
-        this.originId = originId;
-        this.originPath = originPath;
-        this.originShield = originShield;
-        this.s3OriginConfig = s3OriginConfig;
-    }
-
+    private DistributionOrigin() {}
     /**
      * @return The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
      * 
@@ -176,7 +155,7 @@ public final class DistributionOrigin {
     public static Builder builder(DistributionOrigin defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer connectionAttempts;
         private @Nullable Integer connectionTimeout;
@@ -187,11 +166,7 @@ public final class DistributionOrigin {
         private @Nullable String originPath;
         private @Nullable DistributionOriginOriginShield originShield;
         private @Nullable DistributionOriginS3OriginConfig s3OriginConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionOrigin defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionAttempts = defaults.connectionAttempts;
@@ -205,14 +180,17 @@ public final class DistributionOrigin {
     	      this.s3OriginConfig = defaults.s3OriginConfig;
         }
 
+        @CustomType.Setter
         public Builder connectionAttempts(@Nullable Integer connectionAttempts) {
             this.connectionAttempts = connectionAttempts;
             return this;
         }
+        @CustomType.Setter
         public Builder connectionTimeout(@Nullable Integer connectionTimeout) {
             this.connectionTimeout = connectionTimeout;
             return this;
         }
+        @CustomType.Setter
         public Builder customHeaders(@Nullable List<DistributionOriginCustomHeader> customHeaders) {
             this.customHeaders = customHeaders;
             return this;
@@ -220,31 +198,48 @@ public final class DistributionOrigin {
         public Builder customHeaders(DistributionOriginCustomHeader... customHeaders) {
             return customHeaders(List.of(customHeaders));
         }
+        @CustomType.Setter
         public Builder customOriginConfig(@Nullable DistributionOriginCustomOriginConfig customOriginConfig) {
             this.customOriginConfig = customOriginConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder originId(String originId) {
             this.originId = Objects.requireNonNull(originId);
             return this;
         }
+        @CustomType.Setter
         public Builder originPath(@Nullable String originPath) {
             this.originPath = originPath;
             return this;
         }
+        @CustomType.Setter
         public Builder originShield(@Nullable DistributionOriginOriginShield originShield) {
             this.originShield = originShield;
             return this;
         }
+        @CustomType.Setter
         public Builder s3OriginConfig(@Nullable DistributionOriginS3OriginConfig s3OriginConfig) {
             this.s3OriginConfig = s3OriginConfig;
             return this;
-        }        public DistributionOrigin build() {
-            return new DistributionOrigin(connectionAttempts, connectionTimeout, customHeaders, customOriginConfig, domainName, originId, originPath, originShield, s3OriginConfig);
+        }
+        public DistributionOrigin build() {
+            final var o = new DistributionOrigin();
+            o.connectionAttempts = connectionAttempts;
+            o.connectionTimeout = connectionTimeout;
+            o.customHeaders = customHeaders;
+            o.customOriginConfig = customOriginConfig;
+            o.domainName = domainName;
+            o.originId = originId;
+            o.originPath = originPath;
+            o.originShield = originShield;
+            o.s3OriginConfig = s3OriginConfig;
+            return o;
         }
     }
 }

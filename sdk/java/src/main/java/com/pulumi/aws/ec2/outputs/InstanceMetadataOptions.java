@@ -16,35 +16,24 @@ public final class InstanceMetadataOptions {
      * @return Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
      * 
      */
-    private final @Nullable String httpEndpoint;
+    private @Nullable String httpEndpoint;
     /**
      * @return Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
      * 
      */
-    private final @Nullable Integer httpPutResponseHopLimit;
+    private @Nullable Integer httpPutResponseHopLimit;
     /**
      * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
      * 
      */
-    private final @Nullable String httpTokens;
+    private @Nullable String httpTokens;
     /**
      * @return Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
      * 
      */
-    private final @Nullable String instanceMetadataTags;
+    private @Nullable String instanceMetadataTags;
 
-    @CustomType.Constructor
-    private InstanceMetadataOptions(
-        @CustomType.Parameter("httpEndpoint") @Nullable String httpEndpoint,
-        @CustomType.Parameter("httpPutResponseHopLimit") @Nullable Integer httpPutResponseHopLimit,
-        @CustomType.Parameter("httpTokens") @Nullable String httpTokens,
-        @CustomType.Parameter("instanceMetadataTags") @Nullable String instanceMetadataTags) {
-        this.httpEndpoint = httpEndpoint;
-        this.httpPutResponseHopLimit = httpPutResponseHopLimit;
-        this.httpTokens = httpTokens;
-        this.instanceMetadataTags = instanceMetadataTags;
-    }
-
+    private InstanceMetadataOptions() {}
     /**
      * @return Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
      * 
@@ -81,17 +70,13 @@ public final class InstanceMetadataOptions {
     public static Builder builder(InstanceMetadataOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String httpEndpoint;
         private @Nullable Integer httpPutResponseHopLimit;
         private @Nullable String httpTokens;
         private @Nullable String instanceMetadataTags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceMetadataOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpEndpoint = defaults.httpEndpoint;
@@ -100,23 +85,33 @@ public final class InstanceMetadataOptions {
     	      this.instanceMetadataTags = defaults.instanceMetadataTags;
         }
 
+        @CustomType.Setter
         public Builder httpEndpoint(@Nullable String httpEndpoint) {
             this.httpEndpoint = httpEndpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
             this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder httpTokens(@Nullable String httpTokens) {
             this.httpTokens = httpTokens;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceMetadataTags(@Nullable String instanceMetadataTags) {
             this.instanceMetadataTags = instanceMetadataTags;
             return this;
-        }        public InstanceMetadataOptions build() {
-            return new InstanceMetadataOptions(httpEndpoint, httpPutResponseHopLimit, httpTokens, instanceMetadataTags);
+        }
+        public InstanceMetadataOptions build() {
+            final var o = new InstanceMetadataOptions();
+            o.httpEndpoint = httpEndpoint;
+            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            o.httpTokens = httpTokens;
+            o.instanceMetadataTags = instanceMetadataTags;
+            return o;
         }
     }
 }

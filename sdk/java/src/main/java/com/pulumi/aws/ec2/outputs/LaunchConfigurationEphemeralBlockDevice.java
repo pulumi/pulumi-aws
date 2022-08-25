@@ -12,20 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchConfigurationEphemeralBlockDevice {
-    private final String deviceName;
-    private final @Nullable Boolean noDevice;
-    private final @Nullable String virtualName;
+    private String deviceName;
+    private @Nullable Boolean noDevice;
+    private @Nullable String virtualName;
 
-    @CustomType.Constructor
-    private LaunchConfigurationEphemeralBlockDevice(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("noDevice") @Nullable Boolean noDevice,
-        @CustomType.Parameter("virtualName") @Nullable String virtualName) {
-        this.deviceName = deviceName;
-        this.noDevice = noDevice;
-        this.virtualName = virtualName;
-    }
-
+    private LaunchConfigurationEphemeralBlockDevice() {}
     public String deviceName() {
         return this.deviceName;
     }
@@ -43,16 +34,12 @@ public final class LaunchConfigurationEphemeralBlockDevice {
     public static Builder builder(LaunchConfigurationEphemeralBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private @Nullable Boolean noDevice;
         private @Nullable String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchConfigurationEphemeralBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
@@ -60,19 +47,27 @@ public final class LaunchConfigurationEphemeralBlockDevice {
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder noDevice(@Nullable Boolean noDevice) {
             this.noDevice = noDevice;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
             this.virtualName = virtualName;
             return this;
-        }        public LaunchConfigurationEphemeralBlockDevice build() {
-            return new LaunchConfigurationEphemeralBlockDevice(deviceName, noDevice, virtualName);
+        }
+        public LaunchConfigurationEphemeralBlockDevice build() {
+            final var o = new LaunchConfigurationEphemeralBlockDevice();
+            o.deviceName = deviceName;
+            o.noDevice = noDevice;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

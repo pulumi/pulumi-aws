@@ -13,13 +13,9 @@ public final class ConnectorLogDelivery {
      * @return The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
      * 
      */
-    private final ConnectorLogDeliveryWorkerLogDelivery workerLogDelivery;
+    private ConnectorLogDeliveryWorkerLogDelivery workerLogDelivery;
 
-    @CustomType.Constructor
-    private ConnectorLogDelivery(@CustomType.Parameter("workerLogDelivery") ConnectorLogDeliveryWorkerLogDelivery workerLogDelivery) {
-        this.workerLogDelivery = workerLogDelivery;
-    }
-
+    private ConnectorLogDelivery() {}
     /**
      * @return The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorLogDelivery {
     public static Builder builder(ConnectorLogDelivery defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ConnectorLogDeliveryWorkerLogDelivery workerLogDelivery;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorLogDelivery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.workerLogDelivery = defaults.workerLogDelivery;
         }
 
+        @CustomType.Setter
         public Builder workerLogDelivery(ConnectorLogDeliveryWorkerLogDelivery workerLogDelivery) {
             this.workerLogDelivery = Objects.requireNonNull(workerLogDelivery);
             return this;
-        }        public ConnectorLogDelivery build() {
-            return new ConnectorLogDelivery(workerLogDelivery);
+        }
+        public ConnectorLogDelivery build() {
+            final var o = new ConnectorLogDelivery();
+            o.workerLogDelivery = workerLogDelivery;
+            return o;
         }
     }
 }

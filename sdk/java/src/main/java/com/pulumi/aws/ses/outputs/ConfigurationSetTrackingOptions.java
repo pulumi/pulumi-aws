@@ -15,13 +15,9 @@ public final class ConfigurationSetTrackingOptions {
      * @return Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
      * 
      */
-    private final @Nullable String customRedirectDomain;
+    private @Nullable String customRedirectDomain;
 
-    @CustomType.Constructor
-    private ConfigurationSetTrackingOptions(@CustomType.Parameter("customRedirectDomain") @Nullable String customRedirectDomain) {
-        this.customRedirectDomain = customRedirectDomain;
-    }
-
+    private ConfigurationSetTrackingOptions() {}
     /**
      * @return Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
      * 
@@ -37,24 +33,24 @@ public final class ConfigurationSetTrackingOptions {
     public static Builder builder(ConfigurationSetTrackingOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String customRedirectDomain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfigurationSetTrackingOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customRedirectDomain = defaults.customRedirectDomain;
         }
 
+        @CustomType.Setter
         public Builder customRedirectDomain(@Nullable String customRedirectDomain) {
             this.customRedirectDomain = customRedirectDomain;
             return this;
-        }        public ConfigurationSetTrackingOptions build() {
-            return new ConfigurationSetTrackingOptions(customRedirectDomain);
+        }
+        public ConfigurationSetTrackingOptions build() {
+            final var o = new ConfigurationSetTrackingOptions();
+            o.customRedirectDomain = customRedirectDomain;
+            return o;
         }
     }
 }

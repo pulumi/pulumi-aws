@@ -15,13 +15,9 @@ public final class VirtualNodeSpecBackendDefaults {
      * @return The default client policy for virtual service backends. See above for details.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendDefaultsClientPolicy clientPolicy;
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicy clientPolicy;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendDefaults(@CustomType.Parameter("clientPolicy") @Nullable VirtualNodeSpecBackendDefaultsClientPolicy clientPolicy) {
-        this.clientPolicy = clientPolicy;
-    }
-
+    private VirtualNodeSpecBackendDefaults() {}
     /**
      * @return The default client policy for virtual service backends. See above for details.
      * 
@@ -37,24 +33,24 @@ public final class VirtualNodeSpecBackendDefaults {
     public static Builder builder(VirtualNodeSpecBackendDefaults defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendDefaultsClientPolicy clientPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendDefaults defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientPolicy = defaults.clientPolicy;
         }
 
+        @CustomType.Setter
         public Builder clientPolicy(@Nullable VirtualNodeSpecBackendDefaultsClientPolicy clientPolicy) {
             this.clientPolicy = clientPolicy;
             return this;
-        }        public VirtualNodeSpecBackendDefaults build() {
-            return new VirtualNodeSpecBackendDefaults(clientPolicy);
+        }
+        public VirtualNodeSpecBackendDefaults build() {
+            final var o = new VirtualNodeSpecBackendDefaults();
+            o.clientPolicy = clientPolicy;
+            return o;
         }
     }
 }

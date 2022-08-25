@@ -15,13 +15,9 @@ public final class ClassificationJobS3JobDefinitionScopingIncludes {
      * @return An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
      * 
      */
-    private final @Nullable List<ClassificationJobS3JobDefinitionScopingIncludesAnd> ands;
+    private @Nullable List<ClassificationJobS3JobDefinitionScopingIncludesAnd> ands;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionScopingIncludes(@CustomType.Parameter("ands") @Nullable List<ClassificationJobS3JobDefinitionScopingIncludesAnd> ands) {
-        this.ands = ands;
-    }
-
+    private ClassificationJobS3JobDefinitionScopingIncludes() {}
     /**
      * @return An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
      * 
@@ -37,27 +33,27 @@ public final class ClassificationJobS3JobDefinitionScopingIncludes {
     public static Builder builder(ClassificationJobS3JobDefinitionScopingIncludes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ClassificationJobS3JobDefinitionScopingIncludesAnd> ands;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionScopingIncludes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ands = defaults.ands;
         }
 
+        @CustomType.Setter
         public Builder ands(@Nullable List<ClassificationJobS3JobDefinitionScopingIncludesAnd> ands) {
             this.ands = ands;
             return this;
         }
         public Builder ands(ClassificationJobS3JobDefinitionScopingIncludesAnd... ands) {
             return ands(List.of(ands));
-        }        public ClassificationJobS3JobDefinitionScopingIncludes build() {
-            return new ClassificationJobS3JobDefinitionScopingIncludes(ands);
+        }
+        public ClassificationJobS3JobDefinitionScopingIncludes build() {
+            final var o = new ClassificationJobS3JobDefinitionScopingIncludes();
+            o.ands = ands;
+            return o;
         }
     }
 }

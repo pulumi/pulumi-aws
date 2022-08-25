@@ -15,21 +15,14 @@ public final class ResourceLfTagsDatabase {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private final @Nullable String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return Name of the table resource.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ResourceLfTagsDatabase(
-        @CustomType.Parameter("catalogId") @Nullable String catalogId,
-        @CustomType.Parameter("name") String name) {
-        this.catalogId = catalogId;
-        this.name = name;
-    }
-
+    private ResourceLfTagsDatabase() {}
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
@@ -52,30 +45,32 @@ public final class ResourceLfTagsDatabase {
     public static Builder builder(ResourceLfTagsDatabase defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String catalogId;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceLfTagsDatabase defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ResourceLfTagsDatabase build() {
-            return new ResourceLfTagsDatabase(catalogId, name);
+        }
+        public ResourceLfTagsDatabase build() {
+            final var o = new ResourceLfTagsDatabase();
+            o.catalogId = catalogId;
+            o.name = name;
+            return o;
         }
     }
 }

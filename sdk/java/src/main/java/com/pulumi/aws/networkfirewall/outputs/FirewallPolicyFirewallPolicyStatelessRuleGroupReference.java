@@ -14,21 +14,14 @@ public final class FirewallPolicyFirewallPolicyStatelessRuleGroupReference {
      * @return An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The Amazon Resource Name (ARN) of the stateless rule group.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
 
-    @CustomType.Constructor
-    private FirewallPolicyFirewallPolicyStatelessRuleGroupReference(
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("resourceArn") String resourceArn) {
-        this.priority = priority;
-        this.resourceArn = resourceArn;
-    }
-
+    private FirewallPolicyFirewallPolicyStatelessRuleGroupReference() {}
     /**
      * @return An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
      * 
@@ -51,30 +44,32 @@ public final class FirewallPolicyFirewallPolicyStatelessRuleGroupReference {
     public static Builder builder(FirewallPolicyFirewallPolicyStatelessRuleGroupReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer priority;
         private String resourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatelessRuleGroupReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.priority = defaults.priority;
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
-        }        public FirewallPolicyFirewallPolicyStatelessRuleGroupReference build() {
-            return new FirewallPolicyFirewallPolicyStatelessRuleGroupReference(priority, resourceArn);
+        }
+        public FirewallPolicyFirewallPolicyStatelessRuleGroupReference build() {
+            final var o = new FirewallPolicyFirewallPolicyStatelessRuleGroupReference();
+            o.priority = priority;
+            o.resourceArn = resourceArn;
+            return o;
         }
     }
 }

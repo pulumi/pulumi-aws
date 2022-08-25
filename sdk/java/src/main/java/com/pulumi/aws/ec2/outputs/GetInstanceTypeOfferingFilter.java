@@ -14,21 +14,14 @@ public final class GetInstanceTypeOfferingFilter {
      * @return Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return List of one or more values for the filter.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetInstanceTypeOfferingFilter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private GetInstanceTypeOfferingFilter() {}
     /**
      * @return Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
      * 
@@ -51,33 +44,35 @@ public final class GetInstanceTypeOfferingFilter {
     public static Builder builder(GetInstanceTypeOfferingFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypeOfferingFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetInstanceTypeOfferingFilter build() {
-            return new GetInstanceTypeOfferingFilter(name, values);
+        }
+        public GetInstanceTypeOfferingFilter build() {
+            final var o = new GetInstanceTypeOfferingFilter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

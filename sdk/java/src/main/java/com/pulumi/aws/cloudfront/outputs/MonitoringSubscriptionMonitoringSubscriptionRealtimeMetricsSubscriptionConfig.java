@@ -13,13 +13,9 @@ public final class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSu
      * @return A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
      * 
      */
-    private final String realtimeMetricsSubscriptionStatus;
+    private String realtimeMetricsSubscriptionStatus;
 
-    @CustomType.Constructor
-    private MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig(@CustomType.Parameter("realtimeMetricsSubscriptionStatus") String realtimeMetricsSubscriptionStatus) {
-        this.realtimeMetricsSubscriptionStatus = realtimeMetricsSubscriptionStatus;
-    }
-
+    private MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig() {}
     /**
      * @return A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
      * 
@@ -35,24 +31,24 @@ public final class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSu
     public static Builder builder(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String realtimeMetricsSubscriptionStatus;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.realtimeMetricsSubscriptionStatus = defaults.realtimeMetricsSubscriptionStatus;
         }
 
+        @CustomType.Setter
         public Builder realtimeMetricsSubscriptionStatus(String realtimeMetricsSubscriptionStatus) {
             this.realtimeMetricsSubscriptionStatus = Objects.requireNonNull(realtimeMetricsSubscriptionStatus);
             return this;
-        }        public MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig build() {
-            return new MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig(realtimeMetricsSubscriptionStatus);
+        }
+        public MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig build() {
+            final var o = new MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig();
+            o.realtimeMetricsSubscriptionStatus = realtimeMetricsSubscriptionStatus;
+            return o;
         }
     }
 }

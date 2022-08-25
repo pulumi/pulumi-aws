@@ -13,13 +13,9 @@ public final class VirtualNodeSpecListenerConnectionPoolTcp {
      * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
      * 
      */
-    private final Integer maxConnections;
+    private Integer maxConnections;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerConnectionPoolTcp(@CustomType.Parameter("maxConnections") Integer maxConnections) {
-        this.maxConnections = maxConnections;
-    }
-
+    private VirtualNodeSpecListenerConnectionPoolTcp() {}
     /**
      * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecListenerConnectionPoolTcp {
     public static Builder builder(VirtualNodeSpecListenerConnectionPoolTcp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxConnections;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerConnectionPoolTcp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxConnections = defaults.maxConnections;
         }
 
+        @CustomType.Setter
         public Builder maxConnections(Integer maxConnections) {
             this.maxConnections = Objects.requireNonNull(maxConnections);
             return this;
-        }        public VirtualNodeSpecListenerConnectionPoolTcp build() {
-            return new VirtualNodeSpecListenerConnectionPoolTcp(maxConnections);
+        }
+        public VirtualNodeSpecListenerConnectionPoolTcp build() {
+            final var o = new VirtualNodeSpecListenerConnectionPoolTcp();
+            o.maxConnections = maxConnections;
+            return o;
         }
     }
 }

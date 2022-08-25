@@ -13,13 +13,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The API tokens used by Dynatrace API to authenticate various API calls.
      * 
      */
-    private final String apiToken;
+    private String apiToken;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace(@CustomType.Parameter("apiToken") String apiToken) {
-        this.apiToken = apiToken;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace() {}
     /**
      * @return The API tokens used by Dynatrace API to authenticate various API calls.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiToken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiToken = defaults.apiToken;
         }
 
+        @CustomType.Setter
         public Builder apiToken(String apiToken) {
             this.apiToken = Objects.requireNonNull(apiToken);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace(apiToken);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace();
+            o.apiToken = apiToken;
+            return o;
         }
     }
 }

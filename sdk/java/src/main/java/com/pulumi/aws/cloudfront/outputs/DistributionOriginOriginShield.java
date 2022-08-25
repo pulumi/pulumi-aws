@@ -14,21 +14,14 @@ public final class DistributionOriginOriginShield {
      * @return A flag that specifies whether Origin Shield is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
      * 
      */
-    private final String originShieldRegion;
+    private String originShieldRegion;
 
-    @CustomType.Constructor
-    private DistributionOriginOriginShield(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("originShieldRegion") String originShieldRegion) {
-        this.enabled = enabled;
-        this.originShieldRegion = originShieldRegion;
-    }
-
+    private DistributionOriginOriginShield() {}
     /**
      * @return A flag that specifies whether Origin Shield is enabled.
      * 
@@ -51,30 +44,32 @@ public final class DistributionOriginOriginShield {
     public static Builder builder(DistributionOriginOriginShield defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String originShieldRegion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionOriginOriginShield defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.originShieldRegion = defaults.originShieldRegion;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder originShieldRegion(String originShieldRegion) {
             this.originShieldRegion = Objects.requireNonNull(originShieldRegion);
             return this;
-        }        public DistributionOriginOriginShield build() {
-            return new DistributionOriginOriginShield(enabled, originShieldRegion);
+        }
+        public DistributionOriginOriginShield build() {
+            final var o = new DistributionOriginOriginShield();
+            o.enabled = enabled;
+            o.originShieldRegion = originShieldRegion;
+            return o;
         }
     }
 }

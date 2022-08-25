@@ -15,13 +15,9 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfig {
      * @return The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
      * 
      */
-    private final @Nullable Integer maxConcurrentInvocationsPerInstance;
+    private @Nullable Integer maxConcurrentInvocationsPerInstance;
 
-    @CustomType.Constructor
-    private EndpointConfigurationAsyncInferenceConfigClientConfig(@CustomType.Parameter("maxConcurrentInvocationsPerInstance") @Nullable Integer maxConcurrentInvocationsPerInstance) {
-        this.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
-    }
-
+    private EndpointConfigurationAsyncInferenceConfigClientConfig() {}
     /**
      * @return The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
      * 
@@ -37,24 +33,24 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfig {
     public static Builder builder(EndpointConfigurationAsyncInferenceConfigClientConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxConcurrentInvocationsPerInstance;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConfigurationAsyncInferenceConfigClientConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxConcurrentInvocationsPerInstance = defaults.maxConcurrentInvocationsPerInstance;
         }
 
+        @CustomType.Setter
         public Builder maxConcurrentInvocationsPerInstance(@Nullable Integer maxConcurrentInvocationsPerInstance) {
             this.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
             return this;
-        }        public EndpointConfigurationAsyncInferenceConfigClientConfig build() {
-            return new EndpointConfigurationAsyncInferenceConfigClientConfig(maxConcurrentInvocationsPerInstance);
+        }
+        public EndpointConfigurationAsyncInferenceConfigClientConfig build() {
+            final var o = new EndpointConfigurationAsyncInferenceConfigClientConfig();
+            o.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
+            return o;
         }
     }
 }

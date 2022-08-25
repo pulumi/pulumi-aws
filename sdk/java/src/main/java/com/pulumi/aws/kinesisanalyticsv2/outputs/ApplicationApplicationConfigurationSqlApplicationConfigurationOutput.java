@@ -19,45 +19,30 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return Describes the data format when records are written to the destination.
      * 
      */
-    private final ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema destinationSchema;
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema destinationSchema;
     /**
      * @return Identifies a Kinesis Data Firehose delivery stream as the destination.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput kinesisFirehoseOutput;
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput kinesisFirehoseOutput;
     /**
      * @return Identifies a Kinesis data stream as the destination.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput kinesisStreamsOutput;
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput kinesisStreamsOutput;
     /**
      * @return Identifies a Lambda function as the destination.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput lambdaOutput;
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput lambdaOutput;
     /**
      * @return The name of the in-application stream.
      * 
      */
-    private final String name;
-    private final @Nullable String outputId;
+    private String name;
+    private @Nullable String outputId;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(
-        @CustomType.Parameter("destinationSchema") ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema destinationSchema,
-        @CustomType.Parameter("kinesisFirehoseOutput") @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput kinesisFirehoseOutput,
-        @CustomType.Parameter("kinesisStreamsOutput") @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput kinesisStreamsOutput,
-        @CustomType.Parameter("lambdaOutput") @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput lambdaOutput,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outputId") @Nullable String outputId) {
-        this.destinationSchema = destinationSchema;
-        this.kinesisFirehoseOutput = kinesisFirehoseOutput;
-        this.kinesisStreamsOutput = kinesisStreamsOutput;
-        this.lambdaOutput = lambdaOutput;
-        this.name = name;
-        this.outputId = outputId;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutput() {}
     /**
      * @return Describes the data format when records are written to the destination.
      * 
@@ -104,7 +89,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationOutput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema destinationSchema;
         private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput kinesisFirehoseOutput;
@@ -112,11 +97,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput lambdaOutput;
         private String name;
         private @Nullable String outputId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationSchema = defaults.destinationSchema;
@@ -127,31 +108,45 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     	      this.outputId = defaults.outputId;
         }
 
+        @CustomType.Setter
         public Builder destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema destinationSchema) {
             this.destinationSchema = Objects.requireNonNull(destinationSchema);
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisFirehoseOutput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput kinesisFirehoseOutput) {
             this.kinesisFirehoseOutput = kinesisFirehoseOutput;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisStreamsOutput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput kinesisStreamsOutput) {
             this.kinesisStreamsOutput = kinesisStreamsOutput;
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaOutput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput lambdaOutput) {
             this.lambdaOutput = lambdaOutput;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outputId(@Nullable String outputId) {
             this.outputId = outputId;
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationOutput build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(destinationSchema, kinesisFirehoseOutput, kinesisStreamsOutput, lambdaOutput, name, outputId);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationOutput build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutput();
+            o.destinationSchema = destinationSchema;
+            o.kinesisFirehoseOutput = kinesisFirehoseOutput;
+            o.kinesisStreamsOutput = kinesisStreamsOutput;
+            o.lambdaOutput = lambdaOutput;
+            o.name = name;
+            o.outputId = outputId;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class InstancePublicPortsPortInfo {
      * @return Set of CIDR blocks.
      * 
      */
-    private final @Nullable List<String> cidrs;
+    private @Nullable List<String> cidrs;
     /**
      * @return First port in a range of open ports on an instance.
      * 
      */
-    private final Integer fromPort;
+    private Integer fromPort;
     /**
      * @return IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return Last port in a range of open ports on an instance.
      * 
      */
-    private final Integer toPort;
+    private Integer toPort;
 
-    @CustomType.Constructor
-    private InstancePublicPortsPortInfo(
-        @CustomType.Parameter("cidrs") @Nullable List<String> cidrs,
-        @CustomType.Parameter("fromPort") Integer fromPort,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("toPort") Integer toPort) {
-        this.cidrs = cidrs;
-        this.fromPort = fromPort;
-        this.protocol = protocol;
-        this.toPort = toPort;
-    }
-
+    private InstancePublicPortsPortInfo() {}
     /**
      * @return Set of CIDR blocks.
      * 
@@ -81,17 +70,13 @@ public final class InstancePublicPortsPortInfo {
     public static Builder builder(InstancePublicPortsPortInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> cidrs;
         private Integer fromPort;
         private String protocol;
         private Integer toPort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstancePublicPortsPortInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidrs = defaults.cidrs;
@@ -100,6 +85,7 @@ public final class InstancePublicPortsPortInfo {
     	      this.toPort = defaults.toPort;
         }
 
+        @CustomType.Setter
         public Builder cidrs(@Nullable List<String> cidrs) {
             this.cidrs = cidrs;
             return this;
@@ -107,19 +93,28 @@ public final class InstancePublicPortsPortInfo {
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
         }
+        @CustomType.Setter
         public Builder fromPort(Integer fromPort) {
             this.fromPort = Objects.requireNonNull(fromPort);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder toPort(Integer toPort) {
             this.toPort = Objects.requireNonNull(toPort);
             return this;
-        }        public InstancePublicPortsPortInfo build() {
-            return new InstancePublicPortsPortInfo(cidrs, fromPort, protocol, toPort);
+        }
+        public InstancePublicPortsPortInfo build() {
+            final var o = new InstancePublicPortsPortInfo();
+            o.cidrs = cidrs;
+            o.fromPort = fromPort;
+            o.protocol = protocol;
+            o.toPort = toPort;
+            return o;
         }
     }
 }

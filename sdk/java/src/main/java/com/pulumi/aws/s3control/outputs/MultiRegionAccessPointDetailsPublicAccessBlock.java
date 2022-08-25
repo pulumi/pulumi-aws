@@ -11,23 +11,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiRegionAccessPointDetailsPublicAccessBlock {
-    private final @Nullable Boolean blockPublicAcls;
-    private final @Nullable Boolean blockPublicPolicy;
-    private final @Nullable Boolean ignorePublicAcls;
-    private final @Nullable Boolean restrictPublicBuckets;
+    private @Nullable Boolean blockPublicAcls;
+    private @Nullable Boolean blockPublicPolicy;
+    private @Nullable Boolean ignorePublicAcls;
+    private @Nullable Boolean restrictPublicBuckets;
 
-    @CustomType.Constructor
-    private MultiRegionAccessPointDetailsPublicAccessBlock(
-        @CustomType.Parameter("blockPublicAcls") @Nullable Boolean blockPublicAcls,
-        @CustomType.Parameter("blockPublicPolicy") @Nullable Boolean blockPublicPolicy,
-        @CustomType.Parameter("ignorePublicAcls") @Nullable Boolean ignorePublicAcls,
-        @CustomType.Parameter("restrictPublicBuckets") @Nullable Boolean restrictPublicBuckets) {
-        this.blockPublicAcls = blockPublicAcls;
-        this.blockPublicPolicy = blockPublicPolicy;
-        this.ignorePublicAcls = ignorePublicAcls;
-        this.restrictPublicBuckets = restrictPublicBuckets;
-    }
-
+    private MultiRegionAccessPointDetailsPublicAccessBlock() {}
     public Optional<Boolean> blockPublicAcls() {
         return Optional.ofNullable(this.blockPublicAcls);
     }
@@ -48,17 +37,13 @@ public final class MultiRegionAccessPointDetailsPublicAccessBlock {
     public static Builder builder(MultiRegionAccessPointDetailsPublicAccessBlock defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean blockPublicAcls;
         private @Nullable Boolean blockPublicPolicy;
         private @Nullable Boolean ignorePublicAcls;
         private @Nullable Boolean restrictPublicBuckets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MultiRegionAccessPointDetailsPublicAccessBlock defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blockPublicAcls = defaults.blockPublicAcls;
@@ -67,23 +52,33 @@ public final class MultiRegionAccessPointDetailsPublicAccessBlock {
     	      this.restrictPublicBuckets = defaults.restrictPublicBuckets;
         }
 
+        @CustomType.Setter
         public Builder blockPublicAcls(@Nullable Boolean blockPublicAcls) {
             this.blockPublicAcls = blockPublicAcls;
             return this;
         }
+        @CustomType.Setter
         public Builder blockPublicPolicy(@Nullable Boolean blockPublicPolicy) {
             this.blockPublicPolicy = blockPublicPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder ignorePublicAcls(@Nullable Boolean ignorePublicAcls) {
             this.ignorePublicAcls = ignorePublicAcls;
             return this;
         }
+        @CustomType.Setter
         public Builder restrictPublicBuckets(@Nullable Boolean restrictPublicBuckets) {
             this.restrictPublicBuckets = restrictPublicBuckets;
             return this;
-        }        public MultiRegionAccessPointDetailsPublicAccessBlock build() {
-            return new MultiRegionAccessPointDetailsPublicAccessBlock(blockPublicAcls, blockPublicPolicy, ignorePublicAcls, restrictPublicBuckets);
+        }
+        public MultiRegionAccessPointDetailsPublicAccessBlock build() {
+            final var o = new MultiRegionAccessPointDetailsPublicAccessBlock();
+            o.blockPublicAcls = blockPublicAcls;
+            o.blockPublicPolicy = blockPublicPolicy;
+            o.ignorePublicAcls = ignorePublicAcls;
+            o.restrictPublicBuckets = restrictPublicBuckets;
+            return o;
         }
     }
 }

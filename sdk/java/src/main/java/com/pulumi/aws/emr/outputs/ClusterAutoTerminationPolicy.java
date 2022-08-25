@@ -15,13 +15,9 @@ public final class ClusterAutoTerminationPolicy {
      * @return Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
      * 
      */
-    private final @Nullable Integer idleTimeout;
+    private @Nullable Integer idleTimeout;
 
-    @CustomType.Constructor
-    private ClusterAutoTerminationPolicy(@CustomType.Parameter("idleTimeout") @Nullable Integer idleTimeout) {
-        this.idleTimeout = idleTimeout;
-    }
-
+    private ClusterAutoTerminationPolicy() {}
     /**
      * @return Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
      * 
@@ -37,24 +33,24 @@ public final class ClusterAutoTerminationPolicy {
     public static Builder builder(ClusterAutoTerminationPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer idleTimeout;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterAutoTerminationPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.idleTimeout = defaults.idleTimeout;
         }
 
+        @CustomType.Setter
         public Builder idleTimeout(@Nullable Integer idleTimeout) {
             this.idleTimeout = idleTimeout;
             return this;
-        }        public ClusterAutoTerminationPolicy build() {
-            return new ClusterAutoTerminationPolicy(idleTimeout);
+        }
+        public ClusterAutoTerminationPolicy build() {
+            final var o = new ClusterAutoTerminationPolicy();
+            o.idleTimeout = idleTimeout;
+            return o;
         }
     }
 }

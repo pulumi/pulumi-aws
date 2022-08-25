@@ -18,30 +18,21 @@ public final class DetectorDatasources {
      * See Kubernetes and Kubernetes Audit Logs below for more details.
      * 
      */
-    private final @Nullable DetectorDatasourcesKubernetes kubernetes;
+    private @Nullable DetectorDatasourcesKubernetes kubernetes;
     /**
      * @return Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
      * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
      * 
      */
-    private final @Nullable DetectorDatasourcesMalwareProtection malwareProtection;
+    private @Nullable DetectorDatasourcesMalwareProtection malwareProtection;
     /**
      * @return Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
      * See S3 Logs below for more details.
      * 
      */
-    private final @Nullable DetectorDatasourcesS3Logs s3Logs;
+    private @Nullable DetectorDatasourcesS3Logs s3Logs;
 
-    @CustomType.Constructor
-    private DetectorDatasources(
-        @CustomType.Parameter("kubernetes") @Nullable DetectorDatasourcesKubernetes kubernetes,
-        @CustomType.Parameter("malwareProtection") @Nullable DetectorDatasourcesMalwareProtection malwareProtection,
-        @CustomType.Parameter("s3Logs") @Nullable DetectorDatasourcesS3Logs s3Logs) {
-        this.kubernetes = kubernetes;
-        this.malwareProtection = malwareProtection;
-        this.s3Logs = s3Logs;
-    }
-
+    private DetectorDatasources() {}
     /**
      * @return Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
      * See Kubernetes and Kubernetes Audit Logs below for more details.
@@ -74,16 +65,12 @@ public final class DetectorDatasources {
     public static Builder builder(DetectorDatasources defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DetectorDatasourcesKubernetes kubernetes;
         private @Nullable DetectorDatasourcesMalwareProtection malwareProtection;
         private @Nullable DetectorDatasourcesS3Logs s3Logs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DetectorDatasources defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kubernetes = defaults.kubernetes;
@@ -91,19 +78,27 @@ public final class DetectorDatasources {
     	      this.s3Logs = defaults.s3Logs;
         }
 
+        @CustomType.Setter
         public Builder kubernetes(@Nullable DetectorDatasourcesKubernetes kubernetes) {
             this.kubernetes = kubernetes;
             return this;
         }
+        @CustomType.Setter
         public Builder malwareProtection(@Nullable DetectorDatasourcesMalwareProtection malwareProtection) {
             this.malwareProtection = malwareProtection;
             return this;
         }
+        @CustomType.Setter
         public Builder s3Logs(@Nullable DetectorDatasourcesS3Logs s3Logs) {
             this.s3Logs = s3Logs;
             return this;
-        }        public DetectorDatasources build() {
-            return new DetectorDatasources(kubernetes, malwareProtection, s3Logs);
+        }
+        public DetectorDatasources build() {
+            final var o = new DetectorDatasources();
+            o.kubernetes = kubernetes;
+            o.malwareProtection = malwareProtection;
+            o.s3Logs = s3Logs;
+            return o;
         }
     }
 }

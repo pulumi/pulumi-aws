@@ -17,28 +17,19 @@ public final class CrawlerDynamodbTarget {
      * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
      * 
      */
-    private final @Nullable Boolean scanAll;
+    private @Nullable Boolean scanAll;
     /**
      * @return The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
      * 
      */
-    private final @Nullable Double scanRate;
+    private @Nullable Double scanRate;
 
-    @CustomType.Constructor
-    private CrawlerDynamodbTarget(
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("scanAll") @Nullable Boolean scanAll,
-        @CustomType.Parameter("scanRate") @Nullable Double scanRate) {
-        this.path = path;
-        this.scanAll = scanAll;
-        this.scanRate = scanRate;
-    }
-
+    private CrawlerDynamodbTarget() {}
     /**
      * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
      * 
@@ -68,16 +59,12 @@ public final class CrawlerDynamodbTarget {
     public static Builder builder(CrawlerDynamodbTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String path;
         private @Nullable Boolean scanAll;
         private @Nullable Double scanRate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CrawlerDynamodbTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
@@ -85,19 +72,27 @@ public final class CrawlerDynamodbTarget {
     	      this.scanRate = defaults.scanRate;
         }
 
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder scanAll(@Nullable Boolean scanAll) {
             this.scanAll = scanAll;
             return this;
         }
+        @CustomType.Setter
         public Builder scanRate(@Nullable Double scanRate) {
             this.scanRate = scanRate;
             return this;
-        }        public CrawlerDynamodbTarget build() {
-            return new CrawlerDynamodbTarget(path, scanAll, scanRate);
+        }
+        public CrawlerDynamodbTarget build() {
+            final var o = new CrawlerDynamodbTarget();
+            o.path = path;
+            o.scanAll = scanAll;
+            o.scanRate = scanRate;
+            return o;
         }
     }
 }

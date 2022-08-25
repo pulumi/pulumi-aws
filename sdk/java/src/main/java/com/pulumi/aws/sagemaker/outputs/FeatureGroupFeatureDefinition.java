@@ -15,21 +15,14 @@ public final class FeatureGroupFeatureDefinition {
      * @return The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
      * 
      */
-    private final @Nullable String featureName;
+    private @Nullable String featureName;
     /**
      * @return The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
      * 
      */
-    private final @Nullable String featureType;
+    private @Nullable String featureType;
 
-    @CustomType.Constructor
-    private FeatureGroupFeatureDefinition(
-        @CustomType.Parameter("featureName") @Nullable String featureName,
-        @CustomType.Parameter("featureType") @Nullable String featureType) {
-        this.featureName = featureName;
-        this.featureType = featureType;
-    }
-
+    private FeatureGroupFeatureDefinition() {}
     /**
      * @return The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
      * 
@@ -52,30 +45,32 @@ public final class FeatureGroupFeatureDefinition {
     public static Builder builder(FeatureGroupFeatureDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String featureName;
         private @Nullable String featureType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeatureGroupFeatureDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.featureName = defaults.featureName;
     	      this.featureType = defaults.featureType;
         }
 
+        @CustomType.Setter
         public Builder featureName(@Nullable String featureName) {
             this.featureName = featureName;
             return this;
         }
+        @CustomType.Setter
         public Builder featureType(@Nullable String featureType) {
             this.featureType = featureType;
             return this;
-        }        public FeatureGroupFeatureDefinition build() {
-            return new FeatureGroupFeatureDefinition(featureName, featureType);
+        }
+        public FeatureGroupFeatureDefinition build() {
+            final var o = new FeatureGroupFeatureDefinition();
+            o.featureName = featureName;
+            o.featureType = featureType;
+            return o;
         }
     }
 }

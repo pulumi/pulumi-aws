@@ -16,28 +16,19 @@ public final class PermissionsLfTag {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private final @Nullable String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return The key-name of an LF-Tag.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return A list of possible values of an LF-Tag.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private PermissionsLfTag(
-        @CustomType.Parameter("catalogId") @Nullable String catalogId,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("values") List<String> values) {
-        this.catalogId = catalogId;
-        this.key = key;
-        this.values = values;
-    }
-
+    private PermissionsLfTag() {}
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
@@ -67,16 +58,12 @@ public final class PermissionsLfTag {
     public static Builder builder(PermissionsLfTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String catalogId;
         private String key;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PermissionsLfTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -84,22 +71,30 @@ public final class PermissionsLfTag {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public PermissionsLfTag build() {
-            return new PermissionsLfTag(catalogId, key, values);
+        }
+        public PermissionsLfTag build() {
+            final var o = new PermissionsLfTag();
+            o.catalogId = catalogId;
+            o.key = key;
+            o.values = values;
+            return o;
         }
     }
 }

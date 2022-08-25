@@ -16,21 +16,14 @@ public final class EndpointConfigurationAsyncInferenceConfig {
      * @return Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
      * 
      */
-    private final @Nullable EndpointConfigurationAsyncInferenceConfigClientConfig clientConfig;
+    private @Nullable EndpointConfigurationAsyncInferenceConfigClientConfig clientConfig;
     /**
      * @return Specifies the configuration for asynchronous inference invocation outputs.
      * 
      */
-    private final EndpointConfigurationAsyncInferenceConfigOutputConfig outputConfig;
+    private EndpointConfigurationAsyncInferenceConfigOutputConfig outputConfig;
 
-    @CustomType.Constructor
-    private EndpointConfigurationAsyncInferenceConfig(
-        @CustomType.Parameter("clientConfig") @Nullable EndpointConfigurationAsyncInferenceConfigClientConfig clientConfig,
-        @CustomType.Parameter("outputConfig") EndpointConfigurationAsyncInferenceConfigOutputConfig outputConfig) {
-        this.clientConfig = clientConfig;
-        this.outputConfig = outputConfig;
-    }
-
+    private EndpointConfigurationAsyncInferenceConfig() {}
     /**
      * @return Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
      * 
@@ -53,30 +46,32 @@ public final class EndpointConfigurationAsyncInferenceConfig {
     public static Builder builder(EndpointConfigurationAsyncInferenceConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EndpointConfigurationAsyncInferenceConfigClientConfig clientConfig;
         private EndpointConfigurationAsyncInferenceConfigOutputConfig outputConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConfigurationAsyncInferenceConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientConfig = defaults.clientConfig;
     	      this.outputConfig = defaults.outputConfig;
         }
 
+        @CustomType.Setter
         public Builder clientConfig(@Nullable EndpointConfigurationAsyncInferenceConfigClientConfig clientConfig) {
             this.clientConfig = clientConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder outputConfig(EndpointConfigurationAsyncInferenceConfigOutputConfig outputConfig) {
             this.outputConfig = Objects.requireNonNull(outputConfig);
             return this;
-        }        public EndpointConfigurationAsyncInferenceConfig build() {
-            return new EndpointConfigurationAsyncInferenceConfig(clientConfig, outputConfig);
+        }
+        public EndpointConfigurationAsyncInferenceConfig build() {
+            final var o = new EndpointConfigurationAsyncInferenceConfig();
+            o.clientConfig = clientConfig;
+            o.outputConfig = outputConfig;
+            return o;
         }
     }
 }

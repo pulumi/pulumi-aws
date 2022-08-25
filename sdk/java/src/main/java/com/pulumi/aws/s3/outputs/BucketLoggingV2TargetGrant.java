@@ -14,21 +14,14 @@ public final class BucketLoggingV2TargetGrant {
      * @return A configuration block for the person being granted permissions documented below.
      * 
      */
-    private final BucketLoggingV2TargetGrantGrantee grantee;
+    private BucketLoggingV2TargetGrantGrantee grantee;
     /**
      * @return Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
      * 
      */
-    private final String permission;
+    private String permission;
 
-    @CustomType.Constructor
-    private BucketLoggingV2TargetGrant(
-        @CustomType.Parameter("grantee") BucketLoggingV2TargetGrantGrantee grantee,
-        @CustomType.Parameter("permission") String permission) {
-        this.grantee = grantee;
-        this.permission = permission;
-    }
-
+    private BucketLoggingV2TargetGrant() {}
     /**
      * @return A configuration block for the person being granted permissions documented below.
      * 
@@ -51,30 +44,32 @@ public final class BucketLoggingV2TargetGrant {
     public static Builder builder(BucketLoggingV2TargetGrant defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private BucketLoggingV2TargetGrantGrantee grantee;
         private String permission;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLoggingV2TargetGrant defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.grantee = defaults.grantee;
     	      this.permission = defaults.permission;
         }
 
+        @CustomType.Setter
         public Builder grantee(BucketLoggingV2TargetGrantGrantee grantee) {
             this.grantee = Objects.requireNonNull(grantee);
             return this;
         }
+        @CustomType.Setter
         public Builder permission(String permission) {
             this.permission = Objects.requireNonNull(permission);
             return this;
-        }        public BucketLoggingV2TargetGrant build() {
-            return new BucketLoggingV2TargetGrant(grantee, permission);
+        }
+        public BucketLoggingV2TargetGrant build() {
+            final var o = new BucketLoggingV2TargetGrant();
+            o.grantee = grantee;
+            o.permission = permission;
+            return o;
         }
     }
 }

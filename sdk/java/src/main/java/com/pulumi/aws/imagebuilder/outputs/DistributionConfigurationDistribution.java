@@ -20,49 +20,34 @@ public final class DistributionConfigurationDistribution {
      * @return Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
      * 
      */
-    private final @Nullable DistributionConfigurationDistributionAmiDistributionConfiguration amiDistributionConfiguration;
+    private @Nullable DistributionConfigurationDistributionAmiDistributionConfiguration amiDistributionConfiguration;
     /**
      * @return Configuration block with container distribution settings. Detailed below.
      * 
      */
-    private final @Nullable DistributionConfigurationDistributionContainerDistributionConfiguration containerDistributionConfiguration;
+    private @Nullable DistributionConfigurationDistributionContainerDistributionConfiguration containerDistributionConfiguration;
     /**
      * @return Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
      * 
      */
-    private final @Nullable List<DistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations;
+    private @Nullable List<DistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations;
     /**
      * @return Set of launch template configuration settings that apply to image distribution. Detailed below.
      * 
      */
-    private final @Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
+    private @Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
     /**
      * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
      * 
      */
-    private final @Nullable List<String> licenseConfigurationArns;
+    private @Nullable List<String> licenseConfigurationArns;
     /**
      * @return AWS Region for the distribution.
      * 
      */
-    private final String region;
+    private String region;
 
-    @CustomType.Constructor
-    private DistributionConfigurationDistribution(
-        @CustomType.Parameter("amiDistributionConfiguration") @Nullable DistributionConfigurationDistributionAmiDistributionConfiguration amiDistributionConfiguration,
-        @CustomType.Parameter("containerDistributionConfiguration") @Nullable DistributionConfigurationDistributionContainerDistributionConfiguration containerDistributionConfiguration,
-        @CustomType.Parameter("fastLaunchConfigurations") @Nullable List<DistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations,
-        @CustomType.Parameter("launchTemplateConfigurations") @Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations,
-        @CustomType.Parameter("licenseConfigurationArns") @Nullable List<String> licenseConfigurationArns,
-        @CustomType.Parameter("region") String region) {
-        this.amiDistributionConfiguration = amiDistributionConfiguration;
-        this.containerDistributionConfiguration = containerDistributionConfiguration;
-        this.fastLaunchConfigurations = fastLaunchConfigurations;
-        this.launchTemplateConfigurations = launchTemplateConfigurations;
-        this.licenseConfigurationArns = licenseConfigurationArns;
-        this.region = region;
-    }
-
+    private DistributionConfigurationDistribution() {}
     /**
      * @return Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
      * 
@@ -113,7 +98,7 @@ public final class DistributionConfigurationDistribution {
     public static Builder builder(DistributionConfigurationDistribution defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DistributionConfigurationDistributionAmiDistributionConfiguration amiDistributionConfiguration;
         private @Nullable DistributionConfigurationDistributionContainerDistributionConfiguration containerDistributionConfiguration;
@@ -121,11 +106,7 @@ public final class DistributionConfigurationDistribution {
         private @Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
         private @Nullable List<String> licenseConfigurationArns;
         private String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionConfigurationDistribution defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amiDistributionConfiguration = defaults.amiDistributionConfiguration;
@@ -136,14 +117,17 @@ public final class DistributionConfigurationDistribution {
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder amiDistributionConfiguration(@Nullable DistributionConfigurationDistributionAmiDistributionConfiguration amiDistributionConfiguration) {
             this.amiDistributionConfiguration = amiDistributionConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder containerDistributionConfiguration(@Nullable DistributionConfigurationDistributionContainerDistributionConfiguration containerDistributionConfiguration) {
             this.containerDistributionConfiguration = containerDistributionConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder fastLaunchConfigurations(@Nullable List<DistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations) {
             this.fastLaunchConfigurations = fastLaunchConfigurations;
             return this;
@@ -151,6 +135,7 @@ public final class DistributionConfigurationDistribution {
         public Builder fastLaunchConfigurations(DistributionConfigurationDistributionFastLaunchConfiguration... fastLaunchConfigurations) {
             return fastLaunchConfigurations(List.of(fastLaunchConfigurations));
         }
+        @CustomType.Setter
         public Builder launchTemplateConfigurations(@Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations) {
             this.launchTemplateConfigurations = launchTemplateConfigurations;
             return this;
@@ -158,6 +143,7 @@ public final class DistributionConfigurationDistribution {
         public Builder launchTemplateConfigurations(DistributionConfigurationDistributionLaunchTemplateConfiguration... launchTemplateConfigurations) {
             return launchTemplateConfigurations(List.of(launchTemplateConfigurations));
         }
+        @CustomType.Setter
         public Builder licenseConfigurationArns(@Nullable List<String> licenseConfigurationArns) {
             this.licenseConfigurationArns = licenseConfigurationArns;
             return this;
@@ -165,11 +151,20 @@ public final class DistributionConfigurationDistribution {
         public Builder licenseConfigurationArns(String... licenseConfigurationArns) {
             return licenseConfigurationArns(List.of(licenseConfigurationArns));
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
-        }        public DistributionConfigurationDistribution build() {
-            return new DistributionConfigurationDistribution(amiDistributionConfiguration, containerDistributionConfiguration, fastLaunchConfigurations, launchTemplateConfigurations, licenseConfigurationArns, region);
+        }
+        public DistributionConfigurationDistribution build() {
+            final var o = new DistributionConfigurationDistribution();
+            o.amiDistributionConfiguration = amiDistributionConfiguration;
+            o.containerDistributionConfiguration = containerDistributionConfiguration;
+            o.fastLaunchConfigurations = fastLaunchConfigurations;
+            o.launchTemplateConfigurations = launchTemplateConfigurations;
+            o.licenseConfigurationArns = licenseConfigurationArns;
+            o.region = region;
+            return o;
         }
     }
 }

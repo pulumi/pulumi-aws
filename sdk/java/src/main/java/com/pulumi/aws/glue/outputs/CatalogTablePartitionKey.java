@@ -15,28 +15,19 @@ public final class CatalogTablePartitionKey {
      * @return Free-form text comment.
      * 
      */
-    private final @Nullable String comment;
+    private @Nullable String comment;
     /**
      * @return Name of the target table.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Datatype of data in the Column.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private CatalogTablePartitionKey(
-        @CustomType.Parameter("comment") @Nullable String comment,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.comment = comment;
-        this.name = name;
-        this.type = type;
-    }
-
+    private CatalogTablePartitionKey() {}
     /**
      * @return Free-form text comment.
      * 
@@ -66,16 +57,12 @@ public final class CatalogTablePartitionKey {
     public static Builder builder(CatalogTablePartitionKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String comment;
         private String name;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogTablePartitionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -83,19 +70,27 @@ public final class CatalogTablePartitionKey {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder comment(@Nullable String comment) {
             this.comment = comment;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public CatalogTablePartitionKey build() {
-            return new CatalogTablePartitionKey(comment, name, type);
+        }
+        public CatalogTablePartitionKey build() {
+            final var o = new CatalogTablePartitionKey();
+            o.comment = comment;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

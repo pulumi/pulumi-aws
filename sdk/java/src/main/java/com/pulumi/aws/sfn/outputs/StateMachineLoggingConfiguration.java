@@ -16,28 +16,19 @@ public final class StateMachineLoggingConfiguration {
      * @return Determines whether execution data is included in your log. When set to `false`, data is excluded.
      * 
      */
-    private final @Nullable Boolean includeExecutionData;
+    private @Nullable Boolean includeExecutionData;
     /**
      * @return Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
      * 
      */
-    private final @Nullable String level;
+    private @Nullable String level;
     /**
      * @return Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
      * 
      */
-    private final @Nullable String logDestination;
+    private @Nullable String logDestination;
 
-    @CustomType.Constructor
-    private StateMachineLoggingConfiguration(
-        @CustomType.Parameter("includeExecutionData") @Nullable Boolean includeExecutionData,
-        @CustomType.Parameter("level") @Nullable String level,
-        @CustomType.Parameter("logDestination") @Nullable String logDestination) {
-        this.includeExecutionData = includeExecutionData;
-        this.level = level;
-        this.logDestination = logDestination;
-    }
-
+    private StateMachineLoggingConfiguration() {}
     /**
      * @return Determines whether execution data is included in your log. When set to `false`, data is excluded.
      * 
@@ -67,16 +58,12 @@ public final class StateMachineLoggingConfiguration {
     public static Builder builder(StateMachineLoggingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean includeExecutionData;
         private @Nullable String level;
         private @Nullable String logDestination;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StateMachineLoggingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.includeExecutionData = defaults.includeExecutionData;
@@ -84,19 +71,27 @@ public final class StateMachineLoggingConfiguration {
     	      this.logDestination = defaults.logDestination;
         }
 
+        @CustomType.Setter
         public Builder includeExecutionData(@Nullable Boolean includeExecutionData) {
             this.includeExecutionData = includeExecutionData;
             return this;
         }
+        @CustomType.Setter
         public Builder level(@Nullable String level) {
             this.level = level;
             return this;
         }
+        @CustomType.Setter
         public Builder logDestination(@Nullable String logDestination) {
             this.logDestination = logDestination;
             return this;
-        }        public StateMachineLoggingConfiguration build() {
-            return new StateMachineLoggingConfiguration(includeExecutionData, level, logDestination);
+        }
+        public StateMachineLoggingConfiguration build() {
+            final var o = new StateMachineLoggingConfiguration();
+            o.includeExecutionData = includeExecutionData;
+            o.level = level;
+            o.logDestination = logDestination;
+            return o;
         }
     }
 }

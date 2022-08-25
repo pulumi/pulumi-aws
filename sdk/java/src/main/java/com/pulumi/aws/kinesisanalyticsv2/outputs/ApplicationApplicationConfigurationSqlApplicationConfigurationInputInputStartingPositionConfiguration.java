@@ -15,13 +15,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
      */
-    private final @Nullable String inputStartingPosition;
+    private @Nullable String inputStartingPosition;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration(@CustomType.Parameter("inputStartingPosition") @Nullable String inputStartingPosition) {
-        this.inputStartingPosition = inputStartingPosition;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration() {}
     /**
      * @return The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
@@ -37,24 +33,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String inputStartingPosition;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inputStartingPosition = defaults.inputStartingPosition;
         }
 
+        @CustomType.Setter
         public Builder inputStartingPosition(@Nullable String inputStartingPosition) {
             this.inputStartingPosition = inputStartingPosition;
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration(inputStartingPosition);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration();
+            o.inputStartingPosition = inputStartingPosition;
+            return o;
         }
     }
 }

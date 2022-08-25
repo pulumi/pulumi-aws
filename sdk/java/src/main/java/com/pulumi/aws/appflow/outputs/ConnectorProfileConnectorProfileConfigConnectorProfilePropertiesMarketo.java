@@ -13,13 +13,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The location of the Salesforce resource.
      * 
      */
-    private final String instanceUrl;
+    private String instanceUrl;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo(@CustomType.Parameter("instanceUrl") String instanceUrl) {
-        this.instanceUrl = instanceUrl;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo() {}
     /**
      * @return The location of the Salesforce resource.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String instanceUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceUrl = defaults.instanceUrl;
         }
 
+        @CustomType.Setter
         public Builder instanceUrl(String instanceUrl) {
             this.instanceUrl = Objects.requireNonNull(instanceUrl);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo(instanceUrl);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo();
+            o.instanceUrl = instanceUrl;
+            return o;
         }
     }
 }

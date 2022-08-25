@@ -15,13 +15,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return The number of in-application streams to create.
      * 
      */
-    private final @Nullable Integer count;
+    private @Nullable Integer count;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism(@CustomType.Parameter("count") @Nullable Integer count) {
-        this.count = count;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism() {}
     /**
      * @return The number of in-application streams to create.
      * 
@@ -37,24 +33,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer count;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
         }
 
+        @CustomType.Setter
         public Builder count(@Nullable Integer count) {
             this.count = count;
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism(count);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism();
+            o.count = count;
+            return o;
         }
     }
 }

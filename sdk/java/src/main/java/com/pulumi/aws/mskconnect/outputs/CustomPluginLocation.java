@@ -13,13 +13,9 @@ public final class CustomPluginLocation {
      * @return Information of the plugin file stored in Amazon S3. See below.
      * 
      */
-    private final CustomPluginLocationS3 s3;
+    private CustomPluginLocationS3 s3;
 
-    @CustomType.Constructor
-    private CustomPluginLocation(@CustomType.Parameter("s3") CustomPluginLocationS3 s3) {
-        this.s3 = s3;
-    }
-
+    private CustomPluginLocation() {}
     /**
      * @return Information of the plugin file stored in Amazon S3. See below.
      * 
@@ -35,24 +31,24 @@ public final class CustomPluginLocation {
     public static Builder builder(CustomPluginLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private CustomPluginLocationS3 s3;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CustomPluginLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3 = defaults.s3;
         }
 
+        @CustomType.Setter
         public Builder s3(CustomPluginLocationS3 s3) {
             this.s3 = Objects.requireNonNull(s3);
             return this;
-        }        public CustomPluginLocation build() {
-            return new CustomPluginLocation(s3);
+        }
+        public CustomPluginLocation build() {
+            final var o = new CustomPluginLocation();
+            o.s3 = s3;
+            return o;
         }
     }
 }

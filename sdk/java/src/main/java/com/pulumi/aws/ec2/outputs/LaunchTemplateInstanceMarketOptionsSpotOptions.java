@@ -16,43 +16,30 @@ public final class LaunchTemplateInstanceMarketOptionsSpotOptions {
      * @return The required duration in minutes. This value must be a multiple of 60.
      * 
      */
-    private final @Nullable Integer blockDurationMinutes;
+    private @Nullable Integer blockDurationMinutes;
     /**
      * @return The behavior when a Spot Instance is interrupted. Can be `hibernate`,
      * `stop`, or `terminate`. (Default: `terminate`).
      * 
      */
-    private final @Nullable String instanceInterruptionBehavior;
+    private @Nullable String instanceInterruptionBehavior;
     /**
      * @return The maximum hourly price you&#39;re willing to pay for the Spot Instances.
      * 
      */
-    private final @Nullable String maxPrice;
+    private @Nullable String maxPrice;
     /**
      * @return The Spot Instance request type. Can be `one-time`, or `persistent`.
      * 
      */
-    private final @Nullable String spotInstanceType;
+    private @Nullable String spotInstanceType;
     /**
      * @return The end date of the request.
      * 
      */
-    private final @Nullable String validUntil;
+    private @Nullable String validUntil;
 
-    @CustomType.Constructor
-    private LaunchTemplateInstanceMarketOptionsSpotOptions(
-        @CustomType.Parameter("blockDurationMinutes") @Nullable Integer blockDurationMinutes,
-        @CustomType.Parameter("instanceInterruptionBehavior") @Nullable String instanceInterruptionBehavior,
-        @CustomType.Parameter("maxPrice") @Nullable String maxPrice,
-        @CustomType.Parameter("spotInstanceType") @Nullable String spotInstanceType,
-        @CustomType.Parameter("validUntil") @Nullable String validUntil) {
-        this.blockDurationMinutes = blockDurationMinutes;
-        this.instanceInterruptionBehavior = instanceInterruptionBehavior;
-        this.maxPrice = maxPrice;
-        this.spotInstanceType = spotInstanceType;
-        this.validUntil = validUntil;
-    }
-
+    private LaunchTemplateInstanceMarketOptionsSpotOptions() {}
     /**
      * @return The required duration in minutes. This value must be a multiple of 60.
      * 
@@ -97,18 +84,14 @@ public final class LaunchTemplateInstanceMarketOptionsSpotOptions {
     public static Builder builder(LaunchTemplateInstanceMarketOptionsSpotOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer blockDurationMinutes;
         private @Nullable String instanceInterruptionBehavior;
         private @Nullable String maxPrice;
         private @Nullable String spotInstanceType;
         private @Nullable String validUntil;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateInstanceMarketOptionsSpotOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blockDurationMinutes = defaults.blockDurationMinutes;
@@ -118,27 +101,39 @@ public final class LaunchTemplateInstanceMarketOptionsSpotOptions {
     	      this.validUntil = defaults.validUntil;
         }
 
+        @CustomType.Setter
         public Builder blockDurationMinutes(@Nullable Integer blockDurationMinutes) {
             this.blockDurationMinutes = blockDurationMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceInterruptionBehavior(@Nullable String instanceInterruptionBehavior) {
             this.instanceInterruptionBehavior = instanceInterruptionBehavior;
             return this;
         }
+        @CustomType.Setter
         public Builder maxPrice(@Nullable String maxPrice) {
             this.maxPrice = maxPrice;
             return this;
         }
+        @CustomType.Setter
         public Builder spotInstanceType(@Nullable String spotInstanceType) {
             this.spotInstanceType = spotInstanceType;
             return this;
         }
+        @CustomType.Setter
         public Builder validUntil(@Nullable String validUntil) {
             this.validUntil = validUntil;
             return this;
-        }        public LaunchTemplateInstanceMarketOptionsSpotOptions build() {
-            return new LaunchTemplateInstanceMarketOptionsSpotOptions(blockDurationMinutes, instanceInterruptionBehavior, maxPrice, spotInstanceType, validUntil);
+        }
+        public LaunchTemplateInstanceMarketOptionsSpotOptions build() {
+            final var o = new LaunchTemplateInstanceMarketOptionsSpotOptions();
+            o.blockDurationMinutes = blockDurationMinutes;
+            o.instanceInterruptionBehavior = instanceInterruptionBehavior;
+            o.maxPrice = maxPrice;
+            o.spotInstanceType = spotInstanceType;
+            o.validUntil = validUntil;
+            return o;
         }
     }
 }

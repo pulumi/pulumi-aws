@@ -13,49 +13,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRandomPasswordResult {
-    private final @Nullable String excludeCharacters;
-    private final @Nullable Boolean excludeLowercase;
-    private final @Nullable Boolean excludeNumbers;
-    private final @Nullable Boolean excludePunctuation;
-    private final @Nullable Boolean excludeUppercase;
+    private @Nullable String excludeCharacters;
+    private @Nullable Boolean excludeLowercase;
+    private @Nullable Boolean excludeNumbers;
+    private @Nullable Boolean excludePunctuation;
+    private @Nullable Boolean excludeUppercase;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean includeSpace;
-    private final @Nullable Integer passwordLength;
+    private String id;
+    private @Nullable Boolean includeSpace;
+    private @Nullable Integer passwordLength;
     /**
      * @return The random password.
      * 
      */
-    private final String randomPassword;
-    private final @Nullable Boolean requireEachIncludedType;
+    private String randomPassword;
+    private @Nullable Boolean requireEachIncludedType;
 
-    @CustomType.Constructor
-    private GetRandomPasswordResult(
-        @CustomType.Parameter("excludeCharacters") @Nullable String excludeCharacters,
-        @CustomType.Parameter("excludeLowercase") @Nullable Boolean excludeLowercase,
-        @CustomType.Parameter("excludeNumbers") @Nullable Boolean excludeNumbers,
-        @CustomType.Parameter("excludePunctuation") @Nullable Boolean excludePunctuation,
-        @CustomType.Parameter("excludeUppercase") @Nullable Boolean excludeUppercase,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("includeSpace") @Nullable Boolean includeSpace,
-        @CustomType.Parameter("passwordLength") @Nullable Integer passwordLength,
-        @CustomType.Parameter("randomPassword") String randomPassword,
-        @CustomType.Parameter("requireEachIncludedType") @Nullable Boolean requireEachIncludedType) {
-        this.excludeCharacters = excludeCharacters;
-        this.excludeLowercase = excludeLowercase;
-        this.excludeNumbers = excludeNumbers;
-        this.excludePunctuation = excludePunctuation;
-        this.excludeUppercase = excludeUppercase;
-        this.id = id;
-        this.includeSpace = includeSpace;
-        this.passwordLength = passwordLength;
-        this.randomPassword = randomPassword;
-        this.requireEachIncludedType = requireEachIncludedType;
-    }
-
+    private GetRandomPasswordResult() {}
     public Optional<String> excludeCharacters() {
         return Optional.ofNullable(this.excludeCharacters);
     }
@@ -102,7 +79,7 @@ public final class GetRandomPasswordResult {
     public static Builder builder(GetRandomPasswordResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String excludeCharacters;
         private @Nullable Boolean excludeLowercase;
@@ -114,11 +91,7 @@ public final class GetRandomPasswordResult {
         private @Nullable Integer passwordLength;
         private String randomPassword;
         private @Nullable Boolean requireEachIncludedType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRandomPasswordResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludeCharacters = defaults.excludeCharacters;
@@ -133,47 +106,69 @@ public final class GetRandomPasswordResult {
     	      this.requireEachIncludedType = defaults.requireEachIncludedType;
         }
 
+        @CustomType.Setter
         public Builder excludeCharacters(@Nullable String excludeCharacters) {
             this.excludeCharacters = excludeCharacters;
             return this;
         }
+        @CustomType.Setter
         public Builder excludeLowercase(@Nullable Boolean excludeLowercase) {
             this.excludeLowercase = excludeLowercase;
             return this;
         }
+        @CustomType.Setter
         public Builder excludeNumbers(@Nullable Boolean excludeNumbers) {
             this.excludeNumbers = excludeNumbers;
             return this;
         }
+        @CustomType.Setter
         public Builder excludePunctuation(@Nullable Boolean excludePunctuation) {
             this.excludePunctuation = excludePunctuation;
             return this;
         }
+        @CustomType.Setter
         public Builder excludeUppercase(@Nullable Boolean excludeUppercase) {
             this.excludeUppercase = excludeUppercase;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder includeSpace(@Nullable Boolean includeSpace) {
             this.includeSpace = includeSpace;
             return this;
         }
+        @CustomType.Setter
         public Builder passwordLength(@Nullable Integer passwordLength) {
             this.passwordLength = passwordLength;
             return this;
         }
+        @CustomType.Setter
         public Builder randomPassword(String randomPassword) {
             this.randomPassword = Objects.requireNonNull(randomPassword);
             return this;
         }
+        @CustomType.Setter
         public Builder requireEachIncludedType(@Nullable Boolean requireEachIncludedType) {
             this.requireEachIncludedType = requireEachIncludedType;
             return this;
-        }        public GetRandomPasswordResult build() {
-            return new GetRandomPasswordResult(excludeCharacters, excludeLowercase, excludeNumbers, excludePunctuation, excludeUppercase, id, includeSpace, passwordLength, randomPassword, requireEachIncludedType);
+        }
+        public GetRandomPasswordResult build() {
+            final var o = new GetRandomPasswordResult();
+            o.excludeCharacters = excludeCharacters;
+            o.excludeLowercase = excludeLowercase;
+            o.excludeNumbers = excludeNumbers;
+            o.excludePunctuation = excludePunctuation;
+            o.excludeUppercase = excludeUppercase;
+            o.id = id;
+            o.includeSpace = includeSpace;
+            o.passwordLength = passwordLength;
+            o.randomPassword = randomPassword;
+            o.requireEachIncludedType = requireEachIncludedType;
+            return o;
         }
     }
 }

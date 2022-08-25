@@ -16,70 +16,49 @@ public final class EndpointKinesisSettings {
      * @return Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includeControlDetails;
+    private @Nullable Boolean includeControlDetails;
     /**
      * @return Include NULL and empty columns in the target. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includeNullAndEmpty;
+    private @Nullable Boolean includeNullAndEmpty;
     /**
      * @return Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includePartitionValue;
+    private @Nullable Boolean includePartitionValue;
     /**
      * @return Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includeTableAlterOperations;
+    private @Nullable Boolean includeTableAlterOperations;
     /**
      * @return Provides detailed transaction information from the source database. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includeTransactionDetails;
+    private @Nullable Boolean includeTransactionDetails;
     /**
      * @return Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
      * 
      */
-    private final @Nullable String messageFormat;
+    private @Nullable String messageFormat;
     /**
      * @return Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
      * 
      */
-    private final @Nullable Boolean partitionIncludeSchemaTable;
+    private @Nullable Boolean partitionIncludeSchemaTable;
     /**
      * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
      * 
      */
-    private final @Nullable String serviceAccessRoleArn;
+    private @Nullable String serviceAccessRoleArn;
     /**
      * @return ARN of the Kinesis data stream.
      * 
      */
-    private final @Nullable String streamArn;
+    private @Nullable String streamArn;
 
-    @CustomType.Constructor
-    private EndpointKinesisSettings(
-        @CustomType.Parameter("includeControlDetails") @Nullable Boolean includeControlDetails,
-        @CustomType.Parameter("includeNullAndEmpty") @Nullable Boolean includeNullAndEmpty,
-        @CustomType.Parameter("includePartitionValue") @Nullable Boolean includePartitionValue,
-        @CustomType.Parameter("includeTableAlterOperations") @Nullable Boolean includeTableAlterOperations,
-        @CustomType.Parameter("includeTransactionDetails") @Nullable Boolean includeTransactionDetails,
-        @CustomType.Parameter("messageFormat") @Nullable String messageFormat,
-        @CustomType.Parameter("partitionIncludeSchemaTable") @Nullable Boolean partitionIncludeSchemaTable,
-        @CustomType.Parameter("serviceAccessRoleArn") @Nullable String serviceAccessRoleArn,
-        @CustomType.Parameter("streamArn") @Nullable String streamArn) {
-        this.includeControlDetails = includeControlDetails;
-        this.includeNullAndEmpty = includeNullAndEmpty;
-        this.includePartitionValue = includePartitionValue;
-        this.includeTableAlterOperations = includeTableAlterOperations;
-        this.includeTransactionDetails = includeTransactionDetails;
-        this.messageFormat = messageFormat;
-        this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
-        this.serviceAccessRoleArn = serviceAccessRoleArn;
-        this.streamArn = streamArn;
-    }
-
+    private EndpointKinesisSettings() {}
     /**
      * @return Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
      * 
@@ -151,7 +130,7 @@ public final class EndpointKinesisSettings {
     public static Builder builder(EndpointKinesisSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean includeControlDetails;
         private @Nullable Boolean includeNullAndEmpty;
@@ -162,11 +141,7 @@ public final class EndpointKinesisSettings {
         private @Nullable Boolean partitionIncludeSchemaTable;
         private @Nullable String serviceAccessRoleArn;
         private @Nullable String streamArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointKinesisSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.includeControlDetails = defaults.includeControlDetails;
@@ -180,43 +155,63 @@ public final class EndpointKinesisSettings {
     	      this.streamArn = defaults.streamArn;
         }
 
+        @CustomType.Setter
         public Builder includeControlDetails(@Nullable Boolean includeControlDetails) {
             this.includeControlDetails = includeControlDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder includeNullAndEmpty(@Nullable Boolean includeNullAndEmpty) {
             this.includeNullAndEmpty = includeNullAndEmpty;
             return this;
         }
+        @CustomType.Setter
         public Builder includePartitionValue(@Nullable Boolean includePartitionValue) {
             this.includePartitionValue = includePartitionValue;
             return this;
         }
+        @CustomType.Setter
         public Builder includeTableAlterOperations(@Nullable Boolean includeTableAlterOperations) {
             this.includeTableAlterOperations = includeTableAlterOperations;
             return this;
         }
+        @CustomType.Setter
         public Builder includeTransactionDetails(@Nullable Boolean includeTransactionDetails) {
             this.includeTransactionDetails = includeTransactionDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder messageFormat(@Nullable String messageFormat) {
             this.messageFormat = messageFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder partitionIncludeSchemaTable(@Nullable Boolean partitionIncludeSchemaTable) {
             this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
             this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder streamArn(@Nullable String streamArn) {
             this.streamArn = streamArn;
             return this;
-        }        public EndpointKinesisSettings build() {
-            return new EndpointKinesisSettings(includeControlDetails, includeNullAndEmpty, includePartitionValue, includeTableAlterOperations, includeTransactionDetails, messageFormat, partitionIncludeSchemaTable, serviceAccessRoleArn, streamArn);
+        }
+        public EndpointKinesisSettings build() {
+            final var o = new EndpointKinesisSettings();
+            o.includeControlDetails = includeControlDetails;
+            o.includeNullAndEmpty = includeNullAndEmpty;
+            o.includePartitionValue = includePartitionValue;
+            o.includeTableAlterOperations = includeTableAlterOperations;
+            o.includeTransactionDetails = includeTransactionDetails;
+            o.messageFormat = messageFormat;
+            o.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            o.serviceAccessRoleArn = serviceAccessRoleArn;
+            o.streamArn = streamArn;
+            return o;
         }
     }
 }

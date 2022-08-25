@@ -14,28 +14,19 @@ public final class DataSourceParametersPresto {
      * @return The catalog to which to connect.
      * 
      */
-    private final String catalog;
+    private String catalog;
     /**
      * @return The host to which to connect.
      * 
      */
-    private final String host;
+    private String host;
     /**
      * @return The port to which to connect.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private DataSourceParametersPresto(
-        @CustomType.Parameter("catalog") String catalog,
-        @CustomType.Parameter("host") String host,
-        @CustomType.Parameter("port") Integer port) {
-        this.catalog = catalog;
-        this.host = host;
-        this.port = port;
-    }
-
+    private DataSourceParametersPresto() {}
     /**
      * @return The catalog to which to connect.
      * 
@@ -65,16 +56,12 @@ public final class DataSourceParametersPresto {
     public static Builder builder(DataSourceParametersPresto defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String catalog;
         private String host;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersPresto defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalog = defaults.catalog;
@@ -82,19 +69,27 @@ public final class DataSourceParametersPresto {
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder catalog(String catalog) {
             this.catalog = Objects.requireNonNull(catalog);
             return this;
         }
+        @CustomType.Setter
         public Builder host(String host) {
             this.host = Objects.requireNonNull(host);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public DataSourceParametersPresto build() {
-            return new DataSourceParametersPresto(catalog, host, port);
+        }
+        public DataSourceParametersPresto build() {
+            final var o = new DataSourceParametersPresto();
+            o.catalog = catalog;
+            o.host = host;
+            o.port = port;
+            return o;
         }
     }
 }

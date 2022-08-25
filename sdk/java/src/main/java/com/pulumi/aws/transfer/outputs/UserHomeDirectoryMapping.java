@@ -13,21 +13,14 @@ public final class UserHomeDirectoryMapping {
      * @return Represents an entry and a target.
      * 
      */
-    private final String entry;
+    private String entry;
     /**
      * @return Represents the map target.
      * 
      */
-    private final String target;
+    private String target;
 
-    @CustomType.Constructor
-    private UserHomeDirectoryMapping(
-        @CustomType.Parameter("entry") String entry,
-        @CustomType.Parameter("target") String target) {
-        this.entry = entry;
-        this.target = target;
-    }
-
+    private UserHomeDirectoryMapping() {}
     /**
      * @return Represents an entry and a target.
      * 
@@ -50,30 +43,32 @@ public final class UserHomeDirectoryMapping {
     public static Builder builder(UserHomeDirectoryMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String entry;
         private String target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserHomeDirectoryMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.entry = defaults.entry;
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder entry(String entry) {
             this.entry = Objects.requireNonNull(entry);
             return this;
         }
+        @CustomType.Setter
         public Builder target(String target) {
             this.target = Objects.requireNonNull(target);
             return this;
-        }        public UserHomeDirectoryMapping build() {
-            return new UserHomeDirectoryMapping(entry, target);
+        }
+        public UserHomeDirectoryMapping build() {
+            final var o = new UserHomeDirectoryMapping();
+            o.entry = entry;
+            o.target = target;
+            return o;
         }
     }
 }

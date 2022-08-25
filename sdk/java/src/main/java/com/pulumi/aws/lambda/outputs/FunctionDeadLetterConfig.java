@@ -13,13 +13,9 @@ public final class FunctionDeadLetterConfig {
      * @return ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
      * 
      */
-    private final String targetArn;
+    private String targetArn;
 
-    @CustomType.Constructor
-    private FunctionDeadLetterConfig(@CustomType.Parameter("targetArn") String targetArn) {
-        this.targetArn = targetArn;
-    }
-
+    private FunctionDeadLetterConfig() {}
     /**
      * @return ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
      * 
@@ -35,24 +31,24 @@ public final class FunctionDeadLetterConfig {
     public static Builder builder(FunctionDeadLetterConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String targetArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionDeadLetterConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.targetArn = defaults.targetArn;
         }
 
+        @CustomType.Setter
         public Builder targetArn(String targetArn) {
             this.targetArn = Objects.requireNonNull(targetArn);
             return this;
-        }        public FunctionDeadLetterConfig build() {
-            return new FunctionDeadLetterConfig(targetArn);
+        }
+        public FunctionDeadLetterConfig build() {
+            final var o = new FunctionDeadLetterConfig();
+            o.targetArn = targetArn;
+            return o;
         }
     }
 }

@@ -10,28 +10,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAssetsResult {
-    private final String arn;
+    private String arn;
     /**
      * @return A list of all the subnet ids found. This data source will fail if none are found.
      * 
      */
-    private final List<String> assetIds;
+    private List<String> assetIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetAssetsResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("assetIds") List<String> assetIds,
-        @CustomType.Parameter("id") String id) {
-        this.arn = arn;
-        this.assetIds = assetIds;
-        this.id = id;
-    }
-
+    private GetAssetsResult() {}
     public String arn() {
         return this.arn;
     }
@@ -57,16 +48,12 @@ public final class GetAssetsResult {
     public static Builder builder(GetAssetsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<String> assetIds;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAssetsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -74,10 +61,12 @@ public final class GetAssetsResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder assetIds(List<String> assetIds) {
             this.assetIds = Objects.requireNonNull(assetIds);
             return this;
@@ -85,11 +74,17 @@ public final class GetAssetsResult {
         public Builder assetIds(String... assetIds) {
             return assetIds(List.of(assetIds));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetAssetsResult build() {
-            return new GetAssetsResult(arn, assetIds, id);
+        }
+        public GetAssetsResult build() {
+            final var o = new GetAssetsResult();
+            o.arn = arn;
+            o.assetIds = assetIds;
+            o.id = id;
+            return o;
         }
     }
 }

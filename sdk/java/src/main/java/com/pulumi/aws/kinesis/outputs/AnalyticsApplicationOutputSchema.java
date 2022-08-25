@@ -13,13 +13,9 @@ public final class AnalyticsApplicationOutputSchema {
      * @return The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
      * 
      */
-    private final String recordFormatType;
+    private String recordFormatType;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationOutputSchema(@CustomType.Parameter("recordFormatType") String recordFormatType) {
-        this.recordFormatType = recordFormatType;
-    }
-
+    private AnalyticsApplicationOutputSchema() {}
     /**
      * @return The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
      * 
@@ -35,24 +31,24 @@ public final class AnalyticsApplicationOutputSchema {
     public static Builder builder(AnalyticsApplicationOutputSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String recordFormatType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationOutputSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordFormatType = defaults.recordFormatType;
         }
 
+        @CustomType.Setter
         public Builder recordFormatType(String recordFormatType) {
             this.recordFormatType = Objects.requireNonNull(recordFormatType);
             return this;
-        }        public AnalyticsApplicationOutputSchema build() {
-            return new AnalyticsApplicationOutputSchema(recordFormatType);
+        }
+        public AnalyticsApplicationOutputSchema build() {
+            final var o = new AnalyticsApplicationOutputSchema();
+            o.recordFormatType = recordFormatType;
+            return o;
         }
     }
 }

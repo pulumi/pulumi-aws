@@ -13,13 +13,9 @@ public final class RecordWeightedRoutingPolicy {
      * @return A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
      * 
      */
-    private final Integer weight;
+    private Integer weight;
 
-    @CustomType.Constructor
-    private RecordWeightedRoutingPolicy(@CustomType.Parameter("weight") Integer weight) {
-        this.weight = weight;
-    }
-
+    private RecordWeightedRoutingPolicy() {}
     /**
      * @return A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
      * 
@@ -35,24 +31,24 @@ public final class RecordWeightedRoutingPolicy {
     public static Builder builder(RecordWeightedRoutingPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RecordWeightedRoutingPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder weight(Integer weight) {
             this.weight = Objects.requireNonNull(weight);
             return this;
-        }        public RecordWeightedRoutingPolicy build() {
-            return new RecordWeightedRoutingPolicy(weight);
+        }
+        public RecordWeightedRoutingPolicy build() {
+            final var o = new RecordWeightedRoutingPolicy();
+            o.weight = weight;
+            return o;
         }
     }
 }

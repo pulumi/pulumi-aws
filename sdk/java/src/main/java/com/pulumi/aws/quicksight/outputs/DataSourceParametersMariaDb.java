@@ -14,28 +14,19 @@ public final class DataSourceParametersMariaDb {
      * @return The database to which to connect.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The host to which to connect.
      * 
      */
-    private final String host;
+    private String host;
     /**
      * @return The port to which to connect.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private DataSourceParametersMariaDb(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("host") String host,
-        @CustomType.Parameter("port") Integer port) {
-        this.database = database;
-        this.host = host;
-        this.port = port;
-    }
-
+    private DataSourceParametersMariaDb() {}
     /**
      * @return The database to which to connect.
      * 
@@ -65,16 +56,12 @@ public final class DataSourceParametersMariaDb {
     public static Builder builder(DataSourceParametersMariaDb defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String host;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersMariaDb defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -82,19 +69,27 @@ public final class DataSourceParametersMariaDb {
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder host(String host) {
             this.host = Objects.requireNonNull(host);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public DataSourceParametersMariaDb build() {
-            return new DataSourceParametersMariaDb(database, host, port);
+        }
+        public DataSourceParametersMariaDb build() {
+            final var o = new DataSourceParametersMariaDb();
+            o.database = database;
+            o.host = host;
+            o.port = port;
+            return o;
         }
     }
 }

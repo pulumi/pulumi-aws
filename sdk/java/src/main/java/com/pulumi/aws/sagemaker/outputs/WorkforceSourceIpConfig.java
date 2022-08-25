@@ -14,13 +14,9 @@ public final class WorkforceSourceIpConfig {
      * @return A list of up to 10 CIDR values.
      * 
      */
-    private final List<String> cidrs;
+    private List<String> cidrs;
 
-    @CustomType.Constructor
-    private WorkforceSourceIpConfig(@CustomType.Parameter("cidrs") List<String> cidrs) {
-        this.cidrs = cidrs;
-    }
-
+    private WorkforceSourceIpConfig() {}
     /**
      * @return A list of up to 10 CIDR values.
      * 
@@ -36,27 +32,27 @@ public final class WorkforceSourceIpConfig {
     public static Builder builder(WorkforceSourceIpConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> cidrs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkforceSourceIpConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidrs = defaults.cidrs;
         }
 
+        @CustomType.Setter
         public Builder cidrs(List<String> cidrs) {
             this.cidrs = Objects.requireNonNull(cidrs);
             return this;
         }
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
-        }        public WorkforceSourceIpConfig build() {
-            return new WorkforceSourceIpConfig(cidrs);
+        }
+        public WorkforceSourceIpConfig build() {
+            final var o = new WorkforceSourceIpConfig();
+            o.cidrs = cidrs;
+            return o;
         }
     }
 }

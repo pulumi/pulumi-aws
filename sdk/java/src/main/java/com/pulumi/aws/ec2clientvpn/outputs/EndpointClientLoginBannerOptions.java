@@ -16,21 +16,14 @@ public final class EndpointClientLoginBannerOptions {
      * @return Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
      * 
      */
-    private final @Nullable String bannerText;
+    private @Nullable String bannerText;
     /**
      * @return Indicates whether connection logging is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private EndpointClientLoginBannerOptions(
-        @CustomType.Parameter("bannerText") @Nullable String bannerText,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.bannerText = bannerText;
-        this.enabled = enabled;
-    }
-
+    private EndpointClientLoginBannerOptions() {}
     /**
      * @return Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
      * 
@@ -53,30 +46,32 @@ public final class EndpointClientLoginBannerOptions {
     public static Builder builder(EndpointClientLoginBannerOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bannerText;
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointClientLoginBannerOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bannerText = defaults.bannerText;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder bannerText(@Nullable String bannerText) {
             this.bannerText = bannerText;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public EndpointClientLoginBannerOptions build() {
-            return new EndpointClientLoginBannerOptions(bannerText, enabled);
+        }
+        public EndpointClientLoginBannerOptions build() {
+            final var o = new EndpointClientLoginBannerOptions();
+            o.bannerText = bannerText;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

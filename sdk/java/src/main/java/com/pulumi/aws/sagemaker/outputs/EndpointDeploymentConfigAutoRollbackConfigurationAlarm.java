@@ -13,13 +13,9 @@ public final class EndpointDeploymentConfigAutoRollbackConfigurationAlarm {
      * @return The name of a CloudWatch alarm in your account.
      * 
      */
-    private final String alarmName;
+    private String alarmName;
 
-    @CustomType.Constructor
-    private EndpointDeploymentConfigAutoRollbackConfigurationAlarm(@CustomType.Parameter("alarmName") String alarmName) {
-        this.alarmName = alarmName;
-    }
-
+    private EndpointDeploymentConfigAutoRollbackConfigurationAlarm() {}
     /**
      * @return The name of a CloudWatch alarm in your account.
      * 
@@ -35,24 +31,24 @@ public final class EndpointDeploymentConfigAutoRollbackConfigurationAlarm {
     public static Builder builder(EndpointDeploymentConfigAutoRollbackConfigurationAlarm defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String alarmName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeploymentConfigAutoRollbackConfigurationAlarm defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alarmName = defaults.alarmName;
         }
 
+        @CustomType.Setter
         public Builder alarmName(String alarmName) {
             this.alarmName = Objects.requireNonNull(alarmName);
             return this;
-        }        public EndpointDeploymentConfigAutoRollbackConfigurationAlarm build() {
-            return new EndpointDeploymentConfigAutoRollbackConfigurationAlarm(alarmName);
+        }
+        public EndpointDeploymentConfigAutoRollbackConfigurationAlarm build() {
+            final var o = new EndpointDeploymentConfigAutoRollbackConfigurationAlarm();
+            o.alarmName = alarmName;
+            return o;
         }
     }
 }

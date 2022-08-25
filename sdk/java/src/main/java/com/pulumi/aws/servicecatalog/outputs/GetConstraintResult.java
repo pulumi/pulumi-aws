@@ -11,66 +11,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConstraintResult {
-    private final @Nullable String acceptLanguage;
+    private @Nullable String acceptLanguage;
     /**
      * @return Description of the constraint.
      * 
      */
-    private final String description;
-    private final String id;
+    private String description;
+    private String id;
     /**
      * @return Owner of the constraint.
      * 
      */
-    private final String owner;
+    private String owner;
     /**
      * @return Constraint parameters in JSON format.
      * 
      */
-    private final String parameters;
+    private String parameters;
     /**
      * @return Portfolio identifier.
      * 
      */
-    private final String portfolioId;
+    private String portfolioId;
     /**
      * @return Product identifier.
      * 
      */
-    private final String productId;
+    private String productId;
     /**
      * @return Constraint status.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetConstraintResult(
-        @CustomType.Parameter("acceptLanguage") @Nullable String acceptLanguage,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("parameters") String parameters,
-        @CustomType.Parameter("portfolioId") String portfolioId,
-        @CustomType.Parameter("productId") String productId,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("type") String type) {
-        this.acceptLanguage = acceptLanguage;
-        this.description = description;
-        this.id = id;
-        this.owner = owner;
-        this.parameters = parameters;
-        this.portfolioId = portfolioId;
-        this.productId = productId;
-        this.status = status;
-        this.type = type;
-    }
-
+    private GetConstraintResult() {}
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
@@ -134,7 +113,7 @@ public final class GetConstraintResult {
     public static Builder builder(GetConstraintResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
         private String description;
@@ -145,11 +124,7 @@ public final class GetConstraintResult {
         private String productId;
         private String status;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConstraintResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceptLanguage = defaults.acceptLanguage;
@@ -163,43 +138,63 @@ public final class GetConstraintResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
             this.acceptLanguage = acceptLanguage;
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(String parameters) {
             this.parameters = Objects.requireNonNull(parameters);
             return this;
         }
+        @CustomType.Setter
         public Builder portfolioId(String portfolioId) {
             this.portfolioId = Objects.requireNonNull(portfolioId);
             return this;
         }
+        @CustomType.Setter
         public Builder productId(String productId) {
             this.productId = Objects.requireNonNull(productId);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetConstraintResult build() {
-            return new GetConstraintResult(acceptLanguage, description, id, owner, parameters, portfolioId, productId, status, type);
+        }
+        public GetConstraintResult build() {
+            final var o = new GetConstraintResult();
+            o.acceptLanguage = acceptLanguage;
+            o.description = description;
+            o.id = id;
+            o.owner = owner;
+            o.parameters = parameters;
+            o.portfolioId = portfolioId;
+            o.productId = productId;
+            o.status = status;
+            o.type = type;
+            return o;
         }
     }
 }

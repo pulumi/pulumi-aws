@@ -15,20 +15,11 @@ public final class GetSubscribedRuleGroupResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String metricName;
-    private final @Nullable String name;
+    private String id;
+    private @Nullable String metricName;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private GetSubscribedRuleGroupResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("metricName") @Nullable String metricName,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.id = id;
-        this.metricName = metricName;
-        this.name = name;
-    }
-
+    private GetSubscribedRuleGroupResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -50,16 +41,12 @@ public final class GetSubscribedRuleGroupResult {
     public static Builder builder(GetSubscribedRuleGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String metricName;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSubscribedRuleGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -67,19 +54,27 @@ public final class GetSubscribedRuleGroupResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder metricName(@Nullable String metricName) {
             this.metricName = metricName;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public GetSubscribedRuleGroupResult build() {
-            return new GetSubscribedRuleGroupResult(id, metricName, name);
+        }
+        public GetSubscribedRuleGroupResult build() {
+            final var o = new GetSubscribedRuleGroupResult();
+            o.id = id;
+            o.metricName = metricName;
+            o.name = name;
+            return o;
         }
     }
 }

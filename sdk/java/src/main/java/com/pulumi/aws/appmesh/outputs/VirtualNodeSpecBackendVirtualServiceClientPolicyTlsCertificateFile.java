@@ -13,21 +13,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String certificateChain;
+    private String certificateChain;
     /**
      * @return The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String privateKey;
+    private String privateKey;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(
-        @CustomType.Parameter("certificateChain") String certificateChain,
-        @CustomType.Parameter("privateKey") String privateKey) {
-        this.certificateChain = certificateChain;
-        this.privateKey = privateKey;
-    }
-
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile() {}
     /**
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
@@ -50,30 +43,32 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
     public static Builder builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateChain;
         private String privateKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateChain = defaults.certificateChain;
     	      this.privateKey = defaults.privateKey;
         }
 
+        @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
             this.certificateChain = Objects.requireNonNull(certificateChain);
             return this;
         }
+        @CustomType.Setter
         public Builder privateKey(String privateKey) {
             this.privateKey = Objects.requireNonNull(privateKey);
             return this;
-        }        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile build() {
-            return new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(certificateChain, privateKey);
+        }
+        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile build() {
+            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile();
+            o.certificateChain = certificateChain;
+            o.privateKey = privateKey;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesCon
      * @return Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
      * 
      */
-    private final String cookieBehavior;
+    private String cookieBehavior;
     /**
      * @return Object that contains a list of cookie names. See Items for more information.
      * 
      */
-    private final @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies cookies;
+    private @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies cookies;
 
-    @CustomType.Constructor
-    private CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(
-        @CustomType.Parameter("cookieBehavior") String cookieBehavior,
-        @CustomType.Parameter("cookies") @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies cookies) {
-        this.cookieBehavior = cookieBehavior;
-        this.cookies = cookies;
-    }
-
+    private CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig() {}
     /**
      * @return Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
      * 
@@ -53,30 +46,32 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesCon
     public static Builder builder(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cookieBehavior;
         private @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies cookies;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cookieBehavior = defaults.cookieBehavior;
     	      this.cookies = defaults.cookies;
         }
 
+        @CustomType.Setter
         public Builder cookieBehavior(String cookieBehavior) {
             this.cookieBehavior = Objects.requireNonNull(cookieBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder cookies(@Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies cookies) {
             this.cookies = cookies;
             return this;
-        }        public CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig build() {
-            return new CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(cookieBehavior, cookies);
+        }
+        public CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig build() {
+            final var o = new CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig();
+            o.cookieBehavior = cookieBehavior;
+            o.cookies = cookies;
+            return o;
         }
     }
 }

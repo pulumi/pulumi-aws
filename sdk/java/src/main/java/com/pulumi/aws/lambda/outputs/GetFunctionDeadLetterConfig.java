@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionDeadLetterConfig {
-    private final String targetArn;
+    private String targetArn;
 
-    @CustomType.Constructor
-    private GetFunctionDeadLetterConfig(@CustomType.Parameter("targetArn") String targetArn) {
-        this.targetArn = targetArn;
-    }
-
+    private GetFunctionDeadLetterConfig() {}
     public String targetArn() {
         return this.targetArn;
     }
@@ -27,24 +23,24 @@ public final class GetFunctionDeadLetterConfig {
     public static Builder builder(GetFunctionDeadLetterConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String targetArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionDeadLetterConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.targetArn = defaults.targetArn;
         }
 
+        @CustomType.Setter
         public Builder targetArn(String targetArn) {
             this.targetArn = Objects.requireNonNull(targetArn);
             return this;
-        }        public GetFunctionDeadLetterConfig build() {
-            return new GetFunctionDeadLetterConfig(targetArn);
+        }
+        public GetFunctionDeadLetterConfig build() {
+            final var o = new GetFunctionDeadLetterConfig();
+            o.targetArn = targetArn;
+            return o;
         }
     }
 }

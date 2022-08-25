@@ -11,23 +11,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerAccessLogs {
-    private final String bucket;
-    private final String bucketPrefix;
-    private final Boolean enabled;
-    private final Integer interval;
+    private String bucket;
+    private String bucketPrefix;
+    private Boolean enabled;
+    private Integer interval;
 
-    @CustomType.Constructor
-    private GetLoadBalancerAccessLogs(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("bucketPrefix") String bucketPrefix,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("interval") Integer interval) {
-        this.bucket = bucket;
-        this.bucketPrefix = bucketPrefix;
-        this.enabled = enabled;
-        this.interval = interval;
-    }
-
+    private GetLoadBalancerAccessLogs() {}
     public String bucket() {
         return this.bucket;
     }
@@ -48,17 +37,13 @@ public final class GetLoadBalancerAccessLogs {
     public static Builder builder(GetLoadBalancerAccessLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private String bucketPrefix;
         private Boolean enabled;
         private Integer interval;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLoadBalancerAccessLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -67,23 +52,33 @@ public final class GetLoadBalancerAccessLogs {
     	      this.interval = defaults.interval;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(String bucketPrefix) {
             this.bucketPrefix = Objects.requireNonNull(bucketPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(Integer interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
-        }        public GetLoadBalancerAccessLogs build() {
-            return new GetLoadBalancerAccessLogs(bucket, bucketPrefix, enabled, interval);
+        }
+        public GetLoadBalancerAccessLogs build() {
+            final var o = new GetLoadBalancerAccessLogs();
+            o.bucket = bucket;
+            o.bucketPrefix = bucketPrefix;
+            o.enabled = enabled;
+            o.interval = interval;
+            return o;
         }
     }
 }

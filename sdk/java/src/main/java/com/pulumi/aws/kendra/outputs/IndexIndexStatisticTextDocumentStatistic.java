@@ -15,21 +15,14 @@ public final class IndexIndexStatisticTextDocumentStatistic {
      * @return The total size, in bytes, of the indexed documents.
      * 
      */
-    private final @Nullable Integer indexedTextBytes;
+    private @Nullable Integer indexedTextBytes;
     /**
      * @return The number of text documents indexed.
      * 
      */
-    private final @Nullable Integer indexedTextDocumentsCount;
+    private @Nullable Integer indexedTextDocumentsCount;
 
-    @CustomType.Constructor
-    private IndexIndexStatisticTextDocumentStatistic(
-        @CustomType.Parameter("indexedTextBytes") @Nullable Integer indexedTextBytes,
-        @CustomType.Parameter("indexedTextDocumentsCount") @Nullable Integer indexedTextDocumentsCount) {
-        this.indexedTextBytes = indexedTextBytes;
-        this.indexedTextDocumentsCount = indexedTextDocumentsCount;
-    }
-
+    private IndexIndexStatisticTextDocumentStatistic() {}
     /**
      * @return The total size, in bytes, of the indexed documents.
      * 
@@ -52,30 +45,32 @@ public final class IndexIndexStatisticTextDocumentStatistic {
     public static Builder builder(IndexIndexStatisticTextDocumentStatistic defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer indexedTextBytes;
         private @Nullable Integer indexedTextDocumentsCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexIndexStatisticTextDocumentStatistic defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.indexedTextBytes = defaults.indexedTextBytes;
     	      this.indexedTextDocumentsCount = defaults.indexedTextDocumentsCount;
         }
 
+        @CustomType.Setter
         public Builder indexedTextBytes(@Nullable Integer indexedTextBytes) {
             this.indexedTextBytes = indexedTextBytes;
             return this;
         }
+        @CustomType.Setter
         public Builder indexedTextDocumentsCount(@Nullable Integer indexedTextDocumentsCount) {
             this.indexedTextDocumentsCount = indexedTextDocumentsCount;
             return this;
-        }        public IndexIndexStatisticTextDocumentStatistic build() {
-            return new IndexIndexStatisticTextDocumentStatistic(indexedTextBytes, indexedTextDocumentsCount);
+        }
+        public IndexIndexStatisticTextDocumentStatistic build() {
+            final var o = new IndexIndexStatisticTextDocumentStatistic();
+            o.indexedTextBytes = indexedTextBytes;
+            o.indexedTextDocumentsCount = indexedTextDocumentsCount;
+            return o;
         }
     }
 }

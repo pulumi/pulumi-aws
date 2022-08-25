@@ -14,52 +14,35 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyResult {
-    private final @Nullable String arn;
+    private @Nullable String arn;
     /**
      * @return A description of the firewall policy.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The [policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy) for the specified firewall policy.
      * 
      */
-    private final List<GetFirewallPolicyFirewallPolicy> firewallPolicies;
+    private List<GetFirewallPolicyFirewallPolicy> firewallPolicies;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String name;
+    private String id;
+    private @Nullable String name;
     /**
      * @return Key-value tags for the firewall policy.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A token used for optimistic locking.
      * 
      */
-    private final String updateToken;
+    private String updateToken;
 
-    @CustomType.Constructor
-    private GetFirewallPolicyResult(
-        @CustomType.Parameter("arn") @Nullable String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("firewallPolicies") List<GetFirewallPolicyFirewallPolicy> firewallPolicies,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("updateToken") String updateToken) {
-        this.arn = arn;
-        this.description = description;
-        this.firewallPolicies = firewallPolicies;
-        this.id = id;
-        this.name = name;
-        this.tags = tags;
-        this.updateToken = updateToken;
-    }
-
+    private GetFirewallPolicyResult() {}
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -109,7 +92,7 @@ public final class GetFirewallPolicyResult {
     public static Builder builder(GetFirewallPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
         private String description;
@@ -118,11 +101,7 @@ public final class GetFirewallPolicyResult {
         private @Nullable String name;
         private Map<String,String> tags;
         private String updateToken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -134,14 +113,17 @@ public final class GetFirewallPolicyResult {
     	      this.updateToken = defaults.updateToken;
         }
 
+        @CustomType.Setter
         public Builder arn(@Nullable String arn) {
             this.arn = arn;
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder firewallPolicies(List<GetFirewallPolicyFirewallPolicy> firewallPolicies) {
             this.firewallPolicies = Objects.requireNonNull(firewallPolicies);
             return this;
@@ -149,23 +131,36 @@ public final class GetFirewallPolicyResult {
         public Builder firewallPolicies(GetFirewallPolicyFirewallPolicy... firewallPolicies) {
             return firewallPolicies(List.of(firewallPolicies));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder updateToken(String updateToken) {
             this.updateToken = Objects.requireNonNull(updateToken);
             return this;
-        }        public GetFirewallPolicyResult build() {
-            return new GetFirewallPolicyResult(arn, description, firewallPolicies, id, name, tags, updateToken);
+        }
+        public GetFirewallPolicyResult build() {
+            final var o = new GetFirewallPolicyResult();
+            o.arn = arn;
+            o.description = description;
+            o.firewallPolicies = firewallPolicies;
+            o.id = id;
+            o.name = name;
+            o.tags = tags;
+            o.updateToken = updateToken;
+            return o;
         }
     }
 }

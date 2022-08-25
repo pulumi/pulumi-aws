@@ -13,21 +13,14 @@ public final class GetDomainAdvancedSecurityOption {
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Whether the internal user database is enabled.
      * 
      */
-    private final Boolean internalUserDatabaseEnabled;
+    private Boolean internalUserDatabaseEnabled;
 
-    @CustomType.Constructor
-    private GetDomainAdvancedSecurityOption(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("internalUserDatabaseEnabled") Boolean internalUserDatabaseEnabled) {
-        this.enabled = enabled;
-        this.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
-    }
-
+    private GetDomainAdvancedSecurityOption() {}
     /**
      * @return Whether node to node encryption is enabled.
      * 
@@ -50,30 +43,32 @@ public final class GetDomainAdvancedSecurityOption {
     public static Builder builder(GetDomainAdvancedSecurityOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private Boolean internalUserDatabaseEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainAdvancedSecurityOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.internalUserDatabaseEnabled = defaults.internalUserDatabaseEnabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder internalUserDatabaseEnabled(Boolean internalUserDatabaseEnabled) {
             this.internalUserDatabaseEnabled = Objects.requireNonNull(internalUserDatabaseEnabled);
             return this;
-        }        public GetDomainAdvancedSecurityOption build() {
-            return new GetDomainAdvancedSecurityOption(enabled, internalUserDatabaseEnabled);
+        }
+        public GetDomainAdvancedSecurityOption build() {
+            final var o = new GetDomainAdvancedSecurityOption();
+            o.enabled = enabled;
+            o.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            return o;
         }
     }
 }

@@ -16,52 +16,35 @@ public final class GetUserResult {
      * @return The access permissions string used for this user.
      * 
      */
-    private final String accessString;
+    private String accessString;
     /**
      * @return ARN of the user.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Denotes the user&#39;s authentication properties.
      * 
      */
-    private final List<GetUserAuthenticationMode> authenticationModes;
+    private List<GetUserAuthenticationMode> authenticationModes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The minimum engine version supported for the user.
      * 
      */
-    private final String minimumEngineVersion;
+    private String minimumEngineVersion;
     /**
      * @return A map of tags assigned to the subnet group.
      * 
      */
-    private final Map<String,String> tags;
-    private final String userName;
+    private Map<String,String> tags;
+    private String userName;
 
-    @CustomType.Constructor
-    private GetUserResult(
-        @CustomType.Parameter("accessString") String accessString,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("authenticationModes") List<GetUserAuthenticationMode> authenticationModes,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("minimumEngineVersion") String minimumEngineVersion,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("userName") String userName) {
-        this.accessString = accessString;
-        this.arn = arn;
-        this.authenticationModes = authenticationModes;
-        this.id = id;
-        this.minimumEngineVersion = minimumEngineVersion;
-        this.tags = tags;
-        this.userName = userName;
-    }
-
+    private GetUserResult() {}
     /**
      * @return The access permissions string used for this user.
      * 
@@ -115,7 +98,7 @@ public final class GetUserResult {
     public static Builder builder(GetUserResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessString;
         private String arn;
@@ -124,11 +107,7 @@ public final class GetUserResult {
         private String minimumEngineVersion;
         private Map<String,String> tags;
         private String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessString = defaults.accessString;
@@ -140,14 +119,17 @@ public final class GetUserResult {
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder accessString(String accessString) {
             this.accessString = Objects.requireNonNull(accessString);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder authenticationModes(List<GetUserAuthenticationMode> authenticationModes) {
             this.authenticationModes = Objects.requireNonNull(authenticationModes);
             return this;
@@ -155,23 +137,36 @@ public final class GetUserResult {
         public Builder authenticationModes(GetUserAuthenticationMode... authenticationModes) {
             return authenticationModes(List.of(authenticationModes));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumEngineVersion(String minimumEngineVersion) {
             this.minimumEngineVersion = Objects.requireNonNull(minimumEngineVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder userName(String userName) {
             this.userName = Objects.requireNonNull(userName);
             return this;
-        }        public GetUserResult build() {
-            return new GetUserResult(accessString, arn, authenticationModes, id, minimumEngineVersion, tags, userName);
+        }
+        public GetUserResult build() {
+            final var o = new GetUserResult();
+            o.accessString = accessString;
+            o.arn = arn;
+            o.authenticationModes = authenticationModes;
+            o.id = id;
+            o.minimumEngineVersion = minimumEngineVersion;
+            o.tags = tags;
+            o.userName = userName;
+            return o;
         }
     }
 }

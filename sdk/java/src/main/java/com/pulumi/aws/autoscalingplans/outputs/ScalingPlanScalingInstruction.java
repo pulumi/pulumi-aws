@@ -22,108 +22,77 @@ public final class ScalingPlanScalingInstruction {
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
      * 
      */
-    private final @Nullable ScalingPlanScalingInstructionCustomizedLoadMetricSpecification customizedLoadMetricSpecification;
+    private @Nullable ScalingPlanScalingInstructionCustomizedLoadMetricSpecification customizedLoadMetricSpecification;
     /**
      * @return Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean disableDynamicScaling;
+    private @Nullable Boolean disableDynamicScaling;
     /**
      * @return The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
      * 
      */
-    private final Integer maxCapacity;
+    private Integer maxCapacity;
     /**
      * @return The minimum capacity of the resource.
      * 
      */
-    private final Integer minCapacity;
+    private Integer minCapacity;
     /**
      * @return The predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
      * 
      */
-    private final @Nullable ScalingPlanScalingInstructionPredefinedLoadMetricSpecification predefinedLoadMetricSpecification;
+    private @Nullable ScalingPlanScalingInstructionPredefinedLoadMetricSpecification predefinedLoadMetricSpecification;
     /**
      * @return Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
      * Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
      * 
      */
-    private final @Nullable String predictiveScalingMaxCapacityBehavior;
+    private @Nullable String predictiveScalingMaxCapacityBehavior;
     /**
      * @return The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
      * 
      */
-    private final @Nullable Integer predictiveScalingMaxCapacityBuffer;
+    private @Nullable Integer predictiveScalingMaxCapacityBuffer;
     /**
      * @return The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
      * 
      */
-    private final @Nullable String predictiveScalingMode;
+    private @Nullable String predictiveScalingMode;
     /**
      * @return The ID of the resource. This string consists of the resource type and unique identifier.
      * 
      */
-    private final String resourceId;
+    private String resourceId;
     /**
      * @return The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
      * 
      */
-    private final String scalableDimension;
+    private String scalableDimension;
     /**
      * @return Controls whether a resource&#39;s externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.
      * 
      */
-    private final @Nullable String scalingPolicyUpdateBehavior;
+    private @Nullable String scalingPolicyUpdateBehavior;
     /**
      * @return The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
      * 
      */
-    private final @Nullable Integer scheduledActionBufferTime;
+    private @Nullable Integer scheduledActionBufferTime;
     /**
      * @return The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
      * 
      */
-    private final String serviceNamespace;
+    private String serviceNamespace;
     /**
      * @return The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
      * 
      */
-    private final List<ScalingPlanScalingInstructionTargetTrackingConfiguration> targetTrackingConfigurations;
+    private List<ScalingPlanScalingInstructionTargetTrackingConfiguration> targetTrackingConfigurations;
 
-    @CustomType.Constructor
-    private ScalingPlanScalingInstruction(
-        @CustomType.Parameter("customizedLoadMetricSpecification") @Nullable ScalingPlanScalingInstructionCustomizedLoadMetricSpecification customizedLoadMetricSpecification,
-        @CustomType.Parameter("disableDynamicScaling") @Nullable Boolean disableDynamicScaling,
-        @CustomType.Parameter("maxCapacity") Integer maxCapacity,
-        @CustomType.Parameter("minCapacity") Integer minCapacity,
-        @CustomType.Parameter("predefinedLoadMetricSpecification") @Nullable ScalingPlanScalingInstructionPredefinedLoadMetricSpecification predefinedLoadMetricSpecification,
-        @CustomType.Parameter("predictiveScalingMaxCapacityBehavior") @Nullable String predictiveScalingMaxCapacityBehavior,
-        @CustomType.Parameter("predictiveScalingMaxCapacityBuffer") @Nullable Integer predictiveScalingMaxCapacityBuffer,
-        @CustomType.Parameter("predictiveScalingMode") @Nullable String predictiveScalingMode,
-        @CustomType.Parameter("resourceId") String resourceId,
-        @CustomType.Parameter("scalableDimension") String scalableDimension,
-        @CustomType.Parameter("scalingPolicyUpdateBehavior") @Nullable String scalingPolicyUpdateBehavior,
-        @CustomType.Parameter("scheduledActionBufferTime") @Nullable Integer scheduledActionBufferTime,
-        @CustomType.Parameter("serviceNamespace") String serviceNamespace,
-        @CustomType.Parameter("targetTrackingConfigurations") List<ScalingPlanScalingInstructionTargetTrackingConfiguration> targetTrackingConfigurations) {
-        this.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
-        this.disableDynamicScaling = disableDynamicScaling;
-        this.maxCapacity = maxCapacity;
-        this.minCapacity = minCapacity;
-        this.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
-        this.predictiveScalingMaxCapacityBehavior = predictiveScalingMaxCapacityBehavior;
-        this.predictiveScalingMaxCapacityBuffer = predictiveScalingMaxCapacityBuffer;
-        this.predictiveScalingMode = predictiveScalingMode;
-        this.resourceId = resourceId;
-        this.scalableDimension = scalableDimension;
-        this.scalingPolicyUpdateBehavior = scalingPolicyUpdateBehavior;
-        this.scheduledActionBufferTime = scheduledActionBufferTime;
-        this.serviceNamespace = serviceNamespace;
-        this.targetTrackingConfigurations = targetTrackingConfigurations;
-    }
-
+    private ScalingPlanScalingInstruction() {}
     /**
      * @return The customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
@@ -234,7 +203,7 @@ public final class ScalingPlanScalingInstruction {
     public static Builder builder(ScalingPlanScalingInstruction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ScalingPlanScalingInstructionCustomizedLoadMetricSpecification customizedLoadMetricSpecification;
         private @Nullable Boolean disableDynamicScaling;
@@ -250,11 +219,7 @@ public final class ScalingPlanScalingInstruction {
         private @Nullable Integer scheduledActionBufferTime;
         private String serviceNamespace;
         private List<ScalingPlanScalingInstructionTargetTrackingConfiguration> targetTrackingConfigurations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScalingPlanScalingInstruction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customizedLoadMetricSpecification = defaults.customizedLoadMetricSpecification;
@@ -273,66 +238,96 @@ public final class ScalingPlanScalingInstruction {
     	      this.targetTrackingConfigurations = defaults.targetTrackingConfigurations;
         }
 
+        @CustomType.Setter
         public Builder customizedLoadMetricSpecification(@Nullable ScalingPlanScalingInstructionCustomizedLoadMetricSpecification customizedLoadMetricSpecification) {
             this.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder disableDynamicScaling(@Nullable Boolean disableDynamicScaling) {
             this.disableDynamicScaling = disableDynamicScaling;
             return this;
         }
+        @CustomType.Setter
         public Builder maxCapacity(Integer maxCapacity) {
             this.maxCapacity = Objects.requireNonNull(maxCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder minCapacity(Integer minCapacity) {
             this.minCapacity = Objects.requireNonNull(minCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder predefinedLoadMetricSpecification(@Nullable ScalingPlanScalingInstructionPredefinedLoadMetricSpecification predefinedLoadMetricSpecification) {
             this.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder predictiveScalingMaxCapacityBehavior(@Nullable String predictiveScalingMaxCapacityBehavior) {
             this.predictiveScalingMaxCapacityBehavior = predictiveScalingMaxCapacityBehavior;
             return this;
         }
+        @CustomType.Setter
         public Builder predictiveScalingMaxCapacityBuffer(@Nullable Integer predictiveScalingMaxCapacityBuffer) {
             this.predictiveScalingMaxCapacityBuffer = predictiveScalingMaxCapacityBuffer;
             return this;
         }
+        @CustomType.Setter
         public Builder predictiveScalingMode(@Nullable String predictiveScalingMode) {
             this.predictiveScalingMode = predictiveScalingMode;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder scalableDimension(String scalableDimension) {
             this.scalableDimension = Objects.requireNonNull(scalableDimension);
             return this;
         }
+        @CustomType.Setter
         public Builder scalingPolicyUpdateBehavior(@Nullable String scalingPolicyUpdateBehavior) {
             this.scalingPolicyUpdateBehavior = scalingPolicyUpdateBehavior;
             return this;
         }
+        @CustomType.Setter
         public Builder scheduledActionBufferTime(@Nullable Integer scheduledActionBufferTime) {
             this.scheduledActionBufferTime = scheduledActionBufferTime;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceNamespace(String serviceNamespace) {
             this.serviceNamespace = Objects.requireNonNull(serviceNamespace);
             return this;
         }
+        @CustomType.Setter
         public Builder targetTrackingConfigurations(List<ScalingPlanScalingInstructionTargetTrackingConfiguration> targetTrackingConfigurations) {
             this.targetTrackingConfigurations = Objects.requireNonNull(targetTrackingConfigurations);
             return this;
         }
         public Builder targetTrackingConfigurations(ScalingPlanScalingInstructionTargetTrackingConfiguration... targetTrackingConfigurations) {
             return targetTrackingConfigurations(List.of(targetTrackingConfigurations));
-        }        public ScalingPlanScalingInstruction build() {
-            return new ScalingPlanScalingInstruction(customizedLoadMetricSpecification, disableDynamicScaling, maxCapacity, minCapacity, predefinedLoadMetricSpecification, predictiveScalingMaxCapacityBehavior, predictiveScalingMaxCapacityBuffer, predictiveScalingMode, resourceId, scalableDimension, scalingPolicyUpdateBehavior, scheduledActionBufferTime, serviceNamespace, targetTrackingConfigurations);
+        }
+        public ScalingPlanScalingInstruction build() {
+            final var o = new ScalingPlanScalingInstruction();
+            o.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
+            o.disableDynamicScaling = disableDynamicScaling;
+            o.maxCapacity = maxCapacity;
+            o.minCapacity = minCapacity;
+            o.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
+            o.predictiveScalingMaxCapacityBehavior = predictiveScalingMaxCapacityBehavior;
+            o.predictiveScalingMaxCapacityBuffer = predictiveScalingMaxCapacityBuffer;
+            o.predictiveScalingMode = predictiveScalingMode;
+            o.resourceId = resourceId;
+            o.scalableDimension = scalableDimension;
+            o.scalingPolicyUpdateBehavior = scalingPolicyUpdateBehavior;
+            o.scheduledActionBufferTime = scheduledActionBufferTime;
+            o.serviceNamespace = serviceNamespace;
+            o.targetTrackingConfigurations = targetTrackingConfigurations;
+            return o;
         }
     }
 }

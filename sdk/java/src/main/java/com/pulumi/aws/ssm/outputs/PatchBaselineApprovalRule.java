@@ -19,42 +19,29 @@ public final class PatchBaselineApprovalRule {
      * @return The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
      * 
      */
-    private final @Nullable Integer approveAfterDays;
+    private @Nullable Integer approveAfterDays;
     /**
      * @return The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
      * 
      */
-    private final @Nullable String approveUntilDate;
+    private @Nullable String approveUntilDate;
     /**
      * @return Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      * 
      */
-    private final @Nullable String complianceLevel;
+    private @Nullable String complianceLevel;
     /**
      * @return Boolean enabling the application of non-security updates. The default value is &#39;false&#39;. Valid for Linux instances only.
      * 
      */
-    private final @Nullable Boolean enableNonSecurity;
+    private @Nullable Boolean enableNonSecurity;
     /**
      * @return The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
      * 
      */
-    private final List<PatchBaselineApprovalRulePatchFilter> patchFilters;
+    private List<PatchBaselineApprovalRulePatchFilter> patchFilters;
 
-    @CustomType.Constructor
-    private PatchBaselineApprovalRule(
-        @CustomType.Parameter("approveAfterDays") @Nullable Integer approveAfterDays,
-        @CustomType.Parameter("approveUntilDate") @Nullable String approveUntilDate,
-        @CustomType.Parameter("complianceLevel") @Nullable String complianceLevel,
-        @CustomType.Parameter("enableNonSecurity") @Nullable Boolean enableNonSecurity,
-        @CustomType.Parameter("patchFilters") List<PatchBaselineApprovalRulePatchFilter> patchFilters) {
-        this.approveAfterDays = approveAfterDays;
-        this.approveUntilDate = approveUntilDate;
-        this.complianceLevel = complianceLevel;
-        this.enableNonSecurity = enableNonSecurity;
-        this.patchFilters = patchFilters;
-    }
-
+    private PatchBaselineApprovalRule() {}
     /**
      * @return The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
      * 
@@ -98,18 +85,14 @@ public final class PatchBaselineApprovalRule {
     public static Builder builder(PatchBaselineApprovalRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer approveAfterDays;
         private @Nullable String approveUntilDate;
         private @Nullable String complianceLevel;
         private @Nullable Boolean enableNonSecurity;
         private List<PatchBaselineApprovalRulePatchFilter> patchFilters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PatchBaselineApprovalRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.approveAfterDays = defaults.approveAfterDays;
@@ -119,30 +102,42 @@ public final class PatchBaselineApprovalRule {
     	      this.patchFilters = defaults.patchFilters;
         }
 
+        @CustomType.Setter
         public Builder approveAfterDays(@Nullable Integer approveAfterDays) {
             this.approveAfterDays = approveAfterDays;
             return this;
         }
+        @CustomType.Setter
         public Builder approveUntilDate(@Nullable String approveUntilDate) {
             this.approveUntilDate = approveUntilDate;
             return this;
         }
+        @CustomType.Setter
         public Builder complianceLevel(@Nullable String complianceLevel) {
             this.complianceLevel = complianceLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder enableNonSecurity(@Nullable Boolean enableNonSecurity) {
             this.enableNonSecurity = enableNonSecurity;
             return this;
         }
+        @CustomType.Setter
         public Builder patchFilters(List<PatchBaselineApprovalRulePatchFilter> patchFilters) {
             this.patchFilters = Objects.requireNonNull(patchFilters);
             return this;
         }
         public Builder patchFilters(PatchBaselineApprovalRulePatchFilter... patchFilters) {
             return patchFilters(List.of(patchFilters));
-        }        public PatchBaselineApprovalRule build() {
-            return new PatchBaselineApprovalRule(approveAfterDays, approveUntilDate, complianceLevel, enableNonSecurity, patchFilters);
+        }
+        public PatchBaselineApprovalRule build() {
+            final var o = new PatchBaselineApprovalRule();
+            o.approveAfterDays = approveAfterDays;
+            o.approveUntilDate = approveUntilDate;
+            o.complianceLevel = complianceLevel;
+            o.enableNonSecurity = enableNonSecurity;
+            o.patchFilters = patchFilters;
+            return o;
         }
     }
 }
