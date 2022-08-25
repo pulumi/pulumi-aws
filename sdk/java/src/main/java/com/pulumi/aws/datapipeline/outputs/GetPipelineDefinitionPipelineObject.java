@@ -16,28 +16,19 @@ public final class GetPipelineDefinitionPipelineObject {
      * @return Key-value pairs that define the properties of the object. See below
      * 
      */
-    private final @Nullable List<GetPipelineDefinitionPipelineObjectField> fields;
+    private @Nullable List<GetPipelineDefinitionPipelineObjectField> fields;
     /**
      * @return ID of the object.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return ARN of the storage connector.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetPipelineDefinitionPipelineObject(
-        @CustomType.Parameter("fields") @Nullable List<GetPipelineDefinitionPipelineObjectField> fields,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.fields = fields;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetPipelineDefinitionPipelineObject() {}
     /**
      * @return Key-value pairs that define the properties of the object. See below
      * 
@@ -67,16 +58,12 @@ public final class GetPipelineDefinitionPipelineObject {
     public static Builder builder(GetPipelineDefinitionPipelineObject defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetPipelineDefinitionPipelineObjectField> fields;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPipelineDefinitionPipelineObject defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fields = defaults.fields;
@@ -84,6 +71,7 @@ public final class GetPipelineDefinitionPipelineObject {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder fields(@Nullable List<GetPipelineDefinitionPipelineObjectField> fields) {
             this.fields = fields;
             return this;
@@ -91,15 +79,22 @@ public final class GetPipelineDefinitionPipelineObject {
         public Builder fields(GetPipelineDefinitionPipelineObjectField... fields) {
             return fields(List.of(fields));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetPipelineDefinitionPipelineObject build() {
-            return new GetPipelineDefinitionPipelineObject(fields, id, name);
+        }
+        public GetPipelineDefinitionPipelineObject build() {
+            final var o = new GetPipelineDefinitionPipelineObject();
+            o.fields = fields;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

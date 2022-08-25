@@ -11,24 +11,15 @@ import java.util.Objects;
 
 @CustomType
 public final class SecurityConfigurationEncryptionConfiguration {
-    private final SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption;
-    private final SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption;
+    private SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption;
+    private SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption;
     /**
      * @return A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
      * 
      */
-    private final SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption;
+    private SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption;
 
-    @CustomType.Constructor
-    private SecurityConfigurationEncryptionConfiguration(
-        @CustomType.Parameter("cloudwatchEncryption") SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption,
-        @CustomType.Parameter("jobBookmarksEncryption") SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption,
-        @CustomType.Parameter("s3Encryption") SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption) {
-        this.cloudwatchEncryption = cloudwatchEncryption;
-        this.jobBookmarksEncryption = jobBookmarksEncryption;
-        this.s3Encryption = s3Encryption;
-    }
-
+    private SecurityConfigurationEncryptionConfiguration() {}
     public SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption() {
         return this.cloudwatchEncryption;
     }
@@ -50,16 +41,12 @@ public final class SecurityConfigurationEncryptionConfiguration {
     public static Builder builder(SecurityConfigurationEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption;
         private SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption;
         private SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecurityConfigurationEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchEncryption = defaults.cloudwatchEncryption;
@@ -67,19 +54,27 @@ public final class SecurityConfigurationEncryptionConfiguration {
     	      this.s3Encryption = defaults.s3Encryption;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption) {
             this.cloudwatchEncryption = Objects.requireNonNull(cloudwatchEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder jobBookmarksEncryption(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption) {
             this.jobBookmarksEncryption = Objects.requireNonNull(jobBookmarksEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder s3Encryption(SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption) {
             this.s3Encryption = Objects.requireNonNull(s3Encryption);
             return this;
-        }        public SecurityConfigurationEncryptionConfiguration build() {
-            return new SecurityConfigurationEncryptionConfiguration(cloudwatchEncryption, jobBookmarksEncryption, s3Encryption);
+        }
+        public SecurityConfigurationEncryptionConfiguration build() {
+            final var o = new SecurityConfigurationEncryptionConfiguration();
+            o.cloudwatchEncryption = cloudwatchEncryption;
+            o.jobBookmarksEncryption = jobBookmarksEncryption;
+            o.s3Encryption = s3Encryption;
+            return o;
         }
     }
 }

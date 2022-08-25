@@ -18,35 +18,24 @@ public final class RouteSpecHttpRoute {
      * @return The action to take if a match is determined.
      * 
      */
-    private final RouteSpecHttpRouteAction action;
+    private RouteSpecHttpRouteAction action;
     /**
      * @return The criteria for determining an HTTP request match.
      * 
      */
-    private final RouteSpecHttpRouteMatch match;
+    private RouteSpecHttpRouteMatch match;
     /**
      * @return The retry policy.
      * 
      */
-    private final @Nullable RouteSpecHttpRouteRetryPolicy retryPolicy;
+    private @Nullable RouteSpecHttpRouteRetryPolicy retryPolicy;
     /**
      * @return The types of timeouts.
      * 
      */
-    private final @Nullable RouteSpecHttpRouteTimeout timeout;
+    private @Nullable RouteSpecHttpRouteTimeout timeout;
 
-    @CustomType.Constructor
-    private RouteSpecHttpRoute(
-        @CustomType.Parameter("action") RouteSpecHttpRouteAction action,
-        @CustomType.Parameter("match") RouteSpecHttpRouteMatch match,
-        @CustomType.Parameter("retryPolicy") @Nullable RouteSpecHttpRouteRetryPolicy retryPolicy,
-        @CustomType.Parameter("timeout") @Nullable RouteSpecHttpRouteTimeout timeout) {
-        this.action = action;
-        this.match = match;
-        this.retryPolicy = retryPolicy;
-        this.timeout = timeout;
-    }
-
+    private RouteSpecHttpRoute() {}
     /**
      * @return The action to take if a match is determined.
      * 
@@ -83,17 +72,13 @@ public final class RouteSpecHttpRoute {
     public static Builder builder(RouteSpecHttpRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RouteSpecHttpRouteAction action;
         private RouteSpecHttpRouteMatch match;
         private @Nullable RouteSpecHttpRouteRetryPolicy retryPolicy;
         private @Nullable RouteSpecHttpRouteTimeout timeout;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttpRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -102,23 +87,33 @@ public final class RouteSpecHttpRoute {
     	      this.timeout = defaults.timeout;
         }
 
+        @CustomType.Setter
         public Builder action(RouteSpecHttpRouteAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder match(RouteSpecHttpRouteMatch match) {
             this.match = Objects.requireNonNull(match);
             return this;
         }
+        @CustomType.Setter
         public Builder retryPolicy(@Nullable RouteSpecHttpRouteRetryPolicy retryPolicy) {
             this.retryPolicy = retryPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable RouteSpecHttpRouteTimeout timeout) {
             this.timeout = timeout;
             return this;
-        }        public RouteSpecHttpRoute build() {
-            return new RouteSpecHttpRoute(action, match, retryPolicy, timeout);
+        }
+        public RouteSpecHttpRoute build() {
+            final var o = new RouteSpecHttpRoute();
+            o.action = action;
+            o.match = match;
+            o.retryPolicy = retryPolicy;
+            o.timeout = timeout;
+            return o;
         }
     }
 }

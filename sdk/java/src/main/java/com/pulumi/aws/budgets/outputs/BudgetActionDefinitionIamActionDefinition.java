@@ -15,35 +15,24 @@ public final class BudgetActionDefinitionIamActionDefinition {
      * @return A list of groups to be attached. There must be at least one group.
      * 
      */
-    private final @Nullable List<String> groups;
+    private @Nullable List<String> groups;
     /**
      * @return The Amazon Resource Name (ARN) of the policy to be attached.
      * 
      */
-    private final String policyArn;
+    private String policyArn;
     /**
      * @return A list of roles to be attached. There must be at least one role.
      * 
      */
-    private final @Nullable List<String> roles;
+    private @Nullable List<String> roles;
     /**
      * @return A list of users to be attached. There must be at least one user.
      * 
      */
-    private final @Nullable List<String> users;
+    private @Nullable List<String> users;
 
-    @CustomType.Constructor
-    private BudgetActionDefinitionIamActionDefinition(
-        @CustomType.Parameter("groups") @Nullable List<String> groups,
-        @CustomType.Parameter("policyArn") String policyArn,
-        @CustomType.Parameter("roles") @Nullable List<String> roles,
-        @CustomType.Parameter("users") @Nullable List<String> users) {
-        this.groups = groups;
-        this.policyArn = policyArn;
-        this.roles = roles;
-        this.users = users;
-    }
-
+    private BudgetActionDefinitionIamActionDefinition() {}
     /**
      * @return A list of groups to be attached. There must be at least one group.
      * 
@@ -80,17 +69,13 @@ public final class BudgetActionDefinitionIamActionDefinition {
     public static Builder builder(BudgetActionDefinitionIamActionDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> groups;
         private String policyArn;
         private @Nullable List<String> roles;
         private @Nullable List<String> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetActionDefinitionIamActionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groups = defaults.groups;
@@ -99,6 +84,7 @@ public final class BudgetActionDefinitionIamActionDefinition {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder groups(@Nullable List<String> groups) {
             this.groups = groups;
             return this;
@@ -106,10 +92,12 @@ public final class BudgetActionDefinitionIamActionDefinition {
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder policyArn(String policyArn) {
             this.policyArn = Objects.requireNonNull(policyArn);
             return this;
         }
+        @CustomType.Setter
         public Builder roles(@Nullable List<String> roles) {
             this.roles = roles;
             return this;
@@ -117,14 +105,21 @@ public final class BudgetActionDefinitionIamActionDefinition {
         public Builder roles(String... roles) {
             return roles(List.of(roles));
         }
+        @CustomType.Setter
         public Builder users(@Nullable List<String> users) {
             this.users = users;
             return this;
         }
         public Builder users(String... users) {
             return users(List.of(users));
-        }        public BudgetActionDefinitionIamActionDefinition build() {
-            return new BudgetActionDefinitionIamActionDefinition(groups, policyArn, roles, users);
+        }
+        public BudgetActionDefinitionIamActionDefinition build() {
+            final var o = new BudgetActionDefinitionIamActionDefinition();
+            o.groups = groups;
+            o.policyArn = policyArn;
+            o.roles = roles;
+            o.users = users;
+            return o;
         }
     }
 }

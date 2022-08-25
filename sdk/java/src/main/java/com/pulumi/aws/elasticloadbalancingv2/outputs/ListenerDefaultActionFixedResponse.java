@@ -15,28 +15,19 @@ public final class ListenerDefaultActionFixedResponse {
      * @return Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return Message body.
      * 
      */
-    private final @Nullable String messageBody;
+    private @Nullable String messageBody;
     /**
      * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
      * 
      */
-    private final @Nullable String statusCode;
+    private @Nullable String statusCode;
 
-    @CustomType.Constructor
-    private ListenerDefaultActionFixedResponse(
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("messageBody") @Nullable String messageBody,
-        @CustomType.Parameter("statusCode") @Nullable String statusCode) {
-        this.contentType = contentType;
-        this.messageBody = messageBody;
-        this.statusCode = statusCode;
-    }
-
+    private ListenerDefaultActionFixedResponse() {}
     /**
      * @return Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
      * 
@@ -66,16 +57,12 @@ public final class ListenerDefaultActionFixedResponse {
     public static Builder builder(ListenerDefaultActionFixedResponse defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contentType;
         private @Nullable String messageBody;
         private @Nullable String statusCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerDefaultActionFixedResponse defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
@@ -83,19 +70,27 @@ public final class ListenerDefaultActionFixedResponse {
     	      this.statusCode = defaults.statusCode;
         }
 
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder messageBody(@Nullable String messageBody) {
             this.messageBody = messageBody;
             return this;
         }
+        @CustomType.Setter
         public Builder statusCode(@Nullable String statusCode) {
             this.statusCode = statusCode;
             return this;
-        }        public ListenerDefaultActionFixedResponse build() {
-            return new ListenerDefaultActionFixedResponse(contentType, messageBody, statusCode);
+        }
+        public ListenerDefaultActionFixedResponse build() {
+            final var o = new ListenerDefaultActionFixedResponse();
+            o.contentType = contentType;
+            o.messageBody = messageBody;
+            o.statusCode = statusCode;
+            return o;
         }
     }
 }

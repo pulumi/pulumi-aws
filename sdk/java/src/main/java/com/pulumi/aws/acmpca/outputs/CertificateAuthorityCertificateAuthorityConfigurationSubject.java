@@ -15,98 +15,69 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
      * @return Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
-    private final @Nullable String commonName;
+    private @Nullable String commonName;
     /**
      * @return Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
      * 
      */
-    private final @Nullable String country;
+    private @Nullable String country;
     /**
      * @return Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
-    private final @Nullable String distinguishedNameQualifier;
+    private @Nullable String distinguishedNameQualifier;
     /**
      * @return Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
      * 
      */
-    private final @Nullable String generationQualifier;
+    private @Nullable String generationQualifier;
     /**
      * @return First name. Must be less than or equal to 16 characters in length.
      * 
      */
-    private final @Nullable String givenName;
+    private @Nullable String givenName;
     /**
      * @return Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
      * 
      */
-    private final @Nullable String initials;
+    private @Nullable String initials;
     /**
      * @return The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
      * 
      */
-    private final @Nullable String locality;
+    private @Nullable String locality;
     /**
      * @return Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
      * 
      */
-    private final @Nullable String organization;
+    private @Nullable String organization;
     /**
      * @return A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
      * 
      */
-    private final @Nullable String organizationalUnit;
+    private @Nullable String organizationalUnit;
     /**
      * @return Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
      * 
      */
-    private final @Nullable String pseudonym;
+    private @Nullable String pseudonym;
     /**
      * @return State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
      * 
      */
-    private final @Nullable String state;
+    private @Nullable String state;
     /**
      * @return Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
      * 
      */
-    private final @Nullable String surname;
+    private @Nullable String surname;
     /**
      * @return A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
-    private final @Nullable String title;
+    private @Nullable String title;
 
-    @CustomType.Constructor
-    private CertificateAuthorityCertificateAuthorityConfigurationSubject(
-        @CustomType.Parameter("commonName") @Nullable String commonName,
-        @CustomType.Parameter("country") @Nullable String country,
-        @CustomType.Parameter("distinguishedNameQualifier") @Nullable String distinguishedNameQualifier,
-        @CustomType.Parameter("generationQualifier") @Nullable String generationQualifier,
-        @CustomType.Parameter("givenName") @Nullable String givenName,
-        @CustomType.Parameter("initials") @Nullable String initials,
-        @CustomType.Parameter("locality") @Nullable String locality,
-        @CustomType.Parameter("organization") @Nullable String organization,
-        @CustomType.Parameter("organizationalUnit") @Nullable String organizationalUnit,
-        @CustomType.Parameter("pseudonym") @Nullable String pseudonym,
-        @CustomType.Parameter("state") @Nullable String state,
-        @CustomType.Parameter("surname") @Nullable String surname,
-        @CustomType.Parameter("title") @Nullable String title) {
-        this.commonName = commonName;
-        this.country = country;
-        this.distinguishedNameQualifier = distinguishedNameQualifier;
-        this.generationQualifier = generationQualifier;
-        this.givenName = givenName;
-        this.initials = initials;
-        this.locality = locality;
-        this.organization = organization;
-        this.organizationalUnit = organizationalUnit;
-        this.pseudonym = pseudonym;
-        this.state = state;
-        this.surname = surname;
-        this.title = title;
-    }
-
+    private CertificateAuthorityCertificateAuthorityConfigurationSubject() {}
     /**
      * @return Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
      * 
@@ -206,7 +177,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
     public static Builder builder(CertificateAuthorityCertificateAuthorityConfigurationSubject defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String commonName;
         private @Nullable String country;
@@ -221,11 +192,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
         private @Nullable String state;
         private @Nullable String surname;
         private @Nullable String title;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateAuthorityCertificateAuthorityConfigurationSubject defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commonName = defaults.commonName;
@@ -243,59 +210,87 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
     	      this.title = defaults.title;
         }
 
+        @CustomType.Setter
         public Builder commonName(@Nullable String commonName) {
             this.commonName = commonName;
             return this;
         }
+        @CustomType.Setter
         public Builder country(@Nullable String country) {
             this.country = country;
             return this;
         }
+        @CustomType.Setter
         public Builder distinguishedNameQualifier(@Nullable String distinguishedNameQualifier) {
             this.distinguishedNameQualifier = distinguishedNameQualifier;
             return this;
         }
+        @CustomType.Setter
         public Builder generationQualifier(@Nullable String generationQualifier) {
             this.generationQualifier = generationQualifier;
             return this;
         }
+        @CustomType.Setter
         public Builder givenName(@Nullable String givenName) {
             this.givenName = givenName;
             return this;
         }
+        @CustomType.Setter
         public Builder initials(@Nullable String initials) {
             this.initials = initials;
             return this;
         }
+        @CustomType.Setter
         public Builder locality(@Nullable String locality) {
             this.locality = locality;
             return this;
         }
+        @CustomType.Setter
         public Builder organization(@Nullable String organization) {
             this.organization = organization;
             return this;
         }
+        @CustomType.Setter
         public Builder organizationalUnit(@Nullable String organizationalUnit) {
             this.organizationalUnit = organizationalUnit;
             return this;
         }
+        @CustomType.Setter
         public Builder pseudonym(@Nullable String pseudonym) {
             this.pseudonym = pseudonym;
             return this;
         }
+        @CustomType.Setter
         public Builder state(@Nullable String state) {
             this.state = state;
             return this;
         }
+        @CustomType.Setter
         public Builder surname(@Nullable String surname) {
             this.surname = surname;
             return this;
         }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
             this.title = title;
             return this;
-        }        public CertificateAuthorityCertificateAuthorityConfigurationSubject build() {
-            return new CertificateAuthorityCertificateAuthorityConfigurationSubject(commonName, country, distinguishedNameQualifier, generationQualifier, givenName, initials, locality, organization, organizationalUnit, pseudonym, state, surname, title);
+        }
+        public CertificateAuthorityCertificateAuthorityConfigurationSubject build() {
+            final var o = new CertificateAuthorityCertificateAuthorityConfigurationSubject();
+            o.commonName = commonName;
+            o.country = country;
+            o.distinguishedNameQualifier = distinguishedNameQualifier;
+            o.generationQualifier = generationQualifier;
+            o.givenName = givenName;
+            o.initials = initials;
+            o.locality = locality;
+            o.organization = organization;
+            o.organizationalUnit = organizationalUnit;
+            o.pseudonym = pseudonym;
+            o.state = state;
+            o.surname = surname;
+            o.title = title;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class EfsLocationEc2Config {
      * @return List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
      * 
      */
-    private final List<String> securityGroupArns;
+    private List<String> securityGroupArns;
     /**
      * @return Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
      * 
      */
-    private final String subnetArn;
+    private String subnetArn;
 
-    @CustomType.Constructor
-    private EfsLocationEc2Config(
-        @CustomType.Parameter("securityGroupArns") List<String> securityGroupArns,
-        @CustomType.Parameter("subnetArn") String subnetArn) {
-        this.securityGroupArns = securityGroupArns;
-        this.subnetArn = subnetArn;
-    }
-
+    private EfsLocationEc2Config() {}
     /**
      * @return List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
      * 
@@ -51,21 +44,18 @@ public final class EfsLocationEc2Config {
     public static Builder builder(EfsLocationEc2Config defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroupArns;
         private String subnetArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EfsLocationEc2Config defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupArns = defaults.securityGroupArns;
     	      this.subnetArn = defaults.subnetArn;
         }
 
+        @CustomType.Setter
         public Builder securityGroupArns(List<String> securityGroupArns) {
             this.securityGroupArns = Objects.requireNonNull(securityGroupArns);
             return this;
@@ -73,11 +63,16 @@ public final class EfsLocationEc2Config {
         public Builder securityGroupArns(String... securityGroupArns) {
             return securityGroupArns(List.of(securityGroupArns));
         }
+        @CustomType.Setter
         public Builder subnetArn(String subnetArn) {
             this.subnetArn = Objects.requireNonNull(subnetArn);
             return this;
-        }        public EfsLocationEc2Config build() {
-            return new EfsLocationEc2Config(securityGroupArns, subnetArn);
+        }
+        public EfsLocationEc2Config build() {
+            final var o = new EfsLocationEc2Config();
+            o.securityGroupArns = securityGroupArns;
+            o.subnetArn = subnetArn;
+            return o;
         }
     }
 }

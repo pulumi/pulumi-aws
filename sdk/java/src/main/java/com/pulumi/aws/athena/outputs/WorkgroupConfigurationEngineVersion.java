@@ -15,21 +15,14 @@ public final class WorkgroupConfigurationEngineVersion {
      * @return The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
      * 
      */
-    private final @Nullable String effectiveEngineVersion;
+    private @Nullable String effectiveEngineVersion;
     /**
      * @return The requested engine version. Defaults to `AUTO`.
      * 
      */
-    private final @Nullable String selectedEngineVersion;
+    private @Nullable String selectedEngineVersion;
 
-    @CustomType.Constructor
-    private WorkgroupConfigurationEngineVersion(
-        @CustomType.Parameter("effectiveEngineVersion") @Nullable String effectiveEngineVersion,
-        @CustomType.Parameter("selectedEngineVersion") @Nullable String selectedEngineVersion) {
-        this.effectiveEngineVersion = effectiveEngineVersion;
-        this.selectedEngineVersion = selectedEngineVersion;
-    }
-
+    private WorkgroupConfigurationEngineVersion() {}
     /**
      * @return The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
      * 
@@ -52,30 +45,32 @@ public final class WorkgroupConfigurationEngineVersion {
     public static Builder builder(WorkgroupConfigurationEngineVersion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String effectiveEngineVersion;
         private @Nullable String selectedEngineVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkgroupConfigurationEngineVersion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.effectiveEngineVersion = defaults.effectiveEngineVersion;
     	      this.selectedEngineVersion = defaults.selectedEngineVersion;
         }
 
+        @CustomType.Setter
         public Builder effectiveEngineVersion(@Nullable String effectiveEngineVersion) {
             this.effectiveEngineVersion = effectiveEngineVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder selectedEngineVersion(@Nullable String selectedEngineVersion) {
             this.selectedEngineVersion = selectedEngineVersion;
             return this;
-        }        public WorkgroupConfigurationEngineVersion build() {
-            return new WorkgroupConfigurationEngineVersion(effectiveEngineVersion, selectedEngineVersion);
+        }
+        public WorkgroupConfigurationEngineVersion build() {
+            final var o = new WorkgroupConfigurationEngineVersion();
+            o.effectiveEngineVersion = effectiveEngineVersion;
+            o.selectedEngineVersion = selectedEngineVersion;
+            return o;
         }
     }
 }

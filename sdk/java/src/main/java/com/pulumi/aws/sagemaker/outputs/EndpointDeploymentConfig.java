@@ -16,21 +16,14 @@ public final class EndpointDeploymentConfig {
      * @return Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
      * 
      */
-    private final @Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration;
+    private @Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration;
     /**
      * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
      * 
      */
-    private final EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy;
+    private EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy;
 
-    @CustomType.Constructor
-    private EndpointDeploymentConfig(
-        @CustomType.Parameter("autoRollbackConfiguration") @Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration,
-        @CustomType.Parameter("blueGreenUpdatePolicy") EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy) {
-        this.autoRollbackConfiguration = autoRollbackConfiguration;
-        this.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
-    }
-
+    private EndpointDeploymentConfig() {}
     /**
      * @return Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
      * 
@@ -53,30 +46,32 @@ public final class EndpointDeploymentConfig {
     public static Builder builder(EndpointDeploymentConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration;
         private EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeploymentConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRollbackConfiguration = defaults.autoRollbackConfiguration;
     	      this.blueGreenUpdatePolicy = defaults.blueGreenUpdatePolicy;
         }
 
+        @CustomType.Setter
         public Builder autoRollbackConfiguration(@Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration) {
             this.autoRollbackConfiguration = autoRollbackConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder blueGreenUpdatePolicy(EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy) {
             this.blueGreenUpdatePolicy = Objects.requireNonNull(blueGreenUpdatePolicy);
             return this;
-        }        public EndpointDeploymentConfig build() {
-            return new EndpointDeploymentConfig(autoRollbackConfiguration, blueGreenUpdatePolicy);
+        }
+        public EndpointDeploymentConfig build() {
+            final var o = new EndpointDeploymentConfig();
+            o.autoRollbackConfiguration = autoRollbackConfiguration;
+            o.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
+            return o;
         }
     }
 }

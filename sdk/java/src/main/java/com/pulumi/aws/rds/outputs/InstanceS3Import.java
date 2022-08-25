@@ -15,42 +15,29 @@ public final class InstanceS3Import {
      * @return The bucket name where your backup is stored
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return Can be blank, but is the path to your backup
      * 
      */
-    private final @Nullable String bucketPrefix;
+    private @Nullable String bucketPrefix;
     /**
      * @return Role applied to load the data.
      * 
      */
-    private final String ingestionRole;
+    private String ingestionRole;
     /**
      * @return Source engine for the backup
      * 
      */
-    private final String sourceEngine;
+    private String sourceEngine;
     /**
      * @return Version of the source engine used to make the backup
      * 
      */
-    private final String sourceEngineVersion;
+    private String sourceEngineVersion;
 
-    @CustomType.Constructor
-    private InstanceS3Import(
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("bucketPrefix") @Nullable String bucketPrefix,
-        @CustomType.Parameter("ingestionRole") String ingestionRole,
-        @CustomType.Parameter("sourceEngine") String sourceEngine,
-        @CustomType.Parameter("sourceEngineVersion") String sourceEngineVersion) {
-        this.bucketName = bucketName;
-        this.bucketPrefix = bucketPrefix;
-        this.ingestionRole = ingestionRole;
-        this.sourceEngine = sourceEngine;
-        this.sourceEngineVersion = sourceEngineVersion;
-    }
-
+    private InstanceS3Import() {}
     /**
      * @return The bucket name where your backup is stored
      * 
@@ -94,18 +81,14 @@ public final class InstanceS3Import {
     public static Builder builder(InstanceS3Import defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketName;
         private @Nullable String bucketPrefix;
         private String ingestionRole;
         private String sourceEngine;
         private String sourceEngineVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceS3Import defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -115,27 +98,39 @@ public final class InstanceS3Import {
     	      this.sourceEngineVersion = defaults.sourceEngineVersion;
         }
 
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder ingestionRole(String ingestionRole) {
             this.ingestionRole = Objects.requireNonNull(ingestionRole);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceEngine(String sourceEngine) {
             this.sourceEngine = Objects.requireNonNull(sourceEngine);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceEngineVersion(String sourceEngineVersion) {
             this.sourceEngineVersion = Objects.requireNonNull(sourceEngineVersion);
             return this;
-        }        public InstanceS3Import build() {
-            return new InstanceS3Import(bucketName, bucketPrefix, ingestionRole, sourceEngine, sourceEngineVersion);
+        }
+        public InstanceS3Import build() {
+            final var o = new InstanceS3Import();
+            o.bucketName = bucketName;
+            o.bucketPrefix = bucketPrefix;
+            o.ingestionRole = ingestionRole;
+            o.sourceEngine = sourceEngine;
+            o.sourceEngineVersion = sourceEngineVersion;
+            return o;
         }
     }
 }

@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
-    @CustomType.Constructor
-    private WebAclRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments() {
-    }
-
+    private WebAclRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleStatementNotStatementStatementSqliMatchStatementFie
     public static Builder builder(WebAclRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments build() {
-            return new WebAclRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments();
+            final var o = new WebAclRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments();
+            return o;
         }
     }
 }

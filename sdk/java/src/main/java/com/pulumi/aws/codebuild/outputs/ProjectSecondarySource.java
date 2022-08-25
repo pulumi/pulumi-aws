@@ -24,77 +24,54 @@ public final class ProjectSecondarySource {
      * 
      */
     @Deprecated /* Use the aws_codebuild_source_credential resource instead */
-    private final @Nullable ProjectSecondarySourceAuth auth;
+    private @Nullable ProjectSecondarySourceAuth auth;
     /**
      * @return Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
      * 
      */
-    private final @Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig;
+    private @Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig;
     /**
      * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
      * 
      */
-    private final @Nullable String buildspec;
+    private @Nullable String buildspec;
     /**
      * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
      * 
      */
-    private final @Nullable Integer gitCloneDepth;
+    private @Nullable Integer gitCloneDepth;
     /**
      * @return Configuration block. Detailed below.
      * 
      */
-    private final @Nullable ProjectSecondarySourceGitSubmodulesConfig gitSubmodulesConfig;
+    private @Nullable ProjectSecondarySourceGitSubmodulesConfig gitSubmodulesConfig;
     /**
      * @return Ignore SSL warnings when connecting to source control.
      * 
      */
-    private final @Nullable Boolean insecureSsl;
+    private @Nullable Boolean insecureSsl;
     /**
      * @return Location of the source code from git or s3.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
      * 
      */
-    private final @Nullable Boolean reportBuildStatus;
+    private @Nullable Boolean reportBuildStatus;
     /**
      * @return An identifier for a source in the build project.
      * 
      */
-    private final String sourceIdentifier;
+    private String sourceIdentifier;
     /**
      * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ProjectSecondarySource(
-        @CustomType.Parameter("auth") @Nullable ProjectSecondarySourceAuth auth,
-        @CustomType.Parameter("buildStatusConfig") @Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig,
-        @CustomType.Parameter("buildspec") @Nullable String buildspec,
-        @CustomType.Parameter("gitCloneDepth") @Nullable Integer gitCloneDepth,
-        @CustomType.Parameter("gitSubmodulesConfig") @Nullable ProjectSecondarySourceGitSubmodulesConfig gitSubmodulesConfig,
-        @CustomType.Parameter("insecureSsl") @Nullable Boolean insecureSsl,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("reportBuildStatus") @Nullable Boolean reportBuildStatus,
-        @CustomType.Parameter("sourceIdentifier") String sourceIdentifier,
-        @CustomType.Parameter("type") String type) {
-        this.auth = auth;
-        this.buildStatusConfig = buildStatusConfig;
-        this.buildspec = buildspec;
-        this.gitCloneDepth = gitCloneDepth;
-        this.gitSubmodulesConfig = gitSubmodulesConfig;
-        this.insecureSsl = insecureSsl;
-        this.location = location;
-        this.reportBuildStatus = reportBuildStatus;
-        this.sourceIdentifier = sourceIdentifier;
-        this.type = type;
-    }
-
+    private ProjectSecondarySource() {}
     /**
      * @return Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
      * 
@@ -177,7 +154,7 @@ public final class ProjectSecondarySource {
     public static Builder builder(ProjectSecondarySource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ProjectSecondarySourceAuth auth;
         private @Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig;
@@ -189,11 +166,7 @@ public final class ProjectSecondarySource {
         private @Nullable Boolean reportBuildStatus;
         private String sourceIdentifier;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectSecondarySource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auth = defaults.auth;
@@ -208,47 +181,69 @@ public final class ProjectSecondarySource {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder auth(@Nullable ProjectSecondarySourceAuth auth) {
             this.auth = auth;
             return this;
         }
+        @CustomType.Setter
         public Builder buildStatusConfig(@Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig) {
             this.buildStatusConfig = buildStatusConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder buildspec(@Nullable String buildspec) {
             this.buildspec = buildspec;
             return this;
         }
+        @CustomType.Setter
         public Builder gitCloneDepth(@Nullable Integer gitCloneDepth) {
             this.gitCloneDepth = gitCloneDepth;
             return this;
         }
+        @CustomType.Setter
         public Builder gitSubmodulesConfig(@Nullable ProjectSecondarySourceGitSubmodulesConfig gitSubmodulesConfig) {
             this.gitSubmodulesConfig = gitSubmodulesConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder insecureSsl(@Nullable Boolean insecureSsl) {
             this.insecureSsl = insecureSsl;
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder reportBuildStatus(@Nullable Boolean reportBuildStatus) {
             this.reportBuildStatus = reportBuildStatus;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceIdentifier(String sourceIdentifier) {
             this.sourceIdentifier = Objects.requireNonNull(sourceIdentifier);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ProjectSecondarySource build() {
-            return new ProjectSecondarySource(auth, buildStatusConfig, buildspec, gitCloneDepth, gitSubmodulesConfig, insecureSsl, location, reportBuildStatus, sourceIdentifier, type);
+        }
+        public ProjectSecondarySource build() {
+            final var o = new ProjectSecondarySource();
+            o.auth = auth;
+            o.buildStatusConfig = buildStatusConfig;
+            o.buildspec = buildspec;
+            o.gitCloneDepth = gitCloneDepth;
+            o.gitSubmodulesConfig = gitSubmodulesConfig;
+            o.insecureSsl = insecureSsl;
+            o.location = location;
+            o.reportBuildStatus = reportBuildStatus;
+            o.sourceIdentifier = sourceIdentifier;
+            o.type = type;
+            return o;
         }
     }
 }

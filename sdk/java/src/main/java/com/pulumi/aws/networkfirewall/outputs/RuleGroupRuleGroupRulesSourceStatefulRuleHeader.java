@@ -13,49 +13,34 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
      * @return The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
      * 
      */
-    private final String destination;
+    private String destination;
     /**
      * @return The destination port to inspect for. To match with any address, specify `ANY`.
      * 
      */
-    private final String destinationPort;
+    private String destinationPort;
     /**
      * @return The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
      * 
      */
-    private final String direction;
+    private String direction;
     /**
      * @return The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
      * 
      */
-    private final String source;
+    private String source;
     /**
      * @return The source port to inspect for. To match with any address, specify `ANY`.
      * 
      */
-    private final String sourcePort;
+    private String sourcePort;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRulesSourceStatefulRuleHeader(
-        @CustomType.Parameter("destination") String destination,
-        @CustomType.Parameter("destinationPort") String destinationPort,
-        @CustomType.Parameter("direction") String direction,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("source") String source,
-        @CustomType.Parameter("sourcePort") String sourcePort) {
-        this.destination = destination;
-        this.destinationPort = destinationPort;
-        this.direction = direction;
-        this.protocol = protocol;
-        this.source = source;
-        this.sourcePort = sourcePort;
-    }
-
+    private RuleGroupRuleGroupRulesSourceStatefulRuleHeader() {}
     /**
      * @return The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
      * 
@@ -106,7 +91,7 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
     public static Builder builder(RuleGroupRuleGroupRulesSourceStatefulRuleHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destination;
         private String destinationPort;
@@ -114,11 +99,7 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
         private String protocol;
         private String source;
         private String sourcePort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRulesSourceStatefulRuleHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destination = defaults.destination;
@@ -129,31 +110,45 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
     	      this.sourcePort = defaults.sourcePort;
         }
 
+        @CustomType.Setter
         public Builder destination(String destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
         }
+        @CustomType.Setter
         public Builder destinationPort(String destinationPort) {
             this.destinationPort = Objects.requireNonNull(destinationPort);
             return this;
         }
+        @CustomType.Setter
         public Builder direction(String direction) {
             this.direction = Objects.requireNonNull(direction);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
         }
+        @CustomType.Setter
         public Builder sourcePort(String sourcePort) {
             this.sourcePort = Objects.requireNonNull(sourcePort);
             return this;
-        }        public RuleGroupRuleGroupRulesSourceStatefulRuleHeader build() {
-            return new RuleGroupRuleGroupRulesSourceStatefulRuleHeader(destination, destinationPort, direction, protocol, source, sourcePort);
+        }
+        public RuleGroupRuleGroupRulesSourceStatefulRuleHeader build() {
+            final var o = new RuleGroupRuleGroupRulesSourceStatefulRuleHeader();
+            o.destination = destination;
+            o.destinationPort = destinationPort;
+            o.direction = direction;
+            o.protocol = protocol;
+            o.source = source;
+            o.sourcePort = sourcePort;
+            return o;
         }
     }
 }

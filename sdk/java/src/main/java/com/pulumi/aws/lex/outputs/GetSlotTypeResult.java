@@ -18,39 +18,39 @@ public final class GetSlotTypeResult {
      * not included as an argument because the resource will add it automatically when updating the slot type.
      * 
      */
-    private final String checksum;
+    private String checksum;
     /**
      * @return The date when the slot type version was created.
      * 
      */
-    private final String createdDate;
+    private String createdDate;
     /**
      * @return A description of the slot type.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return A set of EnumerationValue objects that defines the values that
      * the slot type can take. Each value can have a set of synonyms, which are additional values that help
      * train the machine learning model about the values that it resolves for a slot.
      * 
      */
-    private final List<GetSlotTypeEnumerationValue> enumerationValues;
+    private List<GetSlotTypeEnumerationValue> enumerationValues;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The date when the $LATEST version of this slot type was updated.
      * 
      */
-    private final String lastUpdatedDate;
+    private String lastUpdatedDate;
     /**
      * @return The name of the slot type. The name is not case sensitive.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -58,35 +58,14 @@ public final class GetSlotTypeResult {
      * if there is a resolution list for the slot, otherwise null is returned.
      * 
      */
-    private final String valueSelectionStrategy;
+    private String valueSelectionStrategy;
     /**
      * @return The version of the slot type.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private GetSlotTypeResult(
-        @CustomType.Parameter("checksum") String checksum,
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("enumerationValues") List<GetSlotTypeEnumerationValue> enumerationValues,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastUpdatedDate") String lastUpdatedDate,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("valueSelectionStrategy") String valueSelectionStrategy,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.checksum = checksum;
-        this.createdDate = createdDate;
-        this.description = description;
-        this.enumerationValues = enumerationValues;
-        this.id = id;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.name = name;
-        this.valueSelectionStrategy = valueSelectionStrategy;
-        this.version = version;
-    }
-
+    private GetSlotTypeResult() {}
     /**
      * @return Checksum identifying the version of the slot type that was created. The checksum is
      * not included as an argument because the resource will add it automatically when updating the slot type.
@@ -164,7 +143,7 @@ public final class GetSlotTypeResult {
     public static Builder builder(GetSlotTypeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String checksum;
         private String createdDate;
@@ -175,11 +154,7 @@ public final class GetSlotTypeResult {
         private String name;
         private String valueSelectionStrategy;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSlotTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.checksum = defaults.checksum;
@@ -193,18 +168,22 @@ public final class GetSlotTypeResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder checksum(String checksum) {
             this.checksum = Objects.requireNonNull(checksum);
             return this;
         }
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder enumerationValues(List<GetSlotTypeEnumerationValue> enumerationValues) {
             this.enumerationValues = Objects.requireNonNull(enumerationValues);
             return this;
@@ -212,27 +191,43 @@ public final class GetSlotTypeResult {
         public Builder enumerationValues(GetSlotTypeEnumerationValue... enumerationValues) {
             return enumerationValues(List.of(enumerationValues));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
             this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder valueSelectionStrategy(String valueSelectionStrategy) {
             this.valueSelectionStrategy = Objects.requireNonNull(valueSelectionStrategy);
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public GetSlotTypeResult build() {
-            return new GetSlotTypeResult(checksum, createdDate, description, enumerationValues, id, lastUpdatedDate, name, valueSelectionStrategy, version);
+        }
+        public GetSlotTypeResult build() {
+            final var o = new GetSlotTypeResult();
+            o.checksum = checksum;
+            o.createdDate = createdDate;
+            o.description = description;
+            o.enumerationValues = enumerationValues;
+            o.id = id;
+            o.lastUpdatedDate = lastUpdatedDate;
+            o.name = name;
+            o.valueSelectionStrategy = valueSelectionStrategy;
+            o.version = version;
+            return o;
         }
     }
 }

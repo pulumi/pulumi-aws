@@ -16,28 +16,19 @@ public final class GetCostCategoryRuleRuleOr {
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
      */
-    private final List<GetCostCategoryRuleRuleOrCostCategory> costCategories;
+    private List<GetCostCategoryRuleRuleOrCostCategory> costCategories;
     /**
      * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
-    private final List<GetCostCategoryRuleRuleOrDimension> dimensions;
+    private List<GetCostCategoryRuleRuleOrDimension> dimensions;
     /**
      * @return Resource tags.
      * 
      */
-    private final List<GetCostCategoryRuleRuleOrTag> tags;
+    private List<GetCostCategoryRuleRuleOrTag> tags;
 
-    @CustomType.Constructor
-    private GetCostCategoryRuleRuleOr(
-        @CustomType.Parameter("costCategories") List<GetCostCategoryRuleRuleOrCostCategory> costCategories,
-        @CustomType.Parameter("dimensions") List<GetCostCategoryRuleRuleOrDimension> dimensions,
-        @CustomType.Parameter("tags") List<GetCostCategoryRuleRuleOrTag> tags) {
-        this.costCategories = costCategories;
-        this.dimensions = dimensions;
-        this.tags = tags;
-    }
-
+    private GetCostCategoryRuleRuleOr() {}
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
@@ -67,16 +58,12 @@ public final class GetCostCategoryRuleRuleOr {
     public static Builder builder(GetCostCategoryRuleRuleOr defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetCostCategoryRuleRuleOrCostCategory> costCategories;
         private List<GetCostCategoryRuleRuleOrDimension> dimensions;
         private List<GetCostCategoryRuleRuleOrTag> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCostCategoryRuleRuleOr defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.costCategories = defaults.costCategories;
@@ -84,6 +71,7 @@ public final class GetCostCategoryRuleRuleOr {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder costCategories(List<GetCostCategoryRuleRuleOrCostCategory> costCategories) {
             this.costCategories = Objects.requireNonNull(costCategories);
             return this;
@@ -91,6 +79,7 @@ public final class GetCostCategoryRuleRuleOr {
         public Builder costCategories(GetCostCategoryRuleRuleOrCostCategory... costCategories) {
             return costCategories(List.of(costCategories));
         }
+        @CustomType.Setter
         public Builder dimensions(List<GetCostCategoryRuleRuleOrDimension> dimensions) {
             this.dimensions = Objects.requireNonNull(dimensions);
             return this;
@@ -98,14 +87,20 @@ public final class GetCostCategoryRuleRuleOr {
         public Builder dimensions(GetCostCategoryRuleRuleOrDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder tags(List<GetCostCategoryRuleRuleOrTag> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
         public Builder tags(GetCostCategoryRuleRuleOrTag... tags) {
             return tags(List.of(tags));
-        }        public GetCostCategoryRuleRuleOr build() {
-            return new GetCostCategoryRuleRuleOr(costCategories, dimensions, tags);
+        }
+        public GetCostCategoryRuleRuleOr build() {
+            final var o = new GetCostCategoryRuleRuleOr();
+            o.costCategories = costCategories;
+            o.dimensions = dimensions;
+            o.tags = tags;
+            return o;
         }
     }
 }

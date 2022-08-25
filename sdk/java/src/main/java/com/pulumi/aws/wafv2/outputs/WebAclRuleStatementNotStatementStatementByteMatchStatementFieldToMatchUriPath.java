@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath {
-    @CustomType.Constructor
-    private WebAclRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath() {
-    }
-
+    private WebAclRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleStatementNotStatementStatementByteMatchStatementFie
     public static Builder builder(WebAclRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath build() {
-            return new WebAclRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath();
+            final var o = new WebAclRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath();
+            return o;
         }
     }
 }

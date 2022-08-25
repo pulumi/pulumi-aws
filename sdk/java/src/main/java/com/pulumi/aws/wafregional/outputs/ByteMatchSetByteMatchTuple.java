@@ -16,35 +16,24 @@ public final class ByteMatchSetByteMatchTuple {
      * @return Settings for the ByteMatchTuple. FieldToMatch documented below.
      * 
      */
-    private final ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch;
+    private ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch;
     /**
      * @return Within the portion of a web request that you want to search.
      * 
      */
-    private final String positionalConstraint;
+    private String positionalConstraint;
     /**
      * @return The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
      * 
      */
-    private final @Nullable String targetString;
+    private @Nullable String targetString;
     /**
      * @return The formatting way for web request.
      * 
      */
-    private final String textTransformation;
+    private String textTransformation;
 
-    @CustomType.Constructor
-    private ByteMatchSetByteMatchTuple(
-        @CustomType.Parameter("fieldToMatch") ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch,
-        @CustomType.Parameter("positionalConstraint") String positionalConstraint,
-        @CustomType.Parameter("targetString") @Nullable String targetString,
-        @CustomType.Parameter("textTransformation") String textTransformation) {
-        this.fieldToMatch = fieldToMatch;
-        this.positionalConstraint = positionalConstraint;
-        this.targetString = targetString;
-        this.textTransformation = textTransformation;
-    }
-
+    private ByteMatchSetByteMatchTuple() {}
     /**
      * @return Settings for the ByteMatchTuple. FieldToMatch documented below.
      * 
@@ -81,17 +70,13 @@ public final class ByteMatchSetByteMatchTuple {
     public static Builder builder(ByteMatchSetByteMatchTuple defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch;
         private String positionalConstraint;
         private @Nullable String targetString;
         private String textTransformation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ByteMatchSetByteMatchTuple defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
@@ -100,23 +85,33 @@ public final class ByteMatchSetByteMatchTuple {
     	      this.textTransformation = defaults.textTransformation;
         }
 
+        @CustomType.Setter
         public Builder fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch) {
             this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
             return this;
         }
+        @CustomType.Setter
         public Builder positionalConstraint(String positionalConstraint) {
             this.positionalConstraint = Objects.requireNonNull(positionalConstraint);
             return this;
         }
+        @CustomType.Setter
         public Builder targetString(@Nullable String targetString) {
             this.targetString = targetString;
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
             this.textTransformation = Objects.requireNonNull(textTransformation);
             return this;
-        }        public ByteMatchSetByteMatchTuple build() {
-            return new ByteMatchSetByteMatchTuple(fieldToMatch, positionalConstraint, targetString, textTransformation);
+        }
+        public ByteMatchSetByteMatchTuple build() {
+            final var o = new ByteMatchSetByteMatchTuple();
+            o.fieldToMatch = fieldToMatch;
+            o.positionalConstraint = positionalConstraint;
+            o.targetString = targetString;
+            o.textTransformation = textTransformation;
+            return o;
         }
     }
 }

@@ -14,28 +14,19 @@ public final class LifecyclePolicyPolicyDetailsEventSourceParameters {
      * @return The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
      * 
      */
-    private final String descriptionRegex;
+    private String descriptionRegex;
     /**
      * @return The type of event. Currently, only `shareSnapshot` events are supported.
      * 
      */
-    private final String eventType;
+    private String eventType;
     /**
      * @return The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
      * 
      */
-    private final List<String> snapshotOwners;
+    private List<String> snapshotOwners;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsEventSourceParameters(
-        @CustomType.Parameter("descriptionRegex") String descriptionRegex,
-        @CustomType.Parameter("eventType") String eventType,
-        @CustomType.Parameter("snapshotOwners") List<String> snapshotOwners) {
-        this.descriptionRegex = descriptionRegex;
-        this.eventType = eventType;
-        this.snapshotOwners = snapshotOwners;
-    }
-
+    private LifecyclePolicyPolicyDetailsEventSourceParameters() {}
     /**
      * @return The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
      * 
@@ -65,16 +56,12 @@ public final class LifecyclePolicyPolicyDetailsEventSourceParameters {
     public static Builder builder(LifecyclePolicyPolicyDetailsEventSourceParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String descriptionRegex;
         private String eventType;
         private List<String> snapshotOwners;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsEventSourceParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.descriptionRegex = defaults.descriptionRegex;
@@ -82,22 +69,30 @@ public final class LifecyclePolicyPolicyDetailsEventSourceParameters {
     	      this.snapshotOwners = defaults.snapshotOwners;
         }
 
+        @CustomType.Setter
         public Builder descriptionRegex(String descriptionRegex) {
             this.descriptionRegex = Objects.requireNonNull(descriptionRegex);
             return this;
         }
+        @CustomType.Setter
         public Builder eventType(String eventType) {
             this.eventType = Objects.requireNonNull(eventType);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotOwners(List<String> snapshotOwners) {
             this.snapshotOwners = Objects.requireNonNull(snapshotOwners);
             return this;
         }
         public Builder snapshotOwners(String... snapshotOwners) {
             return snapshotOwners(List.of(snapshotOwners));
-        }        public LifecyclePolicyPolicyDetailsEventSourceParameters build() {
-            return new LifecyclePolicyPolicyDetailsEventSourceParameters(descriptionRegex, eventType, snapshotOwners);
+        }
+        public LifecyclePolicyPolicyDetailsEventSourceParameters build() {
+            final var o = new LifecyclePolicyPolicyDetailsEventSourceParameters();
+            o.descriptionRegex = descriptionRegex;
+            o.eventType = eventType;
+            o.snapshotOwners = snapshotOwners;
+            return o;
         }
     }
 }

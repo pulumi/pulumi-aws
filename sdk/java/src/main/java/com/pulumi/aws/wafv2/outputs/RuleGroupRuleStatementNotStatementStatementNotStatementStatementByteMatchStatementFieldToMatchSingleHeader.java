@@ -13,13 +13,9 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
      * @return The name of the query header to inspect. This setting must be provided as lower case characters.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader() {}
     /**
      * @return The name of the query header to inspect. This setting must be provided as lower case characters.
      * 
@@ -35,24 +31,24 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
     public static Builder builder(RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader build() {
-            return new RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader(name);
+        }
+        public RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader build() {
+            final var o = new RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader();
+            o.name = name;
+            return o;
         }
     }
 }

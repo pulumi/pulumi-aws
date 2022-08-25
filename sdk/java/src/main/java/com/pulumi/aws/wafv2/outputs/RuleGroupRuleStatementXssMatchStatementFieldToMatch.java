@@ -21,56 +21,39 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatch {
      * @return Inspect all query arguments.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
+    private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
     /**
      * @return Inspect the request body, which immediately follows the request headers.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchBody body;
+    private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchBody body;
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod method;
+    private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod method;
     /**
      * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString queryString;
+    private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString queryString;
     /**
      * @return Inspect a single header. See Single Header below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader singleHeader;
+    private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader singleHeader;
     /**
      * @return Inspect a single query argument. See Single Query Argument below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+    private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
     /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath uriPath;
+    private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath uriPath;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementXssMatchStatementFieldToMatch(
-        @CustomType.Parameter("allQueryArguments") @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments allQueryArguments,
-        @CustomType.Parameter("body") @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchBody body,
-        @CustomType.Parameter("method") @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod method,
-        @CustomType.Parameter("queryString") @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString queryString,
-        @CustomType.Parameter("singleHeader") @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader singleHeader,
-        @CustomType.Parameter("singleQueryArgument") @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument,
-        @CustomType.Parameter("uriPath") @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath uriPath) {
-        this.allQueryArguments = allQueryArguments;
-        this.body = body;
-        this.method = method;
-        this.queryString = queryString;
-        this.singleHeader = singleHeader;
-        this.singleQueryArgument = singleQueryArgument;
-        this.uriPath = uriPath;
-    }
-
+    private RuleGroupRuleStatementXssMatchStatementFieldToMatch() {}
     /**
      * @return Inspect all query arguments.
      * 
@@ -128,7 +111,7 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatch {
     public static Builder builder(RuleGroupRuleStatementXssMatchStatementFieldToMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchBody body;
@@ -137,11 +120,7 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatch {
         private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader singleHeader;
         private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
         private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath uriPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementXssMatchStatementFieldToMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allQueryArguments = defaults.allQueryArguments;
@@ -153,35 +132,51 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatch {
     	      this.uriPath = defaults.uriPath;
         }
 
+        @CustomType.Setter
         public Builder allQueryArguments(@Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments allQueryArguments) {
             this.allQueryArguments = allQueryArguments;
             return this;
         }
+        @CustomType.Setter
         public Builder body(@Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchBody body) {
             this.body = body;
             return this;
         }
+        @CustomType.Setter
         public Builder method(@Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod method) {
             this.method = method;
             return this;
         }
+        @CustomType.Setter
         public Builder queryString(@Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString queryString) {
             this.queryString = queryString;
             return this;
         }
+        @CustomType.Setter
         public Builder singleHeader(@Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader singleHeader) {
             this.singleHeader = singleHeader;
             return this;
         }
+        @CustomType.Setter
         public Builder singleQueryArgument(@Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument) {
             this.singleQueryArgument = singleQueryArgument;
             return this;
         }
+        @CustomType.Setter
         public Builder uriPath(@Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath uriPath) {
             this.uriPath = uriPath;
             return this;
-        }        public RuleGroupRuleStatementXssMatchStatementFieldToMatch build() {
-            return new RuleGroupRuleStatementXssMatchStatementFieldToMatch(allQueryArguments, body, method, queryString, singleHeader, singleQueryArgument, uriPath);
+        }
+        public RuleGroupRuleStatementXssMatchStatementFieldToMatch build() {
+            final var o = new RuleGroupRuleStatementXssMatchStatementFieldToMatch();
+            o.allQueryArguments = allQueryArguments;
+            o.body = body;
+            o.method = method;
+            o.queryString = queryString;
+            o.singleHeader = singleHeader;
+            o.singleQueryArgument = singleQueryArgument;
+            o.uriPath = uriPath;
+            return o;
         }
     }
 }

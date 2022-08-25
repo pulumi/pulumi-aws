@@ -15,13 +15,9 @@ public final class JobExecutionProperty {
      * @return The maximum number of concurrent runs allowed for a job. The default is 1.
      * 
      */
-    private final @Nullable Integer maxConcurrentRuns;
+    private @Nullable Integer maxConcurrentRuns;
 
-    @CustomType.Constructor
-    private JobExecutionProperty(@CustomType.Parameter("maxConcurrentRuns") @Nullable Integer maxConcurrentRuns) {
-        this.maxConcurrentRuns = maxConcurrentRuns;
-    }
-
+    private JobExecutionProperty() {}
     /**
      * @return The maximum number of concurrent runs allowed for a job. The default is 1.
      * 
@@ -37,24 +33,24 @@ public final class JobExecutionProperty {
     public static Builder builder(JobExecutionProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxConcurrentRuns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(JobExecutionProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxConcurrentRuns = defaults.maxConcurrentRuns;
         }
 
+        @CustomType.Setter
         public Builder maxConcurrentRuns(@Nullable Integer maxConcurrentRuns) {
             this.maxConcurrentRuns = maxConcurrentRuns;
             return this;
-        }        public JobExecutionProperty build() {
-            return new JobExecutionProperty(maxConcurrentRuns);
+        }
+        public JobExecutionProperty build() {
+            final var o = new JobExecutionProperty();
+            o.maxConcurrentRuns = maxConcurrentRuns;
+            return o;
         }
     }
 }

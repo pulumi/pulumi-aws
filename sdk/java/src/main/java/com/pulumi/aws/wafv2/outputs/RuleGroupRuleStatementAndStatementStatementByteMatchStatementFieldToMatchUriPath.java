@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath {
-    @CustomType.Constructor
-    private RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath() {
-    }
-
+    private RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class RuleGroupRuleStatementAndStatementStatementByteMatchStatement
     public static Builder builder(RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath build() {
-            return new RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath();
+            final var o = new RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath();
+            return o;
         }
     }
 }

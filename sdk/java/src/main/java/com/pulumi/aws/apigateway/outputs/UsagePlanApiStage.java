@@ -16,28 +16,19 @@ public final class UsagePlanApiStage {
      * @return API Id of the associated API stage in a usage plan.
      * 
      */
-    private final String apiId;
+    private String apiId;
     /**
      * @return API stage name of the associated API stage in a usage plan.
      * 
      */
-    private final String stage;
+    private String stage;
     /**
      * @return The throttling limits of the usage plan.
      * 
      */
-    private final @Nullable List<UsagePlanApiStageThrottle> throttles;
+    private @Nullable List<UsagePlanApiStageThrottle> throttles;
 
-    @CustomType.Constructor
-    private UsagePlanApiStage(
-        @CustomType.Parameter("apiId") String apiId,
-        @CustomType.Parameter("stage") String stage,
-        @CustomType.Parameter("throttles") @Nullable List<UsagePlanApiStageThrottle> throttles) {
-        this.apiId = apiId;
-        this.stage = stage;
-        this.throttles = throttles;
-    }
-
+    private UsagePlanApiStage() {}
     /**
      * @return API Id of the associated API stage in a usage plan.
      * 
@@ -67,16 +58,12 @@ public final class UsagePlanApiStage {
     public static Builder builder(UsagePlanApiStage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiId;
         private String stage;
         private @Nullable List<UsagePlanApiStageThrottle> throttles;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UsagePlanApiStage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiId = defaults.apiId;
@@ -84,22 +71,30 @@ public final class UsagePlanApiStage {
     	      this.throttles = defaults.throttles;
         }
 
+        @CustomType.Setter
         public Builder apiId(String apiId) {
             this.apiId = Objects.requireNonNull(apiId);
             return this;
         }
+        @CustomType.Setter
         public Builder stage(String stage) {
             this.stage = Objects.requireNonNull(stage);
             return this;
         }
+        @CustomType.Setter
         public Builder throttles(@Nullable List<UsagePlanApiStageThrottle> throttles) {
             this.throttles = throttles;
             return this;
         }
         public Builder throttles(UsagePlanApiStageThrottle... throttles) {
             return throttles(List.of(throttles));
-        }        public UsagePlanApiStage build() {
-            return new UsagePlanApiStage(apiId, stage, throttles);
+        }
+        public UsagePlanApiStage build() {
+            final var o = new UsagePlanApiStage();
+            o.apiId = apiId;
+            o.stage = stage;
+            o.throttles = throttles;
+            return o;
         }
     }
 }

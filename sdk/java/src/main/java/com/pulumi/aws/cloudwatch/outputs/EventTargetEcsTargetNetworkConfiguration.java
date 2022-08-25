@@ -17,28 +17,19 @@ public final class EventTargetEcsTargetNetworkConfiguration {
      * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
      * 
      */
-    private final @Nullable Boolean assignPublicIp;
+    private @Nullable Boolean assignPublicIp;
     /**
      * @return The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
      * 
      */
-    private final @Nullable List<String> securityGroups;
+    private @Nullable List<String> securityGroups;
     /**
      * @return The subnets associated with the task or service.
      * 
      */
-    private final List<String> subnets;
+    private List<String> subnets;
 
-    @CustomType.Constructor
-    private EventTargetEcsTargetNetworkConfiguration(
-        @CustomType.Parameter("assignPublicIp") @Nullable Boolean assignPublicIp,
-        @CustomType.Parameter("securityGroups") @Nullable List<String> securityGroups,
-        @CustomType.Parameter("subnets") List<String> subnets) {
-        this.assignPublicIp = assignPublicIp;
-        this.securityGroups = securityGroups;
-        this.subnets = subnets;
-    }
-
+    private EventTargetEcsTargetNetworkConfiguration() {}
     /**
      * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
      * 
@@ -68,16 +59,12 @@ public final class EventTargetEcsTargetNetworkConfiguration {
     public static Builder builder(EventTargetEcsTargetNetworkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean assignPublicIp;
         private @Nullable List<String> securityGroups;
         private List<String> subnets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventTargetEcsTargetNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.assignPublicIp = defaults.assignPublicIp;
@@ -85,10 +72,12 @@ public final class EventTargetEcsTargetNetworkConfiguration {
     	      this.subnets = defaults.subnets;
         }
 
+        @CustomType.Setter
         public Builder assignPublicIp(@Nullable Boolean assignPublicIp) {
             this.assignPublicIp = assignPublicIp;
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
             this.securityGroups = securityGroups;
             return this;
@@ -96,14 +85,20 @@ public final class EventTargetEcsTargetNetworkConfiguration {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
         }
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
-        }        public EventTargetEcsTargetNetworkConfiguration build() {
-            return new EventTargetEcsTargetNetworkConfiguration(assignPublicIp, securityGroups, subnets);
+        }
+        public EventTargetEcsTargetNetworkConfiguration build() {
+            final var o = new EventTargetEcsTargetNetworkConfiguration();
+            o.assignPublicIp = assignPublicIp;
+            o.securityGroups = securityGroups;
+            o.subnets = subnets;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class TopicRuleErrorActionStepFunctions {
      * @return The prefix used to generate, along with a UUID, the unique state machine execution name.
      * 
      */
-    private final @Nullable String executionNamePrefix;
+    private @Nullable String executionNamePrefix;
     /**
      * @return The ARN of the IAM role that grants access to start execution of the state machine.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The name of the Step Functions state machine whose execution will be started.
      * 
      */
-    private final String stateMachineName;
+    private String stateMachineName;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionStepFunctions(
-        @CustomType.Parameter("executionNamePrefix") @Nullable String executionNamePrefix,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("stateMachineName") String stateMachineName) {
-        this.executionNamePrefix = executionNamePrefix;
-        this.roleArn = roleArn;
-        this.stateMachineName = stateMachineName;
-    }
-
+    private TopicRuleErrorActionStepFunctions() {}
     /**
      * @return The prefix used to generate, along with a UUID, the unique state machine execution name.
      * 
@@ -66,16 +57,12 @@ public final class TopicRuleErrorActionStepFunctions {
     public static Builder builder(TopicRuleErrorActionStepFunctions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String executionNamePrefix;
         private String roleArn;
         private String stateMachineName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionStepFunctions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.executionNamePrefix = defaults.executionNamePrefix;
@@ -83,19 +70,27 @@ public final class TopicRuleErrorActionStepFunctions {
     	      this.stateMachineName = defaults.stateMachineName;
         }
 
+        @CustomType.Setter
         public Builder executionNamePrefix(@Nullable String executionNamePrefix) {
             this.executionNamePrefix = executionNamePrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder stateMachineName(String stateMachineName) {
             this.stateMachineName = Objects.requireNonNull(stateMachineName);
             return this;
-        }        public TopicRuleErrorActionStepFunctions build() {
-            return new TopicRuleErrorActionStepFunctions(executionNamePrefix, roleArn, stateMachineName);
+        }
+        public TopicRuleErrorActionStepFunctions build() {
+            final var o = new TopicRuleErrorActionStepFunctions();
+            o.executionNamePrefix = executionNamePrefix;
+            o.roleArn = roleArn;
+            o.stateMachineName = stateMachineName;
+            return o;
         }
     }
 }

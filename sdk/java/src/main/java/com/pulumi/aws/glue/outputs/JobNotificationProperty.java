@@ -15,13 +15,9 @@ public final class JobNotificationProperty {
      * @return After a job run starts, the number of minutes to wait before sending a job run delay notification.
      * 
      */
-    private final @Nullable Integer notifyDelayAfter;
+    private @Nullable Integer notifyDelayAfter;
 
-    @CustomType.Constructor
-    private JobNotificationProperty(@CustomType.Parameter("notifyDelayAfter") @Nullable Integer notifyDelayAfter) {
-        this.notifyDelayAfter = notifyDelayAfter;
-    }
-
+    private JobNotificationProperty() {}
     /**
      * @return After a job run starts, the number of minutes to wait before sending a job run delay notification.
      * 
@@ -37,24 +33,24 @@ public final class JobNotificationProperty {
     public static Builder builder(JobNotificationProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer notifyDelayAfter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(JobNotificationProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.notifyDelayAfter = defaults.notifyDelayAfter;
         }
 
+        @CustomType.Setter
         public Builder notifyDelayAfter(@Nullable Integer notifyDelayAfter) {
             this.notifyDelayAfter = notifyDelayAfter;
             return this;
-        }        public JobNotificationProperty build() {
-            return new JobNotificationProperty(notifyDelayAfter);
+        }
+        public JobNotificationProperty build() {
+            final var o = new JobNotificationProperty();
+            o.notifyDelayAfter = notifyDelayAfter;
+            return o;
         }
     }
 }

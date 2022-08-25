@@ -13,35 +13,24 @@ public final class GetDomainIdentityResult {
      * @return The ARN of the domain identity.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The name of the domain
      * 
      */
-    private final String domain;
+    private String domain;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      * 
      */
-    private final String verificationToken;
+    private String verificationToken;
 
-    @CustomType.Constructor
-    private GetDomainIdentityResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("domain") String domain,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("verificationToken") String verificationToken) {
-        this.arn = arn;
-        this.domain = domain;
-        this.id = id;
-        this.verificationToken = verificationToken;
-    }
-
+    private GetDomainIdentityResult() {}
     /**
      * @return The ARN of the domain identity.
      * 
@@ -78,17 +67,13 @@ public final class GetDomainIdentityResult {
     public static Builder builder(GetDomainIdentityResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String domain;
         private String id;
         private String verificationToken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -97,23 +82,33 @@ public final class GetDomainIdentityResult {
     	      this.verificationToken = defaults.verificationToken;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder domain(String domain) {
             this.domain = Objects.requireNonNull(domain);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder verificationToken(String verificationToken) {
             this.verificationToken = Objects.requireNonNull(verificationToken);
             return this;
-        }        public GetDomainIdentityResult build() {
-            return new GetDomainIdentityResult(arn, domain, id, verificationToken);
+        }
+        public GetDomainIdentityResult build() {
+            final var o = new GetDomainIdentityResult();
+            o.arn = arn;
+            o.domain = domain;
+            o.id = id;
+            o.verificationToken = verificationToken;
+            return o;
         }
     }
 }

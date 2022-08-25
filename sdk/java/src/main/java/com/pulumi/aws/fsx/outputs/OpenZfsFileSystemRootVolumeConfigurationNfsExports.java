@@ -14,13 +14,9 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExports {
      * @return - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
      * 
      */
-    private final List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration> clientConfigurations;
+    private List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration> clientConfigurations;
 
-    @CustomType.Constructor
-    private OpenZfsFileSystemRootVolumeConfigurationNfsExports(@CustomType.Parameter("clientConfigurations") List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration> clientConfigurations) {
-        this.clientConfigurations = clientConfigurations;
-    }
-
+    private OpenZfsFileSystemRootVolumeConfigurationNfsExports() {}
     /**
      * @return - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
      * 
@@ -36,27 +32,27 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExports {
     public static Builder builder(OpenZfsFileSystemRootVolumeConfigurationNfsExports defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration> clientConfigurations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OpenZfsFileSystemRootVolumeConfigurationNfsExports defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientConfigurations = defaults.clientConfigurations;
         }
 
+        @CustomType.Setter
         public Builder clientConfigurations(List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration> clientConfigurations) {
             this.clientConfigurations = Objects.requireNonNull(clientConfigurations);
             return this;
         }
         public Builder clientConfigurations(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration... clientConfigurations) {
             return clientConfigurations(List.of(clientConfigurations));
-        }        public OpenZfsFileSystemRootVolumeConfigurationNfsExports build() {
-            return new OpenZfsFileSystemRootVolumeConfigurationNfsExports(clientConfigurations);
+        }
+        public OpenZfsFileSystemRootVolumeConfigurationNfsExports build() {
+            final var o = new OpenZfsFileSystemRootVolumeConfigurationNfsExports();
+            o.clientConfigurations = clientConfigurations;
+            return o;
         }
     }
 }

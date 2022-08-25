@@ -14,59 +14,40 @@ public final class GetGeofenceCollectionResult {
      * @return The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    private final String collectionArn;
-    private final String collectionName;
+    private String collectionArn;
+    private String collectionName;
     /**
      * @return The timestamp for when the geofence collection resource was created in ISO 8601 format.
      * 
      */
-    private final String createTime;
+    private String createTime;
     /**
      * @return The optional description of the geofence collection resource.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
-    private final String kmsKeyId;
+    private String kmsKeyId;
     /**
      * @return Key-value map of resource tags for the geofence collection.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      * 
      */
-    private final String updateTime;
+    private String updateTime;
 
-    @CustomType.Constructor
-    private GetGeofenceCollectionResult(
-        @CustomType.Parameter("collectionArn") String collectionArn,
-        @CustomType.Parameter("collectionName") String collectionName,
-        @CustomType.Parameter("createTime") String createTime,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("updateTime") String updateTime) {
-        this.collectionArn = collectionArn;
-        this.collectionName = collectionName;
-        this.createTime = createTime;
-        this.description = description;
-        this.id = id;
-        this.kmsKeyId = kmsKeyId;
-        this.tags = tags;
-        this.updateTime = updateTime;
-    }
-
+    private GetGeofenceCollectionResult() {}
     /**
      * @return The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
@@ -127,7 +108,7 @@ public final class GetGeofenceCollectionResult {
     public static Builder builder(GetGeofenceCollectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String collectionArn;
         private String collectionName;
@@ -137,11 +118,7 @@ public final class GetGeofenceCollectionResult {
         private String kmsKeyId;
         private Map<String,String> tags;
         private String updateTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGeofenceCollectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.collectionArn = defaults.collectionArn;
@@ -154,39 +131,57 @@ public final class GetGeofenceCollectionResult {
     	      this.updateTime = defaults.updateTime;
         }
 
+        @CustomType.Setter
         public Builder collectionArn(String collectionArn) {
             this.collectionArn = Objects.requireNonNull(collectionArn);
             return this;
         }
+        @CustomType.Setter
         public Builder collectionName(String collectionName) {
             this.collectionName = Objects.requireNonNull(collectionName);
             return this;
         }
+        @CustomType.Setter
         public Builder createTime(String createTime) {
             this.createTime = Objects.requireNonNull(createTime);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder updateTime(String updateTime) {
             this.updateTime = Objects.requireNonNull(updateTime);
             return this;
-        }        public GetGeofenceCollectionResult build() {
-            return new GetGeofenceCollectionResult(collectionArn, collectionName, createTime, description, id, kmsKeyId, tags, updateTime);
+        }
+        public GetGeofenceCollectionResult build() {
+            final var o = new GetGeofenceCollectionResult();
+            o.collectionArn = collectionArn;
+            o.collectionName = collectionName;
+            o.createTime = createTime;
+            o.description = description;
+            o.id = id;
+            o.kmsKeyId = kmsKeyId;
+            o.tags = tags;
+            o.updateTime = updateTime;
+            return o;
         }
     }
 }

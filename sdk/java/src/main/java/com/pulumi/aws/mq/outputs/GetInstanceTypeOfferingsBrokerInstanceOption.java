@@ -15,49 +15,34 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
      * @return The list of available AZs. See Availability Zones. below
      * 
      */
-    private final List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
+    private List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
     /**
      * @return Filter response by engine type.
      * 
      */
-    private final String engineType;
+    private String engineType;
     /**
      * @return Filter response by host instance type.
      * 
      */
-    private final String hostInstanceType;
+    private String hostInstanceType;
     /**
      * @return Filter response by storage type.
      * 
      */
-    private final String storageType;
+    private String storageType;
     /**
      * @return The list of supported deployment modes.
      * 
      */
-    private final List<String> supportedDeploymentModes;
+    private List<String> supportedDeploymentModes;
     /**
      * @return The list of supported engine versions.
      * 
      */
-    private final List<String> supportedEngineVersions;
+    private List<String> supportedEngineVersions;
 
-    @CustomType.Constructor
-    private GetInstanceTypeOfferingsBrokerInstanceOption(
-        @CustomType.Parameter("availabilityZones") List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones,
-        @CustomType.Parameter("engineType") String engineType,
-        @CustomType.Parameter("hostInstanceType") String hostInstanceType,
-        @CustomType.Parameter("storageType") String storageType,
-        @CustomType.Parameter("supportedDeploymentModes") List<String> supportedDeploymentModes,
-        @CustomType.Parameter("supportedEngineVersions") List<String> supportedEngineVersions) {
-        this.availabilityZones = availabilityZones;
-        this.engineType = engineType;
-        this.hostInstanceType = hostInstanceType;
-        this.storageType = storageType;
-        this.supportedDeploymentModes = supportedDeploymentModes;
-        this.supportedEngineVersions = supportedEngineVersions;
-    }
-
+    private GetInstanceTypeOfferingsBrokerInstanceOption() {}
     /**
      * @return The list of available AZs. See Availability Zones. below
      * 
@@ -108,7 +93,7 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
     public static Builder builder(GetInstanceTypeOfferingsBrokerInstanceOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
         private String engineType;
@@ -116,11 +101,7 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
         private String storageType;
         private List<String> supportedDeploymentModes;
         private List<String> supportedEngineVersions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypeOfferingsBrokerInstanceOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZones = defaults.availabilityZones;
@@ -131,6 +112,7 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
     	      this.supportedEngineVersions = defaults.supportedEngineVersions;
         }
 
+        @CustomType.Setter
         public Builder availabilityZones(List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones) {
             this.availabilityZones = Objects.requireNonNull(availabilityZones);
             return this;
@@ -138,18 +120,22 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
         public Builder availabilityZones(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder engineType(String engineType) {
             this.engineType = Objects.requireNonNull(engineType);
             return this;
         }
+        @CustomType.Setter
         public Builder hostInstanceType(String hostInstanceType) {
             this.hostInstanceType = Objects.requireNonNull(hostInstanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder storageType(String storageType) {
             this.storageType = Objects.requireNonNull(storageType);
             return this;
         }
+        @CustomType.Setter
         public Builder supportedDeploymentModes(List<String> supportedDeploymentModes) {
             this.supportedDeploymentModes = Objects.requireNonNull(supportedDeploymentModes);
             return this;
@@ -157,14 +143,23 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
         public Builder supportedDeploymentModes(String... supportedDeploymentModes) {
             return supportedDeploymentModes(List.of(supportedDeploymentModes));
         }
+        @CustomType.Setter
         public Builder supportedEngineVersions(List<String> supportedEngineVersions) {
             this.supportedEngineVersions = Objects.requireNonNull(supportedEngineVersions);
             return this;
         }
         public Builder supportedEngineVersions(String... supportedEngineVersions) {
             return supportedEngineVersions(List.of(supportedEngineVersions));
-        }        public GetInstanceTypeOfferingsBrokerInstanceOption build() {
-            return new GetInstanceTypeOfferingsBrokerInstanceOption(availabilityZones, engineType, hostInstanceType, storageType, supportedDeploymentModes, supportedEngineVersions);
+        }
+        public GetInstanceTypeOfferingsBrokerInstanceOption build() {
+            final var o = new GetInstanceTypeOfferingsBrokerInstanceOption();
+            o.availabilityZones = availabilityZones;
+            o.engineType = engineType;
+            o.hostInstanceType = hostInstanceType;
+            o.storageType = storageType;
+            o.supportedDeploymentModes = supportedDeploymentModes;
+            o.supportedEngineVersions = supportedEngineVersions;
+            return o;
         }
     }
 }

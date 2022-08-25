@@ -14,21 +14,14 @@ public final class GetLocationsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The code for the locations.
      * 
      */
-    private final List<String> locationCodes;
+    private List<String> locationCodes;
 
-    @CustomType.Constructor
-    private GetLocationsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("locationCodes") List<String> locationCodes) {
-        this.id = id;
-        this.locationCodes = locationCodes;
-    }
-
+    private GetLocationsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -51,33 +44,35 @@ public final class GetLocationsResult {
     public static Builder builder(GetLocationsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<String> locationCodes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLocationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.locationCodes = defaults.locationCodes;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder locationCodes(List<String> locationCodes) {
             this.locationCodes = Objects.requireNonNull(locationCodes);
             return this;
         }
         public Builder locationCodes(String... locationCodes) {
             return locationCodes(List.of(locationCodes));
-        }        public GetLocationsResult build() {
-            return new GetLocationsResult(id, locationCodes);
+        }
+        public GetLocationsResult build() {
+            final var o = new GetLocationsResult();
+            o.id = id;
+            o.locationCodes = locationCodes;
+            return o;
         }
     }
 }

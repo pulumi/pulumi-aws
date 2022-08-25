@@ -13,21 +13,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The password that corresponds to the user name.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The name of the user.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.username = username;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow() {}
     /**
      * @return The password that corresponds to the user name.
      * 
@@ -50,30 +43,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow(password, username);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow();
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

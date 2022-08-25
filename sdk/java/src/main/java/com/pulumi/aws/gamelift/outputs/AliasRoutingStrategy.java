@@ -15,28 +15,19 @@ public final class AliasRoutingStrategy {
      * @return ID of the GameLift Fleet to point the alias to.
      * 
      */
-    private final @Nullable String fleetId;
+    private @Nullable String fleetId;
     /**
      * @return Message text to be used with the `TERMINAL` routing strategy.
      * 
      */
-    private final @Nullable String message;
+    private @Nullable String message;
     /**
      * @return Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private AliasRoutingStrategy(
-        @CustomType.Parameter("fleetId") @Nullable String fleetId,
-        @CustomType.Parameter("message") @Nullable String message,
-        @CustomType.Parameter("type") String type) {
-        this.fleetId = fleetId;
-        this.message = message;
-        this.type = type;
-    }
-
+    private AliasRoutingStrategy() {}
     /**
      * @return ID of the GameLift Fleet to point the alias to.
      * 
@@ -66,16 +57,12 @@ public final class AliasRoutingStrategy {
     public static Builder builder(AliasRoutingStrategy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String fleetId;
         private @Nullable String message;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AliasRoutingStrategy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fleetId = defaults.fleetId;
@@ -83,19 +70,27 @@ public final class AliasRoutingStrategy {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder fleetId(@Nullable String fleetId) {
             this.fleetId = fleetId;
             return this;
         }
+        @CustomType.Setter
         public Builder message(@Nullable String message) {
             this.message = message;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public AliasRoutingStrategy build() {
-            return new AliasRoutingStrategy(fleetId, message, type);
+        }
+        public AliasRoutingStrategy build() {
+            final var o = new AliasRoutingStrategy();
+            o.fleetId = fleetId;
+            o.message = message;
+            o.type = type;
+            return o;
         }
     }
 }

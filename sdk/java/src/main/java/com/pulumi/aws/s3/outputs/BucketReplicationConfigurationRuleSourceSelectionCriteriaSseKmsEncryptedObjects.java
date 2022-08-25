@@ -13,13 +13,9 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseK
      * @return Boolean which indicates if this criteria is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects() {}
     /**
      * @return Boolean which indicates if this criteria is enabled.
      * 
@@ -35,24 +31,24 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseK
     public static Builder builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects build() {
-            return new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects(enabled);
+        }
+        public BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects build() {
+            final var o = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

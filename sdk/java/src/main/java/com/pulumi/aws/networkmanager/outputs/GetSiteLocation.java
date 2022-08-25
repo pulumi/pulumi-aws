@@ -13,28 +13,19 @@ public final class GetSiteLocation {
      * @return Address of the location.
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return Latitude of the location.
      * 
      */
-    private final String latitude;
+    private String latitude;
     /**
      * @return Longitude of the location.
      * 
      */
-    private final String longitude;
+    private String longitude;
 
-    @CustomType.Constructor
-    private GetSiteLocation(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("latitude") String latitude,
-        @CustomType.Parameter("longitude") String longitude) {
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
+    private GetSiteLocation() {}
     /**
      * @return Address of the location.
      * 
@@ -64,16 +55,12 @@ public final class GetSiteLocation {
     public static Builder builder(GetSiteLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private String latitude;
         private String longitude;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSiteLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -81,19 +68,27 @@ public final class GetSiteLocation {
     	      this.longitude = defaults.longitude;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder latitude(String latitude) {
             this.latitude = Objects.requireNonNull(latitude);
             return this;
         }
+        @CustomType.Setter
         public Builder longitude(String longitude) {
             this.longitude = Objects.requireNonNull(longitude);
             return this;
-        }        public GetSiteLocation build() {
-            return new GetSiteLocation(address, latitude, longitude);
+        }
+        public GetSiteLocation build() {
+            final var o = new GetSiteLocation();
+            o.address = address;
+            o.latitude = latitude;
+            o.longitude = longitude;
+            return o;
         }
     }
 }

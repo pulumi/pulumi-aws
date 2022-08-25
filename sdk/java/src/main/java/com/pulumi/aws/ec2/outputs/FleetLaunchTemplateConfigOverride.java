@@ -17,56 +17,39 @@ public final class FleetLaunchTemplateConfigOverride {
      * @return Availability Zone in which to launch the instances.
      * 
      */
-    private final @Nullable String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return Override the instance type in the Launch Template with instance types that satisfy the requirements.
      * 
      */
-    private final @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements;
+    private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements;
     /**
      * @return Instance type.
      * 
      */
-    private final @Nullable String instanceType;
+    private @Nullable String instanceType;
     /**
      * @return Maximum price per unit hour that you are willing to pay for a Spot Instance.
      * 
      */
-    private final @Nullable String maxPrice;
+    private @Nullable String maxPrice;
     /**
      * @return Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
      * 
      */
-    private final @Nullable Double priority;
+    private @Nullable Double priority;
     /**
      * @return ID of the subnet in which to launch the instances.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return Number of units provided by the specified instance type.
      * 
      */
-    private final @Nullable Double weightedCapacity;
+    private @Nullable Double weightedCapacity;
 
-    @CustomType.Constructor
-    private FleetLaunchTemplateConfigOverride(
-        @CustomType.Parameter("availabilityZone") @Nullable String availabilityZone,
-        @CustomType.Parameter("instanceRequirements") @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements,
-        @CustomType.Parameter("instanceType") @Nullable String instanceType,
-        @CustomType.Parameter("maxPrice") @Nullable String maxPrice,
-        @CustomType.Parameter("priority") @Nullable Double priority,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId,
-        @CustomType.Parameter("weightedCapacity") @Nullable Double weightedCapacity) {
-        this.availabilityZone = availabilityZone;
-        this.instanceRequirements = instanceRequirements;
-        this.instanceType = instanceType;
-        this.maxPrice = maxPrice;
-        this.priority = priority;
-        this.subnetId = subnetId;
-        this.weightedCapacity = weightedCapacity;
-    }
-
+    private FleetLaunchTemplateConfigOverride() {}
     /**
      * @return Availability Zone in which to launch the instances.
      * 
@@ -124,7 +107,7 @@ public final class FleetLaunchTemplateConfigOverride {
     public static Builder builder(FleetLaunchTemplateConfigOverride defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String availabilityZone;
         private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements;
@@ -133,11 +116,7 @@ public final class FleetLaunchTemplateConfigOverride {
         private @Nullable Double priority;
         private @Nullable String subnetId;
         private @Nullable Double weightedCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetLaunchTemplateConfigOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZone = defaults.availabilityZone;
@@ -149,35 +128,51 @@ public final class FleetLaunchTemplateConfigOverride {
     	      this.weightedCapacity = defaults.weightedCapacity;
         }
 
+        @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
             this.availabilityZone = availabilityZone;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceRequirements(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements) {
             this.instanceRequirements = instanceRequirements;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
             this.instanceType = instanceType;
             return this;
         }
+        @CustomType.Setter
         public Builder maxPrice(@Nullable String maxPrice) {
             this.maxPrice = maxPrice;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Double priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
         }
+        @CustomType.Setter
         public Builder weightedCapacity(@Nullable Double weightedCapacity) {
             this.weightedCapacity = weightedCapacity;
             return this;
-        }        public FleetLaunchTemplateConfigOverride build() {
-            return new FleetLaunchTemplateConfigOverride(availabilityZone, instanceRequirements, instanceType, maxPrice, priority, subnetId, weightedCapacity);
+        }
+        public FleetLaunchTemplateConfigOverride build() {
+            final var o = new FleetLaunchTemplateConfigOverride();
+            o.availabilityZone = availabilityZone;
+            o.instanceRequirements = instanceRequirements;
+            o.instanceType = instanceType;
+            o.maxPrice = maxPrice;
+            o.priority = priority;
+            o.subnetId = subnetId;
+            o.weightedCapacity = weightedCapacity;
+            return o;
         }
     }
 }

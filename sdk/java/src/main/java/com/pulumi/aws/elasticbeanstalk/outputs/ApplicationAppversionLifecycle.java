@@ -17,35 +17,24 @@ public final class ApplicationAppversionLifecycle {
      * @return Set to `true` to delete a version&#39;s source bundle from S3 when the application version is deleted.
      * 
      */
-    private final @Nullable Boolean deleteSourceFromS3;
+    private @Nullable Boolean deleteSourceFromS3;
     /**
      * @return The number of days to retain an application version (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
      * 
      */
-    private final @Nullable Integer maxAgeInDays;
+    private @Nullable Integer maxAgeInDays;
     /**
      * @return The maximum number of application versions to retain (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
      * 
      */
-    private final @Nullable Integer maxCount;
+    private @Nullable Integer maxCount;
     /**
      * @return The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
      * 
      */
-    private final String serviceRole;
+    private String serviceRole;
 
-    @CustomType.Constructor
-    private ApplicationAppversionLifecycle(
-        @CustomType.Parameter("deleteSourceFromS3") @Nullable Boolean deleteSourceFromS3,
-        @CustomType.Parameter("maxAgeInDays") @Nullable Integer maxAgeInDays,
-        @CustomType.Parameter("maxCount") @Nullable Integer maxCount,
-        @CustomType.Parameter("serviceRole") String serviceRole) {
-        this.deleteSourceFromS3 = deleteSourceFromS3;
-        this.maxAgeInDays = maxAgeInDays;
-        this.maxCount = maxCount;
-        this.serviceRole = serviceRole;
-    }
-
+    private ApplicationAppversionLifecycle() {}
     /**
      * @return Set to `true` to delete a version&#39;s source bundle from S3 when the application version is deleted.
      * 
@@ -82,17 +71,13 @@ public final class ApplicationAppversionLifecycle {
     public static Builder builder(ApplicationAppversionLifecycle defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean deleteSourceFromS3;
         private @Nullable Integer maxAgeInDays;
         private @Nullable Integer maxCount;
         private String serviceRole;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationAppversionLifecycle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteSourceFromS3 = defaults.deleteSourceFromS3;
@@ -101,23 +86,33 @@ public final class ApplicationAppversionLifecycle {
     	      this.serviceRole = defaults.serviceRole;
         }
 
+        @CustomType.Setter
         public Builder deleteSourceFromS3(@Nullable Boolean deleteSourceFromS3) {
             this.deleteSourceFromS3 = deleteSourceFromS3;
             return this;
         }
+        @CustomType.Setter
         public Builder maxAgeInDays(@Nullable Integer maxAgeInDays) {
             this.maxAgeInDays = maxAgeInDays;
             return this;
         }
+        @CustomType.Setter
         public Builder maxCount(@Nullable Integer maxCount) {
             this.maxCount = maxCount;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
             this.serviceRole = Objects.requireNonNull(serviceRole);
             return this;
-        }        public ApplicationAppversionLifecycle build() {
-            return new ApplicationAppversionLifecycle(deleteSourceFromS3, maxAgeInDays, maxCount, serviceRole);
+        }
+        public ApplicationAppversionLifecycle build() {
+            final var o = new ApplicationAppversionLifecycle();
+            o.deleteSourceFromS3 = deleteSourceFromS3;
+            o.maxAgeInDays = maxAgeInDays;
+            o.maxCount = maxCount;
+            o.serviceRole = serviceRole;
+            return o;
         }
     }
 }

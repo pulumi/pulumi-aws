@@ -16,21 +16,14 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExport {
      * @return Specifies the destination for the exported analytics data (documented below).
      * 
      */
-    private final AnalyticsConfigurationStorageClassAnalysisDataExportDestination destination;
+    private AnalyticsConfigurationStorageClassAnalysisDataExportDestination destination;
     /**
      * @return The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
      * 
      */
-    private final @Nullable String outputSchemaVersion;
+    private @Nullable String outputSchemaVersion;
 
-    @CustomType.Constructor
-    private AnalyticsConfigurationStorageClassAnalysisDataExport(
-        @CustomType.Parameter("destination") AnalyticsConfigurationStorageClassAnalysisDataExportDestination destination,
-        @CustomType.Parameter("outputSchemaVersion") @Nullable String outputSchemaVersion) {
-        this.destination = destination;
-        this.outputSchemaVersion = outputSchemaVersion;
-    }
-
+    private AnalyticsConfigurationStorageClassAnalysisDataExport() {}
     /**
      * @return Specifies the destination for the exported analytics data (documented below).
      * 
@@ -53,30 +46,32 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExport {
     public static Builder builder(AnalyticsConfigurationStorageClassAnalysisDataExport defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private AnalyticsConfigurationStorageClassAnalysisDataExportDestination destination;
         private @Nullable String outputSchemaVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsConfigurationStorageClassAnalysisDataExport defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destination = defaults.destination;
     	      this.outputSchemaVersion = defaults.outputSchemaVersion;
         }
 
+        @CustomType.Setter
         public Builder destination(AnalyticsConfigurationStorageClassAnalysisDataExportDestination destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
         }
+        @CustomType.Setter
         public Builder outputSchemaVersion(@Nullable String outputSchemaVersion) {
             this.outputSchemaVersion = outputSchemaVersion;
             return this;
-        }        public AnalyticsConfigurationStorageClassAnalysisDataExport build() {
-            return new AnalyticsConfigurationStorageClassAnalysisDataExport(destination, outputSchemaVersion);
+        }
+        public AnalyticsConfigurationStorageClassAnalysisDataExport build() {
+            final var o = new AnalyticsConfigurationStorageClassAnalysisDataExport();
+            o.destination = destination;
+            o.outputSchemaVersion = outputSchemaVersion;
+            return o;
         }
     }
 }

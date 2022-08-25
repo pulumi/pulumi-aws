@@ -17,21 +17,14 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
      * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private final @Nullable WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch fieldToMatch;
+    private @Nullable WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch fieldToMatch;
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
      * 
      */
-    private final List<WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation> textTransformations;
+    private List<WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation> textTransformations;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatement(
-        @CustomType.Parameter("fieldToMatch") @Nullable WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch fieldToMatch,
-        @CustomType.Parameter("textTransformations") List<WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation> textTransformations) {
-        this.fieldToMatch = fieldToMatch;
-        this.textTransformations = textTransformations;
-    }
-
+    private WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatement() {}
     /**
      * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
@@ -54,33 +47,35 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
     public static Builder builder(WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch fieldToMatch;
         private List<WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation> textTransformations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
     	      this.textTransformations = defaults.textTransformations;
         }
 
+        @CustomType.Setter
         public Builder fieldToMatch(@Nullable WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch fieldToMatch) {
             this.fieldToMatch = fieldToMatch;
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformations(List<WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation> textTransformations) {
             this.textTransformations = Objects.requireNonNull(textTransformations);
             return this;
         }
         public Builder textTransformations(WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
-        }        public WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatement build() {
-            return new WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatement(fieldToMatch, textTransformations);
+        }
+        public WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatement build() {
+            final var o = new WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatement();
+            o.fieldToMatch = fieldToMatch;
+            o.textTransformations = textTransformations;
+            return o;
         }
     }
 }

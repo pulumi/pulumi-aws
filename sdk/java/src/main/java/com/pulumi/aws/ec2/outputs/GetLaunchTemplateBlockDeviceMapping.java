@@ -11,23 +11,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateBlockDeviceMapping {
-    private final String deviceName;
-    private final List<GetLaunchTemplateBlockDeviceMappingEb> ebs;
-    private final String noDevice;
-    private final String virtualName;
+    private String deviceName;
+    private List<GetLaunchTemplateBlockDeviceMappingEb> ebs;
+    private String noDevice;
+    private String virtualName;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateBlockDeviceMapping(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("ebs") List<GetLaunchTemplateBlockDeviceMappingEb> ebs,
-        @CustomType.Parameter("noDevice") String noDevice,
-        @CustomType.Parameter("virtualName") String virtualName) {
-        this.deviceName = deviceName;
-        this.ebs = ebs;
-        this.noDevice = noDevice;
-        this.virtualName = virtualName;
-    }
-
+    private GetLaunchTemplateBlockDeviceMapping() {}
     public String deviceName() {
         return this.deviceName;
     }
@@ -48,17 +37,13 @@ public final class GetLaunchTemplateBlockDeviceMapping {
     public static Builder builder(GetLaunchTemplateBlockDeviceMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private List<GetLaunchTemplateBlockDeviceMappingEb> ebs;
         private String noDevice;
         private String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateBlockDeviceMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
@@ -67,10 +52,12 @@ public final class GetLaunchTemplateBlockDeviceMapping {
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder ebs(List<GetLaunchTemplateBlockDeviceMappingEb> ebs) {
             this.ebs = Objects.requireNonNull(ebs);
             return this;
@@ -78,15 +65,23 @@ public final class GetLaunchTemplateBlockDeviceMapping {
         public Builder ebs(GetLaunchTemplateBlockDeviceMappingEb... ebs) {
             return ebs(List.of(ebs));
         }
+        @CustomType.Setter
         public Builder noDevice(String noDevice) {
             this.noDevice = Objects.requireNonNull(noDevice);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(String virtualName) {
             this.virtualName = Objects.requireNonNull(virtualName);
             return this;
-        }        public GetLaunchTemplateBlockDeviceMapping build() {
-            return new GetLaunchTemplateBlockDeviceMapping(deviceName, ebs, noDevice, virtualName);
+        }
+        public GetLaunchTemplateBlockDeviceMapping build() {
+            final var o = new GetLaunchTemplateBlockDeviceMapping();
+            o.deviceName = deviceName;
+            o.ebs = ebs;
+            o.noDevice = noDevice;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

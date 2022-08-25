@@ -13,13 +13,9 @@ public final class InsightFiltersResourceAwsEc2InstanceIpv4Address {
      * @return A finding&#39;s CIDR value.
      * 
      */
-    private final String cidr;
+    private String cidr;
 
-    @CustomType.Constructor
-    private InsightFiltersResourceAwsEc2InstanceIpv4Address(@CustomType.Parameter("cidr") String cidr) {
-        this.cidr = cidr;
-    }
-
+    private InsightFiltersResourceAwsEc2InstanceIpv4Address() {}
     /**
      * @return A finding&#39;s CIDR value.
      * 
@@ -35,24 +31,24 @@ public final class InsightFiltersResourceAwsEc2InstanceIpv4Address {
     public static Builder builder(InsightFiltersResourceAwsEc2InstanceIpv4Address defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cidr;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersResourceAwsEc2InstanceIpv4Address defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidr = defaults.cidr;
         }
 
+        @CustomType.Setter
         public Builder cidr(String cidr) {
             this.cidr = Objects.requireNonNull(cidr);
             return this;
-        }        public InsightFiltersResourceAwsEc2InstanceIpv4Address build() {
-            return new InsightFiltersResourceAwsEc2InstanceIpv4Address(cidr);
+        }
+        public InsightFiltersResourceAwsEc2InstanceIpv4Address build() {
+            final var o = new InsightFiltersResourceAwsEc2InstanceIpv4Address();
+            o.cidr = cidr;
+            return o;
         }
     }
 }

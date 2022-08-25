@@ -15,24 +15,15 @@ public final class ResolverEndpointIpAddress {
      * @return The IP address in the subnet that you want to use for DNS queries.
      * 
      */
-    private final @Nullable String ip;
-    private final @Nullable String ipId;
+    private @Nullable String ip;
+    private @Nullable String ipId;
     /**
      * @return The ID of the subnet that contains the IP address.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private ResolverEndpointIpAddress(
-        @CustomType.Parameter("ip") @Nullable String ip,
-        @CustomType.Parameter("ipId") @Nullable String ipId,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.ip = ip;
-        this.ipId = ipId;
-        this.subnetId = subnetId;
-    }
-
+    private ResolverEndpointIpAddress() {}
     /**
      * @return The IP address in the subnet that you want to use for DNS queries.
      * 
@@ -58,16 +49,12 @@ public final class ResolverEndpointIpAddress {
     public static Builder builder(ResolverEndpointIpAddress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String ip;
         private @Nullable String ipId;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResolverEndpointIpAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ip = defaults.ip;
@@ -75,19 +62,27 @@ public final class ResolverEndpointIpAddress {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder ip(@Nullable String ip) {
             this.ip = ip;
             return this;
         }
+        @CustomType.Setter
         public Builder ipId(@Nullable String ipId) {
             this.ipId = ipId;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public ResolverEndpointIpAddress build() {
-            return new ResolverEndpointIpAddress(ip, ipId, subnetId);
+        }
+        public ResolverEndpointIpAddress build() {
+            final var o = new ResolverEndpointIpAddress();
+            o.ip = ip;
+            o.ipId = ipId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

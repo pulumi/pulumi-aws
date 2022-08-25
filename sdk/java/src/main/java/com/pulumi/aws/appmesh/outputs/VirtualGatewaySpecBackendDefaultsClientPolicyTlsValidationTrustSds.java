@@ -13,13 +13,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
      * @return The name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
-    private final String secretName;
+    private String secretName;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(@CustomType.Parameter("secretName") String secretName) {
-        this.secretName = secretName;
-    }
-
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds() {}
     /**
      * @return The name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
@@ -35,24 +31,24 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
     public static Builder builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String secretName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretName = defaults.secretName;
         }
 
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
-        }        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds build() {
-            return new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(secretName);
+        }
+        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds build() {
+            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds();
+            o.secretName = secretName;
+            return o;
         }
     }
 }

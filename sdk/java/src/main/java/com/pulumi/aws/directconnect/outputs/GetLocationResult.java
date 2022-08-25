@@ -14,45 +14,30 @@ public final class GetLocationResult {
      * @return The available MAC Security (MACsec) port speeds for the location.
      * 
      */
-    private final List<String> availableMacsecPortSpeeds;
+    private List<String> availableMacsecPortSpeeds;
     /**
      * @return The available port speeds for the location.
      * 
      */
-    private final List<String> availablePortSpeeds;
+    private List<String> availablePortSpeeds;
     /**
      * @return The names of the service providers for the location.
      * 
      */
-    private final List<String> availableProviders;
+    private List<String> availableProviders;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String locationCode;
+    private String id;
+    private String locationCode;
     /**
      * @return The name of the location. This includes the name of the colocation partner and the physical site of the building.
      * 
      */
-    private final String locationName;
+    private String locationName;
 
-    @CustomType.Constructor
-    private GetLocationResult(
-        @CustomType.Parameter("availableMacsecPortSpeeds") List<String> availableMacsecPortSpeeds,
-        @CustomType.Parameter("availablePortSpeeds") List<String> availablePortSpeeds,
-        @CustomType.Parameter("availableProviders") List<String> availableProviders,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("locationCode") String locationCode,
-        @CustomType.Parameter("locationName") String locationName) {
-        this.availableMacsecPortSpeeds = availableMacsecPortSpeeds;
-        this.availablePortSpeeds = availablePortSpeeds;
-        this.availableProviders = availableProviders;
-        this.id = id;
-        this.locationCode = locationCode;
-        this.locationName = locationName;
-    }
-
+    private GetLocationResult() {}
     /**
      * @return The available MAC Security (MACsec) port speeds for the location.
      * 
@@ -99,7 +84,7 @@ public final class GetLocationResult {
     public static Builder builder(GetLocationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> availableMacsecPortSpeeds;
         private List<String> availablePortSpeeds;
@@ -107,11 +92,7 @@ public final class GetLocationResult {
         private String id;
         private String locationCode;
         private String locationName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLocationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availableMacsecPortSpeeds = defaults.availableMacsecPortSpeeds;
@@ -122,6 +103,7 @@ public final class GetLocationResult {
     	      this.locationName = defaults.locationName;
         }
 
+        @CustomType.Setter
         public Builder availableMacsecPortSpeeds(List<String> availableMacsecPortSpeeds) {
             this.availableMacsecPortSpeeds = Objects.requireNonNull(availableMacsecPortSpeeds);
             return this;
@@ -129,6 +111,7 @@ public final class GetLocationResult {
         public Builder availableMacsecPortSpeeds(String... availableMacsecPortSpeeds) {
             return availableMacsecPortSpeeds(List.of(availableMacsecPortSpeeds));
         }
+        @CustomType.Setter
         public Builder availablePortSpeeds(List<String> availablePortSpeeds) {
             this.availablePortSpeeds = Objects.requireNonNull(availablePortSpeeds);
             return this;
@@ -136,6 +119,7 @@ public final class GetLocationResult {
         public Builder availablePortSpeeds(String... availablePortSpeeds) {
             return availablePortSpeeds(List.of(availablePortSpeeds));
         }
+        @CustomType.Setter
         public Builder availableProviders(List<String> availableProviders) {
             this.availableProviders = Objects.requireNonNull(availableProviders);
             return this;
@@ -143,19 +127,30 @@ public final class GetLocationResult {
         public Builder availableProviders(String... availableProviders) {
             return availableProviders(List.of(availableProviders));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder locationCode(String locationCode) {
             this.locationCode = Objects.requireNonNull(locationCode);
             return this;
         }
+        @CustomType.Setter
         public Builder locationName(String locationName) {
             this.locationName = Objects.requireNonNull(locationName);
             return this;
-        }        public GetLocationResult build() {
-            return new GetLocationResult(availableMacsecPortSpeeds, availablePortSpeeds, availableProviders, id, locationCode, locationName);
+        }
+        public GetLocationResult build() {
+            final var o = new GetLocationResult();
+            o.availableMacsecPortSpeeds = availableMacsecPortSpeeds;
+            o.availablePortSpeeds = availablePortSpeeds;
+            o.availableProviders = availableProviders;
+            o.id = id;
+            o.locationCode = locationCode;
+            o.locationName = locationName;
+            return o;
         }
     }
 }

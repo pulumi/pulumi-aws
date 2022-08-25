@@ -14,13 +14,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
      */
-    private final List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatement> statements;
+    private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatement> statements;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement(@CustomType.Parameter("statements") List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement() {}
     /**
      * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     public static Builder builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement build() {
-            return new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement(statements);
+        }
+        public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement build() {
+            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

@@ -14,45 +14,30 @@ public final class GetCustomPluginResult {
      * @return the Amazon Resource Name (ARN) of the custom plugin.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return a summary description of the custom plugin.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return an ID of the latest successfully created revision of the custom plugin.
      * 
      */
-    private final Integer latestRevision;
-    private final String name;
+    private Integer latestRevision;
+    private String name;
     /**
      * @return the state of the custom plugin.
      * 
      */
-    private final String state;
+    private String state;
 
-    @CustomType.Constructor
-    private GetCustomPluginResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("latestRevision") Integer latestRevision,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("state") String state) {
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.latestRevision = latestRevision;
-        this.name = name;
-        this.state = state;
-    }
-
+    private GetCustomPluginResult() {}
     /**
      * @return the Amazon Resource Name (ARN) of the custom plugin.
      * 
@@ -99,7 +84,7 @@ public final class GetCustomPluginResult {
     public static Builder builder(GetCustomPluginResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -107,11 +92,7 @@ public final class GetCustomPluginResult {
         private Integer latestRevision;
         private String name;
         private String state;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCustomPluginResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -122,31 +103,45 @@ public final class GetCustomPluginResult {
     	      this.state = defaults.state;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder latestRevision(Integer latestRevision) {
             this.latestRevision = Objects.requireNonNull(latestRevision);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
-        }        public GetCustomPluginResult build() {
-            return new GetCustomPluginResult(arn, description, id, latestRevision, name, state);
+        }
+        public GetCustomPluginResult build() {
+            final var o = new GetCustomPluginResult();
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.latestRevision = latestRevision;
+            o.name = name;
+            o.state = state;
+            return o;
         }
     }
 }

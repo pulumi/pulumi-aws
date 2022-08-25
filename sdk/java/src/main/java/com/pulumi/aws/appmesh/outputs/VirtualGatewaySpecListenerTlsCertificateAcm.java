@@ -13,13 +13,9 @@ public final class VirtualGatewaySpecListenerTlsCertificateAcm {
      * @return The Amazon Resource Name (ARN) for the certificate.
      * 
      */
-    private final String certificateArn;
+    private String certificateArn;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerTlsCertificateAcm(@CustomType.Parameter("certificateArn") String certificateArn) {
-        this.certificateArn = certificateArn;
-    }
-
+    private VirtualGatewaySpecListenerTlsCertificateAcm() {}
     /**
      * @return The Amazon Resource Name (ARN) for the certificate.
      * 
@@ -35,24 +31,24 @@ public final class VirtualGatewaySpecListenerTlsCertificateAcm {
     public static Builder builder(VirtualGatewaySpecListenerTlsCertificateAcm defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerTlsCertificateAcm defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateArn = defaults.certificateArn;
         }
 
+        @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
             this.certificateArn = Objects.requireNonNull(certificateArn);
             return this;
-        }        public VirtualGatewaySpecListenerTlsCertificateAcm build() {
-            return new VirtualGatewaySpecListenerTlsCertificateAcm(certificateArn);
+        }
+        public VirtualGatewaySpecListenerTlsCertificateAcm build() {
+            final var o = new VirtualGatewaySpecListenerTlsCertificateAcm();
+            o.certificateArn = certificateArn;
+            return o;
         }
     }
 }

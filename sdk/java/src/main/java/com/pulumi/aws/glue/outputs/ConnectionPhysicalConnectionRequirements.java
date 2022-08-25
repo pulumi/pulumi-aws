@@ -16,28 +16,19 @@ public final class ConnectionPhysicalConnectionRequirements {
      * @return The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
      * 
      */
-    private final @Nullable String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return The security group ID list used by the connection.
      * 
      */
-    private final @Nullable List<String> securityGroupIdLists;
+    private @Nullable List<String> securityGroupIdLists;
     /**
      * @return The subnet ID used by the connection.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
 
-    @CustomType.Constructor
-    private ConnectionPhysicalConnectionRequirements(
-        @CustomType.Parameter("availabilityZone") @Nullable String availabilityZone,
-        @CustomType.Parameter("securityGroupIdLists") @Nullable List<String> securityGroupIdLists,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId) {
-        this.availabilityZone = availabilityZone;
-        this.securityGroupIdLists = securityGroupIdLists;
-        this.subnetId = subnetId;
-    }
-
+    private ConnectionPhysicalConnectionRequirements() {}
     /**
      * @return The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
      * 
@@ -67,16 +58,12 @@ public final class ConnectionPhysicalConnectionRequirements {
     public static Builder builder(ConnectionPhysicalConnectionRequirements defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String availabilityZone;
         private @Nullable List<String> securityGroupIdLists;
         private @Nullable String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectionPhysicalConnectionRequirements defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZone = defaults.availabilityZone;
@@ -84,10 +71,12 @@ public final class ConnectionPhysicalConnectionRequirements {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
             this.availabilityZone = availabilityZone;
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupIdLists(@Nullable List<String> securityGroupIdLists) {
             this.securityGroupIdLists = securityGroupIdLists;
             return this;
@@ -95,11 +84,17 @@ public final class ConnectionPhysicalConnectionRequirements {
         public Builder securityGroupIdLists(String... securityGroupIdLists) {
             return securityGroupIdLists(List.of(securityGroupIdLists));
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
-        }        public ConnectionPhysicalConnectionRequirements build() {
-            return new ConnectionPhysicalConnectionRequirements(availabilityZone, securityGroupIdLists, subnetId);
+        }
+        public ConnectionPhysicalConnectionRequirements build() {
+            final var o = new ConnectionPhysicalConnectionRequirements();
+            o.availabilityZone = availabilityZone;
+            o.securityGroupIdLists = securityGroupIdLists;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

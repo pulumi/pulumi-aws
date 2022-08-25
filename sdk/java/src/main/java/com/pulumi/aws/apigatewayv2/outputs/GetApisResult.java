@@ -17,30 +17,17 @@ public final class GetApisResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of API identifiers.
      * 
      */
-    private final List<String> ids;
-    private final @Nullable String name;
-    private final @Nullable String protocolType;
-    private final @Nullable Map<String,String> tags;
+    private List<String> ids;
+    private @Nullable String name;
+    private @Nullable String protocolType;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetApisResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("protocolType") @Nullable String protocolType,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.id = id;
-        this.ids = ids;
-        this.name = name;
-        this.protocolType = protocolType;
-        this.tags = tags;
-    }
-
+    private GetApisResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -72,18 +59,14 @@ public final class GetApisResult {
     public static Builder builder(GetApisResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<String> ids;
         private @Nullable String name;
         private @Nullable String protocolType;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApisResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -93,10 +76,12 @@ public final class GetApisResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -104,19 +89,29 @@ public final class GetApisResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder protocolType(@Nullable String protocolType) {
             this.protocolType = protocolType;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetApisResult build() {
-            return new GetApisResult(id, ids, name, protocolType, tags);
+        }
+        public GetApisResult build() {
+            final var o = new GetApisResult();
+            o.id = id;
+            o.ids = ids;
+            o.name = name;
+            o.protocolType = protocolType;
+            o.tags = tags;
+            return o;
         }
     }
 }

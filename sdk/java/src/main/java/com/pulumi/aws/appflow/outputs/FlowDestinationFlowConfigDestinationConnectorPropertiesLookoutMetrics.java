@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics {
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics() {
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesLookou
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics();
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics();
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class ConnectorWorkerConfiguration {
      * @return The Amazon Resource Name (ARN) of the worker configuration.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The revision of the worker configuration.
      * 
      */
-    private final Integer revision;
+    private Integer revision;
 
-    @CustomType.Constructor
-    private ConnectorWorkerConfiguration(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("revision") Integer revision) {
-        this.arn = arn;
-        this.revision = revision;
-    }
-
+    private ConnectorWorkerConfiguration() {}
     /**
      * @return The Amazon Resource Name (ARN) of the worker configuration.
      * 
@@ -51,30 +44,32 @@ public final class ConnectorWorkerConfiguration {
     public static Builder builder(ConnectorWorkerConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Integer revision;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorWorkerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.revision = defaults.revision;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder revision(Integer revision) {
             this.revision = Objects.requireNonNull(revision);
             return this;
-        }        public ConnectorWorkerConfiguration build() {
-            return new ConnectorWorkerConfiguration(arn, revision);
+        }
+        public ConnectorWorkerConfiguration build() {
+            final var o = new ConnectorWorkerConfiguration();
+            o.arn = arn;
+            o.revision = revision;
+            return o;
         }
     }
 }

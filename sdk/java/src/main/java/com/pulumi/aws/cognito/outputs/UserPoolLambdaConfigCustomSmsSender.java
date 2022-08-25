@@ -13,21 +13,14 @@ public final class UserPoolLambdaConfigCustomSmsSender {
      * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
      * 
      */
-    private final String lambdaArn;
+    private String lambdaArn;
     /**
      * @return The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
      * 
      */
-    private final String lambdaVersion;
+    private String lambdaVersion;
 
-    @CustomType.Constructor
-    private UserPoolLambdaConfigCustomSmsSender(
-        @CustomType.Parameter("lambdaArn") String lambdaArn,
-        @CustomType.Parameter("lambdaVersion") String lambdaVersion) {
-        this.lambdaArn = lambdaArn;
-        this.lambdaVersion = lambdaVersion;
-    }
-
+    private UserPoolLambdaConfigCustomSmsSender() {}
     /**
      * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
      * 
@@ -50,30 +43,32 @@ public final class UserPoolLambdaConfigCustomSmsSender {
     public static Builder builder(UserPoolLambdaConfigCustomSmsSender defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String lambdaArn;
         private String lambdaVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolLambdaConfigCustomSmsSender defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lambdaArn = defaults.lambdaArn;
     	      this.lambdaVersion = defaults.lambdaVersion;
         }
 
+        @CustomType.Setter
         public Builder lambdaArn(String lambdaArn) {
             this.lambdaArn = Objects.requireNonNull(lambdaArn);
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaVersion(String lambdaVersion) {
             this.lambdaVersion = Objects.requireNonNull(lambdaVersion);
             return this;
-        }        public UserPoolLambdaConfigCustomSmsSender build() {
-            return new UserPoolLambdaConfigCustomSmsSender(lambdaArn, lambdaVersion);
+        }
+        public UserPoolLambdaConfigCustomSmsSender build() {
+            final var o = new UserPoolLambdaConfigCustomSmsSender();
+            o.lambdaArn = lambdaArn;
+            o.lambdaVersion = lambdaVersion;
+            return o;
         }
     }
 }

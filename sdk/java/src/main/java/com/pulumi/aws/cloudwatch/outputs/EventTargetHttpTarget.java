@@ -16,28 +16,19 @@ public final class EventTargetHttpTarget {
      * @return Enables you to specify HTTP headers to add to the request.
      * 
      */
-    private final @Nullable Map<String,String> headerParameters;
+    private @Nullable Map<String,String> headerParameters;
     /**
      * @return The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*{@literal /}POST/pets/*`).
      * 
      */
-    private final @Nullable List<String> pathParameterValues;
+    private @Nullable List<String> pathParameterValues;
     /**
      * @return Represents keys/values of query string parameters that are appended to the invoked endpoint.
      * 
      */
-    private final @Nullable Map<String,String> queryStringParameters;
+    private @Nullable Map<String,String> queryStringParameters;
 
-    @CustomType.Constructor
-    private EventTargetHttpTarget(
-        @CustomType.Parameter("headerParameters") @Nullable Map<String,String> headerParameters,
-        @CustomType.Parameter("pathParameterValues") @Nullable List<String> pathParameterValues,
-        @CustomType.Parameter("queryStringParameters") @Nullable Map<String,String> queryStringParameters) {
-        this.headerParameters = headerParameters;
-        this.pathParameterValues = pathParameterValues;
-        this.queryStringParameters = queryStringParameters;
-    }
-
+    private EventTargetHttpTarget() {}
     /**
      * @return Enables you to specify HTTP headers to add to the request.
      * 
@@ -67,16 +58,12 @@ public final class EventTargetHttpTarget {
     public static Builder builder(EventTargetHttpTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> headerParameters;
         private @Nullable List<String> pathParameterValues;
         private @Nullable Map<String,String> queryStringParameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventTargetHttpTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headerParameters = defaults.headerParameters;
@@ -84,10 +71,12 @@ public final class EventTargetHttpTarget {
     	      this.queryStringParameters = defaults.queryStringParameters;
         }
 
+        @CustomType.Setter
         public Builder headerParameters(@Nullable Map<String,String> headerParameters) {
             this.headerParameters = headerParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder pathParameterValues(@Nullable List<String> pathParameterValues) {
             this.pathParameterValues = pathParameterValues;
             return this;
@@ -95,11 +84,17 @@ public final class EventTargetHttpTarget {
         public Builder pathParameterValues(String... pathParameterValues) {
             return pathParameterValues(List.of(pathParameterValues));
         }
+        @CustomType.Setter
         public Builder queryStringParameters(@Nullable Map<String,String> queryStringParameters) {
             this.queryStringParameters = queryStringParameters;
             return this;
-        }        public EventTargetHttpTarget build() {
-            return new EventTargetHttpTarget(headerParameters, pathParameterValues, queryStringParameters);
+        }
+        public EventTargetHttpTarget build() {
+            final var o = new EventTargetHttpTarget();
+            o.headerParameters = headerParameters;
+            o.pathParameterValues = pathParameterValues;
+            o.queryStringParameters = queryStringParameters;
+            return o;
         }
     }
 }

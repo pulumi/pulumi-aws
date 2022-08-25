@@ -17,21 +17,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The OAuth 2.0 properties required for OAuth 2.0 authentication.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties;
     /**
      * @return A map of properties that are required to create a profile for the custom connector.
      * 
      */
-    private final @Nullable Map<String,String> profileProperties;
+    private @Nullable Map<String,String> profileProperties;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector(
-        @CustomType.Parameter("oauth2Properties") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties,
-        @CustomType.Parameter("profileProperties") @Nullable Map<String,String> profileProperties) {
-        this.oauth2Properties = oauth2Properties;
-        this.profileProperties = profileProperties;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector() {}
     /**
      * @return The OAuth 2.0 properties required for OAuth 2.0 authentication.
      * 
@@ -54,30 +47,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties;
         private @Nullable Map<String,String> profileProperties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.oauth2Properties = defaults.oauth2Properties;
     	      this.profileProperties = defaults.profileProperties;
         }
 
+        @CustomType.Setter
         public Builder oauth2Properties(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties) {
             this.oauth2Properties = oauth2Properties;
             return this;
         }
+        @CustomType.Setter
         public Builder profileProperties(@Nullable Map<String,String> profileProperties) {
             this.profileProperties = profileProperties;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector(oauth2Properties, profileProperties);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector();
+            o.oauth2Properties = oauth2Properties;
+            o.profileProperties = profileProperties;
+            return o;
         }
     }
 }

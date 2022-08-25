@@ -14,21 +14,14 @@ public final class GetServiceDnsConfigDnsRecord {
      * @return The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
      * 
      */
-    private final Integer ttl;
+    private Integer ttl;
     /**
      * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetServiceDnsConfigDnsRecord(
-        @CustomType.Parameter("ttl") Integer ttl,
-        @CustomType.Parameter("type") String type) {
-        this.ttl = ttl;
-        this.type = type;
-    }
-
+    private GetServiceDnsConfigDnsRecord() {}
     /**
      * @return The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
      * 
@@ -51,30 +44,32 @@ public final class GetServiceDnsConfigDnsRecord {
     public static Builder builder(GetServiceDnsConfigDnsRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer ttl;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceDnsConfigDnsRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ttl = defaults.ttl;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder ttl(Integer ttl) {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetServiceDnsConfigDnsRecord build() {
-            return new GetServiceDnsConfigDnsRecord(ttl, type);
+        }
+        public GetServiceDnsConfigDnsRecord build() {
+            final var o = new GetServiceDnsConfigDnsRecord();
+            o.ttl = ttl;
+            o.type = type;
+            return o;
         }
     }
 }

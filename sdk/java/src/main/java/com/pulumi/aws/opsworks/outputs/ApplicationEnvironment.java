@@ -16,28 +16,19 @@ public final class ApplicationEnvironment {
      * @return Variable name.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Set visibility of the variable value to `true` or `false`.
      * 
      */
-    private final @Nullable Boolean secure;
+    private @Nullable Boolean secure;
     /**
      * @return Variable value.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ApplicationEnvironment(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("secure") @Nullable Boolean secure,
-        @CustomType.Parameter("value") String value) {
-        this.key = key;
-        this.secure = secure;
-        this.value = value;
-    }
-
+    private ApplicationEnvironment() {}
     /**
      * @return Variable name.
      * 
@@ -67,16 +58,12 @@ public final class ApplicationEnvironment {
     public static Builder builder(ApplicationEnvironment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private @Nullable Boolean secure;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -84,19 +71,27 @@ public final class ApplicationEnvironment {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder secure(@Nullable Boolean secure) {
             this.secure = secure;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ApplicationEnvironment build() {
-            return new ApplicationEnvironment(key, secure, value);
+        }
+        public ApplicationEnvironment build() {
+            final var o = new ApplicationEnvironment();
+            o.key = key;
+            o.secure = secure;
+            o.value = value;
+            return o;
         }
     }
 }

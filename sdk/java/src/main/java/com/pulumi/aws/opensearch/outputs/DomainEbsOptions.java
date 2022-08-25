@@ -17,42 +17,29 @@ public final class DomainEbsOptions {
      * @return Whether EBS volumes are attached to data nodes in the domain.
      * 
      */
-    private final Boolean ebsEnabled;
+    private Boolean ebsEnabled;
     /**
      * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
      * 
      */
-    private final @Nullable Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
      * 
      */
-    private final @Nullable Integer throughput;
+    private @Nullable Integer throughput;
     /**
      * @return Size of EBS volumes attached to data nodes (in GiB).
      * 
      */
-    private final @Nullable Integer volumeSize;
+    private @Nullable Integer volumeSize;
     /**
      * @return Type of EBS volumes attached to data nodes.
      * 
      */
-    private final @Nullable String volumeType;
+    private @Nullable String volumeType;
 
-    @CustomType.Constructor
-    private DomainEbsOptions(
-        @CustomType.Parameter("ebsEnabled") Boolean ebsEnabled,
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("throughput") @Nullable Integer throughput,
-        @CustomType.Parameter("volumeSize") @Nullable Integer volumeSize,
-        @CustomType.Parameter("volumeType") @Nullable String volumeType) {
-        this.ebsEnabled = ebsEnabled;
-        this.iops = iops;
-        this.throughput = throughput;
-        this.volumeSize = volumeSize;
-        this.volumeType = volumeType;
-    }
-
+    private DomainEbsOptions() {}
     /**
      * @return Whether EBS volumes are attached to data nodes in the domain.
      * 
@@ -96,18 +83,14 @@ public final class DomainEbsOptions {
     public static Builder builder(DomainEbsOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean ebsEnabled;
         private @Nullable Integer iops;
         private @Nullable Integer throughput;
         private @Nullable Integer volumeSize;
         private @Nullable String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainEbsOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ebsEnabled = defaults.ebsEnabled;
@@ -117,27 +100,39 @@ public final class DomainEbsOptions {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder ebsEnabled(Boolean ebsEnabled) {
             this.ebsEnabled = Objects.requireNonNull(ebsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
             this.throughput = throughput;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
             this.volumeSize = volumeSize;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
             this.volumeType = volumeType;
             return this;
-        }        public DomainEbsOptions build() {
-            return new DomainEbsOptions(ebsEnabled, iops, throughput, volumeSize, volumeType);
+        }
+        public DomainEbsOptions build() {
+            final var o = new DomainEbsOptions();
+            o.ebsEnabled = ebsEnabled;
+            o.iops = iops;
+            o.throughput = throughput;
+            o.volumeSize = volumeSize;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

@@ -14,58 +14,35 @@ public final class GetResolverRuleResult {
      * @return The ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
-    private final String arn;
-    private final String domainName;
+    private String arn;
+    private String domainName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      * 
      */
-    private final String ownerId;
-    private final String resolverEndpointId;
-    private final String resolverRuleId;
-    private final String ruleType;
+    private String ownerId;
+    private String resolverEndpointId;
+    private String resolverRuleId;
+    private String ruleType;
     /**
      * @return Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    private final String shareStatus;
+    private String shareStatus;
     /**
      * @return A map of tags assigned to the resolver rule.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetResolverRuleResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("resolverEndpointId") String resolverEndpointId,
-        @CustomType.Parameter("resolverRuleId") String resolverRuleId,
-        @CustomType.Parameter("ruleType") String ruleType,
-        @CustomType.Parameter("shareStatus") String shareStatus,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.domainName = domainName;
-        this.id = id;
-        this.name = name;
-        this.ownerId = ownerId;
-        this.resolverEndpointId = resolverEndpointId;
-        this.resolverRuleId = resolverRuleId;
-        this.ruleType = ruleType;
-        this.shareStatus = shareStatus;
-        this.tags = tags;
-    }
-
+    private GetResolverRuleResult() {}
     /**
      * @return The ARN (Amazon Resource Name) for the resolver rule.
      * 
@@ -125,7 +102,7 @@ public final class GetResolverRuleResult {
     public static Builder builder(GetResolverRuleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String domainName;
@@ -137,11 +114,7 @@ public final class GetResolverRuleResult {
         private String ruleType;
         private String shareStatus;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResolverRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -156,47 +129,69 @@ public final class GetResolverRuleResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder resolverEndpointId(String resolverEndpointId) {
             this.resolverEndpointId = Objects.requireNonNull(resolverEndpointId);
             return this;
         }
+        @CustomType.Setter
         public Builder resolverRuleId(String resolverRuleId) {
             this.resolverRuleId = Objects.requireNonNull(resolverRuleId);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleType(String ruleType) {
             this.ruleType = Objects.requireNonNull(ruleType);
             return this;
         }
+        @CustomType.Setter
         public Builder shareStatus(String shareStatus) {
             this.shareStatus = Objects.requireNonNull(shareStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetResolverRuleResult build() {
-            return new GetResolverRuleResult(arn, domainName, id, name, ownerId, resolverEndpointId, resolverRuleId, ruleType, shareStatus, tags);
+        }
+        public GetResolverRuleResult build() {
+            final var o = new GetResolverRuleResult();
+            o.arn = arn;
+            o.domainName = domainName;
+            o.id = id;
+            o.name = name;
+            o.ownerId = ownerId;
+            o.resolverEndpointId = resolverEndpointId;
+            o.resolverRuleId = resolverRuleId;
+            o.ruleType = ruleType;
+            o.shareStatus = shareStatus;
+            o.tags = tags;
+            return o;
         }
     }
 }

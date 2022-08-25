@@ -15,30 +15,17 @@ public final class GetGroupResult {
      * @return The group&#39;s display name value.
      * 
      */
-    private final String displayName;
-    private final List<GetGroupFilter> filters;
-    private final String groupId;
+    private String displayName;
+    private List<GetGroupFilter> filters;
+    private String groupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String identityStoreId;
+    private String id;
+    private String identityStoreId;
 
-    @CustomType.Constructor
-    private GetGroupResult(
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("filters") List<GetGroupFilter> filters,
-        @CustomType.Parameter("groupId") String groupId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identityStoreId") String identityStoreId) {
-        this.displayName = displayName;
-        this.filters = filters;
-        this.groupId = groupId;
-        this.id = id;
-        this.identityStoreId = identityStoreId;
-    }
-
+    private GetGroupResult() {}
     /**
      * @return The group&#39;s display name value.
      * 
@@ -70,18 +57,14 @@ public final class GetGroupResult {
     public static Builder builder(GetGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String displayName;
         private List<GetGroupFilter> filters;
         private String groupId;
         private String id;
         private String identityStoreId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
@@ -91,10 +74,12 @@ public final class GetGroupResult {
     	      this.identityStoreId = defaults.identityStoreId;
         }
 
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(List<GetGroupFilter> filters) {
             this.filters = Objects.requireNonNull(filters);
             return this;
@@ -102,19 +87,29 @@ public final class GetGroupResult {
         public Builder filters(GetGroupFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder groupId(String groupId) {
             this.groupId = Objects.requireNonNull(groupId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identityStoreId(String identityStoreId) {
             this.identityStoreId = Objects.requireNonNull(identityStoreId);
             return this;
-        }        public GetGroupResult build() {
-            return new GetGroupResult(displayName, filters, groupId, id, identityStoreId);
+        }
+        public GetGroupResult build() {
+            final var o = new GetGroupResult();
+            o.displayName = displayName;
+            o.filters = filters;
+            o.groupId = groupId;
+            o.id = id;
+            o.identityStoreId = identityStoreId;
+            return o;
         }
     }
 }

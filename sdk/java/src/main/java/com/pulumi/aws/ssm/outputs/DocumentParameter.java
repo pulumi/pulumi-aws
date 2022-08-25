@@ -11,31 +11,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DocumentParameter {
-    private final @Nullable String defaultValue;
+    private @Nullable String defaultValue;
     /**
      * @return The description of the document.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The name of the document.
      * 
      */
-    private final @Nullable String name;
-    private final @Nullable String type;
+    private @Nullable String name;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private DocumentParameter(
-        @CustomType.Parameter("defaultValue") @Nullable String defaultValue,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.defaultValue = defaultValue;
-        this.description = description;
-        this.name = name;
-        this.type = type;
-    }
-
+    private DocumentParameter() {}
     public Optional<String> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
@@ -64,17 +53,13 @@ public final class DocumentParameter {
     public static Builder builder(DocumentParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultValue;
         private @Nullable String description;
         private @Nullable String name;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DocumentParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultValue = defaults.defaultValue;
@@ -83,23 +68,33 @@ public final class DocumentParameter {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
             this.defaultValue = defaultValue;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public DocumentParameter build() {
-            return new DocumentParameter(defaultValue, description, name, type);
+        }
+        public DocumentParameter build() {
+            final var o = new DocumentParameter();
+            o.defaultValue = defaultValue;
+            o.description = description;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

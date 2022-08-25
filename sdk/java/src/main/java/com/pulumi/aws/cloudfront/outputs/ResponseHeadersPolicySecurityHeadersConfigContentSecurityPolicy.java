@@ -14,21 +14,14 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPoli
      * @return The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
      * 
      */
-    private final String contentSecurityPolicy;
+    private String contentSecurityPolicy;
     /**
      * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private final Boolean override;
+    private Boolean override;
 
-    @CustomType.Constructor
-    private ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(
-        @CustomType.Parameter("contentSecurityPolicy") String contentSecurityPolicy,
-        @CustomType.Parameter("override") Boolean override) {
-        this.contentSecurityPolicy = contentSecurityPolicy;
-        this.override = override;
-    }
-
+    private ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy() {}
     /**
      * @return The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
      * 
@@ -51,30 +44,32 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPoli
     public static Builder builder(ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contentSecurityPolicy;
         private Boolean override;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentSecurityPolicy = defaults.contentSecurityPolicy;
     	      this.override = defaults.override;
         }
 
+        @CustomType.Setter
         public Builder contentSecurityPolicy(String contentSecurityPolicy) {
             this.contentSecurityPolicy = Objects.requireNonNull(contentSecurityPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder override(Boolean override) {
             this.override = Objects.requireNonNull(override);
             return this;
-        }        public ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy build() {
-            return new ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(contentSecurityPolicy, override);
+        }
+        public ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy build() {
+            final var o = new ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy();
+            o.contentSecurityPolicy = contentSecurityPolicy;
+            o.override = override;
+            return o;
         }
     }
 }

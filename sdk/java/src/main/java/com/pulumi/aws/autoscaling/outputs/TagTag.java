@@ -14,28 +14,19 @@ public final class TagTag {
      * @return Tag name.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Whether to propagate the tags to instances launched by the ASG.
      * 
      */
-    private final Boolean propagateAtLaunch;
+    private Boolean propagateAtLaunch;
     /**
      * @return Tag value.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private TagTag(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("propagateAtLaunch") Boolean propagateAtLaunch,
-        @CustomType.Parameter("value") String value) {
-        this.key = key;
-        this.propagateAtLaunch = propagateAtLaunch;
-        this.value = value;
-    }
-
+    private TagTag() {}
     /**
      * @return Tag name.
      * 
@@ -65,16 +56,12 @@ public final class TagTag {
     public static Builder builder(TagTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private Boolean propagateAtLaunch;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TagTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -82,19 +69,27 @@ public final class TagTag {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder propagateAtLaunch(Boolean propagateAtLaunch) {
             this.propagateAtLaunch = Objects.requireNonNull(propagateAtLaunch);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public TagTag build() {
-            return new TagTag(key, propagateAtLaunch, value);
+        }
+        public TagTag build() {
+            final var o = new TagTag();
+            o.key = key;
+            o.propagateAtLaunch = propagateAtLaunch;
+            o.value = value;
+            return o;
         }
     }
 }

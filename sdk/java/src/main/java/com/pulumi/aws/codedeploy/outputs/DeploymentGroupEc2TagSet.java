@@ -15,13 +15,9 @@ public final class DeploymentGroupEc2TagSet {
      * @return Tag filters associated with the deployment group. See the AWS docs for details.
      * 
      */
-    private final @Nullable List<DeploymentGroupEc2TagSetEc2TagFilter> ec2TagFilters;
+    private @Nullable List<DeploymentGroupEc2TagSetEc2TagFilter> ec2TagFilters;
 
-    @CustomType.Constructor
-    private DeploymentGroupEc2TagSet(@CustomType.Parameter("ec2TagFilters") @Nullable List<DeploymentGroupEc2TagSetEc2TagFilter> ec2TagFilters) {
-        this.ec2TagFilters = ec2TagFilters;
-    }
-
+    private DeploymentGroupEc2TagSet() {}
     /**
      * @return Tag filters associated with the deployment group. See the AWS docs for details.
      * 
@@ -37,27 +33,27 @@ public final class DeploymentGroupEc2TagSet {
     public static Builder builder(DeploymentGroupEc2TagSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DeploymentGroupEc2TagSetEc2TagFilter> ec2TagFilters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupEc2TagSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ec2TagFilters = defaults.ec2TagFilters;
         }
 
+        @CustomType.Setter
         public Builder ec2TagFilters(@Nullable List<DeploymentGroupEc2TagSetEc2TagFilter> ec2TagFilters) {
             this.ec2TagFilters = ec2TagFilters;
             return this;
         }
         public Builder ec2TagFilters(DeploymentGroupEc2TagSetEc2TagFilter... ec2TagFilters) {
             return ec2TagFilters(List.of(ec2TagFilters));
-        }        public DeploymentGroupEc2TagSet build() {
-            return new DeploymentGroupEc2TagSet(ec2TagFilters);
+        }
+        public DeploymentGroupEc2TagSet build() {
+            final var o = new DeploymentGroupEc2TagSet();
+            o.ec2TagFilters = ec2TagFilters;
+            return o;
         }
     }
 }

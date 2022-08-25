@@ -15,58 +15,37 @@ public final class GetSecurityProfileResult {
      * @return The Amazon Resource Name (ARN) of the Security Profile.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Specifies the description of the Security Profile.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
-    private final String name;
+    private String id;
+    private String instanceId;
+    private String name;
     /**
      * @return The organization resource identifier for the security profile.
      * 
      */
-    private final String organizationResourceId;
+    private String organizationResourceId;
     /**
      * @return Specifies a list of permissions assigned to the security profile.
      * 
      */
-    private final List<String> permissions;
-    private final String securityProfileId;
+    private List<String> permissions;
+    private String securityProfileId;
     /**
      * @return A map of tags to assign to the Security Profile.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetSecurityProfileResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("organizationResourceId") String organizationResourceId,
-        @CustomType.Parameter("permissions") List<String> permissions,
-        @CustomType.Parameter("securityProfileId") String securityProfileId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.instanceId = instanceId;
-        this.name = name;
-        this.organizationResourceId = organizationResourceId;
-        this.permissions = permissions;
-        this.securityProfileId = securityProfileId;
-        this.tags = tags;
-    }
-
+    private GetSecurityProfileResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Security Profile.
      * 
@@ -126,7 +105,7 @@ public final class GetSecurityProfileResult {
     public static Builder builder(GetSecurityProfileResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -137,11 +116,7 @@ public final class GetSecurityProfileResult {
         private List<String> permissions;
         private String securityProfileId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecurityProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -155,30 +130,37 @@ public final class GetSecurityProfileResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder organizationResourceId(String organizationResourceId) {
             this.organizationResourceId = Objects.requireNonNull(organizationResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(List<String> permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
@@ -186,15 +168,28 @@ public final class GetSecurityProfileResult {
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
+        @CustomType.Setter
         public Builder securityProfileId(String securityProfileId) {
             this.securityProfileId = Objects.requireNonNull(securityProfileId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetSecurityProfileResult build() {
-            return new GetSecurityProfileResult(arn, description, id, instanceId, name, organizationResourceId, permissions, securityProfileId, tags);
+        }
+        public GetSecurityProfileResult build() {
+            final var o = new GetSecurityProfileResult();
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.instanceId = instanceId;
+            o.name = name;
+            o.organizationResourceId = organizationResourceId;
+            o.permissions = permissions;
+            o.securityProfileId = securityProfileId;
+            o.tags = tags;
+            return o;
         }
     }
 }

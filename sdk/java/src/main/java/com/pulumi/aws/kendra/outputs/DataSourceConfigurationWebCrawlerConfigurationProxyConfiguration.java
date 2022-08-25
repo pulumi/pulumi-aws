@@ -16,28 +16,19 @@ public final class DataSourceConfigurationWebCrawlerConfigurationProxyConfigurat
      * @return Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
      * 
      */
-    private final @Nullable String credentials;
+    private @Nullable String credentials;
     /**
      * @return The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
      * 
      */
-    private final String host;
+    private String host;
     /**
      * @return The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration(
-        @CustomType.Parameter("credentials") @Nullable String credentials,
-        @CustomType.Parameter("host") String host,
-        @CustomType.Parameter("port") Integer port) {
-        this.credentials = credentials;
-        this.host = host;
-        this.port = port;
-    }
-
+    private DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration() {}
     /**
      * @return Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
      * 
@@ -67,16 +58,12 @@ public final class DataSourceConfigurationWebCrawlerConfigurationProxyConfigurat
     public static Builder builder(DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String credentials;
         private String host;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.credentials = defaults.credentials;
@@ -84,19 +71,27 @@ public final class DataSourceConfigurationWebCrawlerConfigurationProxyConfigurat
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder credentials(@Nullable String credentials) {
             this.credentials = credentials;
             return this;
         }
+        @CustomType.Setter
         public Builder host(String host) {
             this.host = Objects.requireNonNull(host);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration build() {
-            return new DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration(credentials, host, port);
+        }
+        public DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration build() {
+            final var o = new DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration();
+            o.credentials = credentials;
+            o.host = host;
+            o.port = port;
+            return o;
         }
     }
 }

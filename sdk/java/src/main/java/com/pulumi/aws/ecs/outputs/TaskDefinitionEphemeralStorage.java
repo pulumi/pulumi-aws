@@ -13,13 +13,9 @@ public final class TaskDefinitionEphemeralStorage {
      * @return The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
      * 
      */
-    private final Integer sizeInGib;
+    private Integer sizeInGib;
 
-    @CustomType.Constructor
-    private TaskDefinitionEphemeralStorage(@CustomType.Parameter("sizeInGib") Integer sizeInGib) {
-        this.sizeInGib = sizeInGib;
-    }
-
+    private TaskDefinitionEphemeralStorage() {}
     /**
      * @return The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
      * 
@@ -35,24 +31,24 @@ public final class TaskDefinitionEphemeralStorage {
     public static Builder builder(TaskDefinitionEphemeralStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer sizeInGib;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskDefinitionEphemeralStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sizeInGib = defaults.sizeInGib;
         }
 
+        @CustomType.Setter
         public Builder sizeInGib(Integer sizeInGib) {
             this.sizeInGib = Objects.requireNonNull(sizeInGib);
             return this;
-        }        public TaskDefinitionEphemeralStorage build() {
-            return new TaskDefinitionEphemeralStorage(sizeInGib);
+        }
+        public TaskDefinitionEphemeralStorage build() {
+            final var o = new TaskDefinitionEphemeralStorage();
+            o.sizeInGib = sizeInGib;
+            return o;
         }
     }
 }

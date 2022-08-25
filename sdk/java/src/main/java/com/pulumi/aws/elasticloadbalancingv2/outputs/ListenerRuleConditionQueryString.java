@@ -15,21 +15,14 @@ public final class ListenerRuleConditionQueryString {
      * @return Query string key pattern to match.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return Query string value pattern to match.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ListenerRuleConditionQueryString(
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("value") String value) {
-        this.key = key;
-        this.value = value;
-    }
-
+    private ListenerRuleConditionQueryString() {}
     /**
      * @return Query string key pattern to match.
      * 
@@ -52,30 +45,32 @@ public final class ListenerRuleConditionQueryString {
     public static Builder builder(ListenerRuleConditionQueryString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String key;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerRuleConditionQueryString defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ListenerRuleConditionQueryString build() {
-            return new ListenerRuleConditionQueryString(key, value);
+        }
+        public ListenerRuleConditionQueryString build() {
+            final var o = new ListenerRuleConditionQueryString();
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

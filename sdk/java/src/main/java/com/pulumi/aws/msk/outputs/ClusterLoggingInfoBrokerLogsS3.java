@@ -16,28 +16,19 @@ public final class ClusterLoggingInfoBrokerLogsS3 {
      * @return Name of the S3 bucket to deliver logs to.
      * 
      */
-    private final @Nullable String bucket;
+    private @Nullable String bucket;
     /**
      * @return Controls whether provisioned throughput is enabled or not. Default value: `false`.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Prefix to append to the folder name.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
 
-    @CustomType.Constructor
-    private ClusterLoggingInfoBrokerLogsS3(
-        @CustomType.Parameter("bucket") @Nullable String bucket,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("prefix") @Nullable String prefix) {
-        this.bucket = bucket;
-        this.enabled = enabled;
-        this.prefix = prefix;
-    }
-
+    private ClusterLoggingInfoBrokerLogsS3() {}
     /**
      * @return Name of the S3 bucket to deliver logs to.
      * 
@@ -67,16 +58,12 @@ public final class ClusterLoggingInfoBrokerLogsS3 {
     public static Builder builder(ClusterLoggingInfoBrokerLogsS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucket;
         private Boolean enabled;
         private @Nullable String prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterLoggingInfoBrokerLogsS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -84,19 +71,27 @@ public final class ClusterLoggingInfoBrokerLogsS3 {
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
             this.bucket = bucket;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
-        }        public ClusterLoggingInfoBrokerLogsS3 build() {
-            return new ClusterLoggingInfoBrokerLogsS3(bucket, enabled, prefix);
+        }
+        public ClusterLoggingInfoBrokerLogsS3 build() {
+            final var o = new ClusterLoggingInfoBrokerLogsS3();
+            o.bucket = bucket;
+            o.enabled = enabled;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

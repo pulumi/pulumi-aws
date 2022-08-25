@@ -15,28 +15,19 @@ public final class CodeRepositoryGitConfig {
      * @return The default branch for the Git repository.
      * 
      */
-    private final @Nullable String branch;
+    private @Nullable String branch;
     /**
      * @return The URL where the Git repository is located.
      * 
      */
-    private final String repositoryUrl;
+    private String repositoryUrl;
     /**
      * @return The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{&#34;username&#34;: UserName, &#34;password&#34;: Password}`
      * 
      */
-    private final @Nullable String secretArn;
+    private @Nullable String secretArn;
 
-    @CustomType.Constructor
-    private CodeRepositoryGitConfig(
-        @CustomType.Parameter("branch") @Nullable String branch,
-        @CustomType.Parameter("repositoryUrl") String repositoryUrl,
-        @CustomType.Parameter("secretArn") @Nullable String secretArn) {
-        this.branch = branch;
-        this.repositoryUrl = repositoryUrl;
-        this.secretArn = secretArn;
-    }
-
+    private CodeRepositoryGitConfig() {}
     /**
      * @return The default branch for the Git repository.
      * 
@@ -66,16 +57,12 @@ public final class CodeRepositoryGitConfig {
     public static Builder builder(CodeRepositoryGitConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String branch;
         private String repositoryUrl;
         private @Nullable String secretArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CodeRepositoryGitConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.branch = defaults.branch;
@@ -83,19 +70,27 @@ public final class CodeRepositoryGitConfig {
     	      this.secretArn = defaults.secretArn;
         }
 
+        @CustomType.Setter
         public Builder branch(@Nullable String branch) {
             this.branch = branch;
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
             this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder secretArn(@Nullable String secretArn) {
             this.secretArn = secretArn;
             return this;
-        }        public CodeRepositoryGitConfig build() {
-            return new CodeRepositoryGitConfig(branch, repositoryUrl, secretArn);
+        }
+        public CodeRepositoryGitConfig build() {
+            final var o = new CodeRepositoryGitConfig();
+            o.branch = branch;
+            o.repositoryUrl = repositoryUrl;
+            o.secretArn = secretArn;
+            return o;
         }
     }
 }

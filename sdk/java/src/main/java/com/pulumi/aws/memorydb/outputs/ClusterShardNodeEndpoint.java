@@ -16,21 +16,14 @@ public final class ClusterShardNodeEndpoint {
      * @return DNS hostname of the node.
      * 
      */
-    private final @Nullable String address;
+    private @Nullable String address;
     /**
      * @return The port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
 
-    @CustomType.Constructor
-    private ClusterShardNodeEndpoint(
-        @CustomType.Parameter("address") @Nullable String address,
-        @CustomType.Parameter("port") @Nullable Integer port) {
-        this.address = address;
-        this.port = port;
-    }
-
+    private ClusterShardNodeEndpoint() {}
     /**
      * @return DNS hostname of the node.
      * 
@@ -53,30 +46,32 @@ public final class ClusterShardNodeEndpoint {
     public static Builder builder(ClusterShardNodeEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String address;
         private @Nullable Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterShardNodeEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder address(@Nullable String address) {
             this.address = address;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
-        }        public ClusterShardNodeEndpoint build() {
-            return new ClusterShardNodeEndpoint(address, port);
+        }
+        public ClusterShardNodeEndpoint build() {
+            final var o = new ClusterShardNodeEndpoint();
+            o.address = address;
+            o.port = port;
+            return o;
         }
     }
 }

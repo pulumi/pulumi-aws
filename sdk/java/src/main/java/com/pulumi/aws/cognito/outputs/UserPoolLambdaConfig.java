@@ -17,98 +17,69 @@ public final class UserPoolLambdaConfig {
      * @return ARN of the lambda creating an authentication challenge.
      * 
      */
-    private final @Nullable String createAuthChallenge;
+    private @Nullable String createAuthChallenge;
     /**
      * @return A custom email sender AWS Lambda trigger. See custom_email_sender Below.
      * 
      */
-    private final @Nullable UserPoolLambdaConfigCustomEmailSender customEmailSender;
+    private @Nullable UserPoolLambdaConfigCustomEmailSender customEmailSender;
     /**
      * @return Custom Message AWS Lambda trigger.
      * 
      */
-    private final @Nullable String customMessage;
+    private @Nullable String customMessage;
     /**
      * @return A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
      * 
      */
-    private final @Nullable UserPoolLambdaConfigCustomSmsSender customSmsSender;
+    private @Nullable UserPoolLambdaConfigCustomSmsSender customSmsSender;
     /**
      * @return Defines the authentication challenge.
      * 
      */
-    private final @Nullable String defineAuthChallenge;
+    private @Nullable String defineAuthChallenge;
     /**
      * @return The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Post-authentication AWS Lambda trigger.
      * 
      */
-    private final @Nullable String postAuthentication;
+    private @Nullable String postAuthentication;
     /**
      * @return Post-confirmation AWS Lambda trigger.
      * 
      */
-    private final @Nullable String postConfirmation;
+    private @Nullable String postConfirmation;
     /**
      * @return Pre-authentication AWS Lambda trigger.
      * 
      */
-    private final @Nullable String preAuthentication;
+    private @Nullable String preAuthentication;
     /**
      * @return Pre-registration AWS Lambda trigger.
      * 
      */
-    private final @Nullable String preSignUp;
+    private @Nullable String preSignUp;
     /**
      * @return Allow to customize identity token claims before token generation.
      * 
      */
-    private final @Nullable String preTokenGeneration;
+    private @Nullable String preTokenGeneration;
     /**
      * @return User migration Lambda config type.
      * 
      */
-    private final @Nullable String userMigration;
+    private @Nullable String userMigration;
     /**
      * @return Verifies the authentication challenge response.
      * 
      */
-    private final @Nullable String verifyAuthChallengeResponse;
+    private @Nullable String verifyAuthChallengeResponse;
 
-    @CustomType.Constructor
-    private UserPoolLambdaConfig(
-        @CustomType.Parameter("createAuthChallenge") @Nullable String createAuthChallenge,
-        @CustomType.Parameter("customEmailSender") @Nullable UserPoolLambdaConfigCustomEmailSender customEmailSender,
-        @CustomType.Parameter("customMessage") @Nullable String customMessage,
-        @CustomType.Parameter("customSmsSender") @Nullable UserPoolLambdaConfigCustomSmsSender customSmsSender,
-        @CustomType.Parameter("defineAuthChallenge") @Nullable String defineAuthChallenge,
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("postAuthentication") @Nullable String postAuthentication,
-        @CustomType.Parameter("postConfirmation") @Nullable String postConfirmation,
-        @CustomType.Parameter("preAuthentication") @Nullable String preAuthentication,
-        @CustomType.Parameter("preSignUp") @Nullable String preSignUp,
-        @CustomType.Parameter("preTokenGeneration") @Nullable String preTokenGeneration,
-        @CustomType.Parameter("userMigration") @Nullable String userMigration,
-        @CustomType.Parameter("verifyAuthChallengeResponse") @Nullable String verifyAuthChallengeResponse) {
-        this.createAuthChallenge = createAuthChallenge;
-        this.customEmailSender = customEmailSender;
-        this.customMessage = customMessage;
-        this.customSmsSender = customSmsSender;
-        this.defineAuthChallenge = defineAuthChallenge;
-        this.kmsKeyId = kmsKeyId;
-        this.postAuthentication = postAuthentication;
-        this.postConfirmation = postConfirmation;
-        this.preAuthentication = preAuthentication;
-        this.preSignUp = preSignUp;
-        this.preTokenGeneration = preTokenGeneration;
-        this.userMigration = userMigration;
-        this.verifyAuthChallengeResponse = verifyAuthChallengeResponse;
-    }
-
+    private UserPoolLambdaConfig() {}
     /**
      * @return ARN of the lambda creating an authentication challenge.
      * 
@@ -208,7 +179,7 @@ public final class UserPoolLambdaConfig {
     public static Builder builder(UserPoolLambdaConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String createAuthChallenge;
         private @Nullable UserPoolLambdaConfigCustomEmailSender customEmailSender;
@@ -223,11 +194,7 @@ public final class UserPoolLambdaConfig {
         private @Nullable String preTokenGeneration;
         private @Nullable String userMigration;
         private @Nullable String verifyAuthChallengeResponse;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolLambdaConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createAuthChallenge = defaults.createAuthChallenge;
@@ -245,59 +212,87 @@ public final class UserPoolLambdaConfig {
     	      this.verifyAuthChallengeResponse = defaults.verifyAuthChallengeResponse;
         }
 
+        @CustomType.Setter
         public Builder createAuthChallenge(@Nullable String createAuthChallenge) {
             this.createAuthChallenge = createAuthChallenge;
             return this;
         }
+        @CustomType.Setter
         public Builder customEmailSender(@Nullable UserPoolLambdaConfigCustomEmailSender customEmailSender) {
             this.customEmailSender = customEmailSender;
             return this;
         }
+        @CustomType.Setter
         public Builder customMessage(@Nullable String customMessage) {
             this.customMessage = customMessage;
             return this;
         }
+        @CustomType.Setter
         public Builder customSmsSender(@Nullable UserPoolLambdaConfigCustomSmsSender customSmsSender) {
             this.customSmsSender = customSmsSender;
             return this;
         }
+        @CustomType.Setter
         public Builder defineAuthChallenge(@Nullable String defineAuthChallenge) {
             this.defineAuthChallenge = defineAuthChallenge;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder postAuthentication(@Nullable String postAuthentication) {
             this.postAuthentication = postAuthentication;
             return this;
         }
+        @CustomType.Setter
         public Builder postConfirmation(@Nullable String postConfirmation) {
             this.postConfirmation = postConfirmation;
             return this;
         }
+        @CustomType.Setter
         public Builder preAuthentication(@Nullable String preAuthentication) {
             this.preAuthentication = preAuthentication;
             return this;
         }
+        @CustomType.Setter
         public Builder preSignUp(@Nullable String preSignUp) {
             this.preSignUp = preSignUp;
             return this;
         }
+        @CustomType.Setter
         public Builder preTokenGeneration(@Nullable String preTokenGeneration) {
             this.preTokenGeneration = preTokenGeneration;
             return this;
         }
+        @CustomType.Setter
         public Builder userMigration(@Nullable String userMigration) {
             this.userMigration = userMigration;
             return this;
         }
+        @CustomType.Setter
         public Builder verifyAuthChallengeResponse(@Nullable String verifyAuthChallengeResponse) {
             this.verifyAuthChallengeResponse = verifyAuthChallengeResponse;
             return this;
-        }        public UserPoolLambdaConfig build() {
-            return new UserPoolLambdaConfig(createAuthChallenge, customEmailSender, customMessage, customSmsSender, defineAuthChallenge, kmsKeyId, postAuthentication, postConfirmation, preAuthentication, preSignUp, preTokenGeneration, userMigration, verifyAuthChallengeResponse);
+        }
+        public UserPoolLambdaConfig build() {
+            final var o = new UserPoolLambdaConfig();
+            o.createAuthChallenge = createAuthChallenge;
+            o.customEmailSender = customEmailSender;
+            o.customMessage = customMessage;
+            o.customSmsSender = customSmsSender;
+            o.defineAuthChallenge = defineAuthChallenge;
+            o.kmsKeyId = kmsKeyId;
+            o.postAuthentication = postAuthentication;
+            o.postConfirmation = postConfirmation;
+            o.preAuthentication = preAuthentication;
+            o.preSignUp = preSignUp;
+            o.preTokenGeneration = preTokenGeneration;
+            o.userMigration = userMigration;
+            o.verifyAuthChallengeResponse = verifyAuthChallengeResponse;
+            return o;
         }
     }
 }

@@ -14,42 +14,29 @@ public final class GetRouteTableAssociation {
      * @return ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      * 
      */
-    private final String gatewayId;
+    private String gatewayId;
     /**
      * @return Whether the association is due to the main route table.
      * 
      */
-    private final Boolean main;
+    private Boolean main;
     /**
      * @return Association ID.
      * 
      */
-    private final String routeTableAssociationId;
+    private String routeTableAssociationId;
     /**
      * @return ID of the specific Route Table to retrieve.
      * 
      */
-    private final String routeTableId;
+    private String routeTableId;
     /**
      * @return ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetRouteTableAssociation(
-        @CustomType.Parameter("gatewayId") String gatewayId,
-        @CustomType.Parameter("main") Boolean main,
-        @CustomType.Parameter("routeTableAssociationId") String routeTableAssociationId,
-        @CustomType.Parameter("routeTableId") String routeTableId,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.gatewayId = gatewayId;
-        this.main = main;
-        this.routeTableAssociationId = routeTableAssociationId;
-        this.routeTableId = routeTableId;
-        this.subnetId = subnetId;
-    }
-
+    private GetRouteTableAssociation() {}
     /**
      * @return ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      * 
@@ -93,18 +80,14 @@ public final class GetRouteTableAssociation {
     public static Builder builder(GetRouteTableAssociation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String gatewayId;
         private Boolean main;
         private String routeTableAssociationId;
         private String routeTableId;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRouteTableAssociation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.gatewayId = defaults.gatewayId;
@@ -114,27 +97,39 @@ public final class GetRouteTableAssociation {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder gatewayId(String gatewayId) {
             this.gatewayId = Objects.requireNonNull(gatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder main(Boolean main) {
             this.main = Objects.requireNonNull(main);
             return this;
         }
+        @CustomType.Setter
         public Builder routeTableAssociationId(String routeTableAssociationId) {
             this.routeTableAssociationId = Objects.requireNonNull(routeTableAssociationId);
             return this;
         }
+        @CustomType.Setter
         public Builder routeTableId(String routeTableId) {
             this.routeTableId = Objects.requireNonNull(routeTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetRouteTableAssociation build() {
-            return new GetRouteTableAssociation(gatewayId, main, routeTableAssociationId, routeTableId, subnetId);
+        }
+        public GetRouteTableAssociation build() {
+            final var o = new GetRouteTableAssociation();
+            o.gatewayId = gatewayId;
+            o.main = main;
+            o.routeTableAssociationId = routeTableAssociationId;
+            o.routeTableId = routeTableId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

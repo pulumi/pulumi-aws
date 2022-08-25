@@ -18,77 +18,54 @@ public final class MethodSettingsSettings {
      * @return Specifies whether the cached responses are encrypted.
      * 
      */
-    private final @Nullable Boolean cacheDataEncrypted;
+    private @Nullable Boolean cacheDataEncrypted;
     /**
      * @return Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
      * 
      */
-    private final @Nullable Integer cacheTtlInSeconds;
+    private @Nullable Integer cacheTtlInSeconds;
     /**
      * @return Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
      * 
      */
-    private final @Nullable Boolean cachingEnabled;
+    private @Nullable Boolean cachingEnabled;
     /**
      * @return Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
      * 
      */
-    private final @Nullable Boolean dataTraceEnabled;
+    private @Nullable Boolean dataTraceEnabled;
     /**
      * @return Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
      * 
      */
-    private final @Nullable String loggingLevel;
+    private @Nullable String loggingLevel;
     /**
      * @return Specifies whether Amazon CloudWatch metrics are enabled for this method.
      * 
      */
-    private final @Nullable Boolean metricsEnabled;
+    private @Nullable Boolean metricsEnabled;
     /**
      * @return Specifies whether authorization is required for a cache invalidation request.
      * 
      */
-    private final @Nullable Boolean requireAuthorizationForCacheControl;
+    private @Nullable Boolean requireAuthorizationForCacheControl;
     /**
      * @return Specifies the throttling burst limit. Default: `-1` (throttling disabled).
      * 
      */
-    private final @Nullable Integer throttlingBurstLimit;
+    private @Nullable Integer throttlingBurstLimit;
     /**
      * @return Specifies the throttling rate limit. Default: `-1` (throttling disabled).
      * 
      */
-    private final @Nullable Double throttlingRateLimit;
+    private @Nullable Double throttlingRateLimit;
     /**
      * @return Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
      * 
      */
-    private final @Nullable String unauthorizedCacheControlHeaderStrategy;
+    private @Nullable String unauthorizedCacheControlHeaderStrategy;
 
-    @CustomType.Constructor
-    private MethodSettingsSettings(
-        @CustomType.Parameter("cacheDataEncrypted") @Nullable Boolean cacheDataEncrypted,
-        @CustomType.Parameter("cacheTtlInSeconds") @Nullable Integer cacheTtlInSeconds,
-        @CustomType.Parameter("cachingEnabled") @Nullable Boolean cachingEnabled,
-        @CustomType.Parameter("dataTraceEnabled") @Nullable Boolean dataTraceEnabled,
-        @CustomType.Parameter("loggingLevel") @Nullable String loggingLevel,
-        @CustomType.Parameter("metricsEnabled") @Nullable Boolean metricsEnabled,
-        @CustomType.Parameter("requireAuthorizationForCacheControl") @Nullable Boolean requireAuthorizationForCacheControl,
-        @CustomType.Parameter("throttlingBurstLimit") @Nullable Integer throttlingBurstLimit,
-        @CustomType.Parameter("throttlingRateLimit") @Nullable Double throttlingRateLimit,
-        @CustomType.Parameter("unauthorizedCacheControlHeaderStrategy") @Nullable String unauthorizedCacheControlHeaderStrategy) {
-        this.cacheDataEncrypted = cacheDataEncrypted;
-        this.cacheTtlInSeconds = cacheTtlInSeconds;
-        this.cachingEnabled = cachingEnabled;
-        this.dataTraceEnabled = dataTraceEnabled;
-        this.loggingLevel = loggingLevel;
-        this.metricsEnabled = metricsEnabled;
-        this.requireAuthorizationForCacheControl = requireAuthorizationForCacheControl;
-        this.throttlingBurstLimit = throttlingBurstLimit;
-        this.throttlingRateLimit = throttlingRateLimit;
-        this.unauthorizedCacheControlHeaderStrategy = unauthorizedCacheControlHeaderStrategy;
-    }
-
+    private MethodSettingsSettings() {}
     /**
      * @return Specifies whether the cached responses are encrypted.
      * 
@@ -167,7 +144,7 @@ public final class MethodSettingsSettings {
     public static Builder builder(MethodSettingsSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean cacheDataEncrypted;
         private @Nullable Integer cacheTtlInSeconds;
@@ -179,11 +156,7 @@ public final class MethodSettingsSettings {
         private @Nullable Integer throttlingBurstLimit;
         private @Nullable Double throttlingRateLimit;
         private @Nullable String unauthorizedCacheControlHeaderStrategy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MethodSettingsSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cacheDataEncrypted = defaults.cacheDataEncrypted;
@@ -198,47 +171,69 @@ public final class MethodSettingsSettings {
     	      this.unauthorizedCacheControlHeaderStrategy = defaults.unauthorizedCacheControlHeaderStrategy;
         }
 
+        @CustomType.Setter
         public Builder cacheDataEncrypted(@Nullable Boolean cacheDataEncrypted) {
             this.cacheDataEncrypted = cacheDataEncrypted;
             return this;
         }
+        @CustomType.Setter
         public Builder cacheTtlInSeconds(@Nullable Integer cacheTtlInSeconds) {
             this.cacheTtlInSeconds = cacheTtlInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder cachingEnabled(@Nullable Boolean cachingEnabled) {
             this.cachingEnabled = cachingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder dataTraceEnabled(@Nullable Boolean dataTraceEnabled) {
             this.dataTraceEnabled = dataTraceEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder loggingLevel(@Nullable String loggingLevel) {
             this.loggingLevel = loggingLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder metricsEnabled(@Nullable Boolean metricsEnabled) {
             this.metricsEnabled = metricsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder requireAuthorizationForCacheControl(@Nullable Boolean requireAuthorizationForCacheControl) {
             this.requireAuthorizationForCacheControl = requireAuthorizationForCacheControl;
             return this;
         }
+        @CustomType.Setter
         public Builder throttlingBurstLimit(@Nullable Integer throttlingBurstLimit) {
             this.throttlingBurstLimit = throttlingBurstLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder throttlingRateLimit(@Nullable Double throttlingRateLimit) {
             this.throttlingRateLimit = throttlingRateLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder unauthorizedCacheControlHeaderStrategy(@Nullable String unauthorizedCacheControlHeaderStrategy) {
             this.unauthorizedCacheControlHeaderStrategy = unauthorizedCacheControlHeaderStrategy;
             return this;
-        }        public MethodSettingsSettings build() {
-            return new MethodSettingsSettings(cacheDataEncrypted, cacheTtlInSeconds, cachingEnabled, dataTraceEnabled, loggingLevel, metricsEnabled, requireAuthorizationForCacheControl, throttlingBurstLimit, throttlingRateLimit, unauthorizedCacheControlHeaderStrategy);
+        }
+        public MethodSettingsSettings build() {
+            final var o = new MethodSettingsSettings();
+            o.cacheDataEncrypted = cacheDataEncrypted;
+            o.cacheTtlInSeconds = cacheTtlInSeconds;
+            o.cachingEnabled = cachingEnabled;
+            o.dataTraceEnabled = dataTraceEnabled;
+            o.loggingLevel = loggingLevel;
+            o.metricsEnabled = metricsEnabled;
+            o.requireAuthorizationForCacheControl = requireAuthorizationForCacheControl;
+            o.throttlingBurstLimit = throttlingBurstLimit;
+            o.throttlingRateLimit = throttlingRateLimit;
+            o.unauthorizedCacheControlHeaderStrategy = unauthorizedCacheControlHeaderStrategy;
+            return o;
         }
     }
 }

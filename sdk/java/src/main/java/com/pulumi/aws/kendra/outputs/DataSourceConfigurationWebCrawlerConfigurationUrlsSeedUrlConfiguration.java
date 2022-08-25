@@ -16,21 +16,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
      * @return The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
      * 
      */
-    private final List<String> seedUrls;
+    private List<String> seedUrls;
     /**
      * @return The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
      * 
      */
-    private final @Nullable String webCrawlerMode;
+    private @Nullable String webCrawlerMode;
 
-    @CustomType.Constructor
-    private DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration(
-        @CustomType.Parameter("seedUrls") List<String> seedUrls,
-        @CustomType.Parameter("webCrawlerMode") @Nullable String webCrawlerMode) {
-        this.seedUrls = seedUrls;
-        this.webCrawlerMode = webCrawlerMode;
-    }
-
+    private DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration() {}
     /**
      * @return The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
      * 
@@ -53,21 +46,18 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
     public static Builder builder(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> seedUrls;
         private @Nullable String webCrawlerMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.seedUrls = defaults.seedUrls;
     	      this.webCrawlerMode = defaults.webCrawlerMode;
         }
 
+        @CustomType.Setter
         public Builder seedUrls(List<String> seedUrls) {
             this.seedUrls = Objects.requireNonNull(seedUrls);
             return this;
@@ -75,11 +65,16 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
         public Builder seedUrls(String... seedUrls) {
             return seedUrls(List.of(seedUrls));
         }
+        @CustomType.Setter
         public Builder webCrawlerMode(@Nullable String webCrawlerMode) {
             this.webCrawlerMode = webCrawlerMode;
             return this;
-        }        public DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration build() {
-            return new DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration(seedUrls, webCrawlerMode);
+        }
+        public DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration build() {
+            final var o = new DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration();
+            o.seedUrls = seedUrls;
+            o.webCrawlerMode = webCrawlerMode;
+            return o;
         }
     }
 }

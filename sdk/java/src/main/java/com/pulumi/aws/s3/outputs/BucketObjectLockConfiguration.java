@@ -16,21 +16,14 @@ public final class BucketObjectLockConfiguration {
      * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
      * 
      */
-    private final String objectLockEnabled;
+    private String objectLockEnabled;
     /**
      * @return The Object Lock rule in place for this bucket.
      * 
      */
-    private final @Nullable BucketObjectLockConfigurationRule rule;
+    private @Nullable BucketObjectLockConfigurationRule rule;
 
-    @CustomType.Constructor
-    private BucketObjectLockConfiguration(
-        @CustomType.Parameter("objectLockEnabled") String objectLockEnabled,
-        @CustomType.Parameter("rule") @Nullable BucketObjectLockConfigurationRule rule) {
-        this.objectLockEnabled = objectLockEnabled;
-        this.rule = rule;
-    }
-
+    private BucketObjectLockConfiguration() {}
     /**
      * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
      * 
@@ -53,30 +46,32 @@ public final class BucketObjectLockConfiguration {
     public static Builder builder(BucketObjectLockConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String objectLockEnabled;
         private @Nullable BucketObjectLockConfigurationRule rule;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketObjectLockConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.objectLockEnabled = defaults.objectLockEnabled;
     	      this.rule = defaults.rule;
         }
 
+        @CustomType.Setter
         public Builder objectLockEnabled(String objectLockEnabled) {
             this.objectLockEnabled = Objects.requireNonNull(objectLockEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder rule(@Nullable BucketObjectLockConfigurationRule rule) {
             this.rule = rule;
             return this;
-        }        public BucketObjectLockConfiguration build() {
-            return new BucketObjectLockConfiguration(objectLockEnabled, rule);
+        }
+        public BucketObjectLockConfiguration build() {
+            final var o = new BucketObjectLockConfiguration();
+            o.objectLockEnabled = objectLockEnabled;
+            o.rule = rule;
+            return o;
         }
     }
 }

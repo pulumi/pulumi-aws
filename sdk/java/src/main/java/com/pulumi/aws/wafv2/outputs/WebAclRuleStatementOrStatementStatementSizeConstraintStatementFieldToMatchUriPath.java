@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath {
-    @CustomType.Constructor
-    private WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath() {
-    }
-
+    private WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleStatementOrStatementStatementSizeConstraintStatemen
     public static Builder builder(WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath build() {
-            return new WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath();
+            final var o = new WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath();
+            return o;
         }
     }
 }

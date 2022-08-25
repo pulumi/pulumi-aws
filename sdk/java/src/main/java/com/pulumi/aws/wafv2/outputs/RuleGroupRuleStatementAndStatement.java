@@ -14,13 +14,9 @@ public final class RuleGroupRuleStatementAndStatement {
      * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
-    private final List<RuleGroupRuleStatementAndStatementStatement> statements;
+    private List<RuleGroupRuleStatementAndStatementStatement> statements;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementAndStatement(@CustomType.Parameter("statements") List<RuleGroupRuleStatementAndStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private RuleGroupRuleStatementAndStatement() {}
     /**
      * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class RuleGroupRuleStatementAndStatement {
     public static Builder builder(RuleGroupRuleStatementAndStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<RuleGroupRuleStatementAndStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementAndStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<RuleGroupRuleStatementAndStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(RuleGroupRuleStatementAndStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public RuleGroupRuleStatementAndStatement build() {
-            return new RuleGroupRuleStatementAndStatement(statements);
+        }
+        public RuleGroupRuleStatementAndStatement build() {
+            final var o = new RuleGroupRuleStatementAndStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

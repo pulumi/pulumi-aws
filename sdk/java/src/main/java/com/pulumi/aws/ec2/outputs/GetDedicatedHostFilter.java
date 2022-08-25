@@ -14,21 +14,14 @@ public final class GetDedicatedHostFilter {
      * @return The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetDedicatedHostFilter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private GetDedicatedHostFilter() {}
     /**
      * @return The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
      * 
@@ -51,33 +44,35 @@ public final class GetDedicatedHostFilter {
     public static Builder builder(GetDedicatedHostFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDedicatedHostFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetDedicatedHostFilter build() {
-            return new GetDedicatedHostFilter(name, values);
+        }
+        public GetDedicatedHostFilter build() {
+            final var o = new GetDedicatedHostFilter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

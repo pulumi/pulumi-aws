@@ -16,21 +16,14 @@ public final class AuthorizerJwtConfiguration {
      * @return A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
      * 
      */
-    private final @Nullable List<String> audiences;
+    private @Nullable List<String> audiences;
     /**
      * @return The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
      * 
      */
-    private final @Nullable String issuer;
+    private @Nullable String issuer;
 
-    @CustomType.Constructor
-    private AuthorizerJwtConfiguration(
-        @CustomType.Parameter("audiences") @Nullable List<String> audiences,
-        @CustomType.Parameter("issuer") @Nullable String issuer) {
-        this.audiences = audiences;
-        this.issuer = issuer;
-    }
-
+    private AuthorizerJwtConfiguration() {}
     /**
      * @return A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
      * 
@@ -53,21 +46,18 @@ public final class AuthorizerJwtConfiguration {
     public static Builder builder(AuthorizerJwtConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> audiences;
         private @Nullable String issuer;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AuthorizerJwtConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audiences = defaults.audiences;
     	      this.issuer = defaults.issuer;
         }
 
+        @CustomType.Setter
         public Builder audiences(@Nullable List<String> audiences) {
             this.audiences = audiences;
             return this;
@@ -75,11 +65,16 @@ public final class AuthorizerJwtConfiguration {
         public Builder audiences(String... audiences) {
             return audiences(List.of(audiences));
         }
+        @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
             this.issuer = issuer;
             return this;
-        }        public AuthorizerJwtConfiguration build() {
-            return new AuthorizerJwtConfiguration(audiences, issuer);
+        }
+        public AuthorizerJwtConfiguration build() {
+            final var o = new AuthorizerJwtConfiguration();
+            o.audiences = audiences;
+            o.issuer = issuer;
+            return o;
         }
     }
 }

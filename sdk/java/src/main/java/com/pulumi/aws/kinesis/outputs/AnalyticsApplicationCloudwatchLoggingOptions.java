@@ -15,28 +15,19 @@ public final class AnalyticsApplicationCloudwatchLoggingOptions {
      * @return The ARN of the Kinesis Analytics Application.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The ARN of the CloudWatch Log Stream.
      * 
      */
-    private final String logStreamArn;
+    private String logStreamArn;
     /**
      * @return The ARN of the IAM Role used to send application messages.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationCloudwatchLoggingOptions(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("logStreamArn") String logStreamArn,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.id = id;
-        this.logStreamArn = logStreamArn;
-        this.roleArn = roleArn;
-    }
-
+    private AnalyticsApplicationCloudwatchLoggingOptions() {}
     /**
      * @return The ARN of the Kinesis Analytics Application.
      * 
@@ -66,16 +57,12 @@ public final class AnalyticsApplicationCloudwatchLoggingOptions {
     public static Builder builder(AnalyticsApplicationCloudwatchLoggingOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String logStreamArn;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationCloudwatchLoggingOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,19 +70,27 @@ public final class AnalyticsApplicationCloudwatchLoggingOptions {
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder logStreamArn(String logStreamArn) {
             this.logStreamArn = Objects.requireNonNull(logStreamArn);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public AnalyticsApplicationCloudwatchLoggingOptions build() {
-            return new AnalyticsApplicationCloudwatchLoggingOptions(id, logStreamArn, roleArn);
+        }
+        public AnalyticsApplicationCloudwatchLoggingOptions build() {
+            final var o = new AnalyticsApplicationCloudwatchLoggingOptions();
+            o.id = id;
+            o.logStreamArn = logStreamArn;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

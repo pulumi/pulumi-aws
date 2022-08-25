@@ -18,101 +18,68 @@ public final class GetFileSystemResult {
      * @return Amazon Resource Name of the file system.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    private final String availabilityZoneId;
+    private String availabilityZoneId;
     /**
      * @return The Availability Zone name in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    private final String availabilityZoneName;
-    private final String creationToken;
+    private String availabilityZoneName;
+    private String creationToken;
     /**
      * @return The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    private final String dnsName;
+    private String dnsName;
     /**
      * @return Whether EFS is encrypted.
      * 
      */
-    private final Boolean encrypted;
-    private final String fileSystemId;
+    private Boolean encrypted;
+    private String fileSystemId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ARN for the KMS encryption key.
      * 
      */
-    private final String kmsKeyId;
+    private String kmsKeyId;
     /**
      * @return A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      * 
      */
-    private final GetFileSystemLifecyclePolicy lifecyclePolicy;
+    private GetFileSystemLifecyclePolicy lifecyclePolicy;
     /**
      * @return The file system performance mode.
      * 
      */
-    private final String performanceMode;
+    private String performanceMode;
     /**
      * @return The throughput, measured in MiB/s, that you want to provision for the file system.
      * * `tags` -A map of tags to assign to the file system.
      * 
      */
-    private final Double provisionedThroughputInMibps;
+    private Double provisionedThroughputInMibps;
     /**
      * @return The current byte count used by the file system.
      * 
      */
-    private final Integer sizeInBytes;
-    private final Map<String,String> tags;
+    private Integer sizeInBytes;
+    private Map<String,String> tags;
     /**
      * @return Throughput mode for the file system.
      * 
      */
-    private final String throughputMode;
+    private String throughputMode;
 
-    @CustomType.Constructor
-    private GetFileSystemResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("availabilityZoneId") String availabilityZoneId,
-        @CustomType.Parameter("availabilityZoneName") String availabilityZoneName,
-        @CustomType.Parameter("creationToken") String creationToken,
-        @CustomType.Parameter("dnsName") String dnsName,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("fileSystemId") String fileSystemId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("lifecyclePolicy") GetFileSystemLifecyclePolicy lifecyclePolicy,
-        @CustomType.Parameter("performanceMode") String performanceMode,
-        @CustomType.Parameter("provisionedThroughputInMibps") Double provisionedThroughputInMibps,
-        @CustomType.Parameter("sizeInBytes") Integer sizeInBytes,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("throughputMode") String throughputMode) {
-        this.arn = arn;
-        this.availabilityZoneId = availabilityZoneId;
-        this.availabilityZoneName = availabilityZoneName;
-        this.creationToken = creationToken;
-        this.dnsName = dnsName;
-        this.encrypted = encrypted;
-        this.fileSystemId = fileSystemId;
-        this.id = id;
-        this.kmsKeyId = kmsKeyId;
-        this.lifecyclePolicy = lifecyclePolicy;
-        this.performanceMode = performanceMode;
-        this.provisionedThroughputInMibps = provisionedThroughputInMibps;
-        this.sizeInBytes = sizeInBytes;
-        this.tags = tags;
-        this.throughputMode = throughputMode;
-    }
-
+    private GetFileSystemResult() {}
     /**
      * @return Amazon Resource Name of the file system.
      * 
@@ -215,7 +182,7 @@ public final class GetFileSystemResult {
     public static Builder builder(GetFileSystemResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String availabilityZoneId;
@@ -232,11 +199,7 @@ public final class GetFileSystemResult {
         private Integer sizeInBytes;
         private Map<String,String> tags;
         private String throughputMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFileSystemResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -256,67 +219,99 @@ public final class GetFileSystemResult {
     	      this.throughputMode = defaults.throughputMode;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZoneId(String availabilityZoneId) {
             this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZoneName(String availabilityZoneName) {
             this.availabilityZoneName = Objects.requireNonNull(availabilityZoneName);
             return this;
         }
+        @CustomType.Setter
         public Builder creationToken(String creationToken) {
             this.creationToken = Objects.requireNonNull(creationToken);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsName(String dnsName) {
             this.dnsName = Objects.requireNonNull(dnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
             this.fileSystemId = Objects.requireNonNull(fileSystemId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder lifecyclePolicy(GetFileSystemLifecyclePolicy lifecyclePolicy) {
             this.lifecyclePolicy = Objects.requireNonNull(lifecyclePolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder performanceMode(String performanceMode) {
             this.performanceMode = Objects.requireNonNull(performanceMode);
             return this;
         }
+        @CustomType.Setter
         public Builder provisionedThroughputInMibps(Double provisionedThroughputInMibps) {
             this.provisionedThroughputInMibps = Objects.requireNonNull(provisionedThroughputInMibps);
             return this;
         }
+        @CustomType.Setter
         public Builder sizeInBytes(Integer sizeInBytes) {
             this.sizeInBytes = Objects.requireNonNull(sizeInBytes);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder throughputMode(String throughputMode) {
             this.throughputMode = Objects.requireNonNull(throughputMode);
             return this;
-        }        public GetFileSystemResult build() {
-            return new GetFileSystemResult(arn, availabilityZoneId, availabilityZoneName, creationToken, dnsName, encrypted, fileSystemId, id, kmsKeyId, lifecyclePolicy, performanceMode, provisionedThroughputInMibps, sizeInBytes, tags, throughputMode);
+        }
+        public GetFileSystemResult build() {
+            final var o = new GetFileSystemResult();
+            o.arn = arn;
+            o.availabilityZoneId = availabilityZoneId;
+            o.availabilityZoneName = availabilityZoneName;
+            o.creationToken = creationToken;
+            o.dnsName = dnsName;
+            o.encrypted = encrypted;
+            o.fileSystemId = fileSystemId;
+            o.id = id;
+            o.kmsKeyId = kmsKeyId;
+            o.lifecyclePolicy = lifecyclePolicy;
+            o.performanceMode = performanceMode;
+            o.provisionedThroughputInMibps = provisionedThroughputInMibps;
+            o.sizeInBytes = sizeInBytes;
+            o.tags = tags;
+            o.throughputMode = throughputMode;
+            return o;
         }
     }
 }

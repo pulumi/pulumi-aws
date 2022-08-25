@@ -13,13 +13,9 @@ public final class VirtualNodeSpecListenerTlsCertificateSds {
      * @return The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
-    private final String secretName;
+    private String secretName;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTlsCertificateSds(@CustomType.Parameter("secretName") String secretName) {
-        this.secretName = secretName;
-    }
-
+    private VirtualNodeSpecListenerTlsCertificateSds() {}
     /**
      * @return The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecListenerTlsCertificateSds {
     public static Builder builder(VirtualNodeSpecListenerTlsCertificateSds defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String secretName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTlsCertificateSds defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretName = defaults.secretName;
         }
 
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
-        }        public VirtualNodeSpecListenerTlsCertificateSds build() {
-            return new VirtualNodeSpecListenerTlsCertificateSds(secretName);
+        }
+        public VirtualNodeSpecListenerTlsCertificateSds build() {
+            final var o = new VirtualNodeSpecListenerTlsCertificateSds();
+            o.secretName = secretName;
+            return o;
         }
     }
 }

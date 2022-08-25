@@ -15,13 +15,9 @@ public final class WebAclDefaultActionBlock {
      * @return Defines a custom response for the web request. See Custom Response below for details.
      * 
      */
-    private final @Nullable WebAclDefaultActionBlockCustomResponse customResponse;
+    private @Nullable WebAclDefaultActionBlockCustomResponse customResponse;
 
-    @CustomType.Constructor
-    private WebAclDefaultActionBlock(@CustomType.Parameter("customResponse") @Nullable WebAclDefaultActionBlockCustomResponse customResponse) {
-        this.customResponse = customResponse;
-    }
-
+    private WebAclDefaultActionBlock() {}
     /**
      * @return Defines a custom response for the web request. See Custom Response below for details.
      * 
@@ -37,24 +33,24 @@ public final class WebAclDefaultActionBlock {
     public static Builder builder(WebAclDefaultActionBlock defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclDefaultActionBlockCustomResponse customResponse;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclDefaultActionBlock defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customResponse = defaults.customResponse;
         }
 
+        @CustomType.Setter
         public Builder customResponse(@Nullable WebAclDefaultActionBlockCustomResponse customResponse) {
             this.customResponse = customResponse;
             return this;
-        }        public WebAclDefaultActionBlock build() {
-            return new WebAclDefaultActionBlock(customResponse);
+        }
+        public WebAclDefaultActionBlock build() {
+            final var o = new WebAclDefaultActionBlock();
+            o.customResponse = customResponse;
+            return o;
         }
     }
 }

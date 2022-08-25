@@ -17,36 +17,25 @@ public final class BucketWebsite {
      * @return An absolute path to the document to return in case of a 4XX error.
      * 
      */
-    private final @Nullable String errorDocument;
+    private @Nullable String errorDocument;
     /**
      * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
      * 
      */
-    private final @Nullable String indexDocument;
+    private @Nullable String indexDocument;
     /**
      * @return A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
      * 
      */
-    private final @Nullable String redirectAllRequestsTo;
+    private @Nullable String redirectAllRequestsTo;
     /**
      * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied.
      * 
      */
-    private final @Nullable Either<String,List<String>> routingRules;
+    private @Nullable Either<String,List<String>> routingRules;
 
-    @CustomType.Constructor
-    private BucketWebsite(
-        @CustomType.Parameter("errorDocument") @Nullable String errorDocument,
-        @CustomType.Parameter("indexDocument") @Nullable String indexDocument,
-        @CustomType.Parameter("redirectAllRequestsTo") @Nullable String redirectAllRequestsTo,
-        @CustomType.Parameter("routingRules") @Nullable Either<String,List<String>> routingRules) {
-        this.errorDocument = errorDocument;
-        this.indexDocument = indexDocument;
-        this.redirectAllRequestsTo = redirectAllRequestsTo;
-        this.routingRules = routingRules;
-    }
-
+    private BucketWebsite() {}
     /**
      * @return An absolute path to the document to return in case of a 4XX error.
      * 
@@ -84,17 +73,13 @@ public final class BucketWebsite {
     public static Builder builder(BucketWebsite defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String errorDocument;
         private @Nullable String indexDocument;
         private @Nullable String redirectAllRequestsTo;
         private @Nullable Either<String,List<String>> routingRules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketWebsite defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.errorDocument = defaults.errorDocument;
@@ -103,23 +88,33 @@ public final class BucketWebsite {
     	      this.routingRules = defaults.routingRules;
         }
 
+        @CustomType.Setter
         public Builder errorDocument(@Nullable String errorDocument) {
             this.errorDocument = errorDocument;
             return this;
         }
+        @CustomType.Setter
         public Builder indexDocument(@Nullable String indexDocument) {
             this.indexDocument = indexDocument;
             return this;
         }
+        @CustomType.Setter
         public Builder redirectAllRequestsTo(@Nullable String redirectAllRequestsTo) {
             this.redirectAllRequestsTo = redirectAllRequestsTo;
             return this;
         }
+        @CustomType.Setter
         public Builder routingRules(@Nullable Either<String,List<String>> routingRules) {
             this.routingRules = routingRules;
             return this;
-        }        public BucketWebsite build() {
-            return new BucketWebsite(errorDocument, indexDocument, redirectAllRequestsTo, routingRules);
+        }
+        public BucketWebsite build() {
+            final var o = new BucketWebsite();
+            o.errorDocument = errorDocument;
+            o.indexDocument = indexDocument;
+            o.redirectAllRequestsTo = redirectAllRequestsTo;
+            o.routingRules = routingRules;
+            return o;
         }
     }
 }

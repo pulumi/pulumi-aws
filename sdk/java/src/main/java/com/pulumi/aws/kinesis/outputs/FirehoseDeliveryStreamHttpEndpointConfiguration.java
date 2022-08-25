@@ -19,84 +19,59 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      * @return The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
      * 
      */
-    private final @Nullable String accessKey;
+    private @Nullable String accessKey;
     /**
      * @return Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
      * 
      */
-    private final @Nullable Integer bufferingInterval;
+    private @Nullable Integer bufferingInterval;
     /**
      * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
      * 
      */
-    private final @Nullable Integer bufferingSize;
+    private @Nullable Integer bufferingSize;
     /**
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
      * 
      */
-    private final @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
+    private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
      * @return The HTTP endpoint name.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The data processing configuration.  More details are given below.
      * 
      */
-    private final @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration;
+    private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration;
     /**
      * @return The request configuration.  More details are given below.
      * 
      */
-    private final @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration;
+    private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration;
     /**
      * @return Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
      * 
      */
-    private final @Nullable Integer retryDuration;
+    private @Nullable Integer retryDuration;
     /**
      * @return Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
      * 
      */
-    private final @Nullable String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
      * 
      */
-    private final @Nullable String s3BackupMode;
+    private @Nullable String s3BackupMode;
     /**
      * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamHttpEndpointConfiguration(
-        @CustomType.Parameter("accessKey") @Nullable String accessKey,
-        @CustomType.Parameter("bufferingInterval") @Nullable Integer bufferingInterval,
-        @CustomType.Parameter("bufferingSize") @Nullable Integer bufferingSize,
-        @CustomType.Parameter("cloudwatchLoggingOptions") @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("processingConfiguration") @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration,
-        @CustomType.Parameter("requestConfiguration") @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration,
-        @CustomType.Parameter("retryDuration") @Nullable Integer retryDuration,
-        @CustomType.Parameter("roleArn") @Nullable String roleArn,
-        @CustomType.Parameter("s3BackupMode") @Nullable String s3BackupMode,
-        @CustomType.Parameter("url") String url) {
-        this.accessKey = accessKey;
-        this.bufferingInterval = bufferingInterval;
-        this.bufferingSize = bufferingSize;
-        this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-        this.name = name;
-        this.processingConfiguration = processingConfiguration;
-        this.requestConfiguration = requestConfiguration;
-        this.retryDuration = retryDuration;
-        this.roleArn = roleArn;
-        this.s3BackupMode = s3BackupMode;
-        this.url = url;
-    }
-
+    private FirehoseDeliveryStreamHttpEndpointConfiguration() {}
     /**
      * @return The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
      * 
@@ -182,7 +157,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
     public static Builder builder(FirehoseDeliveryStreamHttpEndpointConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessKey;
         private @Nullable Integer bufferingInterval;
@@ -195,11 +170,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         private @Nullable String roleArn;
         private @Nullable String s3BackupMode;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamHttpEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessKey = defaults.accessKey;
@@ -215,51 +186,75 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder accessKey(@Nullable String accessKey) {
             this.accessKey = accessKey;
             return this;
         }
+        @CustomType.Setter
         public Builder bufferingInterval(@Nullable Integer bufferingInterval) {
             this.bufferingInterval = bufferingInterval;
             return this;
         }
+        @CustomType.Setter
         public Builder bufferingSize(@Nullable Integer bufferingSize) {
             this.bufferingSize = bufferingSize;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration) {
             this.processingConfiguration = processingConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder requestConfiguration(@Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration) {
             this.requestConfiguration = requestConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
             this.retryDuration = retryDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
             this.roleArn = roleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
             this.s3BackupMode = s3BackupMode;
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public FirehoseDeliveryStreamHttpEndpointConfiguration build() {
-            return new FirehoseDeliveryStreamHttpEndpointConfiguration(accessKey, bufferingInterval, bufferingSize, cloudwatchLoggingOptions, name, processingConfiguration, requestConfiguration, retryDuration, roleArn, s3BackupMode, url);
+        }
+        public FirehoseDeliveryStreamHttpEndpointConfiguration build() {
+            final var o = new FirehoseDeliveryStreamHttpEndpointConfiguration();
+            o.accessKey = accessKey;
+            o.bufferingInterval = bufferingInterval;
+            o.bufferingSize = bufferingSize;
+            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            o.name = name;
+            o.processingConfiguration = processingConfiguration;
+            o.requestConfiguration = requestConfiguration;
+            o.retryDuration = retryDuration;
+            o.roleArn = roleArn;
+            o.s3BackupMode = s3BackupMode;
+            o.url = url;
+            return o;
         }
     }
 }

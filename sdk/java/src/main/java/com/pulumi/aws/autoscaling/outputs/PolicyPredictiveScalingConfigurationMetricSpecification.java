@@ -21,56 +21,39 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
      * @return The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
      * 
      */
-    private final @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification;
+    private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification;
     /**
      * @return The customized load metric specification.
      * 
      */
-    private final @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification customizedLoadMetricSpecification;
+    private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification customizedLoadMetricSpecification;
     /**
      * @return The customized scaling metric specification.
      * 
      */
-    private final @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification customizedScalingMetricSpecification;
+    private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification customizedScalingMetricSpecification;
     /**
      * @return The predefined load metric specification.
      * 
      */
-    private final @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification predefinedLoadMetricSpecification;
+    private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification predefinedLoadMetricSpecification;
     /**
      * @return The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
      * 
      */
-    private final @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification;
+    private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification;
     /**
      * @return The predefined scaling metric specification.
      * 
      */
-    private final @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification;
+    private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification;
     /**
      * @return The target value for the metric.
      * 
      */
-    private final Integer targetValue;
+    private Integer targetValue;
 
-    @CustomType.Constructor
-    private PolicyPredictiveScalingConfigurationMetricSpecification(
-        @CustomType.Parameter("customizedCapacityMetricSpecification") @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification,
-        @CustomType.Parameter("customizedLoadMetricSpecification") @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification customizedLoadMetricSpecification,
-        @CustomType.Parameter("customizedScalingMetricSpecification") @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification customizedScalingMetricSpecification,
-        @CustomType.Parameter("predefinedLoadMetricSpecification") @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification predefinedLoadMetricSpecification,
-        @CustomType.Parameter("predefinedMetricPairSpecification") @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification,
-        @CustomType.Parameter("predefinedScalingMetricSpecification") @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification,
-        @CustomType.Parameter("targetValue") Integer targetValue) {
-        this.customizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
-        this.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
-        this.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
-        this.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
-        this.predefinedMetricPairSpecification = predefinedMetricPairSpecification;
-        this.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
-        this.targetValue = targetValue;
-    }
-
+    private PolicyPredictiveScalingConfigurationMetricSpecification() {}
     /**
      * @return The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
      * 
@@ -128,7 +111,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
     public static Builder builder(PolicyPredictiveScalingConfigurationMetricSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification;
         private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification customizedLoadMetricSpecification;
@@ -137,11 +120,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
         private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification;
         private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification;
         private Integer targetValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyPredictiveScalingConfigurationMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customizedCapacityMetricSpecification = defaults.customizedCapacityMetricSpecification;
@@ -153,35 +132,51 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
     	      this.targetValue = defaults.targetValue;
         }
 
+        @CustomType.Setter
         public Builder customizedCapacityMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification) {
             this.customizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder customizedLoadMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification customizedLoadMetricSpecification) {
             this.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder customizedScalingMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification customizedScalingMetricSpecification) {
             this.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder predefinedLoadMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification predefinedLoadMetricSpecification) {
             this.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder predefinedMetricPairSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification) {
             this.predefinedMetricPairSpecification = predefinedMetricPairSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder predefinedScalingMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification) {
             this.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder targetValue(Integer targetValue) {
             this.targetValue = Objects.requireNonNull(targetValue);
             return this;
-        }        public PolicyPredictiveScalingConfigurationMetricSpecification build() {
-            return new PolicyPredictiveScalingConfigurationMetricSpecification(customizedCapacityMetricSpecification, customizedLoadMetricSpecification, customizedScalingMetricSpecification, predefinedLoadMetricSpecification, predefinedMetricPairSpecification, predefinedScalingMetricSpecification, targetValue);
+        }
+        public PolicyPredictiveScalingConfigurationMetricSpecification build() {
+            final var o = new PolicyPredictiveScalingConfigurationMetricSpecification();
+            o.customizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
+            o.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
+            o.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
+            o.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
+            o.predefinedMetricPairSpecification = predefinedMetricPairSpecification;
+            o.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
+            o.targetValue = targetValue;
+            return o;
         }
     }
 }

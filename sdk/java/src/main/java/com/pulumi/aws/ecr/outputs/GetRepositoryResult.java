@@ -17,62 +17,41 @@ public final class GetRepositoryResult {
      * @return Full ARN of the repository.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Encryption configuration for the repository. See Encryption Configuration below.
      * 
      */
-    private final List<GetRepositoryEncryptionConfiguration> encryptionConfigurations;
+    private List<GetRepositoryEncryptionConfiguration> encryptionConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
      * 
      */
-    private final List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations;
+    private List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations;
     /**
      * @return The tag mutability setting for the repository.
      * 
      */
-    private final String imageTagMutability;
-    private final String name;
-    private final String registryId;
+    private String imageTagMutability;
+    private String name;
+    private String registryId;
     /**
      * @return The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      * 
      */
-    private final String repositoryUrl;
+    private String repositoryUrl;
     /**
      * @return A map of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetRepositoryResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("encryptionConfigurations") List<GetRepositoryEncryptionConfiguration> encryptionConfigurations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageScanningConfigurations") List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations,
-        @CustomType.Parameter("imageTagMutability") String imageTagMutability,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("registryId") String registryId,
-        @CustomType.Parameter("repositoryUrl") String repositoryUrl,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.encryptionConfigurations = encryptionConfigurations;
-        this.id = id;
-        this.imageScanningConfigurations = imageScanningConfigurations;
-        this.imageTagMutability = imageTagMutability;
-        this.name = name;
-        this.registryId = registryId;
-        this.repositoryUrl = repositoryUrl;
-        this.tags = tags;
-    }
-
+    private GetRepositoryResult() {}
     /**
      * @return Full ARN of the repository.
      * 
@@ -136,7 +115,7 @@ public final class GetRepositoryResult {
     public static Builder builder(GetRepositoryResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetRepositoryEncryptionConfiguration> encryptionConfigurations;
@@ -147,11 +126,7 @@ public final class GetRepositoryResult {
         private String registryId;
         private String repositoryUrl;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -165,10 +140,12 @@ public final class GetRepositoryResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionConfigurations(List<GetRepositoryEncryptionConfiguration> encryptionConfigurations) {
             this.encryptionConfigurations = Objects.requireNonNull(encryptionConfigurations);
             return this;
@@ -176,10 +153,12 @@ public final class GetRepositoryResult {
         public Builder encryptionConfigurations(GetRepositoryEncryptionConfiguration... encryptionConfigurations) {
             return encryptionConfigurations(List.of(encryptionConfigurations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageScanningConfigurations(List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations) {
             this.imageScanningConfigurations = Objects.requireNonNull(imageScanningConfigurations);
             return this;
@@ -187,27 +166,43 @@ public final class GetRepositoryResult {
         public Builder imageScanningConfigurations(GetRepositoryImageScanningConfiguration... imageScanningConfigurations) {
             return imageScanningConfigurations(List.of(imageScanningConfigurations));
         }
+        @CustomType.Setter
         public Builder imageTagMutability(String imageTagMutability) {
             this.imageTagMutability = Objects.requireNonNull(imageTagMutability);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder registryId(String registryId) {
             this.registryId = Objects.requireNonNull(registryId);
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
             this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetRepositoryResult build() {
-            return new GetRepositoryResult(arn, encryptionConfigurations, id, imageScanningConfigurations, imageTagMutability, name, registryId, repositoryUrl, tags);
+        }
+        public GetRepositoryResult build() {
+            final var o = new GetRepositoryResult();
+            o.arn = arn;
+            o.encryptionConfigurations = encryptionConfigurations;
+            o.id = id;
+            o.imageScanningConfigurations = imageScanningConfigurations;
+            o.imageTagMutability = imageTagMutability;
+            o.name = name;
+            o.registryId = registryId;
+            o.repositoryUrl = repositoryUrl;
+            o.tags = tags;
+            return o;
         }
     }
 }

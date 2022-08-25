@@ -20,100 +20,67 @@ public final class GetMulticastDomainResult {
      * @return EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return EC2 Transit Gateway Multicast Domain Associations
      * 
      */
-    private final List<GetMulticastDomainAssociation> associations;
+    private List<GetMulticastDomainAssociation> associations;
     /**
      * @return Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.
      * 
      */
-    private final String autoAcceptSharedAssociations;
-    private final @Nullable List<GetMulticastDomainFilter> filters;
+    private String autoAcceptSharedAssociations;
+    private @Nullable List<GetMulticastDomainFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.
      * 
      */
-    private final String igmpv2Support;
+    private String igmpv2Support;
     /**
      * @return EC2 Multicast Domain Group Members
      * 
      */
-    private final List<GetMulticastDomainMember> members;
+    private List<GetMulticastDomainMember> members;
     /**
      * @return Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return EC2 Multicast Domain Group Sources
      * 
      */
-    private final List<GetMulticastDomainSource> sources;
-    private final String state;
+    private List<GetMulticastDomainSource> sources;
+    private String state;
     /**
      * @return Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.
      * 
      */
-    private final String staticSourcesSupport;
+    private String staticSourcesSupport;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Multicast Domain.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The ID of the transit gateway attachment.
      * 
      */
-    private final String transitGatewayAttachmentId;
+    private String transitGatewayAttachmentId;
     /**
      * @return EC2 Transit Gateway identifier.
      * 
      */
-    private final String transitGatewayId;
-    private final String transitGatewayMulticastDomainId;
+    private String transitGatewayId;
+    private String transitGatewayMulticastDomainId;
 
-    @CustomType.Constructor
-    private GetMulticastDomainResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("associations") List<GetMulticastDomainAssociation> associations,
-        @CustomType.Parameter("autoAcceptSharedAssociations") String autoAcceptSharedAssociations,
-        @CustomType.Parameter("filters") @Nullable List<GetMulticastDomainFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("igmpv2Support") String igmpv2Support,
-        @CustomType.Parameter("members") List<GetMulticastDomainMember> members,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("sources") List<GetMulticastDomainSource> sources,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("staticSourcesSupport") String staticSourcesSupport,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("transitGatewayAttachmentId") String transitGatewayAttachmentId,
-        @CustomType.Parameter("transitGatewayId") String transitGatewayId,
-        @CustomType.Parameter("transitGatewayMulticastDomainId") String transitGatewayMulticastDomainId) {
-        this.arn = arn;
-        this.associations = associations;
-        this.autoAcceptSharedAssociations = autoAcceptSharedAssociations;
-        this.filters = filters;
-        this.id = id;
-        this.igmpv2Support = igmpv2Support;
-        this.members = members;
-        this.ownerId = ownerId;
-        this.sources = sources;
-        this.state = state;
-        this.staticSourcesSupport = staticSourcesSupport;
-        this.tags = tags;
-        this.transitGatewayAttachmentId = transitGatewayAttachmentId;
-        this.transitGatewayId = transitGatewayId;
-        this.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
-    }
-
+    private GetMulticastDomainResult() {}
     /**
      * @return EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
      * 
@@ -215,7 +182,7 @@ public final class GetMulticastDomainResult {
     public static Builder builder(GetMulticastDomainResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetMulticastDomainAssociation> associations;
@@ -232,11 +199,7 @@ public final class GetMulticastDomainResult {
         private String transitGatewayAttachmentId;
         private String transitGatewayId;
         private String transitGatewayMulticastDomainId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMulticastDomainResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -256,10 +219,12 @@ public final class GetMulticastDomainResult {
     	      this.transitGatewayMulticastDomainId = defaults.transitGatewayMulticastDomainId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder associations(List<GetMulticastDomainAssociation> associations) {
             this.associations = Objects.requireNonNull(associations);
             return this;
@@ -267,10 +232,12 @@ public final class GetMulticastDomainResult {
         public Builder associations(GetMulticastDomainAssociation... associations) {
             return associations(List.of(associations));
         }
+        @CustomType.Setter
         public Builder autoAcceptSharedAssociations(String autoAcceptSharedAssociations) {
             this.autoAcceptSharedAssociations = Objects.requireNonNull(autoAcceptSharedAssociations);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetMulticastDomainFilter> filters) {
             this.filters = filters;
             return this;
@@ -278,14 +245,17 @@ public final class GetMulticastDomainResult {
         public Builder filters(GetMulticastDomainFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder igmpv2Support(String igmpv2Support) {
             this.igmpv2Support = Objects.requireNonNull(igmpv2Support);
             return this;
         }
+        @CustomType.Setter
         public Builder members(List<GetMulticastDomainMember> members) {
             this.members = Objects.requireNonNull(members);
             return this;
@@ -293,10 +263,12 @@ public final class GetMulticastDomainResult {
         public Builder members(GetMulticastDomainMember... members) {
             return members(List.of(members));
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder sources(List<GetMulticastDomainSource> sources) {
             this.sources = Objects.requireNonNull(sources);
             return this;
@@ -304,31 +276,54 @@ public final class GetMulticastDomainResult {
         public Builder sources(GetMulticastDomainSource... sources) {
             return sources(List.of(sources));
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder staticSourcesSupport(String staticSourcesSupport) {
             this.staticSourcesSupport = Objects.requireNonNull(staticSourcesSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
             this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayMulticastDomainId(String transitGatewayMulticastDomainId) {
             this.transitGatewayMulticastDomainId = Objects.requireNonNull(transitGatewayMulticastDomainId);
             return this;
-        }        public GetMulticastDomainResult build() {
-            return new GetMulticastDomainResult(arn, associations, autoAcceptSharedAssociations, filters, id, igmpv2Support, members, ownerId, sources, state, staticSourcesSupport, tags, transitGatewayAttachmentId, transitGatewayId, transitGatewayMulticastDomainId);
+        }
+        public GetMulticastDomainResult build() {
+            final var o = new GetMulticastDomainResult();
+            o.arn = arn;
+            o.associations = associations;
+            o.autoAcceptSharedAssociations = autoAcceptSharedAssociations;
+            o.filters = filters;
+            o.id = id;
+            o.igmpv2Support = igmpv2Support;
+            o.members = members;
+            o.ownerId = ownerId;
+            o.sources = sources;
+            o.state = state;
+            o.staticSourcesSupport = staticSourcesSupport;
+            o.tags = tags;
+            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            o.transitGatewayId = transitGatewayId;
+            o.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
+            return o;
         }
     }
 }

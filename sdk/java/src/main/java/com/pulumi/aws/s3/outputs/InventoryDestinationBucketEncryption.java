@@ -16,21 +16,14 @@ public final class InventoryDestinationBucketEncryption {
      * @return Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
      * 
      */
-    private final @Nullable InventoryDestinationBucketEncryptionSseKms sseKms;
+    private @Nullable InventoryDestinationBucketEncryptionSseKms sseKms;
     /**
      * @return Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
      * 
      */
-    private final @Nullable InventoryDestinationBucketEncryptionSseS3 sseS3;
+    private @Nullable InventoryDestinationBucketEncryptionSseS3 sseS3;
 
-    @CustomType.Constructor
-    private InventoryDestinationBucketEncryption(
-        @CustomType.Parameter("sseKms") @Nullable InventoryDestinationBucketEncryptionSseKms sseKms,
-        @CustomType.Parameter("sseS3") @Nullable InventoryDestinationBucketEncryptionSseS3 sseS3) {
-        this.sseKms = sseKms;
-        this.sseS3 = sseS3;
-    }
-
+    private InventoryDestinationBucketEncryption() {}
     /**
      * @return Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
      * 
@@ -53,30 +46,32 @@ public final class InventoryDestinationBucketEncryption {
     public static Builder builder(InventoryDestinationBucketEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable InventoryDestinationBucketEncryptionSseKms sseKms;
         private @Nullable InventoryDestinationBucketEncryptionSseS3 sseS3;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InventoryDestinationBucketEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sseKms = defaults.sseKms;
     	      this.sseS3 = defaults.sseS3;
         }
 
+        @CustomType.Setter
         public Builder sseKms(@Nullable InventoryDestinationBucketEncryptionSseKms sseKms) {
             this.sseKms = sseKms;
             return this;
         }
+        @CustomType.Setter
         public Builder sseS3(@Nullable InventoryDestinationBucketEncryptionSseS3 sseS3) {
             this.sseS3 = sseS3;
             return this;
-        }        public InventoryDestinationBucketEncryption build() {
-            return new InventoryDestinationBucketEncryption(sseKms, sseS3);
+        }
+        public InventoryDestinationBucketEncryption build() {
+            final var o = new InventoryDestinationBucketEncryption();
+            o.sseKms = sseKms;
+            o.sseS3 = sseS3;
+            return o;
         }
     }
 }

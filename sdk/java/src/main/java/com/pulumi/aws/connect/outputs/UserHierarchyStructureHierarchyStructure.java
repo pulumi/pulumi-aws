@@ -19,42 +19,29 @@ public final class UserHierarchyStructureHierarchyStructure {
      * @return A block that defines the details of level five. The level block is documented below.
      * 
      */
-    private final @Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive;
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive;
     /**
      * @return A block that defines the details of level four. The level block is documented below.
      * 
      */
-    private final @Nullable UserHierarchyStructureHierarchyStructureLevelFour levelFour;
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelFour levelFour;
     /**
      * @return A block that defines the details of level one. The level block is documented below.
      * 
      */
-    private final @Nullable UserHierarchyStructureHierarchyStructureLevelOne levelOne;
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelOne levelOne;
     /**
      * @return A block that defines the details of level three. The level block is documented below.
      * 
      */
-    private final @Nullable UserHierarchyStructureHierarchyStructureLevelThree levelThree;
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelThree levelThree;
     /**
      * @return A block that defines the details of level two. The level block is documented below.
      * 
      */
-    private final @Nullable UserHierarchyStructureHierarchyStructureLevelTwo levelTwo;
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelTwo levelTwo;
 
-    @CustomType.Constructor
-    private UserHierarchyStructureHierarchyStructure(
-        @CustomType.Parameter("levelFive") @Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive,
-        @CustomType.Parameter("levelFour") @Nullable UserHierarchyStructureHierarchyStructureLevelFour levelFour,
-        @CustomType.Parameter("levelOne") @Nullable UserHierarchyStructureHierarchyStructureLevelOne levelOne,
-        @CustomType.Parameter("levelThree") @Nullable UserHierarchyStructureHierarchyStructureLevelThree levelThree,
-        @CustomType.Parameter("levelTwo") @Nullable UserHierarchyStructureHierarchyStructureLevelTwo levelTwo) {
-        this.levelFive = levelFive;
-        this.levelFour = levelFour;
-        this.levelOne = levelOne;
-        this.levelThree = levelThree;
-        this.levelTwo = levelTwo;
-    }
-
+    private UserHierarchyStructureHierarchyStructure() {}
     /**
      * @return A block that defines the details of level five. The level block is documented below.
      * 
@@ -98,18 +85,14 @@ public final class UserHierarchyStructureHierarchyStructure {
     public static Builder builder(UserHierarchyStructureHierarchyStructure defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive;
         private @Nullable UserHierarchyStructureHierarchyStructureLevelFour levelFour;
         private @Nullable UserHierarchyStructureHierarchyStructureLevelOne levelOne;
         private @Nullable UserHierarchyStructureHierarchyStructureLevelThree levelThree;
         private @Nullable UserHierarchyStructureHierarchyStructureLevelTwo levelTwo;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserHierarchyStructureHierarchyStructure defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.levelFive = defaults.levelFive;
@@ -119,27 +102,39 @@ public final class UserHierarchyStructureHierarchyStructure {
     	      this.levelTwo = defaults.levelTwo;
         }
 
+        @CustomType.Setter
         public Builder levelFive(@Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive) {
             this.levelFive = levelFive;
             return this;
         }
+        @CustomType.Setter
         public Builder levelFour(@Nullable UserHierarchyStructureHierarchyStructureLevelFour levelFour) {
             this.levelFour = levelFour;
             return this;
         }
+        @CustomType.Setter
         public Builder levelOne(@Nullable UserHierarchyStructureHierarchyStructureLevelOne levelOne) {
             this.levelOne = levelOne;
             return this;
         }
+        @CustomType.Setter
         public Builder levelThree(@Nullable UserHierarchyStructureHierarchyStructureLevelThree levelThree) {
             this.levelThree = levelThree;
             return this;
         }
+        @CustomType.Setter
         public Builder levelTwo(@Nullable UserHierarchyStructureHierarchyStructureLevelTwo levelTwo) {
             this.levelTwo = levelTwo;
             return this;
-        }        public UserHierarchyStructureHierarchyStructure build() {
-            return new UserHierarchyStructureHierarchyStructure(levelFive, levelFour, levelOne, levelThree, levelTwo);
+        }
+        public UserHierarchyStructureHierarchyStructure build() {
+            final var o = new UserHierarchyStructureHierarchyStructure();
+            o.levelFive = levelFive;
+            o.levelFour = levelFour;
+            o.levelOne = levelOne;
+            o.levelThree = levelThree;
+            o.levelTwo = levelTwo;
+            return o;
         }
     }
 }

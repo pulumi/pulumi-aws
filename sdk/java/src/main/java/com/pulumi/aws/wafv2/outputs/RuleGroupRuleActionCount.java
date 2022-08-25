@@ -15,13 +15,9 @@ public final class RuleGroupRuleActionCount {
      * @return Defines custom handling for the web request. See Custom Request Handling below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleActionCountCustomRequestHandling customRequestHandling;
+    private @Nullable RuleGroupRuleActionCountCustomRequestHandling customRequestHandling;
 
-    @CustomType.Constructor
-    private RuleGroupRuleActionCount(@CustomType.Parameter("customRequestHandling") @Nullable RuleGroupRuleActionCountCustomRequestHandling customRequestHandling) {
-        this.customRequestHandling = customRequestHandling;
-    }
-
+    private RuleGroupRuleActionCount() {}
     /**
      * @return Defines custom handling for the web request. See Custom Request Handling below for details.
      * 
@@ -37,24 +33,24 @@ public final class RuleGroupRuleActionCount {
     public static Builder builder(RuleGroupRuleActionCount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleActionCountCustomRequestHandling customRequestHandling;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleActionCount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customRequestHandling = defaults.customRequestHandling;
         }
 
+        @CustomType.Setter
         public Builder customRequestHandling(@Nullable RuleGroupRuleActionCountCustomRequestHandling customRequestHandling) {
             this.customRequestHandling = customRequestHandling;
             return this;
-        }        public RuleGroupRuleActionCount build() {
-            return new RuleGroupRuleActionCount(customRequestHandling);
+        }
+        public RuleGroupRuleActionCount build() {
+            final var o = new RuleGroupRuleActionCount();
+            o.customRequestHandling = customRequestHandling;
+            return o;
         }
     }
 }

@@ -13,27 +13,16 @@ public final class GetSiteResult {
      * @return AWS Account identifier.
      * 
      */
-    private final String accountId;
+    private String accountId;
     /**
      * @return Description.
      * 
      */
-    private final String description;
-    private final String id;
-    private final String name;
+    private String description;
+    private String id;
+    private String name;
 
-    @CustomType.Constructor
-    private GetSiteResult(
-        @CustomType.Parameter("accountId") String accountId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.accountId = accountId;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetSiteResult() {}
     /**
      * @return AWS Account identifier.
      * 
@@ -62,17 +51,13 @@ public final class GetSiteResult {
     public static Builder builder(GetSiteResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountId;
         private String description;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSiteResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
@@ -81,23 +66,33 @@ public final class GetSiteResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder accountId(String accountId) {
             this.accountId = Objects.requireNonNull(accountId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetSiteResult build() {
-            return new GetSiteResult(accountId, description, id, name);
+        }
+        public GetSiteResult build() {
+            final var o = new GetSiteResult();
+            o.accountId = accountId;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

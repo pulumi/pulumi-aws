@@ -14,35 +14,24 @@ public final class GetDomainCognitoOption {
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The Cognito Identity pool used by the domain.
      * 
      */
-    private final String identityPoolId;
+    private String identityPoolId;
     /**
      * @return The IAM Role with the AmazonESCognitoAccess policy attached.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The Cognito User pool used by the domain.
      * 
      */
-    private final String userPoolId;
+    private String userPoolId;
 
-    @CustomType.Constructor
-    private GetDomainCognitoOption(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("identityPoolId") String identityPoolId,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("userPoolId") String userPoolId) {
-        this.enabled = enabled;
-        this.identityPoolId = identityPoolId;
-        this.roleArn = roleArn;
-        this.userPoolId = userPoolId;
-    }
-
+    private GetDomainCognitoOption() {}
     /**
      * @return Whether node to node encryption is enabled.
      * 
@@ -79,17 +68,13 @@ public final class GetDomainCognitoOption {
     public static Builder builder(GetDomainCognitoOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String identityPoolId;
         private String roleArn;
         private String userPoolId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainCognitoOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -98,23 +83,33 @@ public final class GetDomainCognitoOption {
     	      this.userPoolId = defaults.userPoolId;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder identityPoolId(String identityPoolId) {
             this.identityPoolId = Objects.requireNonNull(identityPoolId);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             this.userPoolId = Objects.requireNonNull(userPoolId);
             return this;
-        }        public GetDomainCognitoOption build() {
-            return new GetDomainCognitoOption(enabled, identityPoolId, roleArn, userPoolId);
+        }
+        public GetDomainCognitoOption build() {
+            final var o = new GetDomainCognitoOption();
+            o.enabled = enabled;
+            o.identityPoolId = identityPoolId;
+            o.roleArn = roleArn;
+            o.userPoolId = userPoolId;
+            return o;
         }
     }
 }

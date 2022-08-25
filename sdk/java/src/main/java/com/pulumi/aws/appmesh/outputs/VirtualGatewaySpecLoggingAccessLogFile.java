@@ -13,13 +13,9 @@ public final class VirtualGatewaySpecLoggingAccessLogFile {
      * @return The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecLoggingAccessLogFile(@CustomType.Parameter("path") String path) {
-        this.path = path;
-    }
-
+    private VirtualGatewaySpecLoggingAccessLogFile() {}
     /**
      * @return The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
@@ -35,24 +31,24 @@ public final class VirtualGatewaySpecLoggingAccessLogFile {
     public static Builder builder(VirtualGatewaySpecLoggingAccessLogFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecLoggingAccessLogFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public VirtualGatewaySpecLoggingAccessLogFile build() {
-            return new VirtualGatewaySpecLoggingAccessLogFile(path);
+        }
+        public VirtualGatewaySpecLoggingAccessLogFile build() {
+            final var o = new VirtualGatewaySpecLoggingAccessLogFile();
+            o.path = path;
+            return o;
         }
     }
 }

@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
-    @CustomType.Constructor
-    private WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString() {
-    }
-
+    private WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
     public static Builder builder(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString build() {
-            return new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString();
+            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString();
+            return o;
         }
     }
 }

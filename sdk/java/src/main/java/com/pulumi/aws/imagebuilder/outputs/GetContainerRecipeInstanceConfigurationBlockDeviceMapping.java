@@ -15,35 +15,24 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
      * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return Single list of object with Elastic Block Storage (EBS) block device mapping settings.
      * 
      */
-    private final List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs;
+    private List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs;
     /**
      * @return Whether to remove a mapping from the parent image.
      * 
      */
-    private final String noDevice;
+    private String noDevice;
     /**
      * @return Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
      * 
      */
-    private final String virtualName;
+    private String virtualName;
 
-    @CustomType.Constructor
-    private GetContainerRecipeInstanceConfigurationBlockDeviceMapping(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("ebs") List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs,
-        @CustomType.Parameter("noDevice") String noDevice,
-        @CustomType.Parameter("virtualName") String virtualName) {
-        this.deviceName = deviceName;
-        this.ebs = ebs;
-        this.noDevice = noDevice;
-        this.virtualName = virtualName;
-    }
-
+    private GetContainerRecipeInstanceConfigurationBlockDeviceMapping() {}
     /**
      * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
      * 
@@ -80,17 +69,13 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
     public static Builder builder(GetContainerRecipeInstanceConfigurationBlockDeviceMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs;
         private String noDevice;
         private String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetContainerRecipeInstanceConfigurationBlockDeviceMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
@@ -99,10 +84,12 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder ebs(List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs) {
             this.ebs = Objects.requireNonNull(ebs);
             return this;
@@ -110,15 +97,23 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
         public Builder ebs(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb... ebs) {
             return ebs(List.of(ebs));
         }
+        @CustomType.Setter
         public Builder noDevice(String noDevice) {
             this.noDevice = Objects.requireNonNull(noDevice);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(String virtualName) {
             this.virtualName = Objects.requireNonNull(virtualName);
             return this;
-        }        public GetContainerRecipeInstanceConfigurationBlockDeviceMapping build() {
-            return new GetContainerRecipeInstanceConfigurationBlockDeviceMapping(deviceName, ebs, noDevice, virtualName);
+        }
+        public GetContainerRecipeInstanceConfigurationBlockDeviceMapping build() {
+            final var o = new GetContainerRecipeInstanceConfigurationBlockDeviceMapping();
+            o.deviceName = deviceName;
+            o.ebs = ebs;
+            o.noDevice = noDevice;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

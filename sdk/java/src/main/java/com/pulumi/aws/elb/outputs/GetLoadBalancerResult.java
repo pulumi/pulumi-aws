@@ -16,78 +16,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerResult {
-    private final GetLoadBalancerAccessLogs accessLogs;
-    private final String arn;
-    private final List<String> availabilityZones;
-    private final Boolean connectionDraining;
-    private final Integer connectionDrainingTimeout;
-    private final Boolean crossZoneLoadBalancing;
-    private final String desyncMitigationMode;
-    private final String dnsName;
-    private final GetLoadBalancerHealthCheck healthCheck;
+    private GetLoadBalancerAccessLogs accessLogs;
+    private String arn;
+    private List<String> availabilityZones;
+    private Boolean connectionDraining;
+    private Integer connectionDrainingTimeout;
+    private Boolean crossZoneLoadBalancing;
+    private String desyncMitigationMode;
+    private String dnsName;
+    private GetLoadBalancerHealthCheck healthCheck;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final Integer idleTimeout;
-    private final List<String> instances;
-    private final Boolean internal;
-    private final List<GetLoadBalancerListener> listeners;
-    private final String name;
-    private final List<String> securityGroups;
-    private final String sourceSecurityGroup;
-    private final String sourceSecurityGroupId;
-    private final List<String> subnets;
-    private final Map<String,String> tags;
-    private final String zoneId;
+    private String id;
+    private Integer idleTimeout;
+    private List<String> instances;
+    private Boolean internal;
+    private List<GetLoadBalancerListener> listeners;
+    private String name;
+    private List<String> securityGroups;
+    private String sourceSecurityGroup;
+    private String sourceSecurityGroupId;
+    private List<String> subnets;
+    private Map<String,String> tags;
+    private String zoneId;
 
-    @CustomType.Constructor
-    private GetLoadBalancerResult(
-        @CustomType.Parameter("accessLogs") GetLoadBalancerAccessLogs accessLogs,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("availabilityZones") List<String> availabilityZones,
-        @CustomType.Parameter("connectionDraining") Boolean connectionDraining,
-        @CustomType.Parameter("connectionDrainingTimeout") Integer connectionDrainingTimeout,
-        @CustomType.Parameter("crossZoneLoadBalancing") Boolean crossZoneLoadBalancing,
-        @CustomType.Parameter("desyncMitigationMode") String desyncMitigationMode,
-        @CustomType.Parameter("dnsName") String dnsName,
-        @CustomType.Parameter("healthCheck") GetLoadBalancerHealthCheck healthCheck,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("idleTimeout") Integer idleTimeout,
-        @CustomType.Parameter("instances") List<String> instances,
-        @CustomType.Parameter("internal") Boolean internal,
-        @CustomType.Parameter("listeners") List<GetLoadBalancerListener> listeners,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("securityGroups") List<String> securityGroups,
-        @CustomType.Parameter("sourceSecurityGroup") String sourceSecurityGroup,
-        @CustomType.Parameter("sourceSecurityGroupId") String sourceSecurityGroupId,
-        @CustomType.Parameter("subnets") List<String> subnets,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zoneId") String zoneId) {
-        this.accessLogs = accessLogs;
-        this.arn = arn;
-        this.availabilityZones = availabilityZones;
-        this.connectionDraining = connectionDraining;
-        this.connectionDrainingTimeout = connectionDrainingTimeout;
-        this.crossZoneLoadBalancing = crossZoneLoadBalancing;
-        this.desyncMitigationMode = desyncMitigationMode;
-        this.dnsName = dnsName;
-        this.healthCheck = healthCheck;
-        this.id = id;
-        this.idleTimeout = idleTimeout;
-        this.instances = instances;
-        this.internal = internal;
-        this.listeners = listeners;
-        this.name = name;
-        this.securityGroups = securityGroups;
-        this.sourceSecurityGroup = sourceSecurityGroup;
-        this.sourceSecurityGroupId = sourceSecurityGroupId;
-        this.subnets = subnets;
-        this.tags = tags;
-        this.zoneId = zoneId;
-    }
-
+    private GetLoadBalancerResult() {}
     public GetLoadBalancerAccessLogs accessLogs() {
         return this.accessLogs;
     }
@@ -163,7 +118,7 @@ public final class GetLoadBalancerResult {
     public static Builder builder(GetLoadBalancerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GetLoadBalancerAccessLogs accessLogs;
         private String arn;
@@ -186,11 +141,7 @@ public final class GetLoadBalancerResult {
         private List<String> subnets;
         private Map<String,String> tags;
         private String zoneId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLoadBalancerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessLogs = defaults.accessLogs;
@@ -216,14 +167,17 @@ public final class GetLoadBalancerResult {
     	      this.zoneId = defaults.zoneId;
         }
 
+        @CustomType.Setter
         public Builder accessLogs(GetLoadBalancerAccessLogs accessLogs) {
             this.accessLogs = Objects.requireNonNull(accessLogs);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
             this.availabilityZones = Objects.requireNonNull(availabilityZones);
             return this;
@@ -231,38 +185,47 @@ public final class GetLoadBalancerResult {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder connectionDraining(Boolean connectionDraining) {
             this.connectionDraining = Objects.requireNonNull(connectionDraining);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionDrainingTimeout(Integer connectionDrainingTimeout) {
             this.connectionDrainingTimeout = Objects.requireNonNull(connectionDrainingTimeout);
             return this;
         }
+        @CustomType.Setter
         public Builder crossZoneLoadBalancing(Boolean crossZoneLoadBalancing) {
             this.crossZoneLoadBalancing = Objects.requireNonNull(crossZoneLoadBalancing);
             return this;
         }
+        @CustomType.Setter
         public Builder desyncMitigationMode(String desyncMitigationMode) {
             this.desyncMitigationMode = Objects.requireNonNull(desyncMitigationMode);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsName(String dnsName) {
             this.dnsName = Objects.requireNonNull(dnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheck(GetLoadBalancerHealthCheck healthCheck) {
             this.healthCheck = Objects.requireNonNull(healthCheck);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeout(Integer idleTimeout) {
             this.idleTimeout = Objects.requireNonNull(idleTimeout);
             return this;
         }
+        @CustomType.Setter
         public Builder instances(List<String> instances) {
             this.instances = Objects.requireNonNull(instances);
             return this;
@@ -270,10 +233,12 @@ public final class GetLoadBalancerResult {
         public Builder instances(String... instances) {
             return instances(List.of(instances));
         }
+        @CustomType.Setter
         public Builder internal(Boolean internal) {
             this.internal = Objects.requireNonNull(internal);
             return this;
         }
+        @CustomType.Setter
         public Builder listeners(List<GetLoadBalancerListener> listeners) {
             this.listeners = Objects.requireNonNull(listeners);
             return this;
@@ -281,10 +246,12 @@ public final class GetLoadBalancerResult {
         public Builder listeners(GetLoadBalancerListener... listeners) {
             return listeners(List.of(listeners));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             this.securityGroups = Objects.requireNonNull(securityGroups);
             return this;
@@ -292,14 +259,17 @@ public final class GetLoadBalancerResult {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder sourceSecurityGroup(String sourceSecurityGroup) {
             this.sourceSecurityGroup = Objects.requireNonNull(sourceSecurityGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceSecurityGroupId(String sourceSecurityGroupId) {
             this.sourceSecurityGroupId = Objects.requireNonNull(sourceSecurityGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
@@ -307,15 +277,40 @@ public final class GetLoadBalancerResult {
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneId(String zoneId) {
             this.zoneId = Objects.requireNonNull(zoneId);
             return this;
-        }        public GetLoadBalancerResult build() {
-            return new GetLoadBalancerResult(accessLogs, arn, availabilityZones, connectionDraining, connectionDrainingTimeout, crossZoneLoadBalancing, desyncMitigationMode, dnsName, healthCheck, id, idleTimeout, instances, internal, listeners, name, securityGroups, sourceSecurityGroup, sourceSecurityGroupId, subnets, tags, zoneId);
+        }
+        public GetLoadBalancerResult build() {
+            final var o = new GetLoadBalancerResult();
+            o.accessLogs = accessLogs;
+            o.arn = arn;
+            o.availabilityZones = availabilityZones;
+            o.connectionDraining = connectionDraining;
+            o.connectionDrainingTimeout = connectionDrainingTimeout;
+            o.crossZoneLoadBalancing = crossZoneLoadBalancing;
+            o.desyncMitigationMode = desyncMitigationMode;
+            o.dnsName = dnsName;
+            o.healthCheck = healthCheck;
+            o.id = id;
+            o.idleTimeout = idleTimeout;
+            o.instances = instances;
+            o.internal = internal;
+            o.listeners = listeners;
+            o.name = name;
+            o.securityGroups = securityGroups;
+            o.sourceSecurityGroup = sourceSecurityGroup;
+            o.sourceSecurityGroupId = sourceSecurityGroupId;
+            o.subnets = subnets;
+            o.tags = tags;
+            o.zoneId = zoneId;
+            return o;
         }
     }
 }

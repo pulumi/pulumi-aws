@@ -13,31 +13,20 @@ public final class GetDetectorResult {
      * @return The frequency of notifications sent about subsequent finding occurrences.
      * 
      */
-    private final String findingPublishingFrequency;
-    private final String id;
+    private String findingPublishingFrequency;
+    private String id;
     /**
      * @return The service-linked role that grants GuardDuty access to the resources in the AWS account.
      * 
      */
-    private final String serviceRoleArn;
+    private String serviceRoleArn;
     /**
      * @return The current status of the detector.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetDetectorResult(
-        @CustomType.Parameter("findingPublishingFrequency") String findingPublishingFrequency,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("serviceRoleArn") String serviceRoleArn,
-        @CustomType.Parameter("status") String status) {
-        this.findingPublishingFrequency = findingPublishingFrequency;
-        this.id = id;
-        this.serviceRoleArn = serviceRoleArn;
-        this.status = status;
-    }
-
+    private GetDetectorResult() {}
     /**
      * @return The frequency of notifications sent about subsequent finding occurrences.
      * 
@@ -70,17 +59,13 @@ public final class GetDetectorResult {
     public static Builder builder(GetDetectorResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String findingPublishingFrequency;
         private String id;
         private String serviceRoleArn;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDetectorResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.findingPublishingFrequency = defaults.findingPublishingFrequency;
@@ -89,23 +74,33 @@ public final class GetDetectorResult {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder findingPublishingFrequency(String findingPublishingFrequency) {
             this.findingPublishingFrequency = Objects.requireNonNull(findingPublishingFrequency);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceRoleArn(String serviceRoleArn) {
             this.serviceRoleArn = Objects.requireNonNull(serviceRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetDetectorResult build() {
-            return new GetDetectorResult(findingPublishingFrequency, id, serviceRoleArn, status);
+        }
+        public GetDetectorResult build() {
+            final var o = new GetDetectorResult();
+            o.findingPublishingFrequency = findingPublishingFrequency;
+            o.id = id;
+            o.serviceRoleArn = serviceRoleArn;
+            o.status = status;
+            return o;
         }
     }
 }

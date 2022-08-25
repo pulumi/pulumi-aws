@@ -15,21 +15,14 @@ public final class LifecyclePolicyPolicyDetailsParameters {
      * @return Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
      * 
      */
-    private final @Nullable Boolean excludeBootVolume;
+    private @Nullable Boolean excludeBootVolume;
     /**
      * @return Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
      * 
      */
-    private final @Nullable Boolean noReboot;
+    private @Nullable Boolean noReboot;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsParameters(
-        @CustomType.Parameter("excludeBootVolume") @Nullable Boolean excludeBootVolume,
-        @CustomType.Parameter("noReboot") @Nullable Boolean noReboot) {
-        this.excludeBootVolume = excludeBootVolume;
-        this.noReboot = noReboot;
-    }
-
+    private LifecyclePolicyPolicyDetailsParameters() {}
     /**
      * @return Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
      * 
@@ -52,30 +45,32 @@ public final class LifecyclePolicyPolicyDetailsParameters {
     public static Builder builder(LifecyclePolicyPolicyDetailsParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean excludeBootVolume;
         private @Nullable Boolean noReboot;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludeBootVolume = defaults.excludeBootVolume;
     	      this.noReboot = defaults.noReboot;
         }
 
+        @CustomType.Setter
         public Builder excludeBootVolume(@Nullable Boolean excludeBootVolume) {
             this.excludeBootVolume = excludeBootVolume;
             return this;
         }
+        @CustomType.Setter
         public Builder noReboot(@Nullable Boolean noReboot) {
             this.noReboot = noReboot;
             return this;
-        }        public LifecyclePolicyPolicyDetailsParameters build() {
-            return new LifecyclePolicyPolicyDetailsParameters(excludeBootVolume, noReboot);
+        }
+        public LifecyclePolicyPolicyDetailsParameters build() {
+            final var o = new LifecyclePolicyPolicyDetailsParameters();
+            o.excludeBootVolume = excludeBootVolume;
+            o.noReboot = noReboot;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetVpcEndpointDnsEntry {
      * @return The DNS name.
      * 
      */
-    private final String dnsName;
+    private String dnsName;
     /**
      * @return The ID of the private hosted zone.
      * 
      */
-    private final String hostedZoneId;
+    private String hostedZoneId;
 
-    @CustomType.Constructor
-    private GetVpcEndpointDnsEntry(
-        @CustomType.Parameter("dnsName") String dnsName,
-        @CustomType.Parameter("hostedZoneId") String hostedZoneId) {
-        this.dnsName = dnsName;
-        this.hostedZoneId = hostedZoneId;
-    }
-
+    private GetVpcEndpointDnsEntry() {}
     /**
      * @return The DNS name.
      * 
@@ -50,30 +43,32 @@ public final class GetVpcEndpointDnsEntry {
     public static Builder builder(GetVpcEndpointDnsEntry defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dnsName;
         private String hostedZoneId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcEndpointDnsEntry defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsName = defaults.dnsName;
     	      this.hostedZoneId = defaults.hostedZoneId;
         }
 
+        @CustomType.Setter
         public Builder dnsName(String dnsName) {
             this.dnsName = Objects.requireNonNull(dnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder hostedZoneId(String hostedZoneId) {
             this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
             return this;
-        }        public GetVpcEndpointDnsEntry build() {
-            return new GetVpcEndpointDnsEntry(dnsName, hostedZoneId);
+        }
+        public GetVpcEndpointDnsEntry build() {
+            final var o = new GetVpcEndpointDnsEntry();
+            o.dnsName = dnsName;
+            o.hostedZoneId = hostedZoneId;
+            return o;
         }
     }
 }

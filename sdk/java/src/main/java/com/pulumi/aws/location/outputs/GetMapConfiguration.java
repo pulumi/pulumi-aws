@@ -13,13 +13,9 @@ public final class GetMapConfiguration {
      * @return The map style selected from an available data provider.
      * 
      */
-    private final String style;
+    private String style;
 
-    @CustomType.Constructor
-    private GetMapConfiguration(@CustomType.Parameter("style") String style) {
-        this.style = style;
-    }
-
+    private GetMapConfiguration() {}
     /**
      * @return The map style selected from an available data provider.
      * 
@@ -35,24 +31,24 @@ public final class GetMapConfiguration {
     public static Builder builder(GetMapConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String style;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMapConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.style = defaults.style;
         }
 
+        @CustomType.Setter
         public Builder style(String style) {
             this.style = Objects.requireNonNull(style);
             return this;
-        }        public GetMapConfiguration build() {
-            return new GetMapConfiguration(style);
+        }
+        public GetMapConfiguration build() {
+            final var o = new GetMapConfiguration();
+            o.style = style;
+            return o;
         }
     }
 }

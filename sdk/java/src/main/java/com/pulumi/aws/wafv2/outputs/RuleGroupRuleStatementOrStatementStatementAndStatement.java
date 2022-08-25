@@ -14,13 +14,9 @@ public final class RuleGroupRuleStatementOrStatementStatementAndStatement {
      * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
-    private final List<RuleGroupRuleStatementOrStatementStatementAndStatementStatement> statements;
+    private List<RuleGroupRuleStatementOrStatementStatementAndStatementStatement> statements;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementOrStatementStatementAndStatement(@CustomType.Parameter("statements") List<RuleGroupRuleStatementOrStatementStatementAndStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private RuleGroupRuleStatementOrStatementStatementAndStatement() {}
     /**
      * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class RuleGroupRuleStatementOrStatementStatementAndStatement {
     public static Builder builder(RuleGroupRuleStatementOrStatementStatementAndStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<RuleGroupRuleStatementOrStatementStatementAndStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementOrStatementStatementAndStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<RuleGroupRuleStatementOrStatementStatementAndStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(RuleGroupRuleStatementOrStatementStatementAndStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public RuleGroupRuleStatementOrStatementStatementAndStatement build() {
-            return new RuleGroupRuleStatementOrStatementStatementAndStatement(statements);
+        }
+        public RuleGroupRuleStatementOrStatementStatementAndStatement build() {
+            final var o = new RuleGroupRuleStatementOrStatementStatementAndStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

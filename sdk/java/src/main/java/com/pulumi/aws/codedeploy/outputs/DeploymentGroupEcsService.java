@@ -13,21 +13,14 @@ public final class DeploymentGroupEcsService {
      * @return The name of the ECS cluster.
      * 
      */
-    private final String clusterName;
+    private String clusterName;
     /**
      * @return The name of the ECS service.
      * 
      */
-    private final String serviceName;
+    private String serviceName;
 
-    @CustomType.Constructor
-    private DeploymentGroupEcsService(
-        @CustomType.Parameter("clusterName") String clusterName,
-        @CustomType.Parameter("serviceName") String serviceName) {
-        this.clusterName = clusterName;
-        this.serviceName = serviceName;
-    }
-
+    private DeploymentGroupEcsService() {}
     /**
      * @return The name of the ECS cluster.
      * 
@@ -50,30 +43,32 @@ public final class DeploymentGroupEcsService {
     public static Builder builder(DeploymentGroupEcsService defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clusterName;
         private String serviceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupEcsService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterName = defaults.clusterName;
     	      this.serviceName = defaults.serviceName;
         }
 
+        @CustomType.Setter
         public Builder clusterName(String clusterName) {
             this.clusterName = Objects.requireNonNull(clusterName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
-        }        public DeploymentGroupEcsService build() {
-            return new DeploymentGroupEcsService(clusterName, serviceName);
+        }
+        public DeploymentGroupEcsService build() {
+            final var o = new DeploymentGroupEcsService();
+            o.clusterName = clusterName;
+            o.serviceName = serviceName;
+            return o;
         }
     }
 }

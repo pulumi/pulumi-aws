@@ -11,21 +11,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationCloudwatchLoggingOptions {
-    private final @Nullable String cloudwatchLoggingOptionId;
+    private @Nullable String cloudwatchLoggingOptionId;
     /**
      * @return The ARN of the CloudWatch log stream to receive application messages.
      * 
      */
-    private final String logStreamArn;
+    private String logStreamArn;
 
-    @CustomType.Constructor
-    private ApplicationCloudwatchLoggingOptions(
-        @CustomType.Parameter("cloudwatchLoggingOptionId") @Nullable String cloudwatchLoggingOptionId,
-        @CustomType.Parameter("logStreamArn") String logStreamArn) {
-        this.cloudwatchLoggingOptionId = cloudwatchLoggingOptionId;
-        this.logStreamArn = logStreamArn;
-    }
-
+    private ApplicationCloudwatchLoggingOptions() {}
     public Optional<String> cloudwatchLoggingOptionId() {
         return Optional.ofNullable(this.cloudwatchLoggingOptionId);
     }
@@ -44,30 +37,32 @@ public final class ApplicationCloudwatchLoggingOptions {
     public static Builder builder(ApplicationCloudwatchLoggingOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cloudwatchLoggingOptionId;
         private String logStreamArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationCloudwatchLoggingOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLoggingOptionId = defaults.cloudwatchLoggingOptionId;
     	      this.logStreamArn = defaults.logStreamArn;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLoggingOptionId(@Nullable String cloudwatchLoggingOptionId) {
             this.cloudwatchLoggingOptionId = cloudwatchLoggingOptionId;
             return this;
         }
+        @CustomType.Setter
         public Builder logStreamArn(String logStreamArn) {
             this.logStreamArn = Objects.requireNonNull(logStreamArn);
             return this;
-        }        public ApplicationCloudwatchLoggingOptions build() {
-            return new ApplicationCloudwatchLoggingOptions(cloudwatchLoggingOptionId, logStreamArn);
+        }
+        public ApplicationCloudwatchLoggingOptions build() {
+            final var o = new ApplicationCloudwatchLoggingOptions();
+            o.cloudwatchLoggingOptionId = cloudwatchLoggingOptionId;
+            o.logStreamArn = logStreamArn;
+            return o;
         }
     }
 }

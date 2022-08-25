@@ -13,21 +13,14 @@ public final class TaskDefinitionInferenceAccelerator {
      * @return Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return Elastic Inference accelerator type to use.
      * 
      */
-    private final String deviceType;
+    private String deviceType;
 
-    @CustomType.Constructor
-    private TaskDefinitionInferenceAccelerator(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("deviceType") String deviceType) {
-        this.deviceName = deviceName;
-        this.deviceType = deviceType;
-    }
-
+    private TaskDefinitionInferenceAccelerator() {}
     /**
      * @return Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
      * 
@@ -50,30 +43,32 @@ public final class TaskDefinitionInferenceAccelerator {
     public static Builder builder(TaskDefinitionInferenceAccelerator defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private String deviceType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskDefinitionInferenceAccelerator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
     	      this.deviceType = defaults.deviceType;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceType(String deviceType) {
             this.deviceType = Objects.requireNonNull(deviceType);
             return this;
-        }        public TaskDefinitionInferenceAccelerator build() {
-            return new TaskDefinitionInferenceAccelerator(deviceName, deviceType);
+        }
+        public TaskDefinitionInferenceAccelerator build() {
+            final var o = new TaskDefinitionInferenceAccelerator();
+            o.deviceName = deviceName;
+            o.deviceType = deviceType;
+            return o;
         }
     }
 }

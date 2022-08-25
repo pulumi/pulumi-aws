@@ -15,21 +15,14 @@ public final class BrokerLogs {
      * @return Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean audit;
+    private @Nullable Boolean audit;
     /**
      * @return Enables general logging via CloudWatch. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean general;
+    private @Nullable Boolean general;
 
-    @CustomType.Constructor
-    private BrokerLogs(
-        @CustomType.Parameter("audit") @Nullable Boolean audit,
-        @CustomType.Parameter("general") @Nullable Boolean general) {
-        this.audit = audit;
-        this.general = general;
-    }
-
+    private BrokerLogs() {}
     /**
      * @return Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
      * 
@@ -52,30 +45,32 @@ public final class BrokerLogs {
     public static Builder builder(BrokerLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean audit;
         private @Nullable Boolean general;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BrokerLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audit = defaults.audit;
     	      this.general = defaults.general;
         }
 
+        @CustomType.Setter
         public Builder audit(@Nullable Boolean audit) {
             this.audit = audit;
             return this;
         }
+        @CustomType.Setter
         public Builder general(@Nullable Boolean general) {
             this.general = general;
             return this;
-        }        public BrokerLogs build() {
-            return new BrokerLogs(audit, general);
+        }
+        public BrokerLogs build() {
+            final var o = new BrokerLogs();
+            o.audit = audit;
+            o.general = general;
+            return o;
         }
     }
 }

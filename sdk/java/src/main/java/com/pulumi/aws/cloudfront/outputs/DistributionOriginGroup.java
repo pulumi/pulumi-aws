@@ -16,28 +16,19 @@ public final class DistributionOriginGroup {
      * @return The failover criteria for when to failover to the secondary origin
      * 
      */
-    private final DistributionOriginGroupFailoverCriteria failoverCriteria;
+    private DistributionOriginGroupFailoverCriteria failoverCriteria;
     /**
      * @return Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
      * 
      */
-    private final List<DistributionOriginGroupMember> members;
+    private List<DistributionOriginGroupMember> members;
     /**
      * @return The unique identifier of the member origin
      * 
      */
-    private final String originId;
+    private String originId;
 
-    @CustomType.Constructor
-    private DistributionOriginGroup(
-        @CustomType.Parameter("failoverCriteria") DistributionOriginGroupFailoverCriteria failoverCriteria,
-        @CustomType.Parameter("members") List<DistributionOriginGroupMember> members,
-        @CustomType.Parameter("originId") String originId) {
-        this.failoverCriteria = failoverCriteria;
-        this.members = members;
-        this.originId = originId;
-    }
-
+    private DistributionOriginGroup() {}
     /**
      * @return The failover criteria for when to failover to the secondary origin
      * 
@@ -67,16 +58,12 @@ public final class DistributionOriginGroup {
     public static Builder builder(DistributionOriginGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private DistributionOriginGroupFailoverCriteria failoverCriteria;
         private List<DistributionOriginGroupMember> members;
         private String originId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionOriginGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.failoverCriteria = defaults.failoverCriteria;
@@ -84,10 +71,12 @@ public final class DistributionOriginGroup {
     	      this.originId = defaults.originId;
         }
 
+        @CustomType.Setter
         public Builder failoverCriteria(DistributionOriginGroupFailoverCriteria failoverCriteria) {
             this.failoverCriteria = Objects.requireNonNull(failoverCriteria);
             return this;
         }
+        @CustomType.Setter
         public Builder members(List<DistributionOriginGroupMember> members) {
             this.members = Objects.requireNonNull(members);
             return this;
@@ -95,11 +84,17 @@ public final class DistributionOriginGroup {
         public Builder members(DistributionOriginGroupMember... members) {
             return members(List.of(members));
         }
+        @CustomType.Setter
         public Builder originId(String originId) {
             this.originId = Objects.requireNonNull(originId);
             return this;
-        }        public DistributionOriginGroup build() {
-            return new DistributionOriginGroup(failoverCriteria, members, originId);
+        }
+        public DistributionOriginGroup build() {
+            final var o = new DistributionOriginGroup();
+            o.failoverCriteria = failoverCriteria;
+            o.members = members;
+            o.originId = originId;
+            return o;
         }
     }
 }

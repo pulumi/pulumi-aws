@@ -23,58 +23,43 @@ public final class EntityRecognizerInputDataConfig {
      * One of `annotations` or `entity_list` is required.
      * 
      */
-    private final @Nullable EntityRecognizerInputDataConfigAnnotations annotations;
+    private @Nullable EntityRecognizerInputDataConfigAnnotations annotations;
     /**
      * @return List of training datasets produced by Amazon SageMaker Ground Truth.
      * Used if `data_format` is `AUGMENTED_MANIFEST`.
      * See the `augmented_manifests` Configuration Block section below.
      * 
      */
-    private final @Nullable List<EntityRecognizerInputDataConfigAugmentedManifest> augmentedManifests;
+    private @Nullable List<EntityRecognizerInputDataConfigAugmentedManifest> augmentedManifests;
     /**
      * @return The format for the training data.
      * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
      * 
      */
-    private final @Nullable String dataFormat;
+    private @Nullable String dataFormat;
     /**
      * @return Specifies a collection of training documents.
      * Used if `data_format` is `COMPREHEND_CSV`.
      * See the `documents` Configuration Block section below.
      * 
      */
-    private final @Nullable EntityRecognizerInputDataConfigDocuments documents;
+    private @Nullable EntityRecognizerInputDataConfigDocuments documents;
     /**
      * @return Specifies location of the entity list data.
      * See the `entity_list` Configuration Block section below.
      * One of `entity_list` or `annotations` is required.
      * 
      */
-    private final @Nullable EntityRecognizerInputDataConfigEntityList entityList;
+    private @Nullable EntityRecognizerInputDataConfigEntityList entityList;
     /**
      * @return Set of entity types to be recognized.
      * Has a maximum of 25 items.
      * See the `entity_types` Configuration Block section below.
      * 
      */
-    private final List<EntityRecognizerInputDataConfigEntityType> entityTypes;
+    private List<EntityRecognizerInputDataConfigEntityType> entityTypes;
 
-    @CustomType.Constructor
-    private EntityRecognizerInputDataConfig(
-        @CustomType.Parameter("annotations") @Nullable EntityRecognizerInputDataConfigAnnotations annotations,
-        @CustomType.Parameter("augmentedManifests") @Nullable List<EntityRecognizerInputDataConfigAugmentedManifest> augmentedManifests,
-        @CustomType.Parameter("dataFormat") @Nullable String dataFormat,
-        @CustomType.Parameter("documents") @Nullable EntityRecognizerInputDataConfigDocuments documents,
-        @CustomType.Parameter("entityList") @Nullable EntityRecognizerInputDataConfigEntityList entityList,
-        @CustomType.Parameter("entityTypes") List<EntityRecognizerInputDataConfigEntityType> entityTypes) {
-        this.annotations = annotations;
-        this.augmentedManifests = augmentedManifests;
-        this.dataFormat = dataFormat;
-        this.documents = documents;
-        this.entityList = entityList;
-        this.entityTypes = entityTypes;
-    }
-
+    private EntityRecognizerInputDataConfig() {}
     /**
      * @return Specifies location of the document annotation data.
      * See the `annotations` Configuration Block section below.
@@ -136,7 +121,7 @@ public final class EntityRecognizerInputDataConfig {
     public static Builder builder(EntityRecognizerInputDataConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EntityRecognizerInputDataConfigAnnotations annotations;
         private @Nullable List<EntityRecognizerInputDataConfigAugmentedManifest> augmentedManifests;
@@ -144,11 +129,7 @@ public final class EntityRecognizerInputDataConfig {
         private @Nullable EntityRecognizerInputDataConfigDocuments documents;
         private @Nullable EntityRecognizerInputDataConfigEntityList entityList;
         private List<EntityRecognizerInputDataConfigEntityType> entityTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EntityRecognizerInputDataConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.annotations = defaults.annotations;
@@ -159,10 +140,12 @@ public final class EntityRecognizerInputDataConfig {
     	      this.entityTypes = defaults.entityTypes;
         }
 
+        @CustomType.Setter
         public Builder annotations(@Nullable EntityRecognizerInputDataConfigAnnotations annotations) {
             this.annotations = annotations;
             return this;
         }
+        @CustomType.Setter
         public Builder augmentedManifests(@Nullable List<EntityRecognizerInputDataConfigAugmentedManifest> augmentedManifests) {
             this.augmentedManifests = augmentedManifests;
             return this;
@@ -170,26 +153,38 @@ public final class EntityRecognizerInputDataConfig {
         public Builder augmentedManifests(EntityRecognizerInputDataConfigAugmentedManifest... augmentedManifests) {
             return augmentedManifests(List.of(augmentedManifests));
         }
+        @CustomType.Setter
         public Builder dataFormat(@Nullable String dataFormat) {
             this.dataFormat = dataFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder documents(@Nullable EntityRecognizerInputDataConfigDocuments documents) {
             this.documents = documents;
             return this;
         }
+        @CustomType.Setter
         public Builder entityList(@Nullable EntityRecognizerInputDataConfigEntityList entityList) {
             this.entityList = entityList;
             return this;
         }
+        @CustomType.Setter
         public Builder entityTypes(List<EntityRecognizerInputDataConfigEntityType> entityTypes) {
             this.entityTypes = Objects.requireNonNull(entityTypes);
             return this;
         }
         public Builder entityTypes(EntityRecognizerInputDataConfigEntityType... entityTypes) {
             return entityTypes(List.of(entityTypes));
-        }        public EntityRecognizerInputDataConfig build() {
-            return new EntityRecognizerInputDataConfig(annotations, augmentedManifests, dataFormat, documents, entityList, entityTypes);
+        }
+        public EntityRecognizerInputDataConfig build() {
+            final var o = new EntityRecognizerInputDataConfig();
+            o.annotations = annotations;
+            o.augmentedManifests = augmentedManifests;
+            o.dataFormat = dataFormat;
+            o.documents = documents;
+            o.entityList = entityList;
+            o.entityTypes = entityTypes;
+            return o;
         }
     }
 }

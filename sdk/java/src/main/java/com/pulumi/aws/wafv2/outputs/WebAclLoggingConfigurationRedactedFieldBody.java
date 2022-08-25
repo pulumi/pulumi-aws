@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclLoggingConfigurationRedactedFieldBody {
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationRedactedFieldBody() {
-    }
-
+    private WebAclLoggingConfigurationRedactedFieldBody() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclLoggingConfigurationRedactedFieldBody {
     public static Builder builder(WebAclLoggingConfigurationRedactedFieldBody defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationRedactedFieldBody defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclLoggingConfigurationRedactedFieldBody build() {
-            return new WebAclLoggingConfigurationRedactedFieldBody();
+            final var o = new WebAclLoggingConfigurationRedactedFieldBody();
+            return o;
         }
     }
 }

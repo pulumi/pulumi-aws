@@ -17,21 +17,14 @@ public final class RuleGroupRuleStatementAndStatementStatementNotStatementStatem
      * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch fieldToMatch;
+    private @Nullable RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch fieldToMatch;
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
      * 
      */
-    private final List<RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation> textTransformations;
+    private List<RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation> textTransformations;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement(
-        @CustomType.Parameter("fieldToMatch") @Nullable RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch fieldToMatch,
-        @CustomType.Parameter("textTransformations") List<RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation> textTransformations) {
-        this.fieldToMatch = fieldToMatch;
-        this.textTransformations = textTransformations;
-    }
-
+    private RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement() {}
     /**
      * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
@@ -54,33 +47,35 @@ public final class RuleGroupRuleStatementAndStatementStatementNotStatementStatem
     public static Builder builder(RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch fieldToMatch;
         private List<RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation> textTransformations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
     	      this.textTransformations = defaults.textTransformations;
         }
 
+        @CustomType.Setter
         public Builder fieldToMatch(@Nullable RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch fieldToMatch) {
             this.fieldToMatch = fieldToMatch;
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation> textTransformations) {
             this.textTransformations = Objects.requireNonNull(textTransformations);
             return this;
         }
         public Builder textTransformations(RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
-        }        public RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement build() {
-            return new RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement(fieldToMatch, textTransformations);
+        }
+        public RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement build() {
+            final var o = new RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement();
+            o.fieldToMatch = fieldToMatch;
+            o.textTransformations = textTransformations;
+            return o;
         }
     }
 }

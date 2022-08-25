@@ -16,28 +16,19 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
      * @return The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
-    private final @Nullable String port;
+    private @Nullable String port;
     /**
      * @return Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
      * 
      */
-    private final @Nullable Map<String,String> runtimeEnvironmentVariables;
+    private @Nullable Map<String,String> runtimeEnvironmentVariables;
     /**
      * @return A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
      * 
      */
-    private final @Nullable String startCommand;
+    private @Nullable String startCommand;
 
-    @CustomType.Constructor
-    private ServiceSourceConfigurationImageRepositoryImageConfiguration(
-        @CustomType.Parameter("port") @Nullable String port,
-        @CustomType.Parameter("runtimeEnvironmentVariables") @Nullable Map<String,String> runtimeEnvironmentVariables,
-        @CustomType.Parameter("startCommand") @Nullable String startCommand) {
-        this.port = port;
-        this.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
-        this.startCommand = startCommand;
-    }
-
+    private ServiceSourceConfigurationImageRepositoryImageConfiguration() {}
     /**
      * @return The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
@@ -67,16 +58,12 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
     public static Builder builder(ServiceSourceConfigurationImageRepositoryImageConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String port;
         private @Nullable Map<String,String> runtimeEnvironmentVariables;
         private @Nullable String startCommand;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSourceConfigurationImageRepositoryImageConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.port = defaults.port;
@@ -84,19 +71,27 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
     	      this.startCommand = defaults.startCommand;
         }
 
+        @CustomType.Setter
         public Builder port(@Nullable String port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeEnvironmentVariables(@Nullable Map<String,String> runtimeEnvironmentVariables) {
             this.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
             return this;
         }
+        @CustomType.Setter
         public Builder startCommand(@Nullable String startCommand) {
             this.startCommand = startCommand;
             return this;
-        }        public ServiceSourceConfigurationImageRepositoryImageConfiguration build() {
-            return new ServiceSourceConfigurationImageRepositoryImageConfiguration(port, runtimeEnvironmentVariables, startCommand);
+        }
+        public ServiceSourceConfigurationImageRepositoryImageConfiguration build() {
+            final var o = new ServiceSourceConfigurationImageRepositoryImageConfiguration();
+            o.port = port;
+            o.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
+            o.startCommand = startCommand;
+            return o;
         }
     }
 }

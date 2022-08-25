@@ -15,13 +15,9 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      * @return Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
      * 
      */
-    private final @Nullable String aggregationType;
+    private @Nullable String aggregationType;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig(@CustomType.Parameter("aggregationType") @Nullable String aggregationType) {
-        this.aggregationType = aggregationType;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig() {}
     /**
      * @return Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
      * 
@@ -37,24 +33,24 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregationType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregationType = defaults.aggregationType;
         }
 
+        @CustomType.Setter
         public Builder aggregationType(@Nullable String aggregationType) {
             this.aggregationType = aggregationType;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig(aggregationType);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig();
+            o.aggregationType = aggregationType;
+            return o;
         }
     }
 }

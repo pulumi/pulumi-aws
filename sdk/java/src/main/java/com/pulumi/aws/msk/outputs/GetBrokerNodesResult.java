@@ -11,24 +11,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerNodesResult {
-    private final String clusterArn;
+    private String clusterArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final List<GetBrokerNodesNodeInfoList> nodeInfoLists;
+    private String id;
+    private List<GetBrokerNodesNodeInfoList> nodeInfoLists;
 
-    @CustomType.Constructor
-    private GetBrokerNodesResult(
-        @CustomType.Parameter("clusterArn") String clusterArn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("nodeInfoLists") List<GetBrokerNodesNodeInfoList> nodeInfoLists) {
-        this.clusterArn = clusterArn;
-        this.id = id;
-        this.nodeInfoLists = nodeInfoLists;
-    }
-
+    private GetBrokerNodesResult() {}
     public String clusterArn() {
         return this.clusterArn;
     }
@@ -50,16 +41,12 @@ public final class GetBrokerNodesResult {
     public static Builder builder(GetBrokerNodesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clusterArn;
         private String id;
         private List<GetBrokerNodesNodeInfoList> nodeInfoLists;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrokerNodesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterArn = defaults.clusterArn;
@@ -67,22 +54,30 @@ public final class GetBrokerNodesResult {
     	      this.nodeInfoLists = defaults.nodeInfoLists;
         }
 
+        @CustomType.Setter
         public Builder clusterArn(String clusterArn) {
             this.clusterArn = Objects.requireNonNull(clusterArn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeInfoLists(List<GetBrokerNodesNodeInfoList> nodeInfoLists) {
             this.nodeInfoLists = Objects.requireNonNull(nodeInfoLists);
             return this;
         }
         public Builder nodeInfoLists(GetBrokerNodesNodeInfoList... nodeInfoLists) {
             return nodeInfoLists(List.of(nodeInfoLists));
-        }        public GetBrokerNodesResult build() {
-            return new GetBrokerNodesResult(clusterArn, id, nodeInfoLists);
+        }
+        public GetBrokerNodesResult build() {
+            final var o = new GetBrokerNodesResult();
+            o.clusterArn = clusterArn;
+            o.id = id;
+            o.nodeInfoLists = nodeInfoLists;
+            return o;
         }
     }
 }

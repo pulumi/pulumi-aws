@@ -15,28 +15,19 @@ public final class CustomPluginLocationS3 {
      * @return The Amazon Resource Name (ARN) of an S3 bucket.
      * 
      */
-    private final String bucketArn;
+    private String bucketArn;
     /**
      * @return The file key for an object in an S3 bucket.
      * 
      */
-    private final String fileKey;
+    private String fileKey;
     /**
      * @return The version of an object in an S3 bucket.
      * 
      */
-    private final @Nullable String objectVersion;
+    private @Nullable String objectVersion;
 
-    @CustomType.Constructor
-    private CustomPluginLocationS3(
-        @CustomType.Parameter("bucketArn") String bucketArn,
-        @CustomType.Parameter("fileKey") String fileKey,
-        @CustomType.Parameter("objectVersion") @Nullable String objectVersion) {
-        this.bucketArn = bucketArn;
-        this.fileKey = fileKey;
-        this.objectVersion = objectVersion;
-    }
-
+    private CustomPluginLocationS3() {}
     /**
      * @return The Amazon Resource Name (ARN) of an S3 bucket.
      * 
@@ -66,16 +57,12 @@ public final class CustomPluginLocationS3 {
     public static Builder builder(CustomPluginLocationS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketArn;
         private String fileKey;
         private @Nullable String objectVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CustomPluginLocationS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketArn = defaults.bucketArn;
@@ -83,19 +70,27 @@ public final class CustomPluginLocationS3 {
     	      this.objectVersion = defaults.objectVersion;
         }
 
+        @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
             this.bucketArn = Objects.requireNonNull(bucketArn);
             return this;
         }
+        @CustomType.Setter
         public Builder fileKey(String fileKey) {
             this.fileKey = Objects.requireNonNull(fileKey);
             return this;
         }
+        @CustomType.Setter
         public Builder objectVersion(@Nullable String objectVersion) {
             this.objectVersion = objectVersion;
             return this;
-        }        public CustomPluginLocationS3 build() {
-            return new CustomPluginLocationS3(bucketArn, fileKey, objectVersion);
+        }
+        public CustomPluginLocationS3 build() {
+            final var o = new CustomPluginLocationS3();
+            o.bucketArn = bucketArn;
+            o.fileKey = fileKey;
+            o.objectVersion = objectVersion;
+            return o;
         }
     }
 }

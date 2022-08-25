@@ -15,87 +15,60 @@ public final class GetReportDefinitionResult {
      * @return A list of additional artifacts.
      * 
      */
-    private final List<String> additionalArtifacts;
+    private List<String> additionalArtifacts;
     /**
      * @return A list of schema elements.
      * 
      */
-    private final List<String> additionalSchemaElements;
+    private List<String> additionalSchemaElements;
     /**
      * @return Preferred format for report.
      * 
      */
-    private final String compression;
+    private String compression;
     /**
      * @return Preferred compression format for report.
      * 
      */
-    private final String format;
+    private String format;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return If true reports are updated after they have been finalized.
      * 
      */
-    private final Boolean refreshClosedReports;
-    private final String reportName;
+    private Boolean refreshClosedReports;
+    private String reportName;
     /**
      * @return Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
      * 
      */
-    private final String reportVersioning;
+    private String reportVersioning;
     /**
      * @return Name of customer S3 bucket.
      * 
      */
-    private final String s3Bucket;
+    private String s3Bucket;
     /**
      * @return Preferred report path prefix.
      * 
      */
-    private final String s3Prefix;
+    private String s3Prefix;
     /**
      * @return Region of customer S3 bucket.
      * 
      */
-    private final String s3Region;
+    private String s3Region;
     /**
      * @return The frequency on which report data are measured and displayed.
      * 
      */
-    private final String timeUnit;
+    private String timeUnit;
 
-    @CustomType.Constructor
-    private GetReportDefinitionResult(
-        @CustomType.Parameter("additionalArtifacts") List<String> additionalArtifacts,
-        @CustomType.Parameter("additionalSchemaElements") List<String> additionalSchemaElements,
-        @CustomType.Parameter("compression") String compression,
-        @CustomType.Parameter("format") String format,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("refreshClosedReports") Boolean refreshClosedReports,
-        @CustomType.Parameter("reportName") String reportName,
-        @CustomType.Parameter("reportVersioning") String reportVersioning,
-        @CustomType.Parameter("s3Bucket") String s3Bucket,
-        @CustomType.Parameter("s3Prefix") String s3Prefix,
-        @CustomType.Parameter("s3Region") String s3Region,
-        @CustomType.Parameter("timeUnit") String timeUnit) {
-        this.additionalArtifacts = additionalArtifacts;
-        this.additionalSchemaElements = additionalSchemaElements;
-        this.compression = compression;
-        this.format = format;
-        this.id = id;
-        this.refreshClosedReports = refreshClosedReports;
-        this.reportName = reportName;
-        this.reportVersioning = reportVersioning;
-        this.s3Bucket = s3Bucket;
-        this.s3Prefix = s3Prefix;
-        this.s3Region = s3Region;
-        this.timeUnit = timeUnit;
-    }
-
+    private GetReportDefinitionResult() {}
     /**
      * @return A list of additional artifacts.
      * 
@@ -184,7 +157,7 @@ public final class GetReportDefinitionResult {
     public static Builder builder(GetReportDefinitionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> additionalArtifacts;
         private List<String> additionalSchemaElements;
@@ -198,11 +171,7 @@ public final class GetReportDefinitionResult {
         private String s3Prefix;
         private String s3Region;
         private String timeUnit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetReportDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalArtifacts = defaults.additionalArtifacts;
@@ -219,6 +188,7 @@ public final class GetReportDefinitionResult {
     	      this.timeUnit = defaults.timeUnit;
         }
 
+        @CustomType.Setter
         public Builder additionalArtifacts(List<String> additionalArtifacts) {
             this.additionalArtifacts = Objects.requireNonNull(additionalArtifacts);
             return this;
@@ -226,6 +196,7 @@ public final class GetReportDefinitionResult {
         public Builder additionalArtifacts(String... additionalArtifacts) {
             return additionalArtifacts(List.of(additionalArtifacts));
         }
+        @CustomType.Setter
         public Builder additionalSchemaElements(List<String> additionalSchemaElements) {
             this.additionalSchemaElements = Objects.requireNonNull(additionalSchemaElements);
             return this;
@@ -233,47 +204,71 @@ public final class GetReportDefinitionResult {
         public Builder additionalSchemaElements(String... additionalSchemaElements) {
             return additionalSchemaElements(List.of(additionalSchemaElements));
         }
+        @CustomType.Setter
         public Builder compression(String compression) {
             this.compression = Objects.requireNonNull(compression);
             return this;
         }
+        @CustomType.Setter
         public Builder format(String format) {
             this.format = Objects.requireNonNull(format);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder refreshClosedReports(Boolean refreshClosedReports) {
             this.refreshClosedReports = Objects.requireNonNull(refreshClosedReports);
             return this;
         }
+        @CustomType.Setter
         public Builder reportName(String reportName) {
             this.reportName = Objects.requireNonNull(reportName);
             return this;
         }
+        @CustomType.Setter
         public Builder reportVersioning(String reportVersioning) {
             this.reportVersioning = Objects.requireNonNull(reportVersioning);
             return this;
         }
+        @CustomType.Setter
         public Builder s3Bucket(String s3Bucket) {
             this.s3Bucket = Objects.requireNonNull(s3Bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder s3Prefix(String s3Prefix) {
             this.s3Prefix = Objects.requireNonNull(s3Prefix);
             return this;
         }
+        @CustomType.Setter
         public Builder s3Region(String s3Region) {
             this.s3Region = Objects.requireNonNull(s3Region);
             return this;
         }
+        @CustomType.Setter
         public Builder timeUnit(String timeUnit) {
             this.timeUnit = Objects.requireNonNull(timeUnit);
             return this;
-        }        public GetReportDefinitionResult build() {
-            return new GetReportDefinitionResult(additionalArtifacts, additionalSchemaElements, compression, format, id, refreshClosedReports, reportName, reportVersioning, s3Bucket, s3Prefix, s3Region, timeUnit);
+        }
+        public GetReportDefinitionResult build() {
+            final var o = new GetReportDefinitionResult();
+            o.additionalArtifacts = additionalArtifacts;
+            o.additionalSchemaElements = additionalSchemaElements;
+            o.compression = compression;
+            o.format = format;
+            o.id = id;
+            o.refreshClosedReports = refreshClosedReports;
+            o.reportName = reportName;
+            o.reportVersioning = reportVersioning;
+            o.s3Bucket = s3Bucket;
+            o.s3Prefix = s3Prefix;
+            o.s3Region = s3Region;
+            o.timeUnit = timeUnit;
+            return o;
         }
     }
 }

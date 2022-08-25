@@ -13,13 +13,9 @@ public final class ServerlessClusterClientAuthenticationSasl {
      * @return Details for client authentication using IAM. See below.
      * 
      */
-    private final ServerlessClusterClientAuthenticationSaslIam iam;
+    private ServerlessClusterClientAuthenticationSaslIam iam;
 
-    @CustomType.Constructor
-    private ServerlessClusterClientAuthenticationSasl(@CustomType.Parameter("iam") ServerlessClusterClientAuthenticationSaslIam iam) {
-        this.iam = iam;
-    }
-
+    private ServerlessClusterClientAuthenticationSasl() {}
     /**
      * @return Details for client authentication using IAM. See below.
      * 
@@ -35,24 +31,24 @@ public final class ServerlessClusterClientAuthenticationSasl {
     public static Builder builder(ServerlessClusterClientAuthenticationSasl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ServerlessClusterClientAuthenticationSaslIam iam;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerlessClusterClientAuthenticationSasl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.iam = defaults.iam;
         }
 
+        @CustomType.Setter
         public Builder iam(ServerlessClusterClientAuthenticationSaslIam iam) {
             this.iam = Objects.requireNonNull(iam);
             return this;
-        }        public ServerlessClusterClientAuthenticationSasl build() {
-            return new ServerlessClusterClientAuthenticationSasl(iam);
+        }
+        public ServerlessClusterClientAuthenticationSasl build() {
+            final var o = new ServerlessClusterClientAuthenticationSasl();
+            o.iam = iam;
+            return o;
         }
     }
 }

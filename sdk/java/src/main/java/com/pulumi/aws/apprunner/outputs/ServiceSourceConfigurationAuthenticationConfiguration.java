@@ -15,21 +15,14 @@ public final class ServiceSourceConfigurationAuthenticationConfiguration {
      * @return ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
      * 
      */
-    private final @Nullable String accessRoleArn;
+    private @Nullable String accessRoleArn;
     /**
      * @return ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
      * 
      */
-    private final @Nullable String connectionArn;
+    private @Nullable String connectionArn;
 
-    @CustomType.Constructor
-    private ServiceSourceConfigurationAuthenticationConfiguration(
-        @CustomType.Parameter("accessRoleArn") @Nullable String accessRoleArn,
-        @CustomType.Parameter("connectionArn") @Nullable String connectionArn) {
-        this.accessRoleArn = accessRoleArn;
-        this.connectionArn = connectionArn;
-    }
-
+    private ServiceSourceConfigurationAuthenticationConfiguration() {}
     /**
      * @return ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
      * 
@@ -52,30 +45,32 @@ public final class ServiceSourceConfigurationAuthenticationConfiguration {
     public static Builder builder(ServiceSourceConfigurationAuthenticationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessRoleArn;
         private @Nullable String connectionArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSourceConfigurationAuthenticationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessRoleArn = defaults.accessRoleArn;
     	      this.connectionArn = defaults.connectionArn;
         }
 
+        @CustomType.Setter
         public Builder accessRoleArn(@Nullable String accessRoleArn) {
             this.accessRoleArn = accessRoleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder connectionArn(@Nullable String connectionArn) {
             this.connectionArn = connectionArn;
             return this;
-        }        public ServiceSourceConfigurationAuthenticationConfiguration build() {
-            return new ServiceSourceConfigurationAuthenticationConfiguration(accessRoleArn, connectionArn);
+        }
+        public ServiceSourceConfigurationAuthenticationConfiguration build() {
+            final var o = new ServiceSourceConfigurationAuthenticationConfiguration();
+            o.accessRoleArn = accessRoleArn;
+            o.connectionArn = connectionArn;
+            return o;
         }
     }
 }

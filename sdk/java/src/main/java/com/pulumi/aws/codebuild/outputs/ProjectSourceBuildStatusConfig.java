@@ -15,21 +15,14 @@ public final class ProjectSourceBuildStatusConfig {
      * @return Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
      * 
      */
-    private final @Nullable String context;
+    private @Nullable String context;
     /**
      * @return Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
      * 
      */
-    private final @Nullable String targetUrl;
+    private @Nullable String targetUrl;
 
-    @CustomType.Constructor
-    private ProjectSourceBuildStatusConfig(
-        @CustomType.Parameter("context") @Nullable String context,
-        @CustomType.Parameter("targetUrl") @Nullable String targetUrl) {
-        this.context = context;
-        this.targetUrl = targetUrl;
-    }
-
+    private ProjectSourceBuildStatusConfig() {}
     /**
      * @return Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
      * 
@@ -52,30 +45,32 @@ public final class ProjectSourceBuildStatusConfig {
     public static Builder builder(ProjectSourceBuildStatusConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String context;
         private @Nullable String targetUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectSourceBuildStatusConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.context = defaults.context;
     	      this.targetUrl = defaults.targetUrl;
         }
 
+        @CustomType.Setter
         public Builder context(@Nullable String context) {
             this.context = context;
             return this;
         }
+        @CustomType.Setter
         public Builder targetUrl(@Nullable String targetUrl) {
             this.targetUrl = targetUrl;
             return this;
-        }        public ProjectSourceBuildStatusConfig build() {
-            return new ProjectSourceBuildStatusConfig(context, targetUrl);
+        }
+        public ProjectSourceBuildStatusConfig build() {
+            final var o = new ProjectSourceBuildStatusConfig();
+            o.context = context;
+            o.targetUrl = targetUrl;
+            return o;
         }
     }
 }

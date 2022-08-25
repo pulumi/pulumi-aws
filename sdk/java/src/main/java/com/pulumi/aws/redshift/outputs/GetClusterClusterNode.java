@@ -13,28 +13,19 @@ public final class GetClusterClusterNode {
      * @return Whether the node is a leader node or a compute node
      * 
      */
-    private final String nodeRole;
+    private String nodeRole;
     /**
      * @return The private IP address of a node within a cluster
      * 
      */
-    private final String privateIpAddress;
+    private String privateIpAddress;
     /**
      * @return The public IP address of a node within a cluster
      * 
      */
-    private final String publicIpAddress;
+    private String publicIpAddress;
 
-    @CustomType.Constructor
-    private GetClusterClusterNode(
-        @CustomType.Parameter("nodeRole") String nodeRole,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("publicIpAddress") String publicIpAddress) {
-        this.nodeRole = nodeRole;
-        this.privateIpAddress = privateIpAddress;
-        this.publicIpAddress = publicIpAddress;
-    }
-
+    private GetClusterClusterNode() {}
     /**
      * @return Whether the node is a leader node or a compute node
      * 
@@ -64,16 +55,12 @@ public final class GetClusterClusterNode {
     public static Builder builder(GetClusterClusterNode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String nodeRole;
         private String privateIpAddress;
         private String publicIpAddress;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterClusterNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.nodeRole = defaults.nodeRole;
@@ -81,19 +68,27 @@ public final class GetClusterClusterNode {
     	      this.publicIpAddress = defaults.publicIpAddress;
         }
 
+        @CustomType.Setter
         public Builder nodeRole(String nodeRole) {
             this.nodeRole = Objects.requireNonNull(nodeRole);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddress(String publicIpAddress) {
             this.publicIpAddress = Objects.requireNonNull(publicIpAddress);
             return this;
-        }        public GetClusterClusterNode build() {
-            return new GetClusterClusterNode(nodeRole, privateIpAddress, publicIpAddress);
+        }
+        public GetClusterClusterNode build() {
+            final var o = new GetClusterClusterNode();
+            o.nodeRole = nodeRole;
+            o.privateIpAddress = privateIpAddress;
+            o.publicIpAddress = publicIpAddress;
+            return o;
         }
     }
 }

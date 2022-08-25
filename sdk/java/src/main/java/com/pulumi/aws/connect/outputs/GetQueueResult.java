@@ -17,76 +17,51 @@ public final class GetQueueResult {
      * @return The Amazon Resource Name (ARN) of the Queue.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Specifies the description of the Queue.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Specifies the identifier of the Hours of Operation.
      * 
      */
-    private final String hoursOfOperationId;
+    private String hoursOfOperationId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
+    private String id;
+    private String instanceId;
     /**
      * @return Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      * 
      */
-    private final Integer maxContacts;
-    private final String name;
+    private Integer maxContacts;
+    private String name;
     /**
      * @return A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      * 
      */
-    private final List<GetQueueOutboundCallerConfig> outboundCallerConfigs;
+    private List<GetQueueOutboundCallerConfig> outboundCallerConfigs;
     /**
      * @return The identifier for the Queue.
      * 
      */
-    private final String queueId;
+    private String queueId;
     /**
      * @return Specifies the description of the Queue. Values are `ENABLED` or `DISABLED`.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return A map of tags assigned to the Queue.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetQueueResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("hoursOfOperationId") String hoursOfOperationId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("maxContacts") Integer maxContacts,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outboundCallerConfigs") List<GetQueueOutboundCallerConfig> outboundCallerConfigs,
-        @CustomType.Parameter("queueId") String queueId,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.description = description;
-        this.hoursOfOperationId = hoursOfOperationId;
-        this.id = id;
-        this.instanceId = instanceId;
-        this.maxContacts = maxContacts;
-        this.name = name;
-        this.outboundCallerConfigs = outboundCallerConfigs;
-        this.queueId = queueId;
-        this.status = status;
-        this.tags = tags;
-    }
-
+    private GetQueueResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Queue.
      * 
@@ -164,7 +139,7 @@ public final class GetQueueResult {
     public static Builder builder(GetQueueResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -177,11 +152,7 @@ public final class GetQueueResult {
         private String queueId;
         private String status;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetQueueResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -197,34 +168,42 @@ public final class GetQueueResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder hoursOfOperationId(String hoursOfOperationId) {
             this.hoursOfOperationId = Objects.requireNonNull(hoursOfOperationId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder maxContacts(Integer maxContacts) {
             this.maxContacts = Objects.requireNonNull(maxContacts);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundCallerConfigs(List<GetQueueOutboundCallerConfig> outboundCallerConfigs) {
             this.outboundCallerConfigs = Objects.requireNonNull(outboundCallerConfigs);
             return this;
@@ -232,19 +211,35 @@ public final class GetQueueResult {
         public Builder outboundCallerConfigs(GetQueueOutboundCallerConfig... outboundCallerConfigs) {
             return outboundCallerConfigs(List.of(outboundCallerConfigs));
         }
+        @CustomType.Setter
         public Builder queueId(String queueId) {
             this.queueId = Objects.requireNonNull(queueId);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetQueueResult build() {
-            return new GetQueueResult(arn, description, hoursOfOperationId, id, instanceId, maxContacts, name, outboundCallerConfigs, queueId, status, tags);
+        }
+        public GetQueueResult build() {
+            final var o = new GetQueueResult();
+            o.arn = arn;
+            o.description = description;
+            o.hoursOfOperationId = hoursOfOperationId;
+            o.id = id;
+            o.instanceId = instanceId;
+            o.maxContacts = maxContacts;
+            o.name = name;
+            o.outboundCallerConfigs = outboundCallerConfigs;
+            o.queueId = queueId;
+            o.status = status;
+            o.tags = tags;
+            return o;
         }
     }
 }

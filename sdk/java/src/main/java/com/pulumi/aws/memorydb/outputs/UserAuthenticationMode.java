@@ -17,28 +17,19 @@ public final class UserAuthenticationMode {
      * @return The number of passwords belonging to the user.
      * 
      */
-    private final @Nullable Integer passwordCount;
+    private @Nullable Integer passwordCount;
     /**
      * @return The set of passwords used for authentication. You can create up to two passwords for each user.
      * 
      */
-    private final List<String> passwords;
+    private List<String> passwords;
     /**
      * @return Indicates whether the user requires a password to authenticate. Must be set to `password`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private UserAuthenticationMode(
-        @CustomType.Parameter("passwordCount") @Nullable Integer passwordCount,
-        @CustomType.Parameter("passwords") List<String> passwords,
-        @CustomType.Parameter("type") String type) {
-        this.passwordCount = passwordCount;
-        this.passwords = passwords;
-        this.type = type;
-    }
-
+    private UserAuthenticationMode() {}
     /**
      * @return The number of passwords belonging to the user.
      * 
@@ -68,16 +59,12 @@ public final class UserAuthenticationMode {
     public static Builder builder(UserAuthenticationMode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer passwordCount;
         private List<String> passwords;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserAuthenticationMode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.passwordCount = defaults.passwordCount;
@@ -85,10 +72,12 @@ public final class UserAuthenticationMode {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder passwordCount(@Nullable Integer passwordCount) {
             this.passwordCount = passwordCount;
             return this;
         }
+        @CustomType.Setter
         public Builder passwords(List<String> passwords) {
             this.passwords = Objects.requireNonNull(passwords);
             return this;
@@ -96,11 +85,17 @@ public final class UserAuthenticationMode {
         public Builder passwords(String... passwords) {
             return passwords(List.of(passwords));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public UserAuthenticationMode build() {
-            return new UserAuthenticationMode(passwordCount, passwords, type);
+        }
+        public UserAuthenticationMode build() {
+            final var o = new UserAuthenticationMode();
+            o.passwordCount = passwordCount;
+            o.passwords = passwords;
+            o.type = type;
+            return o;
         }
     }
 }

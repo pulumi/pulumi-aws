@@ -16,17 +16,10 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfiguration {
      * @return The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
      * 
      */
-    private final @Nullable String netbiosName;
-    private final @Nullable OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration selfManagedActiveDirectoryConfiguration;
+    private @Nullable String netbiosName;
+    private @Nullable OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration selfManagedActiveDirectoryConfiguration;
 
-    @CustomType.Constructor
-    private OntapStorageVirtualMachineActiveDirectoryConfiguration(
-        @CustomType.Parameter("netbiosName") @Nullable String netbiosName,
-        @CustomType.Parameter("selfManagedActiveDirectoryConfiguration") @Nullable OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration selfManagedActiveDirectoryConfiguration) {
-        this.netbiosName = netbiosName;
-        this.selfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
-    }
-
+    private OntapStorageVirtualMachineActiveDirectoryConfiguration() {}
     /**
      * @return The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
      * 
@@ -45,30 +38,32 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfiguration {
     public static Builder builder(OntapStorageVirtualMachineActiveDirectoryConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String netbiosName;
         private @Nullable OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration selfManagedActiveDirectoryConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OntapStorageVirtualMachineActiveDirectoryConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.netbiosName = defaults.netbiosName;
     	      this.selfManagedActiveDirectoryConfiguration = defaults.selfManagedActiveDirectoryConfiguration;
         }
 
+        @CustomType.Setter
         public Builder netbiosName(@Nullable String netbiosName) {
             this.netbiosName = netbiosName;
             return this;
         }
+        @CustomType.Setter
         public Builder selfManagedActiveDirectoryConfiguration(@Nullable OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration selfManagedActiveDirectoryConfiguration) {
             this.selfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
             return this;
-        }        public OntapStorageVirtualMachineActiveDirectoryConfiguration build() {
-            return new OntapStorageVirtualMachineActiveDirectoryConfiguration(netbiosName, selfManagedActiveDirectoryConfiguration);
+        }
+        public OntapStorageVirtualMachineActiveDirectoryConfiguration build() {
+            final var o = new OntapStorageVirtualMachineActiveDirectoryConfiguration();
+            o.netbiosName = netbiosName;
+            o.selfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
+            return o;
         }
     }
 }

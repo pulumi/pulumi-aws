@@ -14,21 +14,14 @@ public final class RuleGroupRuleGroupRuleVariablesIpSet {
      * @return A configuration block that defines a set of IP addresses. See IP Set below for details.
      * 
      */
-    private final RuleGroupRuleGroupRuleVariablesIpSetIpSet ipSet;
+    private RuleGroupRuleGroupRuleVariablesIpSetIpSet ipSet;
     /**
      * @return A unique alphanumeric string to identify the `ip_set`.
      * 
      */
-    private final String key;
+    private String key;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRuleVariablesIpSet(
-        @CustomType.Parameter("ipSet") RuleGroupRuleGroupRuleVariablesIpSetIpSet ipSet,
-        @CustomType.Parameter("key") String key) {
-        this.ipSet = ipSet;
-        this.key = key;
-    }
-
+    private RuleGroupRuleGroupRuleVariablesIpSet() {}
     /**
      * @return A configuration block that defines a set of IP addresses. See IP Set below for details.
      * 
@@ -51,30 +44,32 @@ public final class RuleGroupRuleGroupRuleVariablesIpSet {
     public static Builder builder(RuleGroupRuleGroupRuleVariablesIpSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RuleGroupRuleGroupRuleVariablesIpSetIpSet ipSet;
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRuleVariablesIpSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipSet = defaults.ipSet;
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSet ipSet) {
             this.ipSet = Objects.requireNonNull(ipSet);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public RuleGroupRuleGroupRuleVariablesIpSet build() {
-            return new RuleGroupRuleGroupRuleVariablesIpSet(ipSet, key);
+        }
+        public RuleGroupRuleGroupRuleVariablesIpSet build() {
+            final var o = new RuleGroupRuleGroupRuleVariablesIpSet();
+            o.ipSet = ipSet;
+            o.key = key;
+            return o;
         }
     }
 }

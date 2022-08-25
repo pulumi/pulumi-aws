@@ -17,49 +17,34 @@ public final class StackSetOperationPreferences {
      * @return The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
-    private final @Nullable Integer failureToleranceCount;
+    private @Nullable Integer failureToleranceCount;
     /**
      * @return The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
-    private final @Nullable Integer failureTolerancePercentage;
+    private @Nullable Integer failureTolerancePercentage;
     /**
      * @return The maximum number of accounts in which to perform this operation at one time.
      * 
      */
-    private final @Nullable Integer maxConcurrentCount;
+    private @Nullable Integer maxConcurrentCount;
     /**
      * @return The maximum percentage of accounts in which to perform this operation at one time.
      * 
      */
-    private final @Nullable Integer maxConcurrentPercentage;
+    private @Nullable Integer maxConcurrentPercentage;
     /**
      * @return The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
      * 
      */
-    private final @Nullable String regionConcurrencyType;
+    private @Nullable String regionConcurrencyType;
     /**
      * @return The order of the Regions in where you want to perform the stack operation.
      * 
      */
-    private final @Nullable List<String> regionOrders;
+    private @Nullable List<String> regionOrders;
 
-    @CustomType.Constructor
-    private StackSetOperationPreferences(
-        @CustomType.Parameter("failureToleranceCount") @Nullable Integer failureToleranceCount,
-        @CustomType.Parameter("failureTolerancePercentage") @Nullable Integer failureTolerancePercentage,
-        @CustomType.Parameter("maxConcurrentCount") @Nullable Integer maxConcurrentCount,
-        @CustomType.Parameter("maxConcurrentPercentage") @Nullable Integer maxConcurrentPercentage,
-        @CustomType.Parameter("regionConcurrencyType") @Nullable String regionConcurrencyType,
-        @CustomType.Parameter("regionOrders") @Nullable List<String> regionOrders) {
-        this.failureToleranceCount = failureToleranceCount;
-        this.failureTolerancePercentage = failureTolerancePercentage;
-        this.maxConcurrentCount = maxConcurrentCount;
-        this.maxConcurrentPercentage = maxConcurrentPercentage;
-        this.regionConcurrencyType = regionConcurrencyType;
-        this.regionOrders = regionOrders;
-    }
-
+    private StackSetOperationPreferences() {}
     /**
      * @return The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
@@ -110,7 +95,7 @@ public final class StackSetOperationPreferences {
     public static Builder builder(StackSetOperationPreferences defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer failureToleranceCount;
         private @Nullable Integer failureTolerancePercentage;
@@ -118,11 +103,7 @@ public final class StackSetOperationPreferences {
         private @Nullable Integer maxConcurrentPercentage;
         private @Nullable String regionConcurrencyType;
         private @Nullable List<String> regionOrders;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StackSetOperationPreferences defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.failureToleranceCount = defaults.failureToleranceCount;
@@ -133,34 +114,48 @@ public final class StackSetOperationPreferences {
     	      this.regionOrders = defaults.regionOrders;
         }
 
+        @CustomType.Setter
         public Builder failureToleranceCount(@Nullable Integer failureToleranceCount) {
             this.failureToleranceCount = failureToleranceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder failureTolerancePercentage(@Nullable Integer failureTolerancePercentage) {
             this.failureTolerancePercentage = failureTolerancePercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder maxConcurrentCount(@Nullable Integer maxConcurrentCount) {
             this.maxConcurrentCount = maxConcurrentCount;
             return this;
         }
+        @CustomType.Setter
         public Builder maxConcurrentPercentage(@Nullable Integer maxConcurrentPercentage) {
             this.maxConcurrentPercentage = maxConcurrentPercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder regionConcurrencyType(@Nullable String regionConcurrencyType) {
             this.regionConcurrencyType = regionConcurrencyType;
             return this;
         }
+        @CustomType.Setter
         public Builder regionOrders(@Nullable List<String> regionOrders) {
             this.regionOrders = regionOrders;
             return this;
         }
         public Builder regionOrders(String... regionOrders) {
             return regionOrders(List.of(regionOrders));
-        }        public StackSetOperationPreferences build() {
-            return new StackSetOperationPreferences(failureToleranceCount, failureTolerancePercentage, maxConcurrentCount, maxConcurrentPercentage, regionConcurrencyType, regionOrders);
+        }
+        public StackSetOperationPreferences build() {
+            final var o = new StackSetOperationPreferences();
+            o.failureToleranceCount = failureToleranceCount;
+            o.failureTolerancePercentage = failureTolerancePercentage;
+            o.maxConcurrentCount = maxConcurrentCount;
+            o.maxConcurrentPercentage = maxConcurrentPercentage;
+            o.regionConcurrencyType = regionConcurrencyType;
+            o.regionOrders = regionOrders;
+            return o;
         }
     }
 }

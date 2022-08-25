@@ -17,30 +17,21 @@ public final class DistributionLoggingConfig {
      * example, `myawslogbucket.s3.amazonaws.com`.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return Specifies whether you want CloudFront to
      * include cookies in access logs (default: `false`).
      * 
      */
-    private final @Nullable Boolean includeCookies;
+    private @Nullable Boolean includeCookies;
     /**
      * @return An optional string that you want CloudFront to prefix
      * to the access log filenames for this distribution, for example, `myprefix/`.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
 
-    @CustomType.Constructor
-    private DistributionLoggingConfig(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("includeCookies") @Nullable Boolean includeCookies,
-        @CustomType.Parameter("prefix") @Nullable String prefix) {
-        this.bucket = bucket;
-        this.includeCookies = includeCookies;
-        this.prefix = prefix;
-    }
-
+    private DistributionLoggingConfig() {}
     /**
      * @return The Amazon S3 bucket to store the access logs in, for
      * example, `myawslogbucket.s3.amazonaws.com`.
@@ -73,16 +64,12 @@ public final class DistributionLoggingConfig {
     public static Builder builder(DistributionLoggingConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private @Nullable Boolean includeCookies;
         private @Nullable String prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionLoggingConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -90,19 +77,27 @@ public final class DistributionLoggingConfig {
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder includeCookies(@Nullable Boolean includeCookies) {
             this.includeCookies = includeCookies;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
-        }        public DistributionLoggingConfig build() {
-            return new DistributionLoggingConfig(bucket, includeCookies, prefix);
+        }
+        public DistributionLoggingConfig build() {
+            final var o = new DistributionLoggingConfig();
+            o.bucket = bucket;
+            o.includeCookies = includeCookies;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

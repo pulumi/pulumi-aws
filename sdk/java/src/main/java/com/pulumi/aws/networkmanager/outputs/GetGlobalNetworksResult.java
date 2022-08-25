@@ -16,24 +16,15 @@ public final class GetGlobalNetworksResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The IDs of the global networks.
      * 
      */
-    private final List<String> ids;
-    private final @Nullable Map<String,String> tags;
+    private List<String> ids;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetGlobalNetworksResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.id = id;
-        this.ids = ids;
-        this.tags = tags;
-    }
-
+    private GetGlobalNetworksResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -59,16 +50,12 @@ public final class GetGlobalNetworksResult {
     public static Builder builder(GetGlobalNetworksResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<String> ids;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGlobalNetworksResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -76,10 +63,12 @@ public final class GetGlobalNetworksResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -87,11 +76,17 @@ public final class GetGlobalNetworksResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetGlobalNetworksResult build() {
-            return new GetGlobalNetworksResult(id, ids, tags);
+        }
+        public GetGlobalNetworksResult build() {
+            final var o = new GetGlobalNetworksResult();
+            o.id = id;
+            o.ids = ids;
+            o.tags = tags;
+            return o;
         }
     }
 }

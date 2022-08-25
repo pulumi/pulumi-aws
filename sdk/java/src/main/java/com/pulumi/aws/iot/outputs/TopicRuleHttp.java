@@ -17,28 +17,19 @@ public final class TopicRuleHttp {
      * @return The HTTPS URL used to verify ownership of `url`.
      * 
      */
-    private final @Nullable String confirmationUrl;
+    private @Nullable String confirmationUrl;
     /**
      * @return Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
      * 
      */
-    private final @Nullable List<TopicRuleHttpHttpHeader> httpHeaders;
+    private @Nullable List<TopicRuleHttpHttpHeader> httpHeaders;
     /**
      * @return The HTTPS URL.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private TopicRuleHttp(
-        @CustomType.Parameter("confirmationUrl") @Nullable String confirmationUrl,
-        @CustomType.Parameter("httpHeaders") @Nullable List<TopicRuleHttpHttpHeader> httpHeaders,
-        @CustomType.Parameter("url") String url) {
-        this.confirmationUrl = confirmationUrl;
-        this.httpHeaders = httpHeaders;
-        this.url = url;
-    }
-
+    private TopicRuleHttp() {}
     /**
      * @return The HTTPS URL used to verify ownership of `url`.
      * 
@@ -68,16 +59,12 @@ public final class TopicRuleHttp {
     public static Builder builder(TopicRuleHttp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String confirmationUrl;
         private @Nullable List<TopicRuleHttpHttpHeader> httpHeaders;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleHttp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.confirmationUrl = defaults.confirmationUrl;
@@ -85,10 +72,12 @@ public final class TopicRuleHttp {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder confirmationUrl(@Nullable String confirmationUrl) {
             this.confirmationUrl = confirmationUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder httpHeaders(@Nullable List<TopicRuleHttpHttpHeader> httpHeaders) {
             this.httpHeaders = httpHeaders;
             return this;
@@ -96,11 +85,17 @@ public final class TopicRuleHttp {
         public Builder httpHeaders(TopicRuleHttpHttpHeader... httpHeaders) {
             return httpHeaders(List.of(httpHeaders));
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public TopicRuleHttp build() {
-            return new TopicRuleHttp(confirmationUrl, httpHeaders, url);
+        }
+        public TopicRuleHttp build() {
+            final var o = new TopicRuleHttp();
+            o.confirmationUrl = confirmationUrl;
+            o.httpHeaders = httpHeaders;
+            o.url = url;
+            return o;
         }
     }
 }

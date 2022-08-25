@@ -16,42 +16,29 @@ public final class ScalingPlanScalingInstructionCustomizedLoadMetricSpecificatio
      * @return The dimensions of the metric.
      * 
      */
-    private final @Nullable Map<String,String> dimensions;
+    private @Nullable Map<String,String> dimensions;
     /**
      * @return The name of the metric.
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return The namespace of the metric.
      * 
      */
-    private final String namespace;
+    private String namespace;
     /**
      * @return The statistic of the metric. Currently, the value must always be `Sum`.
      * 
      */
-    private final String statistic;
+    private String statistic;
     /**
      * @return The unit of the metric.
      * 
      */
-    private final @Nullable String unit;
+    private @Nullable String unit;
 
-    @CustomType.Constructor
-    private ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(
-        @CustomType.Parameter("dimensions") @Nullable Map<String,String> dimensions,
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("namespace") String namespace,
-        @CustomType.Parameter("statistic") String statistic,
-        @CustomType.Parameter("unit") @Nullable String unit) {
-        this.dimensions = dimensions;
-        this.metricName = metricName;
-        this.namespace = namespace;
-        this.statistic = statistic;
-        this.unit = unit;
-    }
-
+    private ScalingPlanScalingInstructionCustomizedLoadMetricSpecification() {}
     /**
      * @return The dimensions of the metric.
      * 
@@ -95,18 +82,14 @@ public final class ScalingPlanScalingInstructionCustomizedLoadMetricSpecificatio
     public static Builder builder(ScalingPlanScalingInstructionCustomizedLoadMetricSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> dimensions;
         private String metricName;
         private String namespace;
         private String statistic;
         private @Nullable String unit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScalingPlanScalingInstructionCustomizedLoadMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
@@ -116,27 +99,39 @@ public final class ScalingPlanScalingInstructionCustomizedLoadMetricSpecificatio
     	      this.unit = defaults.unit;
         }
 
+        @CustomType.Setter
         public Builder dimensions(@Nullable Map<String,String> dimensions) {
             this.dimensions = dimensions;
             return this;
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
         }
+        @CustomType.Setter
         public Builder statistic(String statistic) {
             this.statistic = Objects.requireNonNull(statistic);
             return this;
         }
+        @CustomType.Setter
         public Builder unit(@Nullable String unit) {
             this.unit = unit;
             return this;
-        }        public ScalingPlanScalingInstructionCustomizedLoadMetricSpecification build() {
-            return new ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dimensions, metricName, namespace, statistic, unit);
+        }
+        public ScalingPlanScalingInstructionCustomizedLoadMetricSpecification build() {
+            final var o = new ScalingPlanScalingInstructionCustomizedLoadMetricSpecification();
+            o.dimensions = dimensions;
+            o.metricName = metricName;
+            o.namespace = namespace;
+            o.statistic = statistic;
+            o.unit = unit;
+            return o;
         }
     }
 }

@@ -14,23 +14,12 @@ public final class GetTableLocalSecondaryIndex {
      * @return The name of the DynamoDB table.
      * 
      */
-    private final String name;
-    private final List<String> nonKeyAttributes;
-    private final String projectionType;
-    private final String rangeKey;
+    private String name;
+    private List<String> nonKeyAttributes;
+    private String projectionType;
+    private String rangeKey;
 
-    @CustomType.Constructor
-    private GetTableLocalSecondaryIndex(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nonKeyAttributes") List<String> nonKeyAttributes,
-        @CustomType.Parameter("projectionType") String projectionType,
-        @CustomType.Parameter("rangeKey") String rangeKey) {
-        this.name = name;
-        this.nonKeyAttributes = nonKeyAttributes;
-        this.projectionType = projectionType;
-        this.rangeKey = rangeKey;
-    }
-
+    private GetTableLocalSecondaryIndex() {}
     /**
      * @return The name of the DynamoDB table.
      * 
@@ -55,17 +44,13 @@ public final class GetTableLocalSecondaryIndex {
     public static Builder builder(GetTableLocalSecondaryIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> nonKeyAttributes;
         private String projectionType;
         private String rangeKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTableLocalSecondaryIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -74,10 +59,12 @@ public final class GetTableLocalSecondaryIndex {
     	      this.rangeKey = defaults.rangeKey;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nonKeyAttributes(List<String> nonKeyAttributes) {
             this.nonKeyAttributes = Objects.requireNonNull(nonKeyAttributes);
             return this;
@@ -85,15 +72,23 @@ public final class GetTableLocalSecondaryIndex {
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
             return nonKeyAttributes(List.of(nonKeyAttributes));
         }
+        @CustomType.Setter
         public Builder projectionType(String projectionType) {
             this.projectionType = Objects.requireNonNull(projectionType);
             return this;
         }
+        @CustomType.Setter
         public Builder rangeKey(String rangeKey) {
             this.rangeKey = Objects.requireNonNull(rangeKey);
             return this;
-        }        public GetTableLocalSecondaryIndex build() {
-            return new GetTableLocalSecondaryIndex(name, nonKeyAttributes, projectionType, rangeKey);
+        }
+        public GetTableLocalSecondaryIndex build() {
+            final var o = new GetTableLocalSecondaryIndex();
+            o.name = name;
+            o.nonKeyAttributes = nonKeyAttributes;
+            o.projectionType = projectionType;
+            o.rangeKey = rangeKey;
+            return o;
         }
     }
 }

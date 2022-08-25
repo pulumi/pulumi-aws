@@ -14,13 +14,9 @@ public final class DetectorDatasourcesKubernetesAuditLogs {
      * Defaults to `true`.
      * 
      */
-    private final Boolean enable;
+    private Boolean enable;
 
-    @CustomType.Constructor
-    private DetectorDatasourcesKubernetesAuditLogs(@CustomType.Parameter("enable") Boolean enable) {
-        this.enable = enable;
-    }
-
+    private DetectorDatasourcesKubernetesAuditLogs() {}
     /**
      * @return If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
      * Defaults to `true`.
@@ -37,24 +33,24 @@ public final class DetectorDatasourcesKubernetesAuditLogs {
     public static Builder builder(DetectorDatasourcesKubernetesAuditLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DetectorDatasourcesKubernetesAuditLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enable = defaults.enable;
         }
 
+        @CustomType.Setter
         public Builder enable(Boolean enable) {
             this.enable = Objects.requireNonNull(enable);
             return this;
-        }        public DetectorDatasourcesKubernetesAuditLogs build() {
-            return new DetectorDatasourcesKubernetesAuditLogs(enable);
+        }
+        public DetectorDatasourcesKubernetesAuditLogs build() {
+            final var o = new DetectorDatasourcesKubernetesAuditLogs();
+            o.enable = enable;
+            return o;
         }
     }
 }

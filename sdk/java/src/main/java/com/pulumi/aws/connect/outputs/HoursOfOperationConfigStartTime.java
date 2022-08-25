@@ -13,21 +13,14 @@ public final class HoursOfOperationConfigStartTime {
      * @return Specifies the hour of opening.
      * 
      */
-    private final Integer hours;
+    private Integer hours;
     /**
      * @return Specifies the minute of opening.
      * 
      */
-    private final Integer minutes;
+    private Integer minutes;
 
-    @CustomType.Constructor
-    private HoursOfOperationConfigStartTime(
-        @CustomType.Parameter("hours") Integer hours,
-        @CustomType.Parameter("minutes") Integer minutes) {
-        this.hours = hours;
-        this.minutes = minutes;
-    }
-
+    private HoursOfOperationConfigStartTime() {}
     /**
      * @return Specifies the hour of opening.
      * 
@@ -50,30 +43,32 @@ public final class HoursOfOperationConfigStartTime {
     public static Builder builder(HoursOfOperationConfigStartTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer hours;
         private Integer minutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HoursOfOperationConfigStartTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hours = defaults.hours;
     	      this.minutes = defaults.minutes;
         }
 
+        @CustomType.Setter
         public Builder hours(Integer hours) {
             this.hours = Objects.requireNonNull(hours);
             return this;
         }
+        @CustomType.Setter
         public Builder minutes(Integer minutes) {
             this.minutes = Objects.requireNonNull(minutes);
             return this;
-        }        public HoursOfOperationConfigStartTime build() {
-            return new HoursOfOperationConfigStartTime(hours, minutes);
+        }
+        public HoursOfOperationConfigStartTime build() {
+            final var o = new HoursOfOperationConfigStartTime();
+            o.hours = hours;
+            o.minutes = minutes;
+            return o;
         }
     }
 }

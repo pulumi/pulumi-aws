@@ -10,52 +10,35 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionResult {
-    private final String arn;
+    private String arn;
     /**
      * @return The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
-    private final String connectionStatus;
+    private String connectionStatus;
     /**
      * @return The Amazon Resource Name (ARN) of the host associated with the connection.
      * 
      */
-    private final String hostArn;
+    private String hostArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the CodeStar Connection. The name is unique in the calling AWS account.
      * 
      */
-    private final String name;
-    private final String providerType;
+    private String name;
+    private String providerType;
     /**
      * @return Map of key-value resource tags to associate with the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetConnectionResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("connectionStatus") String connectionStatus,
-        @CustomType.Parameter("hostArn") String hostArn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("providerType") String providerType,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.connectionStatus = connectionStatus;
-        this.hostArn = hostArn;
-        this.id = id;
-        this.name = name;
-        this.providerType = providerType;
-        this.tags = tags;
-    }
-
+    private GetConnectionResult() {}
     public String arn() {
         return this.arn;
     }
@@ -105,7 +88,7 @@ public final class GetConnectionResult {
     public static Builder builder(GetConnectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String connectionStatus;
@@ -114,11 +97,7 @@ public final class GetConnectionResult {
         private String name;
         private String providerType;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -130,35 +109,51 @@ public final class GetConnectionResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionStatus(String connectionStatus) {
             this.connectionStatus = Objects.requireNonNull(connectionStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder hostArn(String hostArn) {
             this.hostArn = Objects.requireNonNull(hostArn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder providerType(String providerType) {
             this.providerType = Objects.requireNonNull(providerType);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetConnectionResult build() {
-            return new GetConnectionResult(arn, connectionStatus, hostArn, id, name, providerType, tags);
+        }
+        public GetConnectionResult build() {
+            final var o = new GetConnectionResult();
+            o.arn = arn;
+            o.connectionStatus = connectionStatus;
+            o.hostArn = hostArn;
+            o.id = id;
+            o.name = name;
+            o.providerType = providerType;
+            o.tags = tags;
+            return o;
         }
     }
 }

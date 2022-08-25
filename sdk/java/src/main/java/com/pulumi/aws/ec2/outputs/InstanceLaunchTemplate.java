@@ -15,28 +15,19 @@ public final class InstanceLaunchTemplate {
      * @return The ID of the launch template. Conflicts with `name`.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the launch template. Conflicts with `id`.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private InstanceLaunchTemplate(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.id = id;
-        this.name = name;
-        this.version = version;
-    }
-
+    private InstanceLaunchTemplate() {}
     /**
      * @return The ID of the launch template. Conflicts with `name`.
      * 
@@ -66,16 +57,12 @@ public final class InstanceLaunchTemplate {
     public static Builder builder(InstanceLaunchTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,19 +70,27 @@ public final class InstanceLaunchTemplate {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public InstanceLaunchTemplate build() {
-            return new InstanceLaunchTemplate(id, name, version);
+        }
+        public InstanceLaunchTemplate build() {
+            final var o = new InstanceLaunchTemplate();
+            o.id = id;
+            o.name = name;
+            o.version = version;
+            return o;
         }
     }
 }

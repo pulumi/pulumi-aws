@@ -15,13 +15,9 @@ public final class CrawlerRecrawlPolicy {
      * @return Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
      * 
      */
-    private final @Nullable String recrawlBehavior;
+    private @Nullable String recrawlBehavior;
 
-    @CustomType.Constructor
-    private CrawlerRecrawlPolicy(@CustomType.Parameter("recrawlBehavior") @Nullable String recrawlBehavior) {
-        this.recrawlBehavior = recrawlBehavior;
-    }
-
+    private CrawlerRecrawlPolicy() {}
     /**
      * @return Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
      * 
@@ -37,24 +33,24 @@ public final class CrawlerRecrawlPolicy {
     public static Builder builder(CrawlerRecrawlPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String recrawlBehavior;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CrawlerRecrawlPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recrawlBehavior = defaults.recrawlBehavior;
         }
 
+        @CustomType.Setter
         public Builder recrawlBehavior(@Nullable String recrawlBehavior) {
             this.recrawlBehavior = recrawlBehavior;
             return this;
-        }        public CrawlerRecrawlPolicy build() {
-            return new CrawlerRecrawlPolicy(recrawlBehavior);
+        }
+        public CrawlerRecrawlPolicy build() {
+            final var o = new CrawlerRecrawlPolicy();
+            o.recrawlBehavior = recrawlBehavior;
+            return o;
         }
     }
 }

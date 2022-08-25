@@ -14,12 +14,12 @@ public final class LoadBalancerHealthCheck {
      * @return The number of checks before the instance is declared healthy.
      * 
      */
-    private final Integer healthyThreshold;
+    private Integer healthyThreshold;
     /**
      * @return The interval between checks.
      * 
      */
-    private final Integer interval;
+    private Integer interval;
     /**
      * @return The target of the check. Valid pattern is &#34;${PROTOCOL}:${PORT}${PATH}&#34;, where PROTOCOL
      * values are:
@@ -27,32 +27,19 @@ public final class LoadBalancerHealthCheck {
      * * `TCP`, `SSL` - PORT is required, PATH is not supported
      * 
      */
-    private final String target;
+    private String target;
     /**
      * @return The length of time before the check times out.
      * 
      */
-    private final Integer timeout;
+    private Integer timeout;
     /**
      * @return The number of checks before the instance is declared unhealthy.
      * 
      */
-    private final Integer unhealthyThreshold;
+    private Integer unhealthyThreshold;
 
-    @CustomType.Constructor
-    private LoadBalancerHealthCheck(
-        @CustomType.Parameter("healthyThreshold") Integer healthyThreshold,
-        @CustomType.Parameter("interval") Integer interval,
-        @CustomType.Parameter("target") String target,
-        @CustomType.Parameter("timeout") Integer timeout,
-        @CustomType.Parameter("unhealthyThreshold") Integer unhealthyThreshold) {
-        this.healthyThreshold = healthyThreshold;
-        this.interval = interval;
-        this.target = target;
-        this.timeout = timeout;
-        this.unhealthyThreshold = unhealthyThreshold;
-    }
-
+    private LoadBalancerHealthCheck() {}
     /**
      * @return The number of checks before the instance is declared healthy.
      * 
@@ -99,18 +86,14 @@ public final class LoadBalancerHealthCheck {
     public static Builder builder(LoadBalancerHealthCheck defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer healthyThreshold;
         private Integer interval;
         private String target;
         private Integer timeout;
         private Integer unhealthyThreshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LoadBalancerHealthCheck defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.healthyThreshold = defaults.healthyThreshold;
@@ -120,27 +103,39 @@ public final class LoadBalancerHealthCheck {
     	      this.unhealthyThreshold = defaults.unhealthyThreshold;
         }
 
+        @CustomType.Setter
         public Builder healthyThreshold(Integer healthyThreshold) {
             this.healthyThreshold = Objects.requireNonNull(healthyThreshold);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(Integer interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
         }
+        @CustomType.Setter
         public Builder target(String target) {
             this.target = Objects.requireNonNull(target);
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(Integer timeout) {
             this.timeout = Objects.requireNonNull(timeout);
             return this;
         }
+        @CustomType.Setter
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
             this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
             return this;
-        }        public LoadBalancerHealthCheck build() {
-            return new LoadBalancerHealthCheck(healthyThreshold, interval, target, timeout, unhealthyThreshold);
+        }
+        public LoadBalancerHealthCheck build() {
+            final var o = new LoadBalancerHealthCheck();
+            o.healthyThreshold = healthyThreshold;
+            o.interval = interval;
+            o.target = target;
+            o.timeout = timeout;
+            o.unhealthyThreshold = unhealthyThreshold;
+            return o;
         }
     }
 }

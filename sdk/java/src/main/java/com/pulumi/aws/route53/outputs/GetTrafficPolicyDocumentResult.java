@@ -14,43 +14,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrafficPolicyDocumentResult {
-    private final @Nullable List<GetTrafficPolicyDocumentEndpoint> endpoints;
+    private @Nullable List<GetTrafficPolicyDocumentEndpoint> endpoints;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Standard JSON policy document rendered based on the arguments above.
      * 
      */
-    private final String json;
-    private final @Nullable String recordType;
-    private final @Nullable List<GetTrafficPolicyDocumentRule> rules;
-    private final @Nullable String startEndpoint;
-    private final @Nullable String startRule;
-    private final @Nullable String version;
+    private String json;
+    private @Nullable String recordType;
+    private @Nullable List<GetTrafficPolicyDocumentRule> rules;
+    private @Nullable String startEndpoint;
+    private @Nullable String startRule;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private GetTrafficPolicyDocumentResult(
-        @CustomType.Parameter("endpoints") @Nullable List<GetTrafficPolicyDocumentEndpoint> endpoints,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("json") String json,
-        @CustomType.Parameter("recordType") @Nullable String recordType,
-        @CustomType.Parameter("rules") @Nullable List<GetTrafficPolicyDocumentRule> rules,
-        @CustomType.Parameter("startEndpoint") @Nullable String startEndpoint,
-        @CustomType.Parameter("startRule") @Nullable String startRule,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.endpoints = endpoints;
-        this.id = id;
-        this.json = json;
-        this.recordType = recordType;
-        this.rules = rules;
-        this.startEndpoint = startEndpoint;
-        this.startRule = startRule;
-        this.version = version;
-    }
-
+    private GetTrafficPolicyDocumentResult() {}
     public List<GetTrafficPolicyDocumentEndpoint> endpoints() {
         return this.endpoints == null ? List.of() : this.endpoints;
     }
@@ -91,7 +72,7 @@ public final class GetTrafficPolicyDocumentResult {
     public static Builder builder(GetTrafficPolicyDocumentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetTrafficPolicyDocumentEndpoint> endpoints;
         private String id;
@@ -101,11 +82,7 @@ public final class GetTrafficPolicyDocumentResult {
         private @Nullable String startEndpoint;
         private @Nullable String startRule;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficPolicyDocumentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoints = defaults.endpoints;
@@ -118,6 +95,7 @@ public final class GetTrafficPolicyDocumentResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder endpoints(@Nullable List<GetTrafficPolicyDocumentEndpoint> endpoints) {
             this.endpoints = endpoints;
             return this;
@@ -125,18 +103,22 @@ public final class GetTrafficPolicyDocumentResult {
         public Builder endpoints(GetTrafficPolicyDocumentEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder json(String json) {
             this.json = Objects.requireNonNull(json);
             return this;
         }
+        @CustomType.Setter
         public Builder recordType(@Nullable String recordType) {
             this.recordType = recordType;
             return this;
         }
+        @CustomType.Setter
         public Builder rules(@Nullable List<GetTrafficPolicyDocumentRule> rules) {
             this.rules = rules;
             return this;
@@ -144,19 +126,32 @@ public final class GetTrafficPolicyDocumentResult {
         public Builder rules(GetTrafficPolicyDocumentRule... rules) {
             return rules(List.of(rules));
         }
+        @CustomType.Setter
         public Builder startEndpoint(@Nullable String startEndpoint) {
             this.startEndpoint = startEndpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder startRule(@Nullable String startRule) {
             this.startRule = startRule;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public GetTrafficPolicyDocumentResult build() {
-            return new GetTrafficPolicyDocumentResult(endpoints, id, json, recordType, rules, startEndpoint, startRule, version);
+        }
+        public GetTrafficPolicyDocumentResult build() {
+            final var o = new GetTrafficPolicyDocumentResult();
+            o.endpoints = endpoints;
+            o.id = id;
+            o.json = json;
+            o.recordType = recordType;
+            o.rules = rules;
+            o.startEndpoint = startEndpoint;
+            o.startRule = startRule;
+            o.version = version;
+            return o;
         }
     }
 }

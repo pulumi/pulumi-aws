@@ -15,28 +15,19 @@ public final class TopicRuleErrorActionFirehose {
      * @return The delivery stream name.
      * 
      */
-    private final String deliveryStreamName;
+    private String deliveryStreamName;
     /**
      * @return The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
      * 
      */
-    private final @Nullable String separator;
+    private @Nullable String separator;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionFirehose(
-        @CustomType.Parameter("deliveryStreamName") String deliveryStreamName,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("separator") @Nullable String separator) {
-        this.deliveryStreamName = deliveryStreamName;
-        this.roleArn = roleArn;
-        this.separator = separator;
-    }
-
+    private TopicRuleErrorActionFirehose() {}
     /**
      * @return The delivery stream name.
      * 
@@ -66,16 +57,12 @@ public final class TopicRuleErrorActionFirehose {
     public static Builder builder(TopicRuleErrorActionFirehose defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deliveryStreamName;
         private String roleArn;
         private @Nullable String separator;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionFirehose defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deliveryStreamName = defaults.deliveryStreamName;
@@ -83,19 +70,27 @@ public final class TopicRuleErrorActionFirehose {
     	      this.separator = defaults.separator;
         }
 
+        @CustomType.Setter
         public Builder deliveryStreamName(String deliveryStreamName) {
             this.deliveryStreamName = Objects.requireNonNull(deliveryStreamName);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder separator(@Nullable String separator) {
             this.separator = separator;
             return this;
-        }        public TopicRuleErrorActionFirehose build() {
-            return new TopicRuleErrorActionFirehose(deliveryStreamName, roleArn, separator);
+        }
+        public TopicRuleErrorActionFirehose build() {
+            final var o = new TopicRuleErrorActionFirehose();
+            o.deliveryStreamName = deliveryStreamName;
+            o.roleArn = roleArn;
+            o.separator = separator;
+            return o;
         }
     }
 }

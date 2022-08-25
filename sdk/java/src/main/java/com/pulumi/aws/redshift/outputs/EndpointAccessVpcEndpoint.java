@@ -17,28 +17,19 @@ public final class EndpointAccessVpcEndpoint {
      * @return One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
      * 
      */
-    private final @Nullable List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces;
+    private @Nullable List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces;
     /**
      * @return The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
      * 
      */
-    private final @Nullable String vpcEndpointId;
+    private @Nullable String vpcEndpointId;
     /**
      * @return The VPC identifier that the endpoint is associated.
      * 
      */
-    private final @Nullable String vpcId;
+    private @Nullable String vpcId;
 
-    @CustomType.Constructor
-    private EndpointAccessVpcEndpoint(
-        @CustomType.Parameter("networkInterfaces") @Nullable List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces,
-        @CustomType.Parameter("vpcEndpointId") @Nullable String vpcEndpointId,
-        @CustomType.Parameter("vpcId") @Nullable String vpcId) {
-        this.networkInterfaces = networkInterfaces;
-        this.vpcEndpointId = vpcEndpointId;
-        this.vpcId = vpcId;
-    }
-
+    private EndpointAccessVpcEndpoint() {}
     /**
      * @return One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
      * 
@@ -68,16 +59,12 @@ public final class EndpointAccessVpcEndpoint {
     public static Builder builder(EndpointAccessVpcEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces;
         private @Nullable String vpcEndpointId;
         private @Nullable String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointAccessVpcEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.networkInterfaces = defaults.networkInterfaces;
@@ -85,6 +72,7 @@ public final class EndpointAccessVpcEndpoint {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder networkInterfaces(@Nullable List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces) {
             this.networkInterfaces = networkInterfaces;
             return this;
@@ -92,15 +80,22 @@ public final class EndpointAccessVpcEndpoint {
         public Builder networkInterfaces(EndpointAccessVpcEndpointNetworkInterface... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
+        @CustomType.Setter
         public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
             this.vpcEndpointId = vpcEndpointId;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
             this.vpcId = vpcId;
             return this;
-        }        public EndpointAccessVpcEndpoint build() {
-            return new EndpointAccessVpcEndpoint(networkInterfaces, vpcEndpointId, vpcId);
+        }
+        public EndpointAccessVpcEndpoint build() {
+            final var o = new EndpointAccessVpcEndpoint();
+            o.networkInterfaces = networkInterfaces;
+            o.vpcEndpointId = vpcEndpointId;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

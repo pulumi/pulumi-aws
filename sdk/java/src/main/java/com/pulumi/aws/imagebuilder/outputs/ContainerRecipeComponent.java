@@ -16,21 +16,14 @@ public final class ContainerRecipeComponent {
      * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
      * 
      */
-    private final String componentArn;
+    private String componentArn;
     /**
      * @return Configuration block(s) for parameters to configure the component. Detailed below.
      * 
      */
-    private final @Nullable List<ContainerRecipeComponentParameter> parameters;
+    private @Nullable List<ContainerRecipeComponentParameter> parameters;
 
-    @CustomType.Constructor
-    private ContainerRecipeComponent(
-        @CustomType.Parameter("componentArn") String componentArn,
-        @CustomType.Parameter("parameters") @Nullable List<ContainerRecipeComponentParameter> parameters) {
-        this.componentArn = componentArn;
-        this.parameters = parameters;
-    }
-
+    private ContainerRecipeComponent() {}
     /**
      * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
      * 
@@ -53,33 +46,35 @@ public final class ContainerRecipeComponent {
     public static Builder builder(ContainerRecipeComponent defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String componentArn;
         private @Nullable List<ContainerRecipeComponentParameter> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContainerRecipeComponent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.componentArn = defaults.componentArn;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder componentArn(String componentArn) {
             this.componentArn = Objects.requireNonNull(componentArn);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<ContainerRecipeComponentParameter> parameters) {
             this.parameters = parameters;
             return this;
         }
         public Builder parameters(ContainerRecipeComponentParameter... parameters) {
             return parameters(List.of(parameters));
-        }        public ContainerRecipeComponent build() {
-            return new ContainerRecipeComponent(componentArn, parameters);
+        }
+        public ContainerRecipeComponent build() {
+            final var o = new ContainerRecipeComponent();
+            o.componentArn = componentArn;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

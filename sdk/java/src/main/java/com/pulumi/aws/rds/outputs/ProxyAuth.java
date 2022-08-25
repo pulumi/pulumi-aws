@@ -15,42 +15,29 @@ public final class ProxyAuth {
      * @return The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
      * 
      */
-    private final @Nullable String authScheme;
+    private @Nullable String authScheme;
     /**
      * @return A user-specified description about the authentication used by a proxy to log in as a specific database user.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
      * 
      */
-    private final @Nullable String iamAuth;
+    private @Nullable String iamAuth;
     /**
      * @return The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
      * 
      */
-    private final @Nullable String secretArn;
+    private @Nullable String secretArn;
     /**
      * @return The name of the database user to which the proxy connects.
      * 
      */
-    private final @Nullable String username;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private ProxyAuth(
-        @CustomType.Parameter("authScheme") @Nullable String authScheme,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("iamAuth") @Nullable String iamAuth,
-        @CustomType.Parameter("secretArn") @Nullable String secretArn,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.authScheme = authScheme;
-        this.description = description;
-        this.iamAuth = iamAuth;
-        this.secretArn = secretArn;
-        this.username = username;
-    }
-
+    private ProxyAuth() {}
     /**
      * @return The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
      * 
@@ -94,18 +81,14 @@ public final class ProxyAuth {
     public static Builder builder(ProxyAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String authScheme;
         private @Nullable String description;
         private @Nullable String iamAuth;
         private @Nullable String secretArn;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProxyAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authScheme = defaults.authScheme;
@@ -115,27 +98,39 @@ public final class ProxyAuth {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder authScheme(@Nullable String authScheme) {
             this.authScheme = authScheme;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder iamAuth(@Nullable String iamAuth) {
             this.iamAuth = iamAuth;
             return this;
         }
+        @CustomType.Setter
         public Builder secretArn(@Nullable String secretArn) {
             this.secretArn = secretArn;
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public ProxyAuth build() {
-            return new ProxyAuth(authScheme, description, iamAuth, secretArn, username);
+        }
+        public ProxyAuth build() {
+            final var o = new ProxyAuth();
+            o.authScheme = authScheme;
+            o.description = description;
+            o.iamAuth = iamAuth;
+            o.secretArn = secretArn;
+            o.username = username;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class GroupResourceQuery {
      * @return The resource query as a JSON string.
      * 
      */
-    private final String query;
+    private String query;
     /**
      * @return The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private GroupResourceQuery(
-        @CustomType.Parameter("query") String query,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.query = query;
-        this.type = type;
-    }
-
+    private GroupResourceQuery() {}
     /**
      * @return The resource query as a JSON string.
      * 
@@ -52,30 +45,32 @@ public final class GroupResourceQuery {
     public static Builder builder(GroupResourceQuery defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String query;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupResourceQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.query = defaults.query;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder query(String query) {
             this.query = Objects.requireNonNull(query);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public GroupResourceQuery build() {
-            return new GroupResourceQuery(query, type);
+        }
+        public GroupResourceQuery build() {
+            final var o = new GroupResourceQuery();
+            o.query = query;
+            o.type = type;
+            return o;
         }
     }
 }

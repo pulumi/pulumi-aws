@@ -17,7 +17,7 @@ public final class GetJobQueueResult {
      * @return The ARN of the job queue.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The compute environments that are attached to the job queue and the order in
      * which job placement is preferred. Compute environments are selected for job placement in ascending order.
@@ -25,70 +25,47 @@ public final class GetJobQueueResult {
      * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
      * 
      */
-    private final List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
+    private List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The priority of the job queue. Job queues with a higher priority are evaluated first when
      * associated with the same compute environment.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
      * 
      */
-    private final String schedulingPolicyArn;
+    private String schedulingPolicyArn;
     /**
      * @return Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
      * 
      */
-    private final String state;
+    private String state;
     /**
      * @return The current status of the job queue (for example, `CREATING` or `VALID`).
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return A short, human-readable string to provide additional details about the current status
      * of the job queue.
      * 
      */
-    private final String statusReason;
+    private String statusReason;
     /**
      * @return Key-value map of resource tags
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetJobQueueResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("computeEnvironmentOrders") List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("schedulingPolicyArn") String schedulingPolicyArn,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("statusReason") String statusReason,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.computeEnvironmentOrders = computeEnvironmentOrders;
-        this.id = id;
-        this.name = name;
-        this.priority = priority;
-        this.schedulingPolicyArn = schedulingPolicyArn;
-        this.state = state;
-        this.status = status;
-        this.statusReason = statusReason;
-        this.tags = tags;
-    }
-
+    private GetJobQueueResult() {}
     /**
      * @return The ARN of the job queue.
      * 
@@ -168,7 +145,7 @@ public final class GetJobQueueResult {
     public static Builder builder(GetJobQueueResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
@@ -180,11 +157,7 @@ public final class GetJobQueueResult {
         private String status;
         private String statusReason;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetJobQueueResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -199,10 +172,12 @@ public final class GetJobQueueResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder computeEnvironmentOrders(List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders) {
             this.computeEnvironmentOrders = Objects.requireNonNull(computeEnvironmentOrders);
             return this;
@@ -210,39 +185,59 @@ public final class GetJobQueueResult {
         public Builder computeEnvironmentOrders(GetJobQueueComputeEnvironmentOrder... computeEnvironmentOrders) {
             return computeEnvironmentOrders(List.of(computeEnvironmentOrders));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder schedulingPolicyArn(String schedulingPolicyArn) {
             this.schedulingPolicyArn = Objects.requireNonNull(schedulingPolicyArn);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder statusReason(String statusReason) {
             this.statusReason = Objects.requireNonNull(statusReason);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetJobQueueResult build() {
-            return new GetJobQueueResult(arn, computeEnvironmentOrders, id, name, priority, schedulingPolicyArn, state, status, statusReason, tags);
+        }
+        public GetJobQueueResult build() {
+            final var o = new GetJobQueueResult();
+            o.arn = arn;
+            o.computeEnvironmentOrders = computeEnvironmentOrders;
+            o.id = id;
+            o.name = name;
+            o.priority = priority;
+            o.schedulingPolicyArn = schedulingPolicyArn;
+            o.state = state;
+            o.status = status;
+            o.statusReason = statusReason;
+            o.tags = tags;
+            return o;
         }
     }
 }

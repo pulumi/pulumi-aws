@@ -13,13 +13,9 @@ public final class GetVpcPeeringConnectionCidrBlockSet {
      * @return The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
      * 
      */
-    private final String cidrBlock;
+    private String cidrBlock;
 
-    @CustomType.Constructor
-    private GetVpcPeeringConnectionCidrBlockSet(@CustomType.Parameter("cidrBlock") String cidrBlock) {
-        this.cidrBlock = cidrBlock;
-    }
-
+    private GetVpcPeeringConnectionCidrBlockSet() {}
     /**
      * @return The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
      * 
@@ -35,24 +31,24 @@ public final class GetVpcPeeringConnectionCidrBlockSet {
     public static Builder builder(GetVpcPeeringConnectionCidrBlockSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cidrBlock;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcPeeringConnectionCidrBlockSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidrBlock = defaults.cidrBlock;
         }
 
+        @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
             this.cidrBlock = Objects.requireNonNull(cidrBlock);
             return this;
-        }        public GetVpcPeeringConnectionCidrBlockSet build() {
-            return new GetVpcPeeringConnectionCidrBlockSet(cidrBlock);
+        }
+        public GetVpcPeeringConnectionCidrBlockSet build() {
+            final var o = new GetVpcPeeringConnectionCidrBlockSet();
+            o.cidrBlock = cidrBlock;
+            return o;
         }
     }
 }

@@ -13,48 +13,31 @@ public final class GetAliasResult {
      * @return The Amazon Resource Name (ARN) identifying the Lambda function alias.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Description of alias.
      * 
      */
-    private final String description;
-    private final String functionName;
+    private String description;
+    private String functionName;
     /**
      * @return Lambda function version which the alias uses.
      * 
      */
-    private final String functionVersion;
+    private String functionVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration&#39;s `uri`.
      * 
      */
-    private final String invokeArn;
-    private final String name;
+    private String invokeArn;
+    private String name;
 
-    @CustomType.Constructor
-    private GetAliasResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("functionName") String functionName,
-        @CustomType.Parameter("functionVersion") String functionVersion,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("invokeArn") String invokeArn,
-        @CustomType.Parameter("name") String name) {
-        this.arn = arn;
-        this.description = description;
-        this.functionName = functionName;
-        this.functionVersion = functionVersion;
-        this.id = id;
-        this.invokeArn = invokeArn;
-        this.name = name;
-    }
-
+    private GetAliasResult() {}
     /**
      * @return The Amazon Resource Name (ARN) identifying the Lambda function alias.
      * 
@@ -104,7 +87,7 @@ public final class GetAliasResult {
     public static Builder builder(GetAliasResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -113,11 +96,7 @@ public final class GetAliasResult {
         private String id;
         private String invokeArn;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAliasResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -129,35 +108,51 @@ public final class GetAliasResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder functionName(String functionName) {
             this.functionName = Objects.requireNonNull(functionName);
             return this;
         }
+        @CustomType.Setter
         public Builder functionVersion(String functionVersion) {
             this.functionVersion = Objects.requireNonNull(functionVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder invokeArn(String invokeArn) {
             this.invokeArn = Objects.requireNonNull(invokeArn);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetAliasResult build() {
-            return new GetAliasResult(arn, description, functionName, functionVersion, id, invokeArn, name);
+        }
+        public GetAliasResult build() {
+            final var o = new GetAliasResult();
+            o.arn = arn;
+            o.description = description;
+            o.functionName = functionName;
+            o.functionVersion = functionVersion;
+            o.id = id;
+            o.invokeArn = invokeArn;
+            o.name = name;
+            return o;
         }
     }
 }

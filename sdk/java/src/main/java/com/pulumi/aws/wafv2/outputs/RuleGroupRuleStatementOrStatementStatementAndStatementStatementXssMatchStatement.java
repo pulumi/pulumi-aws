@@ -17,21 +17,14 @@ public final class RuleGroupRuleStatementOrStatementStatementAndStatementStateme
      * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch fieldToMatch;
+    private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch fieldToMatch;
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
      * 
      */
-    private final List<RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation> textTransformations;
+    private List<RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation> textTransformations;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement(
-        @CustomType.Parameter("fieldToMatch") @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch fieldToMatch,
-        @CustomType.Parameter("textTransformations") List<RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation> textTransformations) {
-        this.fieldToMatch = fieldToMatch;
-        this.textTransformations = textTransformations;
-    }
-
+    private RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement() {}
     /**
      * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
@@ -54,33 +47,35 @@ public final class RuleGroupRuleStatementOrStatementStatementAndStatementStateme
     public static Builder builder(RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch fieldToMatch;
         private List<RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation> textTransformations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
     	      this.textTransformations = defaults.textTransformations;
         }
 
+        @CustomType.Setter
         public Builder fieldToMatch(@Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch fieldToMatch) {
             this.fieldToMatch = fieldToMatch;
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation> textTransformations) {
             this.textTransformations = Objects.requireNonNull(textTransformations);
             return this;
         }
         public Builder textTransformations(RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
-        }        public RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement build() {
-            return new RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement(fieldToMatch, textTransformations);
+        }
+        public RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement build() {
+            final var o = new RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement();
+            o.fieldToMatch = fieldToMatch;
+            o.textTransformations = textTransformations;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class TableSchemaDefinitionColumn {
      * @return The name of the column.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private TableSchemaDefinitionColumn(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.name = name;
-        this.type = type;
-    }
-
+    private TableSchemaDefinitionColumn() {}
     /**
      * @return The name of the column.
      * 
@@ -50,30 +43,32 @@ public final class TableSchemaDefinitionColumn {
     public static Builder builder(TableSchemaDefinitionColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableSchemaDefinitionColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public TableSchemaDefinitionColumn build() {
-            return new TableSchemaDefinitionColumn(name, type);
+        }
+        public TableSchemaDefinitionColumn build() {
+            final var o = new TableSchemaDefinitionColumn();
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

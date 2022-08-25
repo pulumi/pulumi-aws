@@ -15,28 +15,19 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn {
      * @return The Mapping reference to the data element.
      * 
      */
-    private final @Nullable String mapping;
+    private @Nullable String mapping;
     /**
      * @return Name of the column.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The SQL Type of the column.
      * 
      */
-    private final String sqlType;
+    private String sqlType;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn(
-        @CustomType.Parameter("mapping") @Nullable String mapping,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("sqlType") String sqlType) {
-        this.mapping = mapping;
-        this.name = name;
-        this.sqlType = sqlType;
-    }
-
+    private AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn() {}
     /**
      * @return The Mapping reference to the data element.
      * 
@@ -66,16 +57,12 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn {
     public static Builder builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String mapping;
         private String name;
         private String sqlType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mapping = defaults.mapping;
@@ -83,19 +70,27 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn {
     	      this.sqlType = defaults.sqlType;
         }
 
+        @CustomType.Setter
         public Builder mapping(@Nullable String mapping) {
             this.mapping = mapping;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder sqlType(String sqlType) {
             this.sqlType = Objects.requireNonNull(sqlType);
             return this;
-        }        public AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn build() {
-            return new AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn(mapping, name, sqlType);
+        }
+        public AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn build() {
+            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn();
+            o.mapping = mapping;
+            o.name = name;
+            o.sqlType = sqlType;
+            return o;
         }
     }
 }

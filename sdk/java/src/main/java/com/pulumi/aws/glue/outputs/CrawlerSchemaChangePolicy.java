@@ -15,21 +15,14 @@ public final class CrawlerSchemaChangePolicy {
      * @return The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
      * 
      */
-    private final @Nullable String deleteBehavior;
+    private @Nullable String deleteBehavior;
     /**
      * @return The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
      * 
      */
-    private final @Nullable String updateBehavior;
+    private @Nullable String updateBehavior;
 
-    @CustomType.Constructor
-    private CrawlerSchemaChangePolicy(
-        @CustomType.Parameter("deleteBehavior") @Nullable String deleteBehavior,
-        @CustomType.Parameter("updateBehavior") @Nullable String updateBehavior) {
-        this.deleteBehavior = deleteBehavior;
-        this.updateBehavior = updateBehavior;
-    }
-
+    private CrawlerSchemaChangePolicy() {}
     /**
      * @return The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
      * 
@@ -52,30 +45,32 @@ public final class CrawlerSchemaChangePolicy {
     public static Builder builder(CrawlerSchemaChangePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deleteBehavior;
         private @Nullable String updateBehavior;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CrawlerSchemaChangePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteBehavior = defaults.deleteBehavior;
     	      this.updateBehavior = defaults.updateBehavior;
         }
 
+        @CustomType.Setter
         public Builder deleteBehavior(@Nullable String deleteBehavior) {
             this.deleteBehavior = deleteBehavior;
             return this;
         }
+        @CustomType.Setter
         public Builder updateBehavior(@Nullable String updateBehavior) {
             this.updateBehavior = updateBehavior;
             return this;
-        }        public CrawlerSchemaChangePolicy build() {
-            return new CrawlerSchemaChangePolicy(deleteBehavior, updateBehavior);
+        }
+        public CrawlerSchemaChangePolicy build() {
+            final var o = new CrawlerSchemaChangePolicy();
+            o.deleteBehavior = deleteBehavior;
+            o.updateBehavior = updateBehavior;
+            return o;
         }
     }
 }

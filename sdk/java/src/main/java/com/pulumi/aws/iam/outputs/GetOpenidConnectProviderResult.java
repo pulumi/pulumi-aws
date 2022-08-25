@@ -11,45 +11,30 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOpenidConnectProviderResult {
-    private final String arn;
+    private String arn;
     /**
      * @return A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
      * 
      */
-    private final List<String> clientIdLists;
+    private List<String> clientIdLists;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Map of resource tags for the IAM OIDC provider.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
      * 
      */
-    private final List<String> thumbprintLists;
-    private final String url;
+    private List<String> thumbprintLists;
+    private String url;
 
-    @CustomType.Constructor
-    private GetOpenidConnectProviderResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("clientIdLists") List<String> clientIdLists,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("thumbprintLists") List<String> thumbprintLists,
-        @CustomType.Parameter("url") String url) {
-        this.arn = arn;
-        this.clientIdLists = clientIdLists;
-        this.id = id;
-        this.tags = tags;
-        this.thumbprintLists = thumbprintLists;
-        this.url = url;
-    }
-
+    private GetOpenidConnectProviderResult() {}
     public String arn() {
         return this.arn;
     }
@@ -92,7 +77,7 @@ public final class GetOpenidConnectProviderResult {
     public static Builder builder(GetOpenidConnectProviderResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<String> clientIdLists;
@@ -100,11 +85,7 @@ public final class GetOpenidConnectProviderResult {
         private Map<String,String> tags;
         private List<String> thumbprintLists;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOpenidConnectProviderResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -115,10 +96,12 @@ public final class GetOpenidConnectProviderResult {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder clientIdLists(List<String> clientIdLists) {
             this.clientIdLists = Objects.requireNonNull(clientIdLists);
             return this;
@@ -126,14 +109,17 @@ public final class GetOpenidConnectProviderResult {
         public Builder clientIdLists(String... clientIdLists) {
             return clientIdLists(List.of(clientIdLists));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprintLists(List<String> thumbprintLists) {
             this.thumbprintLists = Objects.requireNonNull(thumbprintLists);
             return this;
@@ -141,11 +127,20 @@ public final class GetOpenidConnectProviderResult {
         public Builder thumbprintLists(String... thumbprintLists) {
             return thumbprintLists(List.of(thumbprintLists));
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public GetOpenidConnectProviderResult build() {
-            return new GetOpenidConnectProviderResult(arn, clientIdLists, id, tags, thumbprintLists, url);
+        }
+        public GetOpenidConnectProviderResult build() {
+            final var o = new GetOpenidConnectProviderResult();
+            o.arn = arn;
+            o.clientIdLists = clientIdLists;
+            o.id = id;
+            o.tags = tags;
+            o.thumbprintLists = thumbprintLists;
+            o.url = url;
+            return o;
         }
     }
 }

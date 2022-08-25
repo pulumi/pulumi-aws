@@ -17,21 +17,14 @@ public final class ProjectBuildBatchConfigRestrictions {
      * @return An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
      * 
      */
-    private final @Nullable List<String> computeTypesAlloweds;
+    private @Nullable List<String> computeTypesAlloweds;
     /**
      * @return Specifies the maximum number of builds allowed.
      * 
      */
-    private final @Nullable Integer maximumBuildsAllowed;
+    private @Nullable Integer maximumBuildsAllowed;
 
-    @CustomType.Constructor
-    private ProjectBuildBatchConfigRestrictions(
-        @CustomType.Parameter("computeTypesAlloweds") @Nullable List<String> computeTypesAlloweds,
-        @CustomType.Parameter("maximumBuildsAllowed") @Nullable Integer maximumBuildsAllowed) {
-        this.computeTypesAlloweds = computeTypesAlloweds;
-        this.maximumBuildsAllowed = maximumBuildsAllowed;
-    }
-
+    private ProjectBuildBatchConfigRestrictions() {}
     /**
      * @return An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
      * 
@@ -54,21 +47,18 @@ public final class ProjectBuildBatchConfigRestrictions {
     public static Builder builder(ProjectBuildBatchConfigRestrictions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> computeTypesAlloweds;
         private @Nullable Integer maximumBuildsAllowed;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectBuildBatchConfigRestrictions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.computeTypesAlloweds = defaults.computeTypesAlloweds;
     	      this.maximumBuildsAllowed = defaults.maximumBuildsAllowed;
         }
 
+        @CustomType.Setter
         public Builder computeTypesAlloweds(@Nullable List<String> computeTypesAlloweds) {
             this.computeTypesAlloweds = computeTypesAlloweds;
             return this;
@@ -76,11 +66,16 @@ public final class ProjectBuildBatchConfigRestrictions {
         public Builder computeTypesAlloweds(String... computeTypesAlloweds) {
             return computeTypesAlloweds(List.of(computeTypesAlloweds));
         }
+        @CustomType.Setter
         public Builder maximumBuildsAllowed(@Nullable Integer maximumBuildsAllowed) {
             this.maximumBuildsAllowed = maximumBuildsAllowed;
             return this;
-        }        public ProjectBuildBatchConfigRestrictions build() {
-            return new ProjectBuildBatchConfigRestrictions(computeTypesAlloweds, maximumBuildsAllowed);
+        }
+        public ProjectBuildBatchConfigRestrictions build() {
+            final var o = new ProjectBuildBatchConfigRestrictions();
+            o.computeTypesAlloweds = computeTypesAlloweds;
+            o.maximumBuildsAllowed = maximumBuildsAllowed;
+            return o;
         }
     }
 }

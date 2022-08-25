@@ -13,35 +13,24 @@ public final class IdentityPoolRoleAttachmentRoleMappingMappingRule {
      * @return The claim name that must be present in the token, for example, &#34;isAdmin&#34; or &#34;paid&#34;.
      * 
      */
-    private final String claim;
+    private String claim;
     /**
      * @return The match condition that specifies how closely the claim value in the IdP token must match Value.
      * 
      */
-    private final String matchType;
+    private String matchType;
     /**
      * @return The role ARN.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return A brief string that the claim must match, for example, &#34;paid&#34; or &#34;yes&#34;.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private IdentityPoolRoleAttachmentRoleMappingMappingRule(
-        @CustomType.Parameter("claim") String claim,
-        @CustomType.Parameter("matchType") String matchType,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("value") String value) {
-        this.claim = claim;
-        this.matchType = matchType;
-        this.roleArn = roleArn;
-        this.value = value;
-    }
-
+    private IdentityPoolRoleAttachmentRoleMappingMappingRule() {}
     /**
      * @return The claim name that must be present in the token, for example, &#34;isAdmin&#34; or &#34;paid&#34;.
      * 
@@ -78,17 +67,13 @@ public final class IdentityPoolRoleAttachmentRoleMappingMappingRule {
     public static Builder builder(IdentityPoolRoleAttachmentRoleMappingMappingRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String claim;
         private String matchType;
         private String roleArn;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IdentityPoolRoleAttachmentRoleMappingMappingRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.claim = defaults.claim;
@@ -97,23 +82,33 @@ public final class IdentityPoolRoleAttachmentRoleMappingMappingRule {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder claim(String claim) {
             this.claim = Objects.requireNonNull(claim);
             return this;
         }
+        @CustomType.Setter
         public Builder matchType(String matchType) {
             this.matchType = Objects.requireNonNull(matchType);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public IdentityPoolRoleAttachmentRoleMappingMappingRule build() {
-            return new IdentityPoolRoleAttachmentRoleMappingMappingRule(claim, matchType, roleArn, value);
+        }
+        public IdentityPoolRoleAttachmentRoleMappingMappingRule build() {
+            final var o = new IdentityPoolRoleAttachmentRoleMappingMappingRule();
+            o.claim = claim;
+            o.matchType = matchType;
+            o.roleArn = roleArn;
+            o.value = value;
+            return o;
         }
     }
 }

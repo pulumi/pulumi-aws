@@ -17,28 +17,19 @@ public final class BucketLifecycleConfigurationRuleExpiration {
      * @return Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
      * 
      */
-    private final @Nullable String date;
+    private @Nullable String date;
     /**
      * @return Number of days before the object is to be deleted.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
      * 
      */
-    private final @Nullable Boolean expiredObjectDeleteMarker;
+    private @Nullable Boolean expiredObjectDeleteMarker;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationRuleExpiration(
-        @CustomType.Parameter("date") @Nullable String date,
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("expiredObjectDeleteMarker") @Nullable Boolean expiredObjectDeleteMarker) {
-        this.date = date;
-        this.days = days;
-        this.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
-    }
-
+    private BucketLifecycleConfigurationRuleExpiration() {}
     /**
      * @return Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
      * 
@@ -68,16 +59,12 @@ public final class BucketLifecycleConfigurationRuleExpiration {
     public static Builder builder(BucketLifecycleConfigurationRuleExpiration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String date;
         private @Nullable Integer days;
         private @Nullable Boolean expiredObjectDeleteMarker;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationRuleExpiration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.date = defaults.date;
@@ -85,19 +72,27 @@ public final class BucketLifecycleConfigurationRuleExpiration {
     	      this.expiredObjectDeleteMarker = defaults.expiredObjectDeleteMarker;
         }
 
+        @CustomType.Setter
         public Builder date(@Nullable String date) {
             this.date = date;
             return this;
         }
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder expiredObjectDeleteMarker(@Nullable Boolean expiredObjectDeleteMarker) {
             this.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
             return this;
-        }        public BucketLifecycleConfigurationRuleExpiration build() {
-            return new BucketLifecycleConfigurationRuleExpiration(date, days, expiredObjectDeleteMarker);
+        }
+        public BucketLifecycleConfigurationRuleExpiration build() {
+            final var o = new BucketLifecycleConfigurationRuleExpiration();
+            o.date = date;
+            o.days = days;
+            o.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
+            return o;
         }
     }
 }

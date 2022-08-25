@@ -22,63 +22,44 @@ public final class GetTrafficPolicyDocumentRule {
      * @return Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
      * 
      */
-    private final @Nullable List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations;
+    private @Nullable List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations;
     /**
      * @return ID of a rule you want to assign.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
      * 
      */
-    private final @Nullable List<GetTrafficPolicyDocumentRuleItem> items;
+    private @Nullable List<GetTrafficPolicyDocumentRuleItem> items;
     /**
      * @return Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
      * 
      */
-    private final @Nullable List<GetTrafficPolicyDocumentRuleLocation> locations;
+    private @Nullable List<GetTrafficPolicyDocumentRuleLocation> locations;
     /**
      * @return Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
      * 
      */
-    private final @Nullable GetTrafficPolicyDocumentRulePrimary primary;
+    private @Nullable GetTrafficPolicyDocumentRulePrimary primary;
     /**
      * @return Region code for the AWS Region that you created the resource in.
      * 
      */
-    private final @Nullable List<GetTrafficPolicyDocumentRuleRegion> regions;
+    private @Nullable List<GetTrafficPolicyDocumentRuleRegion> regions;
     /**
      * @return Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
      * 
      */
-    private final @Nullable GetTrafficPolicyDocumentRuleSecondary secondary;
+    private @Nullable GetTrafficPolicyDocumentRuleSecondary secondary;
     /**
      * @return Type of the rule.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private GetTrafficPolicyDocumentRule(
-        @CustomType.Parameter("geoProximityLocations") @Nullable List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("items") @Nullable List<GetTrafficPolicyDocumentRuleItem> items,
-        @CustomType.Parameter("locations") @Nullable List<GetTrafficPolicyDocumentRuleLocation> locations,
-        @CustomType.Parameter("primary") @Nullable GetTrafficPolicyDocumentRulePrimary primary,
-        @CustomType.Parameter("regions") @Nullable List<GetTrafficPolicyDocumentRuleRegion> regions,
-        @CustomType.Parameter("secondary") @Nullable GetTrafficPolicyDocumentRuleSecondary secondary,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.geoProximityLocations = geoProximityLocations;
-        this.id = id;
-        this.items = items;
-        this.locations = locations;
-        this.primary = primary;
-        this.regions = regions;
-        this.secondary = secondary;
-        this.type = type;
-    }
-
+    private GetTrafficPolicyDocumentRule() {}
     /**
      * @return Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
      * 
@@ -143,7 +124,7 @@ public final class GetTrafficPolicyDocumentRule {
     public static Builder builder(GetTrafficPolicyDocumentRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations;
         private String id;
@@ -153,11 +134,7 @@ public final class GetTrafficPolicyDocumentRule {
         private @Nullable List<GetTrafficPolicyDocumentRuleRegion> regions;
         private @Nullable GetTrafficPolicyDocumentRuleSecondary secondary;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficPolicyDocumentRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.geoProximityLocations = defaults.geoProximityLocations;
@@ -170,6 +147,7 @@ public final class GetTrafficPolicyDocumentRule {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder geoProximityLocations(@Nullable List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations) {
             this.geoProximityLocations = geoProximityLocations;
             return this;
@@ -177,10 +155,12 @@ public final class GetTrafficPolicyDocumentRule {
         public Builder geoProximityLocations(GetTrafficPolicyDocumentRuleGeoProximityLocation... geoProximityLocations) {
             return geoProximityLocations(List.of(geoProximityLocations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder items(@Nullable List<GetTrafficPolicyDocumentRuleItem> items) {
             this.items = items;
             return this;
@@ -188,6 +168,7 @@ public final class GetTrafficPolicyDocumentRule {
         public Builder items(GetTrafficPolicyDocumentRuleItem... items) {
             return items(List.of(items));
         }
+        @CustomType.Setter
         public Builder locations(@Nullable List<GetTrafficPolicyDocumentRuleLocation> locations) {
             this.locations = locations;
             return this;
@@ -195,10 +176,12 @@ public final class GetTrafficPolicyDocumentRule {
         public Builder locations(GetTrafficPolicyDocumentRuleLocation... locations) {
             return locations(List.of(locations));
         }
+        @CustomType.Setter
         public Builder primary(@Nullable GetTrafficPolicyDocumentRulePrimary primary) {
             this.primary = primary;
             return this;
         }
+        @CustomType.Setter
         public Builder regions(@Nullable List<GetTrafficPolicyDocumentRuleRegion> regions) {
             this.regions = regions;
             return this;
@@ -206,15 +189,27 @@ public final class GetTrafficPolicyDocumentRule {
         public Builder regions(GetTrafficPolicyDocumentRuleRegion... regions) {
             return regions(List.of(regions));
         }
+        @CustomType.Setter
         public Builder secondary(@Nullable GetTrafficPolicyDocumentRuleSecondary secondary) {
             this.secondary = secondary;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public GetTrafficPolicyDocumentRule build() {
-            return new GetTrafficPolicyDocumentRule(geoProximityLocations, id, items, locations, primary, regions, secondary, type);
+        }
+        public GetTrafficPolicyDocumentRule build() {
+            final var o = new GetTrafficPolicyDocumentRule();
+            o.geoProximityLocations = geoProximityLocations;
+            o.id = id;
+            o.items = items;
+            o.locations = locations;
+            o.primary = primary;
+            o.regions = regions;
+            o.secondary = secondary;
+            o.type = type;
+            return o;
         }
     }
 }

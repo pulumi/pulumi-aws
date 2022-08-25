@@ -15,13 +15,9 @@ public final class InventoryFilter {
      * @return The prefix that an object must have to be included in the inventory results.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
 
-    @CustomType.Constructor
-    private InventoryFilter(@CustomType.Parameter("prefix") @Nullable String prefix) {
-        this.prefix = prefix;
-    }
-
+    private InventoryFilter() {}
     /**
      * @return The prefix that an object must have to be included in the inventory results.
      * 
@@ -37,24 +33,24 @@ public final class InventoryFilter {
     public static Builder builder(InventoryFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InventoryFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
-        }        public InventoryFilter build() {
-            return new InventoryFilter(prefix);
+        }
+        public InventoryFilter build() {
+            final var o = new InventoryFilter();
+            o.prefix = prefix;
+            return o;
         }
     }
 }

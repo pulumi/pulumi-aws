@@ -18,28 +18,19 @@ public final class FrameworkControl {
      * @return One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
      * 
      */
-    private final @Nullable List<FrameworkControlInputParameter> inputParameters;
+    private @Nullable List<FrameworkControlInputParameter> inputParameters;
     /**
      * @return The name of a parameter, for example, BackupPlanFrequency.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
-    private final @Nullable FrameworkControlScope scope;
+    private @Nullable FrameworkControlScope scope;
 
-    @CustomType.Constructor
-    private FrameworkControl(
-        @CustomType.Parameter("inputParameters") @Nullable List<FrameworkControlInputParameter> inputParameters,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("scope") @Nullable FrameworkControlScope scope) {
-        this.inputParameters = inputParameters;
-        this.name = name;
-        this.scope = scope;
-    }
-
+    private FrameworkControl() {}
     /**
      * @return One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
      * 
@@ -69,16 +60,12 @@ public final class FrameworkControl {
     public static Builder builder(FrameworkControl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FrameworkControlInputParameter> inputParameters;
         private String name;
         private @Nullable FrameworkControlScope scope;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrameworkControl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inputParameters = defaults.inputParameters;
@@ -86,6 +73,7 @@ public final class FrameworkControl {
     	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
         public Builder inputParameters(@Nullable List<FrameworkControlInputParameter> inputParameters) {
             this.inputParameters = inputParameters;
             return this;
@@ -93,15 +81,22 @@ public final class FrameworkControl {
         public Builder inputParameters(FrameworkControlInputParameter... inputParameters) {
             return inputParameters(List.of(inputParameters));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable FrameworkControlScope scope) {
             this.scope = scope;
             return this;
-        }        public FrameworkControl build() {
-            return new FrameworkControl(inputParameters, name, scope);
+        }
+        public FrameworkControl build() {
+            final var o = new FrameworkControl();
+            o.inputParameters = inputParameters;
+            o.name = name;
+            o.scope = scope;
+            return o;
         }
     }
 }

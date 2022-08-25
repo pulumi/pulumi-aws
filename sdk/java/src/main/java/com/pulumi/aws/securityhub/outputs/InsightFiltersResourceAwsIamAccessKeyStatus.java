@@ -13,21 +13,14 @@ public final class InsightFiltersResourceAwsIamAccessKeyStatus {
      * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
      * 
      */
-    private final String comparison;
+    private String comparison;
     /**
      * @return A date range value for the date filter, provided as an Integer.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private InsightFiltersResourceAwsIamAccessKeyStatus(
-        @CustomType.Parameter("comparison") String comparison,
-        @CustomType.Parameter("value") String value) {
-        this.comparison = comparison;
-        this.value = value;
-    }
-
+    private InsightFiltersResourceAwsIamAccessKeyStatus() {}
     /**
      * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
      * 
@@ -50,30 +43,32 @@ public final class InsightFiltersResourceAwsIamAccessKeyStatus {
     public static Builder builder(InsightFiltersResourceAwsIamAccessKeyStatus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comparison;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersResourceAwsIamAccessKeyStatus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparison = defaults.comparison;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder comparison(String comparison) {
             this.comparison = Objects.requireNonNull(comparison);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public InsightFiltersResourceAwsIamAccessKeyStatus build() {
-            return new InsightFiltersResourceAwsIamAccessKeyStatus(comparison, value);
+        }
+        public InsightFiltersResourceAwsIamAccessKeyStatus build() {
+            final var o = new InsightFiltersResourceAwsIamAccessKeyStatus();
+            o.comparison = comparison;
+            o.value = value;
+            return o;
         }
     }
 }

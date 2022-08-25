@@ -16,49 +16,34 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfMan
      * @return A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
      * 
      */
-    private final List<String> dnsIps;
+    private List<String> dnsIps;
     /**
      * @return The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
      * 
      */
-    private final @Nullable String fileSystemAdministratorsGroup;
+    private @Nullable String fileSystemAdministratorsGroup;
     /**
      * @return The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
      * 
      */
-    private final @Nullable String organizationalUnitDistinguishedName;
+    private @Nullable String organizationalUnitDistinguishedName;
     /**
      * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration(
-        @CustomType.Parameter("dnsIps") List<String> dnsIps,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("fileSystemAdministratorsGroup") @Nullable String fileSystemAdministratorsGroup,
-        @CustomType.Parameter("organizationalUnitDistinguishedName") @Nullable String organizationalUnitDistinguishedName,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.dnsIps = dnsIps;
-        this.domainName = domainName;
-        this.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
-        this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-        this.password = password;
-        this.username = username;
-    }
-
+    private OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration() {}
     /**
      * @return A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
      * 
@@ -109,7 +94,7 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfMan
     public static Builder builder(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> dnsIps;
         private String domainName;
@@ -117,11 +102,7 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfMan
         private @Nullable String organizationalUnitDistinguishedName;
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsIps = defaults.dnsIps;
@@ -132,6 +113,7 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfMan
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder dnsIps(List<String> dnsIps) {
             this.dnsIps = Objects.requireNonNull(dnsIps);
             return this;
@@ -139,27 +121,40 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfMan
         public Builder dnsIps(String... dnsIps) {
             return dnsIps(List.of(dnsIps));
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemAdministratorsGroup(@Nullable String fileSystemAdministratorsGroup) {
             this.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder organizationalUnitDistinguishedName(@Nullable String organizationalUnitDistinguishedName) {
             this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration build() {
-            return new OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration(dnsIps, domainName, fileSystemAdministratorsGroup, organizationalUnitDistinguishedName, password, username);
+        }
+        public OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration build() {
+            final var o = new OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration();
+            o.dnsIps = dnsIps;
+            o.domainName = domainName;
+            o.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
+            o.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

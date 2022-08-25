@@ -13,21 +13,14 @@ public final class DataSourceParametersRds {
      * @return The database to which to connect.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The instance ID to which to connect.
      * 
      */
-    private final String instanceId;
+    private String instanceId;
 
-    @CustomType.Constructor
-    private DataSourceParametersRds(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("instanceId") String instanceId) {
-        this.database = database;
-        this.instanceId = instanceId;
-    }
-
+    private DataSourceParametersRds() {}
     /**
      * @return The database to which to connect.
      * 
@@ -50,30 +43,32 @@ public final class DataSourceParametersRds {
     public static Builder builder(DataSourceParametersRds defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String instanceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersRds defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
     	      this.instanceId = defaults.instanceId;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
-        }        public DataSourceParametersRds build() {
-            return new DataSourceParametersRds(database, instanceId);
+        }
+        public DataSourceParametersRds build() {
+            final var o = new DataSourceParametersRds();
+            o.database = database;
+            o.instanceId = instanceId;
+            return o;
         }
     }
 }

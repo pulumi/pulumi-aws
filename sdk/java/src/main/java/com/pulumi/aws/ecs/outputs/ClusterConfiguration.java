@@ -15,13 +15,9 @@ public final class ClusterConfiguration {
      * @return The details of the execute command configuration. Detailed below.
      * 
      */
-    private final @Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration;
+    private @Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration;
 
-    @CustomType.Constructor
-    private ClusterConfiguration(@CustomType.Parameter("executeCommandConfiguration") @Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration) {
-        this.executeCommandConfiguration = executeCommandConfiguration;
-    }
-
+    private ClusterConfiguration() {}
     /**
      * @return The details of the execute command configuration. Detailed below.
      * 
@@ -37,24 +33,24 @@ public final class ClusterConfiguration {
     public static Builder builder(ClusterConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.executeCommandConfiguration = defaults.executeCommandConfiguration;
         }
 
+        @CustomType.Setter
         public Builder executeCommandConfiguration(@Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration) {
             this.executeCommandConfiguration = executeCommandConfiguration;
             return this;
-        }        public ClusterConfiguration build() {
-            return new ClusterConfiguration(executeCommandConfiguration);
+        }
+        public ClusterConfiguration build() {
+            final var o = new ClusterConfiguration();
+            o.executeCommandConfiguration = executeCommandConfiguration;
+            return o;
         }
     }
 }

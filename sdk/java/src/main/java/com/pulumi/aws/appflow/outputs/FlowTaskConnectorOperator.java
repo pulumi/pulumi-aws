@@ -15,119 +15,84 @@ public final class FlowTaskConnectorOperator {
      * @return The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
      * 
      */
-    private final @Nullable String amplitude;
+    private @Nullable String amplitude;
     /**
      * @return Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String customConnector;
+    private @Nullable String customConnector;
     /**
      * @return The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String datadog;
+    private @Nullable String datadog;
     /**
      * @return The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String dynatrace;
+    private @Nullable String dynatrace;
     /**
      * @return The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
      * 
      */
-    private final @Nullable String googleAnalytics;
+    private @Nullable String googleAnalytics;
     /**
      * @return The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String inforNexus;
+    private @Nullable String inforNexus;
     /**
      * @return The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String marketo;
+    private @Nullable String marketo;
     /**
      * @return The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String s3;
+    private @Nullable String s3;
     /**
      * @return The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String salesforce;
+    private @Nullable String salesforce;
     /**
      * @return The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String sapoData;
+    private @Nullable String sapoData;
     /**
      * @return The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String serviceNow;
+    private @Nullable String serviceNow;
     /**
      * @return The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String singular;
+    private @Nullable String singular;
     /**
      * @return The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String slack;
+    private @Nullable String slack;
     /**
      * @return The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String trendmicro;
+    private @Nullable String trendmicro;
     /**
      * @return The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String veeva;
+    private @Nullable String veeva;
     /**
      * @return The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable String zendesk;
+    private @Nullable String zendesk;
 
-    @CustomType.Constructor
-    private FlowTaskConnectorOperator(
-        @CustomType.Parameter("amplitude") @Nullable String amplitude,
-        @CustomType.Parameter("customConnector") @Nullable String customConnector,
-        @CustomType.Parameter("datadog") @Nullable String datadog,
-        @CustomType.Parameter("dynatrace") @Nullable String dynatrace,
-        @CustomType.Parameter("googleAnalytics") @Nullable String googleAnalytics,
-        @CustomType.Parameter("inforNexus") @Nullable String inforNexus,
-        @CustomType.Parameter("marketo") @Nullable String marketo,
-        @CustomType.Parameter("s3") @Nullable String s3,
-        @CustomType.Parameter("salesforce") @Nullable String salesforce,
-        @CustomType.Parameter("sapoData") @Nullable String sapoData,
-        @CustomType.Parameter("serviceNow") @Nullable String serviceNow,
-        @CustomType.Parameter("singular") @Nullable String singular,
-        @CustomType.Parameter("slack") @Nullable String slack,
-        @CustomType.Parameter("trendmicro") @Nullable String trendmicro,
-        @CustomType.Parameter("veeva") @Nullable String veeva,
-        @CustomType.Parameter("zendesk") @Nullable String zendesk) {
-        this.amplitude = amplitude;
-        this.customConnector = customConnector;
-        this.datadog = datadog;
-        this.dynatrace = dynatrace;
-        this.googleAnalytics = googleAnalytics;
-        this.inforNexus = inforNexus;
-        this.marketo = marketo;
-        this.s3 = s3;
-        this.salesforce = salesforce;
-        this.sapoData = sapoData;
-        this.serviceNow = serviceNow;
-        this.singular = singular;
-        this.slack = slack;
-        this.trendmicro = trendmicro;
-        this.veeva = veeva;
-        this.zendesk = zendesk;
-    }
-
+    private FlowTaskConnectorOperator() {}
     /**
      * @return The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
      * 
@@ -248,7 +213,7 @@ public final class FlowTaskConnectorOperator {
     public static Builder builder(FlowTaskConnectorOperator defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String amplitude;
         private @Nullable String customConnector;
@@ -266,11 +231,7 @@ public final class FlowTaskConnectorOperator {
         private @Nullable String trendmicro;
         private @Nullable String veeva;
         private @Nullable String zendesk;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowTaskConnectorOperator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amplitude = defaults.amplitude;
@@ -291,71 +252,105 @@ public final class FlowTaskConnectorOperator {
     	      this.zendesk = defaults.zendesk;
         }
 
+        @CustomType.Setter
         public Builder amplitude(@Nullable String amplitude) {
             this.amplitude = amplitude;
             return this;
         }
+        @CustomType.Setter
         public Builder customConnector(@Nullable String customConnector) {
             this.customConnector = customConnector;
             return this;
         }
+        @CustomType.Setter
         public Builder datadog(@Nullable String datadog) {
             this.datadog = datadog;
             return this;
         }
+        @CustomType.Setter
         public Builder dynatrace(@Nullable String dynatrace) {
             this.dynatrace = dynatrace;
             return this;
         }
+        @CustomType.Setter
         public Builder googleAnalytics(@Nullable String googleAnalytics) {
             this.googleAnalytics = googleAnalytics;
             return this;
         }
+        @CustomType.Setter
         public Builder inforNexus(@Nullable String inforNexus) {
             this.inforNexus = inforNexus;
             return this;
         }
+        @CustomType.Setter
         public Builder marketo(@Nullable String marketo) {
             this.marketo = marketo;
             return this;
         }
+        @CustomType.Setter
         public Builder s3(@Nullable String s3) {
             this.s3 = s3;
             return this;
         }
+        @CustomType.Setter
         public Builder salesforce(@Nullable String salesforce) {
             this.salesforce = salesforce;
             return this;
         }
+        @CustomType.Setter
         public Builder sapoData(@Nullable String sapoData) {
             this.sapoData = sapoData;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceNow(@Nullable String serviceNow) {
             this.serviceNow = serviceNow;
             return this;
         }
+        @CustomType.Setter
         public Builder singular(@Nullable String singular) {
             this.singular = singular;
             return this;
         }
+        @CustomType.Setter
         public Builder slack(@Nullable String slack) {
             this.slack = slack;
             return this;
         }
+        @CustomType.Setter
         public Builder trendmicro(@Nullable String trendmicro) {
             this.trendmicro = trendmicro;
             return this;
         }
+        @CustomType.Setter
         public Builder veeva(@Nullable String veeva) {
             this.veeva = veeva;
             return this;
         }
+        @CustomType.Setter
         public Builder zendesk(@Nullable String zendesk) {
             this.zendesk = zendesk;
             return this;
-        }        public FlowTaskConnectorOperator build() {
-            return new FlowTaskConnectorOperator(amplitude, customConnector, datadog, dynatrace, googleAnalytics, inforNexus, marketo, s3, salesforce, sapoData, serviceNow, singular, slack, trendmicro, veeva, zendesk);
+        }
+        public FlowTaskConnectorOperator build() {
+            final var o = new FlowTaskConnectorOperator();
+            o.amplitude = amplitude;
+            o.customConnector = customConnector;
+            o.datadog = datadog;
+            o.dynatrace = dynatrace;
+            o.googleAnalytics = googleAnalytics;
+            o.inforNexus = inforNexus;
+            o.marketo = marketo;
+            o.s3 = s3;
+            o.salesforce = salesforce;
+            o.sapoData = sapoData;
+            o.serviceNow = serviceNow;
+            o.singular = singular;
+            o.slack = slack;
+            o.trendmicro = trendmicro;
+            o.veeva = veeva;
+            o.zendesk = zendesk;
+            return o;
         }
     }
 }

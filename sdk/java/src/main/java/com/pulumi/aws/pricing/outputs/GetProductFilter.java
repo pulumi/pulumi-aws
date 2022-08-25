@@ -13,21 +13,14 @@ public final class GetProductFilter {
      * @return The product attribute name that you want to filter on.
      * 
      */
-    private final String field;
+    private String field;
     /**
      * @return The product attribute value that you want to filter on.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetProductFilter(
-        @CustomType.Parameter("field") String field,
-        @CustomType.Parameter("value") String value) {
-        this.field = field;
-        this.value = value;
-    }
-
+    private GetProductFilter() {}
     /**
      * @return The product attribute name that you want to filter on.
      * 
@@ -50,30 +43,32 @@ public final class GetProductFilter {
     public static Builder builder(GetProductFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String field;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetProductFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.field = defaults.field;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder field(String field) {
             this.field = Objects.requireNonNull(field);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetProductFilter build() {
-            return new GetProductFilter(field, value);
+        }
+        public GetProductFilter build() {
+            final var o = new GetProductFilter();
+            o.field = field;
+            o.value = value;
+            return o;
         }
     }
 }

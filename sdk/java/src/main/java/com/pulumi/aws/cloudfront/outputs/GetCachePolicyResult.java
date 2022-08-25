@@ -18,55 +18,36 @@ public final class GetCachePolicyResult {
      * @return A comment to describe the cache policy.
      * 
      */
-    private final String comment;
+    private String comment;
     /**
      * @return The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    private final Integer defaultTtl;
+    private Integer defaultTtl;
     /**
      * @return The current version of the cache policy.
      * 
      */
-    private final String etag;
-    private final @Nullable String id;
+    private String etag;
+    private @Nullable String id;
     /**
      * @return The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    private final Integer maxTtl;
+    private Integer maxTtl;
     /**
      * @return The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    private final Integer minTtl;
-    private final @Nullable String name;
+    private Integer minTtl;
+    private @Nullable String name;
     /**
      * @return The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
      * 
      */
-    private final List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins;
+    private List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins;
 
-    @CustomType.Constructor
-    private GetCachePolicyResult(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("defaultTtl") Integer defaultTtl,
-        @CustomType.Parameter("etag") String etag,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("maxTtl") Integer maxTtl,
-        @CustomType.Parameter("minTtl") Integer minTtl,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("parametersInCacheKeyAndForwardedToOrigins") List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins) {
-        this.comment = comment;
-        this.defaultTtl = defaultTtl;
-        this.etag = etag;
-        this.id = id;
-        this.maxTtl = maxTtl;
-        this.minTtl = minTtl;
-        this.name = name;
-        this.parametersInCacheKeyAndForwardedToOrigins = parametersInCacheKeyAndForwardedToOrigins;
-    }
-
+    private GetCachePolicyResult() {}
     /**
      * @return A comment to describe the cache policy.
      * 
@@ -123,7 +104,7 @@ public final class GetCachePolicyResult {
     public static Builder builder(GetCachePolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private Integer defaultTtl;
@@ -133,11 +114,7 @@ public final class GetCachePolicyResult {
         private Integer minTtl;
         private @Nullable String name;
         private List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCachePolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -150,42 +127,60 @@ public final class GetCachePolicyResult {
     	      this.parametersInCacheKeyAndForwardedToOrigins = defaults.parametersInCacheKeyAndForwardedToOrigins;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultTtl(Integer defaultTtl) {
             this.defaultTtl = Objects.requireNonNull(defaultTtl);
             return this;
         }
+        @CustomType.Setter
         public Builder etag(String etag) {
             this.etag = Objects.requireNonNull(etag);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder maxTtl(Integer maxTtl) {
             this.maxTtl = Objects.requireNonNull(maxTtl);
             return this;
         }
+        @CustomType.Setter
         public Builder minTtl(Integer minTtl) {
             this.minTtl = Objects.requireNonNull(minTtl);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder parametersInCacheKeyAndForwardedToOrigins(List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins) {
             this.parametersInCacheKeyAndForwardedToOrigins = Objects.requireNonNull(parametersInCacheKeyAndForwardedToOrigins);
             return this;
         }
         public Builder parametersInCacheKeyAndForwardedToOrigins(GetCachePolicyParametersInCacheKeyAndForwardedToOrigin... parametersInCacheKeyAndForwardedToOrigins) {
             return parametersInCacheKeyAndForwardedToOrigins(List.of(parametersInCacheKeyAndForwardedToOrigins));
-        }        public GetCachePolicyResult build() {
-            return new GetCachePolicyResult(comment, defaultTtl, etag, id, maxTtl, minTtl, name, parametersInCacheKeyAndForwardedToOrigins);
+        }
+        public GetCachePolicyResult build() {
+            final var o = new GetCachePolicyResult();
+            o.comment = comment;
+            o.defaultTtl = defaultTtl;
+            o.etag = etag;
+            o.id = id;
+            o.maxTtl = maxTtl;
+            o.minTtl = minTtl;
+            o.name = name;
+            o.parametersInCacheKeyAndForwardedToOrigins = parametersInCacheKeyAndForwardedToOrigins;
+            return o;
         }
     }
 }

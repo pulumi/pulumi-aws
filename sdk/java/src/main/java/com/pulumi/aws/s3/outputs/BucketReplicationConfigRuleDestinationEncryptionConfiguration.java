@@ -13,13 +13,9 @@ public final class BucketReplicationConfigRuleDestinationEncryptionConfiguration
      * @return The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
      * 
      */
-    private final String replicaKmsKeyId;
+    private String replicaKmsKeyId;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleDestinationEncryptionConfiguration(@CustomType.Parameter("replicaKmsKeyId") String replicaKmsKeyId) {
-        this.replicaKmsKeyId = replicaKmsKeyId;
-    }
-
+    private BucketReplicationConfigRuleDestinationEncryptionConfiguration() {}
     /**
      * @return The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
      * 
@@ -35,24 +31,24 @@ public final class BucketReplicationConfigRuleDestinationEncryptionConfiguration
     public static Builder builder(BucketReplicationConfigRuleDestinationEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String replicaKmsKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleDestinationEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.replicaKmsKeyId = defaults.replicaKmsKeyId;
         }
 
+        @CustomType.Setter
         public Builder replicaKmsKeyId(String replicaKmsKeyId) {
             this.replicaKmsKeyId = Objects.requireNonNull(replicaKmsKeyId);
             return this;
-        }        public BucketReplicationConfigRuleDestinationEncryptionConfiguration build() {
-            return new BucketReplicationConfigRuleDestinationEncryptionConfiguration(replicaKmsKeyId);
+        }
+        public BucketReplicationConfigRuleDestinationEncryptionConfiguration build() {
+            final var o = new BucketReplicationConfigRuleDestinationEncryptionConfiguration();
+            o.replicaKmsKeyId = replicaKmsKeyId;
+            return o;
         }
     }
 }

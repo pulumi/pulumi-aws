@@ -13,38 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocalGatewayVirtualInterfaceGroupsResult {
-    private final @Nullable List<GetLocalGatewayVirtualInterfaceGroupsFilter> filters;
+    private @Nullable List<GetLocalGatewayVirtualInterfaceGroupsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of EC2 Local Gateway Virtual Interface Group identifiers.
      * 
      */
-    private final List<String> ids;
+    private List<String> ids;
     /**
      * @return Set of EC2 Local Gateway Virtual Interface identifiers.
      * 
      */
-    private final List<String> localGatewayVirtualInterfaceIds;
-    private final Map<String,String> tags;
+    private List<String> localGatewayVirtualInterfaceIds;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetLocalGatewayVirtualInterfaceGroupsResult(
-        @CustomType.Parameter("filters") @Nullable List<GetLocalGatewayVirtualInterfaceGroupsFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("localGatewayVirtualInterfaceIds") List<String> localGatewayVirtualInterfaceIds,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.filters = filters;
-        this.id = id;
-        this.ids = ids;
-        this.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
-        this.tags = tags;
-    }
-
+    private GetLocalGatewayVirtualInterfaceGroupsResult() {}
     public List<GetLocalGatewayVirtualInterfaceGroupsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -80,18 +67,14 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
     public static Builder builder(GetLocalGatewayVirtualInterfaceGroupsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetLocalGatewayVirtualInterfaceGroupsFilter> filters;
         private String id;
         private List<String> ids;
         private List<String> localGatewayVirtualInterfaceIds;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLocalGatewayVirtualInterfaceGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -101,6 +84,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetLocalGatewayVirtualInterfaceGroupsFilter> filters) {
             this.filters = filters;
             return this;
@@ -108,10 +92,12 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
         public Builder filters(GetLocalGatewayVirtualInterfaceGroupsFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -119,6 +105,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder localGatewayVirtualInterfaceIds(List<String> localGatewayVirtualInterfaceIds) {
             this.localGatewayVirtualInterfaceIds = Objects.requireNonNull(localGatewayVirtualInterfaceIds);
             return this;
@@ -126,11 +113,19 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
         public Builder localGatewayVirtualInterfaceIds(String... localGatewayVirtualInterfaceIds) {
             return localGatewayVirtualInterfaceIds(List.of(localGatewayVirtualInterfaceIds));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetLocalGatewayVirtualInterfaceGroupsResult build() {
-            return new GetLocalGatewayVirtualInterfaceGroupsResult(filters, id, ids, localGatewayVirtualInterfaceIds, tags);
+        }
+        public GetLocalGatewayVirtualInterfaceGroupsResult build() {
+            final var o = new GetLocalGatewayVirtualInterfaceGroupsResult();
+            o.filters = filters;
+            o.id = id;
+            o.ids = ids;
+            o.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
+            o.tags = tags;
+            return o;
         }
     }
 }

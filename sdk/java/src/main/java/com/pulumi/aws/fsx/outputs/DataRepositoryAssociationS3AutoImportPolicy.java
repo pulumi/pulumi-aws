@@ -15,13 +15,9 @@ public final class DataRepositoryAssociationS3AutoImportPolicy {
      * @return A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
      * 
      */
-    private final @Nullable List<String> events;
+    private @Nullable List<String> events;
 
-    @CustomType.Constructor
-    private DataRepositoryAssociationS3AutoImportPolicy(@CustomType.Parameter("events") @Nullable List<String> events) {
-        this.events = events;
-    }
-
+    private DataRepositoryAssociationS3AutoImportPolicy() {}
     /**
      * @return A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
      * 
@@ -37,27 +33,27 @@ public final class DataRepositoryAssociationS3AutoImportPolicy {
     public static Builder builder(DataRepositoryAssociationS3AutoImportPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> events;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataRepositoryAssociationS3AutoImportPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.events = defaults.events;
         }
 
+        @CustomType.Setter
         public Builder events(@Nullable List<String> events) {
             this.events = events;
             return this;
         }
         public Builder events(String... events) {
             return events(List.of(events));
-        }        public DataRepositoryAssociationS3AutoImportPolicy build() {
-            return new DataRepositoryAssociationS3AutoImportPolicy(events);
+        }
+        public DataRepositoryAssociationS3AutoImportPolicy build() {
+            final var o = new DataRepositoryAssociationS3AutoImportPolicy();
+            o.events = events;
+            return o;
         }
     }
 }

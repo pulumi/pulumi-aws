@@ -20,49 +20,34 @@ public final class EndpointConfigurationDataCaptureConfig {
      * @return The content type headers to capture. Fields are documented below.
      * 
      */
-    private final @Nullable EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader captureContentTypeHeader;
+    private @Nullable EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader captureContentTypeHeader;
     /**
      * @return Specifies what data to capture. Fields are documented below.
      * 
      */
-    private final List<EndpointConfigurationDataCaptureConfigCaptureOption> captureOptions;
+    private List<EndpointConfigurationDataCaptureConfigCaptureOption> captureOptions;
     /**
      * @return The URL for S3 location where the captured data is stored.
      * 
      */
-    private final String destinationS3Uri;
+    private String destinationS3Uri;
     /**
      * @return Flag to enable data capture. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableCapture;
+    private @Nullable Boolean enableCapture;
     /**
      * @return Portion of data to capture. Should be between 0 and 100.
      * 
      */
-    private final Integer initialSamplingPercentage;
+    private Integer initialSamplingPercentage;
     /**
      * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
 
-    @CustomType.Constructor
-    private EndpointConfigurationDataCaptureConfig(
-        @CustomType.Parameter("captureContentTypeHeader") @Nullable EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader captureContentTypeHeader,
-        @CustomType.Parameter("captureOptions") List<EndpointConfigurationDataCaptureConfigCaptureOption> captureOptions,
-        @CustomType.Parameter("destinationS3Uri") String destinationS3Uri,
-        @CustomType.Parameter("enableCapture") @Nullable Boolean enableCapture,
-        @CustomType.Parameter("initialSamplingPercentage") Integer initialSamplingPercentage,
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId) {
-        this.captureContentTypeHeader = captureContentTypeHeader;
-        this.captureOptions = captureOptions;
-        this.destinationS3Uri = destinationS3Uri;
-        this.enableCapture = enableCapture;
-        this.initialSamplingPercentage = initialSamplingPercentage;
-        this.kmsKeyId = kmsKeyId;
-    }
-
+    private EndpointConfigurationDataCaptureConfig() {}
     /**
      * @return The content type headers to capture. Fields are documented below.
      * 
@@ -113,7 +98,7 @@ public final class EndpointConfigurationDataCaptureConfig {
     public static Builder builder(EndpointConfigurationDataCaptureConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader captureContentTypeHeader;
         private List<EndpointConfigurationDataCaptureConfigCaptureOption> captureOptions;
@@ -121,11 +106,7 @@ public final class EndpointConfigurationDataCaptureConfig {
         private @Nullable Boolean enableCapture;
         private Integer initialSamplingPercentage;
         private @Nullable String kmsKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConfigurationDataCaptureConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.captureContentTypeHeader = defaults.captureContentTypeHeader;
@@ -136,10 +117,12 @@ public final class EndpointConfigurationDataCaptureConfig {
     	      this.kmsKeyId = defaults.kmsKeyId;
         }
 
+        @CustomType.Setter
         public Builder captureContentTypeHeader(@Nullable EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader captureContentTypeHeader) {
             this.captureContentTypeHeader = captureContentTypeHeader;
             return this;
         }
+        @CustomType.Setter
         public Builder captureOptions(List<EndpointConfigurationDataCaptureConfigCaptureOption> captureOptions) {
             this.captureOptions = Objects.requireNonNull(captureOptions);
             return this;
@@ -147,23 +130,35 @@ public final class EndpointConfigurationDataCaptureConfig {
         public Builder captureOptions(EndpointConfigurationDataCaptureConfigCaptureOption... captureOptions) {
             return captureOptions(List.of(captureOptions));
         }
+        @CustomType.Setter
         public Builder destinationS3Uri(String destinationS3Uri) {
             this.destinationS3Uri = Objects.requireNonNull(destinationS3Uri);
             return this;
         }
+        @CustomType.Setter
         public Builder enableCapture(@Nullable Boolean enableCapture) {
             this.enableCapture = enableCapture;
             return this;
         }
+        @CustomType.Setter
         public Builder initialSamplingPercentage(Integer initialSamplingPercentage) {
             this.initialSamplingPercentage = Objects.requireNonNull(initialSamplingPercentage);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
-        }        public EndpointConfigurationDataCaptureConfig build() {
-            return new EndpointConfigurationDataCaptureConfig(captureContentTypeHeader, captureOptions, destinationS3Uri, enableCapture, initialSamplingPercentage, kmsKeyId);
+        }
+        public EndpointConfigurationDataCaptureConfig build() {
+            final var o = new EndpointConfigurationDataCaptureConfig();
+            o.captureContentTypeHeader = captureContentTypeHeader;
+            o.captureOptions = captureOptions;
+            o.destinationS3Uri = destinationS3Uri;
+            o.enableCapture = enableCapture;
+            o.initialSamplingPercentage = initialSamplingPercentage;
+            o.kmsKeyId = kmsKeyId;
+            return o;
         }
     }
 }

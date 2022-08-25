@@ -18,63 +18,44 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
      * 
      */
-    private final @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
+    private @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
      * @return The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
      * 
      */
-    private final @Nullable Integer hecAcknowledgmentTimeout;
+    private @Nullable Integer hecAcknowledgmentTimeout;
     /**
      * @return The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
      * 
      */
-    private final String hecEndpoint;
+    private String hecEndpoint;
     /**
      * @return The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
      * 
      */
-    private final @Nullable String hecEndpointType;
+    private @Nullable String hecEndpointType;
     /**
      * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
      * 
      */
-    private final String hecToken;
+    private String hecToken;
     /**
      * @return The data processing configuration.  More details are given below.
      * 
      */
-    private final @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration;
+    private @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration;
     /**
      * @return After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
      * 
      */
-    private final @Nullable Integer retryDuration;
+    private @Nullable Integer retryDuration;
     /**
      * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
      * 
      */
-    private final @Nullable String s3BackupMode;
+    private @Nullable String s3BackupMode;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamSplunkConfiguration(
-        @CustomType.Parameter("cloudwatchLoggingOptions") @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions,
-        @CustomType.Parameter("hecAcknowledgmentTimeout") @Nullable Integer hecAcknowledgmentTimeout,
-        @CustomType.Parameter("hecEndpoint") String hecEndpoint,
-        @CustomType.Parameter("hecEndpointType") @Nullable String hecEndpointType,
-        @CustomType.Parameter("hecToken") String hecToken,
-        @CustomType.Parameter("processingConfiguration") @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration,
-        @CustomType.Parameter("retryDuration") @Nullable Integer retryDuration,
-        @CustomType.Parameter("s3BackupMode") @Nullable String s3BackupMode) {
-        this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-        this.hecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
-        this.hecEndpoint = hecEndpoint;
-        this.hecEndpointType = hecEndpointType;
-        this.hecToken = hecToken;
-        this.processingConfiguration = processingConfiguration;
-        this.retryDuration = retryDuration;
-        this.s3BackupMode = s3BackupMode;
-    }
-
+    private FirehoseDeliveryStreamSplunkConfiguration() {}
     /**
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
      * 
@@ -139,7 +120,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     public static Builder builder(FirehoseDeliveryStreamSplunkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
         private @Nullable Integer hecAcknowledgmentTimeout;
@@ -149,11 +130,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         private @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration;
         private @Nullable Integer retryDuration;
         private @Nullable String s3BackupMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamSplunkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLoggingOptions = defaults.cloudwatchLoggingOptions;
@@ -166,39 +143,57 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     	      this.s3BackupMode = defaults.s3BackupMode;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
+        @CustomType.Setter
         public Builder hecAcknowledgmentTimeout(@Nullable Integer hecAcknowledgmentTimeout) {
             this.hecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
             return this;
         }
+        @CustomType.Setter
         public Builder hecEndpoint(String hecEndpoint) {
             this.hecEndpoint = Objects.requireNonNull(hecEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder hecEndpointType(@Nullable String hecEndpointType) {
             this.hecEndpointType = hecEndpointType;
             return this;
         }
+        @CustomType.Setter
         public Builder hecToken(String hecToken) {
             this.hecToken = Objects.requireNonNull(hecToken);
             return this;
         }
+        @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration) {
             this.processingConfiguration = processingConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
             this.retryDuration = retryDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
             this.s3BackupMode = s3BackupMode;
             return this;
-        }        public FirehoseDeliveryStreamSplunkConfiguration build() {
-            return new FirehoseDeliveryStreamSplunkConfiguration(cloudwatchLoggingOptions, hecAcknowledgmentTimeout, hecEndpoint, hecEndpointType, hecToken, processingConfiguration, retryDuration, s3BackupMode);
+        }
+        public FirehoseDeliveryStreamSplunkConfiguration build() {
+            final var o = new FirehoseDeliveryStreamSplunkConfiguration();
+            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            o.hecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
+            o.hecEndpoint = hecEndpoint;
+            o.hecEndpointType = hecEndpointType;
+            o.hecToken = hecToken;
+            o.processingConfiguration = processingConfiguration;
+            o.retryDuration = retryDuration;
+            o.s3BackupMode = s3BackupMode;
+            return o;
         }
     }
 }

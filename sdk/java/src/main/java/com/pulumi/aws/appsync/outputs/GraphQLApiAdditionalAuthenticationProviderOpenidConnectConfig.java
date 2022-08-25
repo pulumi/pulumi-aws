@@ -16,35 +16,24 @@ public final class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig
      * @return Number of milliseconds a token is valid after being authenticated.
      * 
      */
-    private final @Nullable Integer authTtl;
+    private @Nullable Integer authTtl;
     /**
      * @return Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
      * 
      */
-    private final @Nullable String clientId;
+    private @Nullable String clientId;
     /**
      * @return Number of milliseconds a token is valid after being issued to a user.
      * 
      */
-    private final @Nullable Integer iatTtl;
+    private @Nullable Integer iatTtl;
     /**
      * @return Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
      * 
      */
-    private final String issuer;
+    private String issuer;
 
-    @CustomType.Constructor
-    private GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(
-        @CustomType.Parameter("authTtl") @Nullable Integer authTtl,
-        @CustomType.Parameter("clientId") @Nullable String clientId,
-        @CustomType.Parameter("iatTtl") @Nullable Integer iatTtl,
-        @CustomType.Parameter("issuer") String issuer) {
-        this.authTtl = authTtl;
-        this.clientId = clientId;
-        this.iatTtl = iatTtl;
-        this.issuer = issuer;
-    }
-
+    private GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig() {}
     /**
      * @return Number of milliseconds a token is valid after being authenticated.
      * 
@@ -81,17 +70,13 @@ public final class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig
     public static Builder builder(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer authTtl;
         private @Nullable String clientId;
         private @Nullable Integer iatTtl;
         private String issuer;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authTtl = defaults.authTtl;
@@ -100,23 +85,33 @@ public final class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig
     	      this.issuer = defaults.issuer;
         }
 
+        @CustomType.Setter
         public Builder authTtl(@Nullable Integer authTtl) {
             this.authTtl = authTtl;
             return this;
         }
+        @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
             this.clientId = clientId;
             return this;
         }
+        @CustomType.Setter
         public Builder iatTtl(@Nullable Integer iatTtl) {
             this.iatTtl = iatTtl;
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
-        }        public GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig build() {
-            return new GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(authTtl, clientId, iatTtl, issuer);
+        }
+        public GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig build() {
+            final var o = new GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig();
+            o.authTtl = authTtl;
+            o.clientId = clientId;
+            o.iatTtl = iatTtl;
+            o.issuer = issuer;
+            return o;
         }
     }
 }

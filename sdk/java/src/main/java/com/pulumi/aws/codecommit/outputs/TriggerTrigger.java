@@ -16,42 +16,29 @@ public final class TriggerTrigger {
      * @return The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
      * 
      */
-    private final @Nullable List<String> branches;
+    private @Nullable List<String> branches;
     /**
      * @return Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
      * 
      */
-    private final @Nullable String customData;
+    private @Nullable String customData;
     /**
      * @return The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
      * 
      */
-    private final String destinationArn;
+    private String destinationArn;
     /**
      * @return The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
      * 
      */
-    private final List<String> events;
+    private List<String> events;
     /**
      * @return The name of the trigger.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private TriggerTrigger(
-        @CustomType.Parameter("branches") @Nullable List<String> branches,
-        @CustomType.Parameter("customData") @Nullable String customData,
-        @CustomType.Parameter("destinationArn") String destinationArn,
-        @CustomType.Parameter("events") List<String> events,
-        @CustomType.Parameter("name") String name) {
-        this.branches = branches;
-        this.customData = customData;
-        this.destinationArn = destinationArn;
-        this.events = events;
-        this.name = name;
-    }
-
+    private TriggerTrigger() {}
     /**
      * @return The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
      * 
@@ -95,18 +82,14 @@ public final class TriggerTrigger {
     public static Builder builder(TriggerTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> branches;
         private @Nullable String customData;
         private String destinationArn;
         private List<String> events;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.branches = defaults.branches;
@@ -116,6 +99,7 @@ public final class TriggerTrigger {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder branches(@Nullable List<String> branches) {
             this.branches = branches;
             return this;
@@ -123,14 +107,17 @@ public final class TriggerTrigger {
         public Builder branches(String... branches) {
             return branches(List.of(branches));
         }
+        @CustomType.Setter
         public Builder customData(@Nullable String customData) {
             this.customData = customData;
             return this;
         }
+        @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
             this.destinationArn = Objects.requireNonNull(destinationArn);
             return this;
         }
+        @CustomType.Setter
         public Builder events(List<String> events) {
             this.events = Objects.requireNonNull(events);
             return this;
@@ -138,11 +125,19 @@ public final class TriggerTrigger {
         public Builder events(String... events) {
             return events(List.of(events));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public TriggerTrigger build() {
-            return new TriggerTrigger(branches, customData, destinationArn, events, name);
+        }
+        public TriggerTrigger build() {
+            final var o = new TriggerTrigger();
+            o.branches = branches;
+            o.customData = customData;
+            o.destinationArn = destinationArn;
+            o.events = events;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class GetClusterShardNodeEndpoint {
      * @return DNS hostname of the node.
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return Port number that this node is listening on.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private GetClusterShardNodeEndpoint(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("port") Integer port) {
-        this.address = address;
-        this.port = port;
-    }
-
+    private GetClusterShardNodeEndpoint() {}
     /**
      * @return DNS hostname of the node.
      * 
@@ -51,30 +44,32 @@ public final class GetClusterShardNodeEndpoint {
     public static Builder builder(GetClusterShardNodeEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterShardNodeEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public GetClusterShardNodeEndpoint build() {
-            return new GetClusterShardNodeEndpoint(address, port);
+        }
+        public GetClusterShardNodeEndpoint build() {
+            final var o = new GetClusterShardNodeEndpoint();
+            o.address = address;
+            o.port = port;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class DeviceLocation {
      * @return The physical address.
      * 
      */
-    private final @Nullable String address;
+    private @Nullable String address;
     /**
      * @return The latitude.
      * 
      */
-    private final @Nullable String latitude;
+    private @Nullable String latitude;
     /**
      * @return The longitude.
      * 
      */
-    private final @Nullable String longitude;
+    private @Nullable String longitude;
 
-    @CustomType.Constructor
-    private DeviceLocation(
-        @CustomType.Parameter("address") @Nullable String address,
-        @CustomType.Parameter("latitude") @Nullable String latitude,
-        @CustomType.Parameter("longitude") @Nullable String longitude) {
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
+    private DeviceLocation() {}
     /**
      * @return The physical address.
      * 
@@ -66,16 +57,12 @@ public final class DeviceLocation {
     public static Builder builder(DeviceLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String address;
         private @Nullable String latitude;
         private @Nullable String longitude;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeviceLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -83,19 +70,27 @@ public final class DeviceLocation {
     	      this.longitude = defaults.longitude;
         }
 
+        @CustomType.Setter
         public Builder address(@Nullable String address) {
             this.address = address;
             return this;
         }
+        @CustomType.Setter
         public Builder latitude(@Nullable String latitude) {
             this.latitude = latitude;
             return this;
         }
+        @CustomType.Setter
         public Builder longitude(@Nullable String longitude) {
             this.longitude = longitude;
             return this;
-        }        public DeviceLocation build() {
-            return new DeviceLocation(address, latitude, longitude);
+        }
+        public DeviceLocation build() {
+            final var o = new DeviceLocation();
+            o.address = address;
+            o.latitude = latitude;
+            o.longitude = longitude;
+            return o;
         }
     }
 }

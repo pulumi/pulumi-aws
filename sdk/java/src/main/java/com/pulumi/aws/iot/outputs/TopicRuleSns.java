@@ -15,28 +15,19 @@ public final class TopicRuleSns {
      * @return The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
      * 
      */
-    private final @Nullable String messageFormat;
+    private @Nullable String messageFormat;
     /**
      * @return The ARN of the IAM role that grants access.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The ARN of the SNS topic.
      * 
      */
-    private final String targetArn;
+    private String targetArn;
 
-    @CustomType.Constructor
-    private TopicRuleSns(
-        @CustomType.Parameter("messageFormat") @Nullable String messageFormat,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("targetArn") String targetArn) {
-        this.messageFormat = messageFormat;
-        this.roleArn = roleArn;
-        this.targetArn = targetArn;
-    }
-
+    private TopicRuleSns() {}
     /**
      * @return The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
      * 
@@ -66,16 +57,12 @@ public final class TopicRuleSns {
     public static Builder builder(TopicRuleSns defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String messageFormat;
         private String roleArn;
         private String targetArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleSns defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.messageFormat = defaults.messageFormat;
@@ -83,19 +70,27 @@ public final class TopicRuleSns {
     	      this.targetArn = defaults.targetArn;
         }
 
+        @CustomType.Setter
         public Builder messageFormat(@Nullable String messageFormat) {
             this.messageFormat = messageFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder targetArn(String targetArn) {
             this.targetArn = Objects.requireNonNull(targetArn);
             return this;
-        }        public TopicRuleSns build() {
-            return new TopicRuleSns(messageFormat, roleArn, targetArn);
+        }
+        public TopicRuleSns build() {
+            final var o = new TopicRuleSns();
+            o.messageFormat = messageFormat;
+            o.roleArn = roleArn;
+            o.targetArn = targetArn;
+            return o;
         }
     }
 }

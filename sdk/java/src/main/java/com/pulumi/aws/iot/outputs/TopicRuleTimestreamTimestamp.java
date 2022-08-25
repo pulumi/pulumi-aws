@@ -13,21 +13,14 @@ public final class TopicRuleTimestreamTimestamp {
      * @return The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
      * 
      */
-    private final String unit;
+    private String unit;
     /**
      * @return The value of the HTTP header.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private TopicRuleTimestreamTimestamp(
-        @CustomType.Parameter("unit") String unit,
-        @CustomType.Parameter("value") String value) {
-        this.unit = unit;
-        this.value = value;
-    }
-
+    private TopicRuleTimestreamTimestamp() {}
     /**
      * @return The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
      * 
@@ -50,30 +43,32 @@ public final class TopicRuleTimestreamTimestamp {
     public static Builder builder(TopicRuleTimestreamTimestamp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String unit;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleTimestreamTimestamp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.unit = defaults.unit;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder unit(String unit) {
             this.unit = Objects.requireNonNull(unit);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public TopicRuleTimestreamTimestamp build() {
-            return new TopicRuleTimestreamTimestamp(unit, value);
+        }
+        public TopicRuleTimestreamTimestamp build() {
+            final var o = new TopicRuleTimestreamTimestamp();
+            o.unit = unit;
+            o.value = value;
+            return o;
         }
     }
 }

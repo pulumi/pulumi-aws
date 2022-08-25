@@ -17,49 +17,34 @@ public final class ExperimentTemplateTarget {
      * @return Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
      * 
      */
-    private final @Nullable List<ExperimentTemplateTargetFilter> filters;
+    private @Nullable List<ExperimentTemplateTargetFilter> filters;
     /**
      * @return Friendly name given to the target.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
      * 
      */
-    private final @Nullable List<String> resourceArns;
+    private @Nullable List<String> resourceArns;
     /**
      * @return Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
      * 
      */
-    private final @Nullable List<ExperimentTemplateTargetResourceTag> resourceTags;
+    private @Nullable List<ExperimentTemplateTargetResourceTag> resourceTags;
     /**
      * @return AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
      * 
      */
-    private final String resourceType;
+    private String resourceType;
     /**
      * @return Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
      * 
      */
-    private final String selectionMode;
+    private String selectionMode;
 
-    @CustomType.Constructor
-    private ExperimentTemplateTarget(
-        @CustomType.Parameter("filters") @Nullable List<ExperimentTemplateTargetFilter> filters,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceArns") @Nullable List<String> resourceArns,
-        @CustomType.Parameter("resourceTags") @Nullable List<ExperimentTemplateTargetResourceTag> resourceTags,
-        @CustomType.Parameter("resourceType") String resourceType,
-        @CustomType.Parameter("selectionMode") String selectionMode) {
-        this.filters = filters;
-        this.name = name;
-        this.resourceArns = resourceArns;
-        this.resourceTags = resourceTags;
-        this.resourceType = resourceType;
-        this.selectionMode = selectionMode;
-    }
-
+    private ExperimentTemplateTarget() {}
     /**
      * @return Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
      * 
@@ -110,7 +95,7 @@ public final class ExperimentTemplateTarget {
     public static Builder builder(ExperimentTemplateTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ExperimentTemplateTargetFilter> filters;
         private String name;
@@ -118,11 +103,7 @@ public final class ExperimentTemplateTarget {
         private @Nullable List<ExperimentTemplateTargetResourceTag> resourceTags;
         private String resourceType;
         private String selectionMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExperimentTemplateTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -133,6 +114,7 @@ public final class ExperimentTemplateTarget {
     	      this.selectionMode = defaults.selectionMode;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<ExperimentTemplateTargetFilter> filters) {
             this.filters = filters;
             return this;
@@ -140,10 +122,12 @@ public final class ExperimentTemplateTarget {
         public Builder filters(ExperimentTemplateTargetFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceArns(@Nullable List<String> resourceArns) {
             this.resourceArns = resourceArns;
             return this;
@@ -151,6 +135,7 @@ public final class ExperimentTemplateTarget {
         public Builder resourceArns(String... resourceArns) {
             return resourceArns(List.of(resourceArns));
         }
+        @CustomType.Setter
         public Builder resourceTags(@Nullable List<ExperimentTemplateTargetResourceTag> resourceTags) {
             this.resourceTags = resourceTags;
             return this;
@@ -158,15 +143,25 @@ public final class ExperimentTemplateTarget {
         public Builder resourceTags(ExperimentTemplateTargetResourceTag... resourceTags) {
             return resourceTags(List.of(resourceTags));
         }
+        @CustomType.Setter
         public Builder resourceType(String resourceType) {
             this.resourceType = Objects.requireNonNull(resourceType);
             return this;
         }
+        @CustomType.Setter
         public Builder selectionMode(String selectionMode) {
             this.selectionMode = Objects.requireNonNull(selectionMode);
             return this;
-        }        public ExperimentTemplateTarget build() {
-            return new ExperimentTemplateTarget(filters, name, resourceArns, resourceTags, resourceType, selectionMode);
+        }
+        public ExperimentTemplateTarget build() {
+            final var o = new ExperimentTemplateTarget();
+            o.filters = filters;
+            o.name = name;
+            o.resourceArns = resourceArns;
+            o.resourceTags = resourceTags;
+            o.resourceType = resourceType;
+            o.selectionMode = selectionMode;
+            return o;
         }
     }
 }

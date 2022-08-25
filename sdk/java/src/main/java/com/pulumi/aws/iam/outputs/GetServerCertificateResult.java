@@ -12,48 +12,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerCertificateResult {
-    private final String arn;
-    private final String certificateBody;
-    private final String certificateChain;
-    private final String expirationDate;
+    private String arn;
+    private String certificateBody;
+    private String certificateChain;
+    private String expirationDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean latest;
-    private final String name;
-    private final @Nullable String namePrefix;
-    private final String path;
-    private final @Nullable String pathPrefix;
-    private final String uploadDate;
+    private String id;
+    private @Nullable Boolean latest;
+    private String name;
+    private @Nullable String namePrefix;
+    private String path;
+    private @Nullable String pathPrefix;
+    private String uploadDate;
 
-    @CustomType.Constructor
-    private GetServerCertificateResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("certificateBody") String certificateBody,
-        @CustomType.Parameter("certificateChain") String certificateChain,
-        @CustomType.Parameter("expirationDate") String expirationDate,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("latest") @Nullable Boolean latest,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namePrefix") @Nullable String namePrefix,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("pathPrefix") @Nullable String pathPrefix,
-        @CustomType.Parameter("uploadDate") String uploadDate) {
-        this.arn = arn;
-        this.certificateBody = certificateBody;
-        this.certificateChain = certificateChain;
-        this.expirationDate = expirationDate;
-        this.id = id;
-        this.latest = latest;
-        this.name = name;
-        this.namePrefix = namePrefix;
-        this.path = path;
-        this.pathPrefix = pathPrefix;
-        this.uploadDate = uploadDate;
-    }
-
+    private GetServerCertificateResult() {}
     public String arn() {
         return this.arn;
     }
@@ -99,7 +74,7 @@ public final class GetServerCertificateResult {
     public static Builder builder(GetServerCertificateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String certificateBody;
@@ -112,11 +87,7 @@ public final class GetServerCertificateResult {
         private String path;
         private @Nullable String pathPrefix;
         private String uploadDate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServerCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -132,51 +103,75 @@ public final class GetServerCertificateResult {
     	      this.uploadDate = defaults.uploadDate;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateBody(String certificateBody) {
             this.certificateBody = Objects.requireNonNull(certificateBody);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
             this.certificateChain = Objects.requireNonNull(certificateChain);
             return this;
         }
+        @CustomType.Setter
         public Builder expirationDate(String expirationDate) {
             this.expirationDate = Objects.requireNonNull(expirationDate);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder latest(@Nullable Boolean latest) {
             this.latest = latest;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namePrefix(@Nullable String namePrefix) {
             this.namePrefix = namePrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder pathPrefix(@Nullable String pathPrefix) {
             this.pathPrefix = pathPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder uploadDate(String uploadDate) {
             this.uploadDate = Objects.requireNonNull(uploadDate);
             return this;
-        }        public GetServerCertificateResult build() {
-            return new GetServerCertificateResult(arn, certificateBody, certificateChain, expirationDate, id, latest, name, namePrefix, path, pathPrefix, uploadDate);
+        }
+        public GetServerCertificateResult build() {
+            final var o = new GetServerCertificateResult();
+            o.arn = arn;
+            o.certificateBody = certificateBody;
+            o.certificateChain = certificateChain;
+            o.expirationDate = expirationDate;
+            o.id = id;
+            o.latest = latest;
+            o.name = name;
+            o.namePrefix = namePrefix;
+            o.path = path;
+            o.pathPrefix = pathPrefix;
+            o.uploadDate = uploadDate;
+            return o;
         }
     }
 }

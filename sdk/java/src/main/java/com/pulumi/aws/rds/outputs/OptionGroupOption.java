@@ -18,49 +18,34 @@ public final class OptionGroupOption {
      * @return A list of DB Security Groups for which the option is enabled.
      * 
      */
-    private final @Nullable List<String> dbSecurityGroupMemberships;
+    private @Nullable List<String> dbSecurityGroupMemberships;
     /**
      * @return The Name of the Option (e.g., MEMCACHED).
      * 
      */
-    private final String optionName;
+    private String optionName;
     /**
      * @return A list of option settings to apply.
      * 
      */
-    private final @Nullable List<OptionGroupOptionOptionSetting> optionSettings;
+    private @Nullable List<OptionGroupOptionOptionSetting> optionSettings;
     /**
      * @return The Port number when connecting to the Option (e.g., 11211).
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return The version of the option (e.g., 13.1.0.0).
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
     /**
      * @return A list of VPC Security Groups for which the option is enabled.
      * 
      */
-    private final @Nullable List<String> vpcSecurityGroupMemberships;
+    private @Nullable List<String> vpcSecurityGroupMemberships;
 
-    @CustomType.Constructor
-    private OptionGroupOption(
-        @CustomType.Parameter("dbSecurityGroupMemberships") @Nullable List<String> dbSecurityGroupMemberships,
-        @CustomType.Parameter("optionName") String optionName,
-        @CustomType.Parameter("optionSettings") @Nullable List<OptionGroupOptionOptionSetting> optionSettings,
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("version") @Nullable String version,
-        @CustomType.Parameter("vpcSecurityGroupMemberships") @Nullable List<String> vpcSecurityGroupMemberships) {
-        this.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
-        this.optionName = optionName;
-        this.optionSettings = optionSettings;
-        this.port = port;
-        this.version = version;
-        this.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
-    }
-
+    private OptionGroupOption() {}
     /**
      * @return A list of DB Security Groups for which the option is enabled.
      * 
@@ -111,7 +96,7 @@ public final class OptionGroupOption {
     public static Builder builder(OptionGroupOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> dbSecurityGroupMemberships;
         private String optionName;
@@ -119,11 +104,7 @@ public final class OptionGroupOption {
         private @Nullable Integer port;
         private @Nullable String version;
         private @Nullable List<String> vpcSecurityGroupMemberships;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OptionGroupOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dbSecurityGroupMemberships = defaults.dbSecurityGroupMemberships;
@@ -134,6 +115,7 @@ public final class OptionGroupOption {
     	      this.vpcSecurityGroupMemberships = defaults.vpcSecurityGroupMemberships;
         }
 
+        @CustomType.Setter
         public Builder dbSecurityGroupMemberships(@Nullable List<String> dbSecurityGroupMemberships) {
             this.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
             return this;
@@ -141,10 +123,12 @@ public final class OptionGroupOption {
         public Builder dbSecurityGroupMemberships(String... dbSecurityGroupMemberships) {
             return dbSecurityGroupMemberships(List.of(dbSecurityGroupMemberships));
         }
+        @CustomType.Setter
         public Builder optionName(String optionName) {
             this.optionName = Objects.requireNonNull(optionName);
             return this;
         }
+        @CustomType.Setter
         public Builder optionSettings(@Nullable List<OptionGroupOptionOptionSetting> optionSettings) {
             this.optionSettings = optionSettings;
             return this;
@@ -152,22 +136,33 @@ public final class OptionGroupOption {
         public Builder optionSettings(OptionGroupOptionOptionSetting... optionSettings) {
             return optionSettings(List.of(optionSettings));
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcSecurityGroupMemberships(@Nullable List<String> vpcSecurityGroupMemberships) {
             this.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
             return this;
         }
         public Builder vpcSecurityGroupMemberships(String... vpcSecurityGroupMemberships) {
             return vpcSecurityGroupMemberships(List.of(vpcSecurityGroupMemberships));
-        }        public OptionGroupOption build() {
-            return new OptionGroupOption(dbSecurityGroupMemberships, optionName, optionSettings, port, version, vpcSecurityGroupMemberships);
+        }
+        public OptionGroupOption build() {
+            final var o = new OptionGroupOption();
+            o.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
+            o.optionName = optionName;
+            o.optionSettings = optionSettings;
+            o.port = port;
+            o.version = version;
+            o.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
+            return o;
         }
     }
 }

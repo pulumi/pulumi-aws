@@ -16,35 +16,24 @@ public final class DomainCognitoOptions {
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return ID of the Cognito Identity Pool to use.
      * 
      */
-    private final String identityPoolId;
+    private String identityPoolId;
     /**
      * @return ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return ID of the Cognito User Pool to use.
      * 
      */
-    private final String userPoolId;
+    private String userPoolId;
 
-    @CustomType.Constructor
-    private DomainCognitoOptions(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("identityPoolId") String identityPoolId,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("userPoolId") String userPoolId) {
-        this.enabled = enabled;
-        this.identityPoolId = identityPoolId;
-        this.roleArn = roleArn;
-        this.userPoolId = userPoolId;
-    }
-
+    private DomainCognitoOptions() {}
     /**
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
@@ -81,17 +70,13 @@ public final class DomainCognitoOptions {
     public static Builder builder(DomainCognitoOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private String identityPoolId;
         private String roleArn;
         private String userPoolId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainCognitoOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -100,23 +85,33 @@ public final class DomainCognitoOptions {
     	      this.userPoolId = defaults.userPoolId;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder identityPoolId(String identityPoolId) {
             this.identityPoolId = Objects.requireNonNull(identityPoolId);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             this.userPoolId = Objects.requireNonNull(userPoolId);
             return this;
-        }        public DomainCognitoOptions build() {
-            return new DomainCognitoOptions(enabled, identityPoolId, roleArn, userPoolId);
+        }
+        public DomainCognitoOptions build() {
+            final var o = new DomainCognitoOptions();
+            o.enabled = enabled;
+            o.identityPoolId = identityPoolId;
+            o.roleArn = roleArn;
+            o.userPoolId = userPoolId;
+            return o;
         }
     }
 }

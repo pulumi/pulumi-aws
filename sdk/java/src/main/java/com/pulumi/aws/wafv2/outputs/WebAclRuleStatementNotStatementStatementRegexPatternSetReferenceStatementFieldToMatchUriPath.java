@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
-    @CustomType.Constructor
-    private WebAclRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath() {
-    }
-
+    private WebAclRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleStatementNotStatementStatementRegexPatternSetRefere
     public static Builder builder(WebAclRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath build() {
-            return new WebAclRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath();
+            final var o = new WebAclRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath();
+            return o;
         }
     }
 }

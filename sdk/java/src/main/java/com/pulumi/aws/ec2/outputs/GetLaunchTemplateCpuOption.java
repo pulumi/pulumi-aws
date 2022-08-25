@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateCpuOption {
-    private final Integer coreCount;
-    private final Integer threadsPerCore;
+    private Integer coreCount;
+    private Integer threadsPerCore;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateCpuOption(
-        @CustomType.Parameter("coreCount") Integer coreCount,
-        @CustomType.Parameter("threadsPerCore") Integer threadsPerCore) {
-        this.coreCount = coreCount;
-        this.threadsPerCore = threadsPerCore;
-    }
-
+    private GetLaunchTemplateCpuOption() {}
     public Integer coreCount() {
         return this.coreCount;
     }
@@ -34,30 +27,32 @@ public final class GetLaunchTemplateCpuOption {
     public static Builder builder(GetLaunchTemplateCpuOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer coreCount;
         private Integer threadsPerCore;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateCpuOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.coreCount = defaults.coreCount;
     	      this.threadsPerCore = defaults.threadsPerCore;
         }
 
+        @CustomType.Setter
         public Builder coreCount(Integer coreCount) {
             this.coreCount = Objects.requireNonNull(coreCount);
             return this;
         }
+        @CustomType.Setter
         public Builder threadsPerCore(Integer threadsPerCore) {
             this.threadsPerCore = Objects.requireNonNull(threadsPerCore);
             return this;
-        }        public GetLaunchTemplateCpuOption build() {
-            return new GetLaunchTemplateCpuOption(coreCount, threadsPerCore);
+        }
+        public GetLaunchTemplateCpuOption build() {
+            final var o = new GetLaunchTemplateCpuOption();
+            o.coreCount = coreCount;
+            o.threadsPerCore = threadsPerCore;
+            return o;
         }
     }
 }

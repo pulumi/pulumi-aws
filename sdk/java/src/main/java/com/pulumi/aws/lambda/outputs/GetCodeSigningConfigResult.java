@@ -16,52 +16,35 @@ public final class GetCodeSigningConfigResult {
      * @return List of allowed publishers as signing profiles for this code signing configuration.
      * 
      */
-    private final List<GetCodeSigningConfigAllowedPublisher> allowedPublishers;
-    private final String arn;
+    private List<GetCodeSigningConfigAllowedPublisher> allowedPublishers;
+    private String arn;
     /**
      * @return Unique identifier for the code signing configuration.
      * 
      */
-    private final String configId;
+    private String configId;
     /**
      * @return Code signing configuration description.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The date and time that the code signing configuration was last modified.
      * 
      */
-    private final String lastModified;
+    private String lastModified;
     /**
      * @return List of code signing policies that control the validation failure action for signature mismatch or expiry.
      * 
      */
-    private final List<GetCodeSigningConfigPolicy> policies;
+    private List<GetCodeSigningConfigPolicy> policies;
 
-    @CustomType.Constructor
-    private GetCodeSigningConfigResult(
-        @CustomType.Parameter("allowedPublishers") List<GetCodeSigningConfigAllowedPublisher> allowedPublishers,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("configId") String configId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastModified") String lastModified,
-        @CustomType.Parameter("policies") List<GetCodeSigningConfigPolicy> policies) {
-        this.allowedPublishers = allowedPublishers;
-        this.arn = arn;
-        this.configId = configId;
-        this.description = description;
-        this.id = id;
-        this.lastModified = lastModified;
-        this.policies = policies;
-    }
-
+    private GetCodeSigningConfigResult() {}
     /**
      * @return List of allowed publishers as signing profiles for this code signing configuration.
      * 
@@ -115,7 +98,7 @@ public final class GetCodeSigningConfigResult {
     public static Builder builder(GetCodeSigningConfigResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetCodeSigningConfigAllowedPublisher> allowedPublishers;
         private String arn;
@@ -124,11 +107,7 @@ public final class GetCodeSigningConfigResult {
         private String id;
         private String lastModified;
         private List<GetCodeSigningConfigPolicy> policies;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCodeSigningConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedPublishers = defaults.allowedPublishers;
@@ -140,6 +119,7 @@ public final class GetCodeSigningConfigResult {
     	      this.policies = defaults.policies;
         }
 
+        @CustomType.Setter
         public Builder allowedPublishers(List<GetCodeSigningConfigAllowedPublisher> allowedPublishers) {
             this.allowedPublishers = Objects.requireNonNull(allowedPublishers);
             return this;
@@ -147,34 +127,49 @@ public final class GetCodeSigningConfigResult {
         public Builder allowedPublishers(GetCodeSigningConfigAllowedPublisher... allowedPublishers) {
             return allowedPublishers(List.of(allowedPublishers));
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder configId(String configId) {
             this.configId = Objects.requireNonNull(configId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModified(String lastModified) {
             this.lastModified = Objects.requireNonNull(lastModified);
             return this;
         }
+        @CustomType.Setter
         public Builder policies(List<GetCodeSigningConfigPolicy> policies) {
             this.policies = Objects.requireNonNull(policies);
             return this;
         }
         public Builder policies(GetCodeSigningConfigPolicy... policies) {
             return policies(List.of(policies));
-        }        public GetCodeSigningConfigResult build() {
-            return new GetCodeSigningConfigResult(allowedPublishers, arn, configId, description, id, lastModified, policies);
+        }
+        public GetCodeSigningConfigResult build() {
+            final var o = new GetCodeSigningConfigResult();
+            o.allowedPublishers = allowedPublishers;
+            o.arn = arn;
+            o.configId = configId;
+            o.description = description;
+            o.id = id;
+            o.lastModified = lastModified;
+            o.policies = policies;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ProjectServiceCatalogProvisioningDetailsProvisioningParameter
      * @return The key that identifies a provisioning parameter.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The value of the provisioning parameter.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ProjectServiceCatalogProvisioningDetailsProvisioningParameter(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.key = key;
-        this.value = value;
-    }
-
+    private ProjectServiceCatalogProvisioningDetailsProvisioningParameter() {}
     /**
      * @return The key that identifies a provisioning parameter.
      * 
@@ -52,30 +45,32 @@ public final class ProjectServiceCatalogProvisioningDetailsProvisioningParameter
     public static Builder builder(ProjectServiceCatalogProvisioningDetailsProvisioningParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectServiceCatalogProvisioningDetailsProvisioningParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ProjectServiceCatalogProvisioningDetailsProvisioningParameter build() {
-            return new ProjectServiceCatalogProvisioningDetailsProvisioningParameter(key, value);
+        }
+        public ProjectServiceCatalogProvisioningDetailsProvisioningParameter build() {
+            final var o = new ProjectServiceCatalogProvisioningDetailsProvisioningParameter();
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -14,13 +14,9 @@ public final class BucketV2ServerSideEncryptionConfiguration {
      * @return A single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    private final List<BucketV2ServerSideEncryptionConfigurationRule> rules;
+    private List<BucketV2ServerSideEncryptionConfigurationRule> rules;
 
-    @CustomType.Constructor
-    private BucketV2ServerSideEncryptionConfiguration(@CustomType.Parameter("rules") List<BucketV2ServerSideEncryptionConfigurationRule> rules) {
-        this.rules = rules;
-    }
-
+    private BucketV2ServerSideEncryptionConfiguration() {}
     /**
      * @return A single object for server-side encryption by default configuration. (documented below)
      * 
@@ -36,27 +32,27 @@ public final class BucketV2ServerSideEncryptionConfiguration {
     public static Builder builder(BucketV2ServerSideEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<BucketV2ServerSideEncryptionConfigurationRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2ServerSideEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder rules(List<BucketV2ServerSideEncryptionConfigurationRule> rules) {
             this.rules = Objects.requireNonNull(rules);
             return this;
         }
         public Builder rules(BucketV2ServerSideEncryptionConfigurationRule... rules) {
             return rules(List.of(rules));
-        }        public BucketV2ServerSideEncryptionConfiguration build() {
-            return new BucketV2ServerSideEncryptionConfiguration(rules);
+        }
+        public BucketV2ServerSideEncryptionConfiguration build() {
+            final var o = new BucketV2ServerSideEncryptionConfiguration();
+            o.rules = rules;
+            return o;
         }
     }
 }

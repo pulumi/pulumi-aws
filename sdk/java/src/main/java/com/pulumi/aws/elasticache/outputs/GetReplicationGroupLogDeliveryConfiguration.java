@@ -9,23 +9,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReplicationGroupLogDeliveryConfiguration {
-    private final String destination;
-    private final String destinationType;
-    private final String logFormat;
-    private final String logType;
+    private String destination;
+    private String destinationType;
+    private String logFormat;
+    private String logType;
 
-    @CustomType.Constructor
-    private GetReplicationGroupLogDeliveryConfiguration(
-        @CustomType.Parameter("destination") String destination,
-        @CustomType.Parameter("destinationType") String destinationType,
-        @CustomType.Parameter("logFormat") String logFormat,
-        @CustomType.Parameter("logType") String logType) {
-        this.destination = destination;
-        this.destinationType = destinationType;
-        this.logFormat = logFormat;
-        this.logType = logType;
-    }
-
+    private GetReplicationGroupLogDeliveryConfiguration() {}
     public String destination() {
         return this.destination;
     }
@@ -46,17 +35,13 @@ public final class GetReplicationGroupLogDeliveryConfiguration {
     public static Builder builder(GetReplicationGroupLogDeliveryConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destination;
         private String destinationType;
         private String logFormat;
         private String logType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetReplicationGroupLogDeliveryConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destination = defaults.destination;
@@ -65,23 +50,33 @@ public final class GetReplicationGroupLogDeliveryConfiguration {
     	      this.logType = defaults.logType;
         }
 
+        @CustomType.Setter
         public Builder destination(String destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
         }
+        @CustomType.Setter
         public Builder destinationType(String destinationType) {
             this.destinationType = Objects.requireNonNull(destinationType);
             return this;
         }
+        @CustomType.Setter
         public Builder logFormat(String logFormat) {
             this.logFormat = Objects.requireNonNull(logFormat);
             return this;
         }
+        @CustomType.Setter
         public Builder logType(String logType) {
             this.logType = Objects.requireNonNull(logType);
             return this;
-        }        public GetReplicationGroupLogDeliveryConfiguration build() {
-            return new GetReplicationGroupLogDeliveryConfiguration(destination, destinationType, logFormat, logType);
+        }
+        public GetReplicationGroupLogDeliveryConfiguration build() {
+            final var o = new GetReplicationGroupLogDeliveryConfiguration();
+            o.destination = destination;
+            o.destinationType = destinationType;
+            o.logFormat = logFormat;
+            o.logType = logType;
+            return o;
         }
     }
 }

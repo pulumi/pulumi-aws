@@ -9,21 +9,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateIamInstanceProfile {
-    private final String arn;
+    private String arn;
     /**
      * @return The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateIamInstanceProfile(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("name") String name) {
-        this.arn = arn;
-        this.name = name;
-    }
-
+    private GetLaunchTemplateIamInstanceProfile() {}
     public String arn() {
         return this.arn;
     }
@@ -42,30 +35,32 @@ public final class GetLaunchTemplateIamInstanceProfile {
     public static Builder builder(GetLaunchTemplateIamInstanceProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateIamInstanceProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetLaunchTemplateIamInstanceProfile build() {
-            return new GetLaunchTemplateIamInstanceProfile(arn, name);
+        }
+        public GetLaunchTemplateIamInstanceProfile build() {
+            final var o = new GetLaunchTemplateIamInstanceProfile();
+            o.arn = arn;
+            o.name = name;
+            return o;
         }
     }
 }

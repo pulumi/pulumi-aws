@@ -17,21 +17,14 @@ public final class BucketV2ServerSideEncryptionConfigurationRule {
      * @return A single object for setting server-side encryption by default. (documented below)
      * 
      */
-    private final List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefaults;
+    private List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefaults;
     /**
      * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
-    private final @Nullable Boolean bucketKeyEnabled;
+    private @Nullable Boolean bucketKeyEnabled;
 
-    @CustomType.Constructor
-    private BucketV2ServerSideEncryptionConfigurationRule(
-        @CustomType.Parameter("applyServerSideEncryptionByDefaults") List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefaults,
-        @CustomType.Parameter("bucketKeyEnabled") @Nullable Boolean bucketKeyEnabled) {
-        this.applyServerSideEncryptionByDefaults = applyServerSideEncryptionByDefaults;
-        this.bucketKeyEnabled = bucketKeyEnabled;
-    }
-
+    private BucketV2ServerSideEncryptionConfigurationRule() {}
     /**
      * @return A single object for setting server-side encryption by default. (documented below)
      * 
@@ -54,21 +47,18 @@ public final class BucketV2ServerSideEncryptionConfigurationRule {
     public static Builder builder(BucketV2ServerSideEncryptionConfigurationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefaults;
         private @Nullable Boolean bucketKeyEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2ServerSideEncryptionConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applyServerSideEncryptionByDefaults = defaults.applyServerSideEncryptionByDefaults;
     	      this.bucketKeyEnabled = defaults.bucketKeyEnabled;
         }
 
+        @CustomType.Setter
         public Builder applyServerSideEncryptionByDefaults(List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefaults) {
             this.applyServerSideEncryptionByDefaults = Objects.requireNonNull(applyServerSideEncryptionByDefaults);
             return this;
@@ -76,11 +66,16 @@ public final class BucketV2ServerSideEncryptionConfigurationRule {
         public Builder applyServerSideEncryptionByDefaults(BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault... applyServerSideEncryptionByDefaults) {
             return applyServerSideEncryptionByDefaults(List.of(applyServerSideEncryptionByDefaults));
         }
+        @CustomType.Setter
         public Builder bucketKeyEnabled(@Nullable Boolean bucketKeyEnabled) {
             this.bucketKeyEnabled = bucketKeyEnabled;
             return this;
-        }        public BucketV2ServerSideEncryptionConfigurationRule build() {
-            return new BucketV2ServerSideEncryptionConfigurationRule(applyServerSideEncryptionByDefaults, bucketKeyEnabled);
+        }
+        public BucketV2ServerSideEncryptionConfigurationRule build() {
+            final var o = new BucketV2ServerSideEncryptionConfigurationRule();
+            o.applyServerSideEncryptionByDefaults = applyServerSideEncryptionByDefaults;
+            o.bucketKeyEnabled = bucketKeyEnabled;
+            return o;
         }
     }
 }

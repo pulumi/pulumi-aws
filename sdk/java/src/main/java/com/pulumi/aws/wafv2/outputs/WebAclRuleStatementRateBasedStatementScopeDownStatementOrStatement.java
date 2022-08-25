@@ -14,13 +14,9 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStat
      * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
-    private final List<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatement> statements;
+    private List<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatement> statements;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement(@CustomType.Parameter("statements") List<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement() {}
     /**
      * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStat
     public static Builder builder(WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement build() {
-            return new WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement(statements);
+        }
+        public WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement build() {
+            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
      * 
      */
-    private final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters;
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters;
     /**
      * @return The type of record format. Valid values: `CSV`, `JSON`.
      * 
      */
-    private final String recordFormatType;
+    private String recordFormatType;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat(
-        @CustomType.Parameter("mappingParameters") ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters,
-        @CustomType.Parameter("recordFormatType") String recordFormatType) {
-        this.mappingParameters = mappingParameters;
-        this.recordFormatType = recordFormatType;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat() {}
     /**
      * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
      * 
@@ -51,30 +44,32 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters;
         private String recordFormatType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mappingParameters = defaults.mappingParameters;
     	      this.recordFormatType = defaults.recordFormatType;
         }
 
+        @CustomType.Setter
         public Builder mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters) {
             this.mappingParameters = Objects.requireNonNull(mappingParameters);
             return this;
         }
+        @CustomType.Setter
         public Builder recordFormatType(String recordFormatType) {
             this.recordFormatType = Objects.requireNonNull(recordFormatType);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat(mappingParameters, recordFormatType);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat();
+            o.mappingParameters = mappingParameters;
+            o.recordFormatType = recordFormatType;
+            return o;
         }
     }
 }

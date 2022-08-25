@@ -15,13 +15,9 @@ public final class ResolverPipelineConfig {
      * @return The list of Function ID.
      * 
      */
-    private final @Nullable List<String> functions;
+    private @Nullable List<String> functions;
 
-    @CustomType.Constructor
-    private ResolverPipelineConfig(@CustomType.Parameter("functions") @Nullable List<String> functions) {
-        this.functions = functions;
-    }
-
+    private ResolverPipelineConfig() {}
     /**
      * @return The list of Function ID.
      * 
@@ -37,27 +33,27 @@ public final class ResolverPipelineConfig {
     public static Builder builder(ResolverPipelineConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> functions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResolverPipelineConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functions = defaults.functions;
         }
 
+        @CustomType.Setter
         public Builder functions(@Nullable List<String> functions) {
             this.functions = functions;
             return this;
         }
         public Builder functions(String... functions) {
             return functions(List.of(functions));
-        }        public ResolverPipelineConfig build() {
-            return new ResolverPipelineConfig(functions);
+        }
+        public ResolverPipelineConfig build() {
+            final var o = new ResolverPipelineConfig();
+            o.functions = functions;
+            return o;
         }
     }
 }

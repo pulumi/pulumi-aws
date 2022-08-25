@@ -16,21 +16,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
      * @return A local file certificate.
      * 
      */
-    private final @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile file;
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile file;
     /**
      * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private final @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds sds;
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds sds;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(
-        @CustomType.Parameter("file") @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile file,
-        @CustomType.Parameter("sds") @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds sds) {
-        this.file = file;
-        this.sds = sds;
-    }
-
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate() {}
     /**
      * @return A local file certificate.
      * 
@@ -53,30 +46,32 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
     public static Builder builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile file;
         private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds sds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.file = defaults.file;
     	      this.sds = defaults.sds;
         }
 
+        @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile file) {
             this.file = file;
             return this;
         }
+        @CustomType.Setter
         public Builder sds(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds sds) {
             this.sds = sds;
             return this;
-        }        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate build() {
-            return new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(file, sds);
+        }
+        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate build() {
+            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate();
+            o.file = file;
+            o.sds = sds;
+            return o;
         }
     }
 }

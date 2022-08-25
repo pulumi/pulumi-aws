@@ -16,21 +16,14 @@ public final class RouteSpecGrpcRouteTimeout {
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private final @Nullable RouteSpecGrpcRouteTimeoutIdle idle;
+    private @Nullable RouteSpecGrpcRouteTimeoutIdle idle;
     /**
      * @return The per request timeout.
      * 
      */
-    private final @Nullable RouteSpecGrpcRouteTimeoutPerRequest perRequest;
+    private @Nullable RouteSpecGrpcRouteTimeoutPerRequest perRequest;
 
-    @CustomType.Constructor
-    private RouteSpecGrpcRouteTimeout(
-        @CustomType.Parameter("idle") @Nullable RouteSpecGrpcRouteTimeoutIdle idle,
-        @CustomType.Parameter("perRequest") @Nullable RouteSpecGrpcRouteTimeoutPerRequest perRequest) {
-        this.idle = idle;
-        this.perRequest = perRequest;
-    }
-
+    private RouteSpecGrpcRouteTimeout() {}
     /**
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
@@ -53,30 +46,32 @@ public final class RouteSpecGrpcRouteTimeout {
     public static Builder builder(RouteSpecGrpcRouteTimeout defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RouteSpecGrpcRouteTimeoutIdle idle;
         private @Nullable RouteSpecGrpcRouteTimeoutPerRequest perRequest;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecGrpcRouteTimeout defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.idle = defaults.idle;
     	      this.perRequest = defaults.perRequest;
         }
 
+        @CustomType.Setter
         public Builder idle(@Nullable RouteSpecGrpcRouteTimeoutIdle idle) {
             this.idle = idle;
             return this;
         }
+        @CustomType.Setter
         public Builder perRequest(@Nullable RouteSpecGrpcRouteTimeoutPerRequest perRequest) {
             this.perRequest = perRequest;
             return this;
-        }        public RouteSpecGrpcRouteTimeout build() {
-            return new RouteSpecGrpcRouteTimeout(idle, perRequest);
+        }
+        public RouteSpecGrpcRouteTimeout build() {
+            final var o = new RouteSpecGrpcRouteTimeout();
+            o.idle = idle;
+            o.perRequest = perRequest;
+            return o;
         }
     }
 }

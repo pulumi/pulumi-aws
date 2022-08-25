@@ -16,69 +16,46 @@ public final class GetLinkResult {
      * @return The ARN of the link.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The upload speed and download speed of the link as documented below
      * 
      */
-    private final List<GetLinkBandwidth> bandwidths;
+    private List<GetLinkBandwidth> bandwidths;
     /**
      * @return The description of the link.
      * 
      */
-    private final String description;
-    private final String globalNetworkId;
+    private String description;
+    private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String linkId;
+    private String id;
+    private String linkId;
     /**
      * @return The provider of the link.
      * 
      */
-    private final String providerName;
+    private String providerName;
     /**
      * @return The ID of the site.
      * 
      */
-    private final String siteId;
+    private String siteId;
     /**
      * @return Key-value tags for the link.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The type of the link.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetLinkResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("bandwidths") List<GetLinkBandwidth> bandwidths,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("globalNetworkId") String globalNetworkId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("linkId") String linkId,
-        @CustomType.Parameter("providerName") String providerName,
-        @CustomType.Parameter("siteId") String siteId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type) {
-        this.arn = arn;
-        this.bandwidths = bandwidths;
-        this.description = description;
-        this.globalNetworkId = globalNetworkId;
-        this.id = id;
-        this.linkId = linkId;
-        this.providerName = providerName;
-        this.siteId = siteId;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private GetLinkResult() {}
     /**
      * @return The ARN of the link.
      * 
@@ -149,7 +126,7 @@ public final class GetLinkResult {
     public static Builder builder(GetLinkResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetLinkBandwidth> bandwidths;
@@ -161,11 +138,7 @@ public final class GetLinkResult {
         private String siteId;
         private Map<String,String> tags;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -180,10 +153,12 @@ public final class GetLinkResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder bandwidths(List<GetLinkBandwidth> bandwidths) {
             this.bandwidths = Objects.requireNonNull(bandwidths);
             return this;
@@ -191,39 +166,59 @@ public final class GetLinkResult {
         public Builder bandwidths(GetLinkBandwidth... bandwidths) {
             return bandwidths(List.of(bandwidths));
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
             this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder linkId(String linkId) {
             this.linkId = Objects.requireNonNull(linkId);
             return this;
         }
+        @CustomType.Setter
         public Builder providerName(String providerName) {
             this.providerName = Objects.requireNonNull(providerName);
             return this;
         }
+        @CustomType.Setter
         public Builder siteId(String siteId) {
             this.siteId = Objects.requireNonNull(siteId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetLinkResult build() {
-            return new GetLinkResult(arn, bandwidths, description, globalNetworkId, id, linkId, providerName, siteId, tags, type);
+        }
+        public GetLinkResult build() {
+            final var o = new GetLinkResult();
+            o.arn = arn;
+            o.bandwidths = bandwidths;
+            o.description = description;
+            o.globalNetworkId = globalNetworkId;
+            o.id = id;
+            o.linkId = linkId;
+            o.providerName = providerName;
+            o.siteId = siteId;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

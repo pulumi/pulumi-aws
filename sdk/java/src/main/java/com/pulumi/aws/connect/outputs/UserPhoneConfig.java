@@ -17,35 +17,24 @@ public final class UserPhoneConfig {
      * @return The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
      * 
      */
-    private final @Nullable Integer afterContactWorkTimeLimit;
+    private @Nullable Integer afterContactWorkTimeLimit;
     /**
      * @return When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
      * 
      */
-    private final @Nullable Boolean autoAccept;
+    private @Nullable Boolean autoAccept;
     /**
      * @return The phone number for the user&#39;s desk phone. Required if `phone_type` is set as `DESK_PHONE`.
      * 
      */
-    private final @Nullable String deskPhoneNumber;
+    private @Nullable String deskPhoneNumber;
     /**
      * @return The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
      * 
      */
-    private final String phoneType;
+    private String phoneType;
 
-    @CustomType.Constructor
-    private UserPhoneConfig(
-        @CustomType.Parameter("afterContactWorkTimeLimit") @Nullable Integer afterContactWorkTimeLimit,
-        @CustomType.Parameter("autoAccept") @Nullable Boolean autoAccept,
-        @CustomType.Parameter("deskPhoneNumber") @Nullable String deskPhoneNumber,
-        @CustomType.Parameter("phoneType") String phoneType) {
-        this.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
-        this.autoAccept = autoAccept;
-        this.deskPhoneNumber = deskPhoneNumber;
-        this.phoneType = phoneType;
-    }
-
+    private UserPhoneConfig() {}
     /**
      * @return The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
      * 
@@ -82,17 +71,13 @@ public final class UserPhoneConfig {
     public static Builder builder(UserPhoneConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer afterContactWorkTimeLimit;
         private @Nullable Boolean autoAccept;
         private @Nullable String deskPhoneNumber;
         private String phoneType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPhoneConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.afterContactWorkTimeLimit = defaults.afterContactWorkTimeLimit;
@@ -101,23 +86,33 @@ public final class UserPhoneConfig {
     	      this.phoneType = defaults.phoneType;
         }
 
+        @CustomType.Setter
         public Builder afterContactWorkTimeLimit(@Nullable Integer afterContactWorkTimeLimit) {
             this.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder autoAccept(@Nullable Boolean autoAccept) {
             this.autoAccept = autoAccept;
             return this;
         }
+        @CustomType.Setter
         public Builder deskPhoneNumber(@Nullable String deskPhoneNumber) {
             this.deskPhoneNumber = deskPhoneNumber;
             return this;
         }
+        @CustomType.Setter
         public Builder phoneType(String phoneType) {
             this.phoneType = Objects.requireNonNull(phoneType);
             return this;
-        }        public UserPhoneConfig build() {
-            return new UserPhoneConfig(afterContactWorkTimeLimit, autoAccept, deskPhoneNumber, phoneType);
+        }
+        public UserPhoneConfig build() {
+            final var o = new UserPhoneConfig();
+            o.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
+            o.autoAccept = autoAccept;
+            o.deskPhoneNumber = deskPhoneNumber;
+            o.phoneType = phoneType;
+            return o;
         }
     }
 }

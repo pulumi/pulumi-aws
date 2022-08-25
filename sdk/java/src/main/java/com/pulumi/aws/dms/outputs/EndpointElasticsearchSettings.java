@@ -16,35 +16,24 @@ public final class EndpointElasticsearchSettings {
      * @return Endpoint for the OpenSearch cluster.
      * 
      */
-    private final String endpointUri;
+    private String endpointUri;
     /**
      * @return Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
      * 
      */
-    private final @Nullable Integer errorRetryDuration;
+    private @Nullable Integer errorRetryDuration;
     /**
      * @return Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
      * 
      */
-    private final @Nullable Integer fullLoadErrorPercentage;
+    private @Nullable Integer fullLoadErrorPercentage;
     /**
      * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
      * 
      */
-    private final String serviceAccessRoleArn;
+    private String serviceAccessRoleArn;
 
-    @CustomType.Constructor
-    private EndpointElasticsearchSettings(
-        @CustomType.Parameter("endpointUri") String endpointUri,
-        @CustomType.Parameter("errorRetryDuration") @Nullable Integer errorRetryDuration,
-        @CustomType.Parameter("fullLoadErrorPercentage") @Nullable Integer fullLoadErrorPercentage,
-        @CustomType.Parameter("serviceAccessRoleArn") String serviceAccessRoleArn) {
-        this.endpointUri = endpointUri;
-        this.errorRetryDuration = errorRetryDuration;
-        this.fullLoadErrorPercentage = fullLoadErrorPercentage;
-        this.serviceAccessRoleArn = serviceAccessRoleArn;
-    }
-
+    private EndpointElasticsearchSettings() {}
     /**
      * @return Endpoint for the OpenSearch cluster.
      * 
@@ -81,17 +70,13 @@ public final class EndpointElasticsearchSettings {
     public static Builder builder(EndpointElasticsearchSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpointUri;
         private @Nullable Integer errorRetryDuration;
         private @Nullable Integer fullLoadErrorPercentage;
         private String serviceAccessRoleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointElasticsearchSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointUri = defaults.endpointUri;
@@ -100,23 +85,33 @@ public final class EndpointElasticsearchSettings {
     	      this.serviceAccessRoleArn = defaults.serviceAccessRoleArn;
         }
 
+        @CustomType.Setter
         public Builder endpointUri(String endpointUri) {
             this.endpointUri = Objects.requireNonNull(endpointUri);
             return this;
         }
+        @CustomType.Setter
         public Builder errorRetryDuration(@Nullable Integer errorRetryDuration) {
             this.errorRetryDuration = errorRetryDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder fullLoadErrorPercentage(@Nullable Integer fullLoadErrorPercentage) {
             this.fullLoadErrorPercentage = fullLoadErrorPercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
             this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
             return this;
-        }        public EndpointElasticsearchSettings build() {
-            return new EndpointElasticsearchSettings(endpointUri, errorRetryDuration, fullLoadErrorPercentage, serviceAccessRoleArn);
+        }
+        public EndpointElasticsearchSettings build() {
+            final var o = new EndpointElasticsearchSettings();
+            o.endpointUri = endpointUri;
+            o.errorRetryDuration = errorRetryDuration;
+            o.fullLoadErrorPercentage = fullLoadErrorPercentage;
+            o.serviceAccessRoleArn = serviceAccessRoleArn;
+            return o;
         }
     }
 }

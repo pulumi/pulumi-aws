@@ -16,28 +16,19 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * @return The dimensions of the metric.
      * 
      */
-    private final @Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions;
+    private @Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions;
     /**
      * @return The name of the metric.
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return The namespace of the metric.
      * 
      */
-    private final String namespace;
+    private String namespace;
 
-    @CustomType.Constructor
-    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric(
-        @CustomType.Parameter("dimensions") @Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions,
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("namespace") String namespace) {
-        this.dimensions = dimensions;
-        this.metricName = metricName;
-        this.namespace = namespace;
-    }
-
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric() {}
     /**
      * @return The dimensions of the metric.
      * 
@@ -67,16 +58,12 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static Builder builder(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions;
         private String metricName;
         private String namespace;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
@@ -84,6 +71,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     	      this.namespace = defaults.namespace;
         }
 
+        @CustomType.Setter
         public Builder dimensions(@Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions) {
             this.dimensions = dimensions;
             return this;
@@ -91,15 +79,22 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         public Builder dimensions(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
-        }        public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric build() {
-            return new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric(dimensions, metricName, namespace);
+        }
+        public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric build() {
+            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric();
+            o.dimensions = dimensions;
+            o.metricName = metricName;
+            o.namespace = namespace;
+            return o;
         }
     }
 }

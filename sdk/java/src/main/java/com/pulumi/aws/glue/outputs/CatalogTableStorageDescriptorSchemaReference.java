@@ -17,28 +17,19 @@ public final class CatalogTableStorageDescriptorSchemaReference {
      * @return Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
      * 
      */
-    private final @Nullable CatalogTableStorageDescriptorSchemaReferenceSchemaId schemaId;
+    private @Nullable CatalogTableStorageDescriptorSchemaReferenceSchemaId schemaId;
     /**
      * @return Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
      * 
      */
-    private final @Nullable String schemaVersionId;
+    private @Nullable String schemaVersionId;
     /**
      * @return Version number of the schema.
      * 
      */
-    private final Integer schemaVersionNumber;
+    private Integer schemaVersionNumber;
 
-    @CustomType.Constructor
-    private CatalogTableStorageDescriptorSchemaReference(
-        @CustomType.Parameter("schemaId") @Nullable CatalogTableStorageDescriptorSchemaReferenceSchemaId schemaId,
-        @CustomType.Parameter("schemaVersionId") @Nullable String schemaVersionId,
-        @CustomType.Parameter("schemaVersionNumber") Integer schemaVersionNumber) {
-        this.schemaId = schemaId;
-        this.schemaVersionId = schemaVersionId;
-        this.schemaVersionNumber = schemaVersionNumber;
-    }
-
+    private CatalogTableStorageDescriptorSchemaReference() {}
     /**
      * @return Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
      * 
@@ -68,16 +59,12 @@ public final class CatalogTableStorageDescriptorSchemaReference {
     public static Builder builder(CatalogTableStorageDescriptorSchemaReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable CatalogTableStorageDescriptorSchemaReferenceSchemaId schemaId;
         private @Nullable String schemaVersionId;
         private Integer schemaVersionNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogTableStorageDescriptorSchemaReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.schemaId = defaults.schemaId;
@@ -85,19 +72,27 @@ public final class CatalogTableStorageDescriptorSchemaReference {
     	      this.schemaVersionNumber = defaults.schemaVersionNumber;
         }
 
+        @CustomType.Setter
         public Builder schemaId(@Nullable CatalogTableStorageDescriptorSchemaReferenceSchemaId schemaId) {
             this.schemaId = schemaId;
             return this;
         }
+        @CustomType.Setter
         public Builder schemaVersionId(@Nullable String schemaVersionId) {
             this.schemaVersionId = schemaVersionId;
             return this;
         }
+        @CustomType.Setter
         public Builder schemaVersionNumber(Integer schemaVersionNumber) {
             this.schemaVersionNumber = Objects.requireNonNull(schemaVersionNumber);
             return this;
-        }        public CatalogTableStorageDescriptorSchemaReference build() {
-            return new CatalogTableStorageDescriptorSchemaReference(schemaId, schemaVersionId, schemaVersionNumber);
+        }
+        public CatalogTableStorageDescriptorSchemaReference build() {
+            final var o = new CatalogTableStorageDescriptorSchemaReference();
+            o.schemaId = schemaId;
+            o.schemaVersionId = schemaVersionId;
+            o.schemaVersionNumber = schemaVersionNumber;
+            return o;
         }
     }
 }

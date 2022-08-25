@@ -15,21 +15,14 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * @return Maximum.
      * 
      */
-    private final @Nullable Double max;
+    private @Nullable Double max;
     /**
      * @return Minimum.
      * 
      */
-    private final @Nullable Double min;
+    private @Nullable Double min;
 
-    @CustomType.Constructor
-    private SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(
-        @CustomType.Parameter("max") @Nullable Double max,
-        @CustomType.Parameter("min") @Nullable Double min) {
-        this.max = max;
-        this.min = min;
-    }
-
+    private SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb() {}
     /**
      * @return Maximum.
      * 
@@ -52,30 +45,32 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
     public static Builder builder(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Double max;
         private @Nullable Double min;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.max = defaults.max;
     	      this.min = defaults.min;
         }
 
+        @CustomType.Setter
         public Builder max(@Nullable Double max) {
             this.max = max;
             return this;
         }
+        @CustomType.Setter
         public Builder min(@Nullable Double min) {
             this.min = min;
             return this;
-        }        public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb build() {
-            return new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(max, min);
+        }
+        public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb build() {
+            final var o = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb();
+            o.max = max;
+            o.min = min;
+            return o;
         }
     }
 }

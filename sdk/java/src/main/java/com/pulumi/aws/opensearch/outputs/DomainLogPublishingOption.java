@@ -16,28 +16,19 @@ public final class DomainLogPublishingOption {
      * @return ARN of the Cloudwatch log group to which log needs to be published.
      * 
      */
-    private final String cloudwatchLogGroupArn;
+    private String cloudwatchLogGroupArn;
     /**
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
      * 
      */
-    private final String logType;
+    private String logType;
 
-    @CustomType.Constructor
-    private DomainLogPublishingOption(
-        @CustomType.Parameter("cloudwatchLogGroupArn") String cloudwatchLogGroupArn,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("logType") String logType) {
-        this.cloudwatchLogGroupArn = cloudwatchLogGroupArn;
-        this.enabled = enabled;
-        this.logType = logType;
-    }
-
+    private DomainLogPublishingOption() {}
     /**
      * @return ARN of the Cloudwatch log group to which log needs to be published.
      * 
@@ -67,16 +58,12 @@ public final class DomainLogPublishingOption {
     public static Builder builder(DomainLogPublishingOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cloudwatchLogGroupArn;
         private @Nullable Boolean enabled;
         private String logType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainLogPublishingOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogGroupArn = defaults.cloudwatchLogGroupArn;
@@ -84,19 +71,27 @@ public final class DomainLogPublishingOption {
     	      this.logType = defaults.logType;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLogGroupArn(String cloudwatchLogGroupArn) {
             this.cloudwatchLogGroupArn = Objects.requireNonNull(cloudwatchLogGroupArn);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder logType(String logType) {
             this.logType = Objects.requireNonNull(logType);
             return this;
-        }        public DomainLogPublishingOption build() {
-            return new DomainLogPublishingOption(cloudwatchLogGroupArn, enabled, logType);
+        }
+        public DomainLogPublishingOption build() {
+            final var o = new DomainLogPublishingOption();
+            o.cloudwatchLogGroupArn = cloudwatchLogGroupArn;
+            o.enabled = enabled;
+            o.logType = logType;
+            return o;
         }
     }
 }

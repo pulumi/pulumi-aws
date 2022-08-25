@@ -13,13 +13,9 @@ public final class RuleGroupActivatedRuleAction {
      * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private RuleGroupActivatedRuleAction(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private RuleGroupActivatedRuleAction() {}
     /**
      * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
      * 
@@ -35,24 +31,24 @@ public final class RuleGroupActivatedRuleAction {
     public static Builder builder(RuleGroupActivatedRuleAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupActivatedRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public RuleGroupActivatedRuleAction build() {
-            return new RuleGroupActivatedRuleAction(type);
+        }
+        public RuleGroupActivatedRuleAction build() {
+            final var o = new RuleGroupActivatedRuleAction();
+            o.type = type;
+            return o;
         }
     }
 }

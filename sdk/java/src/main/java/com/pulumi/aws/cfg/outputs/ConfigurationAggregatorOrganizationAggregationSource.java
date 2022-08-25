@@ -17,28 +17,19 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
      * @return If true, aggregate existing AWS Config regions and future regions.
      * 
      */
-    private final @Nullable Boolean allRegions;
+    private @Nullable Boolean allRegions;
     /**
      * @return List of source regions being aggregated.
      * 
      */
-    private final @Nullable List<String> regions;
+    private @Nullable List<String> regions;
     /**
      * @return ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private ConfigurationAggregatorOrganizationAggregationSource(
-        @CustomType.Parameter("allRegions") @Nullable Boolean allRegions,
-        @CustomType.Parameter("regions") @Nullable List<String> regions,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.allRegions = allRegions;
-        this.regions = regions;
-        this.roleArn = roleArn;
-    }
-
+    private ConfigurationAggregatorOrganizationAggregationSource() {}
     /**
      * @return If true, aggregate existing AWS Config regions and future regions.
      * 
@@ -68,16 +59,12 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
     public static Builder builder(ConfigurationAggregatorOrganizationAggregationSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allRegions;
         private @Nullable List<String> regions;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfigurationAggregatorOrganizationAggregationSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allRegions = defaults.allRegions;
@@ -85,10 +72,12 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder allRegions(@Nullable Boolean allRegions) {
             this.allRegions = allRegions;
             return this;
         }
+        @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
             this.regions = regions;
             return this;
@@ -96,11 +85,17 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public ConfigurationAggregatorOrganizationAggregationSource build() {
-            return new ConfigurationAggregatorOrganizationAggregationSource(allRegions, regions, roleArn);
+        }
+        public ConfigurationAggregatorOrganizationAggregationSource build() {
+            final var o = new ConfigurationAggregatorOrganizationAggregationSource();
+            o.allRegions = allRegions;
+            o.regions = regions;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

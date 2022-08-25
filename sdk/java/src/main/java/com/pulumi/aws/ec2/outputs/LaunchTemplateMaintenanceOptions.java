@@ -15,13 +15,9 @@ public final class LaunchTemplateMaintenanceOptions {
      * @return Disables the automatic recovery behavior of your instance or sets it to default. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
      */
-    private final @Nullable String autoRecovery;
+    private @Nullable String autoRecovery;
 
-    @CustomType.Constructor
-    private LaunchTemplateMaintenanceOptions(@CustomType.Parameter("autoRecovery") @Nullable String autoRecovery) {
-        this.autoRecovery = autoRecovery;
-    }
-
+    private LaunchTemplateMaintenanceOptions() {}
     /**
      * @return Disables the automatic recovery behavior of your instance or sets it to default. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
@@ -37,24 +33,24 @@ public final class LaunchTemplateMaintenanceOptions {
     public static Builder builder(LaunchTemplateMaintenanceOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String autoRecovery;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateMaintenanceOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRecovery = defaults.autoRecovery;
         }
 
+        @CustomType.Setter
         public Builder autoRecovery(@Nullable String autoRecovery) {
             this.autoRecovery = autoRecovery;
             return this;
-        }        public LaunchTemplateMaintenanceOptions build() {
-            return new LaunchTemplateMaintenanceOptions(autoRecovery);
+        }
+        public LaunchTemplateMaintenanceOptions build() {
+            final var o = new LaunchTemplateMaintenanceOptions();
+            o.autoRecovery = autoRecovery;
+            return o;
         }
     }
 }

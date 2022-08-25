@@ -17,34 +17,21 @@ public final class GetEipsResult {
      * @return A list of all the allocation IDs for address for use with EC2-VPC.
      * 
      */
-    private final List<String> allocationIds;
-    private final @Nullable List<GetEipsFilter> filters;
+    private List<String> allocationIds;
+    private @Nullable List<GetEipsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A list of all the Elastic IP addresses.
      * 
      */
-    private final List<String> publicIps;
-    private final Map<String,String> tags;
+    private List<String> publicIps;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetEipsResult(
-        @CustomType.Parameter("allocationIds") List<String> allocationIds,
-        @CustomType.Parameter("filters") @Nullable List<GetEipsFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("publicIps") List<String> publicIps,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.allocationIds = allocationIds;
-        this.filters = filters;
-        this.id = id;
-        this.publicIps = publicIps;
-        this.tags = tags;
-    }
-
+    private GetEipsResult() {}
     /**
      * @return A list of all the allocation IDs for address for use with EC2-VPC.
      * 
@@ -80,18 +67,14 @@ public final class GetEipsResult {
     public static Builder builder(GetEipsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allocationIds;
         private @Nullable List<GetEipsFilter> filters;
         private String id;
         private List<String> publicIps;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEipsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationIds = defaults.allocationIds;
@@ -101,6 +84,7 @@ public final class GetEipsResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder allocationIds(List<String> allocationIds) {
             this.allocationIds = Objects.requireNonNull(allocationIds);
             return this;
@@ -108,6 +92,7 @@ public final class GetEipsResult {
         public Builder allocationIds(String... allocationIds) {
             return allocationIds(List.of(allocationIds));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetEipsFilter> filters) {
             this.filters = filters;
             return this;
@@ -115,10 +100,12 @@ public final class GetEipsResult {
         public Builder filters(GetEipsFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIps(List<String> publicIps) {
             this.publicIps = Objects.requireNonNull(publicIps);
             return this;
@@ -126,11 +113,19 @@ public final class GetEipsResult {
         public Builder publicIps(String... publicIps) {
             return publicIps(List.of(publicIps));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetEipsResult build() {
-            return new GetEipsResult(allocationIds, filters, id, publicIps, tags);
+        }
+        public GetEipsResult build() {
+            final var o = new GetEipsResult();
+            o.allocationIds = allocationIds;
+            o.filters = filters;
+            o.id = id;
+            o.publicIps = publicIps;
+            o.tags = tags;
+            return o;
         }
     }
 }

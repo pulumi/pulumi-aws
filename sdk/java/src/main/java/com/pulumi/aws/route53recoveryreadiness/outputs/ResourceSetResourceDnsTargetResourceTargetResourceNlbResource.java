@@ -15,13 +15,9 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceNlbResource
      * @return NLB resource ARN.
      * 
      */
-    private final @Nullable String arn;
+    private @Nullable String arn;
 
-    @CustomType.Constructor
-    private ResourceSetResourceDnsTargetResourceTargetResourceNlbResource(@CustomType.Parameter("arn") @Nullable String arn) {
-        this.arn = arn;
-    }
-
+    private ResourceSetResourceDnsTargetResourceTargetResourceNlbResource() {}
     /**
      * @return NLB resource ARN.
      * 
@@ -37,24 +33,24 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceNlbResource
     public static Builder builder(ResourceSetResourceDnsTargetResourceTargetResourceNlbResource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceSetResourceDnsTargetResourceTargetResourceNlbResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
         }
 
+        @CustomType.Setter
         public Builder arn(@Nullable String arn) {
             this.arn = arn;
             return this;
-        }        public ResourceSetResourceDnsTargetResourceTargetResourceNlbResource build() {
-            return new ResourceSetResourceDnsTargetResourceTargetResourceNlbResource(arn);
+        }
+        public ResourceSetResourceDnsTargetResourceTargetResourceNlbResource build() {
+            final var o = new ResourceSetResourceDnsTargetResourceTargetResourceNlbResource();
+            o.arn = arn;
+            return o;
         }
     }
 }

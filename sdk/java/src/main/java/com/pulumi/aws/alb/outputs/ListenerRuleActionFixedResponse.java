@@ -15,28 +15,19 @@ public final class ListenerRuleActionFixedResponse {
      * @return The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return The message body.
      * 
      */
-    private final @Nullable String messageBody;
+    private @Nullable String messageBody;
     /**
      * @return The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
      * 
      */
-    private final @Nullable String statusCode;
+    private @Nullable String statusCode;
 
-    @CustomType.Constructor
-    private ListenerRuleActionFixedResponse(
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("messageBody") @Nullable String messageBody,
-        @CustomType.Parameter("statusCode") @Nullable String statusCode) {
-        this.contentType = contentType;
-        this.messageBody = messageBody;
-        this.statusCode = statusCode;
-    }
-
+    private ListenerRuleActionFixedResponse() {}
     /**
      * @return The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
      * 
@@ -66,16 +57,12 @@ public final class ListenerRuleActionFixedResponse {
     public static Builder builder(ListenerRuleActionFixedResponse defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contentType;
         private @Nullable String messageBody;
         private @Nullable String statusCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerRuleActionFixedResponse defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
@@ -83,19 +70,27 @@ public final class ListenerRuleActionFixedResponse {
     	      this.statusCode = defaults.statusCode;
         }
 
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder messageBody(@Nullable String messageBody) {
             this.messageBody = messageBody;
             return this;
         }
+        @CustomType.Setter
         public Builder statusCode(@Nullable String statusCode) {
             this.statusCode = statusCode;
             return this;
-        }        public ListenerRuleActionFixedResponse build() {
-            return new ListenerRuleActionFixedResponse(contentType, messageBody, statusCode);
+        }
+        public ListenerRuleActionFixedResponse build() {
+            final var o = new ListenerRuleActionFixedResponse();
+            o.contentType = contentType;
+            o.messageBody = messageBody;
+            o.statusCode = statusCode;
+            return o;
         }
     }
 }

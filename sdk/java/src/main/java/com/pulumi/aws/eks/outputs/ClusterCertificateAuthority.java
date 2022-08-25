@@ -15,13 +15,9 @@ public final class ClusterCertificateAuthority {
      * @return Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
      * 
      */
-    private final @Nullable String data;
+    private @Nullable String data;
 
-    @CustomType.Constructor
-    private ClusterCertificateAuthority(@CustomType.Parameter("data") @Nullable String data) {
-        this.data = data;
-    }
-
+    private ClusterCertificateAuthority() {}
     /**
      * @return Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
      * 
@@ -37,24 +33,24 @@ public final class ClusterCertificateAuthority {
     public static Builder builder(ClusterCertificateAuthority defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String data;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterCertificateAuthority defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.data = defaults.data;
         }
 
+        @CustomType.Setter
         public Builder data(@Nullable String data) {
             this.data = data;
             return this;
-        }        public ClusterCertificateAuthority build() {
-            return new ClusterCertificateAuthority(data);
+        }
+        public ClusterCertificateAuthority build() {
+            final var o = new ClusterCertificateAuthority();
+            o.data = data;
+            return o;
         }
     }
 }

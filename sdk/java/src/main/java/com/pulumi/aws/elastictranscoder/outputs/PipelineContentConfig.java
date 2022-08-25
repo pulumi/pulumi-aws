@@ -15,21 +15,14 @@ public final class PipelineContentConfig {
      * @return The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
      * 
      */
-    private final @Nullable String bucket;
+    private @Nullable String bucket;
     /**
      * @return The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
      * 
      */
-    private final @Nullable String storageClass;
+    private @Nullable String storageClass;
 
-    @CustomType.Constructor
-    private PipelineContentConfig(
-        @CustomType.Parameter("bucket") @Nullable String bucket,
-        @CustomType.Parameter("storageClass") @Nullable String storageClass) {
-        this.bucket = bucket;
-        this.storageClass = storageClass;
-    }
-
+    private PipelineContentConfig() {}
     /**
      * @return The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
      * 
@@ -52,30 +45,32 @@ public final class PipelineContentConfig {
     public static Builder builder(PipelineContentConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucket;
         private @Nullable String storageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineContentConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.storageClass = defaults.storageClass;
         }
 
+        @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
             this.bucket = bucket;
             return this;
         }
+        @CustomType.Setter
         public Builder storageClass(@Nullable String storageClass) {
             this.storageClass = storageClass;
             return this;
-        }        public PipelineContentConfig build() {
-            return new PipelineContentConfig(bucket, storageClass);
+        }
+        public PipelineContentConfig build() {
+            final var o = new PipelineContentConfig();
+            o.bucket = bucket;
+            o.storageClass = storageClass;
+            return o;
         }
     }
 }

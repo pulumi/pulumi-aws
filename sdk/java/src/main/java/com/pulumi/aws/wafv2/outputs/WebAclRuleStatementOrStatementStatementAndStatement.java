@@ -14,13 +14,9 @@ public final class WebAclRuleStatementOrStatementStatementAndStatement {
      * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
-    private final List<WebAclRuleStatementOrStatementStatementAndStatementStatement> statements;
+    private List<WebAclRuleStatementOrStatementStatementAndStatementStatement> statements;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementOrStatementStatementAndStatement(@CustomType.Parameter("statements") List<WebAclRuleStatementOrStatementStatementAndStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private WebAclRuleStatementOrStatementStatementAndStatement() {}
     /**
      * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclRuleStatementOrStatementStatementAndStatement {
     public static Builder builder(WebAclRuleStatementOrStatementStatementAndStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclRuleStatementOrStatementStatementAndStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementOrStatementStatementAndStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<WebAclRuleStatementOrStatementStatementAndStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(WebAclRuleStatementOrStatementStatementAndStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public WebAclRuleStatementOrStatementStatementAndStatement build() {
-            return new WebAclRuleStatementOrStatementStatementAndStatement(statements);
+        }
+        public WebAclRuleStatementOrStatementStatementAndStatement build() {
+            final var o = new WebAclRuleStatementOrStatementStatementAndStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

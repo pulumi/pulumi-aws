@@ -13,23 +13,16 @@ public final class GeoMatchSetGeoMatchConstraint {
      * @return The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The country that you want AWS WAF to search for.
      * This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
      * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GeoMatchSetGeoMatchConstraint(
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.type = type;
-        this.value = value;
-    }
-
+    private GeoMatchSetGeoMatchConstraint() {}
     /**
      * @return The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
      * 
@@ -54,30 +47,32 @@ public final class GeoMatchSetGeoMatchConstraint {
     public static Builder builder(GeoMatchSetGeoMatchConstraint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GeoMatchSetGeoMatchConstraint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GeoMatchSetGeoMatchConstraint build() {
-            return new GeoMatchSetGeoMatchConstraint(type, value);
+        }
+        public GeoMatchSetGeoMatchConstraint build() {
+            final var o = new GeoMatchSetGeoMatchConstraint();
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

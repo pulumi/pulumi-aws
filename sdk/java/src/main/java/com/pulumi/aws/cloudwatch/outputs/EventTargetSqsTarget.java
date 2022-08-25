@@ -15,13 +15,9 @@ public final class EventTargetSqsTarget {
      * @return The FIFO message group ID to use as the target.
      * 
      */
-    private final @Nullable String messageGroupId;
+    private @Nullable String messageGroupId;
 
-    @CustomType.Constructor
-    private EventTargetSqsTarget(@CustomType.Parameter("messageGroupId") @Nullable String messageGroupId) {
-        this.messageGroupId = messageGroupId;
-    }
-
+    private EventTargetSqsTarget() {}
     /**
      * @return The FIFO message group ID to use as the target.
      * 
@@ -37,24 +33,24 @@ public final class EventTargetSqsTarget {
     public static Builder builder(EventTargetSqsTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String messageGroupId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventTargetSqsTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.messageGroupId = defaults.messageGroupId;
         }
 
+        @CustomType.Setter
         public Builder messageGroupId(@Nullable String messageGroupId) {
             this.messageGroupId = messageGroupId;
             return this;
-        }        public EventTargetSqsTarget build() {
-            return new EventTargetSqsTarget(messageGroupId);
+        }
+        public EventTargetSqsTarget build() {
+            final var o = new EventTargetSqsTarget();
+            o.messageGroupId = messageGroupId;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class VirtualClusterContainerProviderInfo {
      * @return Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
      * 
      */
-    private final VirtualClusterContainerProviderInfoEksInfo eksInfo;
+    private VirtualClusterContainerProviderInfoEksInfo eksInfo;
 
-    @CustomType.Constructor
-    private VirtualClusterContainerProviderInfo(@CustomType.Parameter("eksInfo") VirtualClusterContainerProviderInfoEksInfo eksInfo) {
-        this.eksInfo = eksInfo;
-    }
-
+    private VirtualClusterContainerProviderInfo() {}
     /**
      * @return Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
      * 
@@ -35,24 +31,24 @@ public final class VirtualClusterContainerProviderInfo {
     public static Builder builder(VirtualClusterContainerProviderInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualClusterContainerProviderInfoEksInfo eksInfo;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualClusterContainerProviderInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eksInfo = defaults.eksInfo;
         }
 
+        @CustomType.Setter
         public Builder eksInfo(VirtualClusterContainerProviderInfoEksInfo eksInfo) {
             this.eksInfo = Objects.requireNonNull(eksInfo);
             return this;
-        }        public VirtualClusterContainerProviderInfo build() {
-            return new VirtualClusterContainerProviderInfo(eksInfo);
+        }
+        public VirtualClusterContainerProviderInfo build() {
+            final var o = new VirtualClusterContainerProviderInfo();
+            o.eksInfo = eksInfo;
+            return o;
         }
     }
 }

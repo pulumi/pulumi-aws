@@ -16,21 +16,14 @@ public final class AccountThrottleSetting {
      * @return The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
-    private final @Nullable Integer burstLimit;
+    private @Nullable Integer burstLimit;
     /**
      * @return The number of times API Gateway allows the API to be called per second on average (RPS).
      * 
      */
-    private final @Nullable Double rateLimit;
+    private @Nullable Double rateLimit;
 
-    @CustomType.Constructor
-    private AccountThrottleSetting(
-        @CustomType.Parameter("burstLimit") @Nullable Integer burstLimit,
-        @CustomType.Parameter("rateLimit") @Nullable Double rateLimit) {
-        this.burstLimit = burstLimit;
-        this.rateLimit = rateLimit;
-    }
-
+    private AccountThrottleSetting() {}
     /**
      * @return The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
@@ -53,30 +46,32 @@ public final class AccountThrottleSetting {
     public static Builder builder(AccountThrottleSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer burstLimit;
         private @Nullable Double rateLimit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountThrottleSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.burstLimit = defaults.burstLimit;
     	      this.rateLimit = defaults.rateLimit;
         }
 
+        @CustomType.Setter
         public Builder burstLimit(@Nullable Integer burstLimit) {
             this.burstLimit = burstLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder rateLimit(@Nullable Double rateLimit) {
             this.rateLimit = rateLimit;
             return this;
-        }        public AccountThrottleSetting build() {
-            return new AccountThrottleSetting(burstLimit, rateLimit);
+        }
+        public AccountThrottleSetting build() {
+            final var o = new AccountThrottleSetting();
+            o.burstLimit = burstLimit;
+            o.rateLimit = rateLimit;
+            return o;
         }
     }
 }

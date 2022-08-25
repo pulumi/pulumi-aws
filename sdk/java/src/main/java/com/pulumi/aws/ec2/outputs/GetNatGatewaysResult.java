@@ -14,34 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNatGatewaysResult {
-    private final @Nullable List<GetNatGatewaysFilter> filters;
+    private @Nullable List<GetNatGatewaysFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A list of all the NAT gateway ids found.
      * 
      */
-    private final List<String> ids;
-    private final Map<String,String> tags;
-    private final @Nullable String vpcId;
+    private List<String> ids;
+    private Map<String,String> tags;
+    private @Nullable String vpcId;
 
-    @CustomType.Constructor
-    private GetNatGatewaysResult(
-        @CustomType.Parameter("filters") @Nullable List<GetNatGatewaysFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") @Nullable String vpcId) {
-        this.filters = filters;
-        this.id = id;
-        this.ids = ids;
-        this.tags = tags;
-        this.vpcId = vpcId;
-    }
-
+    private GetNatGatewaysResult() {}
     public List<GetNatGatewaysFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -73,18 +60,14 @@ public final class GetNatGatewaysResult {
     public static Builder builder(GetNatGatewaysResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetNatGatewaysFilter> filters;
         private String id;
         private List<String> ids;
         private Map<String,String> tags;
         private @Nullable String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNatGatewaysResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -94,6 +77,7 @@ public final class GetNatGatewaysResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetNatGatewaysFilter> filters) {
             this.filters = filters;
             return this;
@@ -101,10 +85,12 @@ public final class GetNatGatewaysResult {
         public Builder filters(GetNatGatewaysFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -112,15 +98,24 @@ public final class GetNatGatewaysResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
             this.vpcId = vpcId;
             return this;
-        }        public GetNatGatewaysResult build() {
-            return new GetNatGatewaysResult(filters, id, ids, tags, vpcId);
+        }
+        public GetNatGatewaysResult build() {
+            final var o = new GetNatGatewaysResult();
+            o.filters = filters;
+            o.id = id;
+            o.ids = ids;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

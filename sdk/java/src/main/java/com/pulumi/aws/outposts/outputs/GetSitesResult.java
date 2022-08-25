@@ -14,21 +14,14 @@ public final class GetSitesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of Outposts Site identifiers.
      * 
      */
-    private final List<String> ids;
+    private List<String> ids;
 
-    @CustomType.Constructor
-    private GetSitesResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids) {
-        this.id = id;
-        this.ids = ids;
-    }
-
+    private GetSitesResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -51,33 +44,35 @@ public final class GetSitesResult {
     public static Builder builder(GetSitesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<String> ids;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSitesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
         }
         public Builder ids(String... ids) {
             return ids(List.of(ids));
-        }        public GetSitesResult build() {
-            return new GetSitesResult(id, ids);
+        }
+        public GetSitesResult build() {
+            final var o = new GetSitesResult();
+            o.id = id;
+            o.ids = ids;
+            return o;
         }
     }
 }

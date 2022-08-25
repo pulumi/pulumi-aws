@@ -13,21 +13,14 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
      * @return The encryption-at-rest mode for encrypting Data Catalog data.
      * 
      */
-    private final String catalogEncryptionMode;
+    private String catalogEncryptionMode;
     /**
      * @return The ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
-    private final String sseAwsKmsKeyId;
+    private String sseAwsKmsKeyId;
 
-    @CustomType.Constructor
-    private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest(
-        @CustomType.Parameter("catalogEncryptionMode") String catalogEncryptionMode,
-        @CustomType.Parameter("sseAwsKmsKeyId") String sseAwsKmsKeyId) {
-        this.catalogEncryptionMode = catalogEncryptionMode;
-        this.sseAwsKmsKeyId = sseAwsKmsKeyId;
-    }
-
+    private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest() {}
     /**
      * @return The encryption-at-rest mode for encrypting Data Catalog data.
      * 
@@ -50,30 +43,32 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
     public static Builder builder(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String catalogEncryptionMode;
         private String sseAwsKmsKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogEncryptionMode = defaults.catalogEncryptionMode;
     	      this.sseAwsKmsKeyId = defaults.sseAwsKmsKeyId;
         }
 
+        @CustomType.Setter
         public Builder catalogEncryptionMode(String catalogEncryptionMode) {
             this.catalogEncryptionMode = Objects.requireNonNull(catalogEncryptionMode);
             return this;
         }
+        @CustomType.Setter
         public Builder sseAwsKmsKeyId(String sseAwsKmsKeyId) {
             this.sseAwsKmsKeyId = Objects.requireNonNull(sseAwsKmsKeyId);
             return this;
-        }        public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest build() {
-            return new GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest(catalogEncryptionMode, sseAwsKmsKeyId);
+        }
+        public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest build() {
+            final var o = new GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest();
+            o.catalogEncryptionMode = catalogEncryptionMode;
+            o.sseAwsKmsKeyId = sseAwsKmsKeyId;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class ImageRecipeSystemsManagerAgent {
      * @return Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
      * 
      */
-    private final Boolean uninstallAfterBuild;
+    private Boolean uninstallAfterBuild;
 
-    @CustomType.Constructor
-    private ImageRecipeSystemsManagerAgent(@CustomType.Parameter("uninstallAfterBuild") Boolean uninstallAfterBuild) {
-        this.uninstallAfterBuild = uninstallAfterBuild;
-    }
-
+    private ImageRecipeSystemsManagerAgent() {}
     /**
      * @return Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
      * 
@@ -35,24 +31,24 @@ public final class ImageRecipeSystemsManagerAgent {
     public static Builder builder(ImageRecipeSystemsManagerAgent defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean uninstallAfterBuild;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ImageRecipeSystemsManagerAgent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.uninstallAfterBuild = defaults.uninstallAfterBuild;
         }
 
+        @CustomType.Setter
         public Builder uninstallAfterBuild(Boolean uninstallAfterBuild) {
             this.uninstallAfterBuild = Objects.requireNonNull(uninstallAfterBuild);
             return this;
-        }        public ImageRecipeSystemsManagerAgent build() {
-            return new ImageRecipeSystemsManagerAgent(uninstallAfterBuild);
+        }
+        public ImageRecipeSystemsManagerAgent build() {
+            final var o = new ImageRecipeSystemsManagerAgent();
+            o.uninstallAfterBuild = uninstallAfterBuild;
+            return o;
         }
     }
 }

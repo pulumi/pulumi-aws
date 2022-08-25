@@ -13,13 +13,9 @@ public final class RuleGroupRuleStatementOrStatementStatementNotStatementStateme
      * @return The name of the query header to inspect. This setting must be provided as lower case characters.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument() {}
     /**
      * @return The name of the query header to inspect. This setting must be provided as lower case characters.
      * 
@@ -35,24 +31,24 @@ public final class RuleGroupRuleStatementOrStatementStatementNotStatementStateme
     public static Builder builder(RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument build() {
-            return new RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(name);
+        }
+        public RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument build() {
+            final var o = new RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument();
+            o.name = name;
+            return o;
         }
     }
 }

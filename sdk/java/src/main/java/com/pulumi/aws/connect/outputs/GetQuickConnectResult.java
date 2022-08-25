@@ -16,55 +16,36 @@ public final class GetQuickConnectResult {
      * @return The Amazon Resource Name (ARN) of the Quick Connect.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Specifies the description of the Quick Connect.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
-    private final String name;
+    private String id;
+    private String instanceId;
+    private String name;
     /**
      * @return A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
      * 
      */
-    private final List<GetQuickConnectQuickConnectConfig> quickConnectConfigs;
+    private List<GetQuickConnectQuickConnectConfig> quickConnectConfigs;
     /**
      * @return The identifier for the Quick Connect.
      * 
      */
-    private final String quickConnectId;
+    private String quickConnectId;
     /**
      * @return A map of tags to assign to the Quick Connect.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetQuickConnectResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("quickConnectConfigs") List<GetQuickConnectQuickConnectConfig> quickConnectConfigs,
-        @CustomType.Parameter("quickConnectId") String quickConnectId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.instanceId = instanceId;
-        this.name = name;
-        this.quickConnectConfigs = quickConnectConfigs;
-        this.quickConnectId = quickConnectId;
-        this.tags = tags;
-    }
-
+    private GetQuickConnectResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Quick Connect.
      * 
@@ -121,7 +102,7 @@ public final class GetQuickConnectResult {
     public static Builder builder(GetQuickConnectResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -131,11 +112,7 @@ public final class GetQuickConnectResult {
         private List<GetQuickConnectQuickConnectConfig> quickConnectConfigs;
         private String quickConnectId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetQuickConnectResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -148,26 +125,32 @@ public final class GetQuickConnectResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder quickConnectConfigs(List<GetQuickConnectQuickConnectConfig> quickConnectConfigs) {
             this.quickConnectConfigs = Objects.requireNonNull(quickConnectConfigs);
             return this;
@@ -175,15 +158,27 @@ public final class GetQuickConnectResult {
         public Builder quickConnectConfigs(GetQuickConnectQuickConnectConfig... quickConnectConfigs) {
             return quickConnectConfigs(List.of(quickConnectConfigs));
         }
+        @CustomType.Setter
         public Builder quickConnectId(String quickConnectId) {
             this.quickConnectId = Objects.requireNonNull(quickConnectId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetQuickConnectResult build() {
-            return new GetQuickConnectResult(arn, description, id, instanceId, name, quickConnectConfigs, quickConnectId, tags);
+        }
+        public GetQuickConnectResult build() {
+            final var o = new GetQuickConnectResult();
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.instanceId = instanceId;
+            o.name = name;
+            o.quickConnectConfigs = quickConnectConfigs;
+            o.quickConnectId = quickConnectId;
+            o.tags = tags;
+            return o;
         }
     }
 }

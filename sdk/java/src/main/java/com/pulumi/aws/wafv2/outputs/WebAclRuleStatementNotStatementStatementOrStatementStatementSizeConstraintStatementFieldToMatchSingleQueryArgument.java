@@ -13,13 +13,9 @@ public final class WebAclRuleStatementNotStatementStatementOrStatementStatementS
      * @return Name of the query header to inspect. This setting must be provided as lower case characters.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument() {}
     /**
      * @return Name of the query header to inspect. This setting must be provided as lower case characters.
      * 
@@ -35,24 +31,24 @@ public final class WebAclRuleStatementNotStatementStatementOrStatementStatementS
     public static Builder builder(WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument build() {
-            return new WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(name);
+        }
+        public WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument build() {
+            final var o = new WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument();
+            o.name = name;
+            return o;
         }
     }
 }

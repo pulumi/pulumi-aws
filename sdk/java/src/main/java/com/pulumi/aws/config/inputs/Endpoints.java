@@ -380,378 +380,7 @@ public final class Endpoints {
     private @Nullable String workspacesweb;
     private @Nullable String xray;
 
-    @CustomType.Constructor
-
-    private Endpoints() {
-        this.accessanalyzer = null;
-        this.account = null;
-        this.acm = null;
-        this.acmpca = null;
-        this.alexaforbusiness = null;
-        this.amg = null;
-        this.amp = null;
-        this.amplify = null;
-        this.amplifybackend = null;
-        this.amplifyuibuilder = null;
-        this.apigateway = null;
-        this.apigatewaymanagementapi = null;
-        this.apigatewayv2 = null;
-        this.appautoscaling = null;
-        this.appconfig = null;
-        this.appconfigdata = null;
-        this.appflow = null;
-        this.appintegrations = null;
-        this.appintegrationsservice = null;
-        this.applicationautoscaling = null;
-        this.applicationcostprofiler = null;
-        this.applicationdiscovery = null;
-        this.applicationdiscoveryservice = null;
-        this.applicationinsights = null;
-        this.appmesh = null;
-        this.appregistry = null;
-        this.apprunner = null;
-        this.appstream = null;
-        this.appsync = null;
-        this.athena = null;
-        this.auditmanager = null;
-        this.augmentedairuntime = null;
-        this.autoscaling = null;
-        this.autoscalingplans = null;
-        this.backup = null;
-        this.backupgateway = null;
-        this.batch = null;
-        this.beanstalk = null;
-        this.billingconductor = null;
-        this.braket = null;
-        this.budgets = null;
-        this.ce = null;
-        this.chime = null;
-        this.chimesdkidentity = null;
-        this.chimesdkmeetings = null;
-        this.chimesdkmessaging = null;
-        this.cloud9 = null;
-        this.cloudcontrol = null;
-        this.cloudcontrolapi = null;
-        this.clouddirectory = null;
-        this.cloudformation = null;
-        this.cloudfront = null;
-        this.cloudhsm = null;
-        this.cloudhsmv2 = null;
-        this.cloudsearch = null;
-        this.cloudsearchdomain = null;
-        this.cloudtrail = null;
-        this.cloudwatch = null;
-        this.cloudwatchevents = null;
-        this.cloudwatchevidently = null;
-        this.cloudwatchlog = null;
-        this.cloudwatchlogs = null;
-        this.cloudwatchrum = null;
-        this.codeartifact = null;
-        this.codebuild = null;
-        this.codecommit = null;
-        this.codedeploy = null;
-        this.codeguruprofiler = null;
-        this.codegurureviewer = null;
-        this.codepipeline = null;
-        this.codestar = null;
-        this.codestarconnections = null;
-        this.codestarnotifications = null;
-        this.cognitoidentity = null;
-        this.cognitoidentityprovider = null;
-        this.cognitoidp = null;
-        this.cognitosync = null;
-        this.comprehend = null;
-        this.comprehendmedical = null;
-        this.computeoptimizer = null;
-        this.config = null;
-        this.configservice = null;
-        this.connect = null;
-        this.connectcontactlens = null;
-        this.connectparticipant = null;
-        this.connectwisdomservice = null;
-        this.costandusagereportservice = null;
-        this.costexplorer = null;
-        this.cur = null;
-        this.customerprofiles = null;
-        this.databasemigration = null;
-        this.databasemigrationservice = null;
-        this.databrew = null;
-        this.dataexchange = null;
-        this.datapipeline = null;
-        this.datasync = null;
-        this.dax = null;
-        this.deploy = null;
-        this.detective = null;
-        this.devicefarm = null;
-        this.devopsguru = null;
-        this.directconnect = null;
-        this.directoryservice = null;
-        this.discovery = null;
-        this.dlm = null;
-        this.dms = null;
-        this.docdb = null;
-        this.drs = null;
-        this.ds = null;
-        this.dynamodb = null;
-        this.dynamodbstreams = null;
-        this.ebs = null;
-        this.ec2 = null;
-        this.ec2instanceconnect = null;
-        this.ecr = null;
-        this.ecrpublic = null;
-        this.ecs = null;
-        this.efs = null;
-        this.eks = null;
-        this.elasticache = null;
-        this.elasticbeanstalk = null;
-        this.elasticinference = null;
-        this.elasticloadbalancing = null;
-        this.elasticloadbalancingv2 = null;
-        this.elasticsearch = null;
-        this.elasticsearchservice = null;
-        this.elastictranscoder = null;
-        this.elb = null;
-        this.elbv2 = null;
-        this.emr = null;
-        this.emrcontainers = null;
-        this.emrserverless = null;
-        this.es = null;
-        this.eventbridge = null;
-        this.events = null;
-        this.evidently = null;
-        this.finspace = null;
-        this.finspacedata = null;
-        this.firehose = null;
-        this.fis = null;
-        this.fms = null;
-        this.forecast = null;
-        this.forecastquery = null;
-        this.forecastqueryservice = null;
-        this.forecastservice = null;
-        this.frauddetector = null;
-        this.fsx = null;
-        this.gamelift = null;
-        this.glacier = null;
-        this.globalaccelerator = null;
-        this.glue = null;
-        this.gluedatabrew = null;
-        this.grafana = null;
-        this.greengrass = null;
-        this.greengrassv2 = null;
-        this.groundstation = null;
-        this.guardduty = null;
-        this.health = null;
-        this.healthlake = null;
-        this.honeycode = null;
-        this.iam = null;
-        this.identitystore = null;
-        this.imagebuilder = null;
-        this.inspector = null;
-        this.inspector2 = null;
-        this.iot = null;
-        this.iot1clickdevices = null;
-        this.iot1clickdevicesservice = null;
-        this.iot1clickprojects = null;
-        this.iotanalytics = null;
-        this.iotdata = null;
-        this.iotdataplane = null;
-        this.iotdeviceadvisor = null;
-        this.iotevents = null;
-        this.ioteventsdata = null;
-        this.iotfleethub = null;
-        this.iotjobsdata = null;
-        this.iotjobsdataplane = null;
-        this.iotsecuretunneling = null;
-        this.iotsitewise = null;
-        this.iotthingsgraph = null;
-        this.iottwinmaker = null;
-        this.iotwireless = null;
-        this.ivs = null;
-        this.kafka = null;
-        this.kafkaconnect = null;
-        this.kendra = null;
-        this.keyspaces = null;
-        this.kinesis = null;
-        this.kinesisanalytics = null;
-        this.kinesisanalyticsv2 = null;
-        this.kinesisvideo = null;
-        this.kinesisvideoarchivedmedia = null;
-        this.kinesisvideomedia = null;
-        this.kinesisvideosignaling = null;
-        this.kinesisvideosignalingchannels = null;
-        this.kms = null;
-        this.lakeformation = null;
-        this.lambda = null;
-        this.lex = null;
-        this.lexmodelbuilding = null;
-        this.lexmodelbuildingservice = null;
-        this.lexmodels = null;
-        this.lexmodelsv2 = null;
-        this.lexruntime = null;
-        this.lexruntimeservice = null;
-        this.lexruntimev2 = null;
-        this.lexv2models = null;
-        this.lexv2runtime = null;
-        this.licensemanager = null;
-        this.lightsail = null;
-        this.location = null;
-        this.locationservice = null;
-        this.logs = null;
-        this.lookoutequipment = null;
-        this.lookoutforvision = null;
-        this.lookoutmetrics = null;
-        this.lookoutvision = null;
-        this.machinelearning = null;
-        this.macie = null;
-        this.macie2 = null;
-        this.managedblockchain = null;
-        this.managedgrafana = null;
-        this.marketplacecatalog = null;
-        this.marketplacecommerceanalytics = null;
-        this.marketplaceentitlement = null;
-        this.marketplaceentitlementservice = null;
-        this.marketplacemetering = null;
-        this.mediaconnect = null;
-        this.mediaconvert = null;
-        this.medialive = null;
-        this.mediapackage = null;
-        this.mediapackagevod = null;
-        this.mediastore = null;
-        this.mediastoredata = null;
-        this.mediatailor = null;
-        this.memorydb = null;
-        this.meteringmarketplace = null;
-        this.mgh = null;
-        this.mgn = null;
-        this.migrationhub = null;
-        this.migrationhubconfig = null;
-        this.migrationhubrefactorspaces = null;
-        this.migrationhubstrategy = null;
-        this.migrationhubstrategyrecommendations = null;
-        this.mobile = null;
-        this.mq = null;
-        this.msk = null;
-        this.mturk = null;
-        this.mwaa = null;
-        this.neptune = null;
-        this.networkfirewall = null;
-        this.networkmanager = null;
-        this.nimble = null;
-        this.nimblestudio = null;
-        this.opensearch = null;
-        this.opensearchservice = null;
-        this.opsworks = null;
-        this.opsworkscm = null;
-        this.organizations = null;
-        this.outposts = null;
-        this.panorama = null;
-        this.personalize = null;
-        this.personalizeevents = null;
-        this.personalizeruntime = null;
-        this.pi = null;
-        this.pinpoint = null;
-        this.pinpointemail = null;
-        this.pinpointsmsvoice = null;
-        this.polly = null;
-        this.pricing = null;
-        this.prometheus = null;
-        this.prometheusservice = null;
-        this.proton = null;
-        this.qldb = null;
-        this.qldbsession = null;
-        this.quicksight = null;
-        this.ram = null;
-        this.rbin = null;
-        this.rds = null;
-        this.rdsdata = null;
-        this.rdsdataservice = null;
-        this.recyclebin = null;
-        this.redshift = null;
-        this.redshiftdata = null;
-        this.redshiftdataapiservice = null;
-        this.redshiftserverless = null;
-        this.rekognition = null;
-        this.resiliencehub = null;
-        this.resourcegroups = null;
-        this.resourcegroupstagging = null;
-        this.resourcegroupstaggingapi = null;
-        this.robomaker = null;
-        this.rolesanywhere = null;
-        this.route53 = null;
-        this.route53domains = null;
-        this.route53recoverycluster = null;
-        this.route53recoverycontrolconfig = null;
-        this.route53recoveryreadiness = null;
-        this.route53resolver = null;
-        this.rum = null;
-        this.s3 = null;
-        this.s3api = null;
-        this.s3control = null;
-        this.s3outposts = null;
-        this.sagemaker = null;
-        this.sagemakera2iruntime = null;
-        this.sagemakeredge = null;
-        this.sagemakeredgemanager = null;
-        this.sagemakerfeaturestoreruntime = null;
-        this.sagemakerruntime = null;
-        this.savingsplans = null;
-        this.schemas = null;
-        this.sdb = null;
-        this.secretsmanager = null;
-        this.securityhub = null;
-        this.serverlessapplicationrepository = null;
-        this.serverlessapprepo = null;
-        this.serverlessrepo = null;
-        this.servicecatalog = null;
-        this.servicecatalogappregistry = null;
-        this.servicediscovery = null;
-        this.servicequotas = null;
-        this.ses = null;
-        this.sesv2 = null;
-        this.sfn = null;
-        this.shield = null;
-        this.signer = null;
-        this.simpledb = null;
-        this.sms = null;
-        this.snowball = null;
-        this.snowdevicemanagement = null;
-        this.sns = null;
-        this.sqs = null;
-        this.ssm = null;
-        this.ssmcontacts = null;
-        this.ssmincidents = null;
-        this.sso = null;
-        this.ssoadmin = null;
-        this.ssooidc = null;
-        this.stepfunctions = null;
-        this.storagegateway = null;
-        this.sts = null;
-        this.support = null;
-        this.swf = null;
-        this.synthetics = null;
-        this.textract = null;
-        this.timestreamquery = null;
-        this.timestreamwrite = null;
-        this.transcribe = null;
-        this.transcribeservice = null;
-        this.transcribestreaming = null;
-        this.transcribestreamingservice = null;
-        this.transfer = null;
-        this.translate = null;
-        this.voiceid = null;
-        this.waf = null;
-        this.wafregional = null;
-        this.wafv2 = null;
-        this.wellarchitected = null;
-        this.wisdom = null;
-        this.workdocs = null;
-        this.worklink = null;
-        this.workmail = null;
-        this.workmailmessageflow = null;
-        this.workspaces = null;
-        this.workspacesweb = null;
-        this.xray = null;
-    }
+    private Endpoints() {}
     public Optional<String> accessanalyzer() {
         return Optional.ofNullable(this.accessanalyzer);
     }
@@ -1864,7 +1493,7 @@ public final class Endpoints {
     public static Builder builder(Endpoints defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessanalyzer;
         private @Nullable String account;
@@ -2234,11 +1863,7 @@ public final class Endpoints {
         private @Nullable String workspaces;
         private @Nullable String workspacesweb;
         private @Nullable String xray;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(Endpoints defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessanalyzer = defaults.accessanalyzer;
@@ -2611,1849 +2236,2217 @@ public final class Endpoints {
     	      this.xray = defaults.xray;
         }
 
+        @CustomType.Setter
         public Builder accessanalyzer(@Nullable String accessanalyzer) {
             this.accessanalyzer = accessanalyzer;
             return this;
         }
+        @CustomType.Setter
         public Builder account(@Nullable String account) {
             this.account = account;
             return this;
         }
+        @CustomType.Setter
         public Builder acm(@Nullable String acm) {
             this.acm = acm;
             return this;
         }
+        @CustomType.Setter
         public Builder acmpca(@Nullable String acmpca) {
             this.acmpca = acmpca;
             return this;
         }
+        @CustomType.Setter
         public Builder alexaforbusiness(@Nullable String alexaforbusiness) {
             this.alexaforbusiness = alexaforbusiness;
             return this;
         }
+        @CustomType.Setter
         public Builder amg(@Nullable String amg) {
             this.amg = amg;
             return this;
         }
+        @CustomType.Setter
         public Builder amp(@Nullable String amp) {
             this.amp = amp;
             return this;
         }
+        @CustomType.Setter
         public Builder amplify(@Nullable String amplify) {
             this.amplify = amplify;
             return this;
         }
+        @CustomType.Setter
         public Builder amplifybackend(@Nullable String amplifybackend) {
             this.amplifybackend = amplifybackend;
             return this;
         }
+        @CustomType.Setter
         public Builder amplifyuibuilder(@Nullable String amplifyuibuilder) {
             this.amplifyuibuilder = amplifyuibuilder;
             return this;
         }
+        @CustomType.Setter
         public Builder apigateway(@Nullable String apigateway) {
             this.apigateway = apigateway;
             return this;
         }
+        @CustomType.Setter
         public Builder apigatewaymanagementapi(@Nullable String apigatewaymanagementapi) {
             this.apigatewaymanagementapi = apigatewaymanagementapi;
             return this;
         }
+        @CustomType.Setter
         public Builder apigatewayv2(@Nullable String apigatewayv2) {
             this.apigatewayv2 = apigatewayv2;
             return this;
         }
+        @CustomType.Setter
         public Builder appautoscaling(@Nullable String appautoscaling) {
             this.appautoscaling = appautoscaling;
             return this;
         }
+        @CustomType.Setter
         public Builder appconfig(@Nullable String appconfig) {
             this.appconfig = appconfig;
             return this;
         }
+        @CustomType.Setter
         public Builder appconfigdata(@Nullable String appconfigdata) {
             this.appconfigdata = appconfigdata;
             return this;
         }
+        @CustomType.Setter
         public Builder appflow(@Nullable String appflow) {
             this.appflow = appflow;
             return this;
         }
+        @CustomType.Setter
         public Builder appintegrations(@Nullable String appintegrations) {
             this.appintegrations = appintegrations;
             return this;
         }
+        @CustomType.Setter
         public Builder appintegrationsservice(@Nullable String appintegrationsservice) {
             this.appintegrationsservice = appintegrationsservice;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationautoscaling(@Nullable String applicationautoscaling) {
             this.applicationautoscaling = applicationautoscaling;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationcostprofiler(@Nullable String applicationcostprofiler) {
             this.applicationcostprofiler = applicationcostprofiler;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationdiscovery(@Nullable String applicationdiscovery) {
             this.applicationdiscovery = applicationdiscovery;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationdiscoveryservice(@Nullable String applicationdiscoveryservice) {
             this.applicationdiscoveryservice = applicationdiscoveryservice;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationinsights(@Nullable String applicationinsights) {
             this.applicationinsights = applicationinsights;
             return this;
         }
+        @CustomType.Setter
         public Builder appmesh(@Nullable String appmesh) {
             this.appmesh = appmesh;
             return this;
         }
+        @CustomType.Setter
         public Builder appregistry(@Nullable String appregistry) {
             this.appregistry = appregistry;
             return this;
         }
+        @CustomType.Setter
         public Builder apprunner(@Nullable String apprunner) {
             this.apprunner = apprunner;
             return this;
         }
+        @CustomType.Setter
         public Builder appstream(@Nullable String appstream) {
             this.appstream = appstream;
             return this;
         }
+        @CustomType.Setter
         public Builder appsync(@Nullable String appsync) {
             this.appsync = appsync;
             return this;
         }
+        @CustomType.Setter
         public Builder athena(@Nullable String athena) {
             this.athena = athena;
             return this;
         }
+        @CustomType.Setter
         public Builder auditmanager(@Nullable String auditmanager) {
             this.auditmanager = auditmanager;
             return this;
         }
+        @CustomType.Setter
         public Builder augmentedairuntime(@Nullable String augmentedairuntime) {
             this.augmentedairuntime = augmentedairuntime;
             return this;
         }
+        @CustomType.Setter
         public Builder autoscaling(@Nullable String autoscaling) {
             this.autoscaling = autoscaling;
             return this;
         }
+        @CustomType.Setter
         public Builder autoscalingplans(@Nullable String autoscalingplans) {
             this.autoscalingplans = autoscalingplans;
             return this;
         }
+        @CustomType.Setter
         public Builder backup(@Nullable String backup) {
             this.backup = backup;
             return this;
         }
+        @CustomType.Setter
         public Builder backupgateway(@Nullable String backupgateway) {
             this.backupgateway = backupgateway;
             return this;
         }
+        @CustomType.Setter
         public Builder batch(@Nullable String batch) {
             this.batch = batch;
             return this;
         }
+        @CustomType.Setter
         public Builder beanstalk(@Nullable String beanstalk) {
             this.beanstalk = beanstalk;
             return this;
         }
+        @CustomType.Setter
         public Builder billingconductor(@Nullable String billingconductor) {
             this.billingconductor = billingconductor;
             return this;
         }
+        @CustomType.Setter
         public Builder braket(@Nullable String braket) {
             this.braket = braket;
             return this;
         }
+        @CustomType.Setter
         public Builder budgets(@Nullable String budgets) {
             this.budgets = budgets;
             return this;
         }
+        @CustomType.Setter
         public Builder ce(@Nullable String ce) {
             this.ce = ce;
             return this;
         }
+        @CustomType.Setter
         public Builder chime(@Nullable String chime) {
             this.chime = chime;
             return this;
         }
+        @CustomType.Setter
         public Builder chimesdkidentity(@Nullable String chimesdkidentity) {
             this.chimesdkidentity = chimesdkidentity;
             return this;
         }
+        @CustomType.Setter
         public Builder chimesdkmeetings(@Nullable String chimesdkmeetings) {
             this.chimesdkmeetings = chimesdkmeetings;
             return this;
         }
+        @CustomType.Setter
         public Builder chimesdkmessaging(@Nullable String chimesdkmessaging) {
             this.chimesdkmessaging = chimesdkmessaging;
             return this;
         }
+        @CustomType.Setter
         public Builder cloud9(@Nullable String cloud9) {
             this.cloud9 = cloud9;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudcontrol(@Nullable String cloudcontrol) {
             this.cloudcontrol = cloudcontrol;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudcontrolapi(@Nullable String cloudcontrolapi) {
             this.cloudcontrolapi = cloudcontrolapi;
             return this;
         }
+        @CustomType.Setter
         public Builder clouddirectory(@Nullable String clouddirectory) {
             this.clouddirectory = clouddirectory;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudformation(@Nullable String cloudformation) {
             this.cloudformation = cloudformation;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudfront(@Nullable String cloudfront) {
             this.cloudfront = cloudfront;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudhsm(@Nullable String cloudhsm) {
             this.cloudhsm = cloudhsm;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudhsmv2(@Nullable String cloudhsmv2) {
             this.cloudhsmv2 = cloudhsmv2;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudsearch(@Nullable String cloudsearch) {
             this.cloudsearch = cloudsearch;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudsearchdomain(@Nullable String cloudsearchdomain) {
             this.cloudsearchdomain = cloudsearchdomain;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudtrail(@Nullable String cloudtrail) {
             this.cloudtrail = cloudtrail;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatch(@Nullable String cloudwatch) {
             this.cloudwatch = cloudwatch;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatchevents(@Nullable String cloudwatchevents) {
             this.cloudwatchevents = cloudwatchevents;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatchevidently(@Nullable String cloudwatchevidently) {
             this.cloudwatchevidently = cloudwatchevidently;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatchlog(@Nullable String cloudwatchlog) {
             this.cloudwatchlog = cloudwatchlog;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatchlogs(@Nullable String cloudwatchlogs) {
             this.cloudwatchlogs = cloudwatchlogs;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatchrum(@Nullable String cloudwatchrum) {
             this.cloudwatchrum = cloudwatchrum;
             return this;
         }
+        @CustomType.Setter
         public Builder codeartifact(@Nullable String codeartifact) {
             this.codeartifact = codeartifact;
             return this;
         }
+        @CustomType.Setter
         public Builder codebuild(@Nullable String codebuild) {
             this.codebuild = codebuild;
             return this;
         }
+        @CustomType.Setter
         public Builder codecommit(@Nullable String codecommit) {
             this.codecommit = codecommit;
             return this;
         }
+        @CustomType.Setter
         public Builder codedeploy(@Nullable String codedeploy) {
             this.codedeploy = codedeploy;
             return this;
         }
+        @CustomType.Setter
         public Builder codeguruprofiler(@Nullable String codeguruprofiler) {
             this.codeguruprofiler = codeguruprofiler;
             return this;
         }
+        @CustomType.Setter
         public Builder codegurureviewer(@Nullable String codegurureviewer) {
             this.codegurureviewer = codegurureviewer;
             return this;
         }
+        @CustomType.Setter
         public Builder codepipeline(@Nullable String codepipeline) {
             this.codepipeline = codepipeline;
             return this;
         }
+        @CustomType.Setter
         public Builder codestar(@Nullable String codestar) {
             this.codestar = codestar;
             return this;
         }
+        @CustomType.Setter
         public Builder codestarconnections(@Nullable String codestarconnections) {
             this.codestarconnections = codestarconnections;
             return this;
         }
+        @CustomType.Setter
         public Builder codestarnotifications(@Nullable String codestarnotifications) {
             this.codestarnotifications = codestarnotifications;
             return this;
         }
+        @CustomType.Setter
         public Builder cognitoidentity(@Nullable String cognitoidentity) {
             this.cognitoidentity = cognitoidentity;
             return this;
         }
+        @CustomType.Setter
         public Builder cognitoidentityprovider(@Nullable String cognitoidentityprovider) {
             this.cognitoidentityprovider = cognitoidentityprovider;
             return this;
         }
+        @CustomType.Setter
         public Builder cognitoidp(@Nullable String cognitoidp) {
             this.cognitoidp = cognitoidp;
             return this;
         }
+        @CustomType.Setter
         public Builder cognitosync(@Nullable String cognitosync) {
             this.cognitosync = cognitosync;
             return this;
         }
+        @CustomType.Setter
         public Builder comprehend(@Nullable String comprehend) {
             this.comprehend = comprehend;
             return this;
         }
+        @CustomType.Setter
         public Builder comprehendmedical(@Nullable String comprehendmedical) {
             this.comprehendmedical = comprehendmedical;
             return this;
         }
+        @CustomType.Setter
         public Builder computeoptimizer(@Nullable String computeoptimizer) {
             this.computeoptimizer = computeoptimizer;
             return this;
         }
+        @CustomType.Setter
         public Builder config(@Nullable String config) {
             this.config = config;
             return this;
         }
+        @CustomType.Setter
         public Builder configservice(@Nullable String configservice) {
             this.configservice = configservice;
             return this;
         }
+        @CustomType.Setter
         public Builder connect(@Nullable String connect) {
             this.connect = connect;
             return this;
         }
+        @CustomType.Setter
         public Builder connectcontactlens(@Nullable String connectcontactlens) {
             this.connectcontactlens = connectcontactlens;
             return this;
         }
+        @CustomType.Setter
         public Builder connectparticipant(@Nullable String connectparticipant) {
             this.connectparticipant = connectparticipant;
             return this;
         }
+        @CustomType.Setter
         public Builder connectwisdomservice(@Nullable String connectwisdomservice) {
             this.connectwisdomservice = connectwisdomservice;
             return this;
         }
+        @CustomType.Setter
         public Builder costandusagereportservice(@Nullable String costandusagereportservice) {
             this.costandusagereportservice = costandusagereportservice;
             return this;
         }
+        @CustomType.Setter
         public Builder costexplorer(@Nullable String costexplorer) {
             this.costexplorer = costexplorer;
             return this;
         }
+        @CustomType.Setter
         public Builder cur(@Nullable String cur) {
             this.cur = cur;
             return this;
         }
+        @CustomType.Setter
         public Builder customerprofiles(@Nullable String customerprofiles) {
             this.customerprofiles = customerprofiles;
             return this;
         }
+        @CustomType.Setter
         public Builder databasemigration(@Nullable String databasemigration) {
             this.databasemigration = databasemigration;
             return this;
         }
+        @CustomType.Setter
         public Builder databasemigrationservice(@Nullable String databasemigrationservice) {
             this.databasemigrationservice = databasemigrationservice;
             return this;
         }
+        @CustomType.Setter
         public Builder databrew(@Nullable String databrew) {
             this.databrew = databrew;
             return this;
         }
+        @CustomType.Setter
         public Builder dataexchange(@Nullable String dataexchange) {
             this.dataexchange = dataexchange;
             return this;
         }
+        @CustomType.Setter
         public Builder datapipeline(@Nullable String datapipeline) {
             this.datapipeline = datapipeline;
             return this;
         }
+        @CustomType.Setter
         public Builder datasync(@Nullable String datasync) {
             this.datasync = datasync;
             return this;
         }
+        @CustomType.Setter
         public Builder dax(@Nullable String dax) {
             this.dax = dax;
             return this;
         }
+        @CustomType.Setter
         public Builder deploy(@Nullable String deploy) {
             this.deploy = deploy;
             return this;
         }
+        @CustomType.Setter
         public Builder detective(@Nullable String detective) {
             this.detective = detective;
             return this;
         }
+        @CustomType.Setter
         public Builder devicefarm(@Nullable String devicefarm) {
             this.devicefarm = devicefarm;
             return this;
         }
+        @CustomType.Setter
         public Builder devopsguru(@Nullable String devopsguru) {
             this.devopsguru = devopsguru;
             return this;
         }
+        @CustomType.Setter
         public Builder directconnect(@Nullable String directconnect) {
             this.directconnect = directconnect;
             return this;
         }
+        @CustomType.Setter
         public Builder directoryservice(@Nullable String directoryservice) {
             this.directoryservice = directoryservice;
             return this;
         }
+        @CustomType.Setter
         public Builder discovery(@Nullable String discovery) {
             this.discovery = discovery;
             return this;
         }
+        @CustomType.Setter
         public Builder dlm(@Nullable String dlm) {
             this.dlm = dlm;
             return this;
         }
+        @CustomType.Setter
         public Builder dms(@Nullable String dms) {
             this.dms = dms;
             return this;
         }
+        @CustomType.Setter
         public Builder docdb(@Nullable String docdb) {
             this.docdb = docdb;
             return this;
         }
+        @CustomType.Setter
         public Builder drs(@Nullable String drs) {
             this.drs = drs;
             return this;
         }
+        @CustomType.Setter
         public Builder ds(@Nullable String ds) {
             this.ds = ds;
             return this;
         }
+        @CustomType.Setter
         public Builder dynamodb(@Nullable String dynamodb) {
             this.dynamodb = dynamodb;
             return this;
         }
+        @CustomType.Setter
         public Builder dynamodbstreams(@Nullable String dynamodbstreams) {
             this.dynamodbstreams = dynamodbstreams;
             return this;
         }
+        @CustomType.Setter
         public Builder ebs(@Nullable String ebs) {
             this.ebs = ebs;
             return this;
         }
+        @CustomType.Setter
         public Builder ec2(@Nullable String ec2) {
             this.ec2 = ec2;
             return this;
         }
+        @CustomType.Setter
         public Builder ec2instanceconnect(@Nullable String ec2instanceconnect) {
             this.ec2instanceconnect = ec2instanceconnect;
             return this;
         }
+        @CustomType.Setter
         public Builder ecr(@Nullable String ecr) {
             this.ecr = ecr;
             return this;
         }
+        @CustomType.Setter
         public Builder ecrpublic(@Nullable String ecrpublic) {
             this.ecrpublic = ecrpublic;
             return this;
         }
+        @CustomType.Setter
         public Builder ecs(@Nullable String ecs) {
             this.ecs = ecs;
             return this;
         }
+        @CustomType.Setter
         public Builder efs(@Nullable String efs) {
             this.efs = efs;
             return this;
         }
+        @CustomType.Setter
         public Builder eks(@Nullable String eks) {
             this.eks = eks;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticache(@Nullable String elasticache) {
             this.elasticache = elasticache;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticbeanstalk(@Nullable String elasticbeanstalk) {
             this.elasticbeanstalk = elasticbeanstalk;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticinference(@Nullable String elasticinference) {
             this.elasticinference = elasticinference;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticloadbalancing(@Nullable String elasticloadbalancing) {
             this.elasticloadbalancing = elasticloadbalancing;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticloadbalancingv2(@Nullable String elasticloadbalancingv2) {
             this.elasticloadbalancingv2 = elasticloadbalancingv2;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticsearch(@Nullable String elasticsearch) {
             this.elasticsearch = elasticsearch;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticsearchservice(@Nullable String elasticsearchservice) {
             this.elasticsearchservice = elasticsearchservice;
             return this;
         }
+        @CustomType.Setter
         public Builder elastictranscoder(@Nullable String elastictranscoder) {
             this.elastictranscoder = elastictranscoder;
             return this;
         }
+        @CustomType.Setter
         public Builder elb(@Nullable String elb) {
             this.elb = elb;
             return this;
         }
+        @CustomType.Setter
         public Builder elbv2(@Nullable String elbv2) {
             this.elbv2 = elbv2;
             return this;
         }
+        @CustomType.Setter
         public Builder emr(@Nullable String emr) {
             this.emr = emr;
             return this;
         }
+        @CustomType.Setter
         public Builder emrcontainers(@Nullable String emrcontainers) {
             this.emrcontainers = emrcontainers;
             return this;
         }
+        @CustomType.Setter
         public Builder emrserverless(@Nullable String emrserverless) {
             this.emrserverless = emrserverless;
             return this;
         }
+        @CustomType.Setter
         public Builder es(@Nullable String es) {
             this.es = es;
             return this;
         }
+        @CustomType.Setter
         public Builder eventbridge(@Nullable String eventbridge) {
             this.eventbridge = eventbridge;
             return this;
         }
+        @CustomType.Setter
         public Builder events(@Nullable String events) {
             this.events = events;
             return this;
         }
+        @CustomType.Setter
         public Builder evidently(@Nullable String evidently) {
             this.evidently = evidently;
             return this;
         }
+        @CustomType.Setter
         public Builder finspace(@Nullable String finspace) {
             this.finspace = finspace;
             return this;
         }
+        @CustomType.Setter
         public Builder finspacedata(@Nullable String finspacedata) {
             this.finspacedata = finspacedata;
             return this;
         }
+        @CustomType.Setter
         public Builder firehose(@Nullable String firehose) {
             this.firehose = firehose;
             return this;
         }
+        @CustomType.Setter
         public Builder fis(@Nullable String fis) {
             this.fis = fis;
             return this;
         }
+        @CustomType.Setter
         public Builder fms(@Nullable String fms) {
             this.fms = fms;
             return this;
         }
+        @CustomType.Setter
         public Builder forecast(@Nullable String forecast) {
             this.forecast = forecast;
             return this;
         }
+        @CustomType.Setter
         public Builder forecastquery(@Nullable String forecastquery) {
             this.forecastquery = forecastquery;
             return this;
         }
+        @CustomType.Setter
         public Builder forecastqueryservice(@Nullable String forecastqueryservice) {
             this.forecastqueryservice = forecastqueryservice;
             return this;
         }
+        @CustomType.Setter
         public Builder forecastservice(@Nullable String forecastservice) {
             this.forecastservice = forecastservice;
             return this;
         }
+        @CustomType.Setter
         public Builder frauddetector(@Nullable String frauddetector) {
             this.frauddetector = frauddetector;
             return this;
         }
+        @CustomType.Setter
         public Builder fsx(@Nullable String fsx) {
             this.fsx = fsx;
             return this;
         }
+        @CustomType.Setter
         public Builder gamelift(@Nullable String gamelift) {
             this.gamelift = gamelift;
             return this;
         }
+        @CustomType.Setter
         public Builder glacier(@Nullable String glacier) {
             this.glacier = glacier;
             return this;
         }
+        @CustomType.Setter
         public Builder globalaccelerator(@Nullable String globalaccelerator) {
             this.globalaccelerator = globalaccelerator;
             return this;
         }
+        @CustomType.Setter
         public Builder glue(@Nullable String glue) {
             this.glue = glue;
             return this;
         }
+        @CustomType.Setter
         public Builder gluedatabrew(@Nullable String gluedatabrew) {
             this.gluedatabrew = gluedatabrew;
             return this;
         }
+        @CustomType.Setter
         public Builder grafana(@Nullable String grafana) {
             this.grafana = grafana;
             return this;
         }
+        @CustomType.Setter
         public Builder greengrass(@Nullable String greengrass) {
             this.greengrass = greengrass;
             return this;
         }
+        @CustomType.Setter
         public Builder greengrassv2(@Nullable String greengrassv2) {
             this.greengrassv2 = greengrassv2;
             return this;
         }
+        @CustomType.Setter
         public Builder groundstation(@Nullable String groundstation) {
             this.groundstation = groundstation;
             return this;
         }
+        @CustomType.Setter
         public Builder guardduty(@Nullable String guardduty) {
             this.guardduty = guardduty;
             return this;
         }
+        @CustomType.Setter
         public Builder health(@Nullable String health) {
             this.health = health;
             return this;
         }
+        @CustomType.Setter
         public Builder healthlake(@Nullable String healthlake) {
             this.healthlake = healthlake;
             return this;
         }
+        @CustomType.Setter
         public Builder honeycode(@Nullable String honeycode) {
             this.honeycode = honeycode;
             return this;
         }
+        @CustomType.Setter
         public Builder iam(@Nullable String iam) {
             this.iam = iam;
             return this;
         }
+        @CustomType.Setter
         public Builder identitystore(@Nullable String identitystore) {
             this.identitystore = identitystore;
             return this;
         }
+        @CustomType.Setter
         public Builder imagebuilder(@Nullable String imagebuilder) {
             this.imagebuilder = imagebuilder;
             return this;
         }
+        @CustomType.Setter
         public Builder inspector(@Nullable String inspector) {
             this.inspector = inspector;
             return this;
         }
+        @CustomType.Setter
         public Builder inspector2(@Nullable String inspector2) {
             this.inspector2 = inspector2;
             return this;
         }
+        @CustomType.Setter
         public Builder iot(@Nullable String iot) {
             this.iot = iot;
             return this;
         }
+        @CustomType.Setter
         public Builder iot1clickdevices(@Nullable String iot1clickdevices) {
             this.iot1clickdevices = iot1clickdevices;
             return this;
         }
+        @CustomType.Setter
         public Builder iot1clickdevicesservice(@Nullable String iot1clickdevicesservice) {
             this.iot1clickdevicesservice = iot1clickdevicesservice;
             return this;
         }
+        @CustomType.Setter
         public Builder iot1clickprojects(@Nullable String iot1clickprojects) {
             this.iot1clickprojects = iot1clickprojects;
             return this;
         }
+        @CustomType.Setter
         public Builder iotanalytics(@Nullable String iotanalytics) {
             this.iotanalytics = iotanalytics;
             return this;
         }
+        @CustomType.Setter
         public Builder iotdata(@Nullable String iotdata) {
             this.iotdata = iotdata;
             return this;
         }
+        @CustomType.Setter
         public Builder iotdataplane(@Nullable String iotdataplane) {
             this.iotdataplane = iotdataplane;
             return this;
         }
+        @CustomType.Setter
         public Builder iotdeviceadvisor(@Nullable String iotdeviceadvisor) {
             this.iotdeviceadvisor = iotdeviceadvisor;
             return this;
         }
+        @CustomType.Setter
         public Builder iotevents(@Nullable String iotevents) {
             this.iotevents = iotevents;
             return this;
         }
+        @CustomType.Setter
         public Builder ioteventsdata(@Nullable String ioteventsdata) {
             this.ioteventsdata = ioteventsdata;
             return this;
         }
+        @CustomType.Setter
         public Builder iotfleethub(@Nullable String iotfleethub) {
             this.iotfleethub = iotfleethub;
             return this;
         }
+        @CustomType.Setter
         public Builder iotjobsdata(@Nullable String iotjobsdata) {
             this.iotjobsdata = iotjobsdata;
             return this;
         }
+        @CustomType.Setter
         public Builder iotjobsdataplane(@Nullable String iotjobsdataplane) {
             this.iotjobsdataplane = iotjobsdataplane;
             return this;
         }
+        @CustomType.Setter
         public Builder iotsecuretunneling(@Nullable String iotsecuretunneling) {
             this.iotsecuretunneling = iotsecuretunneling;
             return this;
         }
+        @CustomType.Setter
         public Builder iotsitewise(@Nullable String iotsitewise) {
             this.iotsitewise = iotsitewise;
             return this;
         }
+        @CustomType.Setter
         public Builder iotthingsgraph(@Nullable String iotthingsgraph) {
             this.iotthingsgraph = iotthingsgraph;
             return this;
         }
+        @CustomType.Setter
         public Builder iottwinmaker(@Nullable String iottwinmaker) {
             this.iottwinmaker = iottwinmaker;
             return this;
         }
+        @CustomType.Setter
         public Builder iotwireless(@Nullable String iotwireless) {
             this.iotwireless = iotwireless;
             return this;
         }
+        @CustomType.Setter
         public Builder ivs(@Nullable String ivs) {
             this.ivs = ivs;
             return this;
         }
+        @CustomType.Setter
         public Builder kafka(@Nullable String kafka) {
             this.kafka = kafka;
             return this;
         }
+        @CustomType.Setter
         public Builder kafkaconnect(@Nullable String kafkaconnect) {
             this.kafkaconnect = kafkaconnect;
             return this;
         }
+        @CustomType.Setter
         public Builder kendra(@Nullable String kendra) {
             this.kendra = kendra;
             return this;
         }
+        @CustomType.Setter
         public Builder keyspaces(@Nullable String keyspaces) {
             this.keyspaces = keyspaces;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesis(@Nullable String kinesis) {
             this.kinesis = kinesis;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisanalytics(@Nullable String kinesisanalytics) {
             this.kinesisanalytics = kinesisanalytics;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisanalyticsv2(@Nullable String kinesisanalyticsv2) {
             this.kinesisanalyticsv2 = kinesisanalyticsv2;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisvideo(@Nullable String kinesisvideo) {
             this.kinesisvideo = kinesisvideo;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisvideoarchivedmedia(@Nullable String kinesisvideoarchivedmedia) {
             this.kinesisvideoarchivedmedia = kinesisvideoarchivedmedia;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisvideomedia(@Nullable String kinesisvideomedia) {
             this.kinesisvideomedia = kinesisvideomedia;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisvideosignaling(@Nullable String kinesisvideosignaling) {
             this.kinesisvideosignaling = kinesisvideosignaling;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisvideosignalingchannels(@Nullable String kinesisvideosignalingchannels) {
             this.kinesisvideosignalingchannels = kinesisvideosignalingchannels;
             return this;
         }
+        @CustomType.Setter
         public Builder kms(@Nullable String kms) {
             this.kms = kms;
             return this;
         }
+        @CustomType.Setter
         public Builder lakeformation(@Nullable String lakeformation) {
             this.lakeformation = lakeformation;
             return this;
         }
+        @CustomType.Setter
         public Builder lambda(@Nullable String lambda) {
             this.lambda = lambda;
             return this;
         }
+        @CustomType.Setter
         public Builder lex(@Nullable String lex) {
             this.lex = lex;
             return this;
         }
+        @CustomType.Setter
         public Builder lexmodelbuilding(@Nullable String lexmodelbuilding) {
             this.lexmodelbuilding = lexmodelbuilding;
             return this;
         }
+        @CustomType.Setter
         public Builder lexmodelbuildingservice(@Nullable String lexmodelbuildingservice) {
             this.lexmodelbuildingservice = lexmodelbuildingservice;
             return this;
         }
+        @CustomType.Setter
         public Builder lexmodels(@Nullable String lexmodels) {
             this.lexmodels = lexmodels;
             return this;
         }
+        @CustomType.Setter
         public Builder lexmodelsv2(@Nullable String lexmodelsv2) {
             this.lexmodelsv2 = lexmodelsv2;
             return this;
         }
+        @CustomType.Setter
         public Builder lexruntime(@Nullable String lexruntime) {
             this.lexruntime = lexruntime;
             return this;
         }
+        @CustomType.Setter
         public Builder lexruntimeservice(@Nullable String lexruntimeservice) {
             this.lexruntimeservice = lexruntimeservice;
             return this;
         }
+        @CustomType.Setter
         public Builder lexruntimev2(@Nullable String lexruntimev2) {
             this.lexruntimev2 = lexruntimev2;
             return this;
         }
+        @CustomType.Setter
         public Builder lexv2models(@Nullable String lexv2models) {
             this.lexv2models = lexv2models;
             return this;
         }
+        @CustomType.Setter
         public Builder lexv2runtime(@Nullable String lexv2runtime) {
             this.lexv2runtime = lexv2runtime;
             return this;
         }
+        @CustomType.Setter
         public Builder licensemanager(@Nullable String licensemanager) {
             this.licensemanager = licensemanager;
             return this;
         }
+        @CustomType.Setter
         public Builder lightsail(@Nullable String lightsail) {
             this.lightsail = lightsail;
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder locationservice(@Nullable String locationservice) {
             this.locationservice = locationservice;
             return this;
         }
+        @CustomType.Setter
         public Builder logs(@Nullable String logs) {
             this.logs = logs;
             return this;
         }
+        @CustomType.Setter
         public Builder lookoutequipment(@Nullable String lookoutequipment) {
             this.lookoutequipment = lookoutequipment;
             return this;
         }
+        @CustomType.Setter
         public Builder lookoutforvision(@Nullable String lookoutforvision) {
             this.lookoutforvision = lookoutforvision;
             return this;
         }
+        @CustomType.Setter
         public Builder lookoutmetrics(@Nullable String lookoutmetrics) {
             this.lookoutmetrics = lookoutmetrics;
             return this;
         }
+        @CustomType.Setter
         public Builder lookoutvision(@Nullable String lookoutvision) {
             this.lookoutvision = lookoutvision;
             return this;
         }
+        @CustomType.Setter
         public Builder machinelearning(@Nullable String machinelearning) {
             this.machinelearning = machinelearning;
             return this;
         }
+        @CustomType.Setter
         public Builder macie(@Nullable String macie) {
             this.macie = macie;
             return this;
         }
+        @CustomType.Setter
         public Builder macie2(@Nullable String macie2) {
             this.macie2 = macie2;
             return this;
         }
+        @CustomType.Setter
         public Builder managedblockchain(@Nullable String managedblockchain) {
             this.managedblockchain = managedblockchain;
             return this;
         }
+        @CustomType.Setter
         public Builder managedgrafana(@Nullable String managedgrafana) {
             this.managedgrafana = managedgrafana;
             return this;
         }
+        @CustomType.Setter
         public Builder marketplacecatalog(@Nullable String marketplacecatalog) {
             this.marketplacecatalog = marketplacecatalog;
             return this;
         }
+        @CustomType.Setter
         public Builder marketplacecommerceanalytics(@Nullable String marketplacecommerceanalytics) {
             this.marketplacecommerceanalytics = marketplacecommerceanalytics;
             return this;
         }
+        @CustomType.Setter
         public Builder marketplaceentitlement(@Nullable String marketplaceentitlement) {
             this.marketplaceentitlement = marketplaceentitlement;
             return this;
         }
+        @CustomType.Setter
         public Builder marketplaceentitlementservice(@Nullable String marketplaceentitlementservice) {
             this.marketplaceentitlementservice = marketplaceentitlementservice;
             return this;
         }
+        @CustomType.Setter
         public Builder marketplacemetering(@Nullable String marketplacemetering) {
             this.marketplacemetering = marketplacemetering;
             return this;
         }
+        @CustomType.Setter
         public Builder mediaconnect(@Nullable String mediaconnect) {
             this.mediaconnect = mediaconnect;
             return this;
         }
+        @CustomType.Setter
         public Builder mediaconvert(@Nullable String mediaconvert) {
             this.mediaconvert = mediaconvert;
             return this;
         }
+        @CustomType.Setter
         public Builder medialive(@Nullable String medialive) {
             this.medialive = medialive;
             return this;
         }
+        @CustomType.Setter
         public Builder mediapackage(@Nullable String mediapackage) {
             this.mediapackage = mediapackage;
             return this;
         }
+        @CustomType.Setter
         public Builder mediapackagevod(@Nullable String mediapackagevod) {
             this.mediapackagevod = mediapackagevod;
             return this;
         }
+        @CustomType.Setter
         public Builder mediastore(@Nullable String mediastore) {
             this.mediastore = mediastore;
             return this;
         }
+        @CustomType.Setter
         public Builder mediastoredata(@Nullable String mediastoredata) {
             this.mediastoredata = mediastoredata;
             return this;
         }
+        @CustomType.Setter
         public Builder mediatailor(@Nullable String mediatailor) {
             this.mediatailor = mediatailor;
             return this;
         }
+        @CustomType.Setter
         public Builder memorydb(@Nullable String memorydb) {
             this.memorydb = memorydb;
             return this;
         }
+        @CustomType.Setter
         public Builder meteringmarketplace(@Nullable String meteringmarketplace) {
             this.meteringmarketplace = meteringmarketplace;
             return this;
         }
+        @CustomType.Setter
         public Builder mgh(@Nullable String mgh) {
             this.mgh = mgh;
             return this;
         }
+        @CustomType.Setter
         public Builder mgn(@Nullable String mgn) {
             this.mgn = mgn;
             return this;
         }
+        @CustomType.Setter
         public Builder migrationhub(@Nullable String migrationhub) {
             this.migrationhub = migrationhub;
             return this;
         }
+        @CustomType.Setter
         public Builder migrationhubconfig(@Nullable String migrationhubconfig) {
             this.migrationhubconfig = migrationhubconfig;
             return this;
         }
+        @CustomType.Setter
         public Builder migrationhubrefactorspaces(@Nullable String migrationhubrefactorspaces) {
             this.migrationhubrefactorspaces = migrationhubrefactorspaces;
             return this;
         }
+        @CustomType.Setter
         public Builder migrationhubstrategy(@Nullable String migrationhubstrategy) {
             this.migrationhubstrategy = migrationhubstrategy;
             return this;
         }
+        @CustomType.Setter
         public Builder migrationhubstrategyrecommendations(@Nullable String migrationhubstrategyrecommendations) {
             this.migrationhubstrategyrecommendations = migrationhubstrategyrecommendations;
             return this;
         }
+        @CustomType.Setter
         public Builder mobile(@Nullable String mobile) {
             this.mobile = mobile;
             return this;
         }
+        @CustomType.Setter
         public Builder mq(@Nullable String mq) {
             this.mq = mq;
             return this;
         }
+        @CustomType.Setter
         public Builder msk(@Nullable String msk) {
             this.msk = msk;
             return this;
         }
+        @CustomType.Setter
         public Builder mturk(@Nullable String mturk) {
             this.mturk = mturk;
             return this;
         }
+        @CustomType.Setter
         public Builder mwaa(@Nullable String mwaa) {
             this.mwaa = mwaa;
             return this;
         }
+        @CustomType.Setter
         public Builder neptune(@Nullable String neptune) {
             this.neptune = neptune;
             return this;
         }
+        @CustomType.Setter
         public Builder networkfirewall(@Nullable String networkfirewall) {
             this.networkfirewall = networkfirewall;
             return this;
         }
+        @CustomType.Setter
         public Builder networkmanager(@Nullable String networkmanager) {
             this.networkmanager = networkmanager;
             return this;
         }
+        @CustomType.Setter
         public Builder nimble(@Nullable String nimble) {
             this.nimble = nimble;
             return this;
         }
+        @CustomType.Setter
         public Builder nimblestudio(@Nullable String nimblestudio) {
             this.nimblestudio = nimblestudio;
             return this;
         }
+        @CustomType.Setter
         public Builder opensearch(@Nullable String opensearch) {
             this.opensearch = opensearch;
             return this;
         }
+        @CustomType.Setter
         public Builder opensearchservice(@Nullable String opensearchservice) {
             this.opensearchservice = opensearchservice;
             return this;
         }
+        @CustomType.Setter
         public Builder opsworks(@Nullable String opsworks) {
             this.opsworks = opsworks;
             return this;
         }
+        @CustomType.Setter
         public Builder opsworkscm(@Nullable String opsworkscm) {
             this.opsworkscm = opsworkscm;
             return this;
         }
+        @CustomType.Setter
         public Builder organizations(@Nullable String organizations) {
             this.organizations = organizations;
             return this;
         }
+        @CustomType.Setter
         public Builder outposts(@Nullable String outposts) {
             this.outposts = outposts;
             return this;
         }
+        @CustomType.Setter
         public Builder panorama(@Nullable String panorama) {
             this.panorama = panorama;
             return this;
         }
+        @CustomType.Setter
         public Builder personalize(@Nullable String personalize) {
             this.personalize = personalize;
             return this;
         }
+        @CustomType.Setter
         public Builder personalizeevents(@Nullable String personalizeevents) {
             this.personalizeevents = personalizeevents;
             return this;
         }
+        @CustomType.Setter
         public Builder personalizeruntime(@Nullable String personalizeruntime) {
             this.personalizeruntime = personalizeruntime;
             return this;
         }
+        @CustomType.Setter
         public Builder pi(@Nullable String pi) {
             this.pi = pi;
             return this;
         }
+        @CustomType.Setter
         public Builder pinpoint(@Nullable String pinpoint) {
             this.pinpoint = pinpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder pinpointemail(@Nullable String pinpointemail) {
             this.pinpointemail = pinpointemail;
             return this;
         }
+        @CustomType.Setter
         public Builder pinpointsmsvoice(@Nullable String pinpointsmsvoice) {
             this.pinpointsmsvoice = pinpointsmsvoice;
             return this;
         }
+        @CustomType.Setter
         public Builder polly(@Nullable String polly) {
             this.polly = polly;
             return this;
         }
+        @CustomType.Setter
         public Builder pricing(@Nullable String pricing) {
             this.pricing = pricing;
             return this;
         }
+        @CustomType.Setter
         public Builder prometheus(@Nullable String prometheus) {
             this.prometheus = prometheus;
             return this;
         }
+        @CustomType.Setter
         public Builder prometheusservice(@Nullable String prometheusservice) {
             this.prometheusservice = prometheusservice;
             return this;
         }
+        @CustomType.Setter
         public Builder proton(@Nullable String proton) {
             this.proton = proton;
             return this;
         }
+        @CustomType.Setter
         public Builder qldb(@Nullable String qldb) {
             this.qldb = qldb;
             return this;
         }
+        @CustomType.Setter
         public Builder qldbsession(@Nullable String qldbsession) {
             this.qldbsession = qldbsession;
             return this;
         }
+        @CustomType.Setter
         public Builder quicksight(@Nullable String quicksight) {
             this.quicksight = quicksight;
             return this;
         }
+        @CustomType.Setter
         public Builder ram(@Nullable String ram) {
             this.ram = ram;
             return this;
         }
+        @CustomType.Setter
         public Builder rbin(@Nullable String rbin) {
             this.rbin = rbin;
             return this;
         }
+        @CustomType.Setter
         public Builder rds(@Nullable String rds) {
             this.rds = rds;
             return this;
         }
+        @CustomType.Setter
         public Builder rdsdata(@Nullable String rdsdata) {
             this.rdsdata = rdsdata;
             return this;
         }
+        @CustomType.Setter
         public Builder rdsdataservice(@Nullable String rdsdataservice) {
             this.rdsdataservice = rdsdataservice;
             return this;
         }
+        @CustomType.Setter
         public Builder recyclebin(@Nullable String recyclebin) {
             this.recyclebin = recyclebin;
             return this;
         }
+        @CustomType.Setter
         public Builder redshift(@Nullable String redshift) {
             this.redshift = redshift;
             return this;
         }
+        @CustomType.Setter
         public Builder redshiftdata(@Nullable String redshiftdata) {
             this.redshiftdata = redshiftdata;
             return this;
         }
+        @CustomType.Setter
         public Builder redshiftdataapiservice(@Nullable String redshiftdataapiservice) {
             this.redshiftdataapiservice = redshiftdataapiservice;
             return this;
         }
+        @CustomType.Setter
         public Builder redshiftserverless(@Nullable String redshiftserverless) {
             this.redshiftserverless = redshiftserverless;
             return this;
         }
+        @CustomType.Setter
         public Builder rekognition(@Nullable String rekognition) {
             this.rekognition = rekognition;
             return this;
         }
+        @CustomType.Setter
         public Builder resiliencehub(@Nullable String resiliencehub) {
             this.resiliencehub = resiliencehub;
             return this;
         }
+        @CustomType.Setter
         public Builder resourcegroups(@Nullable String resourcegroups) {
             this.resourcegroups = resourcegroups;
             return this;
         }
+        @CustomType.Setter
         public Builder resourcegroupstagging(@Nullable String resourcegroupstagging) {
             this.resourcegroupstagging = resourcegroupstagging;
             return this;
         }
+        @CustomType.Setter
         public Builder resourcegroupstaggingapi(@Nullable String resourcegroupstaggingapi) {
             this.resourcegroupstaggingapi = resourcegroupstaggingapi;
             return this;
         }
+        @CustomType.Setter
         public Builder robomaker(@Nullable String robomaker) {
             this.robomaker = robomaker;
             return this;
         }
+        @CustomType.Setter
         public Builder rolesanywhere(@Nullable String rolesanywhere) {
             this.rolesanywhere = rolesanywhere;
             return this;
         }
+        @CustomType.Setter
         public Builder route53(@Nullable String route53) {
             this.route53 = route53;
             return this;
         }
+        @CustomType.Setter
         public Builder route53domains(@Nullable String route53domains) {
             this.route53domains = route53domains;
             return this;
         }
+        @CustomType.Setter
         public Builder route53recoverycluster(@Nullable String route53recoverycluster) {
             this.route53recoverycluster = route53recoverycluster;
             return this;
         }
+        @CustomType.Setter
         public Builder route53recoverycontrolconfig(@Nullable String route53recoverycontrolconfig) {
             this.route53recoverycontrolconfig = route53recoverycontrolconfig;
             return this;
         }
+        @CustomType.Setter
         public Builder route53recoveryreadiness(@Nullable String route53recoveryreadiness) {
             this.route53recoveryreadiness = route53recoveryreadiness;
             return this;
         }
+        @CustomType.Setter
         public Builder route53resolver(@Nullable String route53resolver) {
             this.route53resolver = route53resolver;
             return this;
         }
+        @CustomType.Setter
         public Builder rum(@Nullable String rum) {
             this.rum = rum;
             return this;
         }
+        @CustomType.Setter
         public Builder s3(@Nullable String s3) {
             this.s3 = s3;
             return this;
         }
+        @CustomType.Setter
         public Builder s3api(@Nullable String s3api) {
             this.s3api = s3api;
             return this;
         }
+        @CustomType.Setter
         public Builder s3control(@Nullable String s3control) {
             this.s3control = s3control;
             return this;
         }
+        @CustomType.Setter
         public Builder s3outposts(@Nullable String s3outposts) {
             this.s3outposts = s3outposts;
             return this;
         }
+        @CustomType.Setter
         public Builder sagemaker(@Nullable String sagemaker) {
             this.sagemaker = sagemaker;
             return this;
         }
+        @CustomType.Setter
         public Builder sagemakera2iruntime(@Nullable String sagemakera2iruntime) {
             this.sagemakera2iruntime = sagemakera2iruntime;
             return this;
         }
+        @CustomType.Setter
         public Builder sagemakeredge(@Nullable String sagemakeredge) {
             this.sagemakeredge = sagemakeredge;
             return this;
         }
+        @CustomType.Setter
         public Builder sagemakeredgemanager(@Nullable String sagemakeredgemanager) {
             this.sagemakeredgemanager = sagemakeredgemanager;
             return this;
         }
+        @CustomType.Setter
         public Builder sagemakerfeaturestoreruntime(@Nullable String sagemakerfeaturestoreruntime) {
             this.sagemakerfeaturestoreruntime = sagemakerfeaturestoreruntime;
             return this;
         }
+        @CustomType.Setter
         public Builder sagemakerruntime(@Nullable String sagemakerruntime) {
             this.sagemakerruntime = sagemakerruntime;
             return this;
         }
+        @CustomType.Setter
         public Builder savingsplans(@Nullable String savingsplans) {
             this.savingsplans = savingsplans;
             return this;
         }
+        @CustomType.Setter
         public Builder schemas(@Nullable String schemas) {
             this.schemas = schemas;
             return this;
         }
+        @CustomType.Setter
         public Builder sdb(@Nullable String sdb) {
             this.sdb = sdb;
             return this;
         }
+        @CustomType.Setter
         public Builder secretsmanager(@Nullable String secretsmanager) {
             this.secretsmanager = secretsmanager;
             return this;
         }
+        @CustomType.Setter
         public Builder securityhub(@Nullable String securityhub) {
             this.securityhub = securityhub;
             return this;
         }
+        @CustomType.Setter
         public Builder serverlessapplicationrepository(@Nullable String serverlessapplicationrepository) {
             this.serverlessapplicationrepository = serverlessapplicationrepository;
             return this;
         }
+        @CustomType.Setter
         public Builder serverlessapprepo(@Nullable String serverlessapprepo) {
             this.serverlessapprepo = serverlessapprepo;
             return this;
         }
+        @CustomType.Setter
         public Builder serverlessrepo(@Nullable String serverlessrepo) {
             this.serverlessrepo = serverlessrepo;
             return this;
         }
+        @CustomType.Setter
         public Builder servicecatalog(@Nullable String servicecatalog) {
             this.servicecatalog = servicecatalog;
             return this;
         }
+        @CustomType.Setter
         public Builder servicecatalogappregistry(@Nullable String servicecatalogappregistry) {
             this.servicecatalogappregistry = servicecatalogappregistry;
             return this;
         }
+        @CustomType.Setter
         public Builder servicediscovery(@Nullable String servicediscovery) {
             this.servicediscovery = servicediscovery;
             return this;
         }
+        @CustomType.Setter
         public Builder servicequotas(@Nullable String servicequotas) {
             this.servicequotas = servicequotas;
             return this;
         }
+        @CustomType.Setter
         public Builder ses(@Nullable String ses) {
             this.ses = ses;
             return this;
         }
+        @CustomType.Setter
         public Builder sesv2(@Nullable String sesv2) {
             this.sesv2 = sesv2;
             return this;
         }
+        @CustomType.Setter
         public Builder sfn(@Nullable String sfn) {
             this.sfn = sfn;
             return this;
         }
+        @CustomType.Setter
         public Builder shield(@Nullable String shield) {
             this.shield = shield;
             return this;
         }
+        @CustomType.Setter
         public Builder signer(@Nullable String signer) {
             this.signer = signer;
             return this;
         }
+        @CustomType.Setter
         public Builder simpledb(@Nullable String simpledb) {
             this.simpledb = simpledb;
             return this;
         }
+        @CustomType.Setter
         public Builder sms(@Nullable String sms) {
             this.sms = sms;
             return this;
         }
+        @CustomType.Setter
         public Builder snowball(@Nullable String snowball) {
             this.snowball = snowball;
             return this;
         }
+        @CustomType.Setter
         public Builder snowdevicemanagement(@Nullable String snowdevicemanagement) {
             this.snowdevicemanagement = snowdevicemanagement;
             return this;
         }
+        @CustomType.Setter
         public Builder sns(@Nullable String sns) {
             this.sns = sns;
             return this;
         }
+        @CustomType.Setter
         public Builder sqs(@Nullable String sqs) {
             this.sqs = sqs;
             return this;
         }
+        @CustomType.Setter
         public Builder ssm(@Nullable String ssm) {
             this.ssm = ssm;
             return this;
         }
+        @CustomType.Setter
         public Builder ssmcontacts(@Nullable String ssmcontacts) {
             this.ssmcontacts = ssmcontacts;
             return this;
         }
+        @CustomType.Setter
         public Builder ssmincidents(@Nullable String ssmincidents) {
             this.ssmincidents = ssmincidents;
             return this;
         }
+        @CustomType.Setter
         public Builder sso(@Nullable String sso) {
             this.sso = sso;
             return this;
         }
+        @CustomType.Setter
         public Builder ssoadmin(@Nullable String ssoadmin) {
             this.ssoadmin = ssoadmin;
             return this;
         }
+        @CustomType.Setter
         public Builder ssooidc(@Nullable String ssooidc) {
             this.ssooidc = ssooidc;
             return this;
         }
+        @CustomType.Setter
         public Builder stepfunctions(@Nullable String stepfunctions) {
             this.stepfunctions = stepfunctions;
             return this;
         }
+        @CustomType.Setter
         public Builder storagegateway(@Nullable String storagegateway) {
             this.storagegateway = storagegateway;
             return this;
         }
+        @CustomType.Setter
         public Builder sts(@Nullable String sts) {
             this.sts = sts;
             return this;
         }
+        @CustomType.Setter
         public Builder support(@Nullable String support) {
             this.support = support;
             return this;
         }
+        @CustomType.Setter
         public Builder swf(@Nullable String swf) {
             this.swf = swf;
             return this;
         }
+        @CustomType.Setter
         public Builder synthetics(@Nullable String synthetics) {
             this.synthetics = synthetics;
             return this;
         }
+        @CustomType.Setter
         public Builder textract(@Nullable String textract) {
             this.textract = textract;
             return this;
         }
+        @CustomType.Setter
         public Builder timestreamquery(@Nullable String timestreamquery) {
             this.timestreamquery = timestreamquery;
             return this;
         }
+        @CustomType.Setter
         public Builder timestreamwrite(@Nullable String timestreamwrite) {
             this.timestreamwrite = timestreamwrite;
             return this;
         }
+        @CustomType.Setter
         public Builder transcribe(@Nullable String transcribe) {
             this.transcribe = transcribe;
             return this;
         }
+        @CustomType.Setter
         public Builder transcribeservice(@Nullable String transcribeservice) {
             this.transcribeservice = transcribeservice;
             return this;
         }
+        @CustomType.Setter
         public Builder transcribestreaming(@Nullable String transcribestreaming) {
             this.transcribestreaming = transcribestreaming;
             return this;
         }
+        @CustomType.Setter
         public Builder transcribestreamingservice(@Nullable String transcribestreamingservice) {
             this.transcribestreamingservice = transcribestreamingservice;
             return this;
         }
+        @CustomType.Setter
         public Builder transfer(@Nullable String transfer) {
             this.transfer = transfer;
             return this;
         }
+        @CustomType.Setter
         public Builder translate(@Nullable String translate) {
             this.translate = translate;
             return this;
         }
+        @CustomType.Setter
         public Builder voiceid(@Nullable String voiceid) {
             this.voiceid = voiceid;
             return this;
         }
+        @CustomType.Setter
         public Builder waf(@Nullable String waf) {
             this.waf = waf;
             return this;
         }
+        @CustomType.Setter
         public Builder wafregional(@Nullable String wafregional) {
             this.wafregional = wafregional;
             return this;
         }
+        @CustomType.Setter
         public Builder wafv2(@Nullable String wafv2) {
             this.wafv2 = wafv2;
             return this;
         }
+        @CustomType.Setter
         public Builder wellarchitected(@Nullable String wellarchitected) {
             this.wellarchitected = wellarchitected;
             return this;
         }
+        @CustomType.Setter
         public Builder wisdom(@Nullable String wisdom) {
             this.wisdom = wisdom;
             return this;
         }
+        @CustomType.Setter
         public Builder workdocs(@Nullable String workdocs) {
             this.workdocs = workdocs;
             return this;
         }
+        @CustomType.Setter
         public Builder worklink(@Nullable String worklink) {
             this.worklink = worklink;
             return this;
         }
+        @CustomType.Setter
         public Builder workmail(@Nullable String workmail) {
             this.workmail = workmail;
             return this;
         }
+        @CustomType.Setter
         public Builder workmailmessageflow(@Nullable String workmailmessageflow) {
             this.workmailmessageflow = workmailmessageflow;
             return this;
         }
+        @CustomType.Setter
         public Builder workspaces(@Nullable String workspaces) {
             this.workspaces = workspaces;
             return this;
         }
+        @CustomType.Setter
         public Builder workspacesweb(@Nullable String workspacesweb) {
             this.workspacesweb = workspacesweb;
             return this;
         }
+        @CustomType.Setter
         public Builder xray(@Nullable String xray) {
             this.xray = xray;
             return this;
-        }        public Endpoints build() {
-            final var built = new Endpoints();
-
-            built.accessanalyzer = accessanalyzer;
-            built.account = account;
-            built.acm = acm;
-            built.acmpca = acmpca;
-            built.alexaforbusiness = alexaforbusiness;
-            built.amg = amg;
-            built.amp = amp;
-            built.amplify = amplify;
-            built.amplifybackend = amplifybackend;
-            built.amplifyuibuilder = amplifyuibuilder;
-            built.apigateway = apigateway;
-            built.apigatewaymanagementapi = apigatewaymanagementapi;
-            built.apigatewayv2 = apigatewayv2;
-            built.appautoscaling = appautoscaling;
-            built.appconfig = appconfig;
-            built.appconfigdata = appconfigdata;
-            built.appflow = appflow;
-            built.appintegrations = appintegrations;
-            built.appintegrationsservice = appintegrationsservice;
-            built.applicationautoscaling = applicationautoscaling;
-            built.applicationcostprofiler = applicationcostprofiler;
-            built.applicationdiscovery = applicationdiscovery;
-            built.applicationdiscoveryservice = applicationdiscoveryservice;
-            built.applicationinsights = applicationinsights;
-            built.appmesh = appmesh;
-            built.appregistry = appregistry;
-            built.apprunner = apprunner;
-            built.appstream = appstream;
-            built.appsync = appsync;
-            built.athena = athena;
-            built.auditmanager = auditmanager;
-            built.augmentedairuntime = augmentedairuntime;
-            built.autoscaling = autoscaling;
-            built.autoscalingplans = autoscalingplans;
-            built.backup = backup;
-            built.backupgateway = backupgateway;
-            built.batch = batch;
-            built.beanstalk = beanstalk;
-            built.billingconductor = billingconductor;
-            built.braket = braket;
-            built.budgets = budgets;
-            built.ce = ce;
-            built.chime = chime;
-            built.chimesdkidentity = chimesdkidentity;
-            built.chimesdkmeetings = chimesdkmeetings;
-            built.chimesdkmessaging = chimesdkmessaging;
-            built.cloud9 = cloud9;
-            built.cloudcontrol = cloudcontrol;
-            built.cloudcontrolapi = cloudcontrolapi;
-            built.clouddirectory = clouddirectory;
-            built.cloudformation = cloudformation;
-            built.cloudfront = cloudfront;
-            built.cloudhsm = cloudhsm;
-            built.cloudhsmv2 = cloudhsmv2;
-            built.cloudsearch = cloudsearch;
-            built.cloudsearchdomain = cloudsearchdomain;
-            built.cloudtrail = cloudtrail;
-            built.cloudwatch = cloudwatch;
-            built.cloudwatchevents = cloudwatchevents;
-            built.cloudwatchevidently = cloudwatchevidently;
-            built.cloudwatchlog = cloudwatchlog;
-            built.cloudwatchlogs = cloudwatchlogs;
-            built.cloudwatchrum = cloudwatchrum;
-            built.codeartifact = codeartifact;
-            built.codebuild = codebuild;
-            built.codecommit = codecommit;
-            built.codedeploy = codedeploy;
-            built.codeguruprofiler = codeguruprofiler;
-            built.codegurureviewer = codegurureviewer;
-            built.codepipeline = codepipeline;
-            built.codestar = codestar;
-            built.codestarconnections = codestarconnections;
-            built.codestarnotifications = codestarnotifications;
-            built.cognitoidentity = cognitoidentity;
-            built.cognitoidentityprovider = cognitoidentityprovider;
-            built.cognitoidp = cognitoidp;
-            built.cognitosync = cognitosync;
-            built.comprehend = comprehend;
-            built.comprehendmedical = comprehendmedical;
-            built.computeoptimizer = computeoptimizer;
-            built.config = config;
-            built.configservice = configservice;
-            built.connect = connect;
-            built.connectcontactlens = connectcontactlens;
-            built.connectparticipant = connectparticipant;
-            built.connectwisdomservice = connectwisdomservice;
-            built.costandusagereportservice = costandusagereportservice;
-            built.costexplorer = costexplorer;
-            built.cur = cur;
-            built.customerprofiles = customerprofiles;
-            built.databasemigration = databasemigration;
-            built.databasemigrationservice = databasemigrationservice;
-            built.databrew = databrew;
-            built.dataexchange = dataexchange;
-            built.datapipeline = datapipeline;
-            built.datasync = datasync;
-            built.dax = dax;
-            built.deploy = deploy;
-            built.detective = detective;
-            built.devicefarm = devicefarm;
-            built.devopsguru = devopsguru;
-            built.directconnect = directconnect;
-            built.directoryservice = directoryservice;
-            built.discovery = discovery;
-            built.dlm = dlm;
-            built.dms = dms;
-            built.docdb = docdb;
-            built.drs = drs;
-            built.ds = ds;
-            built.dynamodb = dynamodb;
-            built.dynamodbstreams = dynamodbstreams;
-            built.ebs = ebs;
-            built.ec2 = ec2;
-            built.ec2instanceconnect = ec2instanceconnect;
-            built.ecr = ecr;
-            built.ecrpublic = ecrpublic;
-            built.ecs = ecs;
-            built.efs = efs;
-            built.eks = eks;
-            built.elasticache = elasticache;
-            built.elasticbeanstalk = elasticbeanstalk;
-            built.elasticinference = elasticinference;
-            built.elasticloadbalancing = elasticloadbalancing;
-            built.elasticloadbalancingv2 = elasticloadbalancingv2;
-            built.elasticsearch = elasticsearch;
-            built.elasticsearchservice = elasticsearchservice;
-            built.elastictranscoder = elastictranscoder;
-            built.elb = elb;
-            built.elbv2 = elbv2;
-            built.emr = emr;
-            built.emrcontainers = emrcontainers;
-            built.emrserverless = emrserverless;
-            built.es = es;
-            built.eventbridge = eventbridge;
-            built.events = events;
-            built.evidently = evidently;
-            built.finspace = finspace;
-            built.finspacedata = finspacedata;
-            built.firehose = firehose;
-            built.fis = fis;
-            built.fms = fms;
-            built.forecast = forecast;
-            built.forecastquery = forecastquery;
-            built.forecastqueryservice = forecastqueryservice;
-            built.forecastservice = forecastservice;
-            built.frauddetector = frauddetector;
-            built.fsx = fsx;
-            built.gamelift = gamelift;
-            built.glacier = glacier;
-            built.globalaccelerator = globalaccelerator;
-            built.glue = glue;
-            built.gluedatabrew = gluedatabrew;
-            built.grafana = grafana;
-            built.greengrass = greengrass;
-            built.greengrassv2 = greengrassv2;
-            built.groundstation = groundstation;
-            built.guardduty = guardduty;
-            built.health = health;
-            built.healthlake = healthlake;
-            built.honeycode = honeycode;
-            built.iam = iam;
-            built.identitystore = identitystore;
-            built.imagebuilder = imagebuilder;
-            built.inspector = inspector;
-            built.inspector2 = inspector2;
-            built.iot = iot;
-            built.iot1clickdevices = iot1clickdevices;
-            built.iot1clickdevicesservice = iot1clickdevicesservice;
-            built.iot1clickprojects = iot1clickprojects;
-            built.iotanalytics = iotanalytics;
-            built.iotdata = iotdata;
-            built.iotdataplane = iotdataplane;
-            built.iotdeviceadvisor = iotdeviceadvisor;
-            built.iotevents = iotevents;
-            built.ioteventsdata = ioteventsdata;
-            built.iotfleethub = iotfleethub;
-            built.iotjobsdata = iotjobsdata;
-            built.iotjobsdataplane = iotjobsdataplane;
-            built.iotsecuretunneling = iotsecuretunneling;
-            built.iotsitewise = iotsitewise;
-            built.iotthingsgraph = iotthingsgraph;
-            built.iottwinmaker = iottwinmaker;
-            built.iotwireless = iotwireless;
-            built.ivs = ivs;
-            built.kafka = kafka;
-            built.kafkaconnect = kafkaconnect;
-            built.kendra = kendra;
-            built.keyspaces = keyspaces;
-            built.kinesis = kinesis;
-            built.kinesisanalytics = kinesisanalytics;
-            built.kinesisanalyticsv2 = kinesisanalyticsv2;
-            built.kinesisvideo = kinesisvideo;
-            built.kinesisvideoarchivedmedia = kinesisvideoarchivedmedia;
-            built.kinesisvideomedia = kinesisvideomedia;
-            built.kinesisvideosignaling = kinesisvideosignaling;
-            built.kinesisvideosignalingchannels = kinesisvideosignalingchannels;
-            built.kms = kms;
-            built.lakeformation = lakeformation;
-            built.lambda = lambda;
-            built.lex = lex;
-            built.lexmodelbuilding = lexmodelbuilding;
-            built.lexmodelbuildingservice = lexmodelbuildingservice;
-            built.lexmodels = lexmodels;
-            built.lexmodelsv2 = lexmodelsv2;
-            built.lexruntime = lexruntime;
-            built.lexruntimeservice = lexruntimeservice;
-            built.lexruntimev2 = lexruntimev2;
-            built.lexv2models = lexv2models;
-            built.lexv2runtime = lexv2runtime;
-            built.licensemanager = licensemanager;
-            built.lightsail = lightsail;
-            built.location = location;
-            built.locationservice = locationservice;
-            built.logs = logs;
-            built.lookoutequipment = lookoutequipment;
-            built.lookoutforvision = lookoutforvision;
-            built.lookoutmetrics = lookoutmetrics;
-            built.lookoutvision = lookoutvision;
-            built.machinelearning = machinelearning;
-            built.macie = macie;
-            built.macie2 = macie2;
-            built.managedblockchain = managedblockchain;
-            built.managedgrafana = managedgrafana;
-            built.marketplacecatalog = marketplacecatalog;
-            built.marketplacecommerceanalytics = marketplacecommerceanalytics;
-            built.marketplaceentitlement = marketplaceentitlement;
-            built.marketplaceentitlementservice = marketplaceentitlementservice;
-            built.marketplacemetering = marketplacemetering;
-            built.mediaconnect = mediaconnect;
-            built.mediaconvert = mediaconvert;
-            built.medialive = medialive;
-            built.mediapackage = mediapackage;
-            built.mediapackagevod = mediapackagevod;
-            built.mediastore = mediastore;
-            built.mediastoredata = mediastoredata;
-            built.mediatailor = mediatailor;
-            built.memorydb = memorydb;
-            built.meteringmarketplace = meteringmarketplace;
-            built.mgh = mgh;
-            built.mgn = mgn;
-            built.migrationhub = migrationhub;
-            built.migrationhubconfig = migrationhubconfig;
-            built.migrationhubrefactorspaces = migrationhubrefactorspaces;
-            built.migrationhubstrategy = migrationhubstrategy;
-            built.migrationhubstrategyrecommendations = migrationhubstrategyrecommendations;
-            built.mobile = mobile;
-            built.mq = mq;
-            built.msk = msk;
-            built.mturk = mturk;
-            built.mwaa = mwaa;
-            built.neptune = neptune;
-            built.networkfirewall = networkfirewall;
-            built.networkmanager = networkmanager;
-            built.nimble = nimble;
-            built.nimblestudio = nimblestudio;
-            built.opensearch = opensearch;
-            built.opensearchservice = opensearchservice;
-            built.opsworks = opsworks;
-            built.opsworkscm = opsworkscm;
-            built.organizations = organizations;
-            built.outposts = outposts;
-            built.panorama = panorama;
-            built.personalize = personalize;
-            built.personalizeevents = personalizeevents;
-            built.personalizeruntime = personalizeruntime;
-            built.pi = pi;
-            built.pinpoint = pinpoint;
-            built.pinpointemail = pinpointemail;
-            built.pinpointsmsvoice = pinpointsmsvoice;
-            built.polly = polly;
-            built.pricing = pricing;
-            built.prometheus = prometheus;
-            built.prometheusservice = prometheusservice;
-            built.proton = proton;
-            built.qldb = qldb;
-            built.qldbsession = qldbsession;
-            built.quicksight = quicksight;
-            built.ram = ram;
-            built.rbin = rbin;
-            built.rds = rds;
-            built.rdsdata = rdsdata;
-            built.rdsdataservice = rdsdataservice;
-            built.recyclebin = recyclebin;
-            built.redshift = redshift;
-            built.redshiftdata = redshiftdata;
-            built.redshiftdataapiservice = redshiftdataapiservice;
-            built.redshiftserverless = redshiftserverless;
-            built.rekognition = rekognition;
-            built.resiliencehub = resiliencehub;
-            built.resourcegroups = resourcegroups;
-            built.resourcegroupstagging = resourcegroupstagging;
-            built.resourcegroupstaggingapi = resourcegroupstaggingapi;
-            built.robomaker = robomaker;
-            built.rolesanywhere = rolesanywhere;
-            built.route53 = route53;
-            built.route53domains = route53domains;
-            built.route53recoverycluster = route53recoverycluster;
-            built.route53recoverycontrolconfig = route53recoverycontrolconfig;
-            built.route53recoveryreadiness = route53recoveryreadiness;
-            built.route53resolver = route53resolver;
-            built.rum = rum;
-            built.s3 = s3;
-            built.s3api = s3api;
-            built.s3control = s3control;
-            built.s3outposts = s3outposts;
-            built.sagemaker = sagemaker;
-            built.sagemakera2iruntime = sagemakera2iruntime;
-            built.sagemakeredge = sagemakeredge;
-            built.sagemakeredgemanager = sagemakeredgemanager;
-            built.sagemakerfeaturestoreruntime = sagemakerfeaturestoreruntime;
-            built.sagemakerruntime = sagemakerruntime;
-            built.savingsplans = savingsplans;
-            built.schemas = schemas;
-            built.sdb = sdb;
-            built.secretsmanager = secretsmanager;
-            built.securityhub = securityhub;
-            built.serverlessapplicationrepository = serverlessapplicationrepository;
-            built.serverlessapprepo = serverlessapprepo;
-            built.serverlessrepo = serverlessrepo;
-            built.servicecatalog = servicecatalog;
-            built.servicecatalogappregistry = servicecatalogappregistry;
-            built.servicediscovery = servicediscovery;
-            built.servicequotas = servicequotas;
-            built.ses = ses;
-            built.sesv2 = sesv2;
-            built.sfn = sfn;
-            built.shield = shield;
-            built.signer = signer;
-            built.simpledb = simpledb;
-            built.sms = sms;
-            built.snowball = snowball;
-            built.snowdevicemanagement = snowdevicemanagement;
-            built.sns = sns;
-            built.sqs = sqs;
-            built.ssm = ssm;
-            built.ssmcontacts = ssmcontacts;
-            built.ssmincidents = ssmincidents;
-            built.sso = sso;
-            built.ssoadmin = ssoadmin;
-            built.ssooidc = ssooidc;
-            built.stepfunctions = stepfunctions;
-            built.storagegateway = storagegateway;
-            built.sts = sts;
-            built.support = support;
-            built.swf = swf;
-            built.synthetics = synthetics;
-            built.textract = textract;
-            built.timestreamquery = timestreamquery;
-            built.timestreamwrite = timestreamwrite;
-            built.transcribe = transcribe;
-            built.transcribeservice = transcribeservice;
-            built.transcribestreaming = transcribestreaming;
-            built.transcribestreamingservice = transcribestreamingservice;
-            built.transfer = transfer;
-            built.translate = translate;
-            built.voiceid = voiceid;
-            built.waf = waf;
-            built.wafregional = wafregional;
-            built.wafv2 = wafv2;
-            built.wellarchitected = wellarchitected;
-            built.wisdom = wisdom;
-            built.workdocs = workdocs;
-            built.worklink = worklink;
-            built.workmail = workmail;
-            built.workmailmessageflow = workmailmessageflow;
-            built.workspaces = workspaces;
-            built.workspacesweb = workspacesweb;
-            built.xray = xray;
-            return built;
+        }
+        public Endpoints build() {
+            final var o = new Endpoints();
+            o.accessanalyzer = accessanalyzer;
+            o.account = account;
+            o.acm = acm;
+            o.acmpca = acmpca;
+            o.alexaforbusiness = alexaforbusiness;
+            o.amg = amg;
+            o.amp = amp;
+            o.amplify = amplify;
+            o.amplifybackend = amplifybackend;
+            o.amplifyuibuilder = amplifyuibuilder;
+            o.apigateway = apigateway;
+            o.apigatewaymanagementapi = apigatewaymanagementapi;
+            o.apigatewayv2 = apigatewayv2;
+            o.appautoscaling = appautoscaling;
+            o.appconfig = appconfig;
+            o.appconfigdata = appconfigdata;
+            o.appflow = appflow;
+            o.appintegrations = appintegrations;
+            o.appintegrationsservice = appintegrationsservice;
+            o.applicationautoscaling = applicationautoscaling;
+            o.applicationcostprofiler = applicationcostprofiler;
+            o.applicationdiscovery = applicationdiscovery;
+            o.applicationdiscoveryservice = applicationdiscoveryservice;
+            o.applicationinsights = applicationinsights;
+            o.appmesh = appmesh;
+            o.appregistry = appregistry;
+            o.apprunner = apprunner;
+            o.appstream = appstream;
+            o.appsync = appsync;
+            o.athena = athena;
+            o.auditmanager = auditmanager;
+            o.augmentedairuntime = augmentedairuntime;
+            o.autoscaling = autoscaling;
+            o.autoscalingplans = autoscalingplans;
+            o.backup = backup;
+            o.backupgateway = backupgateway;
+            o.batch = batch;
+            o.beanstalk = beanstalk;
+            o.billingconductor = billingconductor;
+            o.braket = braket;
+            o.budgets = budgets;
+            o.ce = ce;
+            o.chime = chime;
+            o.chimesdkidentity = chimesdkidentity;
+            o.chimesdkmeetings = chimesdkmeetings;
+            o.chimesdkmessaging = chimesdkmessaging;
+            o.cloud9 = cloud9;
+            o.cloudcontrol = cloudcontrol;
+            o.cloudcontrolapi = cloudcontrolapi;
+            o.clouddirectory = clouddirectory;
+            o.cloudformation = cloudformation;
+            o.cloudfront = cloudfront;
+            o.cloudhsm = cloudhsm;
+            o.cloudhsmv2 = cloudhsmv2;
+            o.cloudsearch = cloudsearch;
+            o.cloudsearchdomain = cloudsearchdomain;
+            o.cloudtrail = cloudtrail;
+            o.cloudwatch = cloudwatch;
+            o.cloudwatchevents = cloudwatchevents;
+            o.cloudwatchevidently = cloudwatchevidently;
+            o.cloudwatchlog = cloudwatchlog;
+            o.cloudwatchlogs = cloudwatchlogs;
+            o.cloudwatchrum = cloudwatchrum;
+            o.codeartifact = codeartifact;
+            o.codebuild = codebuild;
+            o.codecommit = codecommit;
+            o.codedeploy = codedeploy;
+            o.codeguruprofiler = codeguruprofiler;
+            o.codegurureviewer = codegurureviewer;
+            o.codepipeline = codepipeline;
+            o.codestar = codestar;
+            o.codestarconnections = codestarconnections;
+            o.codestarnotifications = codestarnotifications;
+            o.cognitoidentity = cognitoidentity;
+            o.cognitoidentityprovider = cognitoidentityprovider;
+            o.cognitoidp = cognitoidp;
+            o.cognitosync = cognitosync;
+            o.comprehend = comprehend;
+            o.comprehendmedical = comprehendmedical;
+            o.computeoptimizer = computeoptimizer;
+            o.config = config;
+            o.configservice = configservice;
+            o.connect = connect;
+            o.connectcontactlens = connectcontactlens;
+            o.connectparticipant = connectparticipant;
+            o.connectwisdomservice = connectwisdomservice;
+            o.costandusagereportservice = costandusagereportservice;
+            o.costexplorer = costexplorer;
+            o.cur = cur;
+            o.customerprofiles = customerprofiles;
+            o.databasemigration = databasemigration;
+            o.databasemigrationservice = databasemigrationservice;
+            o.databrew = databrew;
+            o.dataexchange = dataexchange;
+            o.datapipeline = datapipeline;
+            o.datasync = datasync;
+            o.dax = dax;
+            o.deploy = deploy;
+            o.detective = detective;
+            o.devicefarm = devicefarm;
+            o.devopsguru = devopsguru;
+            o.directconnect = directconnect;
+            o.directoryservice = directoryservice;
+            o.discovery = discovery;
+            o.dlm = dlm;
+            o.dms = dms;
+            o.docdb = docdb;
+            o.drs = drs;
+            o.ds = ds;
+            o.dynamodb = dynamodb;
+            o.dynamodbstreams = dynamodbstreams;
+            o.ebs = ebs;
+            o.ec2 = ec2;
+            o.ec2instanceconnect = ec2instanceconnect;
+            o.ecr = ecr;
+            o.ecrpublic = ecrpublic;
+            o.ecs = ecs;
+            o.efs = efs;
+            o.eks = eks;
+            o.elasticache = elasticache;
+            o.elasticbeanstalk = elasticbeanstalk;
+            o.elasticinference = elasticinference;
+            o.elasticloadbalancing = elasticloadbalancing;
+            o.elasticloadbalancingv2 = elasticloadbalancingv2;
+            o.elasticsearch = elasticsearch;
+            o.elasticsearchservice = elasticsearchservice;
+            o.elastictranscoder = elastictranscoder;
+            o.elb = elb;
+            o.elbv2 = elbv2;
+            o.emr = emr;
+            o.emrcontainers = emrcontainers;
+            o.emrserverless = emrserverless;
+            o.es = es;
+            o.eventbridge = eventbridge;
+            o.events = events;
+            o.evidently = evidently;
+            o.finspace = finspace;
+            o.finspacedata = finspacedata;
+            o.firehose = firehose;
+            o.fis = fis;
+            o.fms = fms;
+            o.forecast = forecast;
+            o.forecastquery = forecastquery;
+            o.forecastqueryservice = forecastqueryservice;
+            o.forecastservice = forecastservice;
+            o.frauddetector = frauddetector;
+            o.fsx = fsx;
+            o.gamelift = gamelift;
+            o.glacier = glacier;
+            o.globalaccelerator = globalaccelerator;
+            o.glue = glue;
+            o.gluedatabrew = gluedatabrew;
+            o.grafana = grafana;
+            o.greengrass = greengrass;
+            o.greengrassv2 = greengrassv2;
+            o.groundstation = groundstation;
+            o.guardduty = guardduty;
+            o.health = health;
+            o.healthlake = healthlake;
+            o.honeycode = honeycode;
+            o.iam = iam;
+            o.identitystore = identitystore;
+            o.imagebuilder = imagebuilder;
+            o.inspector = inspector;
+            o.inspector2 = inspector2;
+            o.iot = iot;
+            o.iot1clickdevices = iot1clickdevices;
+            o.iot1clickdevicesservice = iot1clickdevicesservice;
+            o.iot1clickprojects = iot1clickprojects;
+            o.iotanalytics = iotanalytics;
+            o.iotdata = iotdata;
+            o.iotdataplane = iotdataplane;
+            o.iotdeviceadvisor = iotdeviceadvisor;
+            o.iotevents = iotevents;
+            o.ioteventsdata = ioteventsdata;
+            o.iotfleethub = iotfleethub;
+            o.iotjobsdata = iotjobsdata;
+            o.iotjobsdataplane = iotjobsdataplane;
+            o.iotsecuretunneling = iotsecuretunneling;
+            o.iotsitewise = iotsitewise;
+            o.iotthingsgraph = iotthingsgraph;
+            o.iottwinmaker = iottwinmaker;
+            o.iotwireless = iotwireless;
+            o.ivs = ivs;
+            o.kafka = kafka;
+            o.kafkaconnect = kafkaconnect;
+            o.kendra = kendra;
+            o.keyspaces = keyspaces;
+            o.kinesis = kinesis;
+            o.kinesisanalytics = kinesisanalytics;
+            o.kinesisanalyticsv2 = kinesisanalyticsv2;
+            o.kinesisvideo = kinesisvideo;
+            o.kinesisvideoarchivedmedia = kinesisvideoarchivedmedia;
+            o.kinesisvideomedia = kinesisvideomedia;
+            o.kinesisvideosignaling = kinesisvideosignaling;
+            o.kinesisvideosignalingchannels = kinesisvideosignalingchannels;
+            o.kms = kms;
+            o.lakeformation = lakeformation;
+            o.lambda = lambda;
+            o.lex = lex;
+            o.lexmodelbuilding = lexmodelbuilding;
+            o.lexmodelbuildingservice = lexmodelbuildingservice;
+            o.lexmodels = lexmodels;
+            o.lexmodelsv2 = lexmodelsv2;
+            o.lexruntime = lexruntime;
+            o.lexruntimeservice = lexruntimeservice;
+            o.lexruntimev2 = lexruntimev2;
+            o.lexv2models = lexv2models;
+            o.lexv2runtime = lexv2runtime;
+            o.licensemanager = licensemanager;
+            o.lightsail = lightsail;
+            o.location = location;
+            o.locationservice = locationservice;
+            o.logs = logs;
+            o.lookoutequipment = lookoutequipment;
+            o.lookoutforvision = lookoutforvision;
+            o.lookoutmetrics = lookoutmetrics;
+            o.lookoutvision = lookoutvision;
+            o.machinelearning = machinelearning;
+            o.macie = macie;
+            o.macie2 = macie2;
+            o.managedblockchain = managedblockchain;
+            o.managedgrafana = managedgrafana;
+            o.marketplacecatalog = marketplacecatalog;
+            o.marketplacecommerceanalytics = marketplacecommerceanalytics;
+            o.marketplaceentitlement = marketplaceentitlement;
+            o.marketplaceentitlementservice = marketplaceentitlementservice;
+            o.marketplacemetering = marketplacemetering;
+            o.mediaconnect = mediaconnect;
+            o.mediaconvert = mediaconvert;
+            o.medialive = medialive;
+            o.mediapackage = mediapackage;
+            o.mediapackagevod = mediapackagevod;
+            o.mediastore = mediastore;
+            o.mediastoredata = mediastoredata;
+            o.mediatailor = mediatailor;
+            o.memorydb = memorydb;
+            o.meteringmarketplace = meteringmarketplace;
+            o.mgh = mgh;
+            o.mgn = mgn;
+            o.migrationhub = migrationhub;
+            o.migrationhubconfig = migrationhubconfig;
+            o.migrationhubrefactorspaces = migrationhubrefactorspaces;
+            o.migrationhubstrategy = migrationhubstrategy;
+            o.migrationhubstrategyrecommendations = migrationhubstrategyrecommendations;
+            o.mobile = mobile;
+            o.mq = mq;
+            o.msk = msk;
+            o.mturk = mturk;
+            o.mwaa = mwaa;
+            o.neptune = neptune;
+            o.networkfirewall = networkfirewall;
+            o.networkmanager = networkmanager;
+            o.nimble = nimble;
+            o.nimblestudio = nimblestudio;
+            o.opensearch = opensearch;
+            o.opensearchservice = opensearchservice;
+            o.opsworks = opsworks;
+            o.opsworkscm = opsworkscm;
+            o.organizations = organizations;
+            o.outposts = outposts;
+            o.panorama = panorama;
+            o.personalize = personalize;
+            o.personalizeevents = personalizeevents;
+            o.personalizeruntime = personalizeruntime;
+            o.pi = pi;
+            o.pinpoint = pinpoint;
+            o.pinpointemail = pinpointemail;
+            o.pinpointsmsvoice = pinpointsmsvoice;
+            o.polly = polly;
+            o.pricing = pricing;
+            o.prometheus = prometheus;
+            o.prometheusservice = prometheusservice;
+            o.proton = proton;
+            o.qldb = qldb;
+            o.qldbsession = qldbsession;
+            o.quicksight = quicksight;
+            o.ram = ram;
+            o.rbin = rbin;
+            o.rds = rds;
+            o.rdsdata = rdsdata;
+            o.rdsdataservice = rdsdataservice;
+            o.recyclebin = recyclebin;
+            o.redshift = redshift;
+            o.redshiftdata = redshiftdata;
+            o.redshiftdataapiservice = redshiftdataapiservice;
+            o.redshiftserverless = redshiftserverless;
+            o.rekognition = rekognition;
+            o.resiliencehub = resiliencehub;
+            o.resourcegroups = resourcegroups;
+            o.resourcegroupstagging = resourcegroupstagging;
+            o.resourcegroupstaggingapi = resourcegroupstaggingapi;
+            o.robomaker = robomaker;
+            o.rolesanywhere = rolesanywhere;
+            o.route53 = route53;
+            o.route53domains = route53domains;
+            o.route53recoverycluster = route53recoverycluster;
+            o.route53recoverycontrolconfig = route53recoverycontrolconfig;
+            o.route53recoveryreadiness = route53recoveryreadiness;
+            o.route53resolver = route53resolver;
+            o.rum = rum;
+            o.s3 = s3;
+            o.s3api = s3api;
+            o.s3control = s3control;
+            o.s3outposts = s3outposts;
+            o.sagemaker = sagemaker;
+            o.sagemakera2iruntime = sagemakera2iruntime;
+            o.sagemakeredge = sagemakeredge;
+            o.sagemakeredgemanager = sagemakeredgemanager;
+            o.sagemakerfeaturestoreruntime = sagemakerfeaturestoreruntime;
+            o.sagemakerruntime = sagemakerruntime;
+            o.savingsplans = savingsplans;
+            o.schemas = schemas;
+            o.sdb = sdb;
+            o.secretsmanager = secretsmanager;
+            o.securityhub = securityhub;
+            o.serverlessapplicationrepository = serverlessapplicationrepository;
+            o.serverlessapprepo = serverlessapprepo;
+            o.serverlessrepo = serverlessrepo;
+            o.servicecatalog = servicecatalog;
+            o.servicecatalogappregistry = servicecatalogappregistry;
+            o.servicediscovery = servicediscovery;
+            o.servicequotas = servicequotas;
+            o.ses = ses;
+            o.sesv2 = sesv2;
+            o.sfn = sfn;
+            o.shield = shield;
+            o.signer = signer;
+            o.simpledb = simpledb;
+            o.sms = sms;
+            o.snowball = snowball;
+            o.snowdevicemanagement = snowdevicemanagement;
+            o.sns = sns;
+            o.sqs = sqs;
+            o.ssm = ssm;
+            o.ssmcontacts = ssmcontacts;
+            o.ssmincidents = ssmincidents;
+            o.sso = sso;
+            o.ssoadmin = ssoadmin;
+            o.ssooidc = ssooidc;
+            o.stepfunctions = stepfunctions;
+            o.storagegateway = storagegateway;
+            o.sts = sts;
+            o.support = support;
+            o.swf = swf;
+            o.synthetics = synthetics;
+            o.textract = textract;
+            o.timestreamquery = timestreamquery;
+            o.timestreamwrite = timestreamwrite;
+            o.transcribe = transcribe;
+            o.transcribeservice = transcribeservice;
+            o.transcribestreaming = transcribestreaming;
+            o.transcribestreamingservice = transcribestreamingservice;
+            o.transfer = transfer;
+            o.translate = translate;
+            o.voiceid = voiceid;
+            o.waf = waf;
+            o.wafregional = wafregional;
+            o.wafv2 = wafv2;
+            o.wellarchitected = wellarchitected;
+            o.wisdom = wisdom;
+            o.workdocs = workdocs;
+            o.worklink = worklink;
+            o.workmail = workmail;
+            o.workmailmessageflow = workmailmessageflow;
+            o.workspaces = workspaces;
+            o.workspacesweb = workspacesweb;
+            o.xray = xray;
+            return o;
         }
     }
 }

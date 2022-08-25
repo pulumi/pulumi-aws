@@ -14,21 +14,14 @@ public final class ClassificationJobS3JobDefinitionBucketDefinition {
      * @return The unique identifier for the AWS account that owns the buckets.
      * 
      */
-    private final String accountId;
+    private String accountId;
     /**
      * @return An array that lists the names of the buckets.
      * 
      */
-    private final List<String> buckets;
+    private List<String> buckets;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionBucketDefinition(
-        @CustomType.Parameter("accountId") String accountId,
-        @CustomType.Parameter("buckets") List<String> buckets) {
-        this.accountId = accountId;
-        this.buckets = buckets;
-    }
-
+    private ClassificationJobS3JobDefinitionBucketDefinition() {}
     /**
      * @return The unique identifier for the AWS account that owns the buckets.
      * 
@@ -51,33 +44,35 @@ public final class ClassificationJobS3JobDefinitionBucketDefinition {
     public static Builder builder(ClassificationJobS3JobDefinitionBucketDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountId;
         private List<String> buckets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionBucketDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
     	      this.buckets = defaults.buckets;
         }
 
+        @CustomType.Setter
         public Builder accountId(String accountId) {
             this.accountId = Objects.requireNonNull(accountId);
             return this;
         }
+        @CustomType.Setter
         public Builder buckets(List<String> buckets) {
             this.buckets = Objects.requireNonNull(buckets);
             return this;
         }
         public Builder buckets(String... buckets) {
             return buckets(List.of(buckets));
-        }        public ClassificationJobS3JobDefinitionBucketDefinition build() {
-            return new ClassificationJobS3JobDefinitionBucketDefinition(accountId, buckets);
+        }
+        public ClassificationJobS3JobDefinitionBucketDefinition build() {
+            final var o = new ClassificationJobS3JobDefinitionBucketDefinition();
+            o.accountId = accountId;
+            o.buckets = buckets;
+            return o;
         }
     }
 }

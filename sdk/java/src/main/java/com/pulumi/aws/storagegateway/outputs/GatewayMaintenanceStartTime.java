@@ -16,35 +16,24 @@ public final class GatewayMaintenanceStartTime {
      * @return The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
      * 
      */
-    private final @Nullable String dayOfMonth;
+    private @Nullable String dayOfMonth;
     /**
      * @return The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
      * 
      */
-    private final @Nullable String dayOfWeek;
+    private @Nullable String dayOfWeek;
     /**
      * @return The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
      * 
      */
-    private final Integer hourOfDay;
+    private Integer hourOfDay;
     /**
      * @return The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
      * 
      */
-    private final @Nullable Integer minuteOfHour;
+    private @Nullable Integer minuteOfHour;
 
-    @CustomType.Constructor
-    private GatewayMaintenanceStartTime(
-        @CustomType.Parameter("dayOfMonth") @Nullable String dayOfMonth,
-        @CustomType.Parameter("dayOfWeek") @Nullable String dayOfWeek,
-        @CustomType.Parameter("hourOfDay") Integer hourOfDay,
-        @CustomType.Parameter("minuteOfHour") @Nullable Integer minuteOfHour) {
-        this.dayOfMonth = dayOfMonth;
-        this.dayOfWeek = dayOfWeek;
-        this.hourOfDay = hourOfDay;
-        this.minuteOfHour = minuteOfHour;
-    }
-
+    private GatewayMaintenanceStartTime() {}
     /**
      * @return The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
      * 
@@ -81,17 +70,13 @@ public final class GatewayMaintenanceStartTime {
     public static Builder builder(GatewayMaintenanceStartTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dayOfMonth;
         private @Nullable String dayOfWeek;
         private Integer hourOfDay;
         private @Nullable Integer minuteOfHour;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayMaintenanceStartTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dayOfMonth = defaults.dayOfMonth;
@@ -100,23 +85,33 @@ public final class GatewayMaintenanceStartTime {
     	      this.minuteOfHour = defaults.minuteOfHour;
         }
 
+        @CustomType.Setter
         public Builder dayOfMonth(@Nullable String dayOfMonth) {
             this.dayOfMonth = dayOfMonth;
             return this;
         }
+        @CustomType.Setter
         public Builder dayOfWeek(@Nullable String dayOfWeek) {
             this.dayOfWeek = dayOfWeek;
             return this;
         }
+        @CustomType.Setter
         public Builder hourOfDay(Integer hourOfDay) {
             this.hourOfDay = Objects.requireNonNull(hourOfDay);
             return this;
         }
+        @CustomType.Setter
         public Builder minuteOfHour(@Nullable Integer minuteOfHour) {
             this.minuteOfHour = minuteOfHour;
             return this;
-        }        public GatewayMaintenanceStartTime build() {
-            return new GatewayMaintenanceStartTime(dayOfMonth, dayOfWeek, hourOfDay, minuteOfHour);
+        }
+        public GatewayMaintenanceStartTime build() {
+            final var o = new GatewayMaintenanceStartTime();
+            o.dayOfMonth = dayOfMonth;
+            o.dayOfWeek = dayOfWeek;
+            o.hourOfDay = hourOfDay;
+            o.minuteOfHour = minuteOfHour;
+            return o;
         }
     }
 }

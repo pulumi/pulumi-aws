@@ -13,28 +13,19 @@ public final class AnalyticsApplicationReferenceDataSourcesS3 {
      * @return The S3 Bucket ARN.
      * 
      */
-    private final String bucketArn;
+    private String bucketArn;
     /**
      * @return The File Key name containing reference data.
      * 
      */
-    private final String fileKey;
+    private String fileKey;
     /**
      * @return The ARN of the IAM Role used to send application messages.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationReferenceDataSourcesS3(
-        @CustomType.Parameter("bucketArn") String bucketArn,
-        @CustomType.Parameter("fileKey") String fileKey,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.bucketArn = bucketArn;
-        this.fileKey = fileKey;
-        this.roleArn = roleArn;
-    }
-
+    private AnalyticsApplicationReferenceDataSourcesS3() {}
     /**
      * @return The S3 Bucket ARN.
      * 
@@ -64,16 +55,12 @@ public final class AnalyticsApplicationReferenceDataSourcesS3 {
     public static Builder builder(AnalyticsApplicationReferenceDataSourcesS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketArn;
         private String fileKey;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationReferenceDataSourcesS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketArn = defaults.bucketArn;
@@ -81,19 +68,27 @@ public final class AnalyticsApplicationReferenceDataSourcesS3 {
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
             this.bucketArn = Objects.requireNonNull(bucketArn);
             return this;
         }
+        @CustomType.Setter
         public Builder fileKey(String fileKey) {
             this.fileKey = Objects.requireNonNull(fileKey);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public AnalyticsApplicationReferenceDataSourcesS3 build() {
-            return new AnalyticsApplicationReferenceDataSourcesS3(bucketArn, fileKey, roleArn);
+        }
+        public AnalyticsApplicationReferenceDataSourcesS3 build() {
+            final var o = new AnalyticsApplicationReferenceDataSourcesS3();
+            o.bucketArn = bucketArn;
+            o.fileKey = fileKey;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

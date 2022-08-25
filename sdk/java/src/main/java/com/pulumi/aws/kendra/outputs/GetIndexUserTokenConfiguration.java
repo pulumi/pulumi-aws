@@ -15,21 +15,14 @@ public final class GetIndexUserTokenConfiguration {
      * @return A block that specifies the information about the JSON token type configuration.
      * 
      */
-    private final List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations;
+    private List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations;
     /**
      * @return A block that specifies the information about the JWT token type configuration.
      * 
      */
-    private final List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations;
+    private List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations;
 
-    @CustomType.Constructor
-    private GetIndexUserTokenConfiguration(
-        @CustomType.Parameter("jsonTokenTypeConfigurations") List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations,
-        @CustomType.Parameter("jwtTokenTypeConfigurations") List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations) {
-        this.jsonTokenTypeConfigurations = jsonTokenTypeConfigurations;
-        this.jwtTokenTypeConfigurations = jwtTokenTypeConfigurations;
-    }
-
+    private GetIndexUserTokenConfiguration() {}
     /**
      * @return A block that specifies the information about the JSON token type configuration.
      * 
@@ -52,21 +45,18 @@ public final class GetIndexUserTokenConfiguration {
     public static Builder builder(GetIndexUserTokenConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations;
         private List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIndexUserTokenConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.jsonTokenTypeConfigurations = defaults.jsonTokenTypeConfigurations;
     	      this.jwtTokenTypeConfigurations = defaults.jwtTokenTypeConfigurations;
         }
 
+        @CustomType.Setter
         public Builder jsonTokenTypeConfigurations(List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations) {
             this.jsonTokenTypeConfigurations = Objects.requireNonNull(jsonTokenTypeConfigurations);
             return this;
@@ -74,14 +64,19 @@ public final class GetIndexUserTokenConfiguration {
         public Builder jsonTokenTypeConfigurations(GetIndexUserTokenConfigurationJsonTokenTypeConfiguration... jsonTokenTypeConfigurations) {
             return jsonTokenTypeConfigurations(List.of(jsonTokenTypeConfigurations));
         }
+        @CustomType.Setter
         public Builder jwtTokenTypeConfigurations(List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations) {
             this.jwtTokenTypeConfigurations = Objects.requireNonNull(jwtTokenTypeConfigurations);
             return this;
         }
         public Builder jwtTokenTypeConfigurations(GetIndexUserTokenConfigurationJwtTokenTypeConfiguration... jwtTokenTypeConfigurations) {
             return jwtTokenTypeConfigurations(List.of(jwtTokenTypeConfigurations));
-        }        public GetIndexUserTokenConfiguration build() {
-            return new GetIndexUserTokenConfiguration(jsonTokenTypeConfigurations, jwtTokenTypeConfigurations);
+        }
+        public GetIndexUserTokenConfiguration build() {
+            final var o = new GetIndexUserTokenConfiguration();
+            o.jsonTokenTypeConfigurations = jsonTokenTypeConfigurations;
+            o.jwtTokenTypeConfigurations = jwtTokenTypeConfigurations;
+            return o;
         }
     }
 }

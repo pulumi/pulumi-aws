@@ -15,21 +15,14 @@ public final class BucketWebsiteConfigurationV2RoutingRuleCondition {
      * @return The HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
      * 
      */
-    private final @Nullable String httpErrorCodeReturnedEquals;
+    private @Nullable String httpErrorCodeReturnedEquals;
     /**
      * @return The object key name prefix when the redirect is applied. If specified with `http_error_code_returned_equals`, then both must be true for the redirect to be applied.
      * 
      */
-    private final @Nullable String keyPrefixEquals;
+    private @Nullable String keyPrefixEquals;
 
-    @CustomType.Constructor
-    private BucketWebsiteConfigurationV2RoutingRuleCondition(
-        @CustomType.Parameter("httpErrorCodeReturnedEquals") @Nullable String httpErrorCodeReturnedEquals,
-        @CustomType.Parameter("keyPrefixEquals") @Nullable String keyPrefixEquals) {
-        this.httpErrorCodeReturnedEquals = httpErrorCodeReturnedEquals;
-        this.keyPrefixEquals = keyPrefixEquals;
-    }
-
+    private BucketWebsiteConfigurationV2RoutingRuleCondition() {}
     /**
      * @return The HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
      * 
@@ -52,30 +45,32 @@ public final class BucketWebsiteConfigurationV2RoutingRuleCondition {
     public static Builder builder(BucketWebsiteConfigurationV2RoutingRuleCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String httpErrorCodeReturnedEquals;
         private @Nullable String keyPrefixEquals;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketWebsiteConfigurationV2RoutingRuleCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpErrorCodeReturnedEquals = defaults.httpErrorCodeReturnedEquals;
     	      this.keyPrefixEquals = defaults.keyPrefixEquals;
         }
 
+        @CustomType.Setter
         public Builder httpErrorCodeReturnedEquals(@Nullable String httpErrorCodeReturnedEquals) {
             this.httpErrorCodeReturnedEquals = httpErrorCodeReturnedEquals;
             return this;
         }
+        @CustomType.Setter
         public Builder keyPrefixEquals(@Nullable String keyPrefixEquals) {
             this.keyPrefixEquals = keyPrefixEquals;
             return this;
-        }        public BucketWebsiteConfigurationV2RoutingRuleCondition build() {
-            return new BucketWebsiteConfigurationV2RoutingRuleCondition(httpErrorCodeReturnedEquals, keyPrefixEquals);
+        }
+        public BucketWebsiteConfigurationV2RoutingRuleCondition build() {
+            final var o = new BucketWebsiteConfigurationV2RoutingRuleCondition();
+            o.httpErrorCodeReturnedEquals = httpErrorCodeReturnedEquals;
+            o.keyPrefixEquals = keyPrefixEquals;
+            return o;
         }
     }
 }

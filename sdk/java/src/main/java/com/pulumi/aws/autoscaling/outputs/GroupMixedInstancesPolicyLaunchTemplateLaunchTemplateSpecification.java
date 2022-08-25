@@ -15,28 +15,19 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
      * @return The ID of the launch template. Conflicts with `launch_template_name`.
      * 
      */
-    private final @Nullable String launchTemplateId;
+    private @Nullable String launchTemplateId;
     /**
      * @return The name of the launch template. Conflicts with `launch_template_id`.
      * 
      */
-    private final @Nullable String launchTemplateName;
+    private @Nullable String launchTemplateName;
     /**
      * @return Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(
-        @CustomType.Parameter("launchTemplateId") @Nullable String launchTemplateId,
-        @CustomType.Parameter("launchTemplateName") @Nullable String launchTemplateName,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.launchTemplateId = launchTemplateId;
-        this.launchTemplateName = launchTemplateName;
-        this.version = version;
-    }
-
+    private GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification() {}
     /**
      * @return The ID of the launch template. Conflicts with `launch_template_name`.
      * 
@@ -66,16 +57,12 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
     public static Builder builder(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String launchTemplateId;
         private @Nullable String launchTemplateName;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.launchTemplateId = defaults.launchTemplateId;
@@ -83,19 +70,27 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder launchTemplateId(@Nullable String launchTemplateId) {
             this.launchTemplateId = launchTemplateId;
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplateName(@Nullable String launchTemplateName) {
             this.launchTemplateName = launchTemplateName;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification build() {
-            return new GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(launchTemplateId, launchTemplateName, version);
+        }
+        public GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification build() {
+            final var o = new GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification();
+            o.launchTemplateId = launchTemplateId;
+            o.launchTemplateName = launchTemplateName;
+            o.version = version;
+            return o;
         }
     }
 }

@@ -14,13 +14,9 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementNo
      * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
      */
-    private final List<WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatement> statements;
+    private List<WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatement> statements;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement(@CustomType.Parameter("statements") List<WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement() {}
     /**
      * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementNo
     public static Builder builder(WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement build() {
-            return new WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement(statements);
+        }
+        public WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement build() {
+            final var o = new WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

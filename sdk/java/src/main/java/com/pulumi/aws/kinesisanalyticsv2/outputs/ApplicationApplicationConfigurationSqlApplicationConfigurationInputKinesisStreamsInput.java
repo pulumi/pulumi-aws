@@ -13,13 +13,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return The ARN of the input Kinesis data stream to read.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput(@CustomType.Parameter("resourceArn") String resourceArn) {
-        this.resourceArn = resourceArn;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput() {}
     /**
      * @return The ARN of the input Kinesis data stream to read.
      * 
@@ -35,24 +31,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput(resourceArn);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput();
+            o.resourceArn = resourceArn;
+            return o;
         }
     }
 }

@@ -15,35 +15,24 @@ public final class OrganizationalUnitAccount {
      * @return ARN of the organizational unit
      * 
      */
-    private final @Nullable String arn;
+    private @Nullable String arn;
     /**
      * @return Email of the account
      * 
      */
-    private final @Nullable String email;
+    private @Nullable String email;
     /**
      * @return Identifier of the organization unit
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name for the organizational unit
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private OrganizationalUnitAccount(
-        @CustomType.Parameter("arn") @Nullable String arn,
-        @CustomType.Parameter("email") @Nullable String email,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.arn = arn;
-        this.email = email;
-        this.id = id;
-        this.name = name;
-    }
-
+    private OrganizationalUnitAccount() {}
     /**
      * @return ARN of the organizational unit
      * 
@@ -80,17 +69,13 @@ public final class OrganizationalUnitAccount {
     public static Builder builder(OrganizationalUnitAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
         private @Nullable String email;
         private @Nullable String id;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationalUnitAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -99,23 +84,33 @@ public final class OrganizationalUnitAccount {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(@Nullable String arn) {
             this.arn = arn;
             return this;
         }
+        @CustomType.Setter
         public Builder email(@Nullable String email) {
             this.email = email;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public OrganizationalUnitAccount build() {
-            return new OrganizationalUnitAccount(arn, email, id, name);
+        }
+        public OrganizationalUnitAccount build() {
+            final var o = new OrganizationalUnitAccount();
+            o.arn = arn;
+            o.email = email;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

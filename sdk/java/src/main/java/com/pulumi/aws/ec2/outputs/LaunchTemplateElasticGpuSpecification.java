@@ -13,13 +13,9 @@ public final class LaunchTemplateElasticGpuSpecification {
      * @return The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private LaunchTemplateElasticGpuSpecification(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private LaunchTemplateElasticGpuSpecification() {}
     /**
      * @return The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
      * 
@@ -35,24 +31,24 @@ public final class LaunchTemplateElasticGpuSpecification {
     public static Builder builder(LaunchTemplateElasticGpuSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateElasticGpuSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public LaunchTemplateElasticGpuSpecification build() {
-            return new LaunchTemplateElasticGpuSpecification(type);
+        }
+        public LaunchTemplateElasticGpuSpecification build() {
+            final var o = new LaunchTemplateElasticGpuSpecification();
+            o.type = type;
+            return o;
         }
     }
 }

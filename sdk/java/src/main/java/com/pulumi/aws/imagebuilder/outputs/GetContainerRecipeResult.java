@@ -16,133 +16,94 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContainerRecipeResult {
-    private final String arn;
+    private String arn;
     /**
      * @return List of objects with components for the container recipe.
      * 
      */
-    private final List<GetContainerRecipeComponent> components;
+    private List<GetContainerRecipeComponent> components;
     /**
      * @return Type of the container.
      * 
      */
-    private final String containerType;
+    private String containerType;
     /**
      * @return Date the container recipe was created.
      * 
      */
-    private final String dateCreated;
+    private String dateCreated;
     /**
      * @return Description of the container recipe.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Dockerfile template used to build the image.
      * 
      */
-    private final String dockerfileTemplateData;
+    private String dockerfileTemplateData;
     /**
      * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    private final Boolean encrypted;
+    private Boolean encrypted;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of objects with instance configurations for building and testing container images.
      * 
      */
-    private final List<GetContainerRecipeInstanceConfiguration> instanceConfigurations;
+    private List<GetContainerRecipeInstanceConfiguration> instanceConfigurations;
     /**
      * @return KMS key used to encrypt the container image.
      * 
      */
-    private final String kmsKeyId;
+    private String kmsKeyId;
     /**
      * @return Name of the container recipe.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Owner of the container recipe.
      * 
      */
-    private final String owner;
+    private String owner;
     /**
      * @return Base image for the container recipe.
      * 
      */
-    private final String parentImage;
+    private String parentImage;
     /**
      * @return Platform of the container recipe.
      * 
      */
-    private final String platform;
+    private String platform;
     /**
      * @return Key-value map of resource tags for the container recipe.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Destination repository for the container image.
      * 
      */
-    private final List<GetContainerRecipeTargetRepository> targetRepositories;
+    private List<GetContainerRecipeTargetRepository> targetRepositories;
     /**
      * @return Version of the container recipe.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return The working directory used during build and test workflows.
      * 
      */
-    private final String workingDirectory;
+    private String workingDirectory;
 
-    @CustomType.Constructor
-    private GetContainerRecipeResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("components") List<GetContainerRecipeComponent> components,
-        @CustomType.Parameter("containerType") String containerType,
-        @CustomType.Parameter("dateCreated") String dateCreated,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("dockerfileTemplateData") String dockerfileTemplateData,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceConfigurations") List<GetContainerRecipeInstanceConfiguration> instanceConfigurations,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("parentImage") String parentImage,
-        @CustomType.Parameter("platform") String platform,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("targetRepositories") List<GetContainerRecipeTargetRepository> targetRepositories,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("workingDirectory") String workingDirectory) {
-        this.arn = arn;
-        this.components = components;
-        this.containerType = containerType;
-        this.dateCreated = dateCreated;
-        this.description = description;
-        this.dockerfileTemplateData = dockerfileTemplateData;
-        this.encrypted = encrypted;
-        this.id = id;
-        this.instanceConfigurations = instanceConfigurations;
-        this.kmsKeyId = kmsKeyId;
-        this.name = name;
-        this.owner = owner;
-        this.parentImage = parentImage;
-        this.platform = platform;
-        this.tags = tags;
-        this.targetRepositories = targetRepositories;
-        this.version = version;
-        this.workingDirectory = workingDirectory;
-    }
-
+    private GetContainerRecipeResult() {}
     public String arn() {
         return this.arn;
     }
@@ -273,7 +234,7 @@ public final class GetContainerRecipeResult {
     public static Builder builder(GetContainerRecipeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetContainerRecipeComponent> components;
@@ -293,11 +254,7 @@ public final class GetContainerRecipeResult {
         private List<GetContainerRecipeTargetRepository> targetRepositories;
         private String version;
         private String workingDirectory;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetContainerRecipeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -320,10 +277,12 @@ public final class GetContainerRecipeResult {
     	      this.workingDirectory = defaults.workingDirectory;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder components(List<GetContainerRecipeComponent> components) {
             this.components = Objects.requireNonNull(components);
             return this;
@@ -331,30 +290,37 @@ public final class GetContainerRecipeResult {
         public Builder components(GetContainerRecipeComponent... components) {
             return components(List.of(components));
         }
+        @CustomType.Setter
         public Builder containerType(String containerType) {
             this.containerType = Objects.requireNonNull(containerType);
             return this;
         }
+        @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
             this.dateCreated = Objects.requireNonNull(dateCreated);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder dockerfileTemplateData(String dockerfileTemplateData) {
             this.dockerfileTemplateData = Objects.requireNonNull(dockerfileTemplateData);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceConfigurations(List<GetContainerRecipeInstanceConfiguration> instanceConfigurations) {
             this.instanceConfigurations = Objects.requireNonNull(instanceConfigurations);
             return this;
@@ -362,30 +328,37 @@ public final class GetContainerRecipeResult {
         public Builder instanceConfigurations(GetContainerRecipeInstanceConfiguration... instanceConfigurations) {
             return instanceConfigurations(List.of(instanceConfigurations));
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder parentImage(String parentImage) {
             this.parentImage = Objects.requireNonNull(parentImage);
             return this;
         }
+        @CustomType.Setter
         public Builder platform(String platform) {
             this.platform = Objects.requireNonNull(platform);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder targetRepositories(List<GetContainerRecipeTargetRepository> targetRepositories) {
             this.targetRepositories = Objects.requireNonNull(targetRepositories);
             return this;
@@ -393,15 +366,37 @@ public final class GetContainerRecipeResult {
         public Builder targetRepositories(GetContainerRecipeTargetRepository... targetRepositories) {
             return targetRepositories(List.of(targetRepositories));
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder workingDirectory(String workingDirectory) {
             this.workingDirectory = Objects.requireNonNull(workingDirectory);
             return this;
-        }        public GetContainerRecipeResult build() {
-            return new GetContainerRecipeResult(arn, components, containerType, dateCreated, description, dockerfileTemplateData, encrypted, id, instanceConfigurations, kmsKeyId, name, owner, parentImage, platform, tags, targetRepositories, version, workingDirectory);
+        }
+        public GetContainerRecipeResult build() {
+            final var o = new GetContainerRecipeResult();
+            o.arn = arn;
+            o.components = components;
+            o.containerType = containerType;
+            o.dateCreated = dateCreated;
+            o.description = description;
+            o.dockerfileTemplateData = dockerfileTemplateData;
+            o.encrypted = encrypted;
+            o.id = id;
+            o.instanceConfigurations = instanceConfigurations;
+            o.kmsKeyId = kmsKeyId;
+            o.name = name;
+            o.owner = owner;
+            o.parentImage = parentImage;
+            o.platform = platform;
+            o.tags = tags;
+            o.targetRepositories = targetRepositories;
+            o.version = version;
+            o.workingDirectory = workingDirectory;
+            return o;
         }
     }
 }

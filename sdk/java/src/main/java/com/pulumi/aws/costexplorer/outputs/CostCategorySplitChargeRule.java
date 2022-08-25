@@ -16,35 +16,24 @@ public final class CostCategorySplitChargeRule {
      * @return Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
      * 
      */
-    private final String method;
+    private String method;
     /**
      * @return Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
      * 
      */
-    private final @Nullable List<CostCategorySplitChargeRuleParameter> parameters;
+    private @Nullable List<CostCategorySplitChargeRuleParameter> parameters;
     /**
      * @return Cost Category value that you want to split.
      * 
      */
-    private final String source;
+    private String source;
     /**
      * @return Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
      * 
      */
-    private final List<String> targets;
+    private List<String> targets;
 
-    @CustomType.Constructor
-    private CostCategorySplitChargeRule(
-        @CustomType.Parameter("method") String method,
-        @CustomType.Parameter("parameters") @Nullable List<CostCategorySplitChargeRuleParameter> parameters,
-        @CustomType.Parameter("source") String source,
-        @CustomType.Parameter("targets") List<String> targets) {
-        this.method = method;
-        this.parameters = parameters;
-        this.source = source;
-        this.targets = targets;
-    }
-
+    private CostCategorySplitChargeRule() {}
     /**
      * @return Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
      * 
@@ -81,17 +70,13 @@ public final class CostCategorySplitChargeRule {
     public static Builder builder(CostCategorySplitChargeRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String method;
         private @Nullable List<CostCategorySplitChargeRuleParameter> parameters;
         private String source;
         private List<String> targets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CostCategorySplitChargeRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.method = defaults.method;
@@ -100,10 +85,12 @@ public final class CostCategorySplitChargeRule {
     	      this.targets = defaults.targets;
         }
 
+        @CustomType.Setter
         public Builder method(String method) {
             this.method = Objects.requireNonNull(method);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<CostCategorySplitChargeRuleParameter> parameters) {
             this.parameters = parameters;
             return this;
@@ -111,18 +98,26 @@ public final class CostCategorySplitChargeRule {
         public Builder parameters(CostCategorySplitChargeRuleParameter... parameters) {
             return parameters(List.of(parameters));
         }
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
         }
+        @CustomType.Setter
         public Builder targets(List<String> targets) {
             this.targets = Objects.requireNonNull(targets);
             return this;
         }
         public Builder targets(String... targets) {
             return targets(List.of(targets));
-        }        public CostCategorySplitChargeRule build() {
-            return new CostCategorySplitChargeRule(method, parameters, source, targets);
+        }
+        public CostCategorySplitChargeRule build() {
+            final var o = new CostCategorySplitChargeRule();
+            o.method = method;
+            o.parameters = parameters;
+            o.source = source;
+            o.targets = targets;
+            return o;
         }
     }
 }

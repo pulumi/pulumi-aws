@@ -17,21 +17,14 @@ public final class CatalogDatabaseCreateTableDefaultPermission {
      * @return The permissions that are granted to the principal.
      * 
      */
-    private final @Nullable List<String> permissions;
+    private @Nullable List<String> permissions;
     /**
      * @return The principal who is granted permissions.. See `principal` below.
      * 
      */
-    private final @Nullable CatalogDatabaseCreateTableDefaultPermissionPrincipal principal;
+    private @Nullable CatalogDatabaseCreateTableDefaultPermissionPrincipal principal;
 
-    @CustomType.Constructor
-    private CatalogDatabaseCreateTableDefaultPermission(
-        @CustomType.Parameter("permissions") @Nullable List<String> permissions,
-        @CustomType.Parameter("principal") @Nullable CatalogDatabaseCreateTableDefaultPermissionPrincipal principal) {
-        this.permissions = permissions;
-        this.principal = principal;
-    }
-
+    private CatalogDatabaseCreateTableDefaultPermission() {}
     /**
      * @return The permissions that are granted to the principal.
      * 
@@ -54,21 +47,18 @@ public final class CatalogDatabaseCreateTableDefaultPermission {
     public static Builder builder(CatalogDatabaseCreateTableDefaultPermission defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> permissions;
         private @Nullable CatalogDatabaseCreateTableDefaultPermissionPrincipal principal;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogDatabaseCreateTableDefaultPermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.permissions = defaults.permissions;
     	      this.principal = defaults.principal;
         }
 
+        @CustomType.Setter
         public Builder permissions(@Nullable List<String> permissions) {
             this.permissions = permissions;
             return this;
@@ -76,11 +66,16 @@ public final class CatalogDatabaseCreateTableDefaultPermission {
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
+        @CustomType.Setter
         public Builder principal(@Nullable CatalogDatabaseCreateTableDefaultPermissionPrincipal principal) {
             this.principal = principal;
             return this;
-        }        public CatalogDatabaseCreateTableDefaultPermission build() {
-            return new CatalogDatabaseCreateTableDefaultPermission(permissions, principal);
+        }
+        public CatalogDatabaseCreateTableDefaultPermission build() {
+            final var o = new CatalogDatabaseCreateTableDefaultPermission();
+            o.permissions = permissions;
+            o.principal = principal;
+            return o;
         }
     }
 }

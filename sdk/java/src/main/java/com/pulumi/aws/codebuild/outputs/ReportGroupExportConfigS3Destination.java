@@ -16,43 +16,30 @@ public final class ReportGroupExportConfigS3Destination {
      * @return The name of the S3 bucket where the raw data of a report are exported.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return A boolean value that specifies if the results of a report are encrypted.
      * **Note: the API does not currently allow setting encryption as disabled**
      * 
      */
-    private final @Nullable Boolean encryptionDisabled;
+    private @Nullable Boolean encryptionDisabled;
     /**
      * @return The encryption key for the report&#39;s encrypted raw data. The KMS key ARN.
      * 
      */
-    private final String encryptionKey;
+    private String encryptionKey;
     /**
      * @return The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
      * 
      */
-    private final @Nullable String packaging;
+    private @Nullable String packaging;
     /**
      * @return The path to the exported report&#39;s raw data results.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
 
-    @CustomType.Constructor
-    private ReportGroupExportConfigS3Destination(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("encryptionDisabled") @Nullable Boolean encryptionDisabled,
-        @CustomType.Parameter("encryptionKey") String encryptionKey,
-        @CustomType.Parameter("packaging") @Nullable String packaging,
-        @CustomType.Parameter("path") @Nullable String path) {
-        this.bucket = bucket;
-        this.encryptionDisabled = encryptionDisabled;
-        this.encryptionKey = encryptionKey;
-        this.packaging = packaging;
-        this.path = path;
-    }
-
+    private ReportGroupExportConfigS3Destination() {}
     /**
      * @return The name of the S3 bucket where the raw data of a report are exported.
      * 
@@ -97,18 +84,14 @@ public final class ReportGroupExportConfigS3Destination {
     public static Builder builder(ReportGroupExportConfigS3Destination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private @Nullable Boolean encryptionDisabled;
         private String encryptionKey;
         private @Nullable String packaging;
         private @Nullable String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReportGroupExportConfigS3Destination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -118,27 +101,39 @@ public final class ReportGroupExportConfigS3Destination {
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionDisabled(@Nullable Boolean encryptionDisabled) {
             this.encryptionDisabled = encryptionDisabled;
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionKey(String encryptionKey) {
             this.encryptionKey = Objects.requireNonNull(encryptionKey);
             return this;
         }
+        @CustomType.Setter
         public Builder packaging(@Nullable String packaging) {
             this.packaging = packaging;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
-        }        public ReportGroupExportConfigS3Destination build() {
-            return new ReportGroupExportConfigS3Destination(bucket, encryptionDisabled, encryptionKey, packaging, path);
+        }
+        public ReportGroupExportConfigS3Destination build() {
+            final var o = new ReportGroupExportConfigS3Destination();
+            o.bucket = bucket;
+            o.encryptionDisabled = encryptionDisabled;
+            o.encryptionKey = encryptionKey;
+            o.packaging = packaging;
+            o.path = path;
+            return o;
         }
     }
 }

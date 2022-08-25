@@ -18,28 +18,19 @@ public final class DeploymentGroupLoadBalancerInfo {
      * @return The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
      * 
      */
-    private final @Nullable List<DeploymentGroupLoadBalancerInfoElbInfo> elbInfos;
+    private @Nullable List<DeploymentGroupLoadBalancerInfoElbInfo> elbInfos;
     /**
      * @return The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
      * 
      */
-    private final @Nullable List<DeploymentGroupLoadBalancerInfoTargetGroupInfo> targetGroupInfos;
+    private @Nullable List<DeploymentGroupLoadBalancerInfoTargetGroupInfo> targetGroupInfos;
     /**
      * @return The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
      * 
      */
-    private final @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfo targetGroupPairInfo;
+    private @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfo targetGroupPairInfo;
 
-    @CustomType.Constructor
-    private DeploymentGroupLoadBalancerInfo(
-        @CustomType.Parameter("elbInfos") @Nullable List<DeploymentGroupLoadBalancerInfoElbInfo> elbInfos,
-        @CustomType.Parameter("targetGroupInfos") @Nullable List<DeploymentGroupLoadBalancerInfoTargetGroupInfo> targetGroupInfos,
-        @CustomType.Parameter("targetGroupPairInfo") @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfo targetGroupPairInfo) {
-        this.elbInfos = elbInfos;
-        this.targetGroupInfos = targetGroupInfos;
-        this.targetGroupPairInfo = targetGroupPairInfo;
-    }
-
+    private DeploymentGroupLoadBalancerInfo() {}
     /**
      * @return The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
      * 
@@ -69,16 +60,12 @@ public final class DeploymentGroupLoadBalancerInfo {
     public static Builder builder(DeploymentGroupLoadBalancerInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DeploymentGroupLoadBalancerInfoElbInfo> elbInfos;
         private @Nullable List<DeploymentGroupLoadBalancerInfoTargetGroupInfo> targetGroupInfos;
         private @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfo targetGroupPairInfo;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupLoadBalancerInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.elbInfos = defaults.elbInfos;
@@ -86,6 +73,7 @@ public final class DeploymentGroupLoadBalancerInfo {
     	      this.targetGroupPairInfo = defaults.targetGroupPairInfo;
         }
 
+        @CustomType.Setter
         public Builder elbInfos(@Nullable List<DeploymentGroupLoadBalancerInfoElbInfo> elbInfos) {
             this.elbInfos = elbInfos;
             return this;
@@ -93,6 +81,7 @@ public final class DeploymentGroupLoadBalancerInfo {
         public Builder elbInfos(DeploymentGroupLoadBalancerInfoElbInfo... elbInfos) {
             return elbInfos(List.of(elbInfos));
         }
+        @CustomType.Setter
         public Builder targetGroupInfos(@Nullable List<DeploymentGroupLoadBalancerInfoTargetGroupInfo> targetGroupInfos) {
             this.targetGroupInfos = targetGroupInfos;
             return this;
@@ -100,11 +89,17 @@ public final class DeploymentGroupLoadBalancerInfo {
         public Builder targetGroupInfos(DeploymentGroupLoadBalancerInfoTargetGroupInfo... targetGroupInfos) {
             return targetGroupInfos(List.of(targetGroupInfos));
         }
+        @CustomType.Setter
         public Builder targetGroupPairInfo(@Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfo targetGroupPairInfo) {
             this.targetGroupPairInfo = targetGroupPairInfo;
             return this;
-        }        public DeploymentGroupLoadBalancerInfo build() {
-            return new DeploymentGroupLoadBalancerInfo(elbInfos, targetGroupInfos, targetGroupPairInfo);
+        }
+        public DeploymentGroupLoadBalancerInfo build() {
+            final var o = new DeploymentGroupLoadBalancerInfo();
+            o.elbInfos = elbInfos;
+            o.targetGroupInfos = targetGroupInfos;
+            o.targetGroupPairInfo = targetGroupPairInfo;
+            return o;
         }
     }
 }

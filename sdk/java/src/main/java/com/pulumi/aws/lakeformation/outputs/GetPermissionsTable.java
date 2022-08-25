@@ -16,35 +16,24 @@ public final class GetPermissionsTable {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private final String catalogId;
+    private String catalogId;
     /**
      * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return Name of the table resource.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean wildcard;
+    private @Nullable Boolean wildcard;
 
-    @CustomType.Constructor
-    private GetPermissionsTable(
-        @CustomType.Parameter("catalogId") String catalogId,
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("wildcard") @Nullable Boolean wildcard) {
-        this.catalogId = catalogId;
-        this.databaseName = databaseName;
-        this.name = name;
-        this.wildcard = wildcard;
-    }
-
+    private GetPermissionsTable() {}
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
@@ -81,17 +70,13 @@ public final class GetPermissionsTable {
     public static Builder builder(GetPermissionsTable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String catalogId;
         private String databaseName;
         private String name;
         private @Nullable Boolean wildcard;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPermissionsTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -100,23 +85,33 @@ public final class GetPermissionsTable {
     	      this.wildcard = defaults.wildcard;
         }
 
+        @CustomType.Setter
         public Builder catalogId(String catalogId) {
             this.catalogId = Objects.requireNonNull(catalogId);
             return this;
         }
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder wildcard(@Nullable Boolean wildcard) {
             this.wildcard = wildcard;
             return this;
-        }        public GetPermissionsTable build() {
-            return new GetPermissionsTable(catalogId, databaseName, name, wildcard);
+        }
+        public GetPermissionsTable build() {
+            final var o = new GetPermissionsTable();
+            o.catalogId = catalogId;
+            o.databaseName = databaseName;
+            o.name = name;
+            o.wildcard = wildcard;
+            return o;
         }
     }
 }

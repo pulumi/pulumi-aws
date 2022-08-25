@@ -16,28 +16,19 @@ public final class TaskDefinitionProxyConfiguration {
      * @return Name of the container that will serve as the App Mesh proxy.
      * 
      */
-    private final String containerName;
+    private String containerName;
     /**
      * @return Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
      * 
      */
-    private final @Nullable Map<String,String> properties;
+    private @Nullable Map<String,String> properties;
     /**
      * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private TaskDefinitionProxyConfiguration(
-        @CustomType.Parameter("containerName") String containerName,
-        @CustomType.Parameter("properties") @Nullable Map<String,String> properties,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.containerName = containerName;
-        this.properties = properties;
-        this.type = type;
-    }
-
+    private TaskDefinitionProxyConfiguration() {}
     /**
      * @return Name of the container that will serve as the App Mesh proxy.
      * 
@@ -67,16 +58,12 @@ public final class TaskDefinitionProxyConfiguration {
     public static Builder builder(TaskDefinitionProxyConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String containerName;
         private @Nullable Map<String,String> properties;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskDefinitionProxyConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerName = defaults.containerName;
@@ -84,19 +71,27 @@ public final class TaskDefinitionProxyConfiguration {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder containerName(String containerName) {
             this.containerName = Objects.requireNonNull(containerName);
             return this;
         }
+        @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
             this.properties = properties;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public TaskDefinitionProxyConfiguration build() {
-            return new TaskDefinitionProxyConfiguration(containerName, properties, type);
+        }
+        public TaskDefinitionProxyConfiguration build() {
+            final var o = new TaskDefinitionProxyConfiguration();
+            o.containerName = containerName;
+            o.properties = properties;
+            o.type = type;
+            return o;
         }
     }
 }

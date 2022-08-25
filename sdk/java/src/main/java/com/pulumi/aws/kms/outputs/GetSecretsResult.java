@@ -16,24 +16,15 @@ public final class GetSecretsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Map containing each `secret` `name` as the key with its decrypted plaintext value
      * 
      */
-    private final Map<String,String> plaintext;
-    private final List<GetSecretsSecret> secrets;
+    private Map<String,String> plaintext;
+    private List<GetSecretsSecret> secrets;
 
-    @CustomType.Constructor
-    private GetSecretsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("plaintext") Map<String,String> plaintext,
-        @CustomType.Parameter("secrets") List<GetSecretsSecret> secrets) {
-        this.id = id;
-        this.plaintext = plaintext;
-        this.secrets = secrets;
-    }
-
+    private GetSecretsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -59,16 +50,12 @@ public final class GetSecretsResult {
     public static Builder builder(GetSecretsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private Map<String,String> plaintext;
         private List<GetSecretsSecret> secrets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecretsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -76,22 +63,30 @@ public final class GetSecretsResult {
     	      this.secrets = defaults.secrets;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder plaintext(Map<String,String> plaintext) {
             this.plaintext = Objects.requireNonNull(plaintext);
             return this;
         }
+        @CustomType.Setter
         public Builder secrets(List<GetSecretsSecret> secrets) {
             this.secrets = Objects.requireNonNull(secrets);
             return this;
         }
         public Builder secrets(GetSecretsSecret... secrets) {
             return secrets(List.of(secrets));
-        }        public GetSecretsResult build() {
-            return new GetSecretsResult(id, plaintext, secrets);
+        }
+        public GetSecretsResult build() {
+            final var o = new GetSecretsResult();
+            o.id = id;
+            o.plaintext = plaintext;
+            o.secrets = secrets;
+            return o;
         }
     }
 }

@@ -22,71 +22,50 @@ public final class AnalyticsApplicationInputs {
      * @return The ARN of the Kinesis Analytics Application.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
      * See Kinesis Firehose below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationInputsKinesisFirehose kinesisFirehose;
+    private @Nullable AnalyticsApplicationInputsKinesisFirehose kinesisFirehose;
     /**
      * @return The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
      * See Kinesis Stream below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationInputsKinesisStream kinesisStream;
+    private @Nullable AnalyticsApplicationInputsKinesisStream kinesisStream;
     /**
      * @return The Name Prefix to use when creating an in-application stream.
      * 
      */
-    private final String namePrefix;
+    private String namePrefix;
     /**
      * @return The number of Parallel in-application streams to create.
      * See Parallelism below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationInputsParallelism parallelism;
+    private @Nullable AnalyticsApplicationInputsParallelism parallelism;
     /**
      * @return The Processing Configuration to transform records as they are received from the stream.
      * See Processing Configuration below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationInputsProcessingConfiguration processingConfiguration;
+    private @Nullable AnalyticsApplicationInputsProcessingConfiguration processingConfiguration;
     /**
      * @return The Schema format of the data in the streaming source. See Source Schema below for more details.
      * 
      */
-    private final AnalyticsApplicationInputsSchema schema;
+    private AnalyticsApplicationInputsSchema schema;
     /**
      * @return The point at which the application starts processing records from the streaming source.
      * See Starting Position Configuration below for more details.
      * 
      */
-    private final @Nullable List<AnalyticsApplicationInputsStartingPositionConfiguration> startingPositionConfigurations;
-    private final @Nullable List<String> streamNames;
+    private @Nullable List<AnalyticsApplicationInputsStartingPositionConfiguration> startingPositionConfigurations;
+    private @Nullable List<String> streamNames;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationInputs(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("kinesisFirehose") @Nullable AnalyticsApplicationInputsKinesisFirehose kinesisFirehose,
-        @CustomType.Parameter("kinesisStream") @Nullable AnalyticsApplicationInputsKinesisStream kinesisStream,
-        @CustomType.Parameter("namePrefix") String namePrefix,
-        @CustomType.Parameter("parallelism") @Nullable AnalyticsApplicationInputsParallelism parallelism,
-        @CustomType.Parameter("processingConfiguration") @Nullable AnalyticsApplicationInputsProcessingConfiguration processingConfiguration,
-        @CustomType.Parameter("schema") AnalyticsApplicationInputsSchema schema,
-        @CustomType.Parameter("startingPositionConfigurations") @Nullable List<AnalyticsApplicationInputsStartingPositionConfiguration> startingPositionConfigurations,
-        @CustomType.Parameter("streamNames") @Nullable List<String> streamNames) {
-        this.id = id;
-        this.kinesisFirehose = kinesisFirehose;
-        this.kinesisStream = kinesisStream;
-        this.namePrefix = namePrefix;
-        this.parallelism = parallelism;
-        this.processingConfiguration = processingConfiguration;
-        this.schema = schema;
-        this.startingPositionConfigurations = startingPositionConfigurations;
-        this.streamNames = streamNames;
-    }
-
+    private AnalyticsApplicationInputs() {}
     /**
      * @return The ARN of the Kinesis Analytics Application.
      * 
@@ -159,7 +138,7 @@ public final class AnalyticsApplicationInputs {
     public static Builder builder(AnalyticsApplicationInputs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable AnalyticsApplicationInputsKinesisFirehose kinesisFirehose;
@@ -170,11 +149,7 @@ public final class AnalyticsApplicationInputs {
         private AnalyticsApplicationInputsSchema schema;
         private @Nullable List<AnalyticsApplicationInputsStartingPositionConfiguration> startingPositionConfigurations;
         private @Nullable List<String> streamNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationInputs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -188,34 +163,42 @@ public final class AnalyticsApplicationInputs {
     	      this.streamNames = defaults.streamNames;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisFirehose(@Nullable AnalyticsApplicationInputsKinesisFirehose kinesisFirehose) {
             this.kinesisFirehose = kinesisFirehose;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisStream(@Nullable AnalyticsApplicationInputsKinesisStream kinesisStream) {
             this.kinesisStream = kinesisStream;
             return this;
         }
+        @CustomType.Setter
         public Builder namePrefix(String namePrefix) {
             this.namePrefix = Objects.requireNonNull(namePrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder parallelism(@Nullable AnalyticsApplicationInputsParallelism parallelism) {
             this.parallelism = parallelism;
             return this;
         }
+        @CustomType.Setter
         public Builder processingConfiguration(@Nullable AnalyticsApplicationInputsProcessingConfiguration processingConfiguration) {
             this.processingConfiguration = processingConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder schema(AnalyticsApplicationInputsSchema schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
         }
+        @CustomType.Setter
         public Builder startingPositionConfigurations(@Nullable List<AnalyticsApplicationInputsStartingPositionConfiguration> startingPositionConfigurations) {
             this.startingPositionConfigurations = startingPositionConfigurations;
             return this;
@@ -223,14 +206,26 @@ public final class AnalyticsApplicationInputs {
         public Builder startingPositionConfigurations(AnalyticsApplicationInputsStartingPositionConfiguration... startingPositionConfigurations) {
             return startingPositionConfigurations(List.of(startingPositionConfigurations));
         }
+        @CustomType.Setter
         public Builder streamNames(@Nullable List<String> streamNames) {
             this.streamNames = streamNames;
             return this;
         }
         public Builder streamNames(String... streamNames) {
             return streamNames(List.of(streamNames));
-        }        public AnalyticsApplicationInputs build() {
-            return new AnalyticsApplicationInputs(id, kinesisFirehose, kinesisStream, namePrefix, parallelism, processingConfiguration, schema, startingPositionConfigurations, streamNames);
+        }
+        public AnalyticsApplicationInputs build() {
+            final var o = new AnalyticsApplicationInputs();
+            o.id = id;
+            o.kinesisFirehose = kinesisFirehose;
+            o.kinesisStream = kinesisStream;
+            o.namePrefix = namePrefix;
+            o.parallelism = parallelism;
+            o.processingConfiguration = processingConfiguration;
+            o.schema = schema;
+            o.startingPositionConfigurations = startingPositionConfigurations;
+            o.streamNames = streamNames;
+            return o;
         }
     }
 }

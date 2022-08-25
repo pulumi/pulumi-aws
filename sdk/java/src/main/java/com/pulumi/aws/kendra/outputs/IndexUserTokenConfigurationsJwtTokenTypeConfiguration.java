@@ -15,56 +15,39 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
      * @return The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private final @Nullable String claimRegex;
+    private @Nullable String claimRegex;
     /**
      * @return The group attribute field. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private final @Nullable String groupAttributeField;
+    private @Nullable String groupAttributeField;
     /**
      * @return The issuer of the token. Minimum length of 1. Maximum length of 65.
      * 
      */
-    private final @Nullable String issuer;
+    private @Nullable String issuer;
     /**
      * @return The location of the key. Valid values are `URL` or `SECRET_MANAGER`
      * 
      */
-    private final String keyLocation;
+    private String keyLocation;
     /**
      * @return The Amazon Resource Name (ARN) of the secret.
      * 
      */
-    private final @Nullable String secretsManagerArn;
+    private @Nullable String secretsManagerArn;
     /**
      * @return The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
      * 
      */
-    private final @Nullable String url;
+    private @Nullable String url;
     /**
      * @return The user name attribute field. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private final @Nullable String userNameAttributeField;
+    private @Nullable String userNameAttributeField;
 
-    @CustomType.Constructor
-    private IndexUserTokenConfigurationsJwtTokenTypeConfiguration(
-        @CustomType.Parameter("claimRegex") @Nullable String claimRegex,
-        @CustomType.Parameter("groupAttributeField") @Nullable String groupAttributeField,
-        @CustomType.Parameter("issuer") @Nullable String issuer,
-        @CustomType.Parameter("keyLocation") String keyLocation,
-        @CustomType.Parameter("secretsManagerArn") @Nullable String secretsManagerArn,
-        @CustomType.Parameter("url") @Nullable String url,
-        @CustomType.Parameter("userNameAttributeField") @Nullable String userNameAttributeField) {
-        this.claimRegex = claimRegex;
-        this.groupAttributeField = groupAttributeField;
-        this.issuer = issuer;
-        this.keyLocation = keyLocation;
-        this.secretsManagerArn = secretsManagerArn;
-        this.url = url;
-        this.userNameAttributeField = userNameAttributeField;
-    }
-
+    private IndexUserTokenConfigurationsJwtTokenTypeConfiguration() {}
     /**
      * @return The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
      * 
@@ -122,7 +105,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
     public static Builder builder(IndexUserTokenConfigurationsJwtTokenTypeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String claimRegex;
         private @Nullable String groupAttributeField;
@@ -131,11 +114,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
         private @Nullable String secretsManagerArn;
         private @Nullable String url;
         private @Nullable String userNameAttributeField;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexUserTokenConfigurationsJwtTokenTypeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.claimRegex = defaults.claimRegex;
@@ -147,35 +126,51 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
     	      this.userNameAttributeField = defaults.userNameAttributeField;
         }
 
+        @CustomType.Setter
         public Builder claimRegex(@Nullable String claimRegex) {
             this.claimRegex = claimRegex;
             return this;
         }
+        @CustomType.Setter
         public Builder groupAttributeField(@Nullable String groupAttributeField) {
             this.groupAttributeField = groupAttributeField;
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
             this.issuer = issuer;
             return this;
         }
+        @CustomType.Setter
         public Builder keyLocation(String keyLocation) {
             this.keyLocation = Objects.requireNonNull(keyLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder secretsManagerArn(@Nullable String secretsManagerArn) {
             this.secretsManagerArn = secretsManagerArn;
             return this;
         }
+        @CustomType.Setter
         public Builder url(@Nullable String url) {
             this.url = url;
             return this;
         }
+        @CustomType.Setter
         public Builder userNameAttributeField(@Nullable String userNameAttributeField) {
             this.userNameAttributeField = userNameAttributeField;
             return this;
-        }        public IndexUserTokenConfigurationsJwtTokenTypeConfiguration build() {
-            return new IndexUserTokenConfigurationsJwtTokenTypeConfiguration(claimRegex, groupAttributeField, issuer, keyLocation, secretsManagerArn, url, userNameAttributeField);
+        }
+        public IndexUserTokenConfigurationsJwtTokenTypeConfiguration build() {
+            final var o = new IndexUserTokenConfigurationsJwtTokenTypeConfiguration();
+            o.claimRegex = claimRegex;
+            o.groupAttributeField = groupAttributeField;
+            o.issuer = issuer;
+            o.keyLocation = keyLocation;
+            o.secretsManagerArn = secretsManagerArn;
+            o.url = url;
+            o.userNameAttributeField = userNameAttributeField;
+            return o;
         }
     }
 }

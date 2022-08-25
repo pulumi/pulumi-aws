@@ -13,13 +13,9 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String certificateChain;
+    private String certificateChain;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(@CustomType.Parameter("certificateChain") String certificateChain) {
-        this.certificateChain = certificateChain;
-    }
-
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile() {}
     /**
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
@@ -35,24 +31,24 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     public static Builder builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateChain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateChain = defaults.certificateChain;
         }
 
+        @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
             this.certificateChain = Objects.requireNonNull(certificateChain);
             return this;
-        }        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile build() {
-            return new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(certificateChain);
+        }
+        public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile build() {
+            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile();
+            o.certificateChain = certificateChain;
+            return o;
         }
     }
 }

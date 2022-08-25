@@ -14,13 +14,9 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTraffic
      * @return List of Amazon Resource Names (ARNs) of the load balancer listeners.
      * 
      */
-    private final List<String> listenerArns;
+    private List<String> listenerArns;
 
-    @CustomType.Constructor
-    private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(@CustomType.Parameter("listenerArns") List<String> listenerArns) {
-        this.listenerArns = listenerArns;
-    }
-
+    private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute() {}
     /**
      * @return List of Amazon Resource Names (ARNs) of the load balancer listeners.
      * 
@@ -36,27 +32,27 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTraffic
     public static Builder builder(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> listenerArns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.listenerArns = defaults.listenerArns;
         }
 
+        @CustomType.Setter
         public Builder listenerArns(List<String> listenerArns) {
             this.listenerArns = Objects.requireNonNull(listenerArns);
             return this;
         }
         public Builder listenerArns(String... listenerArns) {
             return listenerArns(List.of(listenerArns));
-        }        public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute build() {
-            return new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(listenerArns);
+        }
+        public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute build() {
+            final var o = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute();
+            o.listenerArns = listenerArns;
+            return o;
         }
     }
 }

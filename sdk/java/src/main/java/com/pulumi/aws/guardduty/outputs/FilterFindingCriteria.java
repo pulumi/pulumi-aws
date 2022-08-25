@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FilterFindingCriteria {
-    private final List<FilterFindingCriteriaCriterion> criterions;
+    private List<FilterFindingCriteriaCriterion> criterions;
 
-    @CustomType.Constructor
-    private FilterFindingCriteria(@CustomType.Parameter("criterions") List<FilterFindingCriteriaCriterion> criterions) {
-        this.criterions = criterions;
-    }
-
+    private FilterFindingCriteria() {}
     public List<FilterFindingCriteriaCriterion> criterions() {
         return this.criterions;
     }
@@ -28,27 +24,27 @@ public final class FilterFindingCriteria {
     public static Builder builder(FilterFindingCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<FilterFindingCriteriaCriterion> criterions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FilterFindingCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.criterions = defaults.criterions;
         }
 
+        @CustomType.Setter
         public Builder criterions(List<FilterFindingCriteriaCriterion> criterions) {
             this.criterions = Objects.requireNonNull(criterions);
             return this;
         }
         public Builder criterions(FilterFindingCriteriaCriterion... criterions) {
             return criterions(List.of(criterions));
-        }        public FilterFindingCriteria build() {
-            return new FilterFindingCriteria(criterions);
+        }
+        public FilterFindingCriteria build() {
+            final var o = new FilterFindingCriteria();
+            o.criterions = criterions;
+            return o;
         }
     }
 }

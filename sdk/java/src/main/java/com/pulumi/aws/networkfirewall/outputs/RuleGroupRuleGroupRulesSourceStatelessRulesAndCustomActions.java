@@ -16,21 +16,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
      * @return Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
      * 
      */
-    private final @Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction> customActions;
+    private @Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction> customActions;
     /**
      * @return Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
      * 
      */
-    private final List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule> statelessRules;
+    private List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule> statelessRules;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions(
-        @CustomType.Parameter("customActions") @Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction> customActions,
-        @CustomType.Parameter("statelessRules") List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule> statelessRules) {
-        this.customActions = customActions;
-        this.statelessRules = statelessRules;
-    }
-
+    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions() {}
     /**
      * @return Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
      * 
@@ -53,21 +46,18 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
     public static Builder builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction> customActions;
         private List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule> statelessRules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customActions = defaults.customActions;
     	      this.statelessRules = defaults.statelessRules;
         }
 
+        @CustomType.Setter
         public Builder customActions(@Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction> customActions) {
             this.customActions = customActions;
             return this;
@@ -75,14 +65,19 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
         public Builder customActions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction... customActions) {
             return customActions(List.of(customActions));
         }
+        @CustomType.Setter
         public Builder statelessRules(List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule> statelessRules) {
             this.statelessRules = Objects.requireNonNull(statelessRules);
             return this;
         }
         public Builder statelessRules(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule... statelessRules) {
             return statelessRules(List.of(statelessRules));
-        }        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions build() {
-            return new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions(customActions, statelessRules);
+        }
+        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions build() {
+            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions();
+            o.customActions = customActions;
+            o.statelessRules = statelessRules;
+            return o;
         }
     }
 }

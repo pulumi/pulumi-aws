@@ -13,13 +13,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The Secret Access Key portion of the credentials.
      * 
      */
-    private final String apiSecretKey;
+    private String apiSecretKey;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro(@CustomType.Parameter("apiSecretKey") String apiSecretKey) {
-        this.apiSecretKey = apiSecretKey;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro() {}
     /**
      * @return The Secret Access Key portion of the credentials.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiSecretKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiSecretKey = defaults.apiSecretKey;
         }
 
+        @CustomType.Setter
         public Builder apiSecretKey(String apiSecretKey) {
             this.apiSecretKey = Objects.requireNonNull(apiSecretKey);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro(apiSecretKey);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro();
+            o.apiSecretKey = apiSecretKey;
+            return o;
         }
     }
 }

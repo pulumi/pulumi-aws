@@ -14,28 +14,19 @@ public final class GetLaunchConfigurationMetadataOption {
      * @return The state of the metadata service: `enabled`, `disabled`.
      * 
      */
-    private final String httpEndpoint;
+    private String httpEndpoint;
     /**
      * @return The desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
-    private final Integer httpPutResponseHopLimit;
+    private Integer httpPutResponseHopLimit;
     /**
      * @return If session tokens are required: `optional`, `required`.
      * 
      */
-    private final String httpTokens;
+    private String httpTokens;
 
-    @CustomType.Constructor
-    private GetLaunchConfigurationMetadataOption(
-        @CustomType.Parameter("httpEndpoint") String httpEndpoint,
-        @CustomType.Parameter("httpPutResponseHopLimit") Integer httpPutResponseHopLimit,
-        @CustomType.Parameter("httpTokens") String httpTokens) {
-        this.httpEndpoint = httpEndpoint;
-        this.httpPutResponseHopLimit = httpPutResponseHopLimit;
-        this.httpTokens = httpTokens;
-    }
-
+    private GetLaunchConfigurationMetadataOption() {}
     /**
      * @return The state of the metadata service: `enabled`, `disabled`.
      * 
@@ -65,16 +56,12 @@ public final class GetLaunchConfigurationMetadataOption {
     public static Builder builder(GetLaunchConfigurationMetadataOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String httpEndpoint;
         private Integer httpPutResponseHopLimit;
         private String httpTokens;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchConfigurationMetadataOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpEndpoint = defaults.httpEndpoint;
@@ -82,19 +69,27 @@ public final class GetLaunchConfigurationMetadataOption {
     	      this.httpTokens = defaults.httpTokens;
         }
 
+        @CustomType.Setter
         public Builder httpEndpoint(String httpEndpoint) {
             this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
             this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder httpTokens(String httpTokens) {
             this.httpTokens = Objects.requireNonNull(httpTokens);
             return this;
-        }        public GetLaunchConfigurationMetadataOption build() {
-            return new GetLaunchConfigurationMetadataOption(httpEndpoint, httpPutResponseHopLimit, httpTokens);
+        }
+        public GetLaunchConfigurationMetadataOption build() {
+            final var o = new GetLaunchConfigurationMetadataOption();
+            o.httpEndpoint = httpEndpoint;
+            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            o.httpTokens = httpTokens;
+            return o;
         }
     }
 }

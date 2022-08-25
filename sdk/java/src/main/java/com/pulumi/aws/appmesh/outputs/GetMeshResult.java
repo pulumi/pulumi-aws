@@ -16,62 +16,41 @@ public final class GetMeshResult {
      * @return The ARN of the service mesh.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The creation date of the service mesh.
      * 
      */
-    private final String createdDate;
+    private String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The last update date of the service mesh.
      * 
      */
-    private final String lastUpdatedDate;
-    private final String meshOwner;
-    private final String name;
+    private String lastUpdatedDate;
+    private String meshOwner;
+    private String name;
     /**
      * @return The resource owner&#39;s AWS account ID.
      * 
      */
-    private final String resourceOwner;
+    private String resourceOwner;
     /**
      * @return The service mesh specification.
      * 
      */
-    private final List<GetMeshSpec> specs;
+    private List<GetMeshSpec> specs;
     /**
      * @return A map of tags.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetMeshResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastUpdatedDate") String lastUpdatedDate,
-        @CustomType.Parameter("meshOwner") String meshOwner,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceOwner") String resourceOwner,
-        @CustomType.Parameter("specs") List<GetMeshSpec> specs,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.createdDate = createdDate;
-        this.id = id;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.meshOwner = meshOwner;
-        this.name = name;
-        this.resourceOwner = resourceOwner;
-        this.specs = specs;
-        this.tags = tags;
-    }
-
+    private GetMeshResult() {}
     /**
      * @return The ARN of the service mesh.
      * 
@@ -135,7 +114,7 @@ public final class GetMeshResult {
     public static Builder builder(GetMeshResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String createdDate;
@@ -146,11 +125,7 @@ public final class GetMeshResult {
         private String resourceOwner;
         private List<GetMeshSpec> specs;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMeshResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -164,34 +139,42 @@ public final class GetMeshResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
             this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
             return this;
         }
+        @CustomType.Setter
         public Builder meshOwner(String meshOwner) {
             this.meshOwner = Objects.requireNonNull(meshOwner);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceOwner(String resourceOwner) {
             this.resourceOwner = Objects.requireNonNull(resourceOwner);
             return this;
         }
+        @CustomType.Setter
         public Builder specs(List<GetMeshSpec> specs) {
             this.specs = Objects.requireNonNull(specs);
             return this;
@@ -199,11 +182,23 @@ public final class GetMeshResult {
         public Builder specs(GetMeshSpec... specs) {
             return specs(List.of(specs));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetMeshResult build() {
-            return new GetMeshResult(arn, createdDate, id, lastUpdatedDate, meshOwner, name, resourceOwner, specs, tags);
+        }
+        public GetMeshResult build() {
+            final var o = new GetMeshResult();
+            o.arn = arn;
+            o.createdDate = createdDate;
+            o.id = id;
+            o.lastUpdatedDate = lastUpdatedDate;
+            o.meshOwner = meshOwner;
+            o.name = name;
+            o.resourceOwner = resourceOwner;
+            o.specs = specs;
+            o.tags = tags;
+            return o;
         }
     }
 }

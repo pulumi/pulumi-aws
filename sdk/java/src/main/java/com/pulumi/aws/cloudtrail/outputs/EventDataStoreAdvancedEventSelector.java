@@ -17,21 +17,14 @@ public final class EventDataStoreAdvancedEventSelector {
      * @return Specifies the selector statements in an advanced event selector. Fields documented below.
      * 
      */
-    private final @Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors;
+    private @Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors;
     /**
      * @return Specifies the name of the advanced event selector.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private EventDataStoreAdvancedEventSelector(
-        @CustomType.Parameter("fieldSelectors") @Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.fieldSelectors = fieldSelectors;
-        this.name = name;
-    }
-
+    private EventDataStoreAdvancedEventSelector() {}
     /**
      * @return Specifies the selector statements in an advanced event selector. Fields documented below.
      * 
@@ -54,21 +47,18 @@ public final class EventDataStoreAdvancedEventSelector {
     public static Builder builder(EventDataStoreAdvancedEventSelector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventDataStoreAdvancedEventSelector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldSelectors = defaults.fieldSelectors;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder fieldSelectors(@Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors) {
             this.fieldSelectors = fieldSelectors;
             return this;
@@ -76,11 +66,16 @@ public final class EventDataStoreAdvancedEventSelector {
         public Builder fieldSelectors(EventDataStoreAdvancedEventSelectorFieldSelector... fieldSelectors) {
             return fieldSelectors(List.of(fieldSelectors));
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public EventDataStoreAdvancedEventSelector build() {
-            return new EventDataStoreAdvancedEventSelector(fieldSelectors, name);
+        }
+        public EventDataStoreAdvancedEventSelector build() {
+            final var o = new EventDataStoreAdvancedEventSelector();
+            o.fieldSelectors = fieldSelectors;
+            o.name = name;
+            return o;
         }
     }
 }

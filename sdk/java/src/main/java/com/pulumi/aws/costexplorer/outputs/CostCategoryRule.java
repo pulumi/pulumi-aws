@@ -17,35 +17,24 @@ public final class CostCategoryRule {
      * @return Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
      * 
      */
-    private final @Nullable CostCategoryRuleInheritedValue inheritedValue;
+    private @Nullable CostCategoryRuleInheritedValue inheritedValue;
     /**
      * @return Configuration block for the `Expression` object used to categorize costs. See below.
      * 
      */
-    private final @Nullable CostCategoryRuleRule rule;
+    private @Nullable CostCategoryRuleRule rule;
     /**
      * @return Parameter type.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Default value for the cost category.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private CostCategoryRule(
-        @CustomType.Parameter("inheritedValue") @Nullable CostCategoryRuleInheritedValue inheritedValue,
-        @CustomType.Parameter("rule") @Nullable CostCategoryRuleRule rule,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.inheritedValue = inheritedValue;
-        this.rule = rule;
-        this.type = type;
-        this.value = value;
-    }
-
+    private CostCategoryRule() {}
     /**
      * @return Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
      * 
@@ -82,17 +71,13 @@ public final class CostCategoryRule {
     public static Builder builder(CostCategoryRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable CostCategoryRuleInheritedValue inheritedValue;
         private @Nullable CostCategoryRuleRule rule;
         private @Nullable String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CostCategoryRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inheritedValue = defaults.inheritedValue;
@@ -101,23 +86,33 @@ public final class CostCategoryRule {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder inheritedValue(@Nullable CostCategoryRuleInheritedValue inheritedValue) {
             this.inheritedValue = inheritedValue;
             return this;
         }
+        @CustomType.Setter
         public Builder rule(@Nullable CostCategoryRuleRule rule) {
             this.rule = rule;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public CostCategoryRule build() {
-            return new CostCategoryRule(inheritedValue, rule, type, value);
+        }
+        public CostCategoryRule build() {
+            final var o = new CostCategoryRule();
+            o.inheritedValue = inheritedValue;
+            o.rule = rule;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

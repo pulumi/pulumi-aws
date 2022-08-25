@@ -15,28 +15,19 @@ public final class ServiceInstanceConfiguration {
      * @return The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
      * 
      */
-    private final @Nullable String cpu;
+    private @Nullable String cpu;
     /**
      * @return The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
      * 
      */
-    private final @Nullable String instanceRoleArn;
+    private @Nullable String instanceRoleArn;
     /**
      * @return The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
      * 
      */
-    private final @Nullable String memory;
+    private @Nullable String memory;
 
-    @CustomType.Constructor
-    private ServiceInstanceConfiguration(
-        @CustomType.Parameter("cpu") @Nullable String cpu,
-        @CustomType.Parameter("instanceRoleArn") @Nullable String instanceRoleArn,
-        @CustomType.Parameter("memory") @Nullable String memory) {
-        this.cpu = cpu;
-        this.instanceRoleArn = instanceRoleArn;
-        this.memory = memory;
-    }
-
+    private ServiceInstanceConfiguration() {}
     /**
      * @return The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
      * 
@@ -66,16 +57,12 @@ public final class ServiceInstanceConfiguration {
     public static Builder builder(ServiceInstanceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cpu;
         private @Nullable String instanceRoleArn;
         private @Nullable String memory;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceInstanceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cpu = defaults.cpu;
@@ -83,19 +70,27 @@ public final class ServiceInstanceConfiguration {
     	      this.memory = defaults.memory;
         }
 
+        @CustomType.Setter
         public Builder cpu(@Nullable String cpu) {
             this.cpu = cpu;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceRoleArn(@Nullable String instanceRoleArn) {
             this.instanceRoleArn = instanceRoleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder memory(@Nullable String memory) {
             this.memory = memory;
             return this;
-        }        public ServiceInstanceConfiguration build() {
-            return new ServiceInstanceConfiguration(cpu, instanceRoleArn, memory);
+        }
+        public ServiceInstanceConfiguration build() {
+            final var o = new ServiceInstanceConfiguration();
+            o.cpu = cpu;
+            o.instanceRoleArn = instanceRoleArn;
+            o.memory = memory;
+            return o;
         }
     }
 }

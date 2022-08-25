@@ -20,119 +20,84 @@ public final class ComputeEnvironmentComputeResources {
      * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable String allocationStrategy;
+    private @Nullable String allocationStrategy;
     /**
      * @return Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable Integer bidPercentage;
+    private @Nullable Integer bidPercentage;
     /**
      * @return The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable Integer desiredVcpus;
+    private @Nullable Integer desiredVcpus;
     /**
      * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration;
+    private @Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration;
     /**
      * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable String ec2KeyPair;
+    private @Nullable String ec2KeyPair;
     /**
      * @return The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
      * 
      */
-    private final @Nullable String imageId;
+    private @Nullable String imageId;
     /**
      * @return The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable String instanceRole;
+    private @Nullable String instanceRole;
     /**
      * @return A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable List<String> instanceTypes;
+    private @Nullable List<String> instanceTypes;
     /**
      * @return The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate;
+    private @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate;
     /**
      * @return The maximum number of EC2 vCPUs that an environment can reach.
      * 
      */
-    private final Integer maxVcpus;
+    private Integer maxVcpus;
     /**
      * @return The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable Integer minVcpus;
+    private @Nullable Integer minVcpus;
     /**
      * @return A list of EC2 security group that are associated with instances launched in the compute environment.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable String spotIamFleetRole;
+    private @Nullable String spotIamFleetRole;
     /**
      * @return A list of VPC subnets into which the compute resources are launched.
      * 
      */
-    private final List<String> subnets;
+    private List<String> subnets;
     /**
      * @return Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ComputeEnvironmentComputeResources(
-        @CustomType.Parameter("allocationStrategy") @Nullable String allocationStrategy,
-        @CustomType.Parameter("bidPercentage") @Nullable Integer bidPercentage,
-        @CustomType.Parameter("desiredVcpus") @Nullable Integer desiredVcpus,
-        @CustomType.Parameter("ec2Configuration") @Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration,
-        @CustomType.Parameter("ec2KeyPair") @Nullable String ec2KeyPair,
-        @CustomType.Parameter("imageId") @Nullable String imageId,
-        @CustomType.Parameter("instanceRole") @Nullable String instanceRole,
-        @CustomType.Parameter("instanceTypes") @Nullable List<String> instanceTypes,
-        @CustomType.Parameter("launchTemplate") @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate,
-        @CustomType.Parameter("maxVcpus") Integer maxVcpus,
-        @CustomType.Parameter("minVcpus") @Nullable Integer minVcpus,
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("spotIamFleetRole") @Nullable String spotIamFleetRole,
-        @CustomType.Parameter("subnets") List<String> subnets,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("type") String type) {
-        this.allocationStrategy = allocationStrategy;
-        this.bidPercentage = bidPercentage;
-        this.desiredVcpus = desiredVcpus;
-        this.ec2Configuration = ec2Configuration;
-        this.ec2KeyPair = ec2KeyPair;
-        this.imageId = imageId;
-        this.instanceRole = instanceRole;
-        this.instanceTypes = instanceTypes;
-        this.launchTemplate = launchTemplate;
-        this.maxVcpus = maxVcpus;
-        this.minVcpus = minVcpus;
-        this.securityGroupIds = securityGroupIds;
-        this.spotIamFleetRole = spotIamFleetRole;
-        this.subnets = subnets;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private ComputeEnvironmentComputeResources() {}
     /**
      * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
@@ -253,7 +218,7 @@ public final class ComputeEnvironmentComputeResources {
     public static Builder builder(ComputeEnvironmentComputeResources defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String allocationStrategy;
         private @Nullable Integer bidPercentage;
@@ -271,11 +236,7 @@ public final class ComputeEnvironmentComputeResources {
         private List<String> subnets;
         private @Nullable Map<String,String> tags;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ComputeEnvironmentComputeResources defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationStrategy = defaults.allocationStrategy;
@@ -296,34 +257,42 @@ public final class ComputeEnvironmentComputeResources {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder allocationStrategy(@Nullable String allocationStrategy) {
             this.allocationStrategy = allocationStrategy;
             return this;
         }
+        @CustomType.Setter
         public Builder bidPercentage(@Nullable Integer bidPercentage) {
             this.bidPercentage = bidPercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder desiredVcpus(@Nullable Integer desiredVcpus) {
             this.desiredVcpus = desiredVcpus;
             return this;
         }
+        @CustomType.Setter
         public Builder ec2Configuration(@Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration) {
             this.ec2Configuration = ec2Configuration;
             return this;
         }
+        @CustomType.Setter
         public Builder ec2KeyPair(@Nullable String ec2KeyPair) {
             this.ec2KeyPair = ec2KeyPair;
             return this;
         }
+        @CustomType.Setter
         public Builder imageId(@Nullable String imageId) {
             this.imageId = imageId;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceRole(@Nullable String instanceRole) {
             this.instanceRole = instanceRole;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceTypes(@Nullable List<String> instanceTypes) {
             this.instanceTypes = instanceTypes;
             return this;
@@ -331,18 +300,22 @@ public final class ComputeEnvironmentComputeResources {
         public Builder instanceTypes(String... instanceTypes) {
             return instanceTypes(List.of(instanceTypes));
         }
+        @CustomType.Setter
         public Builder launchTemplate(@Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate) {
             this.launchTemplate = launchTemplate;
             return this;
         }
+        @CustomType.Setter
         public Builder maxVcpus(Integer maxVcpus) {
             this.maxVcpus = Objects.requireNonNull(maxVcpus);
             return this;
         }
+        @CustomType.Setter
         public Builder minVcpus(@Nullable Integer minVcpus) {
             this.minVcpus = minVcpus;
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -350,10 +323,12 @@ public final class ComputeEnvironmentComputeResources {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder spotIamFleetRole(@Nullable String spotIamFleetRole) {
             this.spotIamFleetRole = spotIamFleetRole;
             return this;
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
@@ -361,15 +336,35 @@ public final class ComputeEnvironmentComputeResources {
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ComputeEnvironmentComputeResources build() {
-            return new ComputeEnvironmentComputeResources(allocationStrategy, bidPercentage, desiredVcpus, ec2Configuration, ec2KeyPair, imageId, instanceRole, instanceTypes, launchTemplate, maxVcpus, minVcpus, securityGroupIds, spotIamFleetRole, subnets, tags, type);
+        }
+        public ComputeEnvironmentComputeResources build() {
+            final var o = new ComputeEnvironmentComputeResources();
+            o.allocationStrategy = allocationStrategy;
+            o.bidPercentage = bidPercentage;
+            o.desiredVcpus = desiredVcpus;
+            o.ec2Configuration = ec2Configuration;
+            o.ec2KeyPair = ec2KeyPair;
+            o.imageId = imageId;
+            o.instanceRole = instanceRole;
+            o.instanceTypes = instanceTypes;
+            o.launchTemplate = launchTemplate;
+            o.maxVcpus = maxVcpus;
+            o.minVcpus = minVcpus;
+            o.securityGroupIds = securityGroupIds;
+            o.spotIamFleetRole = spotIamFleetRole;
+            o.subnets = subnets;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

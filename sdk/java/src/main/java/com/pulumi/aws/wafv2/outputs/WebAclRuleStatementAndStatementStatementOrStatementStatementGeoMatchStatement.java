@@ -17,21 +17,14 @@ public final class WebAclRuleStatementAndStatementStatementOrStatementStatementG
      * @return Array of two-character country codes, for example, [ &#34;US&#34;, &#34;CN&#34; ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
      * 
      */
-    private final List<String> countryCodes;
+    private List<String> countryCodes;
     /**
      * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for details.
      * 
      */
-    private final @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig;
+    private @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement(
-        @CustomType.Parameter("countryCodes") List<String> countryCodes,
-        @CustomType.Parameter("forwardedIpConfig") @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig) {
-        this.countryCodes = countryCodes;
-        this.forwardedIpConfig = forwardedIpConfig;
-    }
-
+    private WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement() {}
     /**
      * @return Array of two-character country codes, for example, [ &#34;US&#34;, &#34;CN&#34; ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
      * 
@@ -54,21 +47,18 @@ public final class WebAclRuleStatementAndStatementStatementOrStatementStatementG
     public static Builder builder(WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> countryCodes;
         private @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.countryCodes = defaults.countryCodes;
     	      this.forwardedIpConfig = defaults.forwardedIpConfig;
         }
 
+        @CustomType.Setter
         public Builder countryCodes(List<String> countryCodes) {
             this.countryCodes = Objects.requireNonNull(countryCodes);
             return this;
@@ -76,11 +66,16 @@ public final class WebAclRuleStatementAndStatementStatementOrStatementStatementG
         public Builder countryCodes(String... countryCodes) {
             return countryCodes(List.of(countryCodes));
         }
+        @CustomType.Setter
         public Builder forwardedIpConfig(@Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig) {
             this.forwardedIpConfig = forwardedIpConfig;
             return this;
-        }        public WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement build() {
-            return new WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement(countryCodes, forwardedIpConfig);
+        }
+        public WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement build() {
+            final var o = new WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement();
+            o.countryCodes = countryCodes;
+            o.forwardedIpConfig = forwardedIpConfig;
+            return o;
         }
     }
 }

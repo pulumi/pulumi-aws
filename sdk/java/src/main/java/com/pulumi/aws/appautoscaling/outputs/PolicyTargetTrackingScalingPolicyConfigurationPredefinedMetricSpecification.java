@@ -15,21 +15,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetri
      * @return The metric type.
      * 
      */
-    private final String predefinedMetricType;
+    private String predefinedMetricType;
     /**
      * @return Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
      * 
      */
-    private final @Nullable String resourceLabel;
+    private @Nullable String resourceLabel;
 
-    @CustomType.Constructor
-    private PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification(
-        @CustomType.Parameter("predefinedMetricType") String predefinedMetricType,
-        @CustomType.Parameter("resourceLabel") @Nullable String resourceLabel) {
-        this.predefinedMetricType = predefinedMetricType;
-        this.resourceLabel = resourceLabel;
-    }
-
+    private PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification() {}
     /**
      * @return The metric type.
      * 
@@ -52,30 +45,32 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetri
     public static Builder builder(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String predefinedMetricType;
         private @Nullable String resourceLabel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.predefinedMetricType = defaults.predefinedMetricType;
     	      this.resourceLabel = defaults.resourceLabel;
         }
 
+        @CustomType.Setter
         public Builder predefinedMetricType(String predefinedMetricType) {
             this.predefinedMetricType = Objects.requireNonNull(predefinedMetricType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceLabel(@Nullable String resourceLabel) {
             this.resourceLabel = resourceLabel;
             return this;
-        }        public PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification build() {
-            return new PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification(predefinedMetricType, resourceLabel);
+        }
+        public PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification build() {
+            final var o = new PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification();
+            o.predefinedMetricType = predefinedMetricType;
+            o.resourceLabel = resourceLabel;
+            return o;
         }
     }
 }

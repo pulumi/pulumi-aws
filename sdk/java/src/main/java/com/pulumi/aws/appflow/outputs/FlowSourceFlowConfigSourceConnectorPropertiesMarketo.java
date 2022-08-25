@@ -13,13 +13,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesMarketo {
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesMarketo(@CustomType.Parameter("object") String object) {
-        this.object = object;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesMarketo() {}
     /**
      * @return The object specified in the Veeva flow source.
      * 
@@ -35,24 +31,24 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesMarketo {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesMarketo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesMarketo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesMarketo build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesMarketo(object);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesMarketo build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesMarketo();
+            o.object = object;
+            return o;
         }
     }
 }

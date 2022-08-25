@@ -15,21 +15,14 @@ public final class UserPoolSchemaNumberAttributeConstraints {
      * @return Maximum value of an attribute that is of the number data type.
      * 
      */
-    private final @Nullable String maxValue;
+    private @Nullable String maxValue;
     /**
      * @return Minimum value of an attribute that is of the number data type.
      * 
      */
-    private final @Nullable String minValue;
+    private @Nullable String minValue;
 
-    @CustomType.Constructor
-    private UserPoolSchemaNumberAttributeConstraints(
-        @CustomType.Parameter("maxValue") @Nullable String maxValue,
-        @CustomType.Parameter("minValue") @Nullable String minValue) {
-        this.maxValue = maxValue;
-        this.minValue = minValue;
-    }
-
+    private UserPoolSchemaNumberAttributeConstraints() {}
     /**
      * @return Maximum value of an attribute that is of the number data type.
      * 
@@ -52,30 +45,32 @@ public final class UserPoolSchemaNumberAttributeConstraints {
     public static Builder builder(UserPoolSchemaNumberAttributeConstraints defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String maxValue;
         private @Nullable String minValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolSchemaNumberAttributeConstraints defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxValue = defaults.maxValue;
     	      this.minValue = defaults.minValue;
         }
 
+        @CustomType.Setter
         public Builder maxValue(@Nullable String maxValue) {
             this.maxValue = maxValue;
             return this;
         }
+        @CustomType.Setter
         public Builder minValue(@Nullable String minValue) {
             this.minValue = minValue;
             return this;
-        }        public UserPoolSchemaNumberAttributeConstraints build() {
-            return new UserPoolSchemaNumberAttributeConstraints(maxValue, minValue);
+        }
+        public UserPoolSchemaNumberAttributeConstraints build() {
+            final var o = new UserPoolSchemaNumberAttributeConstraints();
+            o.maxValue = maxValue;
+            o.minValue = minValue;
+            return o;
         }
     }
 }

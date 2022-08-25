@@ -15,42 +15,29 @@ public final class OrganizationNonMasterAccount {
      * @return ARN of the root
      * 
      */
-    private final @Nullable String arn;
+    private @Nullable String arn;
     /**
      * @return Email of the account
      * 
      */
-    private final @Nullable String email;
+    private @Nullable String email;
     /**
      * @return Identifier of the root
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the policy type
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The status of the policy type as it relates to the associated root
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
 
-    @CustomType.Constructor
-    private OrganizationNonMasterAccount(
-        @CustomType.Parameter("arn") @Nullable String arn,
-        @CustomType.Parameter("email") @Nullable String email,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("status") @Nullable String status) {
-        this.arn = arn;
-        this.email = email;
-        this.id = id;
-        this.name = name;
-        this.status = status;
-    }
-
+    private OrganizationNonMasterAccount() {}
     /**
      * @return ARN of the root
      * 
@@ -94,18 +81,14 @@ public final class OrganizationNonMasterAccount {
     public static Builder builder(OrganizationNonMasterAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
         private @Nullable String email;
         private @Nullable String id;
         private @Nullable String name;
         private @Nullable String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationNonMasterAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -115,27 +98,39 @@ public final class OrganizationNonMasterAccount {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder arn(@Nullable String arn) {
             this.arn = arn;
             return this;
         }
+        @CustomType.Setter
         public Builder email(@Nullable String email) {
             this.email = email;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
-        }        public OrganizationNonMasterAccount build() {
-            return new OrganizationNonMasterAccount(arn, email, id, name, status);
+        }
+        public OrganizationNonMasterAccount build() {
+            final var o = new OrganizationNonMasterAccount();
+            o.arn = arn;
+            o.email = email;
+            o.id = id;
+            o.name = name;
+            o.status = status;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class LocationHdfsNameNode {
      * @return The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that&#39;s installed on-premises uses this hostname to communicate with the NameNode in the network.
      * 
      */
-    private final String hostname;
+    private String hostname;
     /**
      * @return The port that the NameNode uses to listen to client requests.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private LocationHdfsNameNode(
-        @CustomType.Parameter("hostname") String hostname,
-        @CustomType.Parameter("port") Integer port) {
-        this.hostname = hostname;
-        this.port = port;
-    }
-
+    private LocationHdfsNameNode() {}
     /**
      * @return The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that&#39;s installed on-premises uses this hostname to communicate with the NameNode in the network.
      * 
@@ -51,30 +44,32 @@ public final class LocationHdfsNameNode {
     public static Builder builder(LocationHdfsNameNode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostname;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LocationHdfsNameNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder hostname(String hostname) {
             this.hostname = Objects.requireNonNull(hostname);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public LocationHdfsNameNode build() {
-            return new LocationHdfsNameNode(hostname, port);
+        }
+        public LocationHdfsNameNode build() {
+            final var o = new LocationHdfsNameNode();
+            o.hostname = hostname;
+            o.port = port;
+            return o;
         }
     }
 }

@@ -17,28 +17,19 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * @return Describes an application&#39;s checkpointing configuration.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration checkpointConfiguration;
+    private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration checkpointConfiguration;
     /**
      * @return Describes configuration parameters for CloudWatch logging for an application.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration monitoringConfiguration;
+    private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration monitoringConfiguration;
     /**
      * @return Describes parameters for how an application executes multiple tasks simultaneously.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration parallelismConfiguration;
+    private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration parallelismConfiguration;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationFlinkApplicationConfiguration(
-        @CustomType.Parameter("checkpointConfiguration") @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration checkpointConfiguration,
-        @CustomType.Parameter("monitoringConfiguration") @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration monitoringConfiguration,
-        @CustomType.Parameter("parallelismConfiguration") @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration parallelismConfiguration) {
-        this.checkpointConfiguration = checkpointConfiguration;
-        this.monitoringConfiguration = monitoringConfiguration;
-        this.parallelismConfiguration = parallelismConfiguration;
-    }
-
+    private ApplicationApplicationConfigurationFlinkApplicationConfiguration() {}
     /**
      * @return Describes an application&#39;s checkpointing configuration.
      * 
@@ -68,16 +59,12 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     public static Builder builder(ApplicationApplicationConfigurationFlinkApplicationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration checkpointConfiguration;
         private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration monitoringConfiguration;
         private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration parallelismConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationFlinkApplicationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.checkpointConfiguration = defaults.checkpointConfiguration;
@@ -85,19 +72,27 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     	      this.parallelismConfiguration = defaults.parallelismConfiguration;
         }
 
+        @CustomType.Setter
         public Builder checkpointConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration checkpointConfiguration) {
             this.checkpointConfiguration = checkpointConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder monitoringConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration monitoringConfiguration) {
             this.monitoringConfiguration = monitoringConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder parallelismConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration parallelismConfiguration) {
             this.parallelismConfiguration = parallelismConfiguration;
             return this;
-        }        public ApplicationApplicationConfigurationFlinkApplicationConfiguration build() {
-            return new ApplicationApplicationConfigurationFlinkApplicationConfiguration(checkpointConfiguration, monitoringConfiguration, parallelismConfiguration);
+        }
+        public ApplicationApplicationConfigurationFlinkApplicationConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationFlinkApplicationConfiguration();
+            o.checkpointConfiguration = checkpointConfiguration;
+            o.monitoringConfiguration = monitoringConfiguration;
+            o.parallelismConfiguration = parallelismConfiguration;
+            return o;
         }
     }
 }

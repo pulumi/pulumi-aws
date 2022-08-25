@@ -16,28 +16,19 @@ public final class UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
      * @return The name of the App Image Config.
      * 
      */
-    private final String appImageConfigName;
+    private String appImageConfigName;
     /**
      * @return The name of the Custom Image.
      * 
      */
-    private final String imageName;
+    private String imageName;
     /**
      * @return The version number of the Custom Image.
      * 
      */
-    private final @Nullable Integer imageVersionNumber;
+    private @Nullable Integer imageVersionNumber;
 
-    @CustomType.Constructor
-    private UserProfileUserSettingsKernelGatewayAppSettingsCustomImage(
-        @CustomType.Parameter("appImageConfigName") String appImageConfigName,
-        @CustomType.Parameter("imageName") String imageName,
-        @CustomType.Parameter("imageVersionNumber") @Nullable Integer imageVersionNumber) {
-        this.appImageConfigName = appImageConfigName;
-        this.imageName = imageName;
-        this.imageVersionNumber = imageVersionNumber;
-    }
-
+    private UserProfileUserSettingsKernelGatewayAppSettingsCustomImage() {}
     /**
      * @return The name of the App Image Config.
      * 
@@ -67,16 +58,12 @@ public final class UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
     public static Builder builder(UserProfileUserSettingsKernelGatewayAppSettingsCustomImage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appImageConfigName;
         private String imageName;
         private @Nullable Integer imageVersionNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserProfileUserSettingsKernelGatewayAppSettingsCustomImage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appImageConfigName = defaults.appImageConfigName;
@@ -84,19 +71,27 @@ public final class UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
     	      this.imageVersionNumber = defaults.imageVersionNumber;
         }
 
+        @CustomType.Setter
         public Builder appImageConfigName(String appImageConfigName) {
             this.appImageConfigName = Objects.requireNonNull(appImageConfigName);
             return this;
         }
+        @CustomType.Setter
         public Builder imageName(String imageName) {
             this.imageName = Objects.requireNonNull(imageName);
             return this;
         }
+        @CustomType.Setter
         public Builder imageVersionNumber(@Nullable Integer imageVersionNumber) {
             this.imageVersionNumber = imageVersionNumber;
             return this;
-        }        public UserProfileUserSettingsKernelGatewayAppSettingsCustomImage build() {
-            return new UserProfileUserSettingsKernelGatewayAppSettingsCustomImage(appImageConfigName, imageName, imageVersionNumber);
+        }
+        public UserProfileUserSettingsKernelGatewayAppSettingsCustomImage build() {
+            final var o = new UserProfileUserSettingsKernelGatewayAppSettingsCustomImage();
+            o.appImageConfigName = appImageConfigName;
+            o.imageName = imageName;
+            o.imageVersionNumber = imageVersionNumber;
+            return o;
         }
     }
 }

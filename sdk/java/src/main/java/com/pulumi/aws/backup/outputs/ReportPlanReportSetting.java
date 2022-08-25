@@ -17,28 +17,19 @@ public final class ReportPlanReportSetting {
      * @return Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
      */
-    private final @Nullable List<String> frameworkArns;
+    private @Nullable List<String> frameworkArns;
     /**
      * @return Specifies the number of frameworks a report covers.
      * 
      */
-    private final @Nullable Integer numberOfFrameworks;
+    private @Nullable Integer numberOfFrameworks;
     /**
      * @return Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
      * 
      */
-    private final String reportTemplate;
+    private String reportTemplate;
 
-    @CustomType.Constructor
-    private ReportPlanReportSetting(
-        @CustomType.Parameter("frameworkArns") @Nullable List<String> frameworkArns,
-        @CustomType.Parameter("numberOfFrameworks") @Nullable Integer numberOfFrameworks,
-        @CustomType.Parameter("reportTemplate") String reportTemplate) {
-        this.frameworkArns = frameworkArns;
-        this.numberOfFrameworks = numberOfFrameworks;
-        this.reportTemplate = reportTemplate;
-    }
-
+    private ReportPlanReportSetting() {}
     /**
      * @return Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
@@ -68,16 +59,12 @@ public final class ReportPlanReportSetting {
     public static Builder builder(ReportPlanReportSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> frameworkArns;
         private @Nullable Integer numberOfFrameworks;
         private String reportTemplate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReportPlanReportSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frameworkArns = defaults.frameworkArns;
@@ -85,6 +72,7 @@ public final class ReportPlanReportSetting {
     	      this.reportTemplate = defaults.reportTemplate;
         }
 
+        @CustomType.Setter
         public Builder frameworkArns(@Nullable List<String> frameworkArns) {
             this.frameworkArns = frameworkArns;
             return this;
@@ -92,15 +80,22 @@ public final class ReportPlanReportSetting {
         public Builder frameworkArns(String... frameworkArns) {
             return frameworkArns(List.of(frameworkArns));
         }
+        @CustomType.Setter
         public Builder numberOfFrameworks(@Nullable Integer numberOfFrameworks) {
             this.numberOfFrameworks = numberOfFrameworks;
             return this;
         }
+        @CustomType.Setter
         public Builder reportTemplate(String reportTemplate) {
             this.reportTemplate = Objects.requireNonNull(reportTemplate);
             return this;
-        }        public ReportPlanReportSetting build() {
-            return new ReportPlanReportSetting(frameworkArns, numberOfFrameworks, reportTemplate);
+        }
+        public ReportPlanReportSetting build() {
+            final var o = new ReportPlanReportSetting();
+            o.frameworkArns = frameworkArns;
+            o.numberOfFrameworks = numberOfFrameworks;
+            o.reportTemplate = reportTemplate;
+            return o;
         }
     }
 }

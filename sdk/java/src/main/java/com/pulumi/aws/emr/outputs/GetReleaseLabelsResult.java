@@ -13,28 +13,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReleaseLabelsResult {
-    private final @Nullable GetReleaseLabelsFilters filters;
+    private @Nullable GetReleaseLabelsFilters filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The returned release labels.
      * 
      */
-    private final List<String> releaseLabels;
+    private List<String> releaseLabels;
 
-    @CustomType.Constructor
-    private GetReleaseLabelsResult(
-        @CustomType.Parameter("filters") @Nullable GetReleaseLabelsFilters filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("releaseLabels") List<String> releaseLabels) {
-        this.filters = filters;
-        this.id = id;
-        this.releaseLabels = releaseLabels;
-    }
-
+    private GetReleaseLabelsResult() {}
     public Optional<GetReleaseLabelsFilters> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -60,16 +51,12 @@ public final class GetReleaseLabelsResult {
     public static Builder builder(GetReleaseLabelsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GetReleaseLabelsFilters filters;
         private String id;
         private List<String> releaseLabels;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetReleaseLabelsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -77,22 +64,30 @@ public final class GetReleaseLabelsResult {
     	      this.releaseLabels = defaults.releaseLabels;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable GetReleaseLabelsFilters filters) {
             this.filters = filters;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder releaseLabels(List<String> releaseLabels) {
             this.releaseLabels = Objects.requireNonNull(releaseLabels);
             return this;
         }
         public Builder releaseLabels(String... releaseLabels) {
             return releaseLabels(List.of(releaseLabels));
-        }        public GetReleaseLabelsResult build() {
-            return new GetReleaseLabelsResult(filters, id, releaseLabels);
+        }
+        public GetReleaseLabelsResult build() {
+            final var o = new GetReleaseLabelsResult();
+            o.filters = filters;
+            o.id = id;
+            o.releaseLabels = releaseLabels;
+            return o;
         }
     }
 }

@@ -19,108 +19,75 @@ public final class GetClusterResult {
      * @return The Amazon Resource Name (ARN) of the cluster.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Nested attribute containing `certificate-authority-data` for your cluster.
      * 
      */
-    private final List<GetClusterCertificateAuthority> certificateAuthorities;
+    private List<GetClusterCertificateAuthority> certificateAuthorities;
     /**
      * @return The Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
-    private final String createdAt;
+    private String createdAt;
     /**
      * @return The enabled control plane logs.
      * 
      */
-    private final List<String> enabledClusterLogTypes;
+    private List<String> enabledClusterLogTypes;
     /**
      * @return The endpoint for your Kubernetes API server.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
      * 
      */
-    private final List<GetClusterIdentity> identities;
+    private List<GetClusterIdentity> identities;
     /**
      * @return Nested list containing Kubernetes Network Configuration.
      * 
      */
-    private final List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
-    private final String name;
+    private List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
+    private String name;
     /**
      * @return The platform version for the cluster.
      * 
      */
-    private final String platformVersion;
+    private String platformVersion;
     /**
      * @return The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Key-value map of resource tags.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Kubernetes server version for the cluster.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return Nested list containing VPC configuration for the cluster.
      * 
      */
-    private final GetClusterVpcConfig vpcConfig;
+    private GetClusterVpcConfig vpcConfig;
 
-    @CustomType.Constructor
-    private GetClusterResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("certificateAuthorities") List<GetClusterCertificateAuthority> certificateAuthorities,
-        @CustomType.Parameter("createdAt") String createdAt,
-        @CustomType.Parameter("enabledClusterLogTypes") List<String> enabledClusterLogTypes,
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetClusterIdentity> identities,
-        @CustomType.Parameter("kubernetesNetworkConfigs") List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("platformVersion") String platformVersion,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("vpcConfig") GetClusterVpcConfig vpcConfig) {
-        this.arn = arn;
-        this.certificateAuthorities = certificateAuthorities;
-        this.createdAt = createdAt;
-        this.enabledClusterLogTypes = enabledClusterLogTypes;
-        this.endpoint = endpoint;
-        this.id = id;
-        this.identities = identities;
-        this.kubernetesNetworkConfigs = kubernetesNetworkConfigs;
-        this.name = name;
-        this.platformVersion = platformVersion;
-        this.roleArn = roleArn;
-        this.status = status;
-        this.tags = tags;
-        this.version = version;
-        this.vpcConfig = vpcConfig;
-    }
-
+    private GetClusterResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the cluster.
      * 
@@ -230,7 +197,7 @@ public final class GetClusterResult {
     public static Builder builder(GetClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetClusterCertificateAuthority> certificateAuthorities;
@@ -247,11 +214,7 @@ public final class GetClusterResult {
         private Map<String,String> tags;
         private String version;
         private GetClusterVpcConfig vpcConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -271,10 +234,12 @@ public final class GetClusterResult {
     	      this.vpcConfig = defaults.vpcConfig;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateAuthorities(List<GetClusterCertificateAuthority> certificateAuthorities) {
             this.certificateAuthorities = Objects.requireNonNull(certificateAuthorities);
             return this;
@@ -282,10 +247,12 @@ public final class GetClusterResult {
         public Builder certificateAuthorities(GetClusterCertificateAuthority... certificateAuthorities) {
             return certificateAuthorities(List.of(certificateAuthorities));
         }
+        @CustomType.Setter
         public Builder createdAt(String createdAt) {
             this.createdAt = Objects.requireNonNull(createdAt);
             return this;
         }
+        @CustomType.Setter
         public Builder enabledClusterLogTypes(List<String> enabledClusterLogTypes) {
             this.enabledClusterLogTypes = Objects.requireNonNull(enabledClusterLogTypes);
             return this;
@@ -293,14 +260,17 @@ public final class GetClusterResult {
         public Builder enabledClusterLogTypes(String... enabledClusterLogTypes) {
             return enabledClusterLogTypes(List.of(enabledClusterLogTypes));
         }
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetClusterIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -308,6 +278,7 @@ public final class GetClusterResult {
         public Builder identities(GetClusterIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder kubernetesNetworkConfigs(List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs) {
             this.kubernetesNetworkConfigs = Objects.requireNonNull(kubernetesNetworkConfigs);
             return this;
@@ -315,35 +286,59 @@ public final class GetClusterResult {
         public Builder kubernetesNetworkConfigs(GetClusterKubernetesNetworkConfig... kubernetesNetworkConfigs) {
             return kubernetesNetworkConfigs(List.of(kubernetesNetworkConfigs));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder platformVersion(String platformVersion) {
             this.platformVersion = Objects.requireNonNull(platformVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcConfig(GetClusterVpcConfig vpcConfig) {
             this.vpcConfig = Objects.requireNonNull(vpcConfig);
             return this;
-        }        public GetClusterResult build() {
-            return new GetClusterResult(arn, certificateAuthorities, createdAt, enabledClusterLogTypes, endpoint, id, identities, kubernetesNetworkConfigs, name, platformVersion, roleArn, status, tags, version, vpcConfig);
+        }
+        public GetClusterResult build() {
+            final var o = new GetClusterResult();
+            o.arn = arn;
+            o.certificateAuthorities = certificateAuthorities;
+            o.createdAt = createdAt;
+            o.enabledClusterLogTypes = enabledClusterLogTypes;
+            o.endpoint = endpoint;
+            o.id = id;
+            o.identities = identities;
+            o.kubernetesNetworkConfigs = kubernetesNetworkConfigs;
+            o.name = name;
+            o.platformVersion = platformVersion;
+            o.roleArn = roleArn;
+            o.status = status;
+            o.tags = tags;
+            o.version = version;
+            o.vpcConfig = vpcConfig;
+            return o;
         }
     }
 }

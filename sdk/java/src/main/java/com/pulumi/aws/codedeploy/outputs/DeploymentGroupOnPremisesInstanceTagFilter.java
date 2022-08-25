@@ -15,28 +15,19 @@ public final class DeploymentGroupOnPremisesInstanceTagFilter {
      * @return The key of the tag filter.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return The value of the tag filter.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private DeploymentGroupOnPremisesInstanceTagFilter(
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.key = key;
-        this.type = type;
-        this.value = value;
-    }
-
+    private DeploymentGroupOnPremisesInstanceTagFilter() {}
     /**
      * @return The key of the tag filter.
      * 
@@ -66,16 +57,12 @@ public final class DeploymentGroupOnPremisesInstanceTagFilter {
     public static Builder builder(DeploymentGroupOnPremisesInstanceTagFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String key;
         private @Nullable String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupOnPremisesInstanceTagFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -83,19 +70,27 @@ public final class DeploymentGroupOnPremisesInstanceTagFilter {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public DeploymentGroupOnPremisesInstanceTagFilter build() {
-            return new DeploymentGroupOnPremisesInstanceTagFilter(key, type, value);
+        }
+        public DeploymentGroupOnPremisesInstanceTagFilter build() {
+            final var o = new DeploymentGroupOnPremisesInstanceTagFilter();
+            o.key = key;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

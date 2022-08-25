@@ -15,13 +15,9 @@ public final class RouteSpecTcpRouteTimeout {
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private final @Nullable RouteSpecTcpRouteTimeoutIdle idle;
+    private @Nullable RouteSpecTcpRouteTimeoutIdle idle;
 
-    @CustomType.Constructor
-    private RouteSpecTcpRouteTimeout(@CustomType.Parameter("idle") @Nullable RouteSpecTcpRouteTimeoutIdle idle) {
-        this.idle = idle;
-    }
-
+    private RouteSpecTcpRouteTimeout() {}
     /**
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
@@ -37,24 +33,24 @@ public final class RouteSpecTcpRouteTimeout {
     public static Builder builder(RouteSpecTcpRouteTimeout defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RouteSpecTcpRouteTimeoutIdle idle;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecTcpRouteTimeout defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.idle = defaults.idle;
         }
 
+        @CustomType.Setter
         public Builder idle(@Nullable RouteSpecTcpRouteTimeoutIdle idle) {
             this.idle = idle;
             return this;
-        }        public RouteSpecTcpRouteTimeout build() {
-            return new RouteSpecTcpRouteTimeout(idle);
+        }
+        public RouteSpecTcpRouteTimeout build() {
+            final var o = new RouteSpecTcpRouteTimeout();
+            o.idle = idle;
+            return o;
         }
     }
 }

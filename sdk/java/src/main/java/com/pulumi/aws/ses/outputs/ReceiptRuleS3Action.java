@@ -16,42 +16,29 @@ public final class ReceiptRuleS3Action {
      * @return The name of the S3 bucket
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return The ARN of the KMS key
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     /**
      * @return The key prefix of the S3 bucket
      * 
      */
-    private final @Nullable String objectKeyPrefix;
+    private @Nullable String objectKeyPrefix;
     /**
      * @return The position of the action in the receipt rule
      * 
      */
-    private final Integer position;
+    private Integer position;
     /**
      * @return The ARN of an SNS topic to notify
      * 
      */
-    private final @Nullable String topicArn;
+    private @Nullable String topicArn;
 
-    @CustomType.Constructor
-    private ReceiptRuleS3Action(
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn,
-        @CustomType.Parameter("objectKeyPrefix") @Nullable String objectKeyPrefix,
-        @CustomType.Parameter("position") Integer position,
-        @CustomType.Parameter("topicArn") @Nullable String topicArn) {
-        this.bucketName = bucketName;
-        this.kmsKeyArn = kmsKeyArn;
-        this.objectKeyPrefix = objectKeyPrefix;
-        this.position = position;
-        this.topicArn = topicArn;
-    }
-
+    private ReceiptRuleS3Action() {}
     /**
      * @return The name of the S3 bucket
      * 
@@ -95,18 +82,14 @@ public final class ReceiptRuleS3Action {
     public static Builder builder(ReceiptRuleS3Action defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketName;
         private @Nullable String kmsKeyArn;
         private @Nullable String objectKeyPrefix;
         private Integer position;
         private @Nullable String topicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReceiptRuleS3Action defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -116,27 +99,39 @@ public final class ReceiptRuleS3Action {
     	      this.topicArn = defaults.topicArn;
         }
 
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
+        @CustomType.Setter
         public Builder objectKeyPrefix(@Nullable String objectKeyPrefix) {
             this.objectKeyPrefix = objectKeyPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder position(Integer position) {
             this.position = Objects.requireNonNull(position);
             return this;
         }
+        @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
             this.topicArn = topicArn;
             return this;
-        }        public ReceiptRuleS3Action build() {
-            return new ReceiptRuleS3Action(bucketName, kmsKeyArn, objectKeyPrefix, position, topicArn);
+        }
+        public ReceiptRuleS3Action build() {
+            final var o = new ReceiptRuleS3Action();
+            o.bucketName = bucketName;
+            o.kmsKeyArn = kmsKeyArn;
+            o.objectKeyPrefix = objectKeyPrefix;
+            o.position = position;
+            o.topicArn = topicArn;
+            return o;
         }
     }
 }

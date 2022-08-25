@@ -15,42 +15,29 @@ public final class UserPoolEmailConfiguration {
      * @return Email configuration set name from SES.
      * 
      */
-    private final @Nullable String configurationSet;
+    private @Nullable String configurationSet;
     /**
      * @return Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
      * 
      */
-    private final @Nullable String emailSendingAccount;
+    private @Nullable String emailSendingAccount;
     /**
      * @return Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith &lt;john@example.com&gt;` or `\&#34;John Smith Ph.D.\&#34; &lt;john@example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
      * 
      */
-    private final @Nullable String fromEmailAddress;
+    private @Nullable String fromEmailAddress;
     /**
      * @return REPLY-TO email address.
      * 
      */
-    private final @Nullable String replyToEmailAddress;
+    private @Nullable String replyToEmailAddress;
     /**
      * @return ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
      * 
      */
-    private final @Nullable String sourceArn;
+    private @Nullable String sourceArn;
 
-    @CustomType.Constructor
-    private UserPoolEmailConfiguration(
-        @CustomType.Parameter("configurationSet") @Nullable String configurationSet,
-        @CustomType.Parameter("emailSendingAccount") @Nullable String emailSendingAccount,
-        @CustomType.Parameter("fromEmailAddress") @Nullable String fromEmailAddress,
-        @CustomType.Parameter("replyToEmailAddress") @Nullable String replyToEmailAddress,
-        @CustomType.Parameter("sourceArn") @Nullable String sourceArn) {
-        this.configurationSet = configurationSet;
-        this.emailSendingAccount = emailSendingAccount;
-        this.fromEmailAddress = fromEmailAddress;
-        this.replyToEmailAddress = replyToEmailAddress;
-        this.sourceArn = sourceArn;
-    }
-
+    private UserPoolEmailConfiguration() {}
     /**
      * @return Email configuration set name from SES.
      * 
@@ -94,18 +81,14 @@ public final class UserPoolEmailConfiguration {
     public static Builder builder(UserPoolEmailConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String configurationSet;
         private @Nullable String emailSendingAccount;
         private @Nullable String fromEmailAddress;
         private @Nullable String replyToEmailAddress;
         private @Nullable String sourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolEmailConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configurationSet = defaults.configurationSet;
@@ -115,27 +98,39 @@ public final class UserPoolEmailConfiguration {
     	      this.sourceArn = defaults.sourceArn;
         }
 
+        @CustomType.Setter
         public Builder configurationSet(@Nullable String configurationSet) {
             this.configurationSet = configurationSet;
             return this;
         }
+        @CustomType.Setter
         public Builder emailSendingAccount(@Nullable String emailSendingAccount) {
             this.emailSendingAccount = emailSendingAccount;
             return this;
         }
+        @CustomType.Setter
         public Builder fromEmailAddress(@Nullable String fromEmailAddress) {
             this.fromEmailAddress = fromEmailAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder replyToEmailAddress(@Nullable String replyToEmailAddress) {
             this.replyToEmailAddress = replyToEmailAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceArn(@Nullable String sourceArn) {
             this.sourceArn = sourceArn;
             return this;
-        }        public UserPoolEmailConfiguration build() {
-            return new UserPoolEmailConfiguration(configurationSet, emailSendingAccount, fromEmailAddress, replyToEmailAddress, sourceArn);
+        }
+        public UserPoolEmailConfiguration build() {
+            final var o = new UserPoolEmailConfiguration();
+            o.configurationSet = configurationSet;
+            o.emailSendingAccount = emailSendingAccount;
+            o.fromEmailAddress = fromEmailAddress;
+            o.replyToEmailAddress = replyToEmailAddress;
+            o.sourceArn = sourceArn;
+            return o;
         }
     }
 }

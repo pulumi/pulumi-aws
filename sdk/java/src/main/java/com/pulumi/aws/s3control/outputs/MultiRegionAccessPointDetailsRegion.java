@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MultiRegionAccessPointDetailsRegion {
-    private final String bucket;
+    private String bucket;
 
-    @CustomType.Constructor
-    private MultiRegionAccessPointDetailsRegion(@CustomType.Parameter("bucket") String bucket) {
-        this.bucket = bucket;
-    }
-
+    private MultiRegionAccessPointDetailsRegion() {}
     public String bucket() {
         return this.bucket;
     }
@@ -27,24 +23,24 @@ public final class MultiRegionAccessPointDetailsRegion {
     public static Builder builder(MultiRegionAccessPointDetailsRegion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MultiRegionAccessPointDetailsRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
-        }        public MultiRegionAccessPointDetailsRegion build() {
-            return new MultiRegionAccessPointDetailsRegion(bucket);
+        }
+        public MultiRegionAccessPointDetailsRegion build() {
+            final var o = new MultiRegionAccessPointDetailsRegion();
+            o.bucket = bucket;
+            return o;
         }
     }
 }

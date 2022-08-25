@@ -15,13 +15,9 @@ public final class InstanceEnclaveOptions {
      * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private InstanceEnclaveOptions(@CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private InstanceEnclaveOptions() {}
     /**
      * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
      * 
@@ -37,24 +33,24 @@ public final class InstanceEnclaveOptions {
     public static Builder builder(InstanceEnclaveOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceEnclaveOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public InstanceEnclaveOptions build() {
-            return new InstanceEnclaveOptions(enabled);
+        }
+        public InstanceEnclaveOptions build() {
+            final var o = new InstanceEnclaveOptions();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

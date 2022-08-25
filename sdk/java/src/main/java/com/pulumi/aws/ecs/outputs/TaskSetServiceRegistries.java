@@ -16,35 +16,24 @@ public final class TaskSetServiceRegistries {
      * @return The container name value, already specified in the task definition, to be used for your service discovery service.
      * 
      */
-    private final @Nullable String containerName;
+    private @Nullable String containerName;
     /**
      * @return The port value, already specified in the task definition, to be used for your service discovery service.
      * 
      */
-    private final @Nullable Integer containerPort;
+    private @Nullable Integer containerPort;
     /**
      * @return The port value used if your Service Discovery service specified an SRV record.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
      * 
      */
-    private final String registryArn;
+    private String registryArn;
 
-    @CustomType.Constructor
-    private TaskSetServiceRegistries(
-        @CustomType.Parameter("containerName") @Nullable String containerName,
-        @CustomType.Parameter("containerPort") @Nullable Integer containerPort,
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("registryArn") String registryArn) {
-        this.containerName = containerName;
-        this.containerPort = containerPort;
-        this.port = port;
-        this.registryArn = registryArn;
-    }
-
+    private TaskSetServiceRegistries() {}
     /**
      * @return The container name value, already specified in the task definition, to be used for your service discovery service.
      * 
@@ -81,17 +70,13 @@ public final class TaskSetServiceRegistries {
     public static Builder builder(TaskSetServiceRegistries defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String containerName;
         private @Nullable Integer containerPort;
         private @Nullable Integer port;
         private String registryArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskSetServiceRegistries defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerName = defaults.containerName;
@@ -100,23 +85,33 @@ public final class TaskSetServiceRegistries {
     	      this.registryArn = defaults.registryArn;
         }
 
+        @CustomType.Setter
         public Builder containerName(@Nullable String containerName) {
             this.containerName = containerName;
             return this;
         }
+        @CustomType.Setter
         public Builder containerPort(@Nullable Integer containerPort) {
             this.containerPort = containerPort;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder registryArn(String registryArn) {
             this.registryArn = Objects.requireNonNull(registryArn);
             return this;
-        }        public TaskSetServiceRegistries build() {
-            return new TaskSetServiceRegistries(containerName, containerPort, port, registryArn);
+        }
+        public TaskSetServiceRegistries build() {
+            final var o = new TaskSetServiceRegistries();
+            o.containerName = containerName;
+            o.containerPort = containerPort;
+            o.port = port;
+            o.registryArn = registryArn;
+            return o;
         }
     }
 }

@@ -21,7 +21,7 @@ public final class BucketV2ObjectLockConfiguration {
      * 
      */
     @Deprecated /* Use the top-level parameter object_lock_enabled instead */
-    private final @Nullable String objectLockEnabled;
+    private @Nullable String objectLockEnabled;
     /**
      * @return The Object Lock rule in place for this bucket (documented below).
      * 
@@ -30,16 +30,9 @@ public final class BucketV2ObjectLockConfiguration {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_object_lock_configuration resource instead */
-    private final @Nullable List<BucketV2ObjectLockConfigurationRule> rules;
+    private @Nullable List<BucketV2ObjectLockConfigurationRule> rules;
 
-    @CustomType.Constructor
-    private BucketV2ObjectLockConfiguration(
-        @CustomType.Parameter("objectLockEnabled") @Nullable String objectLockEnabled,
-        @CustomType.Parameter("rules") @Nullable List<BucketV2ObjectLockConfigurationRule> rules) {
-        this.objectLockEnabled = objectLockEnabled;
-        this.rules = rules;
-    }
-
+    private BucketV2ObjectLockConfiguration() {}
     /**
      * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
      * 
@@ -70,33 +63,35 @@ public final class BucketV2ObjectLockConfiguration {
     public static Builder builder(BucketV2ObjectLockConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String objectLockEnabled;
         private @Nullable List<BucketV2ObjectLockConfigurationRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2ObjectLockConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.objectLockEnabled = defaults.objectLockEnabled;
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder objectLockEnabled(@Nullable String objectLockEnabled) {
             this.objectLockEnabled = objectLockEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder rules(@Nullable List<BucketV2ObjectLockConfigurationRule> rules) {
             this.rules = rules;
             return this;
         }
         public Builder rules(BucketV2ObjectLockConfigurationRule... rules) {
             return rules(List.of(rules));
-        }        public BucketV2ObjectLockConfiguration build() {
-            return new BucketV2ObjectLockConfiguration(objectLockEnabled, rules);
+        }
+        public BucketV2ObjectLockConfiguration build() {
+            final var o = new BucketV2ObjectLockConfiguration();
+            o.objectLockEnabled = objectLockEnabled;
+            o.rules = rules;
+            return o;
         }
     }
 }

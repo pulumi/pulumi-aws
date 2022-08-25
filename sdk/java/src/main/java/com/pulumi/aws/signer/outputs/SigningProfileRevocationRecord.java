@@ -11,20 +11,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SigningProfileRevocationRecord {
-    private final @Nullable String revocationEffectiveFrom;
-    private final @Nullable String revokedAt;
-    private final @Nullable String revokedBy;
+    private @Nullable String revocationEffectiveFrom;
+    private @Nullable String revokedAt;
+    private @Nullable String revokedBy;
 
-    @CustomType.Constructor
-    private SigningProfileRevocationRecord(
-        @CustomType.Parameter("revocationEffectiveFrom") @Nullable String revocationEffectiveFrom,
-        @CustomType.Parameter("revokedAt") @Nullable String revokedAt,
-        @CustomType.Parameter("revokedBy") @Nullable String revokedBy) {
-        this.revocationEffectiveFrom = revocationEffectiveFrom;
-        this.revokedAt = revokedAt;
-        this.revokedBy = revokedBy;
-    }
-
+    private SigningProfileRevocationRecord() {}
     public Optional<String> revocationEffectiveFrom() {
         return Optional.ofNullable(this.revocationEffectiveFrom);
     }
@@ -42,16 +33,12 @@ public final class SigningProfileRevocationRecord {
     public static Builder builder(SigningProfileRevocationRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String revocationEffectiveFrom;
         private @Nullable String revokedAt;
         private @Nullable String revokedBy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SigningProfileRevocationRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.revocationEffectiveFrom = defaults.revocationEffectiveFrom;
@@ -59,19 +46,27 @@ public final class SigningProfileRevocationRecord {
     	      this.revokedBy = defaults.revokedBy;
         }
 
+        @CustomType.Setter
         public Builder revocationEffectiveFrom(@Nullable String revocationEffectiveFrom) {
             this.revocationEffectiveFrom = revocationEffectiveFrom;
             return this;
         }
+        @CustomType.Setter
         public Builder revokedAt(@Nullable String revokedAt) {
             this.revokedAt = revokedAt;
             return this;
         }
+        @CustomType.Setter
         public Builder revokedBy(@Nullable String revokedBy) {
             this.revokedBy = revokedBy;
             return this;
-        }        public SigningProfileRevocationRecord build() {
-            return new SigningProfileRevocationRecord(revocationEffectiveFrom, revokedAt, revokedBy);
+        }
+        public SigningProfileRevocationRecord build() {
+            final var o = new SigningProfileRevocationRecord();
+            o.revocationEffectiveFrom = revocationEffectiveFrom;
+            o.revokedAt = revokedAt;
+            o.revokedBy = revokedBy;
+            return o;
         }
     }
 }

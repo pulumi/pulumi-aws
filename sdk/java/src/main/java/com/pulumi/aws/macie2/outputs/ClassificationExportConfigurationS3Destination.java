@@ -15,28 +15,19 @@ public final class ClassificationExportConfigurationS3Destination {
      * @return The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return The object key for the bucket in which Amazon Macie exports the data classification results.
      * 
      */
-    private final @Nullable String keyPrefix;
+    private @Nullable String keyPrefix;
     /**
      * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
      * 
      */
-    private final String kmsKeyArn;
+    private String kmsKeyArn;
 
-    @CustomType.Constructor
-    private ClassificationExportConfigurationS3Destination(
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("keyPrefix") @Nullable String keyPrefix,
-        @CustomType.Parameter("kmsKeyArn") String kmsKeyArn) {
-        this.bucketName = bucketName;
-        this.keyPrefix = keyPrefix;
-        this.kmsKeyArn = kmsKeyArn;
-    }
-
+    private ClassificationExportConfigurationS3Destination() {}
     /**
      * @return The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
      * 
@@ -66,16 +57,12 @@ public final class ClassificationExportConfigurationS3Destination {
     public static Builder builder(ClassificationExportConfigurationS3Destination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketName;
         private @Nullable String keyPrefix;
         private String kmsKeyArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationExportConfigurationS3Destination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -83,19 +70,27 @@ public final class ClassificationExportConfigurationS3Destination {
     	      this.kmsKeyArn = defaults.kmsKeyArn;
         }
 
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder keyPrefix(@Nullable String keyPrefix) {
             this.keyPrefix = keyPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
             this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
             return this;
-        }        public ClassificationExportConfigurationS3Destination build() {
-            return new ClassificationExportConfigurationS3Destination(bucketName, keyPrefix, kmsKeyArn);
+        }
+        public ClassificationExportConfigurationS3Destination build() {
+            final var o = new ClassificationExportConfigurationS3Destination();
+            o.bucketName = bucketName;
+            o.keyPrefix = keyPrefix;
+            o.kmsKeyArn = kmsKeyArn;
+            return o;
         }
     }
 }

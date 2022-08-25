@@ -10,21 +10,14 @@ import java.util.Objects;
 
 @CustomType
 public final class MaintenanceWindowTaskTarget {
-    private final String key;
+    private String key;
     /**
      * @return The array of strings.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private MaintenanceWindowTaskTarget(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("values") List<String> values) {
-        this.key = key;
-        this.values = values;
-    }
-
+    private MaintenanceWindowTaskTarget() {}
     public String key() {
         return this.key;
     }
@@ -43,33 +36,35 @@ public final class MaintenanceWindowTaskTarget {
     public static Builder builder(MaintenanceWindowTaskTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceWindowTaskTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public MaintenanceWindowTaskTarget build() {
-            return new MaintenanceWindowTaskTarget(key, values);
+        }
+        public MaintenanceWindowTaskTarget build() {
+            final var o = new MaintenanceWindowTaskTarget();
+            o.key = key;
+            o.values = values;
+            return o;
         }
     }
 }

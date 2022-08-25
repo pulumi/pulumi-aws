@@ -17,35 +17,24 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * @return Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
      * 
      */
-    private final @Nullable Boolean autoScalingEnabled;
+    private @Nullable Boolean autoScalingEnabled;
     /**
      * @return Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
      * 
      */
-    private final String configurationType;
+    private String configurationType;
     /**
      * @return Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
      * 
      */
-    private final @Nullable Integer parallelism;
+    private @Nullable Integer parallelism;
     /**
      * @return Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
      * 
      */
-    private final @Nullable Integer parallelismPerKpu;
+    private @Nullable Integer parallelismPerKpu;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration(
-        @CustomType.Parameter("autoScalingEnabled") @Nullable Boolean autoScalingEnabled,
-        @CustomType.Parameter("configurationType") String configurationType,
-        @CustomType.Parameter("parallelism") @Nullable Integer parallelism,
-        @CustomType.Parameter("parallelismPerKpu") @Nullable Integer parallelismPerKpu) {
-        this.autoScalingEnabled = autoScalingEnabled;
-        this.configurationType = configurationType;
-        this.parallelism = parallelism;
-        this.parallelismPerKpu = parallelismPerKpu;
-    }
-
+    private ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration() {}
     /**
      * @return Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
      * 
@@ -82,17 +71,13 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     public static Builder builder(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoScalingEnabled;
         private String configurationType;
         private @Nullable Integer parallelism;
         private @Nullable Integer parallelismPerKpu;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoScalingEnabled = defaults.autoScalingEnabled;
@@ -101,23 +86,33 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     	      this.parallelismPerKpu = defaults.parallelismPerKpu;
         }
 
+        @CustomType.Setter
         public Builder autoScalingEnabled(@Nullable Boolean autoScalingEnabled) {
             this.autoScalingEnabled = autoScalingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder configurationType(String configurationType) {
             this.configurationType = Objects.requireNonNull(configurationType);
             return this;
         }
+        @CustomType.Setter
         public Builder parallelism(@Nullable Integer parallelism) {
             this.parallelism = parallelism;
             return this;
         }
+        @CustomType.Setter
         public Builder parallelismPerKpu(@Nullable Integer parallelismPerKpu) {
             this.parallelismPerKpu = parallelismPerKpu;
             return this;
-        }        public ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration build() {
-            return new ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration(autoScalingEnabled, configurationType, parallelism, parallelismPerKpu);
+        }
+        public ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration();
+            o.autoScalingEnabled = autoScalingEnabled;
+            o.configurationType = configurationType;
+            o.parallelism = parallelism;
+            o.parallelismPerKpu = parallelismPerKpu;
+            return o;
         }
     }
 }

@@ -20,111 +20,76 @@ public final class GetVolumeResult {
      * @return The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The AZ where the EBS volume exists.
      * 
      */
-    private final String availabilityZone;
+    private String availabilityZone;
     /**
      * @return Whether the disk is encrypted.
      * 
      */
-    private final Boolean encrypted;
-    private final @Nullable List<GetVolumeFilter> filters;
+    private Boolean encrypted;
+    private @Nullable List<GetVolumeFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The amount of IOPS for the disk.
      * 
      */
-    private final Integer iops;
+    private Integer iops;
     /**
      * @return The ARN for the KMS encryption key.
      * 
      */
-    private final String kmsKeyId;
-    private final @Nullable Boolean mostRecent;
+    private String kmsKeyId;
+    private @Nullable Boolean mostRecent;
     /**
      * @return (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
      * 
      */
-    private final Boolean multiAttachEnabled;
+    private Boolean multiAttachEnabled;
     /**
      * @return The Amazon Resource Name (ARN) of the Outpost.
      * 
      */
-    private final String outpostArn;
+    private String outpostArn;
     /**
      * @return The size of the drive in GiBs.
      * 
      */
-    private final Integer size;
+    private Integer size;
     /**
      * @return The snapshot_id the EBS volume is based off.
      * 
      */
-    private final String snapshotId;
+    private String snapshotId;
     /**
      * @return A map of tags for the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The throughput that the volume supports, in MiB/s.
      * 
      */
-    private final Integer throughput;
+    private Integer throughput;
     /**
      * @return The volume ID (e.g., vol-59fcb34e).
      * 
      */
-    private final String volumeId;
+    private String volumeId;
     /**
      * @return The type of EBS volume.
      * 
      */
-    private final String volumeType;
+    private String volumeType;
 
-    @CustomType.Constructor
-    private GetVolumeResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("filters") @Nullable List<GetVolumeFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("iops") Integer iops,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("mostRecent") @Nullable Boolean mostRecent,
-        @CustomType.Parameter("multiAttachEnabled") Boolean multiAttachEnabled,
-        @CustomType.Parameter("outpostArn") String outpostArn,
-        @CustomType.Parameter("size") Integer size,
-        @CustomType.Parameter("snapshotId") String snapshotId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("throughput") Integer throughput,
-        @CustomType.Parameter("volumeId") String volumeId,
-        @CustomType.Parameter("volumeType") String volumeType) {
-        this.arn = arn;
-        this.availabilityZone = availabilityZone;
-        this.encrypted = encrypted;
-        this.filters = filters;
-        this.id = id;
-        this.iops = iops;
-        this.kmsKeyId = kmsKeyId;
-        this.mostRecent = mostRecent;
-        this.multiAttachEnabled = multiAttachEnabled;
-        this.outpostArn = outpostArn;
-        this.size = size;
-        this.snapshotId = snapshotId;
-        this.tags = tags;
-        this.throughput = throughput;
-        this.volumeId = volumeId;
-        this.volumeType = volumeType;
-    }
-
+    private GetVolumeResult() {}
     /**
      * @return The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      * 
@@ -237,7 +202,7 @@ public final class GetVolumeResult {
     public static Builder builder(GetVolumeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String availabilityZone;
@@ -255,11 +220,7 @@ public final class GetVolumeResult {
         private Integer throughput;
         private String volumeId;
         private String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVolumeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -280,18 +241,22 @@ public final class GetVolumeResult {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVolumeFilter> filters) {
             this.filters = filters;
             return this;
@@ -299,55 +264,85 @@ public final class GetVolumeResult {
         public Builder filters(GetVolumeFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder iops(Integer iops) {
             this.iops = Objects.requireNonNull(iops);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             this.mostRecent = mostRecent;
             return this;
         }
+        @CustomType.Setter
         public Builder multiAttachEnabled(Boolean multiAttachEnabled) {
             this.multiAttachEnabled = Objects.requireNonNull(multiAttachEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
             this.outpostArn = Objects.requireNonNull(outpostArn);
             return this;
         }
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotId(String snapshotId) {
             this.snapshotId = Objects.requireNonNull(snapshotId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(Integer throughput) {
             this.throughput = Objects.requireNonNull(throughput);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeId(String volumeId) {
             this.volumeId = Objects.requireNonNull(volumeId);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(String volumeType) {
             this.volumeType = Objects.requireNonNull(volumeType);
             return this;
-        }        public GetVolumeResult build() {
-            return new GetVolumeResult(arn, availabilityZone, encrypted, filters, id, iops, kmsKeyId, mostRecent, multiAttachEnabled, outpostArn, size, snapshotId, tags, throughput, volumeId, volumeType);
+        }
+        public GetVolumeResult build() {
+            final var o = new GetVolumeResult();
+            o.arn = arn;
+            o.availabilityZone = availabilityZone;
+            o.encrypted = encrypted;
+            o.filters = filters;
+            o.id = id;
+            o.iops = iops;
+            o.kmsKeyId = kmsKeyId;
+            o.mostRecent = mostRecent;
+            o.multiAttachEnabled = multiAttachEnabled;
+            o.outpostArn = outpostArn;
+            o.size = size;
+            o.snapshotId = snapshotId;
+            o.tags = tags;
+            o.throughput = throughput;
+            o.volumeId = volumeId;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

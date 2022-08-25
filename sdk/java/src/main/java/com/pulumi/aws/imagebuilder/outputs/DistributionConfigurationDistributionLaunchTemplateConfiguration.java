@@ -16,28 +16,19 @@ public final class DistributionConfigurationDistributionLaunchTemplateConfigurat
      * @return The account ID that this configuration applies to.
      * 
      */
-    private final @Nullable String accountId;
+    private @Nullable String accountId;
     /**
      * @return Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean default_;
+    private @Nullable Boolean default_;
     /**
      * @return The ID of the Amazon EC2 launch template to use.
      * 
      */
-    private final String launchTemplateId;
+    private String launchTemplateId;
 
-    @CustomType.Constructor
-    private DistributionConfigurationDistributionLaunchTemplateConfiguration(
-        @CustomType.Parameter("accountId") @Nullable String accountId,
-        @CustomType.Parameter("default") @Nullable Boolean default_,
-        @CustomType.Parameter("launchTemplateId") String launchTemplateId) {
-        this.accountId = accountId;
-        this.default_ = default_;
-        this.launchTemplateId = launchTemplateId;
-    }
-
+    private DistributionConfigurationDistributionLaunchTemplateConfiguration() {}
     /**
      * @return The account ID that this configuration applies to.
      * 
@@ -67,16 +58,12 @@ public final class DistributionConfigurationDistributionLaunchTemplateConfigurat
     public static Builder builder(DistributionConfigurationDistributionLaunchTemplateConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accountId;
         private @Nullable Boolean default_;
         private String launchTemplateId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionConfigurationDistributionLaunchTemplateConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
@@ -84,19 +71,27 @@ public final class DistributionConfigurationDistributionLaunchTemplateConfigurat
     	      this.launchTemplateId = defaults.launchTemplateId;
         }
 
+        @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
             this.accountId = accountId;
             return this;
         }
+        @CustomType.Setter("default")
         public Builder default_(@Nullable Boolean default_) {
             this.default_ = default_;
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplateId(String launchTemplateId) {
             this.launchTemplateId = Objects.requireNonNull(launchTemplateId);
             return this;
-        }        public DistributionConfigurationDistributionLaunchTemplateConfiguration build() {
-            return new DistributionConfigurationDistributionLaunchTemplateConfiguration(accountId, default_, launchTemplateId);
+        }
+        public DistributionConfigurationDistributionLaunchTemplateConfiguration build() {
+            final var o = new DistributionConfigurationDistributionLaunchTemplateConfiguration();
+            o.accountId = accountId;
+            o.default_ = default_;
+            o.launchTemplateId = launchTemplateId;
+            return o;
         }
     }
 }

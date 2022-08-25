@@ -13,21 +13,14 @@ public final class GetImageRecipeComponentParameter {
      * @return Name of the image recipe.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Value of the component parameter.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetImageRecipeComponentParameter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.value = value;
-    }
-
+    private GetImageRecipeComponentParameter() {}
     /**
      * @return Name of the image recipe.
      * 
@@ -50,30 +43,32 @@ public final class GetImageRecipeComponentParameter {
     public static Builder builder(GetImageRecipeComponentParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImageRecipeComponentParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetImageRecipeComponentParameter build() {
-            return new GetImageRecipeComponentParameter(name, value);
+        }
+        public GetImageRecipeComponentParameter build() {
+            final var o = new GetImageRecipeComponentParameter();
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

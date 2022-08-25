@@ -16,21 +16,14 @@ public final class WebAclLoggingConfiguration {
      * @return Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
      * 
      */
-    private final String logDestination;
+    private String logDestination;
     /**
      * @return Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
      * 
      */
-    private final @Nullable WebAclLoggingConfigurationRedactedFields redactedFields;
+    private @Nullable WebAclLoggingConfigurationRedactedFields redactedFields;
 
-    @CustomType.Constructor
-    private WebAclLoggingConfiguration(
-        @CustomType.Parameter("logDestination") String logDestination,
-        @CustomType.Parameter("redactedFields") @Nullable WebAclLoggingConfigurationRedactedFields redactedFields) {
-        this.logDestination = logDestination;
-        this.redactedFields = redactedFields;
-    }
-
+    private WebAclLoggingConfiguration() {}
     /**
      * @return Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
      * 
@@ -53,30 +46,32 @@ public final class WebAclLoggingConfiguration {
     public static Builder builder(WebAclLoggingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String logDestination;
         private @Nullable WebAclLoggingConfigurationRedactedFields redactedFields;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logDestination = defaults.logDestination;
     	      this.redactedFields = defaults.redactedFields;
         }
 
+        @CustomType.Setter
         public Builder logDestination(String logDestination) {
             this.logDestination = Objects.requireNonNull(logDestination);
             return this;
         }
+        @CustomType.Setter
         public Builder redactedFields(@Nullable WebAclLoggingConfigurationRedactedFields redactedFields) {
             this.redactedFields = redactedFields;
             return this;
-        }        public WebAclLoggingConfiguration build() {
-            return new WebAclLoggingConfiguration(logDestination, redactedFields);
+        }
+        public WebAclLoggingConfiguration build() {
+            final var o = new WebAclLoggingConfiguration();
+            o.logDestination = logDestination;
+            o.redactedFields = redactedFields;
+            return o;
         }
     }
 }

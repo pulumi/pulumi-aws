@@ -14,31 +14,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRegionsResult {
-    private final @Nullable Boolean allRegions;
-    private final @Nullable List<GetRegionsFilter> filters;
+    private @Nullable Boolean allRegions;
+    private @Nullable List<GetRegionsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Names of regions that meets the criteria.
      * 
      */
-    private final List<String> names;
+    private List<String> names;
 
-    @CustomType.Constructor
-    private GetRegionsResult(
-        @CustomType.Parameter("allRegions") @Nullable Boolean allRegions,
-        @CustomType.Parameter("filters") @Nullable List<GetRegionsFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("names") List<String> names) {
-        this.allRegions = allRegions;
-        this.filters = filters;
-        this.id = id;
-        this.names = names;
-    }
-
+    private GetRegionsResult() {}
     public Optional<Boolean> allRegions() {
         return Optional.ofNullable(this.allRegions);
     }
@@ -67,17 +56,13 @@ public final class GetRegionsResult {
     public static Builder builder(GetRegionsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allRegions;
         private @Nullable List<GetRegionsFilter> filters;
         private String id;
         private List<String> names;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRegionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allRegions = defaults.allRegions;
@@ -86,10 +71,12 @@ public final class GetRegionsResult {
     	      this.names = defaults.names;
         }
 
+        @CustomType.Setter
         public Builder allRegions(@Nullable Boolean allRegions) {
             this.allRegions = allRegions;
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetRegionsFilter> filters) {
             this.filters = filters;
             return this;
@@ -97,18 +84,26 @@ public final class GetRegionsResult {
         public Builder filters(GetRegionsFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder names(List<String> names) {
             this.names = Objects.requireNonNull(names);
             return this;
         }
         public Builder names(String... names) {
             return names(List.of(names));
-        }        public GetRegionsResult build() {
-            return new GetRegionsResult(allRegions, filters, id, names);
+        }
+        public GetRegionsResult build() {
+            final var o = new GetRegionsResult();
+            o.allRegions = allRegions;
+            o.filters = filters;
+            o.id = id;
+            o.names = names;
+            return o;
         }
     }
 }

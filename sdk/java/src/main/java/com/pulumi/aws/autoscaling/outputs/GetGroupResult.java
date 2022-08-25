@@ -17,142 +17,97 @@ public final class GetGroupResult {
      * @return The Amazon Resource Name (ARN) of the Auto Scaling group.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return One or more Availability Zones for the group.
      * 
      */
-    private final List<String> availabilityZones;
-    private final Integer defaultCooldown;
+    private List<String> availabilityZones;
+    private Integer defaultCooldown;
     /**
      * @return The desired size of the group.
      * 
      */
-    private final Integer desiredCapacity;
+    private Integer desiredCapacity;
     /**
      * @return The list of metrics enabled for collection.
      * 
      */
-    private final List<String> enabledMetrics;
+    private List<String> enabledMetrics;
     /**
      * @return The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
      * 
      */
-    private final Integer healthCheckGracePeriod;
+    private Integer healthCheckGracePeriod;
     /**
      * @return The service to use for the health checks. The valid values are EC2 and ELB.
      * 
      */
-    private final String healthCheckType;
+    private String healthCheckType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the associated launch configuration.
      * 
      */
-    private final String launchConfiguration;
-    private final List<GetGroupLaunchTemplate> launchTemplates;
+    private String launchConfiguration;
+    private List<GetGroupLaunchTemplate> launchTemplates;
     /**
      * @return One or more load balancers associated with the group.
      * 
      */
-    private final List<String> loadBalancers;
+    private List<String> loadBalancers;
     /**
      * @return The maximum size of the group.
      * 
      */
-    private final Integer maxSize;
+    private Integer maxSize;
     /**
      * @return The minimum size of the group.
      * 
      */
-    private final Integer minSize;
+    private Integer minSize;
     /**
      * @return Name of the Auto Scaling Group.
      * 
      */
-    private final String name;
-    private final Boolean newInstancesProtectedFromScaleIn;
+    private String name;
+    private Boolean newInstancesProtectedFromScaleIn;
     /**
      * @return The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    private final String placementGroup;
+    private String placementGroup;
     /**
      * @return The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      * 
      */
-    private final String serviceLinkedRoleArn;
+    private String serviceLinkedRoleArn;
     /**
      * @return The current state of the group when DeleteAutoScalingGroup is in progress.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The Amazon Resource Names (ARN) of the target groups for your load balancer.
      * 
      */
-    private final List<String> targetGroupArns;
+    private List<String> targetGroupArns;
     /**
      * @return The termination policies for the group.
      * 
      */
-    private final List<String> terminationPolicies;
+    private List<String> terminationPolicies;
     /**
      * @return VPC ID for the group.
      * 
      */
-    private final String vpcZoneIdentifier;
+    private String vpcZoneIdentifier;
 
-    @CustomType.Constructor
-    private GetGroupResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("availabilityZones") List<String> availabilityZones,
-        @CustomType.Parameter("defaultCooldown") Integer defaultCooldown,
-        @CustomType.Parameter("desiredCapacity") Integer desiredCapacity,
-        @CustomType.Parameter("enabledMetrics") List<String> enabledMetrics,
-        @CustomType.Parameter("healthCheckGracePeriod") Integer healthCheckGracePeriod,
-        @CustomType.Parameter("healthCheckType") String healthCheckType,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("launchConfiguration") String launchConfiguration,
-        @CustomType.Parameter("launchTemplates") List<GetGroupLaunchTemplate> launchTemplates,
-        @CustomType.Parameter("loadBalancers") List<String> loadBalancers,
-        @CustomType.Parameter("maxSize") Integer maxSize,
-        @CustomType.Parameter("minSize") Integer minSize,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("newInstancesProtectedFromScaleIn") Boolean newInstancesProtectedFromScaleIn,
-        @CustomType.Parameter("placementGroup") String placementGroup,
-        @CustomType.Parameter("serviceLinkedRoleArn") String serviceLinkedRoleArn,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("targetGroupArns") List<String> targetGroupArns,
-        @CustomType.Parameter("terminationPolicies") List<String> terminationPolicies,
-        @CustomType.Parameter("vpcZoneIdentifier") String vpcZoneIdentifier) {
-        this.arn = arn;
-        this.availabilityZones = availabilityZones;
-        this.defaultCooldown = defaultCooldown;
-        this.desiredCapacity = desiredCapacity;
-        this.enabledMetrics = enabledMetrics;
-        this.healthCheckGracePeriod = healthCheckGracePeriod;
-        this.healthCheckType = healthCheckType;
-        this.id = id;
-        this.launchConfiguration = launchConfiguration;
-        this.launchTemplates = launchTemplates;
-        this.loadBalancers = loadBalancers;
-        this.maxSize = maxSize;
-        this.minSize = minSize;
-        this.name = name;
-        this.newInstancesProtectedFromScaleIn = newInstancesProtectedFromScaleIn;
-        this.placementGroup = placementGroup;
-        this.serviceLinkedRoleArn = serviceLinkedRoleArn;
-        this.status = status;
-        this.targetGroupArns = targetGroupArns;
-        this.terminationPolicies = terminationPolicies;
-        this.vpcZoneIdentifier = vpcZoneIdentifier;
-    }
-
+    private GetGroupResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Auto Scaling group.
      * 
@@ -296,7 +251,7 @@ public final class GetGroupResult {
     public static Builder builder(GetGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<String> availabilityZones;
@@ -319,11 +274,7 @@ public final class GetGroupResult {
         private List<String> targetGroupArns;
         private List<String> terminationPolicies;
         private String vpcZoneIdentifier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -349,10 +300,12 @@ public final class GetGroupResult {
     	      this.vpcZoneIdentifier = defaults.vpcZoneIdentifier;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
             this.availabilityZones = Objects.requireNonNull(availabilityZones);
             return this;
@@ -360,14 +313,17 @@ public final class GetGroupResult {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder defaultCooldown(Integer defaultCooldown) {
             this.defaultCooldown = Objects.requireNonNull(defaultCooldown);
             return this;
         }
+        @CustomType.Setter
         public Builder desiredCapacity(Integer desiredCapacity) {
             this.desiredCapacity = Objects.requireNonNull(desiredCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder enabledMetrics(List<String> enabledMetrics) {
             this.enabledMetrics = Objects.requireNonNull(enabledMetrics);
             return this;
@@ -375,22 +331,27 @@ public final class GetGroupResult {
         public Builder enabledMetrics(String... enabledMetrics) {
             return enabledMetrics(List.of(enabledMetrics));
         }
+        @CustomType.Setter
         public Builder healthCheckGracePeriod(Integer healthCheckGracePeriod) {
             this.healthCheckGracePeriod = Objects.requireNonNull(healthCheckGracePeriod);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckType(String healthCheckType) {
             this.healthCheckType = Objects.requireNonNull(healthCheckType);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder launchConfiguration(String launchConfiguration) {
             this.launchConfiguration = Objects.requireNonNull(launchConfiguration);
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplates(List<GetGroupLaunchTemplate> launchTemplates) {
             this.launchTemplates = Objects.requireNonNull(launchTemplates);
             return this;
@@ -398,6 +359,7 @@ public final class GetGroupResult {
         public Builder launchTemplates(GetGroupLaunchTemplate... launchTemplates) {
             return launchTemplates(List.of(launchTemplates));
         }
+        @CustomType.Setter
         public Builder loadBalancers(List<String> loadBalancers) {
             this.loadBalancers = Objects.requireNonNull(loadBalancers);
             return this;
@@ -405,34 +367,42 @@ public final class GetGroupResult {
         public Builder loadBalancers(String... loadBalancers) {
             return loadBalancers(List.of(loadBalancers));
         }
+        @CustomType.Setter
         public Builder maxSize(Integer maxSize) {
             this.maxSize = Objects.requireNonNull(maxSize);
             return this;
         }
+        @CustomType.Setter
         public Builder minSize(Integer minSize) {
             this.minSize = Objects.requireNonNull(minSize);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder newInstancesProtectedFromScaleIn(Boolean newInstancesProtectedFromScaleIn) {
             this.newInstancesProtectedFromScaleIn = Objects.requireNonNull(newInstancesProtectedFromScaleIn);
             return this;
         }
+        @CustomType.Setter
         public Builder placementGroup(String placementGroup) {
             this.placementGroup = Objects.requireNonNull(placementGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceLinkedRoleArn(String serviceLinkedRoleArn) {
             this.serviceLinkedRoleArn = Objects.requireNonNull(serviceLinkedRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder targetGroupArns(List<String> targetGroupArns) {
             this.targetGroupArns = Objects.requireNonNull(targetGroupArns);
             return this;
@@ -440,6 +410,7 @@ public final class GetGroupResult {
         public Builder targetGroupArns(String... targetGroupArns) {
             return targetGroupArns(List.of(targetGroupArns));
         }
+        @CustomType.Setter
         public Builder terminationPolicies(List<String> terminationPolicies) {
             this.terminationPolicies = Objects.requireNonNull(terminationPolicies);
             return this;
@@ -447,11 +418,35 @@ public final class GetGroupResult {
         public Builder terminationPolicies(String... terminationPolicies) {
             return terminationPolicies(List.of(terminationPolicies));
         }
+        @CustomType.Setter
         public Builder vpcZoneIdentifier(String vpcZoneIdentifier) {
             this.vpcZoneIdentifier = Objects.requireNonNull(vpcZoneIdentifier);
             return this;
-        }        public GetGroupResult build() {
-            return new GetGroupResult(arn, availabilityZones, defaultCooldown, desiredCapacity, enabledMetrics, healthCheckGracePeriod, healthCheckType, id, launchConfiguration, launchTemplates, loadBalancers, maxSize, minSize, name, newInstancesProtectedFromScaleIn, placementGroup, serviceLinkedRoleArn, status, targetGroupArns, terminationPolicies, vpcZoneIdentifier);
+        }
+        public GetGroupResult build() {
+            final var o = new GetGroupResult();
+            o.arn = arn;
+            o.availabilityZones = availabilityZones;
+            o.defaultCooldown = defaultCooldown;
+            o.desiredCapacity = desiredCapacity;
+            o.enabledMetrics = enabledMetrics;
+            o.healthCheckGracePeriod = healthCheckGracePeriod;
+            o.healthCheckType = healthCheckType;
+            o.id = id;
+            o.launchConfiguration = launchConfiguration;
+            o.launchTemplates = launchTemplates;
+            o.loadBalancers = loadBalancers;
+            o.maxSize = maxSize;
+            o.minSize = minSize;
+            o.name = name;
+            o.newInstancesProtectedFromScaleIn = newInstancesProtectedFromScaleIn;
+            o.placementGroup = placementGroup;
+            o.serviceLinkedRoleArn = serviceLinkedRoleArn;
+            o.status = status;
+            o.targetGroupArns = targetGroupArns;
+            o.terminationPolicies = terminationPolicies;
+            o.vpcZoneIdentifier = vpcZoneIdentifier;
+            return o;
         }
     }
 }

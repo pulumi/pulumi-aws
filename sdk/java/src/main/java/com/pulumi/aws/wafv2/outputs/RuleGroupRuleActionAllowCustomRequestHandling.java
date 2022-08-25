@@ -14,13 +14,9 @@ public final class RuleGroupRuleActionAllowCustomRequestHandling {
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
-    private final List<RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader> insertHeaders;
+    private List<RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader> insertHeaders;
 
-    @CustomType.Constructor
-    private RuleGroupRuleActionAllowCustomRequestHandling(@CustomType.Parameter("insertHeaders") List<RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader> insertHeaders) {
-        this.insertHeaders = insertHeaders;
-    }
-
+    private RuleGroupRuleActionAllowCustomRequestHandling() {}
     /**
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
@@ -36,27 +32,27 @@ public final class RuleGroupRuleActionAllowCustomRequestHandling {
     public static Builder builder(RuleGroupRuleActionAllowCustomRequestHandling defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader> insertHeaders;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleActionAllowCustomRequestHandling defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.insertHeaders = defaults.insertHeaders;
         }
 
+        @CustomType.Setter
         public Builder insertHeaders(List<RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader> insertHeaders) {
             this.insertHeaders = Objects.requireNonNull(insertHeaders);
             return this;
         }
         public Builder insertHeaders(RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
-        }        public RuleGroupRuleActionAllowCustomRequestHandling build() {
-            return new RuleGroupRuleActionAllowCustomRequestHandling(insertHeaders);
+        }
+        public RuleGroupRuleActionAllowCustomRequestHandling build() {
+            final var o = new RuleGroupRuleActionAllowCustomRequestHandling();
+            o.insertHeaders = insertHeaders;
+            return o;
         }
     }
 }

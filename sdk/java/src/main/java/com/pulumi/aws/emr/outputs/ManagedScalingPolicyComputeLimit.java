@@ -16,42 +16,29 @@ public final class ManagedScalingPolicyComputeLimit {
      * @return The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
      * 
      */
-    private final Integer maximumCapacityUnits;
+    private Integer maximumCapacityUnits;
     /**
      * @return The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
      * 
      */
-    private final @Nullable Integer maximumCoreCapacityUnits;
+    private @Nullable Integer maximumCoreCapacityUnits;
     /**
      * @return The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
      * 
      */
-    private final @Nullable Integer maximumOndemandCapacityUnits;
+    private @Nullable Integer maximumOndemandCapacityUnits;
     /**
      * @return The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
      * 
      */
-    private final Integer minimumCapacityUnits;
+    private Integer minimumCapacityUnits;
     /**
      * @return The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
      * 
      */
-    private final String unitType;
+    private String unitType;
 
-    @CustomType.Constructor
-    private ManagedScalingPolicyComputeLimit(
-        @CustomType.Parameter("maximumCapacityUnits") Integer maximumCapacityUnits,
-        @CustomType.Parameter("maximumCoreCapacityUnits") @Nullable Integer maximumCoreCapacityUnits,
-        @CustomType.Parameter("maximumOndemandCapacityUnits") @Nullable Integer maximumOndemandCapacityUnits,
-        @CustomType.Parameter("minimumCapacityUnits") Integer minimumCapacityUnits,
-        @CustomType.Parameter("unitType") String unitType) {
-        this.maximumCapacityUnits = maximumCapacityUnits;
-        this.maximumCoreCapacityUnits = maximumCoreCapacityUnits;
-        this.maximumOndemandCapacityUnits = maximumOndemandCapacityUnits;
-        this.minimumCapacityUnits = minimumCapacityUnits;
-        this.unitType = unitType;
-    }
-
+    private ManagedScalingPolicyComputeLimit() {}
     /**
      * @return The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
      * 
@@ -95,18 +82,14 @@ public final class ManagedScalingPolicyComputeLimit {
     public static Builder builder(ManagedScalingPolicyComputeLimit defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maximumCapacityUnits;
         private @Nullable Integer maximumCoreCapacityUnits;
         private @Nullable Integer maximumOndemandCapacityUnits;
         private Integer minimumCapacityUnits;
         private String unitType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedScalingPolicyComputeLimit defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maximumCapacityUnits = defaults.maximumCapacityUnits;
@@ -116,27 +99,39 @@ public final class ManagedScalingPolicyComputeLimit {
     	      this.unitType = defaults.unitType;
         }
 
+        @CustomType.Setter
         public Builder maximumCapacityUnits(Integer maximumCapacityUnits) {
             this.maximumCapacityUnits = Objects.requireNonNull(maximumCapacityUnits);
             return this;
         }
+        @CustomType.Setter
         public Builder maximumCoreCapacityUnits(@Nullable Integer maximumCoreCapacityUnits) {
             this.maximumCoreCapacityUnits = maximumCoreCapacityUnits;
             return this;
         }
+        @CustomType.Setter
         public Builder maximumOndemandCapacityUnits(@Nullable Integer maximumOndemandCapacityUnits) {
             this.maximumOndemandCapacityUnits = maximumOndemandCapacityUnits;
             return this;
         }
+        @CustomType.Setter
         public Builder minimumCapacityUnits(Integer minimumCapacityUnits) {
             this.minimumCapacityUnits = Objects.requireNonNull(minimumCapacityUnits);
             return this;
         }
+        @CustomType.Setter
         public Builder unitType(String unitType) {
             this.unitType = Objects.requireNonNull(unitType);
             return this;
-        }        public ManagedScalingPolicyComputeLimit build() {
-            return new ManagedScalingPolicyComputeLimit(maximumCapacityUnits, maximumCoreCapacityUnits, maximumOndemandCapacityUnits, minimumCapacityUnits, unitType);
+        }
+        public ManagedScalingPolicyComputeLimit build() {
+            final var o = new ManagedScalingPolicyComputeLimit();
+            o.maximumCapacityUnits = maximumCapacityUnits;
+            o.maximumCoreCapacityUnits = maximumCoreCapacityUnits;
+            o.maximumOndemandCapacityUnits = maximumOndemandCapacityUnits;
+            o.minimumCapacityUnits = minimumCapacityUnits;
+            o.unitType = unitType;
+            return o;
         }
     }
 }

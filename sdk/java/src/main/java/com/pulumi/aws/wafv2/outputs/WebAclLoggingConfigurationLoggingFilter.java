@@ -15,21 +15,14 @@ public final class WebAclLoggingConfigurationLoggingFilter {
      * @return Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values: `KEEP` or `DROP`.
      * 
      */
-    private final String defaultBehavior;
+    private String defaultBehavior;
     /**
      * @return Filter(s) that you want to apply to the logs. See Filter below for more details.
      * 
      */
-    private final List<WebAclLoggingConfigurationLoggingFilterFilter> filters;
+    private List<WebAclLoggingConfigurationLoggingFilterFilter> filters;
 
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationLoggingFilter(
-        @CustomType.Parameter("defaultBehavior") String defaultBehavior,
-        @CustomType.Parameter("filters") List<WebAclLoggingConfigurationLoggingFilterFilter> filters) {
-        this.defaultBehavior = defaultBehavior;
-        this.filters = filters;
-    }
-
+    private WebAclLoggingConfigurationLoggingFilter() {}
     /**
      * @return Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values: `KEEP` or `DROP`.
      * 
@@ -52,33 +45,35 @@ public final class WebAclLoggingConfigurationLoggingFilter {
     public static Builder builder(WebAclLoggingConfigurationLoggingFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String defaultBehavior;
         private List<WebAclLoggingConfigurationLoggingFilterFilter> filters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationLoggingFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultBehavior = defaults.defaultBehavior;
     	      this.filters = defaults.filters;
         }
 
+        @CustomType.Setter
         public Builder defaultBehavior(String defaultBehavior) {
             this.defaultBehavior = Objects.requireNonNull(defaultBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(List<WebAclLoggingConfigurationLoggingFilterFilter> filters) {
             this.filters = Objects.requireNonNull(filters);
             return this;
         }
         public Builder filters(WebAclLoggingConfigurationLoggingFilterFilter... filters) {
             return filters(List.of(filters));
-        }        public WebAclLoggingConfigurationLoggingFilter build() {
-            return new WebAclLoggingConfigurationLoggingFilter(defaultBehavior, filters);
+        }
+        public WebAclLoggingConfigurationLoggingFilter build() {
+            final var o = new WebAclLoggingConfigurationLoggingFilter();
+            o.defaultBehavior = defaultBehavior;
+            o.filters = filters;
+            return o;
         }
     }
 }

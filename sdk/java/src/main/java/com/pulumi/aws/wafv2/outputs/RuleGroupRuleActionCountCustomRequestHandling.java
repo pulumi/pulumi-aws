@@ -14,13 +14,9 @@ public final class RuleGroupRuleActionCountCustomRequestHandling {
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
-    private final List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders;
+    private List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders;
 
-    @CustomType.Constructor
-    private RuleGroupRuleActionCountCustomRequestHandling(@CustomType.Parameter("insertHeaders") List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders) {
-        this.insertHeaders = insertHeaders;
-    }
-
+    private RuleGroupRuleActionCountCustomRequestHandling() {}
     /**
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
@@ -36,27 +32,27 @@ public final class RuleGroupRuleActionCountCustomRequestHandling {
     public static Builder builder(RuleGroupRuleActionCountCustomRequestHandling defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleActionCountCustomRequestHandling defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.insertHeaders = defaults.insertHeaders;
         }
 
+        @CustomType.Setter
         public Builder insertHeaders(List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders) {
             this.insertHeaders = Objects.requireNonNull(insertHeaders);
             return this;
         }
         public Builder insertHeaders(RuleGroupRuleActionCountCustomRequestHandlingInsertHeader... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
-        }        public RuleGroupRuleActionCountCustomRequestHandling build() {
-            return new RuleGroupRuleActionCountCustomRequestHandling(insertHeaders);
+        }
+        public RuleGroupRuleActionCountCustomRequestHandling build() {
+            final var o = new RuleGroupRuleActionCountCustomRequestHandling();
+            o.insertHeaders = insertHeaders;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class FlowDefinitionHumanLoopActivationConfig {
      * @return defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
      * 
      */
-    private final @Nullable FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig humanLoopActivationConditionsConfig;
+    private @Nullable FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig humanLoopActivationConditionsConfig;
 
-    @CustomType.Constructor
-    private FlowDefinitionHumanLoopActivationConfig(@CustomType.Parameter("humanLoopActivationConditionsConfig") @Nullable FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig humanLoopActivationConditionsConfig) {
-        this.humanLoopActivationConditionsConfig = humanLoopActivationConditionsConfig;
-    }
-
+    private FlowDefinitionHumanLoopActivationConfig() {}
     /**
      * @return defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
      * 
@@ -37,24 +33,24 @@ public final class FlowDefinitionHumanLoopActivationConfig {
     public static Builder builder(FlowDefinitionHumanLoopActivationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig humanLoopActivationConditionsConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDefinitionHumanLoopActivationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.humanLoopActivationConditionsConfig = defaults.humanLoopActivationConditionsConfig;
         }
 
+        @CustomType.Setter
         public Builder humanLoopActivationConditionsConfig(@Nullable FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig humanLoopActivationConditionsConfig) {
             this.humanLoopActivationConditionsConfig = humanLoopActivationConditionsConfig;
             return this;
-        }        public FlowDefinitionHumanLoopActivationConfig build() {
-            return new FlowDefinitionHumanLoopActivationConfig(humanLoopActivationConditionsConfig);
+        }
+        public FlowDefinitionHumanLoopActivationConfig build() {
+            final var o = new FlowDefinitionHumanLoopActivationConfig();
+            o.humanLoopActivationConditionsConfig = humanLoopActivationConditionsConfig;
+            return o;
         }
     }
 }

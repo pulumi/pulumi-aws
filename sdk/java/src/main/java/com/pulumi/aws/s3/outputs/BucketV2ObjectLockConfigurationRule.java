@@ -14,13 +14,9 @@ public final class BucketV2ObjectLockConfigurationRule {
      * @return The default retention period that you want to apply to new objects placed in this bucket (documented below).
      * 
      */
-    private final List<BucketV2ObjectLockConfigurationRuleDefaultRetention> defaultRetentions;
+    private List<BucketV2ObjectLockConfigurationRuleDefaultRetention> defaultRetentions;
 
-    @CustomType.Constructor
-    private BucketV2ObjectLockConfigurationRule(@CustomType.Parameter("defaultRetentions") List<BucketV2ObjectLockConfigurationRuleDefaultRetention> defaultRetentions) {
-        this.defaultRetentions = defaultRetentions;
-    }
-
+    private BucketV2ObjectLockConfigurationRule() {}
     /**
      * @return The default retention period that you want to apply to new objects placed in this bucket (documented below).
      * 
@@ -36,27 +32,27 @@ public final class BucketV2ObjectLockConfigurationRule {
     public static Builder builder(BucketV2ObjectLockConfigurationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<BucketV2ObjectLockConfigurationRuleDefaultRetention> defaultRetentions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2ObjectLockConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultRetentions = defaults.defaultRetentions;
         }
 
+        @CustomType.Setter
         public Builder defaultRetentions(List<BucketV2ObjectLockConfigurationRuleDefaultRetention> defaultRetentions) {
             this.defaultRetentions = Objects.requireNonNull(defaultRetentions);
             return this;
         }
         public Builder defaultRetentions(BucketV2ObjectLockConfigurationRuleDefaultRetention... defaultRetentions) {
             return defaultRetentions(List.of(defaultRetentions));
-        }        public BucketV2ObjectLockConfigurationRule build() {
-            return new BucketV2ObjectLockConfigurationRule(defaultRetentions);
+        }
+        public BucketV2ObjectLockConfigurationRule build() {
+            final var o = new BucketV2ObjectLockConfigurationRule();
+            o.defaultRetentions = defaultRetentions;
+            return o;
         }
     }
 }

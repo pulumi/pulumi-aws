@@ -15,28 +15,19 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
      * 
      */
-    private final String configurationType;
+    private String configurationType;
     /**
      * @return Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
      * 
      */
-    private final @Nullable String logLevel;
+    private @Nullable String logLevel;
     /**
      * @return Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
      * 
      */
-    private final @Nullable String metricsLevel;
+    private @Nullable String metricsLevel;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration(
-        @CustomType.Parameter("configurationType") String configurationType,
-        @CustomType.Parameter("logLevel") @Nullable String logLevel,
-        @CustomType.Parameter("metricsLevel") @Nullable String metricsLevel) {
-        this.configurationType = configurationType;
-        this.logLevel = logLevel;
-        this.metricsLevel = metricsLevel;
-    }
-
+    private ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration() {}
     /**
      * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
      * 
@@ -66,16 +57,12 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     public static Builder builder(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String configurationType;
         private @Nullable String logLevel;
         private @Nullable String metricsLevel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configurationType = defaults.configurationType;
@@ -83,19 +70,27 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     	      this.metricsLevel = defaults.metricsLevel;
         }
 
+        @CustomType.Setter
         public Builder configurationType(String configurationType) {
             this.configurationType = Objects.requireNonNull(configurationType);
             return this;
         }
+        @CustomType.Setter
         public Builder logLevel(@Nullable String logLevel) {
             this.logLevel = logLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder metricsLevel(@Nullable String metricsLevel) {
             this.metricsLevel = metricsLevel;
             return this;
-        }        public ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration build() {
-            return new ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration(configurationType, logLevel, metricsLevel);
+        }
+        public ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration();
+            o.configurationType = configurationType;
+            o.logLevel = logLevel;
+            o.metricsLevel = metricsLevel;
+            return o;
         }
     }
 }

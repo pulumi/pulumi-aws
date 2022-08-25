@@ -16,21 +16,14 @@ public final class FunctionEventInvokeConfigDestinationConfig {
      * @return Configuration block with destination configuration for failed asynchronous invocations. See below for details.
      * 
      */
-    private final @Nullable FunctionEventInvokeConfigDestinationConfigOnFailure onFailure;
+    private @Nullable FunctionEventInvokeConfigDestinationConfigOnFailure onFailure;
     /**
      * @return Configuration block with destination configuration for successful asynchronous invocations. See below for details.
      * 
      */
-    private final @Nullable FunctionEventInvokeConfigDestinationConfigOnSuccess onSuccess;
+    private @Nullable FunctionEventInvokeConfigDestinationConfigOnSuccess onSuccess;
 
-    @CustomType.Constructor
-    private FunctionEventInvokeConfigDestinationConfig(
-        @CustomType.Parameter("onFailure") @Nullable FunctionEventInvokeConfigDestinationConfigOnFailure onFailure,
-        @CustomType.Parameter("onSuccess") @Nullable FunctionEventInvokeConfigDestinationConfigOnSuccess onSuccess) {
-        this.onFailure = onFailure;
-        this.onSuccess = onSuccess;
-    }
-
+    private FunctionEventInvokeConfigDestinationConfig() {}
     /**
      * @return Configuration block with destination configuration for failed asynchronous invocations. See below for details.
      * 
@@ -53,30 +46,32 @@ public final class FunctionEventInvokeConfigDestinationConfig {
     public static Builder builder(FunctionEventInvokeConfigDestinationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FunctionEventInvokeConfigDestinationConfigOnFailure onFailure;
         private @Nullable FunctionEventInvokeConfigDestinationConfigOnSuccess onSuccess;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionEventInvokeConfigDestinationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.onFailure = defaults.onFailure;
     	      this.onSuccess = defaults.onSuccess;
         }
 
+        @CustomType.Setter
         public Builder onFailure(@Nullable FunctionEventInvokeConfigDestinationConfigOnFailure onFailure) {
             this.onFailure = onFailure;
             return this;
         }
+        @CustomType.Setter
         public Builder onSuccess(@Nullable FunctionEventInvokeConfigDestinationConfigOnSuccess onSuccess) {
             this.onSuccess = onSuccess;
             return this;
-        }        public FunctionEventInvokeConfigDestinationConfig build() {
-            return new FunctionEventInvokeConfigDestinationConfig(onFailure, onSuccess);
+        }
+        public FunctionEventInvokeConfigDestinationConfig build() {
+            final var o = new FunctionEventInvokeConfigDestinationConfig();
+            o.onFailure = onFailure;
+            o.onSuccess = onSuccess;
+            return o;
         }
     }
 }

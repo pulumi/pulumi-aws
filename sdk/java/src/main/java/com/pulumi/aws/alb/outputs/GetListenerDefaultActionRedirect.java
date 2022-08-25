@@ -9,33 +9,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultActionRedirect {
-    private final String host;
-    private final String path;
+    private String host;
+    private String path;
     /**
      * @return Port of the listener. Required if `arn` is not set.
      * 
      */
-    private final String port;
-    private final String protocol;
-    private final String query;
-    private final String statusCode;
+    private String port;
+    private String protocol;
+    private String query;
+    private String statusCode;
 
-    @CustomType.Constructor
-    private GetListenerDefaultActionRedirect(
-        @CustomType.Parameter("host") String host,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("port") String port,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("query") String query,
-        @CustomType.Parameter("statusCode") String statusCode) {
-        this.host = host;
-        this.path = path;
-        this.port = port;
-        this.protocol = protocol;
-        this.query = query;
-        this.statusCode = statusCode;
-    }
-
+    private GetListenerDefaultActionRedirect() {}
     public String host() {
         return this.host;
     }
@@ -66,7 +51,7 @@ public final class GetListenerDefaultActionRedirect {
     public static Builder builder(GetListenerDefaultActionRedirect defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String host;
         private String path;
@@ -74,11 +59,7 @@ public final class GetListenerDefaultActionRedirect {
         private String protocol;
         private String query;
         private String statusCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetListenerDefaultActionRedirect defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.host = defaults.host;
@@ -89,31 +70,45 @@ public final class GetListenerDefaultActionRedirect {
     	      this.statusCode = defaults.statusCode;
         }
 
+        @CustomType.Setter
         public Builder host(String host) {
             this.host = Objects.requireNonNull(host);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder port(String port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder query(String query) {
             this.query = Objects.requireNonNull(query);
             return this;
         }
+        @CustomType.Setter
         public Builder statusCode(String statusCode) {
             this.statusCode = Objects.requireNonNull(statusCode);
             return this;
-        }        public GetListenerDefaultActionRedirect build() {
-            return new GetListenerDefaultActionRedirect(host, path, port, protocol, query, statusCode);
+        }
+        public GetListenerDefaultActionRedirect build() {
+            final var o = new GetListenerDefaultActionRedirect();
+            o.host = host;
+            o.path = path;
+            o.port = port;
+            o.protocol = protocol;
+            o.query = query;
+            o.statusCode = statusCode;
+            return o;
         }
     }
 }

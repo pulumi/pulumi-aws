@@ -18,35 +18,24 @@ public final class TrailEventSelector {
      * @return Configuration block for data events. See details below.
      * 
      */
-    private final @Nullable List<TrailEventSelectorDataResource> dataResources;
+    private @Nullable List<TrailEventSelectorDataResource> dataResources;
     /**
      * @return A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
      * 
      */
-    private final @Nullable List<String> excludeManagementEventSources;
+    private @Nullable List<String> excludeManagementEventSources;
     /**
      * @return Whether to include management events for your trail. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean includeManagementEvents;
+    private @Nullable Boolean includeManagementEvents;
     /**
      * @return Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
      * 
      */
-    private final @Nullable String readWriteType;
+    private @Nullable String readWriteType;
 
-    @CustomType.Constructor
-    private TrailEventSelector(
-        @CustomType.Parameter("dataResources") @Nullable List<TrailEventSelectorDataResource> dataResources,
-        @CustomType.Parameter("excludeManagementEventSources") @Nullable List<String> excludeManagementEventSources,
-        @CustomType.Parameter("includeManagementEvents") @Nullable Boolean includeManagementEvents,
-        @CustomType.Parameter("readWriteType") @Nullable String readWriteType) {
-        this.dataResources = dataResources;
-        this.excludeManagementEventSources = excludeManagementEventSources;
-        this.includeManagementEvents = includeManagementEvents;
-        this.readWriteType = readWriteType;
-    }
-
+    private TrailEventSelector() {}
     /**
      * @return Configuration block for data events. See details below.
      * 
@@ -83,17 +72,13 @@ public final class TrailEventSelector {
     public static Builder builder(TrailEventSelector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<TrailEventSelectorDataResource> dataResources;
         private @Nullable List<String> excludeManagementEventSources;
         private @Nullable Boolean includeManagementEvents;
         private @Nullable String readWriteType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrailEventSelector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataResources = defaults.dataResources;
@@ -102,6 +87,7 @@ public final class TrailEventSelector {
     	      this.readWriteType = defaults.readWriteType;
         }
 
+        @CustomType.Setter
         public Builder dataResources(@Nullable List<TrailEventSelectorDataResource> dataResources) {
             this.dataResources = dataResources;
             return this;
@@ -109,6 +95,7 @@ public final class TrailEventSelector {
         public Builder dataResources(TrailEventSelectorDataResource... dataResources) {
             return dataResources(List.of(dataResources));
         }
+        @CustomType.Setter
         public Builder excludeManagementEventSources(@Nullable List<String> excludeManagementEventSources) {
             this.excludeManagementEventSources = excludeManagementEventSources;
             return this;
@@ -116,15 +103,23 @@ public final class TrailEventSelector {
         public Builder excludeManagementEventSources(String... excludeManagementEventSources) {
             return excludeManagementEventSources(List.of(excludeManagementEventSources));
         }
+        @CustomType.Setter
         public Builder includeManagementEvents(@Nullable Boolean includeManagementEvents) {
             this.includeManagementEvents = includeManagementEvents;
             return this;
         }
+        @CustomType.Setter
         public Builder readWriteType(@Nullable String readWriteType) {
             this.readWriteType = readWriteType;
             return this;
-        }        public TrailEventSelector build() {
-            return new TrailEventSelector(dataResources, excludeManagementEventSources, includeManagementEvents, readWriteType);
+        }
+        public TrailEventSelector build() {
+            final var o = new TrailEventSelector();
+            o.dataResources = dataResources;
+            o.excludeManagementEventSources = excludeManagementEventSources;
+            o.includeManagementEvents = includeManagementEvents;
+            o.readWriteType = readWriteType;
+            return o;
         }
     }
 }

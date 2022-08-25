@@ -13,56 +13,39 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JavaAppLayerEbsVolume {
-    private final @Nullable Boolean encrypted;
+    private @Nullable Boolean encrypted;
     /**
      * @return For PIOPS volumes, the IOPS per disk.
      * 
      */
-    private final @Nullable Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return The path to mount the EBS volume on the layer&#39;s instances.
      * 
      */
-    private final String mountPoint;
+    private String mountPoint;
     /**
      * @return The number of disks to use for the EBS volume.
      * 
      */
-    private final Integer numberOfDisks;
+    private Integer numberOfDisks;
     /**
      * @return The RAID level to use for the volume.
      * 
      */
-    private final @Nullable String raidLevel;
+    private @Nullable String raidLevel;
     /**
      * @return The size of the volume in gigabytes.
      * 
      */
-    private final Integer size;
+    private Integer size;
     /**
      * @return The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private JavaAppLayerEbsVolume(
-        @CustomType.Parameter("encrypted") @Nullable Boolean encrypted,
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("mountPoint") String mountPoint,
-        @CustomType.Parameter("numberOfDisks") Integer numberOfDisks,
-        @CustomType.Parameter("raidLevel") @Nullable String raidLevel,
-        @CustomType.Parameter("size") Integer size,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.encrypted = encrypted;
-        this.iops = iops;
-        this.mountPoint = mountPoint;
-        this.numberOfDisks = numberOfDisks;
-        this.raidLevel = raidLevel;
-        this.size = size;
-        this.type = type;
-    }
-
+    private JavaAppLayerEbsVolume() {}
     public Optional<Boolean> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
@@ -116,7 +99,7 @@ public final class JavaAppLayerEbsVolume {
     public static Builder builder(JavaAppLayerEbsVolume defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean encrypted;
         private @Nullable Integer iops;
@@ -125,11 +108,7 @@ public final class JavaAppLayerEbsVolume {
         private @Nullable String raidLevel;
         private Integer size;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(JavaAppLayerEbsVolume defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encrypted = defaults.encrypted;
@@ -141,35 +120,51 @@ public final class JavaAppLayerEbsVolume {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
             this.encrypted = encrypted;
             return this;
         }
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder mountPoint(String mountPoint) {
             this.mountPoint = Objects.requireNonNull(mountPoint);
             return this;
         }
+        @CustomType.Setter
         public Builder numberOfDisks(Integer numberOfDisks) {
             this.numberOfDisks = Objects.requireNonNull(numberOfDisks);
             return this;
         }
+        @CustomType.Setter
         public Builder raidLevel(@Nullable String raidLevel) {
             this.raidLevel = raidLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public JavaAppLayerEbsVolume build() {
-            return new JavaAppLayerEbsVolume(encrypted, iops, mountPoint, numberOfDisks, raidLevel, size, type);
+        }
+        public JavaAppLayerEbsVolume build() {
+            final var o = new JavaAppLayerEbsVolume();
+            o.encrypted = encrypted;
+            o.iops = iops;
+            o.mountPoint = mountPoint;
+            o.numberOfDisks = numberOfDisks;
+            o.raidLevel = raidLevel;
+            o.size = size;
+            o.type = type;
+            return o;
         }
     }
 }

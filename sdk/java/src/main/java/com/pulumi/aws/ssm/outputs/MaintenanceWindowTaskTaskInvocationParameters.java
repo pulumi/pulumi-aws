@@ -18,35 +18,24 @@ public final class MaintenanceWindowTaskTaskInvocationParameters {
      * @return The parameters for an AUTOMATION task type. Documented below.
      * 
      */
-    private final @Nullable MaintenanceWindowTaskTaskInvocationParametersAutomationParameters automationParameters;
+    private @Nullable MaintenanceWindowTaskTaskInvocationParametersAutomationParameters automationParameters;
     /**
      * @return The parameters for a LAMBDA task type. Documented below.
      * 
      */
-    private final @Nullable MaintenanceWindowTaskTaskInvocationParametersLambdaParameters lambdaParameters;
+    private @Nullable MaintenanceWindowTaskTaskInvocationParametersLambdaParameters lambdaParameters;
     /**
      * @return The parameters for a RUN_COMMAND task type. Documented below.
      * 
      */
-    private final @Nullable MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters runCommandParameters;
+    private @Nullable MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters runCommandParameters;
     /**
      * @return The parameters for a STEP_FUNCTIONS task type. Documented below.
      * 
      */
-    private final @Nullable MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters stepFunctionsParameters;
+    private @Nullable MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters stepFunctionsParameters;
 
-    @CustomType.Constructor
-    private MaintenanceWindowTaskTaskInvocationParameters(
-        @CustomType.Parameter("automationParameters") @Nullable MaintenanceWindowTaskTaskInvocationParametersAutomationParameters automationParameters,
-        @CustomType.Parameter("lambdaParameters") @Nullable MaintenanceWindowTaskTaskInvocationParametersLambdaParameters lambdaParameters,
-        @CustomType.Parameter("runCommandParameters") @Nullable MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters runCommandParameters,
-        @CustomType.Parameter("stepFunctionsParameters") @Nullable MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters stepFunctionsParameters) {
-        this.automationParameters = automationParameters;
-        this.lambdaParameters = lambdaParameters;
-        this.runCommandParameters = runCommandParameters;
-        this.stepFunctionsParameters = stepFunctionsParameters;
-    }
-
+    private MaintenanceWindowTaskTaskInvocationParameters() {}
     /**
      * @return The parameters for an AUTOMATION task type. Documented below.
      * 
@@ -83,17 +72,13 @@ public final class MaintenanceWindowTaskTaskInvocationParameters {
     public static Builder builder(MaintenanceWindowTaskTaskInvocationParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable MaintenanceWindowTaskTaskInvocationParametersAutomationParameters automationParameters;
         private @Nullable MaintenanceWindowTaskTaskInvocationParametersLambdaParameters lambdaParameters;
         private @Nullable MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters runCommandParameters;
         private @Nullable MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters stepFunctionsParameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceWindowTaskTaskInvocationParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automationParameters = defaults.automationParameters;
@@ -102,23 +87,33 @@ public final class MaintenanceWindowTaskTaskInvocationParameters {
     	      this.stepFunctionsParameters = defaults.stepFunctionsParameters;
         }
 
+        @CustomType.Setter
         public Builder automationParameters(@Nullable MaintenanceWindowTaskTaskInvocationParametersAutomationParameters automationParameters) {
             this.automationParameters = automationParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaParameters(@Nullable MaintenanceWindowTaskTaskInvocationParametersLambdaParameters lambdaParameters) {
             this.lambdaParameters = lambdaParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder runCommandParameters(@Nullable MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters runCommandParameters) {
             this.runCommandParameters = runCommandParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder stepFunctionsParameters(@Nullable MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters stepFunctionsParameters) {
             this.stepFunctionsParameters = stepFunctionsParameters;
             return this;
-        }        public MaintenanceWindowTaskTaskInvocationParameters build() {
-            return new MaintenanceWindowTaskTaskInvocationParameters(automationParameters, lambdaParameters, runCommandParameters, stepFunctionsParameters);
+        }
+        public MaintenanceWindowTaskTaskInvocationParameters build() {
+            final var o = new MaintenanceWindowTaskTaskInvocationParameters();
+            o.automationParameters = automationParameters;
+            o.lambdaParameters = lambdaParameters;
+            o.runCommandParameters = runCommandParameters;
+            o.stepFunctionsParameters = stepFunctionsParameters;
+            return o;
         }
     }
 }

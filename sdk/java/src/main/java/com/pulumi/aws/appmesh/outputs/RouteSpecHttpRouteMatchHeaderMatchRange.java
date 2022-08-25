@@ -13,21 +13,14 @@ public final class RouteSpecHttpRouteMatchHeaderMatchRange {
      * @return The end of the range.
      * 
      */
-    private final Integer end;
+    private Integer end;
     /**
      * @return The start of the range.
      * 
      */
-    private final Integer start;
+    private Integer start;
 
-    @CustomType.Constructor
-    private RouteSpecHttpRouteMatchHeaderMatchRange(
-        @CustomType.Parameter("end") Integer end,
-        @CustomType.Parameter("start") Integer start) {
-        this.end = end;
-        this.start = start;
-    }
-
+    private RouteSpecHttpRouteMatchHeaderMatchRange() {}
     /**
      * @return The end of the range.
      * 
@@ -50,30 +43,32 @@ public final class RouteSpecHttpRouteMatchHeaderMatchRange {
     public static Builder builder(RouteSpecHttpRouteMatchHeaderMatchRange defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer end;
         private Integer start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttpRouteMatchHeaderMatchRange defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.end = defaults.end;
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder end(Integer end) {
             this.end = Objects.requireNonNull(end);
             return this;
         }
+        @CustomType.Setter
         public Builder start(Integer start) {
             this.start = Objects.requireNonNull(start);
             return this;
-        }        public RouteSpecHttpRouteMatchHeaderMatchRange build() {
-            return new RouteSpecHttpRouteMatchHeaderMatchRange(end, start);
+        }
+        public RouteSpecHttpRouteMatchHeaderMatchRange build() {
+            final var o = new RouteSpecHttpRouteMatchHeaderMatchRange();
+            o.end = end;
+            o.start = start;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class AnalyticsConfigurationStorageClassAnalysis {
      * @return Data export configuration (documented below).
      * 
      */
-    private final AnalyticsConfigurationStorageClassAnalysisDataExport dataExport;
+    private AnalyticsConfigurationStorageClassAnalysisDataExport dataExport;
 
-    @CustomType.Constructor
-    private AnalyticsConfigurationStorageClassAnalysis(@CustomType.Parameter("dataExport") AnalyticsConfigurationStorageClassAnalysisDataExport dataExport) {
-        this.dataExport = dataExport;
-    }
-
+    private AnalyticsConfigurationStorageClassAnalysis() {}
     /**
      * @return Data export configuration (documented below).
      * 
@@ -35,24 +31,24 @@ public final class AnalyticsConfigurationStorageClassAnalysis {
     public static Builder builder(AnalyticsConfigurationStorageClassAnalysis defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private AnalyticsConfigurationStorageClassAnalysisDataExport dataExport;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsConfigurationStorageClassAnalysis defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataExport = defaults.dataExport;
         }
 
+        @CustomType.Setter
         public Builder dataExport(AnalyticsConfigurationStorageClassAnalysisDataExport dataExport) {
             this.dataExport = Objects.requireNonNull(dataExport);
             return this;
-        }        public AnalyticsConfigurationStorageClassAnalysis build() {
-            return new AnalyticsConfigurationStorageClassAnalysis(dataExport);
+        }
+        public AnalyticsConfigurationStorageClassAnalysis build() {
+            final var o = new AnalyticsConfigurationStorageClassAnalysis();
+            o.dataExport = dataExport;
+            return o;
         }
     }
 }

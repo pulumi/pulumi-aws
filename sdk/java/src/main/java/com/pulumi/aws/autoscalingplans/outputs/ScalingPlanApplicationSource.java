@@ -17,21 +17,14 @@ public final class ScalingPlanApplicationSource {
      * @return The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
      * 
      */
-    private final @Nullable String cloudformationStackArn;
+    private @Nullable String cloudformationStackArn;
     /**
      * @return A set of tags.
      * 
      */
-    private final @Nullable List<ScalingPlanApplicationSourceTagFilter> tagFilters;
+    private @Nullable List<ScalingPlanApplicationSourceTagFilter> tagFilters;
 
-    @CustomType.Constructor
-    private ScalingPlanApplicationSource(
-        @CustomType.Parameter("cloudformationStackArn") @Nullable String cloudformationStackArn,
-        @CustomType.Parameter("tagFilters") @Nullable List<ScalingPlanApplicationSourceTagFilter> tagFilters) {
-        this.cloudformationStackArn = cloudformationStackArn;
-        this.tagFilters = tagFilters;
-    }
-
+    private ScalingPlanApplicationSource() {}
     /**
      * @return The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
      * 
@@ -54,33 +47,35 @@ public final class ScalingPlanApplicationSource {
     public static Builder builder(ScalingPlanApplicationSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cloudformationStackArn;
         private @Nullable List<ScalingPlanApplicationSourceTagFilter> tagFilters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScalingPlanApplicationSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudformationStackArn = defaults.cloudformationStackArn;
     	      this.tagFilters = defaults.tagFilters;
         }
 
+        @CustomType.Setter
         public Builder cloudformationStackArn(@Nullable String cloudformationStackArn) {
             this.cloudformationStackArn = cloudformationStackArn;
             return this;
         }
+        @CustomType.Setter
         public Builder tagFilters(@Nullable List<ScalingPlanApplicationSourceTagFilter> tagFilters) {
             this.tagFilters = tagFilters;
             return this;
         }
         public Builder tagFilters(ScalingPlanApplicationSourceTagFilter... tagFilters) {
             return tagFilters(List.of(tagFilters));
-        }        public ScalingPlanApplicationSource build() {
-            return new ScalingPlanApplicationSource(cloudformationStackArn, tagFilters);
+        }
+        public ScalingPlanApplicationSource build() {
+            final var o = new ScalingPlanApplicationSource();
+            o.cloudformationStackArn = cloudformationStackArn;
+            o.tagFilters = tagFilters;
+            return o;
         }
     }
 }

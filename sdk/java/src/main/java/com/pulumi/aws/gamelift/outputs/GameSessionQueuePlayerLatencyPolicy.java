@@ -15,21 +15,14 @@ public final class GameSessionQueuePlayerLatencyPolicy {
      * @return Maximum latency value that is allowed for any player.
      * 
      */
-    private final Integer maximumIndividualPlayerLatencyMilliseconds;
+    private Integer maximumIndividualPlayerLatencyMilliseconds;
     /**
      * @return Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
      * 
      */
-    private final @Nullable Integer policyDurationSeconds;
+    private @Nullable Integer policyDurationSeconds;
 
-    @CustomType.Constructor
-    private GameSessionQueuePlayerLatencyPolicy(
-        @CustomType.Parameter("maximumIndividualPlayerLatencyMilliseconds") Integer maximumIndividualPlayerLatencyMilliseconds,
-        @CustomType.Parameter("policyDurationSeconds") @Nullable Integer policyDurationSeconds) {
-        this.maximumIndividualPlayerLatencyMilliseconds = maximumIndividualPlayerLatencyMilliseconds;
-        this.policyDurationSeconds = policyDurationSeconds;
-    }
-
+    private GameSessionQueuePlayerLatencyPolicy() {}
     /**
      * @return Maximum latency value that is allowed for any player.
      * 
@@ -52,30 +45,32 @@ public final class GameSessionQueuePlayerLatencyPolicy {
     public static Builder builder(GameSessionQueuePlayerLatencyPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maximumIndividualPlayerLatencyMilliseconds;
         private @Nullable Integer policyDurationSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GameSessionQueuePlayerLatencyPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maximumIndividualPlayerLatencyMilliseconds = defaults.maximumIndividualPlayerLatencyMilliseconds;
     	      this.policyDurationSeconds = defaults.policyDurationSeconds;
         }
 
+        @CustomType.Setter
         public Builder maximumIndividualPlayerLatencyMilliseconds(Integer maximumIndividualPlayerLatencyMilliseconds) {
             this.maximumIndividualPlayerLatencyMilliseconds = Objects.requireNonNull(maximumIndividualPlayerLatencyMilliseconds);
             return this;
         }
+        @CustomType.Setter
         public Builder policyDurationSeconds(@Nullable Integer policyDurationSeconds) {
             this.policyDurationSeconds = policyDurationSeconds;
             return this;
-        }        public GameSessionQueuePlayerLatencyPolicy build() {
-            return new GameSessionQueuePlayerLatencyPolicy(maximumIndividualPlayerLatencyMilliseconds, policyDurationSeconds);
+        }
+        public GameSessionQueuePlayerLatencyPolicy build() {
+            final var o = new GameSessionQueuePlayerLatencyPolicy();
+            o.maximumIndividualPlayerLatencyMilliseconds = maximumIndividualPlayerLatencyMilliseconds;
+            o.policyDurationSeconds = policyDurationSeconds;
+            return o;
         }
     }
 }

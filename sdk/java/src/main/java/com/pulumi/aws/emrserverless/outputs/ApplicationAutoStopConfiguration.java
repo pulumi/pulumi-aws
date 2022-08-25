@@ -16,21 +16,14 @@ public final class ApplicationAutoStopConfiguration {
      * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
      * 
      */
-    private final @Nullable Integer idleTimeoutMinutes;
+    private @Nullable Integer idleTimeoutMinutes;
 
-    @CustomType.Constructor
-    private ApplicationAutoStopConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("idleTimeoutMinutes") @Nullable Integer idleTimeoutMinutes) {
-        this.enabled = enabled;
-        this.idleTimeoutMinutes = idleTimeoutMinutes;
-    }
-
+    private ApplicationAutoStopConfiguration() {}
     /**
      * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
      * 
@@ -53,30 +46,32 @@ public final class ApplicationAutoStopConfiguration {
     public static Builder builder(ApplicationAutoStopConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Integer idleTimeoutMinutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationAutoStopConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.idleTimeoutMinutes = defaults.idleTimeoutMinutes;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeoutMinutes(@Nullable Integer idleTimeoutMinutes) {
             this.idleTimeoutMinutes = idleTimeoutMinutes;
             return this;
-        }        public ApplicationAutoStopConfiguration build() {
-            return new ApplicationAutoStopConfiguration(enabled, idleTimeoutMinutes);
+        }
+        public ApplicationAutoStopConfiguration build() {
+            final var o = new ApplicationAutoStopConfiguration();
+            o.enabled = enabled;
+            o.idleTimeoutMinutes = idleTimeoutMinutes;
+            return o;
         }
     }
 }

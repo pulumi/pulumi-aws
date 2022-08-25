@@ -11,36 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLedgerResult {
-    private final String arn;
-    private final Boolean deletionProtection;
+    private String arn;
+    private Boolean deletionProtection;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String kmsKey;
-    private final String name;
-    private final String permissionsMode;
-    private final Map<String,String> tags;
+    private String id;
+    private String kmsKey;
+    private String name;
+    private String permissionsMode;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetLedgerResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("deletionProtection") Boolean deletionProtection,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKey") String kmsKey,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("permissionsMode") String permissionsMode,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.deletionProtection = deletionProtection;
-        this.id = id;
-        this.kmsKey = kmsKey;
-        this.name = name;
-        this.permissionsMode = permissionsMode;
-        this.tags = tags;
-    }
-
+    private GetLedgerResult() {}
     public String arn() {
         return this.arn;
     }
@@ -74,7 +57,7 @@ public final class GetLedgerResult {
     public static Builder builder(GetLedgerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Boolean deletionProtection;
@@ -83,11 +66,7 @@ public final class GetLedgerResult {
         private String name;
         private String permissionsMode;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLedgerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -99,35 +78,51 @@ public final class GetLedgerResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder deletionProtection(Boolean deletionProtection) {
             this.deletionProtection = Objects.requireNonNull(deletionProtection);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKey(String kmsKey) {
             this.kmsKey = Objects.requireNonNull(kmsKey);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder permissionsMode(String permissionsMode) {
             this.permissionsMode = Objects.requireNonNull(permissionsMode);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetLedgerResult build() {
-            return new GetLedgerResult(arn, deletionProtection, id, kmsKey, name, permissionsMode, tags);
+        }
+        public GetLedgerResult build() {
+            final var o = new GetLedgerResult();
+            o.arn = arn;
+            o.deletionProtection = deletionProtection;
+            o.id = id;
+            o.kmsKey = kmsKey;
+            o.name = name;
+            o.permissionsMode = permissionsMode;
+            o.tags = tags;
+            return o;
         }
     }
 }

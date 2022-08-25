@@ -14,21 +14,14 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomAction {
      * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
      * 
      */
-    private final FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition actionDefinition;
+    private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition actionDefinition;
     /**
      * @return A friendly name of the custom action.
      * 
      */
-    private final String actionName;
+    private String actionName;
 
-    @CustomType.Constructor
-    private FirewallPolicyFirewallPolicyStatelessCustomAction(
-        @CustomType.Parameter("actionDefinition") FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition actionDefinition,
-        @CustomType.Parameter("actionName") String actionName) {
-        this.actionDefinition = actionDefinition;
-        this.actionName = actionName;
-    }
-
+    private FirewallPolicyFirewallPolicyStatelessCustomAction() {}
     /**
      * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
      * 
@@ -51,30 +44,32 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomAction {
     public static Builder builder(FirewallPolicyFirewallPolicyStatelessCustomAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition actionDefinition;
         private String actionName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatelessCustomAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionDefinition = defaults.actionDefinition;
     	      this.actionName = defaults.actionName;
         }
 
+        @CustomType.Setter
         public Builder actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition actionDefinition) {
             this.actionDefinition = Objects.requireNonNull(actionDefinition);
             return this;
         }
+        @CustomType.Setter
         public Builder actionName(String actionName) {
             this.actionName = Objects.requireNonNull(actionName);
             return this;
-        }        public FirewallPolicyFirewallPolicyStatelessCustomAction build() {
-            return new FirewallPolicyFirewallPolicyStatelessCustomAction(actionDefinition, actionName);
+        }
+        public FirewallPolicyFirewallPolicyStatelessCustomAction build() {
+            final var o = new FirewallPolicyFirewallPolicyStatelessCustomAction();
+            o.actionDefinition = actionDefinition;
+            o.actionName = actionName;
+            return o;
         }
     }
 }

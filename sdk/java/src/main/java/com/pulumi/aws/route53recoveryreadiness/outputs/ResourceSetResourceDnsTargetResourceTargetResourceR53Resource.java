@@ -15,21 +15,14 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
      * @return Domain name that is targeted.
      * 
      */
-    private final @Nullable String domainName;
+    private @Nullable String domainName;
     /**
      * @return Resource record set ID that is targeted.
      * 
      */
-    private final @Nullable String recordSetId;
+    private @Nullable String recordSetId;
 
-    @CustomType.Constructor
-    private ResourceSetResourceDnsTargetResourceTargetResourceR53Resource(
-        @CustomType.Parameter("domainName") @Nullable String domainName,
-        @CustomType.Parameter("recordSetId") @Nullable String recordSetId) {
-        this.domainName = domainName;
-        this.recordSetId = recordSetId;
-    }
-
+    private ResourceSetResourceDnsTargetResourceTargetResourceR53Resource() {}
     /**
      * @return Domain name that is targeted.
      * 
@@ -52,30 +45,32 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
     public static Builder builder(ResourceSetResourceDnsTargetResourceTargetResourceR53Resource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String domainName;
         private @Nullable String recordSetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceSetResourceDnsTargetResourceTargetResourceR53Resource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainName = defaults.domainName;
     	      this.recordSetId = defaults.recordSetId;
         }
 
+        @CustomType.Setter
         public Builder domainName(@Nullable String domainName) {
             this.domainName = domainName;
             return this;
         }
+        @CustomType.Setter
         public Builder recordSetId(@Nullable String recordSetId) {
             this.recordSetId = recordSetId;
             return this;
-        }        public ResourceSetResourceDnsTargetResourceTargetResourceR53Resource build() {
-            return new ResourceSetResourceDnsTargetResourceTargetResourceR53Resource(domainName, recordSetId);
+        }
+        public ResourceSetResourceDnsTargetResourceTargetResourceR53Resource build() {
+            final var o = new ResourceSetResourceDnsTargetResourceTargetResourceR53Resource();
+            o.domainName = domainName;
+            o.recordSetId = recordSetId;
+            return o;
         }
     }
 }

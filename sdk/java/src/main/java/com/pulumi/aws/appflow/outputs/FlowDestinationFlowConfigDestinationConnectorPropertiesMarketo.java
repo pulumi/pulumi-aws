@@ -16,21 +16,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarket
      * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig errorHandlingConfig;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig errorHandlingConfig;
     /**
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo(
-        @CustomType.Parameter("errorHandlingConfig") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig errorHandlingConfig,
-        @CustomType.Parameter("object") String object) {
-        this.errorHandlingConfig = errorHandlingConfig;
-        this.object = object;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo() {}
     /**
      * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
@@ -53,30 +46,32 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarket
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig errorHandlingConfig;
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.errorHandlingConfig = defaults.errorHandlingConfig;
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder errorHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig errorHandlingConfig) {
             this.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo(errorHandlingConfig, object);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo();
+            o.errorHandlingConfig = errorHandlingConfig;
+            o.object = object;
+            return o;
         }
     }
 }

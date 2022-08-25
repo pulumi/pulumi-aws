@@ -16,13 +16,9 @@ public final class MeshSpecEgressFilter {
      * Valid values are `ALLOW_ALL` and `DROP_ALL`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private MeshSpecEgressFilter(@CustomType.Parameter("type") @Nullable String type) {
-        this.type = type;
-    }
-
+    private MeshSpecEgressFilter() {}
     /**
      * @return The egress filter type. By default, the type is `DROP_ALL`.
      * Valid values are `ALLOW_ALL` and `DROP_ALL`.
@@ -39,24 +35,24 @@ public final class MeshSpecEgressFilter {
     public static Builder builder(MeshSpecEgressFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MeshSpecEgressFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public MeshSpecEgressFilter build() {
-            return new MeshSpecEgressFilter(type);
+        }
+        public MeshSpecEgressFilter build() {
+            final var o = new MeshSpecEgressFilter();
+            o.type = type;
+            return o;
         }
     }
 }

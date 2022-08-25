@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular {
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular() {
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular();
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular();
+            return o;
         }
     }
 }

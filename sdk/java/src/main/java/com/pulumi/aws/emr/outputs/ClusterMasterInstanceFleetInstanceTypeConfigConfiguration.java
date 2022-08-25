@@ -17,21 +17,14 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration {
      * @return Classification within a configuration.
      * 
      */
-    private final @Nullable String classification;
+    private @Nullable String classification;
     /**
      * @return Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
      * 
      */
-    private final @Nullable Map<String,Object> properties;
+    private @Nullable Map<String,Object> properties;
 
-    @CustomType.Constructor
-    private ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(
-        @CustomType.Parameter("classification") @Nullable String classification,
-        @CustomType.Parameter("properties") @Nullable Map<String,Object> properties) {
-        this.classification = classification;
-        this.properties = properties;
-    }
-
+    private ClusterMasterInstanceFleetInstanceTypeConfigConfiguration() {}
     /**
      * @return Classification within a configuration.
      * 
@@ -54,30 +47,32 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration {
     public static Builder builder(ClusterMasterInstanceFleetInstanceTypeConfigConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String classification;
         private @Nullable Map<String,Object> properties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterMasterInstanceFleetInstanceTypeConfigConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.classification = defaults.classification;
     	      this.properties = defaults.properties;
         }
 
+        @CustomType.Setter
         public Builder classification(@Nullable String classification) {
             this.classification = classification;
             return this;
         }
+        @CustomType.Setter
         public Builder properties(@Nullable Map<String,Object> properties) {
             this.properties = properties;
             return this;
-        }        public ClusterMasterInstanceFleetInstanceTypeConfigConfiguration build() {
-            return new ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(classification, properties);
+        }
+        public ClusterMasterInstanceFleetInstanceTypeConfigConfiguration build() {
+            final var o = new ClusterMasterInstanceFleetInstanceTypeConfigConfiguration();
+            o.classification = classification;
+            o.properties = properties;
+            return o;
         }
     }
 }

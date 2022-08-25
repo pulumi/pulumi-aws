@@ -12,37 +12,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateAuthorityResult {
-    private final String arn;
+    private String arn;
     /**
      * @return Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private final String certificate;
+    private String certificate;
     /**
      * @return Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private final String certificateChain;
+    private String certificateChain;
     /**
      * @return The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      * 
      */
-    private final String certificateSigningRequest;
+    private String certificateSigningRequest;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private final String notAfter;
+    private String notAfter;
     /**
      * @return Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private final String notBefore;
+    private String notBefore;
     /**
      * @return Nested attribute containing revocation configuration.
      * * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -55,56 +55,29 @@ public final class GetCertificateAuthorityResult {
      * * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
      * 
      */
-    private final List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
+    private List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
     /**
      * @return Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private final String serial;
+    private String serial;
     /**
      * @return Status of the certificate authority.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The type of the certificate authority.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetCertificateAuthorityResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("certificate") String certificate,
-        @CustomType.Parameter("certificateChain") String certificateChain,
-        @CustomType.Parameter("certificateSigningRequest") String certificateSigningRequest,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("notAfter") String notAfter,
-        @CustomType.Parameter("notBefore") String notBefore,
-        @CustomType.Parameter("revocationConfigurations") List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations,
-        @CustomType.Parameter("serial") String serial,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type) {
-        this.arn = arn;
-        this.certificate = certificate;
-        this.certificateChain = certificateChain;
-        this.certificateSigningRequest = certificateSigningRequest;
-        this.id = id;
-        this.notAfter = notAfter;
-        this.notBefore = notBefore;
-        this.revocationConfigurations = revocationConfigurations;
-        this.serial = serial;
-        this.status = status;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private GetCertificateAuthorityResult() {}
     public String arn() {
         return this.arn;
     }
@@ -201,7 +174,7 @@ public final class GetCertificateAuthorityResult {
     public static Builder builder(GetCertificateAuthorityResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String certificate;
@@ -215,11 +188,7 @@ public final class GetCertificateAuthorityResult {
         private String status;
         private Map<String,String> tags;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateAuthorityResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -236,34 +205,42 @@ public final class GetCertificateAuthorityResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificate(String certificate) {
             this.certificate = Objects.requireNonNull(certificate);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
             this.certificateChain = Objects.requireNonNull(certificateChain);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateSigningRequest(String certificateSigningRequest) {
             this.certificateSigningRequest = Objects.requireNonNull(certificateSigningRequest);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder notAfter(String notAfter) {
             this.notAfter = Objects.requireNonNull(notAfter);
             return this;
         }
+        @CustomType.Setter
         public Builder notBefore(String notBefore) {
             this.notBefore = Objects.requireNonNull(notBefore);
             return this;
         }
+        @CustomType.Setter
         public Builder revocationConfigurations(List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations) {
             this.revocationConfigurations = Objects.requireNonNull(revocationConfigurations);
             return this;
@@ -271,23 +248,41 @@ public final class GetCertificateAuthorityResult {
         public Builder revocationConfigurations(GetCertificateAuthorityRevocationConfiguration... revocationConfigurations) {
             return revocationConfigurations(List.of(revocationConfigurations));
         }
+        @CustomType.Setter
         public Builder serial(String serial) {
             this.serial = Objects.requireNonNull(serial);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetCertificateAuthorityResult build() {
-            return new GetCertificateAuthorityResult(arn, certificate, certificateChain, certificateSigningRequest, id, notAfter, notBefore, revocationConfigurations, serial, status, tags, type);
+        }
+        public GetCertificateAuthorityResult build() {
+            final var o = new GetCertificateAuthorityResult();
+            o.arn = arn;
+            o.certificate = certificate;
+            o.certificateChain = certificateChain;
+            o.certificateSigningRequest = certificateSigningRequest;
+            o.id = id;
+            o.notAfter = notAfter;
+            o.notBefore = notBefore;
+            o.revocationConfigurations = revocationConfigurations;
+            o.serial = serial;
+            o.status = status;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

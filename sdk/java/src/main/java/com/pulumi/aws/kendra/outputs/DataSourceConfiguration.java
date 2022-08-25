@@ -16,21 +16,14 @@ public final class DataSourceConfiguration {
      * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
      * 
      */
-    private final @Nullable DataSourceConfigurationS3Configuration s3Configuration;
+    private @Nullable DataSourceConfigurationS3Configuration s3Configuration;
     /**
      * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
      * 
      */
-    private final @Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration;
+    private @Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration;
 
-    @CustomType.Constructor
-    private DataSourceConfiguration(
-        @CustomType.Parameter("s3Configuration") @Nullable DataSourceConfigurationS3Configuration s3Configuration,
-        @CustomType.Parameter("webCrawlerConfiguration") @Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration) {
-        this.s3Configuration = s3Configuration;
-        this.webCrawlerConfiguration = webCrawlerConfiguration;
-    }
-
+    private DataSourceConfiguration() {}
     /**
      * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
      * 
@@ -53,30 +46,32 @@ public final class DataSourceConfiguration {
     public static Builder builder(DataSourceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceConfigurationS3Configuration s3Configuration;
         private @Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Configuration = defaults.s3Configuration;
     	      this.webCrawlerConfiguration = defaults.webCrawlerConfiguration;
         }
 
+        @CustomType.Setter
         public Builder s3Configuration(@Nullable DataSourceConfigurationS3Configuration s3Configuration) {
             this.s3Configuration = s3Configuration;
             return this;
         }
+        @CustomType.Setter
         public Builder webCrawlerConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration) {
             this.webCrawlerConfiguration = webCrawlerConfiguration;
             return this;
-        }        public DataSourceConfiguration build() {
-            return new DataSourceConfiguration(s3Configuration, webCrawlerConfiguration);
+        }
+        public DataSourceConfiguration build() {
+            final var o = new DataSourceConfiguration();
+            o.s3Configuration = s3Configuration;
+            o.webCrawlerConfiguration = webCrawlerConfiguration;
+            return o;
         }
     }
 }

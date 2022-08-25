@@ -16,62 +16,41 @@ public final class GetPolicyResult {
      * @return The ARN of the policy.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The description of the policy.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The path to the policy.
      * 
      */
-    private final String path;
-    private final @Nullable String pathPrefix;
+    private String path;
+    private @Nullable String pathPrefix;
     /**
      * @return The policy document of the policy.
      * 
      */
-    private final String policy;
+    private String policy;
     /**
      * @return The policy&#39;s ID.
      * 
      */
-    private final String policyId;
+    private String policyId;
     /**
      * @return Key-value mapping of tags for the IAM Policy.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetPolicyResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("pathPrefix") @Nullable String pathPrefix,
-        @CustomType.Parameter("policy") String policy,
-        @CustomType.Parameter("policyId") String policyId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.path = path;
-        this.pathPrefix = pathPrefix;
-        this.policy = policy;
-        this.policyId = policyId;
-        this.tags = tags;
-    }
-
+    private GetPolicyResult() {}
     /**
      * @return The ARN of the policy.
      * 
@@ -135,7 +114,7 @@ public final class GetPolicyResult {
     public static Builder builder(GetPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -146,11 +125,7 @@ public final class GetPolicyResult {
         private String policy;
         private String policyId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -164,43 +139,63 @@ public final class GetPolicyResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder pathPrefix(@Nullable String pathPrefix) {
             this.pathPrefix = pathPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder policy(String policy) {
             this.policy = Objects.requireNonNull(policy);
             return this;
         }
+        @CustomType.Setter
         public Builder policyId(String policyId) {
             this.policyId = Objects.requireNonNull(policyId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetPolicyResult build() {
-            return new GetPolicyResult(arn, description, id, name, path, pathPrefix, policy, policyId, tags);
+        }
+        public GetPolicyResult build() {
+            final var o = new GetPolicyResult();
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.path = path;
+            o.pathPrefix = pathPrefix;
+            o.policy = policy;
+            o.policyId = policyId;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class RuleGroupRuleActionBlock {
      * @return Defines a custom response for the web request. See Custom Response below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleActionBlockCustomResponse customResponse;
+    private @Nullable RuleGroupRuleActionBlockCustomResponse customResponse;
 
-    @CustomType.Constructor
-    private RuleGroupRuleActionBlock(@CustomType.Parameter("customResponse") @Nullable RuleGroupRuleActionBlockCustomResponse customResponse) {
-        this.customResponse = customResponse;
-    }
-
+    private RuleGroupRuleActionBlock() {}
     /**
      * @return Defines a custom response for the web request. See Custom Response below for details.
      * 
@@ -37,24 +33,24 @@ public final class RuleGroupRuleActionBlock {
     public static Builder builder(RuleGroupRuleActionBlock defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleActionBlockCustomResponse customResponse;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleActionBlock defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customResponse = defaults.customResponse;
         }
 
+        @CustomType.Setter
         public Builder customResponse(@Nullable RuleGroupRuleActionBlockCustomResponse customResponse) {
             this.customResponse = customResponse;
             return this;
-        }        public RuleGroupRuleActionBlock build() {
-            return new RuleGroupRuleActionBlock(customResponse);
+        }
+        public RuleGroupRuleActionBlock build() {
+            final var o = new RuleGroupRuleActionBlock();
+            o.customResponse = customResponse;
+            return o;
         }
     }
 }

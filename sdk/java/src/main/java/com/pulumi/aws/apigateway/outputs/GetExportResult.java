@@ -12,54 +12,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExportResult {
-    private final @Nullable String accepts;
+    private @Nullable String accepts;
     /**
      * @return The API Spec.
      * 
      */
-    private final String body;
+    private String body;
     /**
      * @return The content-disposition header value in the HTTP response.
      * 
      */
-    private final String contentDisposition;
+    private String contentDisposition;
     /**
      * @return The content-type header value in the HTTP response.
      * 
      */
-    private final String contentType;
-    private final String exportType;
+    private String contentType;
+    private String exportType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Map<String,String> parameters;
-    private final String restApiId;
-    private final String stageName;
+    private String id;
+    private @Nullable Map<String,String> parameters;
+    private String restApiId;
+    private String stageName;
 
-    @CustomType.Constructor
-    private GetExportResult(
-        @CustomType.Parameter("accepts") @Nullable String accepts,
-        @CustomType.Parameter("body") String body,
-        @CustomType.Parameter("contentDisposition") String contentDisposition,
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("exportType") String exportType,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters,
-        @CustomType.Parameter("restApiId") String restApiId,
-        @CustomType.Parameter("stageName") String stageName) {
-        this.accepts = accepts;
-        this.body = body;
-        this.contentDisposition = contentDisposition;
-        this.contentType = contentType;
-        this.exportType = exportType;
-        this.id = id;
-        this.parameters = parameters;
-        this.restApiId = restApiId;
-        this.stageName = stageName;
-    }
-
+    private GetExportResult() {}
     public Optional<String> accepts() {
         return Optional.ofNullable(this.accepts);
     }
@@ -111,7 +90,7 @@ public final class GetExportResult {
     public static Builder builder(GetExportResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accepts;
         private String body;
@@ -122,11 +101,7 @@ public final class GetExportResult {
         private @Nullable Map<String,String> parameters;
         private String restApiId;
         private String stageName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExportResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accepts = defaults.accepts;
@@ -140,43 +115,63 @@ public final class GetExportResult {
     	      this.stageName = defaults.stageName;
         }
 
+        @CustomType.Setter
         public Builder accepts(@Nullable String accepts) {
             this.accepts = accepts;
             return this;
         }
+        @CustomType.Setter
         public Builder body(String body) {
             this.body = Objects.requireNonNull(body);
             return this;
         }
+        @CustomType.Setter
         public Builder contentDisposition(String contentDisposition) {
             this.contentDisposition = Objects.requireNonNull(contentDisposition);
             return this;
         }
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder exportType(String exportType) {
             this.exportType = Objects.requireNonNull(exportType);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder restApiId(String restApiId) {
             this.restApiId = Objects.requireNonNull(restApiId);
             return this;
         }
+        @CustomType.Setter
         public Builder stageName(String stageName) {
             this.stageName = Objects.requireNonNull(stageName);
             return this;
-        }        public GetExportResult build() {
-            return new GetExportResult(accepts, body, contentDisposition, contentType, exportType, id, parameters, restApiId, stageName);
+        }
+        public GetExportResult build() {
+            final var o = new GetExportResult();
+            o.accepts = accepts;
+            o.body = body;
+            o.contentDisposition = contentDisposition;
+            o.contentType = contentType;
+            o.exportType = exportType;
+            o.id = id;
+            o.parameters = parameters;
+            o.restApiId = restApiId;
+            o.stageName = stageName;
+            return o;
         }
     }
 }

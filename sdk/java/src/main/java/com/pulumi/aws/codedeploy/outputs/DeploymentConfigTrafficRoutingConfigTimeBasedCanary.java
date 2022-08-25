@@ -15,21 +15,14 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
      * @return The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
     /**
      * @return The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
      * 
      */
-    private final @Nullable Integer percentage;
+    private @Nullable Integer percentage;
 
-    @CustomType.Constructor
-    private DeploymentConfigTrafficRoutingConfigTimeBasedCanary(
-        @CustomType.Parameter("interval") @Nullable Integer interval,
-        @CustomType.Parameter("percentage") @Nullable Integer percentage) {
-        this.interval = interval;
-        this.percentage = percentage;
-    }
-
+    private DeploymentConfigTrafficRoutingConfigTimeBasedCanary() {}
     /**
      * @return The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
      * 
@@ -52,30 +45,32 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
     public static Builder builder(DeploymentConfigTrafficRoutingConfigTimeBasedCanary defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer interval;
         private @Nullable Integer percentage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentConfigTrafficRoutingConfigTimeBasedCanary defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.interval = defaults.interval;
     	      this.percentage = defaults.percentage;
         }
 
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
         }
+        @CustomType.Setter
         public Builder percentage(@Nullable Integer percentage) {
             this.percentage = percentage;
             return this;
-        }        public DeploymentConfigTrafficRoutingConfigTimeBasedCanary build() {
-            return new DeploymentConfigTrafficRoutingConfigTimeBasedCanary(interval, percentage);
+        }
+        public DeploymentConfigTrafficRoutingConfigTimeBasedCanary build() {
+            final var o = new DeploymentConfigTrafficRoutingConfigTimeBasedCanary();
+            o.interval = interval;
+            o.percentage = percentage;
+            return o;
         }
     }
 }

@@ -15,45 +15,30 @@ public final class GetGroupResult {
      * @return The Amazon Resource Name (ARN) specifying the iam user.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The stable and unique string identifying the group.
      * 
      */
-    private final String groupId;
-    private final String groupName;
+    private String groupId;
+    private String groupName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The path to the iam user.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return List of objects containing group member information. See supported fields below.
      * 
      */
-    private final List<GetGroupUser> users;
+    private List<GetGroupUser> users;
 
-    @CustomType.Constructor
-    private GetGroupResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("groupId") String groupId,
-        @CustomType.Parameter("groupName") String groupName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("users") List<GetGroupUser> users) {
-        this.arn = arn;
-        this.groupId = groupId;
-        this.groupName = groupName;
-        this.id = id;
-        this.path = path;
-        this.users = users;
-    }
-
+    private GetGroupResult() {}
     /**
      * @return The Amazon Resource Name (ARN) specifying the iam user.
      * 
@@ -100,7 +85,7 @@ public final class GetGroupResult {
     public static Builder builder(GetGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String groupId;
@@ -108,11 +93,7 @@ public final class GetGroupResult {
         private String id;
         private String path;
         private List<GetGroupUser> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -123,34 +104,48 @@ public final class GetGroupResult {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder groupId(String groupId) {
             this.groupId = Objects.requireNonNull(groupId);
             return this;
         }
+        @CustomType.Setter
         public Builder groupName(String groupName) {
             this.groupName = Objects.requireNonNull(groupName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder users(List<GetGroupUser> users) {
             this.users = Objects.requireNonNull(users);
             return this;
         }
         public Builder users(GetGroupUser... users) {
             return users(List.of(users));
-        }        public GetGroupResult build() {
-            return new GetGroupResult(arn, groupId, groupName, id, path, users);
+        }
+        public GetGroupResult build() {
+            final var o = new GetGroupResult();
+            o.arn = arn;
+            o.groupId = groupId;
+            o.groupName = groupName;
+            o.id = id;
+            o.path = path;
+            o.users = users;
+            return o;
         }
     }
 }

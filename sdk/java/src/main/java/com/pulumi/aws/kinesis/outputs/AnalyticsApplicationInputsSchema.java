@@ -19,29 +19,20 @@ public final class AnalyticsApplicationInputsSchema {
      * See Record Columns below for more details.
      * 
      */
-    private final List<AnalyticsApplicationInputsSchemaRecordColumn> recordColumns;
+    private List<AnalyticsApplicationInputsSchemaRecordColumn> recordColumns;
     /**
      * @return The Encoding of the record in the streaming source.
      * 
      */
-    private final @Nullable String recordEncoding;
+    private @Nullable String recordEncoding;
     /**
      * @return The Record Format and mapping information to schematize a record.
      * See Record Format below for more details.
      * 
      */
-    private final AnalyticsApplicationInputsSchemaRecordFormat recordFormat;
+    private AnalyticsApplicationInputsSchemaRecordFormat recordFormat;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationInputsSchema(
-        @CustomType.Parameter("recordColumns") List<AnalyticsApplicationInputsSchemaRecordColumn> recordColumns,
-        @CustomType.Parameter("recordEncoding") @Nullable String recordEncoding,
-        @CustomType.Parameter("recordFormat") AnalyticsApplicationInputsSchemaRecordFormat recordFormat) {
-        this.recordColumns = recordColumns;
-        this.recordEncoding = recordEncoding;
-        this.recordFormat = recordFormat;
-    }
-
+    private AnalyticsApplicationInputsSchema() {}
     /**
      * @return The Record Column mapping for the streaming source data element.
      * See Record Columns below for more details.
@@ -73,16 +64,12 @@ public final class AnalyticsApplicationInputsSchema {
     public static Builder builder(AnalyticsApplicationInputsSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<AnalyticsApplicationInputsSchemaRecordColumn> recordColumns;
         private @Nullable String recordEncoding;
         private AnalyticsApplicationInputsSchemaRecordFormat recordFormat;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationInputsSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordColumns = defaults.recordColumns;
@@ -90,6 +77,7 @@ public final class AnalyticsApplicationInputsSchema {
     	      this.recordFormat = defaults.recordFormat;
         }
 
+        @CustomType.Setter
         public Builder recordColumns(List<AnalyticsApplicationInputsSchemaRecordColumn> recordColumns) {
             this.recordColumns = Objects.requireNonNull(recordColumns);
             return this;
@@ -97,15 +85,22 @@ public final class AnalyticsApplicationInputsSchema {
         public Builder recordColumns(AnalyticsApplicationInputsSchemaRecordColumn... recordColumns) {
             return recordColumns(List.of(recordColumns));
         }
+        @CustomType.Setter
         public Builder recordEncoding(@Nullable String recordEncoding) {
             this.recordEncoding = recordEncoding;
             return this;
         }
+        @CustomType.Setter
         public Builder recordFormat(AnalyticsApplicationInputsSchemaRecordFormat recordFormat) {
             this.recordFormat = Objects.requireNonNull(recordFormat);
             return this;
-        }        public AnalyticsApplicationInputsSchema build() {
-            return new AnalyticsApplicationInputsSchema(recordColumns, recordEncoding, recordFormat);
+        }
+        public AnalyticsApplicationInputsSchema build() {
+            final var o = new AnalyticsApplicationInputsSchema();
+            o.recordColumns = recordColumns;
+            o.recordEncoding = recordEncoding;
+            o.recordFormat = recordFormat;
+            return o;
         }
     }
 }

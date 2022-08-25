@@ -13,13 +13,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return The ARN of the delivery stream.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput(@CustomType.Parameter("resourceArn") String resourceArn) {
-        this.resourceArn = resourceArn;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput() {}
     /**
      * @return The ARN of the delivery stream.
      * 
@@ -35,24 +31,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput(resourceArn);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput();
+            o.resourceArn = resourceArn;
+            return o;
         }
     }
 }

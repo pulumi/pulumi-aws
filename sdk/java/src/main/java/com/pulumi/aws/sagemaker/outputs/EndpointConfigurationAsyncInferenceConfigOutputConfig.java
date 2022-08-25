@@ -16,28 +16,19 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
      * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Specifies the configuration for notifications of inference results for asynchronous inference.
      * 
      */
-    private final @Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig;
+    private @Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig;
     /**
      * @return The Amazon S3 location to upload inference responses to.
      * 
      */
-    private final String s3OutputPath;
+    private String s3OutputPath;
 
-    @CustomType.Constructor
-    private EndpointConfigurationAsyncInferenceConfigOutputConfig(
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("notificationConfig") @Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig,
-        @CustomType.Parameter("s3OutputPath") String s3OutputPath) {
-        this.kmsKeyId = kmsKeyId;
-        this.notificationConfig = notificationConfig;
-        this.s3OutputPath = s3OutputPath;
-    }
-
+    private EndpointConfigurationAsyncInferenceConfigOutputConfig() {}
     /**
      * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
      * 
@@ -67,16 +58,12 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
     public static Builder builder(EndpointConfigurationAsyncInferenceConfigOutputConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyId;
         private @Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig;
         private String s3OutputPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConfigurationAsyncInferenceConfigOutputConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
@@ -84,19 +71,27 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
     	      this.s3OutputPath = defaults.s3OutputPath;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder notificationConfig(@Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig) {
             this.notificationConfig = notificationConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder s3OutputPath(String s3OutputPath) {
             this.s3OutputPath = Objects.requireNonNull(s3OutputPath);
             return this;
-        }        public EndpointConfigurationAsyncInferenceConfigOutputConfig build() {
-            return new EndpointConfigurationAsyncInferenceConfigOutputConfig(kmsKeyId, notificationConfig, s3OutputPath);
+        }
+        public EndpointConfigurationAsyncInferenceConfigOutputConfig build() {
+            final var o = new EndpointConfigurationAsyncInferenceConfigOutputConfig();
+            o.kmsKeyId = kmsKeyId;
+            o.notificationConfig = notificationConfig;
+            o.s3OutputPath = s3OutputPath;
+            return o;
         }
     }
 }

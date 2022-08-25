@@ -16,21 +16,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
      * @return Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
      * 
      */
-    private final @Nullable Integer retryDuration;
+    private @Nullable Integer retryDuration;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("retryDuration") @Nullable Integer retryDuration) {
-        this.enabled = enabled;
-        this.retryDuration = retryDuration;
-    }
-
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration() {}
     /**
      * @return Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
      * 
@@ -53,30 +46,32 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
     public static Builder builder(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Integer retryDuration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.retryDuration = defaults.retryDuration;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
             this.retryDuration = retryDuration;
             return this;
-        }        public FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration build() {
-            return new FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration(enabled, retryDuration);
+        }
+        public FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration build() {
+            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration();
+            o.enabled = enabled;
+            o.retryDuration = retryDuration;
+            return o;
         }
     }
 }

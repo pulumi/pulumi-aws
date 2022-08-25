@@ -17,21 +17,14 @@ public final class ListenerDefaultActionForward {
      * @return Configuration block for target group stickiness for the rule. Detailed below.
      * 
      */
-    private final @Nullable ListenerDefaultActionForwardStickiness stickiness;
+    private @Nullable ListenerDefaultActionForwardStickiness stickiness;
     /**
      * @return Set of 1-5 target group blocks. Detailed below.
      * 
      */
-    private final List<ListenerDefaultActionForwardTargetGroup> targetGroups;
+    private List<ListenerDefaultActionForwardTargetGroup> targetGroups;
 
-    @CustomType.Constructor
-    private ListenerDefaultActionForward(
-        @CustomType.Parameter("stickiness") @Nullable ListenerDefaultActionForwardStickiness stickiness,
-        @CustomType.Parameter("targetGroups") List<ListenerDefaultActionForwardTargetGroup> targetGroups) {
-        this.stickiness = stickiness;
-        this.targetGroups = targetGroups;
-    }
-
+    private ListenerDefaultActionForward() {}
     /**
      * @return Configuration block for target group stickiness for the rule. Detailed below.
      * 
@@ -54,33 +47,35 @@ public final class ListenerDefaultActionForward {
     public static Builder builder(ListenerDefaultActionForward defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ListenerDefaultActionForwardStickiness stickiness;
         private List<ListenerDefaultActionForwardTargetGroup> targetGroups;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerDefaultActionForward defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.stickiness = defaults.stickiness;
     	      this.targetGroups = defaults.targetGroups;
         }
 
+        @CustomType.Setter
         public Builder stickiness(@Nullable ListenerDefaultActionForwardStickiness stickiness) {
             this.stickiness = stickiness;
             return this;
         }
+        @CustomType.Setter
         public Builder targetGroups(List<ListenerDefaultActionForwardTargetGroup> targetGroups) {
             this.targetGroups = Objects.requireNonNull(targetGroups);
             return this;
         }
         public Builder targetGroups(ListenerDefaultActionForwardTargetGroup... targetGroups) {
             return targetGroups(List.of(targetGroups));
-        }        public ListenerDefaultActionForward build() {
-            return new ListenerDefaultActionForward(stickiness, targetGroups);
+        }
+        public ListenerDefaultActionForward build() {
+            final var o = new ListenerDefaultActionForward();
+            o.stickiness = stickiness;
+            o.targetGroups = targetGroups;
+            return o;
         }
     }
 }

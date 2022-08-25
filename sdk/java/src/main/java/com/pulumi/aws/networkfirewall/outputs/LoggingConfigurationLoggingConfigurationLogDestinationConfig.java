@@ -17,28 +17,19 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfig 
      * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
      * 
      */
-    private final Map<String,String> logDestination;
+    private Map<String,String> logDestination;
     /**
      * @return The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
      * 
      */
-    private final String logDestinationType;
+    private String logDestinationType;
     /**
      * @return The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
      * 
      */
-    private final String logType;
+    private String logType;
 
-    @CustomType.Constructor
-    private LoggingConfigurationLoggingConfigurationLogDestinationConfig(
-        @CustomType.Parameter("logDestination") Map<String,String> logDestination,
-        @CustomType.Parameter("logDestinationType") String logDestinationType,
-        @CustomType.Parameter("logType") String logType) {
-        this.logDestination = logDestination;
-        this.logDestinationType = logDestinationType;
-        this.logType = logType;
-    }
-
+    private LoggingConfigurationLoggingConfigurationLogDestinationConfig() {}
     /**
      * @return A map describing the logging destination for the chosen `log_destination_type`.
      * * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
@@ -71,16 +62,12 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfig 
     public static Builder builder(LoggingConfigurationLoggingConfigurationLogDestinationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> logDestination;
         private String logDestinationType;
         private String logType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LoggingConfigurationLoggingConfigurationLogDestinationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logDestination = defaults.logDestination;
@@ -88,19 +75,27 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfig 
     	      this.logType = defaults.logType;
         }
 
+        @CustomType.Setter
         public Builder logDestination(Map<String,String> logDestination) {
             this.logDestination = Objects.requireNonNull(logDestination);
             return this;
         }
+        @CustomType.Setter
         public Builder logDestinationType(String logDestinationType) {
             this.logDestinationType = Objects.requireNonNull(logDestinationType);
             return this;
         }
+        @CustomType.Setter
         public Builder logType(String logType) {
             this.logType = Objects.requireNonNull(logType);
             return this;
-        }        public LoggingConfigurationLoggingConfigurationLogDestinationConfig build() {
-            return new LoggingConfigurationLoggingConfigurationLogDestinationConfig(logDestination, logDestinationType, logType);
+        }
+        public LoggingConfigurationLoggingConfigurationLogDestinationConfig build() {
+            final var o = new LoggingConfigurationLoggingConfigurationLogDestinationConfig();
+            o.logDestination = logDestination;
+            o.logDestinationType = logDestinationType;
+            o.logType = logType;
+            return o;
         }
     }
 }

@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSigningJobSource {
-    private final List<GetSigningJobSourceS3> s3s;
+    private List<GetSigningJobSourceS3> s3s;
 
-    @CustomType.Constructor
-    private GetSigningJobSource(@CustomType.Parameter("s3s") List<GetSigningJobSourceS3> s3s) {
-        this.s3s = s3s;
-    }
-
+    private GetSigningJobSource() {}
     public List<GetSigningJobSourceS3> s3s() {
         return this.s3s;
     }
@@ -28,27 +24,27 @@ public final class GetSigningJobSource {
     public static Builder builder(GetSigningJobSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetSigningJobSourceS3> s3s;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSigningJobSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3s = defaults.s3s;
         }
 
+        @CustomType.Setter
         public Builder s3s(List<GetSigningJobSourceS3> s3s) {
             this.s3s = Objects.requireNonNull(s3s);
             return this;
         }
         public Builder s3s(GetSigningJobSourceS3... s3s) {
             return s3s(List.of(s3s));
-        }        public GetSigningJobSource build() {
-            return new GetSigningJobSource(s3s);
+        }
+        public GetSigningJobSource build() {
+            final var o = new GetSigningJobSource();
+            o.s3s = s3s;
+            return o;
         }
     }
 }

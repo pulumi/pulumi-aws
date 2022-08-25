@@ -19,63 +19,44 @@ public final class ProjectEnvironment {
      * @return ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
      * 
      */
-    private final @Nullable String certificate;
+    private @Nullable String certificate;
     /**
      * @return Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`.
      * 
      */
-    private final String computeType;
+    private String computeType;
     /**
      * @return Configuration block. Detailed below.
      * 
      */
-    private final @Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables;
+    private @Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables;
     /**
      * @return Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
      * 
      */
-    private final String image;
+    private String image;
     /**
      * @return Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
      * 
      */
-    private final @Nullable String imagePullCredentialsType;
+    private @Nullable String imagePullCredentialsType;
     /**
      * @return Whether to enable running the Docker daemon inside a Docker container. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean privilegedMode;
+    private @Nullable Boolean privilegedMode;
     /**
      * @return Configuration block. Detailed below.
      * 
      */
-    private final @Nullable ProjectEnvironmentRegistryCredential registryCredential;
+    private @Nullable ProjectEnvironmentRegistryCredential registryCredential;
     /**
      * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ProjectEnvironment(
-        @CustomType.Parameter("certificate") @Nullable String certificate,
-        @CustomType.Parameter("computeType") String computeType,
-        @CustomType.Parameter("environmentVariables") @Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables,
-        @CustomType.Parameter("image") String image,
-        @CustomType.Parameter("imagePullCredentialsType") @Nullable String imagePullCredentialsType,
-        @CustomType.Parameter("privilegedMode") @Nullable Boolean privilegedMode,
-        @CustomType.Parameter("registryCredential") @Nullable ProjectEnvironmentRegistryCredential registryCredential,
-        @CustomType.Parameter("type") String type) {
-        this.certificate = certificate;
-        this.computeType = computeType;
-        this.environmentVariables = environmentVariables;
-        this.image = image;
-        this.imagePullCredentialsType = imagePullCredentialsType;
-        this.privilegedMode = privilegedMode;
-        this.registryCredential = registryCredential;
-        this.type = type;
-    }
-
+    private ProjectEnvironment() {}
     /**
      * @return ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
      * 
@@ -140,7 +121,7 @@ public final class ProjectEnvironment {
     public static Builder builder(ProjectEnvironment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificate;
         private String computeType;
@@ -150,11 +131,7 @@ public final class ProjectEnvironment {
         private @Nullable Boolean privilegedMode;
         private @Nullable ProjectEnvironmentRegistryCredential registryCredential;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
@@ -167,14 +144,17 @@ public final class ProjectEnvironment {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder certificate(@Nullable String certificate) {
             this.certificate = certificate;
             return this;
         }
+        @CustomType.Setter
         public Builder computeType(String computeType) {
             this.computeType = Objects.requireNonNull(computeType);
             return this;
         }
+        @CustomType.Setter
         public Builder environmentVariables(@Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables) {
             this.environmentVariables = environmentVariables;
             return this;
@@ -182,27 +162,42 @@ public final class ProjectEnvironment {
         public Builder environmentVariables(ProjectEnvironmentEnvironmentVariable... environmentVariables) {
             return environmentVariables(List.of(environmentVariables));
         }
+        @CustomType.Setter
         public Builder image(String image) {
             this.image = Objects.requireNonNull(image);
             return this;
         }
+        @CustomType.Setter
         public Builder imagePullCredentialsType(@Nullable String imagePullCredentialsType) {
             this.imagePullCredentialsType = imagePullCredentialsType;
             return this;
         }
+        @CustomType.Setter
         public Builder privilegedMode(@Nullable Boolean privilegedMode) {
             this.privilegedMode = privilegedMode;
             return this;
         }
+        @CustomType.Setter
         public Builder registryCredential(@Nullable ProjectEnvironmentRegistryCredential registryCredential) {
             this.registryCredential = registryCredential;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ProjectEnvironment build() {
-            return new ProjectEnvironment(certificate, computeType, environmentVariables, image, imagePullCredentialsType, privilegedMode, registryCredential, type);
+        }
+        public ProjectEnvironment build() {
+            final var o = new ProjectEnvironment();
+            o.certificate = certificate;
+            o.computeType = computeType;
+            o.environmentVariables = environmentVariables;
+            o.image = image;
+            o.imagePullCredentialsType = imagePullCredentialsType;
+            o.privilegedMode = privilegedMode;
+            o.registryCredential = registryCredential;
+            o.type = type;
+            return o;
         }
     }
 }

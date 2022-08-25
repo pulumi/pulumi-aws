@@ -13,13 +13,9 @@ public final class TablePointInTimeRecovery {
      * @return Whether TTL is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private TablePointInTimeRecovery(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private TablePointInTimeRecovery() {}
     /**
      * @return Whether TTL is enabled.
      * 
@@ -35,24 +31,24 @@ public final class TablePointInTimeRecovery {
     public static Builder builder(TablePointInTimeRecovery defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TablePointInTimeRecovery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public TablePointInTimeRecovery build() {
-            return new TablePointInTimeRecovery(enabled);
+        }
+        public TablePointInTimeRecovery build() {
+            final var o = new TablePointInTimeRecovery();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

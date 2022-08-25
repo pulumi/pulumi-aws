@@ -14,21 +14,14 @@ public final class GetRegionsFilter {
      * @return The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetRegionsFilter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private GetRegionsFilter() {}
     /**
      * @return The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
      * 
@@ -51,33 +44,35 @@ public final class GetRegionsFilter {
     public static Builder builder(GetRegionsFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRegionsFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetRegionsFilter build() {
-            return new GetRegionsFilter(name, values);
+        }
+        public GetRegionsFilter build() {
+            final var o = new GetRegionsFilter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSigningJobSignedObject {
-    private final List<GetSigningJobSignedObjectS3> s3s;
+    private List<GetSigningJobSignedObjectS3> s3s;
 
-    @CustomType.Constructor
-    private GetSigningJobSignedObject(@CustomType.Parameter("s3s") List<GetSigningJobSignedObjectS3> s3s) {
-        this.s3s = s3s;
-    }
-
+    private GetSigningJobSignedObject() {}
     public List<GetSigningJobSignedObjectS3> s3s() {
         return this.s3s;
     }
@@ -28,27 +24,27 @@ public final class GetSigningJobSignedObject {
     public static Builder builder(GetSigningJobSignedObject defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetSigningJobSignedObjectS3> s3s;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSigningJobSignedObject defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3s = defaults.s3s;
         }
 
+        @CustomType.Setter
         public Builder s3s(List<GetSigningJobSignedObjectS3> s3s) {
             this.s3s = Objects.requireNonNull(s3s);
             return this;
         }
         public Builder s3s(GetSigningJobSignedObjectS3... s3s) {
             return s3s(List.of(s3s));
-        }        public GetSigningJobSignedObject build() {
-            return new GetSigningJobSignedObject(s3s);
+        }
+        public GetSigningJobSignedObject build() {
+            final var o = new GetSigningJobSignedObject();
+            o.s3s = s3s;
+            return o;
         }
     }
 }

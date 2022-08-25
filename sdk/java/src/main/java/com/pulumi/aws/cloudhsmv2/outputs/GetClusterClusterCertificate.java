@@ -9,26 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterClusterCertificate {
-    private final String awsHardwareCertificate;
-    private final String clusterCertificate;
-    private final String clusterCsr;
-    private final String hsmCertificate;
-    private final String manufacturerHardwareCertificate;
+    private String awsHardwareCertificate;
+    private String clusterCertificate;
+    private String clusterCsr;
+    private String hsmCertificate;
+    private String manufacturerHardwareCertificate;
 
-    @CustomType.Constructor
-    private GetClusterClusterCertificate(
-        @CustomType.Parameter("awsHardwareCertificate") String awsHardwareCertificate,
-        @CustomType.Parameter("clusterCertificate") String clusterCertificate,
-        @CustomType.Parameter("clusterCsr") String clusterCsr,
-        @CustomType.Parameter("hsmCertificate") String hsmCertificate,
-        @CustomType.Parameter("manufacturerHardwareCertificate") String manufacturerHardwareCertificate) {
-        this.awsHardwareCertificate = awsHardwareCertificate;
-        this.clusterCertificate = clusterCertificate;
-        this.clusterCsr = clusterCsr;
-        this.hsmCertificate = hsmCertificate;
-        this.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
-    }
-
+    private GetClusterClusterCertificate() {}
     public String awsHardwareCertificate() {
         return this.awsHardwareCertificate;
     }
@@ -52,18 +39,14 @@ public final class GetClusterClusterCertificate {
     public static Builder builder(GetClusterClusterCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String awsHardwareCertificate;
         private String clusterCertificate;
         private String clusterCsr;
         private String hsmCertificate;
         private String manufacturerHardwareCertificate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterClusterCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsHardwareCertificate = defaults.awsHardwareCertificate;
@@ -73,27 +56,39 @@ public final class GetClusterClusterCertificate {
     	      this.manufacturerHardwareCertificate = defaults.manufacturerHardwareCertificate;
         }
 
+        @CustomType.Setter
         public Builder awsHardwareCertificate(String awsHardwareCertificate) {
             this.awsHardwareCertificate = Objects.requireNonNull(awsHardwareCertificate);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterCertificate(String clusterCertificate) {
             this.clusterCertificate = Objects.requireNonNull(clusterCertificate);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterCsr(String clusterCsr) {
             this.clusterCsr = Objects.requireNonNull(clusterCsr);
             return this;
         }
+        @CustomType.Setter
         public Builder hsmCertificate(String hsmCertificate) {
             this.hsmCertificate = Objects.requireNonNull(hsmCertificate);
             return this;
         }
+        @CustomType.Setter
         public Builder manufacturerHardwareCertificate(String manufacturerHardwareCertificate) {
             this.manufacturerHardwareCertificate = Objects.requireNonNull(manufacturerHardwareCertificate);
             return this;
-        }        public GetClusterClusterCertificate build() {
-            return new GetClusterClusterCertificate(awsHardwareCertificate, clusterCertificate, clusterCsr, hsmCertificate, manufacturerHardwareCertificate);
+        }
+        public GetClusterClusterCertificate build() {
+            final var o = new GetClusterClusterCertificate();
+            o.awsHardwareCertificate = awsHardwareCertificate;
+            o.clusterCertificate = clusterCertificate;
+            o.clusterCsr = clusterCsr;
+            o.hsmCertificate = hsmCertificate;
+            o.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
+            return o;
         }
     }
 }

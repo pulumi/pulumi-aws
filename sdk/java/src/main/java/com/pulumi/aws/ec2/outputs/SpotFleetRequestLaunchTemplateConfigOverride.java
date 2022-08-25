@@ -17,56 +17,39 @@ public final class SpotFleetRequestLaunchTemplateConfigOverride {
      * @return The availability zone in which to place the request.
      * 
      */
-    private final @Nullable String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return The instance requirements. See below.
      * 
      */
-    private final @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements;
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements;
     /**
      * @return The type of instance to request.
      * 
      */
-    private final @Nullable String instanceType;
+    private @Nullable String instanceType;
     /**
      * @return The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
      * 
      */
-    private final @Nullable Double priority;
+    private @Nullable Double priority;
     /**
      * @return The maximum spot bid for this override request.
      * 
      */
-    private final @Nullable String spotPrice;
+    private @Nullable String spotPrice;
     /**
      * @return The subnet in which to launch the requested instance.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return The capacity added to the fleet by a fulfilled request.
      * 
      */
-    private final @Nullable Double weightedCapacity;
+    private @Nullable Double weightedCapacity;
 
-    @CustomType.Constructor
-    private SpotFleetRequestLaunchTemplateConfigOverride(
-        @CustomType.Parameter("availabilityZone") @Nullable String availabilityZone,
-        @CustomType.Parameter("instanceRequirements") @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements,
-        @CustomType.Parameter("instanceType") @Nullable String instanceType,
-        @CustomType.Parameter("priority") @Nullable Double priority,
-        @CustomType.Parameter("spotPrice") @Nullable String spotPrice,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId,
-        @CustomType.Parameter("weightedCapacity") @Nullable Double weightedCapacity) {
-        this.availabilityZone = availabilityZone;
-        this.instanceRequirements = instanceRequirements;
-        this.instanceType = instanceType;
-        this.priority = priority;
-        this.spotPrice = spotPrice;
-        this.subnetId = subnetId;
-        this.weightedCapacity = weightedCapacity;
-    }
-
+    private SpotFleetRequestLaunchTemplateConfigOverride() {}
     /**
      * @return The availability zone in which to place the request.
      * 
@@ -124,7 +107,7 @@ public final class SpotFleetRequestLaunchTemplateConfigOverride {
     public static Builder builder(SpotFleetRequestLaunchTemplateConfigOverride defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String availabilityZone;
         private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements;
@@ -133,11 +116,7 @@ public final class SpotFleetRequestLaunchTemplateConfigOverride {
         private @Nullable String spotPrice;
         private @Nullable String subnetId;
         private @Nullable Double weightedCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotFleetRequestLaunchTemplateConfigOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZone = defaults.availabilityZone;
@@ -149,35 +128,51 @@ public final class SpotFleetRequestLaunchTemplateConfigOverride {
     	      this.weightedCapacity = defaults.weightedCapacity;
         }
 
+        @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
             this.availabilityZone = availabilityZone;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceRequirements(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements) {
             this.instanceRequirements = instanceRequirements;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
             this.instanceType = instanceType;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Double priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder spotPrice(@Nullable String spotPrice) {
             this.spotPrice = spotPrice;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
         }
+        @CustomType.Setter
         public Builder weightedCapacity(@Nullable Double weightedCapacity) {
             this.weightedCapacity = weightedCapacity;
             return this;
-        }        public SpotFleetRequestLaunchTemplateConfigOverride build() {
-            return new SpotFleetRequestLaunchTemplateConfigOverride(availabilityZone, instanceRequirements, instanceType, priority, spotPrice, subnetId, weightedCapacity);
+        }
+        public SpotFleetRequestLaunchTemplateConfigOverride build() {
+            final var o = new SpotFleetRequestLaunchTemplateConfigOverride();
+            o.availabilityZone = availabilityZone;
+            o.instanceRequirements = instanceRequirements;
+            o.instanceType = instanceType;
+            o.priority = priority;
+            o.spotPrice = spotPrice;
+            o.subnetId = subnetId;
+            o.weightedCapacity = weightedCapacity;
+            return o;
         }
     }
 }

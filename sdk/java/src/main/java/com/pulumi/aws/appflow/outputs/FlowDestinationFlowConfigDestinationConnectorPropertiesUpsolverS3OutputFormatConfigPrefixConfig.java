@@ -15,21 +15,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
      * @return Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
      * 
      */
-    private final @Nullable String prefixFormat;
+    private @Nullable String prefixFormat;
     /**
      * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
      * 
      */
-    private final String prefixType;
+    private String prefixType;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig(
-        @CustomType.Parameter("prefixFormat") @Nullable String prefixFormat,
-        @CustomType.Parameter("prefixType") String prefixType) {
-        this.prefixFormat = prefixFormat;
-        this.prefixType = prefixType;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig() {}
     /**
      * @return Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
      * 
@@ -52,30 +45,32 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String prefixFormat;
         private String prefixType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prefixFormat = defaults.prefixFormat;
     	      this.prefixType = defaults.prefixType;
         }
 
+        @CustomType.Setter
         public Builder prefixFormat(@Nullable String prefixFormat) {
             this.prefixFormat = prefixFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder prefixType(String prefixType) {
             this.prefixType = Objects.requireNonNull(prefixType);
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig(prefixFormat, prefixType);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig();
+            o.prefixFormat = prefixFormat;
+            o.prefixType = prefixType;
+            return o;
         }
     }
 }

@@ -30,119 +30,84 @@ public final class FlowSourceFlowConfigSourceConnectorProperties {
      * @return The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesAmplitude amplitude;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesAmplitude amplitude;
     /**
      * @return Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector customConnector;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector customConnector;
     /**
      * @return The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesDatadog datadog;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesDatadog datadog;
     /**
      * @return The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesDynatrace dynatrace;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesDynatrace dynatrace;
     /**
      * @return The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics googleAnalytics;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics googleAnalytics;
     /**
      * @return The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesInforNexus inforNexus;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesInforNexus inforNexus;
     /**
      * @return The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesMarketo marketo;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesMarketo marketo;
     /**
      * @return The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3 s3;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3 s3;
     /**
      * @return The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSalesforce salesforce;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSalesforce salesforce;
     /**
      * @return The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoData sapoData;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoData sapoData;
     /**
      * @return The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesServiceNow serviceNow;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesServiceNow serviceNow;
     /**
      * @return The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSingular singular;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSingular singular;
     /**
      * @return The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSlack slack;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSlack slack;
     /**
      * @return The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro trendmicro;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro trendmicro;
     /**
      * @return The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesVeeva veeva;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesVeeva veeva;
     /**
      * @return The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private final @Nullable FlowSourceFlowConfigSourceConnectorPropertiesZendesk zendesk;
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesZendesk zendesk;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorProperties(
-        @CustomType.Parameter("amplitude") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesAmplitude amplitude,
-        @CustomType.Parameter("customConnector") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector customConnector,
-        @CustomType.Parameter("datadog") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesDatadog datadog,
-        @CustomType.Parameter("dynatrace") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesDynatrace dynatrace,
-        @CustomType.Parameter("googleAnalytics") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics googleAnalytics,
-        @CustomType.Parameter("inforNexus") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesInforNexus inforNexus,
-        @CustomType.Parameter("marketo") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesMarketo marketo,
-        @CustomType.Parameter("s3") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3 s3,
-        @CustomType.Parameter("salesforce") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSalesforce salesforce,
-        @CustomType.Parameter("sapoData") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoData sapoData,
-        @CustomType.Parameter("serviceNow") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesServiceNow serviceNow,
-        @CustomType.Parameter("singular") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSingular singular,
-        @CustomType.Parameter("slack") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSlack slack,
-        @CustomType.Parameter("trendmicro") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro trendmicro,
-        @CustomType.Parameter("veeva") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesVeeva veeva,
-        @CustomType.Parameter("zendesk") @Nullable FlowSourceFlowConfigSourceConnectorPropertiesZendesk zendesk) {
-        this.amplitude = amplitude;
-        this.customConnector = customConnector;
-        this.datadog = datadog;
-        this.dynatrace = dynatrace;
-        this.googleAnalytics = googleAnalytics;
-        this.inforNexus = inforNexus;
-        this.marketo = marketo;
-        this.s3 = s3;
-        this.salesforce = salesforce;
-        this.sapoData = sapoData;
-        this.serviceNow = serviceNow;
-        this.singular = singular;
-        this.slack = slack;
-        this.trendmicro = trendmicro;
-        this.veeva = veeva;
-        this.zendesk = zendesk;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorProperties() {}
     /**
      * @return The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
      * 
@@ -263,7 +228,7 @@ public final class FlowSourceFlowConfigSourceConnectorProperties {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesAmplitude amplitude;
         private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector customConnector;
@@ -281,11 +246,7 @@ public final class FlowSourceFlowConfigSourceConnectorProperties {
         private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro trendmicro;
         private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesVeeva veeva;
         private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesZendesk zendesk;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amplitude = defaults.amplitude;
@@ -306,71 +267,105 @@ public final class FlowSourceFlowConfigSourceConnectorProperties {
     	      this.zendesk = defaults.zendesk;
         }
 
+        @CustomType.Setter
         public Builder amplitude(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesAmplitude amplitude) {
             this.amplitude = amplitude;
             return this;
         }
+        @CustomType.Setter
         public Builder customConnector(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector customConnector) {
             this.customConnector = customConnector;
             return this;
         }
+        @CustomType.Setter
         public Builder datadog(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesDatadog datadog) {
             this.datadog = datadog;
             return this;
         }
+        @CustomType.Setter
         public Builder dynatrace(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesDynatrace dynatrace) {
             this.dynatrace = dynatrace;
             return this;
         }
+        @CustomType.Setter
         public Builder googleAnalytics(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics googleAnalytics) {
             this.googleAnalytics = googleAnalytics;
             return this;
         }
+        @CustomType.Setter
         public Builder inforNexus(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesInforNexus inforNexus) {
             this.inforNexus = inforNexus;
             return this;
         }
+        @CustomType.Setter
         public Builder marketo(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesMarketo marketo) {
             this.marketo = marketo;
             return this;
         }
+        @CustomType.Setter
         public Builder s3(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3 s3) {
             this.s3 = s3;
             return this;
         }
+        @CustomType.Setter
         public Builder salesforce(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSalesforce salesforce) {
             this.salesforce = salesforce;
             return this;
         }
+        @CustomType.Setter
         public Builder sapoData(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoData sapoData) {
             this.sapoData = sapoData;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceNow(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesServiceNow serviceNow) {
             this.serviceNow = serviceNow;
             return this;
         }
+        @CustomType.Setter
         public Builder singular(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSingular singular) {
             this.singular = singular;
             return this;
         }
+        @CustomType.Setter
         public Builder slack(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSlack slack) {
             this.slack = slack;
             return this;
         }
+        @CustomType.Setter
         public Builder trendmicro(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro trendmicro) {
             this.trendmicro = trendmicro;
             return this;
         }
+        @CustomType.Setter
         public Builder veeva(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesVeeva veeva) {
             this.veeva = veeva;
             return this;
         }
+        @CustomType.Setter
         public Builder zendesk(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesZendesk zendesk) {
             this.zendesk = zendesk;
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorProperties build() {
-            return new FlowSourceFlowConfigSourceConnectorProperties(amplitude, customConnector, datadog, dynatrace, googleAnalytics, inforNexus, marketo, s3, salesforce, sapoData, serviceNow, singular, slack, trendmicro, veeva, zendesk);
+        }
+        public FlowSourceFlowConfigSourceConnectorProperties build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorProperties();
+            o.amplitude = amplitude;
+            o.customConnector = customConnector;
+            o.datadog = datadog;
+            o.dynatrace = dynatrace;
+            o.googleAnalytics = googleAnalytics;
+            o.inforNexus = inforNexus;
+            o.marketo = marketo;
+            o.s3 = s3;
+            o.salesforce = salesforce;
+            o.sapoData = sapoData;
+            o.serviceNow = serviceNow;
+            o.singular = singular;
+            o.slack = slack;
+            o.trendmicro = trendmicro;
+            o.veeva = veeva;
+            o.zendesk = zendesk;
+            return o;
         }
     }
 }

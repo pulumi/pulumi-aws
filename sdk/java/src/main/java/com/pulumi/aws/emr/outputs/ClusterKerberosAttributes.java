@@ -15,42 +15,29 @@ public final class ClusterKerberosAttributes {
      * @return Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private final @Nullable String adDomainJoinPassword;
+    private @Nullable String adDomainJoinPassword;
     /**
      * @return Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private final @Nullable String adDomainJoinUser;
+    private @Nullable String adDomainJoinUser;
     /**
      * @return Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private final @Nullable String crossRealmTrustPrincipalPassword;
+    private @Nullable String crossRealmTrustPrincipalPassword;
     /**
      * @return Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private final String kdcAdminPassword;
+    private String kdcAdminPassword;
     /**
      * @return Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
      * 
      */
-    private final String realm;
+    private String realm;
 
-    @CustomType.Constructor
-    private ClusterKerberosAttributes(
-        @CustomType.Parameter("adDomainJoinPassword") @Nullable String adDomainJoinPassword,
-        @CustomType.Parameter("adDomainJoinUser") @Nullable String adDomainJoinUser,
-        @CustomType.Parameter("crossRealmTrustPrincipalPassword") @Nullable String crossRealmTrustPrincipalPassword,
-        @CustomType.Parameter("kdcAdminPassword") String kdcAdminPassword,
-        @CustomType.Parameter("realm") String realm) {
-        this.adDomainJoinPassword = adDomainJoinPassword;
-        this.adDomainJoinUser = adDomainJoinUser;
-        this.crossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
-        this.kdcAdminPassword = kdcAdminPassword;
-        this.realm = realm;
-    }
-
+    private ClusterKerberosAttributes() {}
     /**
      * @return Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
      * 
@@ -94,18 +81,14 @@ public final class ClusterKerberosAttributes {
     public static Builder builder(ClusterKerberosAttributes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String adDomainJoinPassword;
         private @Nullable String adDomainJoinUser;
         private @Nullable String crossRealmTrustPrincipalPassword;
         private String kdcAdminPassword;
         private String realm;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterKerberosAttributes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adDomainJoinPassword = defaults.adDomainJoinPassword;
@@ -115,27 +98,39 @@ public final class ClusterKerberosAttributes {
     	      this.realm = defaults.realm;
         }
 
+        @CustomType.Setter
         public Builder adDomainJoinPassword(@Nullable String adDomainJoinPassword) {
             this.adDomainJoinPassword = adDomainJoinPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder adDomainJoinUser(@Nullable String adDomainJoinUser) {
             this.adDomainJoinUser = adDomainJoinUser;
             return this;
         }
+        @CustomType.Setter
         public Builder crossRealmTrustPrincipalPassword(@Nullable String crossRealmTrustPrincipalPassword) {
             this.crossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder kdcAdminPassword(String kdcAdminPassword) {
             this.kdcAdminPassword = Objects.requireNonNull(kdcAdminPassword);
             return this;
         }
+        @CustomType.Setter
         public Builder realm(String realm) {
             this.realm = Objects.requireNonNull(realm);
             return this;
-        }        public ClusterKerberosAttributes build() {
-            return new ClusterKerberosAttributes(adDomainJoinPassword, adDomainJoinUser, crossRealmTrustPrincipalPassword, kdcAdminPassword, realm);
+        }
+        public ClusterKerberosAttributes build() {
+            final var o = new ClusterKerberosAttributes();
+            o.adDomainJoinPassword = adDomainJoinPassword;
+            o.adDomainJoinUser = adDomainJoinUser;
+            o.crossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
+            o.kdcAdminPassword = kdcAdminPassword;
+            o.realm = realm;
+            return o;
         }
     }
 }

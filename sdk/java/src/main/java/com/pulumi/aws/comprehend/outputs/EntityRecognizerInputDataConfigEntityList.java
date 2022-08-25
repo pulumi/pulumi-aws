@@ -13,13 +13,9 @@ public final class EntityRecognizerInputDataConfigEntityList {
      * @return Location of entity list.
      * 
      */
-    private final String s3Uri;
+    private String s3Uri;
 
-    @CustomType.Constructor
-    private EntityRecognizerInputDataConfigEntityList(@CustomType.Parameter("s3Uri") String s3Uri) {
-        this.s3Uri = s3Uri;
-    }
-
+    private EntityRecognizerInputDataConfigEntityList() {}
     /**
      * @return Location of entity list.
      * 
@@ -35,24 +31,24 @@ public final class EntityRecognizerInputDataConfigEntityList {
     public static Builder builder(EntityRecognizerInputDataConfigEntityList defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String s3Uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EntityRecognizerInputDataConfigEntityList defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Uri = defaults.s3Uri;
         }
 
+        @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
             this.s3Uri = Objects.requireNonNull(s3Uri);
             return this;
-        }        public EntityRecognizerInputDataConfigEntityList build() {
-            return new EntityRecognizerInputDataConfigEntityList(s3Uri);
+        }
+        public EntityRecognizerInputDataConfigEntityList build() {
+            final var o = new EntityRecognizerInputDataConfigEntityList();
+            o.s3Uri = s3Uri;
+            return o;
         }
     }
 }

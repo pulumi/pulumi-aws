@@ -15,33 +15,18 @@ public final class GetOrderableClusterResult {
      * @return List of Availability Zone names where the Redshit Cluster is available.
      * 
      */
-    private final List<String> availabilityZones;
-    private final String clusterType;
-    private final String clusterVersion;
+    private List<String> availabilityZones;
+    private String clusterType;
+    private String clusterVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String nodeType;
-    private final @Nullable List<String> preferredNodeTypes;
+    private String id;
+    private String nodeType;
+    private @Nullable List<String> preferredNodeTypes;
 
-    @CustomType.Constructor
-    private GetOrderableClusterResult(
-        @CustomType.Parameter("availabilityZones") List<String> availabilityZones,
-        @CustomType.Parameter("clusterType") String clusterType,
-        @CustomType.Parameter("clusterVersion") String clusterVersion,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("nodeType") String nodeType,
-        @CustomType.Parameter("preferredNodeTypes") @Nullable List<String> preferredNodeTypes) {
-        this.availabilityZones = availabilityZones;
-        this.clusterType = clusterType;
-        this.clusterVersion = clusterVersion;
-        this.id = id;
-        this.nodeType = nodeType;
-        this.preferredNodeTypes = preferredNodeTypes;
-    }
-
+    private GetOrderableClusterResult() {}
     /**
      * @return List of Availability Zone names where the Redshit Cluster is available.
      * 
@@ -76,7 +61,7 @@ public final class GetOrderableClusterResult {
     public static Builder builder(GetOrderableClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> availabilityZones;
         private String clusterType;
@@ -84,11 +69,7 @@ public final class GetOrderableClusterResult {
         private String id;
         private String nodeType;
         private @Nullable List<String> preferredNodeTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrderableClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZones = defaults.availabilityZones;
@@ -99,6 +80,7 @@ public final class GetOrderableClusterResult {
     	      this.preferredNodeTypes = defaults.preferredNodeTypes;
         }
 
+        @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
             this.availabilityZones = Objects.requireNonNull(availabilityZones);
             return this;
@@ -106,30 +88,43 @@ public final class GetOrderableClusterResult {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder clusterType(String clusterType) {
             this.clusterType = Objects.requireNonNull(clusterType);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterVersion(String clusterVersion) {
             this.clusterVersion = Objects.requireNonNull(clusterVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeType(String nodeType) {
             this.nodeType = Objects.requireNonNull(nodeType);
             return this;
         }
+        @CustomType.Setter
         public Builder preferredNodeTypes(@Nullable List<String> preferredNodeTypes) {
             this.preferredNodeTypes = preferredNodeTypes;
             return this;
         }
         public Builder preferredNodeTypes(String... preferredNodeTypes) {
             return preferredNodeTypes(List.of(preferredNodeTypes));
-        }        public GetOrderableClusterResult build() {
-            return new GetOrderableClusterResult(availabilityZones, clusterType, clusterVersion, id, nodeType, preferredNodeTypes);
+        }
+        public GetOrderableClusterResult build() {
+            final var o = new GetOrderableClusterResult();
+            o.availabilityZones = availabilityZones;
+            o.clusterType = clusterType;
+            o.clusterVersion = clusterVersion;
+            o.id = id;
+            o.nodeType = nodeType;
+            o.preferredNodeTypes = preferredNodeTypes;
+            return o;
         }
     }
 }

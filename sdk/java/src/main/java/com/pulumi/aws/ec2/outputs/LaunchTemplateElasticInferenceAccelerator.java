@@ -13,13 +13,9 @@ public final class LaunchTemplateElasticInferenceAccelerator {
      * @return Accelerator type.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private LaunchTemplateElasticInferenceAccelerator(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private LaunchTemplateElasticInferenceAccelerator() {}
     /**
      * @return Accelerator type.
      * 
@@ -35,24 +31,24 @@ public final class LaunchTemplateElasticInferenceAccelerator {
     public static Builder builder(LaunchTemplateElasticInferenceAccelerator defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateElasticInferenceAccelerator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public LaunchTemplateElasticInferenceAccelerator build() {
-            return new LaunchTemplateElasticInferenceAccelerator(type);
+        }
+        public LaunchTemplateElasticInferenceAccelerator build() {
+            final var o = new LaunchTemplateElasticInferenceAccelerator();
+            o.type = type;
+            return o;
         }
     }
 }

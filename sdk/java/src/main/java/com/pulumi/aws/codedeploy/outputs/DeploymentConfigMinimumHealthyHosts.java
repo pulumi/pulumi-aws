@@ -16,7 +16,7 @@ public final class DeploymentConfigMinimumHealthyHosts {
      * @return The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
      * a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
@@ -24,16 +24,9 @@ public final class DeploymentConfigMinimumHealthyHosts {
      * When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
      * 
      */
-    private final @Nullable Integer value;
+    private @Nullable Integer value;
 
-    @CustomType.Constructor
-    private DeploymentConfigMinimumHealthyHosts(
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") @Nullable Integer value) {
-        this.type = type;
-        this.value = value;
-    }
-
+    private DeploymentConfigMinimumHealthyHosts() {}
     /**
      * @return The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
      * 
@@ -59,30 +52,32 @@ public final class DeploymentConfigMinimumHealthyHosts {
     public static Builder builder(DeploymentConfigMinimumHealthyHosts defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String type;
         private @Nullable Integer value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentConfigMinimumHealthyHosts defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable Integer value) {
             this.value = value;
             return this;
-        }        public DeploymentConfigMinimumHealthyHosts build() {
-            return new DeploymentConfigMinimumHealthyHosts(type, value);
+        }
+        public DeploymentConfigMinimumHealthyHosts build() {
+            final var o = new DeploymentConfigMinimumHealthyHosts();
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

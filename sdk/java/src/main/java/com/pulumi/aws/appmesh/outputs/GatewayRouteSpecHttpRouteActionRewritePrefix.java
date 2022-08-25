@@ -15,21 +15,14 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefix {
      * @return The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private final @Nullable String defaultPrefix;
+    private @Nullable String defaultPrefix;
     /**
      * @return The value used to replace the incoming route prefix when rewritten.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttpRouteActionRewritePrefix(
-        @CustomType.Parameter("defaultPrefix") @Nullable String defaultPrefix,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.defaultPrefix = defaultPrefix;
-        this.value = value;
-    }
-
+    private GatewayRouteSpecHttpRouteActionRewritePrefix() {}
     /**
      * @return The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
      * 
@@ -52,30 +45,32 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefix {
     public static Builder builder(GatewayRouteSpecHttpRouteActionRewritePrefix defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultPrefix;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttpRouteActionRewritePrefix defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultPrefix = defaults.defaultPrefix;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder defaultPrefix(@Nullable String defaultPrefix) {
             this.defaultPrefix = defaultPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public GatewayRouteSpecHttpRouteActionRewritePrefix build() {
-            return new GatewayRouteSpecHttpRouteActionRewritePrefix(defaultPrefix, value);
+        }
+        public GatewayRouteSpecHttpRouteActionRewritePrefix build() {
+            final var o = new GatewayRouteSpecHttpRouteActionRewritePrefix();
+            o.defaultPrefix = defaultPrefix;
+            o.value = value;
+            return o;
         }
     }
 }

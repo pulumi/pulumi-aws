@@ -10,20 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerInstance {
-    private final String consoleUrl;
-    private final List<String> endpoints;
-    private final String ipAddress;
+    private String consoleUrl;
+    private List<String> endpoints;
+    private String ipAddress;
 
-    @CustomType.Constructor
-    private GetBrokerInstance(
-        @CustomType.Parameter("consoleUrl") String consoleUrl,
-        @CustomType.Parameter("endpoints") List<String> endpoints,
-        @CustomType.Parameter("ipAddress") String ipAddress) {
-        this.consoleUrl = consoleUrl;
-        this.endpoints = endpoints;
-        this.ipAddress = ipAddress;
-    }
-
+    private GetBrokerInstance() {}
     public String consoleUrl() {
         return this.consoleUrl;
     }
@@ -41,16 +32,12 @@ public final class GetBrokerInstance {
     public static Builder builder(GetBrokerInstance defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String consoleUrl;
         private List<String> endpoints;
         private String ipAddress;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrokerInstance defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consoleUrl = defaults.consoleUrl;
@@ -58,10 +45,12 @@ public final class GetBrokerInstance {
     	      this.ipAddress = defaults.ipAddress;
         }
 
+        @CustomType.Setter
         public Builder consoleUrl(String consoleUrl) {
             this.consoleUrl = Objects.requireNonNull(consoleUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder endpoints(List<String> endpoints) {
             this.endpoints = Objects.requireNonNull(endpoints);
             return this;
@@ -69,11 +58,17 @@ public final class GetBrokerInstance {
         public Builder endpoints(String... endpoints) {
             return endpoints(List.of(endpoints));
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
-        }        public GetBrokerInstance build() {
-            return new GetBrokerInstance(consoleUrl, endpoints, ipAddress);
+        }
+        public GetBrokerInstance build() {
+            final var o = new GetBrokerInstance();
+            o.consoleUrl = consoleUrl;
+            o.endpoints = endpoints;
+            o.ipAddress = ipAddress;
+            return o;
         }
     }
 }

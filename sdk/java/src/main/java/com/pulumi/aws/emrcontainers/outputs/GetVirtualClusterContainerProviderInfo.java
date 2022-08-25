@@ -14,13 +14,9 @@ public final class GetVirtualClusterContainerProviderInfo {
      * @return Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
      * 
      */
-    private final List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos;
+    private List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos;
 
-    @CustomType.Constructor
-    private GetVirtualClusterContainerProviderInfo(@CustomType.Parameter("eksInfos") List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos) {
-        this.eksInfos = eksInfos;
-    }
-
+    private GetVirtualClusterContainerProviderInfo() {}
     /**
      * @return Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
      * 
@@ -36,27 +32,27 @@ public final class GetVirtualClusterContainerProviderInfo {
     public static Builder builder(GetVirtualClusterContainerProviderInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualClusterContainerProviderInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eksInfos = defaults.eksInfos;
         }
 
+        @CustomType.Setter
         public Builder eksInfos(List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos) {
             this.eksInfos = Objects.requireNonNull(eksInfos);
             return this;
         }
         public Builder eksInfos(GetVirtualClusterContainerProviderInfoEksInfo... eksInfos) {
             return eksInfos(List.of(eksInfos));
-        }        public GetVirtualClusterContainerProviderInfo build() {
-            return new GetVirtualClusterContainerProviderInfo(eksInfos);
+        }
+        public GetVirtualClusterContainerProviderInfo build() {
+            final var o = new GetVirtualClusterContainerProviderInfo();
+            o.eksInfos = eksInfos;
+            return o;
         }
     }
 }

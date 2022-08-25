@@ -10,58 +10,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPermissionSetResult {
-    private final String arn;
-    private final String createdDate;
+    private String arn;
+    private String createdDate;
     /**
      * @return The description of the Permission Set.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceArn;
-    private final String name;
+    private String id;
+    private String instanceArn;
+    private String name;
     /**
      * @return The relay state URL used to redirect users within the application during the federation authentication process.
      * 
      */
-    private final String relayState;
+    private String relayState;
     /**
      * @return The length of time that the application user sessions are valid in the ISO-8601 standard.
      * 
      */
-    private final String sessionDuration;
+    private String sessionDuration;
     /**
      * @return Key-value map of resource tags.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetPermissionSetResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceArn") String instanceArn,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("relayState") String relayState,
-        @CustomType.Parameter("sessionDuration") String sessionDuration,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.createdDate = createdDate;
-        this.description = description;
-        this.id = id;
-        this.instanceArn = instanceArn;
-        this.name = name;
-        this.relayState = relayState;
-        this.sessionDuration = sessionDuration;
-        this.tags = tags;
-    }
-
+    private GetPermissionSetResult() {}
     public String arn() {
         return this.arn;
     }
@@ -117,7 +96,7 @@ public final class GetPermissionSetResult {
     public static Builder builder(GetPermissionSetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String createdDate;
@@ -128,11 +107,7 @@ public final class GetPermissionSetResult {
         private String relayState;
         private String sessionDuration;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPermissionSetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -146,43 +121,63 @@ public final class GetPermissionSetResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceArn(String instanceArn) {
             this.instanceArn = Objects.requireNonNull(instanceArn);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder relayState(String relayState) {
             this.relayState = Objects.requireNonNull(relayState);
             return this;
         }
+        @CustomType.Setter
         public Builder sessionDuration(String sessionDuration) {
             this.sessionDuration = Objects.requireNonNull(sessionDuration);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetPermissionSetResult build() {
-            return new GetPermissionSetResult(arn, createdDate, description, id, instanceArn, name, relayState, sessionDuration, tags);
+        }
+        public GetPermissionSetResult build() {
+            final var o = new GetPermissionSetResult();
+            o.arn = arn;
+            o.createdDate = createdDate;
+            o.description = description;
+            o.id = id;
+            o.instanceArn = instanceArn;
+            o.name = name;
+            o.relayState = relayState;
+            o.sessionDuration = sessionDuration;
+            o.tags = tags;
+            return o;
         }
     }
 }

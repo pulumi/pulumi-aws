@@ -13,21 +13,14 @@ public final class UserPoolLambdaConfigCustomEmailSender {
      * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
      * 
      */
-    private final String lambdaArn;
+    private String lambdaArn;
     /**
      * @return The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
      * 
      */
-    private final String lambdaVersion;
+    private String lambdaVersion;
 
-    @CustomType.Constructor
-    private UserPoolLambdaConfigCustomEmailSender(
-        @CustomType.Parameter("lambdaArn") String lambdaArn,
-        @CustomType.Parameter("lambdaVersion") String lambdaVersion) {
-        this.lambdaArn = lambdaArn;
-        this.lambdaVersion = lambdaVersion;
-    }
-
+    private UserPoolLambdaConfigCustomEmailSender() {}
     /**
      * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
      * 
@@ -50,30 +43,32 @@ public final class UserPoolLambdaConfigCustomEmailSender {
     public static Builder builder(UserPoolLambdaConfigCustomEmailSender defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String lambdaArn;
         private String lambdaVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolLambdaConfigCustomEmailSender defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lambdaArn = defaults.lambdaArn;
     	      this.lambdaVersion = defaults.lambdaVersion;
         }
 
+        @CustomType.Setter
         public Builder lambdaArn(String lambdaArn) {
             this.lambdaArn = Objects.requireNonNull(lambdaArn);
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaVersion(String lambdaVersion) {
             this.lambdaVersion = Objects.requireNonNull(lambdaVersion);
             return this;
-        }        public UserPoolLambdaConfigCustomEmailSender build() {
-            return new UserPoolLambdaConfigCustomEmailSender(lambdaArn, lambdaVersion);
+        }
+        public UserPoolLambdaConfigCustomEmailSender build() {
+            final var o = new UserPoolLambdaConfigCustomEmailSender();
+            o.lambdaArn = lambdaArn;
+            o.lambdaVersion = lambdaVersion;
+            return o;
         }
     }
 }

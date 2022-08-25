@@ -13,21 +13,14 @@ public final class GetLaunchConfigurationEphemeralBlockDevice {
      * @return The Name of the device.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return The Virtual Name of the device.
      * 
      */
-    private final String virtualName;
+    private String virtualName;
 
-    @CustomType.Constructor
-    private GetLaunchConfigurationEphemeralBlockDevice(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("virtualName") String virtualName) {
-        this.deviceName = deviceName;
-        this.virtualName = virtualName;
-    }
-
+    private GetLaunchConfigurationEphemeralBlockDevice() {}
     /**
      * @return The Name of the device.
      * 
@@ -50,30 +43,32 @@ public final class GetLaunchConfigurationEphemeralBlockDevice {
     public static Builder builder(GetLaunchConfigurationEphemeralBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchConfigurationEphemeralBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(String virtualName) {
             this.virtualName = Objects.requireNonNull(virtualName);
             return this;
-        }        public GetLaunchConfigurationEphemeralBlockDevice build() {
-            return new GetLaunchConfigurationEphemeralBlockDevice(deviceName, virtualName);
+        }
+        public GetLaunchConfigurationEphemeralBlockDevice build() {
+            final var o = new GetLaunchConfigurationEphemeralBlockDevice();
+            o.deviceName = deviceName;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class FleetCertificateConfiguration {
      * @return Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
      * 
      */
-    private final @Nullable String certificateType;
+    private @Nullable String certificateType;
 
-    @CustomType.Constructor
-    private FleetCertificateConfiguration(@CustomType.Parameter("certificateType") @Nullable String certificateType) {
-        this.certificateType = certificateType;
-    }
-
+    private FleetCertificateConfiguration() {}
     /**
      * @return Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
      * 
@@ -37,24 +33,24 @@ public final class FleetCertificateConfiguration {
     public static Builder builder(FleetCertificateConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetCertificateConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateType = defaults.certificateType;
         }
 
+        @CustomType.Setter
         public Builder certificateType(@Nullable String certificateType) {
             this.certificateType = certificateType;
             return this;
-        }        public FleetCertificateConfiguration build() {
-            return new FleetCertificateConfiguration(certificateType);
+        }
+        public FleetCertificateConfiguration build() {
+            final var o = new FleetCertificateConfiguration();
+            o.certificateType = certificateType;
+            return o;
         }
     }
 }

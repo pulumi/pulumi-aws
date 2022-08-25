@@ -16,21 +16,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteria {
      * @return The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
      * 
      */
-    private final @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludes excludes;
+    private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludes excludes;
     /**
      * @return The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
      * 
      */
-    private final @Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludes includes;
+    private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludes includes;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionBucketCriteria(
-        @CustomType.Parameter("excludes") @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludes excludes,
-        @CustomType.Parameter("includes") @Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludes includes) {
-        this.excludes = excludes;
-        this.includes = includes;
-    }
-
+    private ClassificationJobS3JobDefinitionBucketCriteria() {}
     /**
      * @return The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
      * 
@@ -53,30 +46,32 @@ public final class ClassificationJobS3JobDefinitionBucketCriteria {
     public static Builder builder(ClassificationJobS3JobDefinitionBucketCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludes excludes;
         private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludes includes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionBucketCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludes = defaults.excludes;
     	      this.includes = defaults.includes;
         }
 
+        @CustomType.Setter
         public Builder excludes(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludes excludes) {
             this.excludes = excludes;
             return this;
         }
+        @CustomType.Setter
         public Builder includes(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludes includes) {
             this.includes = includes;
             return this;
-        }        public ClassificationJobS3JobDefinitionBucketCriteria build() {
-            return new ClassificationJobS3JobDefinitionBucketCriteria(excludes, includes);
+        }
+        public ClassificationJobS3JobDefinitionBucketCriteria build() {
+            final var o = new ClassificationJobS3JobDefinitionBucketCriteria();
+            o.excludes = excludes;
+            o.includes = includes;
+            return o;
         }
     }
 }

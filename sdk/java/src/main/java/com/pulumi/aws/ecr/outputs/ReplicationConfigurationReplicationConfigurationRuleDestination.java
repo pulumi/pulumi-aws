@@ -13,21 +13,14 @@ public final class ReplicationConfigurationReplicationConfigurationRuleDestinati
      * @return A Region to replicate to.
      * 
      */
-    private final String region;
+    private String region;
     /**
      * @return The account ID of the destination registry to replicate to.
      * 
      */
-    private final String registryId;
+    private String registryId;
 
-    @CustomType.Constructor
-    private ReplicationConfigurationReplicationConfigurationRuleDestination(
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("registryId") String registryId) {
-        this.region = region;
-        this.registryId = registryId;
-    }
-
+    private ReplicationConfigurationReplicationConfigurationRuleDestination() {}
     /**
      * @return A Region to replicate to.
      * 
@@ -50,30 +43,32 @@ public final class ReplicationConfigurationReplicationConfigurationRuleDestinati
     public static Builder builder(ReplicationConfigurationReplicationConfigurationRuleDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String region;
         private String registryId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicationConfigurationReplicationConfigurationRuleDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.region = defaults.region;
     	      this.registryId = defaults.registryId;
         }
 
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder registryId(String registryId) {
             this.registryId = Objects.requireNonNull(registryId);
             return this;
-        }        public ReplicationConfigurationReplicationConfigurationRuleDestination build() {
-            return new ReplicationConfigurationReplicationConfigurationRuleDestination(region, registryId);
+        }
+        public ReplicationConfigurationReplicationConfigurationRuleDestination build() {
+            final var o = new ReplicationConfigurationReplicationConfigurationRuleDestination();
+            o.region = region;
+            o.registryId = registryId;
+            return o;
         }
     }
 }

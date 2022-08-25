@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ContainerServicePublicDomainNames {
-    private final List<ContainerServicePublicDomainNamesCertificate> certificates;
+    private List<ContainerServicePublicDomainNamesCertificate> certificates;
 
-    @CustomType.Constructor
-    private ContainerServicePublicDomainNames(@CustomType.Parameter("certificates") List<ContainerServicePublicDomainNamesCertificate> certificates) {
-        this.certificates = certificates;
-    }
-
+    private ContainerServicePublicDomainNames() {}
     public List<ContainerServicePublicDomainNamesCertificate> certificates() {
         return this.certificates;
     }
@@ -28,27 +24,27 @@ public final class ContainerServicePublicDomainNames {
     public static Builder builder(ContainerServicePublicDomainNames defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ContainerServicePublicDomainNamesCertificate> certificates;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContainerServicePublicDomainNames defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificates = defaults.certificates;
         }
 
+        @CustomType.Setter
         public Builder certificates(List<ContainerServicePublicDomainNamesCertificate> certificates) {
             this.certificates = Objects.requireNonNull(certificates);
             return this;
         }
         public Builder certificates(ContainerServicePublicDomainNamesCertificate... certificates) {
             return certificates(List.of(certificates));
-        }        public ContainerServicePublicDomainNames build() {
-            return new ContainerServicePublicDomainNames(certificates);
+        }
+        public ContainerServicePublicDomainNames build() {
+            final var o = new ContainerServicePublicDomainNames();
+            o.certificates = certificates;
+            return o;
         }
     }
 }

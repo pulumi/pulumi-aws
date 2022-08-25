@@ -18,28 +18,19 @@ public final class RuleGroupRuleStatementOrStatementStatementRegexPatternSetRefe
      * @return The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch;
+    private @Nullable RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch;
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
      * 
      */
-    private final List<RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations;
+    private List<RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("fieldToMatch") @Nullable RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch,
-        @CustomType.Parameter("textTransformations") List<RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations) {
-        this.arn = arn;
-        this.fieldToMatch = fieldToMatch;
-        this.textTransformations = textTransformations;
-    }
-
+    private RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
      * 
@@ -69,16 +60,12 @@ public final class RuleGroupRuleStatementOrStatementStatementRegexPatternSetRefe
     public static Builder builder(RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private @Nullable RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch;
         private List<RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -86,22 +73,30 @@ public final class RuleGroupRuleStatementOrStatementStatementRegexPatternSetRefe
     	      this.textTransformations = defaults.textTransformations;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder fieldToMatch(@Nullable RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch) {
             this.fieldToMatch = fieldToMatch;
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations) {
             this.textTransformations = Objects.requireNonNull(textTransformations);
             return this;
         }
         public Builder textTransformations(RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
-        }        public RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement build() {
-            return new RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement(arn, fieldToMatch, textTransformations);
+        }
+        public RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement build() {
+            final var o = new RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement();
+            o.arn = arn;
+            o.fieldToMatch = fieldToMatch;
+            o.textTransformations = textTransformations;
+            return o;
         }
     }
 }

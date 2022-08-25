@@ -17,84 +17,59 @@ public final class BrokerLdapServerMetadata {
      * @return List of a fully qualified domain name of the LDAP server and an optional failover server.
      * 
      */
-    private final @Nullable List<String> hosts;
+    private @Nullable List<String> hosts;
     /**
      * @return Fully qualified name of the directory to search for a user’s groups.
      * 
      */
-    private final @Nullable String roleBase;
+    private @Nullable String roleBase;
     /**
      * @return Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
      * 
      */
-    private final @Nullable String roleName;
+    private @Nullable String roleName;
     /**
      * @return Search criteria for groups.
      * 
      */
-    private final @Nullable String roleSearchMatching;
+    private @Nullable String roleSearchMatching;
     /**
      * @return Whether the directory search scope is the entire sub-tree.
      * 
      */
-    private final @Nullable Boolean roleSearchSubtree;
+    private @Nullable Boolean roleSearchSubtree;
     /**
      * @return Service account password.
      * 
      */
-    private final @Nullable String serviceAccountPassword;
+    private @Nullable String serviceAccountPassword;
     /**
      * @return Service account username.
      * 
      */
-    private final @Nullable String serviceAccountUsername;
+    private @Nullable String serviceAccountUsername;
     /**
      * @return Fully qualified name of the directory where you want to search for users.
      * 
      */
-    private final @Nullable String userBase;
+    private @Nullable String userBase;
     /**
      * @return Specifies the name of the LDAP attribute for the user group membership.
      * 
      */
-    private final @Nullable String userRoleName;
+    private @Nullable String userRoleName;
     /**
      * @return Search criteria for users.
      * 
      */
-    private final @Nullable String userSearchMatching;
+    private @Nullable String userSearchMatching;
     /**
      * @return Whether the directory search scope is the entire sub-tree.
      * 
      */
-    private final @Nullable Boolean userSearchSubtree;
+    private @Nullable Boolean userSearchSubtree;
 
-    @CustomType.Constructor
-    private BrokerLdapServerMetadata(
-        @CustomType.Parameter("hosts") @Nullable List<String> hosts,
-        @CustomType.Parameter("roleBase") @Nullable String roleBase,
-        @CustomType.Parameter("roleName") @Nullable String roleName,
-        @CustomType.Parameter("roleSearchMatching") @Nullable String roleSearchMatching,
-        @CustomType.Parameter("roleSearchSubtree") @Nullable Boolean roleSearchSubtree,
-        @CustomType.Parameter("serviceAccountPassword") @Nullable String serviceAccountPassword,
-        @CustomType.Parameter("serviceAccountUsername") @Nullable String serviceAccountUsername,
-        @CustomType.Parameter("userBase") @Nullable String userBase,
-        @CustomType.Parameter("userRoleName") @Nullable String userRoleName,
-        @CustomType.Parameter("userSearchMatching") @Nullable String userSearchMatching,
-        @CustomType.Parameter("userSearchSubtree") @Nullable Boolean userSearchSubtree) {
-        this.hosts = hosts;
-        this.roleBase = roleBase;
-        this.roleName = roleName;
-        this.roleSearchMatching = roleSearchMatching;
-        this.roleSearchSubtree = roleSearchSubtree;
-        this.serviceAccountPassword = serviceAccountPassword;
-        this.serviceAccountUsername = serviceAccountUsername;
-        this.userBase = userBase;
-        this.userRoleName = userRoleName;
-        this.userSearchMatching = userSearchMatching;
-        this.userSearchSubtree = userSearchSubtree;
-    }
-
+    private BrokerLdapServerMetadata() {}
     /**
      * @return List of a fully qualified domain name of the LDAP server and an optional failover server.
      * 
@@ -180,7 +155,7 @@ public final class BrokerLdapServerMetadata {
     public static Builder builder(BrokerLdapServerMetadata defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> hosts;
         private @Nullable String roleBase;
@@ -193,11 +168,7 @@ public final class BrokerLdapServerMetadata {
         private @Nullable String userRoleName;
         private @Nullable String userSearchMatching;
         private @Nullable Boolean userSearchSubtree;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BrokerLdapServerMetadata defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hosts = defaults.hosts;
@@ -213,6 +184,7 @@ public final class BrokerLdapServerMetadata {
     	      this.userSearchSubtree = defaults.userSearchSubtree;
         }
 
+        @CustomType.Setter
         public Builder hosts(@Nullable List<String> hosts) {
             this.hosts = hosts;
             return this;
@@ -220,47 +192,70 @@ public final class BrokerLdapServerMetadata {
         public Builder hosts(String... hosts) {
             return hosts(List.of(hosts));
         }
+        @CustomType.Setter
         public Builder roleBase(@Nullable String roleBase) {
             this.roleBase = roleBase;
             return this;
         }
+        @CustomType.Setter
         public Builder roleName(@Nullable String roleName) {
             this.roleName = roleName;
             return this;
         }
+        @CustomType.Setter
         public Builder roleSearchMatching(@Nullable String roleSearchMatching) {
             this.roleSearchMatching = roleSearchMatching;
             return this;
         }
+        @CustomType.Setter
         public Builder roleSearchSubtree(@Nullable Boolean roleSearchSubtree) {
             this.roleSearchSubtree = roleSearchSubtree;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccountPassword(@Nullable String serviceAccountPassword) {
             this.serviceAccountPassword = serviceAccountPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccountUsername(@Nullable String serviceAccountUsername) {
             this.serviceAccountUsername = serviceAccountUsername;
             return this;
         }
+        @CustomType.Setter
         public Builder userBase(@Nullable String userBase) {
             this.userBase = userBase;
             return this;
         }
+        @CustomType.Setter
         public Builder userRoleName(@Nullable String userRoleName) {
             this.userRoleName = userRoleName;
             return this;
         }
+        @CustomType.Setter
         public Builder userSearchMatching(@Nullable String userSearchMatching) {
             this.userSearchMatching = userSearchMatching;
             return this;
         }
+        @CustomType.Setter
         public Builder userSearchSubtree(@Nullable Boolean userSearchSubtree) {
             this.userSearchSubtree = userSearchSubtree;
             return this;
-        }        public BrokerLdapServerMetadata build() {
-            return new BrokerLdapServerMetadata(hosts, roleBase, roleName, roleSearchMatching, roleSearchSubtree, serviceAccountPassword, serviceAccountUsername, userBase, userRoleName, userSearchMatching, userSearchSubtree);
+        }
+        public BrokerLdapServerMetadata build() {
+            final var o = new BrokerLdapServerMetadata();
+            o.hosts = hosts;
+            o.roleBase = roleBase;
+            o.roleName = roleName;
+            o.roleSearchMatching = roleSearchMatching;
+            o.roleSearchSubtree = roleSearchSubtree;
+            o.serviceAccountPassword = serviceAccountPassword;
+            o.serviceAccountUsername = serviceAccountUsername;
+            o.userBase = userBase;
+            o.userRoleName = userRoleName;
+            o.userSearchMatching = userSearchMatching;
+            o.userSearchSubtree = userSearchSubtree;
+            return o;
         }
     }
 }

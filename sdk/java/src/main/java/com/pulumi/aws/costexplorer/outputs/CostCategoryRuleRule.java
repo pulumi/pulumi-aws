@@ -21,45 +21,30 @@ public final class CostCategoryRuleRule {
      * @return Return results that match both `Dimension` objects.
      * 
      */
-    private final @Nullable List<CostCategoryRuleRuleAnd> ands;
+    private @Nullable List<CostCategoryRuleRuleAnd> ands;
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
      */
-    private final @Nullable CostCategoryRuleRuleCostCategory costCategory;
+    private @Nullable CostCategoryRuleRuleCostCategory costCategory;
     /**
      * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
-    private final @Nullable CostCategoryRuleRuleDimension dimension;
+    private @Nullable CostCategoryRuleRuleDimension dimension;
     /**
      * @return Return results that match both `Dimension` object.
      * 
      */
-    private final @Nullable CostCategoryRuleRuleNot not;
+    private @Nullable CostCategoryRuleRuleNot not;
     /**
      * @return Return results that match both `Dimension` object.
      * 
      */
-    private final @Nullable List<CostCategoryRuleRuleOr> ors;
-    private final @Nullable CostCategoryRuleRuleTags tags;
+    private @Nullable List<CostCategoryRuleRuleOr> ors;
+    private @Nullable CostCategoryRuleRuleTags tags;
 
-    @CustomType.Constructor
-    private CostCategoryRuleRule(
-        @CustomType.Parameter("ands") @Nullable List<CostCategoryRuleRuleAnd> ands,
-        @CustomType.Parameter("costCategory") @Nullable CostCategoryRuleRuleCostCategory costCategory,
-        @CustomType.Parameter("dimension") @Nullable CostCategoryRuleRuleDimension dimension,
-        @CustomType.Parameter("not") @Nullable CostCategoryRuleRuleNot not,
-        @CustomType.Parameter("ors") @Nullable List<CostCategoryRuleRuleOr> ors,
-        @CustomType.Parameter("tags") @Nullable CostCategoryRuleRuleTags tags) {
-        this.ands = ands;
-        this.costCategory = costCategory;
-        this.dimension = dimension;
-        this.not = not;
-        this.ors = ors;
-        this.tags = tags;
-    }
-
+    private CostCategoryRuleRule() {}
     /**
      * @return Return results that match both `Dimension` objects.
      * 
@@ -106,7 +91,7 @@ public final class CostCategoryRuleRule {
     public static Builder builder(CostCategoryRuleRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<CostCategoryRuleRuleAnd> ands;
         private @Nullable CostCategoryRuleRuleCostCategory costCategory;
@@ -114,11 +99,7 @@ public final class CostCategoryRuleRule {
         private @Nullable CostCategoryRuleRuleNot not;
         private @Nullable List<CostCategoryRuleRuleOr> ors;
         private @Nullable CostCategoryRuleRuleTags tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CostCategoryRuleRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ands = defaults.ands;
@@ -129,6 +110,7 @@ public final class CostCategoryRuleRule {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder ands(@Nullable List<CostCategoryRuleRuleAnd> ands) {
             this.ands = ands;
             return this;
@@ -136,18 +118,22 @@ public final class CostCategoryRuleRule {
         public Builder ands(CostCategoryRuleRuleAnd... ands) {
             return ands(List.of(ands));
         }
+        @CustomType.Setter
         public Builder costCategory(@Nullable CostCategoryRuleRuleCostCategory costCategory) {
             this.costCategory = costCategory;
             return this;
         }
+        @CustomType.Setter
         public Builder dimension(@Nullable CostCategoryRuleRuleDimension dimension) {
             this.dimension = dimension;
             return this;
         }
+        @CustomType.Setter
         public Builder not(@Nullable CostCategoryRuleRuleNot not) {
             this.not = not;
             return this;
         }
+        @CustomType.Setter
         public Builder ors(@Nullable List<CostCategoryRuleRuleOr> ors) {
             this.ors = ors;
             return this;
@@ -155,11 +141,20 @@ public final class CostCategoryRuleRule {
         public Builder ors(CostCategoryRuleRuleOr... ors) {
             return ors(List.of(ors));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable CostCategoryRuleRuleTags tags) {
             this.tags = tags;
             return this;
-        }        public CostCategoryRuleRule build() {
-            return new CostCategoryRuleRule(ands, costCategory, dimension, not, ors, tags);
+        }
+        public CostCategoryRuleRule build() {
+            final var o = new CostCategoryRuleRule();
+            o.ands = ands;
+            o.costCategory = costCategory;
+            o.dimension = dimension;
+            o.not = not;
+            o.ors = ors;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -15,35 +15,24 @@ public final class MLTransformInputRecordTable {
      * @return A unique identifier for the AWS Glue Data Catalog.
      * 
      */
-    private final @Nullable String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return The name of the connection to the AWS Glue Data Catalog.
      * 
      */
-    private final @Nullable String connectionName;
+    private @Nullable String connectionName;
     /**
      * @return A database name in the AWS Glue Data Catalog.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return A table name in the AWS Glue Data Catalog.
      * 
      */
-    private final String tableName;
+    private String tableName;
 
-    @CustomType.Constructor
-    private MLTransformInputRecordTable(
-        @CustomType.Parameter("catalogId") @Nullable String catalogId,
-        @CustomType.Parameter("connectionName") @Nullable String connectionName,
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("tableName") String tableName) {
-        this.catalogId = catalogId;
-        this.connectionName = connectionName;
-        this.databaseName = databaseName;
-        this.tableName = tableName;
-    }
-
+    private MLTransformInputRecordTable() {}
     /**
      * @return A unique identifier for the AWS Glue Data Catalog.
      * 
@@ -80,17 +69,13 @@ public final class MLTransformInputRecordTable {
     public static Builder builder(MLTransformInputRecordTable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String catalogId;
         private @Nullable String connectionName;
         private String databaseName;
         private String tableName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MLTransformInputRecordTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -99,23 +84,33 @@ public final class MLTransformInputRecordTable {
     	      this.tableName = defaults.tableName;
         }
 
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
         }
+        @CustomType.Setter
         public Builder connectionName(@Nullable String connectionName) {
             this.connectionName = connectionName;
             return this;
         }
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             this.tableName = Objects.requireNonNull(tableName);
             return this;
-        }        public MLTransformInputRecordTable build() {
-            return new MLTransformInputRecordTable(catalogId, connectionName, databaseName, tableName);
+        }
+        public MLTransformInputRecordTable build() {
+            final var o = new MLTransformInputRecordTable();
+            o.catalogId = catalogId;
+            o.connectionName = connectionName;
+            o.databaseName = databaseName;
+            o.tableName = tableName;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class CrawlerLineageConfiguration {
      * @return Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
      * 
      */
-    private final @Nullable String crawlerLineageSettings;
+    private @Nullable String crawlerLineageSettings;
 
-    @CustomType.Constructor
-    private CrawlerLineageConfiguration(@CustomType.Parameter("crawlerLineageSettings") @Nullable String crawlerLineageSettings) {
-        this.crawlerLineageSettings = crawlerLineageSettings;
-    }
-
+    private CrawlerLineageConfiguration() {}
     /**
      * @return Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
      * 
@@ -37,24 +33,24 @@ public final class CrawlerLineageConfiguration {
     public static Builder builder(CrawlerLineageConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String crawlerLineageSettings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CrawlerLineageConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.crawlerLineageSettings = defaults.crawlerLineageSettings;
         }
 
+        @CustomType.Setter
         public Builder crawlerLineageSettings(@Nullable String crawlerLineageSettings) {
             this.crawlerLineageSettings = crawlerLineageSettings;
             return this;
-        }        public CrawlerLineageConfiguration build() {
-            return new CrawlerLineageConfiguration(crawlerLineageSettings);
+        }
+        public CrawlerLineageConfiguration build() {
+            final var o = new CrawlerLineageConfiguration();
+            o.crawlerLineageSettings = crawlerLineageSettings;
+            return o;
         }
     }
 }

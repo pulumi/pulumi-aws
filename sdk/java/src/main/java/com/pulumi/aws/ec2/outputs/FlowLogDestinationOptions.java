@@ -16,28 +16,19 @@ public final class FlowLogDestinationOptions {
      * @return The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
      * 
      */
-    private final @Nullable String fileFormat;
+    private @Nullable String fileFormat;
     /**
      * @return Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
      * 
      */
-    private final @Nullable Boolean hiveCompatiblePartitions;
+    private @Nullable Boolean hiveCompatiblePartitions;
     /**
      * @return Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
      * 
      */
-    private final @Nullable Boolean perHourPartition;
+    private @Nullable Boolean perHourPartition;
 
-    @CustomType.Constructor
-    private FlowLogDestinationOptions(
-        @CustomType.Parameter("fileFormat") @Nullable String fileFormat,
-        @CustomType.Parameter("hiveCompatiblePartitions") @Nullable Boolean hiveCompatiblePartitions,
-        @CustomType.Parameter("perHourPartition") @Nullable Boolean perHourPartition) {
-        this.fileFormat = fileFormat;
-        this.hiveCompatiblePartitions = hiveCompatiblePartitions;
-        this.perHourPartition = perHourPartition;
-    }
-
+    private FlowLogDestinationOptions() {}
     /**
      * @return The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
      * 
@@ -67,16 +58,12 @@ public final class FlowLogDestinationOptions {
     public static Builder builder(FlowLogDestinationOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String fileFormat;
         private @Nullable Boolean hiveCompatiblePartitions;
         private @Nullable Boolean perHourPartition;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowLogDestinationOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fileFormat = defaults.fileFormat;
@@ -84,19 +71,27 @@ public final class FlowLogDestinationOptions {
     	      this.perHourPartition = defaults.perHourPartition;
         }
 
+        @CustomType.Setter
         public Builder fileFormat(@Nullable String fileFormat) {
             this.fileFormat = fileFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder hiveCompatiblePartitions(@Nullable Boolean hiveCompatiblePartitions) {
             this.hiveCompatiblePartitions = hiveCompatiblePartitions;
             return this;
         }
+        @CustomType.Setter
         public Builder perHourPartition(@Nullable Boolean perHourPartition) {
             this.perHourPartition = perHourPartition;
             return this;
-        }        public FlowLogDestinationOptions build() {
-            return new FlowLogDestinationOptions(fileFormat, hiveCompatiblePartitions, perHourPartition);
+        }
+        public FlowLogDestinationOptions build() {
+            final var o = new FlowLogDestinationOptions();
+            o.fileFormat = fileFormat;
+            o.hiveCompatiblePartitions = hiveCompatiblePartitions;
+            o.perHourPartition = perHourPartition;
+            return o;
         }
     }
 }

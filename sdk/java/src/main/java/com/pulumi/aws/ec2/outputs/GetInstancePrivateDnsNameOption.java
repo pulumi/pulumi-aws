@@ -14,28 +14,19 @@ public final class GetInstancePrivateDnsNameOption {
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
      * 
      */
-    private final Boolean enableResourceNameDnsARecord;
+    private Boolean enableResourceNameDnsARecord;
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
      * 
      */
-    private final Boolean enableResourceNameDnsAaaaRecord;
+    private Boolean enableResourceNameDnsAaaaRecord;
     /**
      * @return The type of hostname for EC2 instances.
      * 
      */
-    private final String hostnameType;
+    private String hostnameType;
 
-    @CustomType.Constructor
-    private GetInstancePrivateDnsNameOption(
-        @CustomType.Parameter("enableResourceNameDnsARecord") Boolean enableResourceNameDnsARecord,
-        @CustomType.Parameter("enableResourceNameDnsAaaaRecord") Boolean enableResourceNameDnsAaaaRecord,
-        @CustomType.Parameter("hostnameType") String hostnameType) {
-        this.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
-        this.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
-        this.hostnameType = hostnameType;
-    }
-
+    private GetInstancePrivateDnsNameOption() {}
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
      * 
@@ -65,16 +56,12 @@ public final class GetInstancePrivateDnsNameOption {
     public static Builder builder(GetInstancePrivateDnsNameOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enableResourceNameDnsARecord;
         private Boolean enableResourceNameDnsAaaaRecord;
         private String hostnameType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstancePrivateDnsNameOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableResourceNameDnsARecord = defaults.enableResourceNameDnsARecord;
@@ -82,19 +69,27 @@ public final class GetInstancePrivateDnsNameOption {
     	      this.hostnameType = defaults.hostnameType;
         }
 
+        @CustomType.Setter
         public Builder enableResourceNameDnsARecord(Boolean enableResourceNameDnsARecord) {
             this.enableResourceNameDnsARecord = Objects.requireNonNull(enableResourceNameDnsARecord);
             return this;
         }
+        @CustomType.Setter
         public Builder enableResourceNameDnsAaaaRecord(Boolean enableResourceNameDnsAaaaRecord) {
             this.enableResourceNameDnsAaaaRecord = Objects.requireNonNull(enableResourceNameDnsAaaaRecord);
             return this;
         }
+        @CustomType.Setter
         public Builder hostnameType(String hostnameType) {
             this.hostnameType = Objects.requireNonNull(hostnameType);
             return this;
-        }        public GetInstancePrivateDnsNameOption build() {
-            return new GetInstancePrivateDnsNameOption(enableResourceNameDnsARecord, enableResourceNameDnsAaaaRecord, hostnameType);
+        }
+        public GetInstancePrivateDnsNameOption build() {
+            final var o = new GetInstancePrivateDnsNameOption();
+            o.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
+            o.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
+            o.hostnameType = hostnameType;
+            return o;
         }
     }
 }

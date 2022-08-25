@@ -13,13 +13,9 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeTime {
      * @return Time in minutes. Valid values: `15`.
      * 
      */
-    private final Integer minutes;
+    private Integer minutes;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleDestinationReplicationTimeTime(@CustomType.Parameter("minutes") Integer minutes) {
-        this.minutes = minutes;
-    }
-
+    private BucketReplicationConfigRuleDestinationReplicationTimeTime() {}
     /**
      * @return Time in minutes. Valid values: `15`.
      * 
@@ -35,24 +31,24 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeTime {
     public static Builder builder(BucketReplicationConfigRuleDestinationReplicationTimeTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer minutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleDestinationReplicationTimeTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.minutes = defaults.minutes;
         }
 
+        @CustomType.Setter
         public Builder minutes(Integer minutes) {
             this.minutes = Objects.requireNonNull(minutes);
             return this;
-        }        public BucketReplicationConfigRuleDestinationReplicationTimeTime build() {
-            return new BucketReplicationConfigRuleDestinationReplicationTimeTime(minutes);
+        }
+        public BucketReplicationConfigRuleDestinationReplicationTimeTime build() {
+            final var o = new BucketReplicationConfigRuleDestinationReplicationTimeTime();
+            o.minutes = minutes;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class VpcEndpointDnsOptions {
      * @return The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
      * 
      */
-    private final @Nullable String dnsRecordIpType;
+    private @Nullable String dnsRecordIpType;
 
-    @CustomType.Constructor
-    private VpcEndpointDnsOptions(@CustomType.Parameter("dnsRecordIpType") @Nullable String dnsRecordIpType) {
-        this.dnsRecordIpType = dnsRecordIpType;
-    }
-
+    private VpcEndpointDnsOptions() {}
     /**
      * @return The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
      * 
@@ -37,24 +33,24 @@ public final class VpcEndpointDnsOptions {
     public static Builder builder(VpcEndpointDnsOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dnsRecordIpType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpcEndpointDnsOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsRecordIpType = defaults.dnsRecordIpType;
         }
 
+        @CustomType.Setter
         public Builder dnsRecordIpType(@Nullable String dnsRecordIpType) {
             this.dnsRecordIpType = dnsRecordIpType;
             return this;
-        }        public VpcEndpointDnsOptions build() {
-            return new VpcEndpointDnsOptions(dnsRecordIpType);
+        }
+        public VpcEndpointDnsOptions build() {
+            final var o = new VpcEndpointDnsOptions();
+            o.dnsRecordIpType = dnsRecordIpType;
+            return o;
         }
     }
 }

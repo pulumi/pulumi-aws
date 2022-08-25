@@ -16,42 +16,29 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
      * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
      * 
      */
-    private final @Nullable String cronExpression;
+    private @Nullable String cronExpression;
     /**
      * @return The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
     /**
      * @return The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
      * 
      */
-    private final @Nullable String intervalUnit;
+    private @Nullable String intervalUnit;
     /**
      * @return Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
      * 
      */
-    private final @Nullable String times;
+    private @Nullable String times;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsScheduleCreateRule(
-        @CustomType.Parameter("cronExpression") @Nullable String cronExpression,
-        @CustomType.Parameter("interval") @Nullable Integer interval,
-        @CustomType.Parameter("intervalUnit") @Nullable String intervalUnit,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("times") @Nullable String times) {
-        this.cronExpression = cronExpression;
-        this.interval = interval;
-        this.intervalUnit = intervalUnit;
-        this.location = location;
-        this.times = times;
-    }
-
+    private LifecyclePolicyPolicyDetailsScheduleCreateRule() {}
     /**
      * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
      * 
@@ -95,18 +82,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
     public static Builder builder(LifecyclePolicyPolicyDetailsScheduleCreateRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cronExpression;
         private @Nullable Integer interval;
         private @Nullable String intervalUnit;
         private @Nullable String location;
         private @Nullable String times;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsScheduleCreateRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cronExpression = defaults.cronExpression;
@@ -116,27 +99,39 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
     	      this.times = defaults.times;
         }
 
+        @CustomType.Setter
         public Builder cronExpression(@Nullable String cronExpression) {
             this.cronExpression = cronExpression;
             return this;
         }
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
         }
+        @CustomType.Setter
         public Builder intervalUnit(@Nullable String intervalUnit) {
             this.intervalUnit = intervalUnit;
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder times(@Nullable String times) {
             this.times = times;
             return this;
-        }        public LifecyclePolicyPolicyDetailsScheduleCreateRule build() {
-            return new LifecyclePolicyPolicyDetailsScheduleCreateRule(cronExpression, interval, intervalUnit, location, times);
+        }
+        public LifecyclePolicyPolicyDetailsScheduleCreateRule build() {
+            final var o = new LifecyclePolicyPolicyDetailsScheduleCreateRule();
+            o.cronExpression = cronExpression;
+            o.interval = interval;
+            o.intervalUnit = intervalUnit;
+            o.location = location;
+            o.times = times;
+            return o;
         }
     }
 }

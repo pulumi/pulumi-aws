@@ -14,21 +14,14 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediu
      * @return The event action. Valid values are `BLOCK` or `NO_ACTION`.
      * 
      */
-    private final String eventAction;
+    private String eventAction;
     /**
      * @return Whether to send a notification.
      * 
      */
-    private final Boolean notify;
+    private Boolean notify;
 
-    @CustomType.Constructor
-    private RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(
-        @CustomType.Parameter("eventAction") String eventAction,
-        @CustomType.Parameter("notify") Boolean notify) {
-        this.eventAction = eventAction;
-        this.notify = notify;
-    }
-
+    private RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction() {}
     /**
      * @return The event action. Valid values are `BLOCK` or `NO_ACTION`.
      * 
@@ -51,30 +44,32 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediu
     public static Builder builder(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String eventAction;
         private Boolean notify;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventAction = defaults.eventAction;
     	      this.notify = defaults.notify;
         }
 
+        @CustomType.Setter
         public Builder eventAction(String eventAction) {
             this.eventAction = Objects.requireNonNull(eventAction);
             return this;
         }
+        @CustomType.Setter("notify")
         public Builder notify_(Boolean notify) {
             this.notify = Objects.requireNonNull(notify);
             return this;
-        }        public RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction build() {
-            return new RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(eventAction, notify);
+        }
+        public RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction build() {
+            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction();
+            o.eventAction = eventAction;
+            o.notify = notify;
+            return o;
         }
     }
 }

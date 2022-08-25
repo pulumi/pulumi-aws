@@ -15,36 +15,25 @@ public final class SecurityGroupIngress {
      * @return The CIDR block to accept
      * 
      */
-    private final @Nullable String cidr;
+    private @Nullable String cidr;
     /**
      * @return The ID of the security group to authorize
      * 
      */
-    private final @Nullable String securityGroupId;
+    private @Nullable String securityGroupId;
     /**
      * @return The name of the security group to authorize
      * 
      */
-    private final @Nullable String securityGroupName;
+    private @Nullable String securityGroupName;
     /**
      * @return The owner Id of the security group provided
      * by `security_group_name`.
      * 
      */
-    private final @Nullable String securityGroupOwnerId;
+    private @Nullable String securityGroupOwnerId;
 
-    @CustomType.Constructor
-    private SecurityGroupIngress(
-        @CustomType.Parameter("cidr") @Nullable String cidr,
-        @CustomType.Parameter("securityGroupId") @Nullable String securityGroupId,
-        @CustomType.Parameter("securityGroupName") @Nullable String securityGroupName,
-        @CustomType.Parameter("securityGroupOwnerId") @Nullable String securityGroupOwnerId) {
-        this.cidr = cidr;
-        this.securityGroupId = securityGroupId;
-        this.securityGroupName = securityGroupName;
-        this.securityGroupOwnerId = securityGroupOwnerId;
-    }
-
+    private SecurityGroupIngress() {}
     /**
      * @return The CIDR block to accept
      * 
@@ -82,17 +71,13 @@ public final class SecurityGroupIngress {
     public static Builder builder(SecurityGroupIngress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cidr;
         private @Nullable String securityGroupId;
         private @Nullable String securityGroupName;
         private @Nullable String securityGroupOwnerId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecurityGroupIngress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidr = defaults.cidr;
@@ -101,23 +86,33 @@ public final class SecurityGroupIngress {
     	      this.securityGroupOwnerId = defaults.securityGroupOwnerId;
         }
 
+        @CustomType.Setter
         public Builder cidr(@Nullable String cidr) {
             this.cidr = cidr;
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupId(@Nullable String securityGroupId) {
             this.securityGroupId = securityGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupName(@Nullable String securityGroupName) {
             this.securityGroupName = securityGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupOwnerId(@Nullable String securityGroupOwnerId) {
             this.securityGroupOwnerId = securityGroupOwnerId;
             return this;
-        }        public SecurityGroupIngress build() {
-            return new SecurityGroupIngress(cidr, securityGroupId, securityGroupName, securityGroupOwnerId);
+        }
+        public SecurityGroupIngress build() {
+            final var o = new SecurityGroupIngress();
+            o.cidr = cidr;
+            o.securityGroupId = securityGroupId;
+            o.securityGroupName = securityGroupName;
+            o.securityGroupOwnerId = securityGroupOwnerId;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class JobDefinitionTimeout {
      * @return The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
      * 
      */
-    private final @Nullable Integer attemptDurationSeconds;
+    private @Nullable Integer attemptDurationSeconds;
 
-    @CustomType.Constructor
-    private JobDefinitionTimeout(@CustomType.Parameter("attemptDurationSeconds") @Nullable Integer attemptDurationSeconds) {
-        this.attemptDurationSeconds = attemptDurationSeconds;
-    }
-
+    private JobDefinitionTimeout() {}
     /**
      * @return The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
      * 
@@ -37,24 +33,24 @@ public final class JobDefinitionTimeout {
     public static Builder builder(JobDefinitionTimeout defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer attemptDurationSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(JobDefinitionTimeout defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attemptDurationSeconds = defaults.attemptDurationSeconds;
         }
 
+        @CustomType.Setter
         public Builder attemptDurationSeconds(@Nullable Integer attemptDurationSeconds) {
             this.attemptDurationSeconds = attemptDurationSeconds;
             return this;
-        }        public JobDefinitionTimeout build() {
-            return new JobDefinitionTimeout(attemptDurationSeconds);
+        }
+        public JobDefinitionTimeout build() {
+            final var o = new JobDefinitionTimeout();
+            o.attemptDurationSeconds = attemptDurationSeconds;
+            return o;
         }
     }
 }

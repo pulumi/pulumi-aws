@@ -17,28 +17,19 @@ public final class BudgetActionDefinition {
      * @return The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
      * 
      */
-    private final @Nullable BudgetActionDefinitionIamActionDefinition iamActionDefinition;
+    private @Nullable BudgetActionDefinitionIamActionDefinition iamActionDefinition;
     /**
      * @return The service control policies (SCPs) action definition details. See SCP Action Definition.
      * 
      */
-    private final @Nullable BudgetActionDefinitionScpActionDefinition scpActionDefinition;
+    private @Nullable BudgetActionDefinitionScpActionDefinition scpActionDefinition;
     /**
      * @return The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
      * 
      */
-    private final @Nullable BudgetActionDefinitionSsmActionDefinition ssmActionDefinition;
+    private @Nullable BudgetActionDefinitionSsmActionDefinition ssmActionDefinition;
 
-    @CustomType.Constructor
-    private BudgetActionDefinition(
-        @CustomType.Parameter("iamActionDefinition") @Nullable BudgetActionDefinitionIamActionDefinition iamActionDefinition,
-        @CustomType.Parameter("scpActionDefinition") @Nullable BudgetActionDefinitionScpActionDefinition scpActionDefinition,
-        @CustomType.Parameter("ssmActionDefinition") @Nullable BudgetActionDefinitionSsmActionDefinition ssmActionDefinition) {
-        this.iamActionDefinition = iamActionDefinition;
-        this.scpActionDefinition = scpActionDefinition;
-        this.ssmActionDefinition = ssmActionDefinition;
-    }
-
+    private BudgetActionDefinition() {}
     /**
      * @return The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
      * 
@@ -68,16 +59,12 @@ public final class BudgetActionDefinition {
     public static Builder builder(BudgetActionDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BudgetActionDefinitionIamActionDefinition iamActionDefinition;
         private @Nullable BudgetActionDefinitionScpActionDefinition scpActionDefinition;
         private @Nullable BudgetActionDefinitionSsmActionDefinition ssmActionDefinition;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetActionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.iamActionDefinition = defaults.iamActionDefinition;
@@ -85,19 +72,27 @@ public final class BudgetActionDefinition {
     	      this.ssmActionDefinition = defaults.ssmActionDefinition;
         }
 
+        @CustomType.Setter
         public Builder iamActionDefinition(@Nullable BudgetActionDefinitionIamActionDefinition iamActionDefinition) {
             this.iamActionDefinition = iamActionDefinition;
             return this;
         }
+        @CustomType.Setter
         public Builder scpActionDefinition(@Nullable BudgetActionDefinitionScpActionDefinition scpActionDefinition) {
             this.scpActionDefinition = scpActionDefinition;
             return this;
         }
+        @CustomType.Setter
         public Builder ssmActionDefinition(@Nullable BudgetActionDefinitionSsmActionDefinition ssmActionDefinition) {
             this.ssmActionDefinition = ssmActionDefinition;
             return this;
-        }        public BudgetActionDefinition build() {
-            return new BudgetActionDefinition(iamActionDefinition, scpActionDefinition, ssmActionDefinition);
+        }
+        public BudgetActionDefinition build() {
+            final var o = new BudgetActionDefinition();
+            o.iamActionDefinition = iamActionDefinition;
+            o.scpActionDefinition = scpActionDefinition;
+            o.ssmActionDefinition = ssmActionDefinition;
+            return o;
         }
     }
 }

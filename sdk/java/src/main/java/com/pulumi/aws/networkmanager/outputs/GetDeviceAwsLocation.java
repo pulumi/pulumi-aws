@@ -13,21 +13,14 @@ public final class GetDeviceAwsLocation {
      * @return The Amazon Resource Name (ARN) of the subnet that the device is located in.
      * 
      */
-    private final String subnetArn;
+    private String subnetArn;
     /**
      * @return The Zone that the device is located in.
      * 
      */
-    private final String zone;
+    private String zone;
 
-    @CustomType.Constructor
-    private GetDeviceAwsLocation(
-        @CustomType.Parameter("subnetArn") String subnetArn,
-        @CustomType.Parameter("zone") String zone) {
-        this.subnetArn = subnetArn;
-        this.zone = zone;
-    }
-
+    private GetDeviceAwsLocation() {}
     /**
      * @return The Amazon Resource Name (ARN) of the subnet that the device is located in.
      * 
@@ -50,30 +43,32 @@ public final class GetDeviceAwsLocation {
     public static Builder builder(GetDeviceAwsLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String subnetArn;
         private String zone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDeviceAwsLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subnetArn = defaults.subnetArn;
     	      this.zone = defaults.zone;
         }
 
+        @CustomType.Setter
         public Builder subnetArn(String subnetArn) {
             this.subnetArn = Objects.requireNonNull(subnetArn);
             return this;
         }
+        @CustomType.Setter
         public Builder zone(String zone) {
             this.zone = Objects.requireNonNull(zone);
             return this;
-        }        public GetDeviceAwsLocation build() {
-            return new GetDeviceAwsLocation(subnetArn, zone);
+        }
+        public GetDeviceAwsLocation build() {
+            final var o = new GetDeviceAwsLocation();
+            o.subnetArn = subnetArn;
+            o.zone = zone;
+            return o;
         }
     }
 }

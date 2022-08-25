@@ -15,49 +15,34 @@ public final class TopicRuleErrorActionCloudwatchMetric {
      * @return The CloudWatch metric name.
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return The CloudWatch metric namespace name.
      * 
      */
-    private final String metricNamespace;
+    private String metricNamespace;
     /**
      * @return An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
      * 
      */
-    private final @Nullable String metricTimestamp;
+    private @Nullable String metricTimestamp;
     /**
      * @return The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
      * 
      */
-    private final String metricUnit;
+    private String metricUnit;
     /**
      * @return The CloudWatch metric value.
      * 
      */
-    private final String metricValue;
+    private String metricValue;
     /**
      * @return The IAM role ARN that allows access to the CloudWatch metric.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionCloudwatchMetric(
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("metricNamespace") String metricNamespace,
-        @CustomType.Parameter("metricTimestamp") @Nullable String metricTimestamp,
-        @CustomType.Parameter("metricUnit") String metricUnit,
-        @CustomType.Parameter("metricValue") String metricValue,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.metricName = metricName;
-        this.metricNamespace = metricNamespace;
-        this.metricTimestamp = metricTimestamp;
-        this.metricUnit = metricUnit;
-        this.metricValue = metricValue;
-        this.roleArn = roleArn;
-    }
-
+    private TopicRuleErrorActionCloudwatchMetric() {}
     /**
      * @return The CloudWatch metric name.
      * 
@@ -108,7 +93,7 @@ public final class TopicRuleErrorActionCloudwatchMetric {
     public static Builder builder(TopicRuleErrorActionCloudwatchMetric defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String metricName;
         private String metricNamespace;
@@ -116,11 +101,7 @@ public final class TopicRuleErrorActionCloudwatchMetric {
         private String metricUnit;
         private String metricValue;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionCloudwatchMetric defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricName = defaults.metricName;
@@ -131,31 +112,45 @@ public final class TopicRuleErrorActionCloudwatchMetric {
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder metricNamespace(String metricNamespace) {
             this.metricNamespace = Objects.requireNonNull(metricNamespace);
             return this;
         }
+        @CustomType.Setter
         public Builder metricTimestamp(@Nullable String metricTimestamp) {
             this.metricTimestamp = metricTimestamp;
             return this;
         }
+        @CustomType.Setter
         public Builder metricUnit(String metricUnit) {
             this.metricUnit = Objects.requireNonNull(metricUnit);
             return this;
         }
+        @CustomType.Setter
         public Builder metricValue(String metricValue) {
             this.metricValue = Objects.requireNonNull(metricValue);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public TopicRuleErrorActionCloudwatchMetric build() {
-            return new TopicRuleErrorActionCloudwatchMetric(metricName, metricNamespace, metricTimestamp, metricUnit, metricValue, roleArn);
+        }
+        public TopicRuleErrorActionCloudwatchMetric build() {
+            final var o = new TopicRuleErrorActionCloudwatchMetric();
+            o.metricName = metricName;
+            o.metricNamespace = metricNamespace;
+            o.metricTimestamp = metricTimestamp;
+            o.metricUnit = metricUnit;
+            o.metricValue = metricValue;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

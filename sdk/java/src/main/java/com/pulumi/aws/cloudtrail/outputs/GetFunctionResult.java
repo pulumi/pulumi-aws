@@ -13,69 +13,46 @@ public final class GetFunctionResult {
      * @return Amazon Resource Name (ARN) identifying your CloudFront Function.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Source code of the function
      * 
      */
-    private final String code;
+    private String code;
     /**
      * @return Comment.
      * 
      */
-    private final String comment;
+    private String comment;
     /**
      * @return ETag hash of the function
      * 
      */
-    private final String etag;
+    private String etag;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return When this resource was last modified.
      * 
      */
-    private final String lastModifiedTime;
-    private final String name;
+    private String lastModifiedTime;
+    private String name;
     /**
      * @return Identifier of the function&#39;s runtime.
      * 
      */
-    private final String runtime;
-    private final String stage;
+    private String runtime;
+    private String stage;
     /**
      * @return Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetFunctionResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("code") String code,
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("etag") String etag,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastModifiedTime") String lastModifiedTime,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("runtime") String runtime,
-        @CustomType.Parameter("stage") String stage,
-        @CustomType.Parameter("status") String status) {
-        this.arn = arn;
-        this.code = code;
-        this.comment = comment;
-        this.etag = etag;
-        this.id = id;
-        this.lastModifiedTime = lastModifiedTime;
-        this.name = name;
-        this.runtime = runtime;
-        this.stage = stage;
-        this.status = status;
-    }
-
+    private GetFunctionResult() {}
     /**
      * @return Amazon Resource Name (ARN) identifying your CloudFront Function.
      * 
@@ -146,7 +123,7 @@ public final class GetFunctionResult {
     public static Builder builder(GetFunctionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String code;
@@ -158,11 +135,7 @@ public final class GetFunctionResult {
         private String runtime;
         private String stage;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -177,47 +150,69 @@ public final class GetFunctionResult {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder code(String code) {
             this.code = Objects.requireNonNull(code);
             return this;
         }
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder etag(String etag) {
             this.etag = Objects.requireNonNull(etag);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModifiedTime(String lastModifiedTime) {
             this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder runtime(String runtime) {
             this.runtime = Objects.requireNonNull(runtime);
             return this;
         }
+        @CustomType.Setter
         public Builder stage(String stage) {
             this.stage = Objects.requireNonNull(stage);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetFunctionResult build() {
-            return new GetFunctionResult(arn, code, comment, etag, id, lastModifiedTime, name, runtime, stage, status);
+        }
+        public GetFunctionResult build() {
+            final var o = new GetFunctionResult();
+            o.arn = arn;
+            o.code = code;
+            o.comment = comment;
+            o.etag = etag;
+            o.id = id;
+            o.lastModifiedTime = lastModifiedTime;
+            o.name = name;
+            o.runtime = runtime;
+            o.stage = stage;
+            o.status = status;
+            return o;
         }
     }
 }

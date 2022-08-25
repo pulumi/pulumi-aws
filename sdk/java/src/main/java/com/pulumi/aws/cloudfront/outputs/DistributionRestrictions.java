@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DistributionRestrictions {
-    private final DistributionRestrictionsGeoRestriction geoRestriction;
+    private DistributionRestrictionsGeoRestriction geoRestriction;
 
-    @CustomType.Constructor
-    private DistributionRestrictions(@CustomType.Parameter("geoRestriction") DistributionRestrictionsGeoRestriction geoRestriction) {
-        this.geoRestriction = geoRestriction;
-    }
-
+    private DistributionRestrictions() {}
     public DistributionRestrictionsGeoRestriction geoRestriction() {
         return this.geoRestriction;
     }
@@ -27,24 +23,24 @@ public final class DistributionRestrictions {
     public static Builder builder(DistributionRestrictions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private DistributionRestrictionsGeoRestriction geoRestriction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionRestrictions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.geoRestriction = defaults.geoRestriction;
         }
 
+        @CustomType.Setter
         public Builder geoRestriction(DistributionRestrictionsGeoRestriction geoRestriction) {
             this.geoRestriction = Objects.requireNonNull(geoRestriction);
             return this;
-        }        public DistributionRestrictions build() {
-            return new DistributionRestrictions(geoRestriction);
+        }
+        public DistributionRestrictions build() {
+            final var o = new DistributionRestrictions();
+            o.geoRestriction = geoRestriction;
+            return o;
         }
     }
 }

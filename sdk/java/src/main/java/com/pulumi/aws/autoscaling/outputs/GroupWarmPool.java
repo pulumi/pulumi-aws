@@ -17,35 +17,24 @@ public final class GroupWarmPool {
      * @return Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      * 
      */
-    private final @Nullable GroupWarmPoolInstanceReusePolicy instanceReusePolicy;
+    private @Nullable GroupWarmPoolInstanceReusePolicy instanceReusePolicy;
     /**
      * @return Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
      * 
      */
-    private final @Nullable Integer maxGroupPreparedCapacity;
+    private @Nullable Integer maxGroupPreparedCapacity;
     /**
      * @return Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      * 
      */
-    private final @Nullable Integer minSize;
+    private @Nullable Integer minSize;
     /**
      * @return Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
      * 
      */
-    private final @Nullable String poolState;
+    private @Nullable String poolState;
 
-    @CustomType.Constructor
-    private GroupWarmPool(
-        @CustomType.Parameter("instanceReusePolicy") @Nullable GroupWarmPoolInstanceReusePolicy instanceReusePolicy,
-        @CustomType.Parameter("maxGroupPreparedCapacity") @Nullable Integer maxGroupPreparedCapacity,
-        @CustomType.Parameter("minSize") @Nullable Integer minSize,
-        @CustomType.Parameter("poolState") @Nullable String poolState) {
-        this.instanceReusePolicy = instanceReusePolicy;
-        this.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
-        this.minSize = minSize;
-        this.poolState = poolState;
-    }
-
+    private GroupWarmPool() {}
     /**
      * @return Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      * 
@@ -82,17 +71,13 @@ public final class GroupWarmPool {
     public static Builder builder(GroupWarmPool defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GroupWarmPoolInstanceReusePolicy instanceReusePolicy;
         private @Nullable Integer maxGroupPreparedCapacity;
         private @Nullable Integer minSize;
         private @Nullable String poolState;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupWarmPool defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceReusePolicy = defaults.instanceReusePolicy;
@@ -101,23 +86,33 @@ public final class GroupWarmPool {
     	      this.poolState = defaults.poolState;
         }
 
+        @CustomType.Setter
         public Builder instanceReusePolicy(@Nullable GroupWarmPoolInstanceReusePolicy instanceReusePolicy) {
             this.instanceReusePolicy = instanceReusePolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder maxGroupPreparedCapacity(@Nullable Integer maxGroupPreparedCapacity) {
             this.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
             return this;
         }
+        @CustomType.Setter
         public Builder minSize(@Nullable Integer minSize) {
             this.minSize = minSize;
             return this;
         }
+        @CustomType.Setter
         public Builder poolState(@Nullable String poolState) {
             this.poolState = poolState;
             return this;
-        }        public GroupWarmPool build() {
-            return new GroupWarmPool(instanceReusePolicy, maxGroupPreparedCapacity, minSize, poolState);
+        }
+        public GroupWarmPool build() {
+            final var o = new GroupWarmPool();
+            o.instanceReusePolicy = instanceReusePolicy;
+            o.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
+            o.minSize = minSize;
+            o.poolState = poolState;
+            return o;
         }
     }
 }

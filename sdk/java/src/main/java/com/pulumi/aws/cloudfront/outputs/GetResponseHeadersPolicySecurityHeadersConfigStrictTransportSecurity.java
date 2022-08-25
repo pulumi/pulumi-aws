@@ -14,35 +14,24 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportS
      * @return A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    private final Integer accessControlMaxAgeSec;
+    private Integer accessControlMaxAgeSec;
     /**
      * @return A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    private final Boolean includeSubdomains;
+    private Boolean includeSubdomains;
     /**
      * @return A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private final Boolean override;
+    private Boolean override;
     /**
      * @return A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    private final Boolean preload;
+    private Boolean preload;
 
-    @CustomType.Constructor
-    private GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(
-        @CustomType.Parameter("accessControlMaxAgeSec") Integer accessControlMaxAgeSec,
-        @CustomType.Parameter("includeSubdomains") Boolean includeSubdomains,
-        @CustomType.Parameter("override") Boolean override,
-        @CustomType.Parameter("preload") Boolean preload) {
-        this.accessControlMaxAgeSec = accessControlMaxAgeSec;
-        this.includeSubdomains = includeSubdomains;
-        this.override = override;
-        this.preload = preload;
-    }
-
+    private GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity() {}
     /**
      * @return A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
      * 
@@ -79,17 +68,13 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportS
     public static Builder builder(GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer accessControlMaxAgeSec;
         private Boolean includeSubdomains;
         private Boolean override;
         private Boolean preload;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessControlMaxAgeSec = defaults.accessControlMaxAgeSec;
@@ -98,23 +83,33 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportS
     	      this.preload = defaults.preload;
         }
 
+        @CustomType.Setter
         public Builder accessControlMaxAgeSec(Integer accessControlMaxAgeSec) {
             this.accessControlMaxAgeSec = Objects.requireNonNull(accessControlMaxAgeSec);
             return this;
         }
+        @CustomType.Setter
         public Builder includeSubdomains(Boolean includeSubdomains) {
             this.includeSubdomains = Objects.requireNonNull(includeSubdomains);
             return this;
         }
+        @CustomType.Setter
         public Builder override(Boolean override) {
             this.override = Objects.requireNonNull(override);
             return this;
         }
+        @CustomType.Setter
         public Builder preload(Boolean preload) {
             this.preload = Objects.requireNonNull(preload);
             return this;
-        }        public GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity build() {
-            return new GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(accessControlMaxAgeSec, includeSubdomains, override, preload);
+        }
+        public GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity build() {
+            final var o = new GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity();
+            o.accessControlMaxAgeSec = accessControlMaxAgeSec;
+            o.includeSubdomains = includeSubdomains;
+            o.override = override;
+            o.preload = preload;
+            return o;
         }
     }
 }

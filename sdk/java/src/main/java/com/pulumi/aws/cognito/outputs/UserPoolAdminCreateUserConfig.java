@@ -16,21 +16,14 @@ public final class UserPoolAdminCreateUserConfig {
      * @return Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
      * 
      */
-    private final @Nullable Boolean allowAdminCreateUserOnly;
+    private @Nullable Boolean allowAdminCreateUserOnly;
     /**
      * @return Invite message template structure. Detailed below.
      * 
      */
-    private final @Nullable UserPoolAdminCreateUserConfigInviteMessageTemplate inviteMessageTemplate;
+    private @Nullable UserPoolAdminCreateUserConfigInviteMessageTemplate inviteMessageTemplate;
 
-    @CustomType.Constructor
-    private UserPoolAdminCreateUserConfig(
-        @CustomType.Parameter("allowAdminCreateUserOnly") @Nullable Boolean allowAdminCreateUserOnly,
-        @CustomType.Parameter("inviteMessageTemplate") @Nullable UserPoolAdminCreateUserConfigInviteMessageTemplate inviteMessageTemplate) {
-        this.allowAdminCreateUserOnly = allowAdminCreateUserOnly;
-        this.inviteMessageTemplate = inviteMessageTemplate;
-    }
-
+    private UserPoolAdminCreateUserConfig() {}
     /**
      * @return Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
      * 
@@ -53,30 +46,32 @@ public final class UserPoolAdminCreateUserConfig {
     public static Builder builder(UserPoolAdminCreateUserConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowAdminCreateUserOnly;
         private @Nullable UserPoolAdminCreateUserConfigInviteMessageTemplate inviteMessageTemplate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolAdminCreateUserConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowAdminCreateUserOnly = defaults.allowAdminCreateUserOnly;
     	      this.inviteMessageTemplate = defaults.inviteMessageTemplate;
         }
 
+        @CustomType.Setter
         public Builder allowAdminCreateUserOnly(@Nullable Boolean allowAdminCreateUserOnly) {
             this.allowAdminCreateUserOnly = allowAdminCreateUserOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder inviteMessageTemplate(@Nullable UserPoolAdminCreateUserConfigInviteMessageTemplate inviteMessageTemplate) {
             this.inviteMessageTemplate = inviteMessageTemplate;
             return this;
-        }        public UserPoolAdminCreateUserConfig build() {
-            return new UserPoolAdminCreateUserConfig(allowAdminCreateUserOnly, inviteMessageTemplate);
+        }
+        public UserPoolAdminCreateUserConfig build() {
+            final var o = new UserPoolAdminCreateUserConfig();
+            o.allowAdminCreateUserOnly = allowAdminCreateUserOnly;
+            o.inviteMessageTemplate = inviteMessageTemplate;
+            return o;
         }
     }
 }

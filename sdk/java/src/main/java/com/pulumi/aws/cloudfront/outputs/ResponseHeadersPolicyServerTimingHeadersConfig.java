@@ -14,21 +14,14 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfig {
      * @return A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
      * 
      */
-    private final Double samplingRate;
+    private Double samplingRate;
 
-    @CustomType.Constructor
-    private ResponseHeadersPolicyServerTimingHeadersConfig(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("samplingRate") Double samplingRate) {
-        this.enabled = enabled;
-        this.samplingRate = samplingRate;
-    }
-
+    private ResponseHeadersPolicyServerTimingHeadersConfig() {}
     /**
      * @return A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
      * 
@@ -51,30 +44,32 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfig {
     public static Builder builder(ResponseHeadersPolicyServerTimingHeadersConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private Double samplingRate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponseHeadersPolicyServerTimingHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.samplingRate = defaults.samplingRate;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder samplingRate(Double samplingRate) {
             this.samplingRate = Objects.requireNonNull(samplingRate);
             return this;
-        }        public ResponseHeadersPolicyServerTimingHeadersConfig build() {
-            return new ResponseHeadersPolicyServerTimingHeadersConfig(enabled, samplingRate);
+        }
+        public ResponseHeadersPolicyServerTimingHeadersConfig build() {
+            final var o = new ResponseHeadersPolicyServerTimingHeadersConfig();
+            o.enabled = enabled;
+            o.samplingRate = samplingRate;
+            return o;
         }
     }
 }

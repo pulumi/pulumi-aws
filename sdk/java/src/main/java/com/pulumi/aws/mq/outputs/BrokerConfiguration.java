@@ -16,21 +16,14 @@ public final class BrokerConfiguration {
      * @return The Configuration ID.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Revision of the Configuration.
      * 
      */
-    private final @Nullable Integer revision;
+    private @Nullable Integer revision;
 
-    @CustomType.Constructor
-    private BrokerConfiguration(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("revision") @Nullable Integer revision) {
-        this.id = id;
-        this.revision = revision;
-    }
-
+    private BrokerConfiguration() {}
     /**
      * @return The Configuration ID.
      * 
@@ -53,30 +46,32 @@ public final class BrokerConfiguration {
     public static Builder builder(BrokerConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable Integer revision;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BrokerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.revision = defaults.revision;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder revision(@Nullable Integer revision) {
             this.revision = revision;
             return this;
-        }        public BrokerConfiguration build() {
-            return new BrokerConfiguration(id, revision);
+        }
+        public BrokerConfiguration build() {
+            final var o = new BrokerConfiguration();
+            o.id = id;
+            o.revision = revision;
+            return o;
         }
     }
 }

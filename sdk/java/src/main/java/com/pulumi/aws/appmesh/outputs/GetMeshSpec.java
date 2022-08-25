@@ -14,13 +14,9 @@ public final class GetMeshSpec {
      * @return The egress filter rules for the service mesh.
      * 
      */
-    private final List<GetMeshSpecEgressFilter> egressFilters;
+    private List<GetMeshSpecEgressFilter> egressFilters;
 
-    @CustomType.Constructor
-    private GetMeshSpec(@CustomType.Parameter("egressFilters") List<GetMeshSpecEgressFilter> egressFilters) {
-        this.egressFilters = egressFilters;
-    }
-
+    private GetMeshSpec() {}
     /**
      * @return The egress filter rules for the service mesh.
      * 
@@ -36,27 +32,27 @@ public final class GetMeshSpec {
     public static Builder builder(GetMeshSpec defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetMeshSpecEgressFilter> egressFilters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMeshSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.egressFilters = defaults.egressFilters;
         }
 
+        @CustomType.Setter
         public Builder egressFilters(List<GetMeshSpecEgressFilter> egressFilters) {
             this.egressFilters = Objects.requireNonNull(egressFilters);
             return this;
         }
         public Builder egressFilters(GetMeshSpecEgressFilter... egressFilters) {
             return egressFilters(List.of(egressFilters));
-        }        public GetMeshSpec build() {
-            return new GetMeshSpec(egressFilters);
+        }
+        public GetMeshSpec build() {
+            final var o = new GetMeshSpec();
+            o.egressFilters = egressFilters;
+            return o;
         }
     }
 }

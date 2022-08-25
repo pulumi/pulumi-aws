@@ -14,21 +14,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
      * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
      * 
      */
-    private final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition actionDefinition;
+    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition actionDefinition;
     /**
      * @return A friendly name of the custom action.
      * 
      */
-    private final String actionName;
+    private String actionName;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction(
-        @CustomType.Parameter("actionDefinition") RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition actionDefinition,
-        @CustomType.Parameter("actionName") String actionName) {
-        this.actionDefinition = actionDefinition;
-        this.actionName = actionName;
-    }
-
+    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction() {}
     /**
      * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
      * 
@@ -51,30 +44,32 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
     public static Builder builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition actionDefinition;
         private String actionName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionDefinition = defaults.actionDefinition;
     	      this.actionName = defaults.actionName;
         }
 
+        @CustomType.Setter
         public Builder actionDefinition(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition actionDefinition) {
             this.actionDefinition = Objects.requireNonNull(actionDefinition);
             return this;
         }
+        @CustomType.Setter
         public Builder actionName(String actionName) {
             this.actionName = Objects.requireNonNull(actionName);
             return this;
-        }        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction build() {
-            return new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction(actionDefinition, actionName);
+        }
+        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction build() {
+            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction();
+            o.actionDefinition = actionDefinition;
+            o.actionName = actionName;
+            return o;
         }
     }
 }

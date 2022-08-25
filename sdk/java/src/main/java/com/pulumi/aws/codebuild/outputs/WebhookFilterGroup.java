@@ -15,13 +15,9 @@ public final class WebhookFilterGroup {
      * @return A webhook filter for the group. Filter blocks are documented below.
      * 
      */
-    private final @Nullable List<WebhookFilterGroupFilter> filters;
+    private @Nullable List<WebhookFilterGroupFilter> filters;
 
-    @CustomType.Constructor
-    private WebhookFilterGroup(@CustomType.Parameter("filters") @Nullable List<WebhookFilterGroupFilter> filters) {
-        this.filters = filters;
-    }
-
+    private WebhookFilterGroup() {}
     /**
      * @return A webhook filter for the group. Filter blocks are documented below.
      * 
@@ -37,27 +33,27 @@ public final class WebhookFilterGroup {
     public static Builder builder(WebhookFilterGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<WebhookFilterGroupFilter> filters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebhookFilterGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<WebhookFilterGroupFilter> filters) {
             this.filters = filters;
             return this;
         }
         public Builder filters(WebhookFilterGroupFilter... filters) {
             return filters(List.of(filters));
-        }        public WebhookFilterGroup build() {
-            return new WebhookFilterGroup(filters);
+        }
+        public WebhookFilterGroup build() {
+            final var o = new WebhookFilterGroup();
+            o.filters = filters;
+            return o;
         }
     }
 }

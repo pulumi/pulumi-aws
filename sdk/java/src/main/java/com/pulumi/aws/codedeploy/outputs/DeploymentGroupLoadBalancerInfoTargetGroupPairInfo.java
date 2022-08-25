@@ -18,28 +18,19 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
      * @return Configuration block for the production traffic route (documented below).
      * 
      */
-    private final DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute prodTrafficRoute;
+    private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute prodTrafficRoute;
     /**
      * @return Configuration blocks for a target group within a target group pair (documented below).
      * 
      */
-    private final List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> targetGroups;
+    private List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> targetGroups;
     /**
      * @return Configuration block for the test traffic route (documented below).
      * 
      */
-    private final @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute testTrafficRoute;
+    private @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute testTrafficRoute;
 
-    @CustomType.Constructor
-    private DeploymentGroupLoadBalancerInfoTargetGroupPairInfo(
-        @CustomType.Parameter("prodTrafficRoute") DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute prodTrafficRoute,
-        @CustomType.Parameter("targetGroups") List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> targetGroups,
-        @CustomType.Parameter("testTrafficRoute") @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute testTrafficRoute) {
-        this.prodTrafficRoute = prodTrafficRoute;
-        this.targetGroups = targetGroups;
-        this.testTrafficRoute = testTrafficRoute;
-    }
-
+    private DeploymentGroupLoadBalancerInfoTargetGroupPairInfo() {}
     /**
      * @return Configuration block for the production traffic route (documented below).
      * 
@@ -69,16 +60,12 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
     public static Builder builder(DeploymentGroupLoadBalancerInfoTargetGroupPairInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute prodTrafficRoute;
         private List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> targetGroups;
         private @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute testTrafficRoute;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupLoadBalancerInfoTargetGroupPairInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prodTrafficRoute = defaults.prodTrafficRoute;
@@ -86,10 +73,12 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
     	      this.testTrafficRoute = defaults.testTrafficRoute;
         }
 
+        @CustomType.Setter
         public Builder prodTrafficRoute(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute prodTrafficRoute) {
             this.prodTrafficRoute = Objects.requireNonNull(prodTrafficRoute);
             return this;
         }
+        @CustomType.Setter
         public Builder targetGroups(List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> targetGroups) {
             this.targetGroups = Objects.requireNonNull(targetGroups);
             return this;
@@ -97,11 +86,17 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
         public Builder targetGroups(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup... targetGroups) {
             return targetGroups(List.of(targetGroups));
         }
+        @CustomType.Setter
         public Builder testTrafficRoute(@Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute testTrafficRoute) {
             this.testTrafficRoute = testTrafficRoute;
             return this;
-        }        public DeploymentGroupLoadBalancerInfoTargetGroupPairInfo build() {
-            return new DeploymentGroupLoadBalancerInfoTargetGroupPairInfo(prodTrafficRoute, targetGroups, testTrafficRoute);
+        }
+        public DeploymentGroupLoadBalancerInfoTargetGroupPairInfo build() {
+            final var o = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfo();
+            o.prodTrafficRoute = prodTrafficRoute;
+            o.targetGroups = targetGroups;
+            o.testTrafficRoute = testTrafficRoute;
+            return o;
         }
     }
 }

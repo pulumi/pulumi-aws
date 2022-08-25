@@ -16,31 +16,20 @@ public final class GetLogGroupsResult {
      * @return Set of ARNs of the Cloudwatch log groups
      * 
      */
-    private final List<String> arns;
+    private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String logGroupNamePrefix;
+    private String id;
+    private @Nullable String logGroupNamePrefix;
     /**
      * @return Set of names of the Cloudwatch log groups
      * 
      */
-    private final List<String> logGroupNames;
+    private List<String> logGroupNames;
 
-    @CustomType.Constructor
-    private GetLogGroupsResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("logGroupNamePrefix") @Nullable String logGroupNamePrefix,
-        @CustomType.Parameter("logGroupNames") List<String> logGroupNames) {
-        this.arns = arns;
-        this.id = id;
-        this.logGroupNamePrefix = logGroupNamePrefix;
-        this.logGroupNames = logGroupNames;
-    }
-
+    private GetLogGroupsResult() {}
     /**
      * @return Set of ARNs of the Cloudwatch log groups
      * 
@@ -73,17 +62,13 @@ public final class GetLogGroupsResult {
     public static Builder builder(GetLogGroupsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private String id;
         private @Nullable String logGroupNamePrefix;
         private List<String> logGroupNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLogGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -92,6 +77,7 @@ public final class GetLogGroupsResult {
     	      this.logGroupNames = defaults.logGroupNames;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -99,22 +85,31 @@ public final class GetLogGroupsResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder logGroupNamePrefix(@Nullable String logGroupNamePrefix) {
             this.logGroupNamePrefix = logGroupNamePrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder logGroupNames(List<String> logGroupNames) {
             this.logGroupNames = Objects.requireNonNull(logGroupNames);
             return this;
         }
         public Builder logGroupNames(String... logGroupNames) {
             return logGroupNames(List.of(logGroupNames));
-        }        public GetLogGroupsResult build() {
-            return new GetLogGroupsResult(arns, id, logGroupNamePrefix, logGroupNames);
+        }
+        public GetLogGroupsResult build() {
+            final var o = new GetLogGroupsResult();
+            o.arns = arns;
+            o.id = id;
+            o.logGroupNamePrefix = logGroupNamePrefix;
+            o.logGroupNames = logGroupNames;
+            return o;
         }
     }
 }

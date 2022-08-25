@@ -17,35 +17,24 @@ public final class ImageRecipeBlockDeviceMapping {
      * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
      * 
      */
-    private final @Nullable String deviceName;
+    private @Nullable String deviceName;
     /**
      * @return Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
      * 
      */
-    private final @Nullable ImageRecipeBlockDeviceMappingEbs ebs;
+    private @Nullable ImageRecipeBlockDeviceMappingEbs ebs;
     /**
      * @return Set to `true` to remove a mapping from the parent image.
      * 
      */
-    private final @Nullable Boolean noDevice;
+    private @Nullable Boolean noDevice;
     /**
      * @return Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
      * 
      */
-    private final @Nullable String virtualName;
+    private @Nullable String virtualName;
 
-    @CustomType.Constructor
-    private ImageRecipeBlockDeviceMapping(
-        @CustomType.Parameter("deviceName") @Nullable String deviceName,
-        @CustomType.Parameter("ebs") @Nullable ImageRecipeBlockDeviceMappingEbs ebs,
-        @CustomType.Parameter("noDevice") @Nullable Boolean noDevice,
-        @CustomType.Parameter("virtualName") @Nullable String virtualName) {
-        this.deviceName = deviceName;
-        this.ebs = ebs;
-        this.noDevice = noDevice;
-        this.virtualName = virtualName;
-    }
-
+    private ImageRecipeBlockDeviceMapping() {}
     /**
      * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
      * 
@@ -82,17 +71,13 @@ public final class ImageRecipeBlockDeviceMapping {
     public static Builder builder(ImageRecipeBlockDeviceMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deviceName;
         private @Nullable ImageRecipeBlockDeviceMappingEbs ebs;
         private @Nullable Boolean noDevice;
         private @Nullable String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ImageRecipeBlockDeviceMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
@@ -101,23 +86,33 @@ public final class ImageRecipeBlockDeviceMapping {
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
             this.deviceName = deviceName;
             return this;
         }
+        @CustomType.Setter
         public Builder ebs(@Nullable ImageRecipeBlockDeviceMappingEbs ebs) {
             this.ebs = ebs;
             return this;
         }
+        @CustomType.Setter
         public Builder noDevice(@Nullable Boolean noDevice) {
             this.noDevice = noDevice;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
             this.virtualName = virtualName;
             return this;
-        }        public ImageRecipeBlockDeviceMapping build() {
-            return new ImageRecipeBlockDeviceMapping(deviceName, ebs, noDevice, virtualName);
+        }
+        public ImageRecipeBlockDeviceMapping build() {
+            final var o = new ImageRecipeBlockDeviceMapping();
+            o.deviceName = deviceName;
+            o.ebs = ebs;
+            o.noDevice = noDevice;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

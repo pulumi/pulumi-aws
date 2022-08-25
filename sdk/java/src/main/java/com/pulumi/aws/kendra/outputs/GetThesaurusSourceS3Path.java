@@ -13,21 +13,14 @@ public final class GetThesaurusSourceS3Path {
      * @return The name of the S3 bucket that contains the file.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return The name of the file.
      * 
      */
-    private final String key;
+    private String key;
 
-    @CustomType.Constructor
-    private GetThesaurusSourceS3Path(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("key") String key) {
-        this.bucket = bucket;
-        this.key = key;
-    }
-
+    private GetThesaurusSourceS3Path() {}
     /**
      * @return The name of the S3 bucket that contains the file.
      * 
@@ -50,30 +43,32 @@ public final class GetThesaurusSourceS3Path {
     public static Builder builder(GetThesaurusSourceS3Path defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetThesaurusSourceS3Path defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public GetThesaurusSourceS3Path build() {
-            return new GetThesaurusSourceS3Path(bucket, key);
+        }
+        public GetThesaurusSourceS3Path build() {
+            final var o = new GetThesaurusSourceS3Path();
+            o.bucket = bucket;
+            o.key = key;
+            return o;
         }
     }
 }

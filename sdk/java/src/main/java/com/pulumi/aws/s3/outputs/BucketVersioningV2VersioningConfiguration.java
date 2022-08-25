@@ -15,21 +15,14 @@ public final class BucketVersioningV2VersioningConfiguration {
      * @return Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
      * 
      */
-    private final @Nullable String mfaDelete;
+    private @Nullable String mfaDelete;
     /**
      * @return The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private BucketVersioningV2VersioningConfiguration(
-        @CustomType.Parameter("mfaDelete") @Nullable String mfaDelete,
-        @CustomType.Parameter("status") String status) {
-        this.mfaDelete = mfaDelete;
-        this.status = status;
-    }
-
+    private BucketVersioningV2VersioningConfiguration() {}
     /**
      * @return Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
      * 
@@ -52,30 +45,32 @@ public final class BucketVersioningV2VersioningConfiguration {
     public static Builder builder(BucketVersioningV2VersioningConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String mfaDelete;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketVersioningV2VersioningConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mfaDelete = defaults.mfaDelete;
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder mfaDelete(@Nullable String mfaDelete) {
             this.mfaDelete = mfaDelete;
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public BucketVersioningV2VersioningConfiguration build() {
-            return new BucketVersioningV2VersioningConfiguration(mfaDelete, status);
+        }
+        public BucketVersioningV2VersioningConfiguration build() {
+            final var o = new BucketVersioningV2VersioningConfiguration();
+            o.mfaDelete = mfaDelete;
+            o.status = status;
+            return o;
         }
     }
 }

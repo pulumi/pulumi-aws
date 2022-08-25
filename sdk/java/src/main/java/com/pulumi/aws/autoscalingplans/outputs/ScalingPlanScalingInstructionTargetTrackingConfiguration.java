@@ -20,60 +20,43 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfiguration {
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
      * 
      */
-    private final @Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification customizedScalingMetricSpecification;
+    private @Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification customizedScalingMetricSpecification;
     /**
      * @return Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean disableScaleIn;
+    private @Nullable Boolean disableScaleIn;
     /**
      * @return The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
      * This value is used only if the resource is an Auto Scaling group.
      * 
      */
-    private final @Nullable Integer estimatedInstanceWarmup;
+    private @Nullable Integer estimatedInstanceWarmup;
     /**
      * @return A predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
      * 
      */
-    private final @Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification;
+    private @Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification;
     /**
      * @return The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
      * This value is not used if the scalable resource is an Auto Scaling group.
      * 
      */
-    private final @Nullable Integer scaleInCooldown;
+    private @Nullable Integer scaleInCooldown;
     /**
      * @return The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
      * This value is not used if the scalable resource is an Auto Scaling group.
      * 
      */
-    private final @Nullable Integer scaleOutCooldown;
+    private @Nullable Integer scaleOutCooldown;
     /**
      * @return The target value for the metric.
      * 
      */
-    private final Double targetValue;
+    private Double targetValue;
 
-    @CustomType.Constructor
-    private ScalingPlanScalingInstructionTargetTrackingConfiguration(
-        @CustomType.Parameter("customizedScalingMetricSpecification") @Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification customizedScalingMetricSpecification,
-        @CustomType.Parameter("disableScaleIn") @Nullable Boolean disableScaleIn,
-        @CustomType.Parameter("estimatedInstanceWarmup") @Nullable Integer estimatedInstanceWarmup,
-        @CustomType.Parameter("predefinedScalingMetricSpecification") @Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification,
-        @CustomType.Parameter("scaleInCooldown") @Nullable Integer scaleInCooldown,
-        @CustomType.Parameter("scaleOutCooldown") @Nullable Integer scaleOutCooldown,
-        @CustomType.Parameter("targetValue") Double targetValue) {
-        this.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
-        this.disableScaleIn = disableScaleIn;
-        this.estimatedInstanceWarmup = estimatedInstanceWarmup;
-        this.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
-        this.scaleInCooldown = scaleInCooldown;
-        this.scaleOutCooldown = scaleOutCooldown;
-        this.targetValue = targetValue;
-    }
-
+    private ScalingPlanScalingInstructionTargetTrackingConfiguration() {}
     /**
      * @return A customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
@@ -136,7 +119,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfiguration {
     public static Builder builder(ScalingPlanScalingInstructionTargetTrackingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification customizedScalingMetricSpecification;
         private @Nullable Boolean disableScaleIn;
@@ -145,11 +128,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfiguration {
         private @Nullable Integer scaleInCooldown;
         private @Nullable Integer scaleOutCooldown;
         private Double targetValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScalingPlanScalingInstructionTargetTrackingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customizedScalingMetricSpecification = defaults.customizedScalingMetricSpecification;
@@ -161,35 +140,51 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfiguration {
     	      this.targetValue = defaults.targetValue;
         }
 
+        @CustomType.Setter
         public Builder customizedScalingMetricSpecification(@Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification customizedScalingMetricSpecification) {
             this.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder disableScaleIn(@Nullable Boolean disableScaleIn) {
             this.disableScaleIn = disableScaleIn;
             return this;
         }
+        @CustomType.Setter
         public Builder estimatedInstanceWarmup(@Nullable Integer estimatedInstanceWarmup) {
             this.estimatedInstanceWarmup = estimatedInstanceWarmup;
             return this;
         }
+        @CustomType.Setter
         public Builder predefinedScalingMetricSpecification(@Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification) {
             this.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder scaleInCooldown(@Nullable Integer scaleInCooldown) {
             this.scaleInCooldown = scaleInCooldown;
             return this;
         }
+        @CustomType.Setter
         public Builder scaleOutCooldown(@Nullable Integer scaleOutCooldown) {
             this.scaleOutCooldown = scaleOutCooldown;
             return this;
         }
+        @CustomType.Setter
         public Builder targetValue(Double targetValue) {
             this.targetValue = Objects.requireNonNull(targetValue);
             return this;
-        }        public ScalingPlanScalingInstructionTargetTrackingConfiguration build() {
-            return new ScalingPlanScalingInstructionTargetTrackingConfiguration(customizedScalingMetricSpecification, disableScaleIn, estimatedInstanceWarmup, predefinedScalingMetricSpecification, scaleInCooldown, scaleOutCooldown, targetValue);
+        }
+        public ScalingPlanScalingInstructionTargetTrackingConfiguration build() {
+            final var o = new ScalingPlanScalingInstructionTargetTrackingConfiguration();
+            o.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
+            o.disableScaleIn = disableScaleIn;
+            o.estimatedInstanceWarmup = estimatedInstanceWarmup;
+            o.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
+            o.scaleInCooldown = scaleInCooldown;
+            o.scaleOutCooldown = scaleOutCooldown;
+            o.targetValue = targetValue;
+            return o;
         }
     }
 }

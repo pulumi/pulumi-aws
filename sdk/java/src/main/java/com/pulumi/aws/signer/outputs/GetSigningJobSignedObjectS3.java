@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSigningJobSignedObjectS3 {
-    private final String bucket;
-    private final String key;
+    private String bucket;
+    private String key;
 
-    @CustomType.Constructor
-    private GetSigningJobSignedObjectS3(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("key") String key) {
-        this.bucket = bucket;
-        this.key = key;
-    }
-
+    private GetSigningJobSignedObjectS3() {}
     public String bucket() {
         return this.bucket;
     }
@@ -34,30 +27,32 @@ public final class GetSigningJobSignedObjectS3 {
     public static Builder builder(GetSigningJobSignedObjectS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSigningJobSignedObjectS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public GetSigningJobSignedObjectS3 build() {
-            return new GetSigningJobSignedObjectS3(bucket, key);
+        }
+        public GetSigningJobSignedObjectS3 build() {
+            final var o = new GetSigningJobSignedObjectS3();
+            o.bucket = bucket;
+            o.key = key;
+            return o;
         }
     }
 }

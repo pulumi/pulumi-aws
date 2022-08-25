@@ -10,43 +10,24 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceResult {
-    private final String dnsName;
+    private String dnsName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String partition;
-    private final String region;
-    private final String reverseDnsName;
-    private final String reverseDnsPrefix;
-    private final String serviceId;
+    private String id;
+    private String partition;
+    private String region;
+    private String reverseDnsName;
+    private String reverseDnsPrefix;
+    private String serviceId;
     /**
      * @return Whether the service is supported in the region&#39;s partition. New services may not be listed immediately as supported.
      * 
      */
-    private final Boolean supported;
+    private Boolean supported;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("dnsName") String dnsName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("partition") String partition,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("reverseDnsName") String reverseDnsName,
-        @CustomType.Parameter("reverseDnsPrefix") String reverseDnsPrefix,
-        @CustomType.Parameter("serviceId") String serviceId,
-        @CustomType.Parameter("supported") Boolean supported) {
-        this.dnsName = dnsName;
-        this.id = id;
-        this.partition = partition;
-        this.region = region;
-        this.reverseDnsName = reverseDnsName;
-        this.reverseDnsPrefix = reverseDnsPrefix;
-        this.serviceId = serviceId;
-        this.supported = supported;
-    }
-
+    private GetServiceResult() {}
     public String dnsName() {
         return this.dnsName;
     }
@@ -87,7 +68,7 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dnsName;
         private String id;
@@ -97,11 +78,7 @@ public final class GetServiceResult {
         private String reverseDnsPrefix;
         private String serviceId;
         private Boolean supported;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsName = defaults.dnsName;
@@ -114,39 +91,57 @@ public final class GetServiceResult {
     	      this.supported = defaults.supported;
         }
 
+        @CustomType.Setter
         public Builder dnsName(String dnsName) {
             this.dnsName = Objects.requireNonNull(dnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder partition(String partition) {
             this.partition = Objects.requireNonNull(partition);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder reverseDnsName(String reverseDnsName) {
             this.reverseDnsName = Objects.requireNonNull(reverseDnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder reverseDnsPrefix(String reverseDnsPrefix) {
             this.reverseDnsPrefix = Objects.requireNonNull(reverseDnsPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceId(String serviceId) {
             this.serviceId = Objects.requireNonNull(serviceId);
             return this;
         }
+        @CustomType.Setter
         public Builder supported(Boolean supported) {
             this.supported = Objects.requireNonNull(supported);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(dnsName, id, partition, region, reverseDnsName, reverseDnsPrefix, serviceId, supported);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.dnsName = dnsName;
+            o.id = id;
+            o.partition = partition;
+            o.region = region;
+            o.reverseDnsName = reverseDnsName;
+            o.reverseDnsPrefix = reverseDnsPrefix;
+            o.serviceId = serviceId;
+            o.supported = supported;
+            return o;
         }
     }
 }

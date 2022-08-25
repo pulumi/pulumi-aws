@@ -15,13 +15,9 @@ public final class EventSourceMappingFilterCriteriaFilter {
      * @return A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
      * 
      */
-    private final @Nullable String pattern;
+    private @Nullable String pattern;
 
-    @CustomType.Constructor
-    private EventSourceMappingFilterCriteriaFilter(@CustomType.Parameter("pattern") @Nullable String pattern) {
-        this.pattern = pattern;
-    }
-
+    private EventSourceMappingFilterCriteriaFilter() {}
     /**
      * @return A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
      * 
@@ -37,24 +33,24 @@ public final class EventSourceMappingFilterCriteriaFilter {
     public static Builder builder(EventSourceMappingFilterCriteriaFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String pattern;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSourceMappingFilterCriteriaFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.pattern = defaults.pattern;
         }
 
+        @CustomType.Setter
         public Builder pattern(@Nullable String pattern) {
             this.pattern = pattern;
             return this;
-        }        public EventSourceMappingFilterCriteriaFilter build() {
-            return new EventSourceMappingFilterCriteriaFilter(pattern);
+        }
+        public EventSourceMappingFilterCriteriaFilter build() {
+            final var o = new EventSourceMappingFilterCriteriaFilter();
+            o.pattern = pattern;
+            return o;
         }
     }
 }

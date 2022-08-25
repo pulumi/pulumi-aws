@@ -17,28 +17,19 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      * @return The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig;
     /**
      * @return Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
-    private final @Nullable String fileType;
+    private @Nullable String fileType;
     /**
      * @return Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig(
-        @CustomType.Parameter("aggregationConfig") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig,
-        @CustomType.Parameter("fileType") @Nullable String fileType,
-        @CustomType.Parameter("prefixConfig") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig) {
-        this.aggregationConfig = aggregationConfig;
-        this.fileType = fileType;
-        this.prefixConfig = prefixConfig;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig() {}
     /**
      * @return The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
      * 
@@ -68,16 +59,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig;
         private @Nullable String fileType;
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregationConfig = defaults.aggregationConfig;
@@ -85,19 +72,27 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     	      this.prefixConfig = defaults.prefixConfig;
         }
 
+        @CustomType.Setter
         public Builder aggregationConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig) {
             this.aggregationConfig = aggregationConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder fileType(@Nullable String fileType) {
             this.fileType = fileType;
             return this;
         }
+        @CustomType.Setter
         public Builder prefixConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig) {
             this.prefixConfig = prefixConfig;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig(aggregationConfig, fileType, prefixConfig);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig();
+            o.aggregationConfig = aggregationConfig;
+            o.fileType = fileType;
+            o.prefixConfig = prefixConfig;
+            return o;
         }
     }
 }

@@ -15,42 +15,29 @@ public final class DataSourceRelationalDatabaseConfigHttpEndpointConfig {
      * @return AWS secret store ARN for database credentials.
      * 
      */
-    private final String awsSecretStoreArn;
+    private String awsSecretStoreArn;
     /**
      * @return Logical database name.
      * 
      */
-    private final @Nullable String databaseName;
+    private @Nullable String databaseName;
     /**
      * @return Amazon RDS cluster identifier.
      * 
      */
-    private final String dbClusterIdentifier;
+    private String dbClusterIdentifier;
     /**
      * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
     /**
      * @return Logical schema name.
      * 
      */
-    private final @Nullable String schema;
+    private @Nullable String schema;
 
-    @CustomType.Constructor
-    private DataSourceRelationalDatabaseConfigHttpEndpointConfig(
-        @CustomType.Parameter("awsSecretStoreArn") String awsSecretStoreArn,
-        @CustomType.Parameter("databaseName") @Nullable String databaseName,
-        @CustomType.Parameter("dbClusterIdentifier") String dbClusterIdentifier,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("schema") @Nullable String schema) {
-        this.awsSecretStoreArn = awsSecretStoreArn;
-        this.databaseName = databaseName;
-        this.dbClusterIdentifier = dbClusterIdentifier;
-        this.region = region;
-        this.schema = schema;
-    }
-
+    private DataSourceRelationalDatabaseConfigHttpEndpointConfig() {}
     /**
      * @return AWS secret store ARN for database credentials.
      * 
@@ -94,18 +81,14 @@ public final class DataSourceRelationalDatabaseConfigHttpEndpointConfig {
     public static Builder builder(DataSourceRelationalDatabaseConfigHttpEndpointConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String awsSecretStoreArn;
         private @Nullable String databaseName;
         private String dbClusterIdentifier;
         private @Nullable String region;
         private @Nullable String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceRelationalDatabaseConfigHttpEndpointConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsSecretStoreArn = defaults.awsSecretStoreArn;
@@ -115,27 +98,39 @@ public final class DataSourceRelationalDatabaseConfigHttpEndpointConfig {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder awsSecretStoreArn(String awsSecretStoreArn) {
             this.awsSecretStoreArn = Objects.requireNonNull(awsSecretStoreArn);
             return this;
         }
+        @CustomType.Setter
         public Builder databaseName(@Nullable String databaseName) {
             this.databaseName = databaseName;
             return this;
         }
+        @CustomType.Setter
         public Builder dbClusterIdentifier(String dbClusterIdentifier) {
             this.dbClusterIdentifier = Objects.requireNonNull(dbClusterIdentifier);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder schema(@Nullable String schema) {
             this.schema = schema;
             return this;
-        }        public DataSourceRelationalDatabaseConfigHttpEndpointConfig build() {
-            return new DataSourceRelationalDatabaseConfigHttpEndpointConfig(awsSecretStoreArn, databaseName, dbClusterIdentifier, region, schema);
+        }
+        public DataSourceRelationalDatabaseConfigHttpEndpointConfig build() {
+            final var o = new DataSourceRelationalDatabaseConfigHttpEndpointConfig();
+            o.awsSecretStoreArn = awsSecretStoreArn;
+            o.databaseName = databaseName;
+            o.dbClusterIdentifier = dbClusterIdentifier;
+            o.region = region;
+            o.schema = schema;
+            return o;
         }
     }
 }

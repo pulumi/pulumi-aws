@@ -15,28 +15,19 @@ public final class CrawlerJdbcTarget {
      * @return The name of the connection to use to connect to the Delta table target.
      * 
      */
-    private final String connectionName;
+    private String connectionName;
     /**
      * @return A list of glob patterns used to exclude from the crawl.
      * 
      */
-    private final @Nullable List<String> exclusions;
+    private @Nullable List<String> exclusions;
     /**
      * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private CrawlerJdbcTarget(
-        @CustomType.Parameter("connectionName") String connectionName,
-        @CustomType.Parameter("exclusions") @Nullable List<String> exclusions,
-        @CustomType.Parameter("path") String path) {
-        this.connectionName = connectionName;
-        this.exclusions = exclusions;
-        this.path = path;
-    }
-
+    private CrawlerJdbcTarget() {}
     /**
      * @return The name of the connection to use to connect to the Delta table target.
      * 
@@ -66,16 +57,12 @@ public final class CrawlerJdbcTarget {
     public static Builder builder(CrawlerJdbcTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String connectionName;
         private @Nullable List<String> exclusions;
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CrawlerJdbcTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionName = defaults.connectionName;
@@ -83,10 +70,12 @@ public final class CrawlerJdbcTarget {
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder connectionName(String connectionName) {
             this.connectionName = Objects.requireNonNull(connectionName);
             return this;
         }
+        @CustomType.Setter
         public Builder exclusions(@Nullable List<String> exclusions) {
             this.exclusions = exclusions;
             return this;
@@ -94,11 +83,17 @@ public final class CrawlerJdbcTarget {
         public Builder exclusions(String... exclusions) {
             return exclusions(List.of(exclusions));
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public CrawlerJdbcTarget build() {
-            return new CrawlerJdbcTarget(connectionName, exclusions, path);
+        }
+        public CrawlerJdbcTarget build() {
+            final var o = new CrawlerJdbcTarget();
+            o.connectionName = connectionName;
+            o.exclusions = exclusions;
+            o.path = path;
+            return o;
         }
     }
 }

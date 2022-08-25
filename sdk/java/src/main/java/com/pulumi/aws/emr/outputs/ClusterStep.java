@@ -14,28 +14,19 @@ public final class ClusterStep {
      * @return Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
      * 
      */
-    private final String actionOnFailure;
+    private String actionOnFailure;
     /**
      * @return JAR file used for the step. See below.
      * 
      */
-    private final ClusterStepHadoopJarStep hadoopJarStep;
+    private ClusterStepHadoopJarStep hadoopJarStep;
     /**
      * @return Name of the step.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ClusterStep(
-        @CustomType.Parameter("actionOnFailure") String actionOnFailure,
-        @CustomType.Parameter("hadoopJarStep") ClusterStepHadoopJarStep hadoopJarStep,
-        @CustomType.Parameter("name") String name) {
-        this.actionOnFailure = actionOnFailure;
-        this.hadoopJarStep = hadoopJarStep;
-        this.name = name;
-    }
-
+    private ClusterStep() {}
     /**
      * @return Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
      * 
@@ -65,16 +56,12 @@ public final class ClusterStep {
     public static Builder builder(ClusterStep defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionOnFailure;
         private ClusterStepHadoopJarStep hadoopJarStep;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionOnFailure = defaults.actionOnFailure;
@@ -82,19 +69,27 @@ public final class ClusterStep {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder actionOnFailure(String actionOnFailure) {
             this.actionOnFailure = Objects.requireNonNull(actionOnFailure);
             return this;
         }
+        @CustomType.Setter
         public Builder hadoopJarStep(ClusterStepHadoopJarStep hadoopJarStep) {
             this.hadoopJarStep = Objects.requireNonNull(hadoopJarStep);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ClusterStep build() {
-            return new ClusterStep(actionOnFailure, hadoopJarStep, name);
+        }
+        public ClusterStep build() {
+            final var o = new ClusterStep();
+            o.actionOnFailure = actionOnFailure;
+            o.hadoopJarStep = hadoopJarStep;
+            o.name = name;
+            return o;
         }
     }
 }

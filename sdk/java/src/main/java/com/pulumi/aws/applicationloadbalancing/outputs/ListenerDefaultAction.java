@@ -21,63 +21,44 @@ public final class ListenerDefaultAction {
      * @return Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
      * 
      */
-    private final @Nullable ListenerDefaultActionAuthenticateCognito authenticateCognito;
+    private @Nullable ListenerDefaultActionAuthenticateCognito authenticateCognito;
     /**
      * @return Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
      * 
      */
-    private final @Nullable ListenerDefaultActionAuthenticateOidc authenticateOidc;
+    private @Nullable ListenerDefaultActionAuthenticateOidc authenticateOidc;
     /**
      * @return Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
      * 
      */
-    private final @Nullable ListenerDefaultActionFixedResponse fixedResponse;
+    private @Nullable ListenerDefaultActionFixedResponse fixedResponse;
     /**
      * @return Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
      * 
      */
-    private final @Nullable ListenerDefaultActionForward forward;
+    private @Nullable ListenerDefaultActionForward forward;
     /**
      * @return Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
      * 
      */
-    private final @Nullable Integer order;
+    private @Nullable Integer order;
     /**
      * @return Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
      * 
      */
-    private final @Nullable ListenerDefaultActionRedirect redirect;
+    private @Nullable ListenerDefaultActionRedirect redirect;
     /**
      * @return ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
      * 
      */
-    private final @Nullable String targetGroupArn;
+    private @Nullable String targetGroupArn;
     /**
      * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ListenerDefaultAction(
-        @CustomType.Parameter("authenticateCognito") @Nullable ListenerDefaultActionAuthenticateCognito authenticateCognito,
-        @CustomType.Parameter("authenticateOidc") @Nullable ListenerDefaultActionAuthenticateOidc authenticateOidc,
-        @CustomType.Parameter("fixedResponse") @Nullable ListenerDefaultActionFixedResponse fixedResponse,
-        @CustomType.Parameter("forward") @Nullable ListenerDefaultActionForward forward,
-        @CustomType.Parameter("order") @Nullable Integer order,
-        @CustomType.Parameter("redirect") @Nullable ListenerDefaultActionRedirect redirect,
-        @CustomType.Parameter("targetGroupArn") @Nullable String targetGroupArn,
-        @CustomType.Parameter("type") String type) {
-        this.authenticateCognito = authenticateCognito;
-        this.authenticateOidc = authenticateOidc;
-        this.fixedResponse = fixedResponse;
-        this.forward = forward;
-        this.order = order;
-        this.redirect = redirect;
-        this.targetGroupArn = targetGroupArn;
-        this.type = type;
-    }
-
+    private ListenerDefaultAction() {}
     /**
      * @return Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
      * 
@@ -142,7 +123,7 @@ public final class ListenerDefaultAction {
     public static Builder builder(ListenerDefaultAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ListenerDefaultActionAuthenticateCognito authenticateCognito;
         private @Nullable ListenerDefaultActionAuthenticateOidc authenticateOidc;
@@ -152,11 +133,7 @@ public final class ListenerDefaultAction {
         private @Nullable ListenerDefaultActionRedirect redirect;
         private @Nullable String targetGroupArn;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerDefaultAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticateCognito = defaults.authenticateCognito;
@@ -169,39 +146,57 @@ public final class ListenerDefaultAction {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder authenticateCognito(@Nullable ListenerDefaultActionAuthenticateCognito authenticateCognito) {
             this.authenticateCognito = authenticateCognito;
             return this;
         }
+        @CustomType.Setter
         public Builder authenticateOidc(@Nullable ListenerDefaultActionAuthenticateOidc authenticateOidc) {
             this.authenticateOidc = authenticateOidc;
             return this;
         }
+        @CustomType.Setter
         public Builder fixedResponse(@Nullable ListenerDefaultActionFixedResponse fixedResponse) {
             this.fixedResponse = fixedResponse;
             return this;
         }
+        @CustomType.Setter
         public Builder forward(@Nullable ListenerDefaultActionForward forward) {
             this.forward = forward;
             return this;
         }
+        @CustomType.Setter
         public Builder order(@Nullable Integer order) {
             this.order = order;
             return this;
         }
+        @CustomType.Setter
         public Builder redirect(@Nullable ListenerDefaultActionRedirect redirect) {
             this.redirect = redirect;
             return this;
         }
+        @CustomType.Setter
         public Builder targetGroupArn(@Nullable String targetGroupArn) {
             this.targetGroupArn = targetGroupArn;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ListenerDefaultAction build() {
-            return new ListenerDefaultAction(authenticateCognito, authenticateOidc, fixedResponse, forward, order, redirect, targetGroupArn, type);
+        }
+        public ListenerDefaultAction build() {
+            final var o = new ListenerDefaultAction();
+            o.authenticateCognito = authenticateCognito;
+            o.authenticateOidc = authenticateOidc;
+            o.fixedResponse = fixedResponse;
+            o.forward = forward;
+            o.order = order;
+            o.redirect = redirect;
+            o.targetGroupArn = targetGroupArn;
+            o.type = type;
+            return o;
         }
     }
 }

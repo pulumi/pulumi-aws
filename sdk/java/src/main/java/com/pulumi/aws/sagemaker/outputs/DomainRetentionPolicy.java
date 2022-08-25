@@ -15,13 +15,9 @@ public final class DomainRetentionPolicy {
      * @return The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
      * 
      */
-    private final @Nullable String homeEfsFileSystem;
+    private @Nullable String homeEfsFileSystem;
 
-    @CustomType.Constructor
-    private DomainRetentionPolicy(@CustomType.Parameter("homeEfsFileSystem") @Nullable String homeEfsFileSystem) {
-        this.homeEfsFileSystem = homeEfsFileSystem;
-    }
-
+    private DomainRetentionPolicy() {}
     /**
      * @return The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
      * 
@@ -37,24 +33,24 @@ public final class DomainRetentionPolicy {
     public static Builder builder(DomainRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String homeEfsFileSystem;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.homeEfsFileSystem = defaults.homeEfsFileSystem;
         }
 
+        @CustomType.Setter
         public Builder homeEfsFileSystem(@Nullable String homeEfsFileSystem) {
             this.homeEfsFileSystem = homeEfsFileSystem;
             return this;
-        }        public DomainRetentionPolicy build() {
-            return new DomainRetentionPolicy(homeEfsFileSystem);
+        }
+        public DomainRetentionPolicy build() {
+            final var o = new DomainRetentionPolicy();
+            o.homeEfsFileSystem = homeEfsFileSystem;
+            return o;
         }
     }
 }

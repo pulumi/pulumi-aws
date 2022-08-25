@@ -17,42 +17,29 @@ public final class TaskDefinitionVolumeDockerVolumeConfiguration {
      * @return If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
      * 
      */
-    private final @Nullable Boolean autoprovision;
+    private @Nullable Boolean autoprovision;
     /**
      * @return Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
      * 
      */
-    private final @Nullable String driver;
+    private @Nullable String driver;
     /**
      * @return Map of Docker driver specific options.
      * 
      */
-    private final @Nullable Map<String,String> driverOpts;
+    private @Nullable Map<String,String> driverOpts;
     /**
      * @return Map of custom metadata to add to your Docker volume.
      * 
      */
-    private final @Nullable Map<String,String> labels;
+    private @Nullable Map<String,String> labels;
     /**
      * @return Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
      * 
      */
-    private final @Nullable String scope;
+    private @Nullable String scope;
 
-    @CustomType.Constructor
-    private TaskDefinitionVolumeDockerVolumeConfiguration(
-        @CustomType.Parameter("autoprovision") @Nullable Boolean autoprovision,
-        @CustomType.Parameter("driver") @Nullable String driver,
-        @CustomType.Parameter("driverOpts") @Nullable Map<String,String> driverOpts,
-        @CustomType.Parameter("labels") @Nullable Map<String,String> labels,
-        @CustomType.Parameter("scope") @Nullable String scope) {
-        this.autoprovision = autoprovision;
-        this.driver = driver;
-        this.driverOpts = driverOpts;
-        this.labels = labels;
-        this.scope = scope;
-    }
-
+    private TaskDefinitionVolumeDockerVolumeConfiguration() {}
     /**
      * @return If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
      * 
@@ -96,18 +83,14 @@ public final class TaskDefinitionVolumeDockerVolumeConfiguration {
     public static Builder builder(TaskDefinitionVolumeDockerVolumeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoprovision;
         private @Nullable String driver;
         private @Nullable Map<String,String> driverOpts;
         private @Nullable Map<String,String> labels;
         private @Nullable String scope;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskDefinitionVolumeDockerVolumeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoprovision = defaults.autoprovision;
@@ -117,27 +100,39 @@ public final class TaskDefinitionVolumeDockerVolumeConfiguration {
     	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
         public Builder autoprovision(@Nullable Boolean autoprovision) {
             this.autoprovision = autoprovision;
             return this;
         }
+        @CustomType.Setter
         public Builder driver(@Nullable String driver) {
             this.driver = driver;
             return this;
         }
+        @CustomType.Setter
         public Builder driverOpts(@Nullable Map<String,String> driverOpts) {
             this.driverOpts = driverOpts;
             return this;
         }
+        @CustomType.Setter
         public Builder labels(@Nullable Map<String,String> labels) {
             this.labels = labels;
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
             this.scope = scope;
             return this;
-        }        public TaskDefinitionVolumeDockerVolumeConfiguration build() {
-            return new TaskDefinitionVolumeDockerVolumeConfiguration(autoprovision, driver, driverOpts, labels, scope);
+        }
+        public TaskDefinitionVolumeDockerVolumeConfiguration build() {
+            final var o = new TaskDefinitionVolumeDockerVolumeConfiguration();
+            o.autoprovision = autoprovision;
+            o.driver = driver;
+            o.driverOpts = driverOpts;
+            o.labels = labels;
+            o.scope = scope;
+            return o;
         }
     }
 }

@@ -12,17 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackApplicationSettings {
-    private final @Nullable Boolean enabled;
-    private final @Nullable String settingsGroup;
+    private @Nullable Boolean enabled;
+    private @Nullable String settingsGroup;
 
-    @CustomType.Constructor
-    private StackApplicationSettings(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("settingsGroup") @Nullable String settingsGroup) {
-        this.enabled = enabled;
-        this.settingsGroup = settingsGroup;
-    }
-
+    private StackApplicationSettings() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -37,30 +30,32 @@ public final class StackApplicationSettings {
     public static Builder builder(StackApplicationSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable String settingsGroup;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StackApplicationSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.settingsGroup = defaults.settingsGroup;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder settingsGroup(@Nullable String settingsGroup) {
             this.settingsGroup = settingsGroup;
             return this;
-        }        public StackApplicationSettings build() {
-            return new StackApplicationSettings(enabled, settingsGroup);
+        }
+        public StackApplicationSettings build() {
+            final var o = new StackApplicationSettings();
+            o.enabled = enabled;
+            o.settingsGroup = settingsGroup;
+            return o;
         }
     }
 }

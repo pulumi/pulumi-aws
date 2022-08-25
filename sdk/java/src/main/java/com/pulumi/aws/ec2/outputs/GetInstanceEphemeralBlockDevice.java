@@ -16,28 +16,19 @@ public final class GetInstanceEphemeralBlockDevice {
      * @return The physical name of the device.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return Whether the specified device included in the device mapping was suppressed or not (Boolean).
      * 
      */
-    private final @Nullable Boolean noDevice;
+    private @Nullable Boolean noDevice;
     /**
      * @return The virtual device name.
      * 
      */
-    private final @Nullable String virtualName;
+    private @Nullable String virtualName;
 
-    @CustomType.Constructor
-    private GetInstanceEphemeralBlockDevice(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("noDevice") @Nullable Boolean noDevice,
-        @CustomType.Parameter("virtualName") @Nullable String virtualName) {
-        this.deviceName = deviceName;
-        this.noDevice = noDevice;
-        this.virtualName = virtualName;
-    }
-
+    private GetInstanceEphemeralBlockDevice() {}
     /**
      * @return The physical name of the device.
      * 
@@ -67,16 +58,12 @@ public final class GetInstanceEphemeralBlockDevice {
     public static Builder builder(GetInstanceEphemeralBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private @Nullable Boolean noDevice;
         private @Nullable String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceEphemeralBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
@@ -84,19 +71,27 @@ public final class GetInstanceEphemeralBlockDevice {
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder noDevice(@Nullable Boolean noDevice) {
             this.noDevice = noDevice;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
             this.virtualName = virtualName;
             return this;
-        }        public GetInstanceEphemeralBlockDevice build() {
-            return new GetInstanceEphemeralBlockDevice(deviceName, noDevice, virtualName);
+        }
+        public GetInstanceEphemeralBlockDevice build() {
+            final var o = new GetInstanceEphemeralBlockDevice();
+            o.deviceName = deviceName;
+            o.noDevice = noDevice;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

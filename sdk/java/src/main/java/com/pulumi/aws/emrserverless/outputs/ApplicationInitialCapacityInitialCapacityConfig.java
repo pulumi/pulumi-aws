@@ -16,21 +16,14 @@ public final class ApplicationInitialCapacityInitialCapacityConfig {
      * @return The resource configuration of the initial capacity configuration.
      * 
      */
-    private final @Nullable ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration workerConfiguration;
+    private @Nullable ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration workerConfiguration;
     /**
      * @return The number of workers in the initial capacity configuration.
      * 
      */
-    private final Integer workerCount;
+    private Integer workerCount;
 
-    @CustomType.Constructor
-    private ApplicationInitialCapacityInitialCapacityConfig(
-        @CustomType.Parameter("workerConfiguration") @Nullable ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration workerConfiguration,
-        @CustomType.Parameter("workerCount") Integer workerCount) {
-        this.workerConfiguration = workerConfiguration;
-        this.workerCount = workerCount;
-    }
-
+    private ApplicationInitialCapacityInitialCapacityConfig() {}
     /**
      * @return The resource configuration of the initial capacity configuration.
      * 
@@ -53,30 +46,32 @@ public final class ApplicationInitialCapacityInitialCapacityConfig {
     public static Builder builder(ApplicationInitialCapacityInitialCapacityConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration workerConfiguration;
         private Integer workerCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationInitialCapacityInitialCapacityConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.workerConfiguration = defaults.workerConfiguration;
     	      this.workerCount = defaults.workerCount;
         }
 
+        @CustomType.Setter
         public Builder workerConfiguration(@Nullable ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration workerConfiguration) {
             this.workerConfiguration = workerConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder workerCount(Integer workerCount) {
             this.workerCount = Objects.requireNonNull(workerCount);
             return this;
-        }        public ApplicationInitialCapacityInitialCapacityConfig build() {
-            return new ApplicationInitialCapacityInitialCapacityConfig(workerConfiguration, workerCount);
+        }
+        public ApplicationInitialCapacityInitialCapacityConfig build() {
+            final var o = new ApplicationInitialCapacityInitialCapacityConfig();
+            o.workerConfiguration = workerConfiguration;
+            o.workerCount = workerCount;
+            return o;
         }
     }
 }

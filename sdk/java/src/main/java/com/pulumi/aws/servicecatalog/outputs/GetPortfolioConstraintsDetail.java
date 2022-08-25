@@ -13,45 +13,30 @@ public final class GetPortfolioConstraintsDetail {
      * @return Identifier of the constraint.
      * 
      */
-    private final String constraintId;
+    private String constraintId;
     /**
      * @return Description of the constraint.
      * 
      */
-    private final String description;
-    private final String owner;
+    private String description;
+    private String owner;
     /**
      * @return Portfolio identifier.
      * 
      */
-    private final String portfolioId;
+    private String portfolioId;
     /**
      * @return Product identifier.
      * 
      */
-    private final String productId;
+    private String productId;
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetPortfolioConstraintsDetail(
-        @CustomType.Parameter("constraintId") String constraintId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("portfolioId") String portfolioId,
-        @CustomType.Parameter("productId") String productId,
-        @CustomType.Parameter("type") String type) {
-        this.constraintId = constraintId;
-        this.description = description;
-        this.owner = owner;
-        this.portfolioId = portfolioId;
-        this.productId = productId;
-        this.type = type;
-    }
-
+    private GetPortfolioConstraintsDetail() {}
     /**
      * @return Identifier of the constraint.
      * 
@@ -98,7 +83,7 @@ public final class GetPortfolioConstraintsDetail {
     public static Builder builder(GetPortfolioConstraintsDetail defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String constraintId;
         private String description;
@@ -106,11 +91,7 @@ public final class GetPortfolioConstraintsDetail {
         private String portfolioId;
         private String productId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPortfolioConstraintsDetail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.constraintId = defaults.constraintId;
@@ -121,31 +102,45 @@ public final class GetPortfolioConstraintsDetail {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder constraintId(String constraintId) {
             this.constraintId = Objects.requireNonNull(constraintId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder portfolioId(String portfolioId) {
             this.portfolioId = Objects.requireNonNull(portfolioId);
             return this;
         }
+        @CustomType.Setter
         public Builder productId(String productId) {
             this.productId = Objects.requireNonNull(productId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetPortfolioConstraintsDetail build() {
-            return new GetPortfolioConstraintsDetail(constraintId, description, owner, portfolioId, productId, type);
+        }
+        public GetPortfolioConstraintsDetail build() {
+            final var o = new GetPortfolioConstraintsDetail();
+            o.constraintId = constraintId;
+            o.description = description;
+            o.owner = owner;
+            o.portfolioId = portfolioId;
+            o.productId = productId;
+            o.type = type;
+            return o;
         }
     }
 }

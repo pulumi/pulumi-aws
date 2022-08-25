@@ -19,42 +19,29 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey apiKey;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey apiKey;
     /**
      * @return The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
      * 
      */
-    private final String authenticationType;
+    private String authenticationType;
     /**
      * @return The basic credentials that are required for the authentication of the user.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic basic;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic basic;
     /**
      * @return If the connector uses the custom authentication mechanism, this holds the required credentials.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom custom;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom custom;
     /**
      * @return The OAuth 2.0 credentials required for the authentication of the user.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 oauth2;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 oauth2;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector(
-        @CustomType.Parameter("apiKey") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey apiKey,
-        @CustomType.Parameter("authenticationType") String authenticationType,
-        @CustomType.Parameter("basic") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic basic,
-        @CustomType.Parameter("custom") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom custom,
-        @CustomType.Parameter("oauth2") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 oauth2) {
-        this.apiKey = apiKey;
-        this.authenticationType = authenticationType;
-        this.basic = basic;
-        this.custom = custom;
-        this.oauth2 = oauth2;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector() {}
     /**
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
@@ -98,18 +85,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey apiKey;
         private String authenticationType;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic basic;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom custom;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 oauth2;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
@@ -119,27 +102,39 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     	      this.oauth2 = defaults.oauth2;
         }
 
+        @CustomType.Setter
         public Builder apiKey(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey apiKey) {
             this.apiKey = apiKey;
             return this;
         }
+        @CustomType.Setter
         public Builder authenticationType(String authenticationType) {
             this.authenticationType = Objects.requireNonNull(authenticationType);
             return this;
         }
+        @CustomType.Setter
         public Builder basic(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic basic) {
             this.basic = basic;
             return this;
         }
+        @CustomType.Setter
         public Builder custom(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom custom) {
             this.custom = custom;
             return this;
         }
+        @CustomType.Setter
         public Builder oauth2(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 oauth2) {
             this.oauth2 = oauth2;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector(apiKey, authenticationType, basic, custom, oauth2);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector();
+            o.apiKey = apiKey;
+            o.authenticationType = authenticationType;
+            o.basic = basic;
+            o.custom = custom;
+            o.oauth2 = oauth2;
+            return o;
         }
     }
 }

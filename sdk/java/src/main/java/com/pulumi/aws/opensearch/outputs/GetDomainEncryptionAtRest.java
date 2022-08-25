@@ -14,21 +14,14 @@ public final class GetDomainEncryptionAtRest {
      * @return Whether node to node encryption is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return KMS key id used to encrypt data at rest.
      * 
      */
-    private final String kmsKeyId;
+    private String kmsKeyId;
 
-    @CustomType.Constructor
-    private GetDomainEncryptionAtRest(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId) {
-        this.enabled = enabled;
-        this.kmsKeyId = kmsKeyId;
-    }
-
+    private GetDomainEncryptionAtRest() {}
     /**
      * @return Whether node to node encryption is enabled.
      * 
@@ -51,30 +44,32 @@ public final class GetDomainEncryptionAtRest {
     public static Builder builder(GetDomainEncryptionAtRest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String kmsKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainEncryptionAtRest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.kmsKeyId = defaults.kmsKeyId;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
-        }        public GetDomainEncryptionAtRest build() {
-            return new GetDomainEncryptionAtRest(enabled, kmsKeyId);
+        }
+        public GetDomainEncryptionAtRest build() {
+            final var o = new GetDomainEncryptionAtRest();
+            o.enabled = enabled;
+            o.kmsKeyId = kmsKeyId;
+            return o;
         }
     }
 }

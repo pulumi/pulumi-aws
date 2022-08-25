@@ -19,35 +19,24 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTls {
      * @return The listener&#39;s TLS certificate.
      * 
      */
-    private final @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate certificate;
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate certificate;
     /**
      * @return Whether the policy is enforced. Default is `true`.
      * 
      */
-    private final @Nullable Boolean enforce;
+    private @Nullable Boolean enforce;
     /**
      * @return One or more ports that the policy is enforced for.
      * 
      */
-    private final @Nullable List<Integer> ports;
+    private @Nullable List<Integer> ports;
     /**
      * @return The listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private final VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation validation;
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation validation;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaultsClientPolicyTls(
-        @CustomType.Parameter("certificate") @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate certificate,
-        @CustomType.Parameter("enforce") @Nullable Boolean enforce,
-        @CustomType.Parameter("ports") @Nullable List<Integer> ports,
-        @CustomType.Parameter("validation") VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation validation) {
-        this.certificate = certificate;
-        this.enforce = enforce;
-        this.ports = ports;
-        this.validation = validation;
-    }
-
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTls() {}
     /**
      * @return The listener&#39;s TLS certificate.
      * 
@@ -84,17 +73,13 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTls {
     public static Builder builder(VirtualGatewaySpecBackendDefaultsClientPolicyTls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate certificate;
         private @Nullable Boolean enforce;
         private @Nullable List<Integer> ports;
         private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation validation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaultsClientPolicyTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
@@ -103,14 +88,17 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTls {
     	      this.validation = defaults.validation;
         }
 
+        @CustomType.Setter
         public Builder certificate(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate certificate) {
             this.certificate = certificate;
             return this;
         }
+        @CustomType.Setter
         public Builder enforce(@Nullable Boolean enforce) {
             this.enforce = enforce;
             return this;
         }
+        @CustomType.Setter
         public Builder ports(@Nullable List<Integer> ports) {
             this.ports = ports;
             return this;
@@ -118,11 +106,18 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTls {
         public Builder ports(Integer... ports) {
             return ports(List.of(ports));
         }
+        @CustomType.Setter
         public Builder validation(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation validation) {
             this.validation = Objects.requireNonNull(validation);
             return this;
-        }        public VirtualGatewaySpecBackendDefaultsClientPolicyTls build() {
-            return new VirtualGatewaySpecBackendDefaultsClientPolicyTls(certificate, enforce, ports, validation);
+        }
+        public VirtualGatewaySpecBackendDefaultsClientPolicyTls build() {
+            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTls();
+            o.certificate = certificate;
+            o.enforce = enforce;
+            o.ports = ports;
+            o.validation = validation;
+            return o;
         }
     }
 }

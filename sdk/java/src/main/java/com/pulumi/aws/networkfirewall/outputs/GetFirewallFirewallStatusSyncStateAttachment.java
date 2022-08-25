@@ -13,24 +13,15 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
      * @return The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
      * 
      */
-    private final String endpointId;
-    private final String status;
+    private String endpointId;
+    private String status;
     /**
      * @return The unique identifier for the subnet.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetFirewallFirewallStatusSyncStateAttachment(
-        @CustomType.Parameter("endpointId") String endpointId,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.endpointId = endpointId;
-        this.status = status;
-        this.subnetId = subnetId;
-    }
-
+    private GetFirewallFirewallStatusSyncStateAttachment() {}
     /**
      * @return The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
      * 
@@ -56,16 +47,12 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
     public static Builder builder(GetFirewallFirewallStatusSyncStateAttachment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpointId;
         private String status;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallFirewallStatusSyncStateAttachment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointId = defaults.endpointId;
@@ -73,19 +60,27 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder endpointId(String endpointId) {
             this.endpointId = Objects.requireNonNull(endpointId);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetFirewallFirewallStatusSyncStateAttachment build() {
-            return new GetFirewallFirewallStatusSyncStateAttachment(endpointId, status, subnetId);
+        }
+        public GetFirewallFirewallStatusSyncStateAttachment build() {
+            final var o = new GetFirewallFirewallStatusSyncStateAttachment();
+            o.endpointId = endpointId;
+            o.status = status;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class ConnectorKafkaClusterApacheKafkaCluster {
      * @return The bootstrap servers of the cluster.
      * 
      */
-    private final String bootstrapServers;
+    private String bootstrapServers;
     /**
      * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
      * 
      */
-    private final ConnectorKafkaClusterApacheKafkaClusterVpc vpc;
+    private ConnectorKafkaClusterApacheKafkaClusterVpc vpc;
 
-    @CustomType.Constructor
-    private ConnectorKafkaClusterApacheKafkaCluster(
-        @CustomType.Parameter("bootstrapServers") String bootstrapServers,
-        @CustomType.Parameter("vpc") ConnectorKafkaClusterApacheKafkaClusterVpc vpc) {
-        this.bootstrapServers = bootstrapServers;
-        this.vpc = vpc;
-    }
-
+    private ConnectorKafkaClusterApacheKafkaCluster() {}
     /**
      * @return The bootstrap servers of the cluster.
      * 
@@ -51,30 +44,32 @@ public final class ConnectorKafkaClusterApacheKafkaCluster {
     public static Builder builder(ConnectorKafkaClusterApacheKafkaCluster defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bootstrapServers;
         private ConnectorKafkaClusterApacheKafkaClusterVpc vpc;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorKafkaClusterApacheKafkaCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bootstrapServers = defaults.bootstrapServers;
     	      this.vpc = defaults.vpc;
         }
 
+        @CustomType.Setter
         public Builder bootstrapServers(String bootstrapServers) {
             this.bootstrapServers = Objects.requireNonNull(bootstrapServers);
             return this;
         }
+        @CustomType.Setter
         public Builder vpc(ConnectorKafkaClusterApacheKafkaClusterVpc vpc) {
             this.vpc = Objects.requireNonNull(vpc);
             return this;
-        }        public ConnectorKafkaClusterApacheKafkaCluster build() {
-            return new ConnectorKafkaClusterApacheKafkaCluster(bootstrapServers, vpc);
+        }
+        public ConnectorKafkaClusterApacheKafkaCluster build() {
+            final var o = new ConnectorKafkaClusterApacheKafkaCluster();
+            o.bootstrapServers = bootstrapServers;
+            o.vpc = vpc;
+            return o;
         }
     }
 }

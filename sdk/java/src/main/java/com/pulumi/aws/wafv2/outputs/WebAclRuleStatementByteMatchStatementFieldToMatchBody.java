@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementByteMatchStatementFieldToMatchBody {
-    @CustomType.Constructor
-    private WebAclRuleStatementByteMatchStatementFieldToMatchBody() {
-    }
-
+    private WebAclRuleStatementByteMatchStatementFieldToMatchBody() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchBody {
     public static Builder builder(WebAclRuleStatementByteMatchStatementFieldToMatchBody defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementByteMatchStatementFieldToMatchBody defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleStatementByteMatchStatementFieldToMatchBody build() {
-            return new WebAclRuleStatementByteMatchStatementFieldToMatchBody();
+            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchBody();
+            return o;
         }
     }
 }

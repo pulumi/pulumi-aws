@@ -15,13 +15,9 @@ public final class ClusterIdentityOidc {
      * @return Issuer URL for the OpenID Connect identity provider.
      * 
      */
-    private final @Nullable String issuer;
+    private @Nullable String issuer;
 
-    @CustomType.Constructor
-    private ClusterIdentityOidc(@CustomType.Parameter("issuer") @Nullable String issuer) {
-        this.issuer = issuer;
-    }
-
+    private ClusterIdentityOidc() {}
     /**
      * @return Issuer URL for the OpenID Connect identity provider.
      * 
@@ -37,24 +33,24 @@ public final class ClusterIdentityOidc {
     public static Builder builder(ClusterIdentityOidc defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String issuer;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterIdentityOidc defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.issuer = defaults.issuer;
         }
 
+        @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
             this.issuer = issuer;
             return this;
-        }        public ClusterIdentityOidc build() {
-            return new ClusterIdentityOidc(issuer);
+        }
+        public ClusterIdentityOidc build() {
+            final var o = new ClusterIdentityOidc();
+            o.issuer = issuer;
+            return o;
         }
     }
 }

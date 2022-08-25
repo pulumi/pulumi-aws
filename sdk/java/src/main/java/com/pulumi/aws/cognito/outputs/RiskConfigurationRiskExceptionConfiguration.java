@@ -15,21 +15,14 @@ public final class RiskConfigurationRiskExceptionConfiguration {
      * @return Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
      * 
      */
-    private final @Nullable List<String> blockedIpRangeLists;
+    private @Nullable List<String> blockedIpRangeLists;
     /**
      * @return Risk detection isn&#39;t performed on the IP addresses in this range list. The IP range is in CIDR notation.
      * 
      */
-    private final @Nullable List<String> skippedIpRangeLists;
+    private @Nullable List<String> skippedIpRangeLists;
 
-    @CustomType.Constructor
-    private RiskConfigurationRiskExceptionConfiguration(
-        @CustomType.Parameter("blockedIpRangeLists") @Nullable List<String> blockedIpRangeLists,
-        @CustomType.Parameter("skippedIpRangeLists") @Nullable List<String> skippedIpRangeLists) {
-        this.blockedIpRangeLists = blockedIpRangeLists;
-        this.skippedIpRangeLists = skippedIpRangeLists;
-    }
-
+    private RiskConfigurationRiskExceptionConfiguration() {}
     /**
      * @return Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
      * 
@@ -52,21 +45,18 @@ public final class RiskConfigurationRiskExceptionConfiguration {
     public static Builder builder(RiskConfigurationRiskExceptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> blockedIpRangeLists;
         private @Nullable List<String> skippedIpRangeLists;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RiskConfigurationRiskExceptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blockedIpRangeLists = defaults.blockedIpRangeLists;
     	      this.skippedIpRangeLists = defaults.skippedIpRangeLists;
         }
 
+        @CustomType.Setter
         public Builder blockedIpRangeLists(@Nullable List<String> blockedIpRangeLists) {
             this.blockedIpRangeLists = blockedIpRangeLists;
             return this;
@@ -74,14 +64,19 @@ public final class RiskConfigurationRiskExceptionConfiguration {
         public Builder blockedIpRangeLists(String... blockedIpRangeLists) {
             return blockedIpRangeLists(List.of(blockedIpRangeLists));
         }
+        @CustomType.Setter
         public Builder skippedIpRangeLists(@Nullable List<String> skippedIpRangeLists) {
             this.skippedIpRangeLists = skippedIpRangeLists;
             return this;
         }
         public Builder skippedIpRangeLists(String... skippedIpRangeLists) {
             return skippedIpRangeLists(List.of(skippedIpRangeLists));
-        }        public RiskConfigurationRiskExceptionConfiguration build() {
-            return new RiskConfigurationRiskExceptionConfiguration(blockedIpRangeLists, skippedIpRangeLists);
+        }
+        public RiskConfigurationRiskExceptionConfiguration build() {
+            final var o = new RiskConfigurationRiskExceptionConfiguration();
+            o.blockedIpRangeLists = blockedIpRangeLists;
+            o.skippedIpRangeLists = skippedIpRangeLists;
+            return o;
         }
     }
 }

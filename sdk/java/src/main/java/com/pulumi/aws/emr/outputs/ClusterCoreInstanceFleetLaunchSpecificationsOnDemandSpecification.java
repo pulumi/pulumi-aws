@@ -13,13 +13,9 @@ public final class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecifica
      * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
      * 
      */
-    private final String allocationStrategy;
+    private String allocationStrategy;
 
-    @CustomType.Constructor
-    private ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(@CustomType.Parameter("allocationStrategy") String allocationStrategy) {
-        this.allocationStrategy = allocationStrategy;
-    }
-
+    private ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification() {}
     /**
      * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
      * 
@@ -35,24 +31,24 @@ public final class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecifica
     public static Builder builder(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String allocationStrategy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationStrategy = defaults.allocationStrategy;
         }
 
+        @CustomType.Setter
         public Builder allocationStrategy(String allocationStrategy) {
             this.allocationStrategy = Objects.requireNonNull(allocationStrategy);
             return this;
-        }        public ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification build() {
-            return new ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(allocationStrategy);
+        }
+        public ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification build() {
+            final var o = new ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification();
+            o.allocationStrategy = allocationStrategy;
+            return o;
         }
     }
 }

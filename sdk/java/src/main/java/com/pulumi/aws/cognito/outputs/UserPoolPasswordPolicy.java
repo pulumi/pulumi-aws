@@ -16,49 +16,34 @@ public final class UserPoolPasswordPolicy {
      * @return Minimum length of the password policy that you have set.
      * 
      */
-    private final @Nullable Integer minimumLength;
+    private @Nullable Integer minimumLength;
     /**
      * @return Whether you have required users to use at least one lowercase letter in their password.
      * 
      */
-    private final @Nullable Boolean requireLowercase;
+    private @Nullable Boolean requireLowercase;
     /**
      * @return Whether you have required users to use at least one number in their password.
      * 
      */
-    private final @Nullable Boolean requireNumbers;
+    private @Nullable Boolean requireNumbers;
     /**
      * @return Whether you have required users to use at least one symbol in their password.
      * 
      */
-    private final @Nullable Boolean requireSymbols;
+    private @Nullable Boolean requireSymbols;
     /**
      * @return Whether you have required users to use at least one uppercase letter in their password.
      * 
      */
-    private final @Nullable Boolean requireUppercase;
+    private @Nullable Boolean requireUppercase;
     /**
      * @return In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
      * 
      */
-    private final @Nullable Integer temporaryPasswordValidityDays;
+    private @Nullable Integer temporaryPasswordValidityDays;
 
-    @CustomType.Constructor
-    private UserPoolPasswordPolicy(
-        @CustomType.Parameter("minimumLength") @Nullable Integer minimumLength,
-        @CustomType.Parameter("requireLowercase") @Nullable Boolean requireLowercase,
-        @CustomType.Parameter("requireNumbers") @Nullable Boolean requireNumbers,
-        @CustomType.Parameter("requireSymbols") @Nullable Boolean requireSymbols,
-        @CustomType.Parameter("requireUppercase") @Nullable Boolean requireUppercase,
-        @CustomType.Parameter("temporaryPasswordValidityDays") @Nullable Integer temporaryPasswordValidityDays) {
-        this.minimumLength = minimumLength;
-        this.requireLowercase = requireLowercase;
-        this.requireNumbers = requireNumbers;
-        this.requireSymbols = requireSymbols;
-        this.requireUppercase = requireUppercase;
-        this.temporaryPasswordValidityDays = temporaryPasswordValidityDays;
-    }
-
+    private UserPoolPasswordPolicy() {}
     /**
      * @return Minimum length of the password policy that you have set.
      * 
@@ -109,7 +94,7 @@ public final class UserPoolPasswordPolicy {
     public static Builder builder(UserPoolPasswordPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer minimumLength;
         private @Nullable Boolean requireLowercase;
@@ -117,11 +102,7 @@ public final class UserPoolPasswordPolicy {
         private @Nullable Boolean requireSymbols;
         private @Nullable Boolean requireUppercase;
         private @Nullable Integer temporaryPasswordValidityDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolPasswordPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.minimumLength = defaults.minimumLength;
@@ -132,31 +113,45 @@ public final class UserPoolPasswordPolicy {
     	      this.temporaryPasswordValidityDays = defaults.temporaryPasswordValidityDays;
         }
 
+        @CustomType.Setter
         public Builder minimumLength(@Nullable Integer minimumLength) {
             this.minimumLength = minimumLength;
             return this;
         }
+        @CustomType.Setter
         public Builder requireLowercase(@Nullable Boolean requireLowercase) {
             this.requireLowercase = requireLowercase;
             return this;
         }
+        @CustomType.Setter
         public Builder requireNumbers(@Nullable Boolean requireNumbers) {
             this.requireNumbers = requireNumbers;
             return this;
         }
+        @CustomType.Setter
         public Builder requireSymbols(@Nullable Boolean requireSymbols) {
             this.requireSymbols = requireSymbols;
             return this;
         }
+        @CustomType.Setter
         public Builder requireUppercase(@Nullable Boolean requireUppercase) {
             this.requireUppercase = requireUppercase;
             return this;
         }
+        @CustomType.Setter
         public Builder temporaryPasswordValidityDays(@Nullable Integer temporaryPasswordValidityDays) {
             this.temporaryPasswordValidityDays = temporaryPasswordValidityDays;
             return this;
-        }        public UserPoolPasswordPolicy build() {
-            return new UserPoolPasswordPolicy(minimumLength, requireLowercase, requireNumbers, requireSymbols, requireUppercase, temporaryPasswordValidityDays);
+        }
+        public UserPoolPasswordPolicy build() {
+            final var o = new UserPoolPasswordPolicy();
+            o.minimumLength = minimumLength;
+            o.requireLowercase = requireLowercase;
+            o.requireNumbers = requireNumbers;
+            o.requireSymbols = requireSymbols;
+            o.requireUppercase = requireUppercase;
+            o.temporaryPasswordValidityDays = temporaryPasswordValidityDays;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationPrede
      * @return The metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
      * 
      */
-    private final String predefinedScalingMetricType;
+    private String predefinedScalingMetricType;
     /**
      * @return Identifies the resource associated with the metric type.
      * 
      */
-    private final @Nullable String resourceLabel;
+    private @Nullable String resourceLabel;
 
-    @CustomType.Constructor
-    private ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification(
-        @CustomType.Parameter("predefinedScalingMetricType") String predefinedScalingMetricType,
-        @CustomType.Parameter("resourceLabel") @Nullable String resourceLabel) {
-        this.predefinedScalingMetricType = predefinedScalingMetricType;
-        this.resourceLabel = resourceLabel;
-    }
-
+    private ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification() {}
     /**
      * @return The metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
      * 
@@ -52,30 +45,32 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationPrede
     public static Builder builder(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String predefinedScalingMetricType;
         private @Nullable String resourceLabel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.predefinedScalingMetricType = defaults.predefinedScalingMetricType;
     	      this.resourceLabel = defaults.resourceLabel;
         }
 
+        @CustomType.Setter
         public Builder predefinedScalingMetricType(String predefinedScalingMetricType) {
             this.predefinedScalingMetricType = Objects.requireNonNull(predefinedScalingMetricType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceLabel(@Nullable String resourceLabel) {
             this.resourceLabel = resourceLabel;
             return this;
-        }        public ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification build() {
-            return new ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification(predefinedScalingMetricType, resourceLabel);
+        }
+        public ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification build() {
+            final var o = new ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification();
+            o.predefinedScalingMetricType = predefinedScalingMetricType;
+            o.resourceLabel = resourceLabel;
+            return o;
         }
     }
 }

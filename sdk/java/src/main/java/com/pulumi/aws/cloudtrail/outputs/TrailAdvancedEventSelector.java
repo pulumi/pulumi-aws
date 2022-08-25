@@ -17,21 +17,14 @@ public final class TrailAdvancedEventSelector {
      * @return Specifies the selector statements in an advanced event selector. Fields documented below.
      * 
      */
-    private final List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors;
+    private List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors;
     /**
      * @return Specifies the name of the advanced event selector.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private TrailAdvancedEventSelector(
-        @CustomType.Parameter("fieldSelectors") List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.fieldSelectors = fieldSelectors;
-        this.name = name;
-    }
-
+    private TrailAdvancedEventSelector() {}
     /**
      * @return Specifies the selector statements in an advanced event selector. Fields documented below.
      * 
@@ -54,21 +47,18 @@ public final class TrailAdvancedEventSelector {
     public static Builder builder(TrailAdvancedEventSelector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrailAdvancedEventSelector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldSelectors = defaults.fieldSelectors;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder fieldSelectors(List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors) {
             this.fieldSelectors = Objects.requireNonNull(fieldSelectors);
             return this;
@@ -76,11 +66,16 @@ public final class TrailAdvancedEventSelector {
         public Builder fieldSelectors(TrailAdvancedEventSelectorFieldSelector... fieldSelectors) {
             return fieldSelectors(List.of(fieldSelectors));
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public TrailAdvancedEventSelector build() {
-            return new TrailAdvancedEventSelector(fieldSelectors, name);
+        }
+        public TrailAdvancedEventSelector build() {
+            final var o = new TrailAdvancedEventSelector();
+            o.fieldSelectors = fieldSelectors;
+            o.name = name;
+            return o;
         }
     }
 }

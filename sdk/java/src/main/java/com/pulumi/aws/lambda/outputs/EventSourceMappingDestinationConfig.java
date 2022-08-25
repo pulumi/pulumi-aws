@@ -15,13 +15,9 @@ public final class EventSourceMappingDestinationConfig {
      * @return The destination configuration for failed invocations. Detailed below.
      * 
      */
-    private final @Nullable EventSourceMappingDestinationConfigOnFailure onFailure;
+    private @Nullable EventSourceMappingDestinationConfigOnFailure onFailure;
 
-    @CustomType.Constructor
-    private EventSourceMappingDestinationConfig(@CustomType.Parameter("onFailure") @Nullable EventSourceMappingDestinationConfigOnFailure onFailure) {
-        this.onFailure = onFailure;
-    }
-
+    private EventSourceMappingDestinationConfig() {}
     /**
      * @return The destination configuration for failed invocations. Detailed below.
      * 
@@ -37,24 +33,24 @@ public final class EventSourceMappingDestinationConfig {
     public static Builder builder(EventSourceMappingDestinationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EventSourceMappingDestinationConfigOnFailure onFailure;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSourceMappingDestinationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.onFailure = defaults.onFailure;
         }
 
+        @CustomType.Setter
         public Builder onFailure(@Nullable EventSourceMappingDestinationConfigOnFailure onFailure) {
             this.onFailure = onFailure;
             return this;
-        }        public EventSourceMappingDestinationConfig build() {
-            return new EventSourceMappingDestinationConfig(onFailure);
+        }
+        public EventSourceMappingDestinationConfig build() {
+            final var o = new EventSourceMappingDestinationConfig();
+            o.onFailure = onFailure;
+            return o;
         }
     }
 }

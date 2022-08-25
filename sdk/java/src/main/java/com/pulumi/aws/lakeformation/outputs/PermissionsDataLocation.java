@@ -15,21 +15,14 @@ public final class PermissionsDataLocation {
      * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private final @Nullable String catalogId;
+    private @Nullable String catalogId;
 
-    @CustomType.Constructor
-    private PermissionsDataLocation(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("catalogId") @Nullable String catalogId) {
-        this.arn = arn;
-        this.catalogId = catalogId;
-    }
-
+    private PermissionsDataLocation() {}
     /**
      * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
      * 
@@ -52,30 +45,32 @@ public final class PermissionsDataLocation {
     public static Builder builder(PermissionsDataLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private @Nullable String catalogId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PermissionsDataLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.catalogId = defaults.catalogId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
-        }        public PermissionsDataLocation build() {
-            return new PermissionsDataLocation(arn, catalogId);
+        }
+        public PermissionsDataLocation build() {
+            final var o = new PermissionsDataLocation();
+            o.arn = arn;
+            o.catalogId = catalogId;
+            return o;
         }
     }
 }

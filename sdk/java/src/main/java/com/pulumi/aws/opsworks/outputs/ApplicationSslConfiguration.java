@@ -15,28 +15,19 @@ public final class ApplicationSslConfiguration {
      * @return The contents of the certificate&#39;s domain.crt file.
      * 
      */
-    private final String certificate;
+    private String certificate;
     /**
      * @return Can be used to specify an intermediate certificate authority key or client authentication.
      * 
      */
-    private final @Nullable String chain;
+    private @Nullable String chain;
     /**
      * @return The private key; the contents of the certificate&#39;s domain.key file.
      * 
      */
-    private final String privateKey;
+    private String privateKey;
 
-    @CustomType.Constructor
-    private ApplicationSslConfiguration(
-        @CustomType.Parameter("certificate") String certificate,
-        @CustomType.Parameter("chain") @Nullable String chain,
-        @CustomType.Parameter("privateKey") String privateKey) {
-        this.certificate = certificate;
-        this.chain = chain;
-        this.privateKey = privateKey;
-    }
-
+    private ApplicationSslConfiguration() {}
     /**
      * @return The contents of the certificate&#39;s domain.crt file.
      * 
@@ -66,16 +57,12 @@ public final class ApplicationSslConfiguration {
     public static Builder builder(ApplicationSslConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificate;
         private @Nullable String chain;
         private String privateKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationSslConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
@@ -83,19 +70,27 @@ public final class ApplicationSslConfiguration {
     	      this.privateKey = defaults.privateKey;
         }
 
+        @CustomType.Setter
         public Builder certificate(String certificate) {
             this.certificate = Objects.requireNonNull(certificate);
             return this;
         }
+        @CustomType.Setter
         public Builder chain(@Nullable String chain) {
             this.chain = chain;
             return this;
         }
+        @CustomType.Setter
         public Builder privateKey(String privateKey) {
             this.privateKey = Objects.requireNonNull(privateKey);
             return this;
-        }        public ApplicationSslConfiguration build() {
-            return new ApplicationSslConfiguration(certificate, chain, privateKey);
+        }
+        public ApplicationSslConfiguration build() {
+            final var o = new ApplicationSslConfiguration();
+            o.certificate = certificate;
+            o.chain = chain;
+            o.privateKey = privateKey;
+            return o;
         }
     }
 }

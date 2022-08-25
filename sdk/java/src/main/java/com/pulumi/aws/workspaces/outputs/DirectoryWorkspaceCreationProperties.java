@@ -16,42 +16,29 @@ public final class DirectoryWorkspaceCreationProperties {
      * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
      * 
      */
-    private final @Nullable String customSecurityGroupId;
+    private @Nullable String customSecurityGroupId;
     /**
      * @return The default organizational unit (OU) for your WorkSpace directories. Should conform `&#34;OU=&lt;value&gt;,DC=&lt;value&gt;,...,DC=&lt;value&gt;&#34;` pattern.
      * 
      */
-    private final @Nullable String defaultOu;
+    private @Nullable String defaultOu;
     /**
      * @return Indicates whether internet access is enabled for your WorkSpaces.
      * 
      */
-    private final @Nullable Boolean enableInternetAccess;
+    private @Nullable Boolean enableInternetAccess;
     /**
      * @return Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
      * 
      */
-    private final @Nullable Boolean enableMaintenanceMode;
+    private @Nullable Boolean enableMaintenanceMode;
     /**
      * @return Indicates whether users are local administrators of their WorkSpaces.
      * 
      */
-    private final @Nullable Boolean userEnabledAsLocalAdministrator;
+    private @Nullable Boolean userEnabledAsLocalAdministrator;
 
-    @CustomType.Constructor
-    private DirectoryWorkspaceCreationProperties(
-        @CustomType.Parameter("customSecurityGroupId") @Nullable String customSecurityGroupId,
-        @CustomType.Parameter("defaultOu") @Nullable String defaultOu,
-        @CustomType.Parameter("enableInternetAccess") @Nullable Boolean enableInternetAccess,
-        @CustomType.Parameter("enableMaintenanceMode") @Nullable Boolean enableMaintenanceMode,
-        @CustomType.Parameter("userEnabledAsLocalAdministrator") @Nullable Boolean userEnabledAsLocalAdministrator) {
-        this.customSecurityGroupId = customSecurityGroupId;
-        this.defaultOu = defaultOu;
-        this.enableInternetAccess = enableInternetAccess;
-        this.enableMaintenanceMode = enableMaintenanceMode;
-        this.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
-    }
-
+    private DirectoryWorkspaceCreationProperties() {}
     /**
      * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
      * 
@@ -95,18 +82,14 @@ public final class DirectoryWorkspaceCreationProperties {
     public static Builder builder(DirectoryWorkspaceCreationProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String customSecurityGroupId;
         private @Nullable String defaultOu;
         private @Nullable Boolean enableInternetAccess;
         private @Nullable Boolean enableMaintenanceMode;
         private @Nullable Boolean userEnabledAsLocalAdministrator;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DirectoryWorkspaceCreationProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customSecurityGroupId = defaults.customSecurityGroupId;
@@ -116,27 +99,39 @@ public final class DirectoryWorkspaceCreationProperties {
     	      this.userEnabledAsLocalAdministrator = defaults.userEnabledAsLocalAdministrator;
         }
 
+        @CustomType.Setter
         public Builder customSecurityGroupId(@Nullable String customSecurityGroupId) {
             this.customSecurityGroupId = customSecurityGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultOu(@Nullable String defaultOu) {
             this.defaultOu = defaultOu;
             return this;
         }
+        @CustomType.Setter
         public Builder enableInternetAccess(@Nullable Boolean enableInternetAccess) {
             this.enableInternetAccess = enableInternetAccess;
             return this;
         }
+        @CustomType.Setter
         public Builder enableMaintenanceMode(@Nullable Boolean enableMaintenanceMode) {
             this.enableMaintenanceMode = enableMaintenanceMode;
             return this;
         }
+        @CustomType.Setter
         public Builder userEnabledAsLocalAdministrator(@Nullable Boolean userEnabledAsLocalAdministrator) {
             this.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
             return this;
-        }        public DirectoryWorkspaceCreationProperties build() {
-            return new DirectoryWorkspaceCreationProperties(customSecurityGroupId, defaultOu, enableInternetAccess, enableMaintenanceMode, userEnabledAsLocalAdministrator);
+        }
+        public DirectoryWorkspaceCreationProperties build() {
+            final var o = new DirectoryWorkspaceCreationProperties();
+            o.customSecurityGroupId = customSecurityGroupId;
+            o.defaultOu = defaultOu;
+            o.enableInternetAccess = enableInternetAccess;
+            o.enableMaintenanceMode = enableMaintenanceMode;
+            o.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
+            return o;
         }
     }
 }

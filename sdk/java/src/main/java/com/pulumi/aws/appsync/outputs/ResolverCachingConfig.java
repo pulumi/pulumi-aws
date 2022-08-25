@@ -17,21 +17,14 @@ public final class ResolverCachingConfig {
      * @return The list of caching key.
      * 
      */
-    private final @Nullable List<String> cachingKeys;
+    private @Nullable List<String> cachingKeys;
     /**
      * @return The TTL in seconds.
      * 
      */
-    private final @Nullable Integer ttl;
+    private @Nullable Integer ttl;
 
-    @CustomType.Constructor
-    private ResolverCachingConfig(
-        @CustomType.Parameter("cachingKeys") @Nullable List<String> cachingKeys,
-        @CustomType.Parameter("ttl") @Nullable Integer ttl) {
-        this.cachingKeys = cachingKeys;
-        this.ttl = ttl;
-    }
-
+    private ResolverCachingConfig() {}
     /**
      * @return The list of caching key.
      * 
@@ -54,21 +47,18 @@ public final class ResolverCachingConfig {
     public static Builder builder(ResolverCachingConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> cachingKeys;
         private @Nullable Integer ttl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResolverCachingConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cachingKeys = defaults.cachingKeys;
     	      this.ttl = defaults.ttl;
         }
 
+        @CustomType.Setter
         public Builder cachingKeys(@Nullable List<String> cachingKeys) {
             this.cachingKeys = cachingKeys;
             return this;
@@ -76,11 +66,16 @@ public final class ResolverCachingConfig {
         public Builder cachingKeys(String... cachingKeys) {
             return cachingKeys(List.of(cachingKeys));
         }
+        @CustomType.Setter
         public Builder ttl(@Nullable Integer ttl) {
             this.ttl = ttl;
             return this;
-        }        public ResolverCachingConfig build() {
-            return new ResolverCachingConfig(cachingKeys, ttl);
+        }
+        public ResolverCachingConfig build() {
+            final var o = new ResolverCachingConfig();
+            o.cachingKeys = cachingKeys;
+            o.ttl = ttl;
+            return o;
         }
     }
 }

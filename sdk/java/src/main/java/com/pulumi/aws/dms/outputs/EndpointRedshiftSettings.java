@@ -15,42 +15,29 @@ public final class EndpointRedshiftSettings {
      * @return S3 object prefix.
      * 
      */
-    private final @Nullable String bucketFolder;
+    private @Nullable String bucketFolder;
     /**
      * @return S3 bucket name.
      * 
      */
-    private final @Nullable String bucketName;
+    private @Nullable String bucketName;
     /**
      * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
      * 
      */
-    private final @Nullable String encryptionMode;
+    private @Nullable String encryptionMode;
     /**
      * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
      * 
      */
-    private final @Nullable String serverSideEncryptionKmsKeyId;
+    private @Nullable String serverSideEncryptionKmsKeyId;
     /**
      * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
      * 
      */
-    private final @Nullable String serviceAccessRoleArn;
+    private @Nullable String serviceAccessRoleArn;
 
-    @CustomType.Constructor
-    private EndpointRedshiftSettings(
-        @CustomType.Parameter("bucketFolder") @Nullable String bucketFolder,
-        @CustomType.Parameter("bucketName") @Nullable String bucketName,
-        @CustomType.Parameter("encryptionMode") @Nullable String encryptionMode,
-        @CustomType.Parameter("serverSideEncryptionKmsKeyId") @Nullable String serverSideEncryptionKmsKeyId,
-        @CustomType.Parameter("serviceAccessRoleArn") @Nullable String serviceAccessRoleArn) {
-        this.bucketFolder = bucketFolder;
-        this.bucketName = bucketName;
-        this.encryptionMode = encryptionMode;
-        this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
-        this.serviceAccessRoleArn = serviceAccessRoleArn;
-    }
-
+    private EndpointRedshiftSettings() {}
     /**
      * @return S3 object prefix.
      * 
@@ -94,18 +81,14 @@ public final class EndpointRedshiftSettings {
     public static Builder builder(EndpointRedshiftSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucketFolder;
         private @Nullable String bucketName;
         private @Nullable String encryptionMode;
         private @Nullable String serverSideEncryptionKmsKeyId;
         private @Nullable String serviceAccessRoleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointRedshiftSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketFolder = defaults.bucketFolder;
@@ -115,27 +98,39 @@ public final class EndpointRedshiftSettings {
     	      this.serviceAccessRoleArn = defaults.serviceAccessRoleArn;
         }
 
+        @CustomType.Setter
         public Builder bucketFolder(@Nullable String bucketFolder) {
             this.bucketFolder = bucketFolder;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
             this.bucketName = bucketName;
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionMode(@Nullable String encryptionMode) {
             this.encryptionMode = encryptionMode;
             return this;
         }
+        @CustomType.Setter
         public Builder serverSideEncryptionKmsKeyId(@Nullable String serverSideEncryptionKmsKeyId) {
             this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
             this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
-        }        public EndpointRedshiftSettings build() {
-            return new EndpointRedshiftSettings(bucketFolder, bucketName, encryptionMode, serverSideEncryptionKmsKeyId, serviceAccessRoleArn);
+        }
+        public EndpointRedshiftSettings build() {
+            final var o = new EndpointRedshiftSettings();
+            o.bucketFolder = bucketFolder;
+            o.bucketName = bucketName;
+            o.encryptionMode = encryptionMode;
+            o.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
+            o.serviceAccessRoleArn = serviceAccessRoleArn;
+            return o;
         }
     }
 }

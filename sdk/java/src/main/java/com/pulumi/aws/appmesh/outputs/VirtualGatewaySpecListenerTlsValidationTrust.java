@@ -16,21 +16,14 @@ public final class VirtualGatewaySpecListenerTlsValidationTrust {
      * @return The TLS validation context trust for a local file certificate.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerTlsValidationTrustFile file;
+    private @Nullable VirtualGatewaySpecListenerTlsValidationTrustFile file;
     /**
      * @return The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerTlsValidationTrustSds sds;
+    private @Nullable VirtualGatewaySpecListenerTlsValidationTrustSds sds;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerTlsValidationTrust(
-        @CustomType.Parameter("file") @Nullable VirtualGatewaySpecListenerTlsValidationTrustFile file,
-        @CustomType.Parameter("sds") @Nullable VirtualGatewaySpecListenerTlsValidationTrustSds sds) {
-        this.file = file;
-        this.sds = sds;
-    }
-
+    private VirtualGatewaySpecListenerTlsValidationTrust() {}
     /**
      * @return The TLS validation context trust for a local file certificate.
      * 
@@ -53,30 +46,32 @@ public final class VirtualGatewaySpecListenerTlsValidationTrust {
     public static Builder builder(VirtualGatewaySpecListenerTlsValidationTrust defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecListenerTlsValidationTrustFile file;
         private @Nullable VirtualGatewaySpecListenerTlsValidationTrustSds sds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerTlsValidationTrust defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.file = defaults.file;
     	      this.sds = defaults.sds;
         }
 
+        @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecListenerTlsValidationTrustFile file) {
             this.file = file;
             return this;
         }
+        @CustomType.Setter
         public Builder sds(@Nullable VirtualGatewaySpecListenerTlsValidationTrustSds sds) {
             this.sds = sds;
             return this;
-        }        public VirtualGatewaySpecListenerTlsValidationTrust build() {
-            return new VirtualGatewaySpecListenerTlsValidationTrust(file, sds);
+        }
+        public VirtualGatewaySpecListenerTlsValidationTrust build() {
+            final var o = new VirtualGatewaySpecListenerTlsValidationTrust();
+            o.file = file;
+            o.sds = sds;
+            return o;
         }
     }
 }

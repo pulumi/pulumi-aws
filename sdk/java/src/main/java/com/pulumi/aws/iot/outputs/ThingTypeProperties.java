@@ -16,21 +16,14 @@ public final class ThingTypeProperties {
      * @return The description of the thing type.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return A list of searchable thing attribute names.
      * 
      */
-    private final @Nullable List<String> searchableAttributes;
+    private @Nullable List<String> searchableAttributes;
 
-    @CustomType.Constructor
-    private ThingTypeProperties(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("searchableAttributes") @Nullable List<String> searchableAttributes) {
-        this.description = description;
-        this.searchableAttributes = searchableAttributes;
-    }
-
+    private ThingTypeProperties() {}
     /**
      * @return The description of the thing type.
      * 
@@ -53,33 +46,35 @@ public final class ThingTypeProperties {
     public static Builder builder(ThingTypeProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable List<String> searchableAttributes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ThingTypeProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.searchableAttributes = defaults.searchableAttributes;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder searchableAttributes(@Nullable List<String> searchableAttributes) {
             this.searchableAttributes = searchableAttributes;
             return this;
         }
         public Builder searchableAttributes(String... searchableAttributes) {
             return searchableAttributes(List.of(searchableAttributes));
-        }        public ThingTypeProperties build() {
-            return new ThingTypeProperties(description, searchableAttributes);
+        }
+        public ThingTypeProperties build() {
+            final var o = new ThingTypeProperties();
+            o.description = description;
+            o.searchableAttributes = searchableAttributes;
+            return o;
         }
     }
 }

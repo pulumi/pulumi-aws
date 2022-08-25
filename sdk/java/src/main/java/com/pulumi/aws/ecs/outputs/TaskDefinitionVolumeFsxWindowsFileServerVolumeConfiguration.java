@@ -14,28 +14,19 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
      * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
      * 
      */
-    private final TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig authorizationConfig;
+    private TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig authorizationConfig;
     /**
      * @return The Amazon FSx for Windows File Server file system ID to use.
      * 
      */
-    private final String fileSystemId;
+    private String fileSystemId;
     /**
      * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
      * 
      */
-    private final String rootDirectory;
+    private String rootDirectory;
 
-    @CustomType.Constructor
-    private TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration(
-        @CustomType.Parameter("authorizationConfig") TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig authorizationConfig,
-        @CustomType.Parameter("fileSystemId") String fileSystemId,
-        @CustomType.Parameter("rootDirectory") String rootDirectory) {
-        this.authorizationConfig = authorizationConfig;
-        this.fileSystemId = fileSystemId;
-        this.rootDirectory = rootDirectory;
-    }
-
+    private TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration() {}
     /**
      * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
      * 
@@ -65,16 +56,12 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
     public static Builder builder(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig authorizationConfig;
         private String fileSystemId;
         private String rootDirectory;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationConfig = defaults.authorizationConfig;
@@ -82,19 +69,27 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
     	      this.rootDirectory = defaults.rootDirectory;
         }
 
+        @CustomType.Setter
         public Builder authorizationConfig(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig authorizationConfig) {
             this.authorizationConfig = Objects.requireNonNull(authorizationConfig);
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
             this.fileSystemId = Objects.requireNonNull(fileSystemId);
             return this;
         }
+        @CustomType.Setter
         public Builder rootDirectory(String rootDirectory) {
             this.rootDirectory = Objects.requireNonNull(rootDirectory);
             return this;
-        }        public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration build() {
-            return new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration(authorizationConfig, fileSystemId, rootDirectory);
+        }
+        public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration build() {
+            final var o = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration();
+            o.authorizationConfig = authorizationConfig;
+            o.fileSystemId = fileSystemId;
+            o.rootDirectory = rootDirectory;
+            return o;
         }
     }
 }

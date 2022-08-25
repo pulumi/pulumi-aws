@@ -17,28 +17,19 @@ public final class VirtualGatewaySpecListenerConnectionPool {
      * @return Connection pool information for gRPC listeners.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerConnectionPoolGrpc grpc;
+    private @Nullable VirtualGatewaySpecListenerConnectionPoolGrpc grpc;
     /**
      * @return Connection pool information for HTTP listeners.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerConnectionPoolHttp http;
+    private @Nullable VirtualGatewaySpecListenerConnectionPoolHttp http;
     /**
      * @return Connection pool information for HTTP2 listeners.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerConnectionPoolHttp2 http2;
+    private @Nullable VirtualGatewaySpecListenerConnectionPoolHttp2 http2;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerConnectionPool(
-        @CustomType.Parameter("grpc") @Nullable VirtualGatewaySpecListenerConnectionPoolGrpc grpc,
-        @CustomType.Parameter("http") @Nullable VirtualGatewaySpecListenerConnectionPoolHttp http,
-        @CustomType.Parameter("http2") @Nullable VirtualGatewaySpecListenerConnectionPoolHttp2 http2) {
-        this.grpc = grpc;
-        this.http = http;
-        this.http2 = http2;
-    }
-
+    private VirtualGatewaySpecListenerConnectionPool() {}
     /**
      * @return Connection pool information for gRPC listeners.
      * 
@@ -68,16 +59,12 @@ public final class VirtualGatewaySpecListenerConnectionPool {
     public static Builder builder(VirtualGatewaySpecListenerConnectionPool defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecListenerConnectionPoolGrpc grpc;
         private @Nullable VirtualGatewaySpecListenerConnectionPoolHttp http;
         private @Nullable VirtualGatewaySpecListenerConnectionPoolHttp2 http2;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerConnectionPool defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.grpc = defaults.grpc;
@@ -85,19 +72,27 @@ public final class VirtualGatewaySpecListenerConnectionPool {
     	      this.http2 = defaults.http2;
         }
 
+        @CustomType.Setter
         public Builder grpc(@Nullable VirtualGatewaySpecListenerConnectionPoolGrpc grpc) {
             this.grpc = grpc;
             return this;
         }
+        @CustomType.Setter
         public Builder http(@Nullable VirtualGatewaySpecListenerConnectionPoolHttp http) {
             this.http = http;
             return this;
         }
+        @CustomType.Setter
         public Builder http2(@Nullable VirtualGatewaySpecListenerConnectionPoolHttp2 http2) {
             this.http2 = http2;
             return this;
-        }        public VirtualGatewaySpecListenerConnectionPool build() {
-            return new VirtualGatewaySpecListenerConnectionPool(grpc, http, http2);
+        }
+        public VirtualGatewaySpecListenerConnectionPool build() {
+            final var o = new VirtualGatewaySpecListenerConnectionPool();
+            o.grpc = grpc;
+            o.http = http;
+            o.http2 = http2;
+            return o;
         }
     }
 }

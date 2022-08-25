@@ -19,42 +19,29 @@ public final class WorkflowOnExceptionStep {
      * @return Details for a step that performs a file copy. See Copy Step Details below.
      * 
      */
-    private final @Nullable WorkflowOnExceptionStepCopyStepDetails copyStepDetails;
+    private @Nullable WorkflowOnExceptionStepCopyStepDetails copyStepDetails;
     /**
      * @return Details for a step that invokes a lambda function.
      * 
      */
-    private final @Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails;
+    private @Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails;
     /**
      * @return Details for a step that deletes the file.
      * 
      */
-    private final @Nullable WorkflowOnExceptionStepDeleteStepDetails deleteStepDetails;
+    private @Nullable WorkflowOnExceptionStepDeleteStepDetails deleteStepDetails;
     /**
      * @return Details for a step that creates one or more tags.
      * 
      */
-    private final @Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails;
+    private @Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails;
     /**
      * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private WorkflowOnExceptionStep(
-        @CustomType.Parameter("copyStepDetails") @Nullable WorkflowOnExceptionStepCopyStepDetails copyStepDetails,
-        @CustomType.Parameter("customStepDetails") @Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails,
-        @CustomType.Parameter("deleteStepDetails") @Nullable WorkflowOnExceptionStepDeleteStepDetails deleteStepDetails,
-        @CustomType.Parameter("tagStepDetails") @Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails,
-        @CustomType.Parameter("type") String type) {
-        this.copyStepDetails = copyStepDetails;
-        this.customStepDetails = customStepDetails;
-        this.deleteStepDetails = deleteStepDetails;
-        this.tagStepDetails = tagStepDetails;
-        this.type = type;
-    }
-
+    private WorkflowOnExceptionStep() {}
     /**
      * @return Details for a step that performs a file copy. See Copy Step Details below.
      * 
@@ -98,18 +85,14 @@ public final class WorkflowOnExceptionStep {
     public static Builder builder(WorkflowOnExceptionStep defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WorkflowOnExceptionStepCopyStepDetails copyStepDetails;
         private @Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails;
         private @Nullable WorkflowOnExceptionStepDeleteStepDetails deleteStepDetails;
         private @Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowOnExceptionStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.copyStepDetails = defaults.copyStepDetails;
@@ -119,27 +102,39 @@ public final class WorkflowOnExceptionStep {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder copyStepDetails(@Nullable WorkflowOnExceptionStepCopyStepDetails copyStepDetails) {
             this.copyStepDetails = copyStepDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder customStepDetails(@Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails) {
             this.customStepDetails = customStepDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder deleteStepDetails(@Nullable WorkflowOnExceptionStepDeleteStepDetails deleteStepDetails) {
             this.deleteStepDetails = deleteStepDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder tagStepDetails(@Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails) {
             this.tagStepDetails = tagStepDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public WorkflowOnExceptionStep build() {
-            return new WorkflowOnExceptionStep(copyStepDetails, customStepDetails, deleteStepDetails, tagStepDetails, type);
+        }
+        public WorkflowOnExceptionStep build() {
+            final var o = new WorkflowOnExceptionStep();
+            o.copyStepDetails = copyStepDetails;
+            o.customStepDetails = customStepDetails;
+            o.deleteStepDetails = deleteStepDetails;
+            o.tagStepDetails = tagStepDetails;
+            o.type = type;
+            return o;
         }
     }
 }

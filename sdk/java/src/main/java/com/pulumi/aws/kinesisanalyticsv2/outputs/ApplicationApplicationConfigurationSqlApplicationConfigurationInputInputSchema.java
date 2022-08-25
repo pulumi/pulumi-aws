@@ -18,28 +18,19 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
      * 
      */
-    private final List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn> recordColumns;
+    private List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn> recordColumns;
     /**
      * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
      * 
      */
-    private final @Nullable String recordEncoding;
+    private @Nullable String recordEncoding;
     /**
      * @return Specifies the format of the records on the streaming source.
      * 
      */
-    private final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat recordFormat;
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat recordFormat;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema(
-        @CustomType.Parameter("recordColumns") List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn> recordColumns,
-        @CustomType.Parameter("recordEncoding") @Nullable String recordEncoding,
-        @CustomType.Parameter("recordFormat") ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat recordFormat) {
-        this.recordColumns = recordColumns;
-        this.recordEncoding = recordEncoding;
-        this.recordFormat = recordFormat;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema() {}
     /**
      * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
      * 
@@ -69,16 +60,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn> recordColumns;
         private @Nullable String recordEncoding;
         private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat recordFormat;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordColumns = defaults.recordColumns;
@@ -86,6 +73,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     	      this.recordFormat = defaults.recordFormat;
         }
 
+        @CustomType.Setter
         public Builder recordColumns(List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn> recordColumns) {
             this.recordColumns = Objects.requireNonNull(recordColumns);
             return this;
@@ -93,15 +81,22 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         public Builder recordColumns(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn... recordColumns) {
             return recordColumns(List.of(recordColumns));
         }
+        @CustomType.Setter
         public Builder recordEncoding(@Nullable String recordEncoding) {
             this.recordEncoding = recordEncoding;
             return this;
         }
+        @CustomType.Setter
         public Builder recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat recordFormat) {
             this.recordFormat = Objects.requireNonNull(recordFormat);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema(recordColumns, recordEncoding, recordFormat);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema();
+            o.recordColumns = recordColumns;
+            o.recordEncoding = recordEncoding;
+            o.recordFormat = recordFormat;
+            return o;
         }
     }
 }

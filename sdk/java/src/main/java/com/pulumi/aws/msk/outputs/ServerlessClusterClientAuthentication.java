@@ -13,13 +13,9 @@ public final class ServerlessClusterClientAuthentication {
      * @return Details for client authentication using SASL. See below.
      * 
      */
-    private final ServerlessClusterClientAuthenticationSasl sasl;
+    private ServerlessClusterClientAuthenticationSasl sasl;
 
-    @CustomType.Constructor
-    private ServerlessClusterClientAuthentication(@CustomType.Parameter("sasl") ServerlessClusterClientAuthenticationSasl sasl) {
-        this.sasl = sasl;
-    }
-
+    private ServerlessClusterClientAuthentication() {}
     /**
      * @return Details for client authentication using SASL. See below.
      * 
@@ -35,24 +31,24 @@ public final class ServerlessClusterClientAuthentication {
     public static Builder builder(ServerlessClusterClientAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ServerlessClusterClientAuthenticationSasl sasl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerlessClusterClientAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sasl = defaults.sasl;
         }
 
+        @CustomType.Setter
         public Builder sasl(ServerlessClusterClientAuthenticationSasl sasl) {
             this.sasl = Objects.requireNonNull(sasl);
             return this;
-        }        public ServerlessClusterClientAuthentication build() {
-            return new ServerlessClusterClientAuthentication(sasl);
+        }
+        public ServerlessClusterClientAuthentication build() {
+            final var o = new ServerlessClusterClientAuthentication();
+            o.sasl = sasl;
+            return o;
         }
     }
 }

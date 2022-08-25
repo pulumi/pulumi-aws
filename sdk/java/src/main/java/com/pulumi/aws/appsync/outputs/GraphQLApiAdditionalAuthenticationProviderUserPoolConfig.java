@@ -15,28 +15,19 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
      * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
-    private final @Nullable String appIdClientRegex;
+    private @Nullable String appIdClientRegex;
     /**
      * @return The AWS region in which the user pool was created.
      * 
      */
-    private final @Nullable String awsRegion;
+    private @Nullable String awsRegion;
     /**
      * @return The user pool ID.
      * 
      */
-    private final String userPoolId;
+    private String userPoolId;
 
-    @CustomType.Constructor
-    private GraphQLApiAdditionalAuthenticationProviderUserPoolConfig(
-        @CustomType.Parameter("appIdClientRegex") @Nullable String appIdClientRegex,
-        @CustomType.Parameter("awsRegion") @Nullable String awsRegion,
-        @CustomType.Parameter("userPoolId") String userPoolId) {
-        this.appIdClientRegex = appIdClientRegex;
-        this.awsRegion = awsRegion;
-        this.userPoolId = userPoolId;
-    }
-
+    private GraphQLApiAdditionalAuthenticationProviderUserPoolConfig() {}
     /**
      * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
@@ -66,16 +57,12 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
     public static Builder builder(GraphQLApiAdditionalAuthenticationProviderUserPoolConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String appIdClientRegex;
         private @Nullable String awsRegion;
         private String userPoolId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GraphQLApiAdditionalAuthenticationProviderUserPoolConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appIdClientRegex = defaults.appIdClientRegex;
@@ -83,19 +70,27 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
     	      this.userPoolId = defaults.userPoolId;
         }
 
+        @CustomType.Setter
         public Builder appIdClientRegex(@Nullable String appIdClientRegex) {
             this.appIdClientRegex = appIdClientRegex;
             return this;
         }
+        @CustomType.Setter
         public Builder awsRegion(@Nullable String awsRegion) {
             this.awsRegion = awsRegion;
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             this.userPoolId = Objects.requireNonNull(userPoolId);
             return this;
-        }        public GraphQLApiAdditionalAuthenticationProviderUserPoolConfig build() {
-            return new GraphQLApiAdditionalAuthenticationProviderUserPoolConfig(appIdClientRegex, awsRegion, userPoolId);
+        }
+        public GraphQLApiAdditionalAuthenticationProviderUserPoolConfig build() {
+            final var o = new GraphQLApiAdditionalAuthenticationProviderUserPoolConfig();
+            o.appIdClientRegex = appIdClientRegex;
+            o.awsRegion = awsRegion;
+            o.userPoolId = userPoolId;
+            return o;
         }
     }
 }

@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
-    private final Integer priority;
-    private final String resourceArn;
+    private Integer priority;
+    private String resourceArn;
 
-    @CustomType.Constructor
-    private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference(
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("resourceArn") String resourceArn) {
-        this.priority = priority;
-        this.resourceArn = resourceArn;
-    }
-
+    private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference() {}
     public Integer priority() {
         return this.priority;
     }
@@ -35,30 +28,32 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     public static Builder builder(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer priority;
         private String resourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.priority = defaults.priority;
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
-        }        public GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
-            return new GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference(priority, resourceArn);
+        }
+        public GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
+            final var o = new GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference();
+            o.priority = priority;
+            o.resourceArn = resourceArn;
+            return o;
         }
     }
 }

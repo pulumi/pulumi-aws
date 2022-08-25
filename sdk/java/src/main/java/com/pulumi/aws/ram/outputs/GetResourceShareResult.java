@@ -18,54 +18,33 @@ public final class GetResourceShareResult {
      * @return The Amazon Resource Name (ARN) of the resource share.
      * 
      */
-    private final String arn;
-    private final @Nullable List<GetResourceShareFilter> filters;
+    private String arn;
+    private @Nullable List<GetResourceShareFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The ID of the AWS account that owns the resource share.
      * 
      */
-    private final String owningAccountId;
-    private final String resourceOwner;
-    private final @Nullable String resourceShareStatus;
+    private String owningAccountId;
+    private String resourceOwner;
+    private @Nullable String resourceShareStatus;
     /**
      * @return The Status of the RAM share.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The Tags attached to the RAM share
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetResourceShareResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("filters") @Nullable List<GetResourceShareFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("owningAccountId") String owningAccountId,
-        @CustomType.Parameter("resourceOwner") String resourceOwner,
-        @CustomType.Parameter("resourceShareStatus") @Nullable String resourceShareStatus,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.filters = filters;
-        this.id = id;
-        this.name = name;
-        this.owningAccountId = owningAccountId;
-        this.resourceOwner = resourceOwner;
-        this.resourceShareStatus = resourceShareStatus;
-        this.status = status;
-        this.tags = tags;
-    }
-
+    private GetResourceShareResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the resource share.
      * 
@@ -121,7 +100,7 @@ public final class GetResourceShareResult {
     public static Builder builder(GetResourceShareResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private @Nullable List<GetResourceShareFilter> filters;
@@ -132,11 +111,7 @@ public final class GetResourceShareResult {
         private @Nullable String resourceShareStatus;
         private String status;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourceShareResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -150,10 +125,12 @@ public final class GetResourceShareResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetResourceShareFilter> filters) {
             this.filters = filters;
             return this;
@@ -161,35 +138,53 @@ public final class GetResourceShareResult {
         public Builder filters(GetResourceShareFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder owningAccountId(String owningAccountId) {
             this.owningAccountId = Objects.requireNonNull(owningAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceOwner(String resourceOwner) {
             this.resourceOwner = Objects.requireNonNull(resourceOwner);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceShareStatus(@Nullable String resourceShareStatus) {
             this.resourceShareStatus = resourceShareStatus;
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetResourceShareResult build() {
-            return new GetResourceShareResult(arn, filters, id, name, owningAccountId, resourceOwner, resourceShareStatus, status, tags);
+        }
+        public GetResourceShareResult build() {
+            final var o = new GetResourceShareResult();
+            o.arn = arn;
+            o.filters = filters;
+            o.id = id;
+            o.name = name;
+            o.owningAccountId = owningAccountId;
+            o.resourceOwner = resourceOwner;
+            o.resourceShareStatus = resourceShareStatus;
+            o.status = status;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString {
-    @CustomType.Constructor
-    private RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString() {
-    }
-
+    private RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class RuleGroupRuleStatementNotStatementStatementXssMatchStatementF
     public static Builder builder(RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString build() {
-            return new RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString();
+            final var o = new RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString();
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class CapacityProviderAutoScalingGroupProvider {
      * @return - ARN of the associated auto scaling group.
      * 
      */
-    private final String autoScalingGroupArn;
+    private String autoScalingGroupArn;
     /**
      * @return - Configuration block defining the parameters of the auto scaling. Detailed below.
      * 
      */
-    private final @Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling;
+    private @Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling;
     /**
      * @return - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private final @Nullable String managedTerminationProtection;
+    private @Nullable String managedTerminationProtection;
 
-    @CustomType.Constructor
-    private CapacityProviderAutoScalingGroupProvider(
-        @CustomType.Parameter("autoScalingGroupArn") String autoScalingGroupArn,
-        @CustomType.Parameter("managedScaling") @Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling,
-        @CustomType.Parameter("managedTerminationProtection") @Nullable String managedTerminationProtection) {
-        this.autoScalingGroupArn = autoScalingGroupArn;
-        this.managedScaling = managedScaling;
-        this.managedTerminationProtection = managedTerminationProtection;
-    }
-
+    private CapacityProviderAutoScalingGroupProvider() {}
     /**
      * @return - ARN of the associated auto scaling group.
      * 
@@ -67,16 +58,12 @@ public final class CapacityProviderAutoScalingGroupProvider {
     public static Builder builder(CapacityProviderAutoScalingGroupProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String autoScalingGroupArn;
         private @Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling;
         private @Nullable String managedTerminationProtection;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CapacityProviderAutoScalingGroupProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoScalingGroupArn = defaults.autoScalingGroupArn;
@@ -84,19 +71,27 @@ public final class CapacityProviderAutoScalingGroupProvider {
     	      this.managedTerminationProtection = defaults.managedTerminationProtection;
         }
 
+        @CustomType.Setter
         public Builder autoScalingGroupArn(String autoScalingGroupArn) {
             this.autoScalingGroupArn = Objects.requireNonNull(autoScalingGroupArn);
             return this;
         }
+        @CustomType.Setter
         public Builder managedScaling(@Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling) {
             this.managedScaling = managedScaling;
             return this;
         }
+        @CustomType.Setter
         public Builder managedTerminationProtection(@Nullable String managedTerminationProtection) {
             this.managedTerminationProtection = managedTerminationProtection;
             return this;
-        }        public CapacityProviderAutoScalingGroupProvider build() {
-            return new CapacityProviderAutoScalingGroupProvider(autoScalingGroupArn, managedScaling, managedTerminationProtection);
+        }
+        public CapacityProviderAutoScalingGroupProvider build() {
+            final var o = new CapacityProviderAutoScalingGroupProvider();
+            o.autoScalingGroupArn = autoScalingGroupArn;
+            o.managedScaling = managedScaling;
+            o.managedTerminationProtection = managedTerminationProtection;
+            return o;
         }
     }
 }

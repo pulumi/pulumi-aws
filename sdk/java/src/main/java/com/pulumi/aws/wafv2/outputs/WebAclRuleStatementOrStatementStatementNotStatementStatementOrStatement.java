@@ -14,13 +14,9 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementO
      * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
-    private final List<WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatement> statements;
+    private List<WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatement> statements;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatement(@CustomType.Parameter("statements") List<WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatement() {}
     /**
      * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementO
     public static Builder builder(WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatement build() {
-            return new WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatement(statements);
+        }
+        public WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatement build() {
+            final var o = new WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

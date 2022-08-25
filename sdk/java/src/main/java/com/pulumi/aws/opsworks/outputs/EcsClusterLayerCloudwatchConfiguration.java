@@ -13,17 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EcsClusterLayerCloudwatchConfiguration {
-    private final @Nullable Boolean enabled;
-    private final @Nullable List<EcsClusterLayerCloudwatchConfigurationLogStream> logStreams;
+    private @Nullable Boolean enabled;
+    private @Nullable List<EcsClusterLayerCloudwatchConfigurationLogStream> logStreams;
 
-    @CustomType.Constructor
-    private EcsClusterLayerCloudwatchConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("logStreams") @Nullable List<EcsClusterLayerCloudwatchConfigurationLogStream> logStreams) {
-        this.enabled = enabled;
-        this.logStreams = logStreams;
-    }
-
+    private EcsClusterLayerCloudwatchConfiguration() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -38,33 +31,35 @@ public final class EcsClusterLayerCloudwatchConfiguration {
     public static Builder builder(EcsClusterLayerCloudwatchConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<EcsClusterLayerCloudwatchConfigurationLogStream> logStreams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EcsClusterLayerCloudwatchConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.logStreams = defaults.logStreams;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder logStreams(@Nullable List<EcsClusterLayerCloudwatchConfigurationLogStream> logStreams) {
             this.logStreams = logStreams;
             return this;
         }
         public Builder logStreams(EcsClusterLayerCloudwatchConfigurationLogStream... logStreams) {
             return logStreams(List.of(logStreams));
-        }        public EcsClusterLayerCloudwatchConfiguration build() {
-            return new EcsClusterLayerCloudwatchConfiguration(enabled, logStreams);
+        }
+        public EcsClusterLayerCloudwatchConfiguration build() {
+            final var o = new EcsClusterLayerCloudwatchConfiguration();
+            o.enabled = enabled;
+            o.logStreams = logStreams;
+            return o;
         }
     }
 }

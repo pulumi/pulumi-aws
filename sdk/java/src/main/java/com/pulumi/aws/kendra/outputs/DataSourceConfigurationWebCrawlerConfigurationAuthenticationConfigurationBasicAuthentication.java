@@ -14,28 +14,19 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
      * @return Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
      * 
      */
-    private final String credentials;
+    private String credentials;
     /**
      * @return The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
      * 
      */
-    private final String host;
+    private String host;
     /**
      * @return The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication(
-        @CustomType.Parameter("credentials") String credentials,
-        @CustomType.Parameter("host") String host,
-        @CustomType.Parameter("port") Integer port) {
-        this.credentials = credentials;
-        this.host = host;
-        this.port = port;
-    }
-
+    private DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication() {}
     /**
      * @return Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
      * 
@@ -65,16 +56,12 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
     public static Builder builder(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String credentials;
         private String host;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.credentials = defaults.credentials;
@@ -82,19 +69,27 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder credentials(String credentials) {
             this.credentials = Objects.requireNonNull(credentials);
             return this;
         }
+        @CustomType.Setter
         public Builder host(String host) {
             this.host = Objects.requireNonNull(host);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication build() {
-            return new DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication(credentials, host, port);
+        }
+        public DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication build() {
+            final var o = new DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication();
+            o.credentials = credentials;
+            o.host = host;
+            o.port = port;
+            return o;
         }
     }
 }

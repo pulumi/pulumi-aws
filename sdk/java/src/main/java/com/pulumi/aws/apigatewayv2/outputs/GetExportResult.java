@@ -12,43 +12,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExportResult {
-    private final String apiId;
+    private String apiId;
     /**
      * @return The id of the API.
      * 
      */
-    private final String body;
-    private final @Nullable String exportVersion;
+    private String body;
+    private @Nullable String exportVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean includeExtensions;
-    private final String outputType;
-    private final String specification;
-    private final @Nullable String stageName;
+    private String id;
+    private @Nullable Boolean includeExtensions;
+    private String outputType;
+    private String specification;
+    private @Nullable String stageName;
 
-    @CustomType.Constructor
-    private GetExportResult(
-        @CustomType.Parameter("apiId") String apiId,
-        @CustomType.Parameter("body") String body,
-        @CustomType.Parameter("exportVersion") @Nullable String exportVersion,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("includeExtensions") @Nullable Boolean includeExtensions,
-        @CustomType.Parameter("outputType") String outputType,
-        @CustomType.Parameter("specification") String specification,
-        @CustomType.Parameter("stageName") @Nullable String stageName) {
-        this.apiId = apiId;
-        this.body = body;
-        this.exportVersion = exportVersion;
-        this.id = id;
-        this.includeExtensions = includeExtensions;
-        this.outputType = outputType;
-        this.specification = specification;
-        this.stageName = stageName;
-    }
-
+    private GetExportResult() {}
     public String apiId() {
         return this.apiId;
     }
@@ -89,7 +70,7 @@ public final class GetExportResult {
     public static Builder builder(GetExportResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiId;
         private String body;
@@ -99,11 +80,7 @@ public final class GetExportResult {
         private String outputType;
         private String specification;
         private @Nullable String stageName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExportResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiId = defaults.apiId;
@@ -116,39 +93,57 @@ public final class GetExportResult {
     	      this.stageName = defaults.stageName;
         }
 
+        @CustomType.Setter
         public Builder apiId(String apiId) {
             this.apiId = Objects.requireNonNull(apiId);
             return this;
         }
+        @CustomType.Setter
         public Builder body(String body) {
             this.body = Objects.requireNonNull(body);
             return this;
         }
+        @CustomType.Setter
         public Builder exportVersion(@Nullable String exportVersion) {
             this.exportVersion = exportVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder includeExtensions(@Nullable Boolean includeExtensions) {
             this.includeExtensions = includeExtensions;
             return this;
         }
+        @CustomType.Setter
         public Builder outputType(String outputType) {
             this.outputType = Objects.requireNonNull(outputType);
             return this;
         }
+        @CustomType.Setter
         public Builder specification(String specification) {
             this.specification = Objects.requireNonNull(specification);
             return this;
         }
+        @CustomType.Setter
         public Builder stageName(@Nullable String stageName) {
             this.stageName = stageName;
             return this;
-        }        public GetExportResult build() {
-            return new GetExportResult(apiId, body, exportVersion, id, includeExtensions, outputType, specification, stageName);
+        }
+        public GetExportResult build() {
+            final var o = new GetExportResult();
+            o.apiId = apiId;
+            o.body = body;
+            o.exportVersion = exportVersion;
+            o.id = id;
+            o.includeExtensions = includeExtensions;
+            o.outputType = outputType;
+            o.specification = specification;
+            o.stageName = stageName;
+            return o;
         }
     }
 }

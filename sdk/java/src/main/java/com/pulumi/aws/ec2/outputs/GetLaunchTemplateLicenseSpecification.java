@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateLicenseSpecification {
-    private final String licenseConfigurationArn;
+    private String licenseConfigurationArn;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateLicenseSpecification(@CustomType.Parameter("licenseConfigurationArn") String licenseConfigurationArn) {
-        this.licenseConfigurationArn = licenseConfigurationArn;
-    }
-
+    private GetLaunchTemplateLicenseSpecification() {}
     public String licenseConfigurationArn() {
         return this.licenseConfigurationArn;
     }
@@ -27,24 +23,24 @@ public final class GetLaunchTemplateLicenseSpecification {
     public static Builder builder(GetLaunchTemplateLicenseSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String licenseConfigurationArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateLicenseSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.licenseConfigurationArn = defaults.licenseConfigurationArn;
         }
 
+        @CustomType.Setter
         public Builder licenseConfigurationArn(String licenseConfigurationArn) {
             this.licenseConfigurationArn = Objects.requireNonNull(licenseConfigurationArn);
             return this;
-        }        public GetLaunchTemplateLicenseSpecification build() {
-            return new GetLaunchTemplateLicenseSpecification(licenseConfigurationArn);
+        }
+        public GetLaunchTemplateLicenseSpecification build() {
+            final var o = new GetLaunchTemplateLicenseSpecification();
+            o.licenseConfigurationArn = licenseConfigurationArn;
+            return o;
         }
     }
 }

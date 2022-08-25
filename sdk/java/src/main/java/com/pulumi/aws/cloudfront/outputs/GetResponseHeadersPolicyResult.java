@@ -18,55 +18,36 @@ public final class GetResponseHeadersPolicyResult {
      * @return A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
-    private final String comment;
+    private String comment;
     /**
      * @return A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      * 
      */
-    private final List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
+    private List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
     /**
      * @return Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
      * 
      */
-    private final List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
+    private List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
     /**
      * @return The current version of the response headers policy.
      * 
      */
-    private final String etag;
-    private final String id;
-    private final String name;
+    private String etag;
+    private String id;
+    private String name;
     /**
      * @return A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      * 
      */
-    private final List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
+    private List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
     /**
      * @return (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      * 
      */
-    private final List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
+    private List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
 
-    @CustomType.Constructor
-    private GetResponseHeadersPolicyResult(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("corsConfigs") List<GetResponseHeadersPolicyCorsConfig> corsConfigs,
-        @CustomType.Parameter("customHeadersConfigs") List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs,
-        @CustomType.Parameter("etag") String etag,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("securityHeadersConfigs") List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs,
-        @CustomType.Parameter("serverTimingHeadersConfigs") List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs) {
-        this.comment = comment;
-        this.corsConfigs = corsConfigs;
-        this.customHeadersConfigs = customHeadersConfigs;
-        this.etag = etag;
-        this.id = id;
-        this.name = name;
-        this.securityHeadersConfigs = securityHeadersConfigs;
-        this.serverTimingHeadersConfigs = serverTimingHeadersConfigs;
-    }
-
+    private GetResponseHeadersPolicyResult() {}
     /**
      * @return A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
@@ -123,7 +104,7 @@ public final class GetResponseHeadersPolicyResult {
     public static Builder builder(GetResponseHeadersPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
@@ -133,11 +114,7 @@ public final class GetResponseHeadersPolicyResult {
         private String name;
         private List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
         private List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResponseHeadersPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -150,10 +127,12 @@ public final class GetResponseHeadersPolicyResult {
     	      this.serverTimingHeadersConfigs = defaults.serverTimingHeadersConfigs;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder corsConfigs(List<GetResponseHeadersPolicyCorsConfig> corsConfigs) {
             this.corsConfigs = Objects.requireNonNull(corsConfigs);
             return this;
@@ -161,6 +140,7 @@ public final class GetResponseHeadersPolicyResult {
         public Builder corsConfigs(GetResponseHeadersPolicyCorsConfig... corsConfigs) {
             return corsConfigs(List.of(corsConfigs));
         }
+        @CustomType.Setter
         public Builder customHeadersConfigs(List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs) {
             this.customHeadersConfigs = Objects.requireNonNull(customHeadersConfigs);
             return this;
@@ -168,18 +148,22 @@ public final class GetResponseHeadersPolicyResult {
         public Builder customHeadersConfigs(GetResponseHeadersPolicyCustomHeadersConfig... customHeadersConfigs) {
             return customHeadersConfigs(List.of(customHeadersConfigs));
         }
+        @CustomType.Setter
         public Builder etag(String etag) {
             this.etag = Objects.requireNonNull(etag);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder securityHeadersConfigs(List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs) {
             this.securityHeadersConfigs = Objects.requireNonNull(securityHeadersConfigs);
             return this;
@@ -187,14 +171,25 @@ public final class GetResponseHeadersPolicyResult {
         public Builder securityHeadersConfigs(GetResponseHeadersPolicySecurityHeadersConfig... securityHeadersConfigs) {
             return securityHeadersConfigs(List.of(securityHeadersConfigs));
         }
+        @CustomType.Setter
         public Builder serverTimingHeadersConfigs(List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs) {
             this.serverTimingHeadersConfigs = Objects.requireNonNull(serverTimingHeadersConfigs);
             return this;
         }
         public Builder serverTimingHeadersConfigs(GetResponseHeadersPolicyServerTimingHeadersConfig... serverTimingHeadersConfigs) {
             return serverTimingHeadersConfigs(List.of(serverTimingHeadersConfigs));
-        }        public GetResponseHeadersPolicyResult build() {
-            return new GetResponseHeadersPolicyResult(comment, corsConfigs, customHeadersConfigs, etag, id, name, securityHeadersConfigs, serverTimingHeadersConfigs);
+        }
+        public GetResponseHeadersPolicyResult build() {
+            final var o = new GetResponseHeadersPolicyResult();
+            o.comment = comment;
+            o.corsConfigs = corsConfigs;
+            o.customHeadersConfigs = customHeadersConfigs;
+            o.etag = etag;
+            o.id = id;
+            o.name = name;
+            o.securityHeadersConfigs = securityHeadersConfigs;
+            o.serverTimingHeadersConfigs = serverTimingHeadersConfigs;
+            return o;
         }
     }
 }

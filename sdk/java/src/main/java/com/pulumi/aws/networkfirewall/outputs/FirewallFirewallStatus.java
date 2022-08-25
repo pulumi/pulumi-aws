@@ -15,13 +15,9 @@ public final class FirewallFirewallStatus {
      * @return Set of subnets configured for use by the firewall.
      * 
      */
-    private final @Nullable List<FirewallFirewallStatusSyncState> syncStates;
+    private @Nullable List<FirewallFirewallStatusSyncState> syncStates;
 
-    @CustomType.Constructor
-    private FirewallFirewallStatus(@CustomType.Parameter("syncStates") @Nullable List<FirewallFirewallStatusSyncState> syncStates) {
-        this.syncStates = syncStates;
-    }
-
+    private FirewallFirewallStatus() {}
     /**
      * @return Set of subnets configured for use by the firewall.
      * 
@@ -37,27 +33,27 @@ public final class FirewallFirewallStatus {
     public static Builder builder(FirewallFirewallStatus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FirewallFirewallStatusSyncState> syncStates;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallFirewallStatus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.syncStates = defaults.syncStates;
         }
 
+        @CustomType.Setter
         public Builder syncStates(@Nullable List<FirewallFirewallStatusSyncState> syncStates) {
             this.syncStates = syncStates;
             return this;
         }
         public Builder syncStates(FirewallFirewallStatusSyncState... syncStates) {
             return syncStates(List.of(syncStates));
-        }        public FirewallFirewallStatus build() {
-            return new FirewallFirewallStatus(syncStates);
+        }
+        public FirewallFirewallStatus build() {
+            final var o = new FirewallFirewallStatus();
+            o.syncStates = syncStates;
+            return o;
         }
     }
 }

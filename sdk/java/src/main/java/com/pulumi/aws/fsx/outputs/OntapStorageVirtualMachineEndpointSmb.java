@@ -16,21 +16,14 @@ public final class OntapStorageVirtualMachineEndpointSmb {
      * @return The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
      * 
      */
-    private final @Nullable String dnsName;
+    private @Nullable String dnsName;
     /**
      * @return IP addresses of the storage virtual machine endpoint.
      * 
      */
-    private final @Nullable List<String> ipAddresses;
+    private @Nullable List<String> ipAddresses;
 
-    @CustomType.Constructor
-    private OntapStorageVirtualMachineEndpointSmb(
-        @CustomType.Parameter("dnsName") @Nullable String dnsName,
-        @CustomType.Parameter("ipAddresses") @Nullable List<String> ipAddresses) {
-        this.dnsName = dnsName;
-        this.ipAddresses = ipAddresses;
-    }
-
+    private OntapStorageVirtualMachineEndpointSmb() {}
     /**
      * @return The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
      * 
@@ -53,33 +46,35 @@ public final class OntapStorageVirtualMachineEndpointSmb {
     public static Builder builder(OntapStorageVirtualMachineEndpointSmb defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dnsName;
         private @Nullable List<String> ipAddresses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OntapStorageVirtualMachineEndpointSmb defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsName = defaults.dnsName;
     	      this.ipAddresses = defaults.ipAddresses;
         }
 
+        @CustomType.Setter
         public Builder dnsName(@Nullable String dnsName) {
             this.dnsName = dnsName;
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
             this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
-        }        public OntapStorageVirtualMachineEndpointSmb build() {
-            return new OntapStorageVirtualMachineEndpointSmb(dnsName, ipAddresses);
+        }
+        public OntapStorageVirtualMachineEndpointSmb build() {
+            final var o = new OntapStorageVirtualMachineEndpointSmb();
+            o.dnsName = dnsName;
+            o.ipAddresses = ipAddresses;
+            return o;
         }
     }
 }

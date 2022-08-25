@@ -15,21 +15,14 @@ public final class GetVirtualServiceSpecProvider {
      * @return The virtual node associated with the virtual service.
      * 
      */
-    private final List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes;
+    private List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes;
     /**
      * @return The virtual router associated with the virtual service.
      * 
      */
-    private final List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters;
+    private List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters;
 
-    @CustomType.Constructor
-    private GetVirtualServiceSpecProvider(
-        @CustomType.Parameter("virtualNodes") List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes,
-        @CustomType.Parameter("virtualRouters") List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters) {
-        this.virtualNodes = virtualNodes;
-        this.virtualRouters = virtualRouters;
-    }
-
+    private GetVirtualServiceSpecProvider() {}
     /**
      * @return The virtual node associated with the virtual service.
      * 
@@ -52,21 +45,18 @@ public final class GetVirtualServiceSpecProvider {
     public static Builder builder(GetVirtualServiceSpecProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes;
         private List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualServiceSpecProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualNodes = defaults.virtualNodes;
     	      this.virtualRouters = defaults.virtualRouters;
         }
 
+        @CustomType.Setter
         public Builder virtualNodes(List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes) {
             this.virtualNodes = Objects.requireNonNull(virtualNodes);
             return this;
@@ -74,14 +64,19 @@ public final class GetVirtualServiceSpecProvider {
         public Builder virtualNodes(GetVirtualServiceSpecProviderVirtualNode... virtualNodes) {
             return virtualNodes(List.of(virtualNodes));
         }
+        @CustomType.Setter
         public Builder virtualRouters(List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters) {
             this.virtualRouters = Objects.requireNonNull(virtualRouters);
             return this;
         }
         public Builder virtualRouters(GetVirtualServiceSpecProviderVirtualRouter... virtualRouters) {
             return virtualRouters(List.of(virtualRouters));
-        }        public GetVirtualServiceSpecProvider build() {
-            return new GetVirtualServiceSpecProvider(virtualNodes, virtualRouters);
+        }
+        public GetVirtualServiceSpecProvider build() {
+            final var o = new GetVirtualServiceSpecProvider();
+            o.virtualNodes = virtualNodes;
+            o.virtualRouters = virtualRouters;
+            return o;
         }
     }
 }

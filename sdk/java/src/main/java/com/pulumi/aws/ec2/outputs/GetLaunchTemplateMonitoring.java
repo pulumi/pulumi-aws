@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateMonitoring {
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateMonitoring(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private GetLaunchTemplateMonitoring() {}
     public Boolean enabled() {
         return this.enabled;
     }
@@ -27,24 +23,24 @@ public final class GetLaunchTemplateMonitoring {
     public static Builder builder(GetLaunchTemplateMonitoring defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateMonitoring defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetLaunchTemplateMonitoring build() {
-            return new GetLaunchTemplateMonitoring(enabled);
+        }
+        public GetLaunchTemplateMonitoring build() {
+            final var o = new GetLaunchTemplateMonitoring();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

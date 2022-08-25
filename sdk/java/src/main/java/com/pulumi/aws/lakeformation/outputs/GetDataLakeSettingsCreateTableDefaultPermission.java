@@ -14,21 +14,14 @@ public final class GetDataLakeSettingsCreateTableDefaultPermission {
      * @return List of permissions granted to the principal.
      * 
      */
-    private final List<String> permissions;
+    private List<String> permissions;
     /**
      * @return Principal who is granted permissions.
      * 
      */
-    private final String principal;
+    private String principal;
 
-    @CustomType.Constructor
-    private GetDataLakeSettingsCreateTableDefaultPermission(
-        @CustomType.Parameter("permissions") List<String> permissions,
-        @CustomType.Parameter("principal") String principal) {
-        this.permissions = permissions;
-        this.principal = principal;
-    }
-
+    private GetDataLakeSettingsCreateTableDefaultPermission() {}
     /**
      * @return List of permissions granted to the principal.
      * 
@@ -51,21 +44,18 @@ public final class GetDataLakeSettingsCreateTableDefaultPermission {
     public static Builder builder(GetDataLakeSettingsCreateTableDefaultPermission defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> permissions;
         private String principal;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDataLakeSettingsCreateTableDefaultPermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.permissions = defaults.permissions;
     	      this.principal = defaults.principal;
         }
 
+        @CustomType.Setter
         public Builder permissions(List<String> permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
@@ -73,11 +63,16 @@ public final class GetDataLakeSettingsCreateTableDefaultPermission {
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
+        @CustomType.Setter
         public Builder principal(String principal) {
             this.principal = Objects.requireNonNull(principal);
             return this;
-        }        public GetDataLakeSettingsCreateTableDefaultPermission build() {
-            return new GetDataLakeSettingsCreateTableDefaultPermission(permissions, principal);
+        }
+        public GetDataLakeSettingsCreateTableDefaultPermission build() {
+            final var o = new GetDataLakeSettingsCreateTableDefaultPermission();
+            o.permissions = permissions;
+            o.principal = principal;
+            return o;
         }
     }
 }

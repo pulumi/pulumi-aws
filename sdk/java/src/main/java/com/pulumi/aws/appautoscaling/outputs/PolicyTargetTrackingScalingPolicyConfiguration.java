@@ -19,49 +19,34 @@ public final class PolicyTargetTrackingScalingPolicyConfiguration {
      * @return A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
      * 
      */
-    private final @Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification customizedMetricSpecification;
+    private @Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification customizedMetricSpecification;
     /**
      * @return Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
      * 
      */
-    private final @Nullable Boolean disableScaleIn;
+    private @Nullable Boolean disableScaleIn;
     /**
      * @return A predefined metric. See supported fields below.
      * 
      */
-    private final @Nullable PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification predefinedMetricSpecification;
+    private @Nullable PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification predefinedMetricSpecification;
     /**
      * @return The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
      * 
      */
-    private final @Nullable Integer scaleInCooldown;
+    private @Nullable Integer scaleInCooldown;
     /**
      * @return The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
      * 
      */
-    private final @Nullable Integer scaleOutCooldown;
+    private @Nullable Integer scaleOutCooldown;
     /**
      * @return The target value for the metric.
      * 
      */
-    private final Double targetValue;
+    private Double targetValue;
 
-    @CustomType.Constructor
-    private PolicyTargetTrackingScalingPolicyConfiguration(
-        @CustomType.Parameter("customizedMetricSpecification") @Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification customizedMetricSpecification,
-        @CustomType.Parameter("disableScaleIn") @Nullable Boolean disableScaleIn,
-        @CustomType.Parameter("predefinedMetricSpecification") @Nullable PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification predefinedMetricSpecification,
-        @CustomType.Parameter("scaleInCooldown") @Nullable Integer scaleInCooldown,
-        @CustomType.Parameter("scaleOutCooldown") @Nullable Integer scaleOutCooldown,
-        @CustomType.Parameter("targetValue") Double targetValue) {
-        this.customizedMetricSpecification = customizedMetricSpecification;
-        this.disableScaleIn = disableScaleIn;
-        this.predefinedMetricSpecification = predefinedMetricSpecification;
-        this.scaleInCooldown = scaleInCooldown;
-        this.scaleOutCooldown = scaleOutCooldown;
-        this.targetValue = targetValue;
-    }
-
+    private PolicyTargetTrackingScalingPolicyConfiguration() {}
     /**
      * @return A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
      * 
@@ -112,7 +97,7 @@ public final class PolicyTargetTrackingScalingPolicyConfiguration {
     public static Builder builder(PolicyTargetTrackingScalingPolicyConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification customizedMetricSpecification;
         private @Nullable Boolean disableScaleIn;
@@ -120,11 +105,7 @@ public final class PolicyTargetTrackingScalingPolicyConfiguration {
         private @Nullable Integer scaleInCooldown;
         private @Nullable Integer scaleOutCooldown;
         private Double targetValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyTargetTrackingScalingPolicyConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customizedMetricSpecification = defaults.customizedMetricSpecification;
@@ -135,31 +116,45 @@ public final class PolicyTargetTrackingScalingPolicyConfiguration {
     	      this.targetValue = defaults.targetValue;
         }
 
+        @CustomType.Setter
         public Builder customizedMetricSpecification(@Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification customizedMetricSpecification) {
             this.customizedMetricSpecification = customizedMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder disableScaleIn(@Nullable Boolean disableScaleIn) {
             this.disableScaleIn = disableScaleIn;
             return this;
         }
+        @CustomType.Setter
         public Builder predefinedMetricSpecification(@Nullable PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification predefinedMetricSpecification) {
             this.predefinedMetricSpecification = predefinedMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder scaleInCooldown(@Nullable Integer scaleInCooldown) {
             this.scaleInCooldown = scaleInCooldown;
             return this;
         }
+        @CustomType.Setter
         public Builder scaleOutCooldown(@Nullable Integer scaleOutCooldown) {
             this.scaleOutCooldown = scaleOutCooldown;
             return this;
         }
+        @CustomType.Setter
         public Builder targetValue(Double targetValue) {
             this.targetValue = Objects.requireNonNull(targetValue);
             return this;
-        }        public PolicyTargetTrackingScalingPolicyConfiguration build() {
-            return new PolicyTargetTrackingScalingPolicyConfiguration(customizedMetricSpecification, disableScaleIn, predefinedMetricSpecification, scaleInCooldown, scaleOutCooldown, targetValue);
+        }
+        public PolicyTargetTrackingScalingPolicyConfiguration build() {
+            final var o = new PolicyTargetTrackingScalingPolicyConfiguration();
+            o.customizedMetricSpecification = customizedMetricSpecification;
+            o.disableScaleIn = disableScaleIn;
+            o.predefinedMetricSpecification = predefinedMetricSpecification;
+            o.scaleInCooldown = scaleInCooldown;
+            o.scaleOutCooldown = scaleOutCooldown;
+            o.targetValue = targetValue;
+            return o;
         }
     }
 }

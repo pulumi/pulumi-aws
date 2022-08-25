@@ -13,13 +13,9 @@ public final class OrganizationConfigurationDatasourcesS3Logs {
      * @return Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
-    private final Boolean autoEnable;
+    private Boolean autoEnable;
 
-    @CustomType.Constructor
-    private OrganizationConfigurationDatasourcesS3Logs(@CustomType.Parameter("autoEnable") Boolean autoEnable) {
-        this.autoEnable = autoEnable;
-    }
-
+    private OrganizationConfigurationDatasourcesS3Logs() {}
     /**
      * @return Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
@@ -35,24 +31,24 @@ public final class OrganizationConfigurationDatasourcesS3Logs {
     public static Builder builder(OrganizationConfigurationDatasourcesS3Logs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean autoEnable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationConfigurationDatasourcesS3Logs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoEnable = defaults.autoEnable;
         }
 
+        @CustomType.Setter
         public Builder autoEnable(Boolean autoEnable) {
             this.autoEnable = Objects.requireNonNull(autoEnable);
             return this;
-        }        public OrganizationConfigurationDatasourcesS3Logs build() {
-            return new OrganizationConfigurationDatasourcesS3Logs(autoEnable);
+        }
+        public OrganizationConfigurationDatasourcesS3Logs build() {
+            final var o = new OrganizationConfigurationDatasourcesS3Logs();
+            o.autoEnable = autoEnable;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class InsightFiltersResourceAwsEc2InstanceType {
      * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
      * 
      */
-    private final String comparison;
+    private String comparison;
     /**
      * @return A date range value for the date filter, provided as an Integer.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private InsightFiltersResourceAwsEc2InstanceType(
-        @CustomType.Parameter("comparison") String comparison,
-        @CustomType.Parameter("value") String value) {
-        this.comparison = comparison;
-        this.value = value;
-    }
-
+    private InsightFiltersResourceAwsEc2InstanceType() {}
     /**
      * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
      * 
@@ -50,30 +43,32 @@ public final class InsightFiltersResourceAwsEc2InstanceType {
     public static Builder builder(InsightFiltersResourceAwsEc2InstanceType defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comparison;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersResourceAwsEc2InstanceType defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparison = defaults.comparison;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder comparison(String comparison) {
             this.comparison = Objects.requireNonNull(comparison);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public InsightFiltersResourceAwsEc2InstanceType build() {
-            return new InsightFiltersResourceAwsEc2InstanceType(comparison, value);
+        }
+        public InsightFiltersResourceAwsEc2InstanceType build() {
+            final var o = new InsightFiltersResourceAwsEc2InstanceType();
+            o.comparison = comparison;
+            o.value = value;
+            return o;
         }
     }
 }

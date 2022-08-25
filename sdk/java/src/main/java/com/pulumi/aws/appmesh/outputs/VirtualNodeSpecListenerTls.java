@@ -17,28 +17,19 @@ public final class VirtualNodeSpecListenerTls {
      * @return The listener&#39;s TLS certificate.
      * 
      */
-    private final VirtualNodeSpecListenerTlsCertificate certificate;
+    private VirtualNodeSpecListenerTlsCertificate certificate;
     /**
      * @return The listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
      * 
      */
-    private final String mode;
+    private String mode;
     /**
      * @return The listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTlsValidation validation;
+    private @Nullable VirtualNodeSpecListenerTlsValidation validation;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTls(
-        @CustomType.Parameter("certificate") VirtualNodeSpecListenerTlsCertificate certificate,
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("validation") @Nullable VirtualNodeSpecListenerTlsValidation validation) {
-        this.certificate = certificate;
-        this.mode = mode;
-        this.validation = validation;
-    }
-
+    private VirtualNodeSpecListenerTls() {}
     /**
      * @return The listener&#39;s TLS certificate.
      * 
@@ -68,16 +59,12 @@ public final class VirtualNodeSpecListenerTls {
     public static Builder builder(VirtualNodeSpecListenerTls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualNodeSpecListenerTlsCertificate certificate;
         private String mode;
         private @Nullable VirtualNodeSpecListenerTlsValidation validation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
@@ -85,19 +72,27 @@ public final class VirtualNodeSpecListenerTls {
     	      this.validation = defaults.validation;
         }
 
+        @CustomType.Setter
         public Builder certificate(VirtualNodeSpecListenerTlsCertificate certificate) {
             this.certificate = Objects.requireNonNull(certificate);
             return this;
         }
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder validation(@Nullable VirtualNodeSpecListenerTlsValidation validation) {
             this.validation = validation;
             return this;
-        }        public VirtualNodeSpecListenerTls build() {
-            return new VirtualNodeSpecListenerTls(certificate, mode, validation);
+        }
+        public VirtualNodeSpecListenerTls build() {
+            final var o = new VirtualNodeSpecListenerTls();
+            o.certificate = certificate;
+            o.mode = mode;
+            o.validation = validation;
+            return o;
         }
     }
 }

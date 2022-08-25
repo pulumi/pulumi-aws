@@ -15,21 +15,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
      * @return The lower limit of the port range. This must be less than or equal to the `to_port`.
      * 
      */
-    private final Integer fromPort;
+    private Integer fromPort;
     /**
      * @return The upper limit of the port range. This must be greater than or equal to the `from_port`.
      * 
      */
-    private final @Nullable Integer toPort;
+    private @Nullable Integer toPort;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort(
-        @CustomType.Parameter("fromPort") Integer fromPort,
-        @CustomType.Parameter("toPort") @Nullable Integer toPort) {
-        this.fromPort = fromPort;
-        this.toPort = toPort;
-    }
-
+    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort() {}
     /**
      * @return The lower limit of the port range. This must be less than or equal to the `to_port`.
      * 
@@ -52,30 +45,32 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
     public static Builder builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer fromPort;
         private @Nullable Integer toPort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fromPort = defaults.fromPort;
     	      this.toPort = defaults.toPort;
         }
 
+        @CustomType.Setter
         public Builder fromPort(Integer fromPort) {
             this.fromPort = Objects.requireNonNull(fromPort);
             return this;
         }
+        @CustomType.Setter
         public Builder toPort(@Nullable Integer toPort) {
             this.toPort = toPort;
             return this;
-        }        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort build() {
-            return new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort(fromPort, toPort);
+        }
+        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort build() {
+            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort();
+            o.fromPort = fromPort;
+            o.toPort = toPort;
+            return o;
         }
     }
 }

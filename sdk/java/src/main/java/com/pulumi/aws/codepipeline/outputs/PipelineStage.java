@@ -15,21 +15,14 @@ public final class PipelineStage {
      * @return The action(s) to include in the stage. Defined as an `action` block below
      * 
      */
-    private final List<PipelineStageAction> actions;
+    private List<PipelineStageAction> actions;
     /**
      * @return The name of the stage.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private PipelineStage(
-        @CustomType.Parameter("actions") List<PipelineStageAction> actions,
-        @CustomType.Parameter("name") String name) {
-        this.actions = actions;
-        this.name = name;
-    }
-
+    private PipelineStage() {}
     /**
      * @return The action(s) to include in the stage. Defined as an `action` block below
      * 
@@ -52,21 +45,18 @@ public final class PipelineStage {
     public static Builder builder(PipelineStage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<PipelineStageAction> actions;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineStage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder actions(List<PipelineStageAction> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -74,11 +64,16 @@ public final class PipelineStage {
         public Builder actions(PipelineStageAction... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public PipelineStage build() {
-            return new PipelineStage(actions, name);
+        }
+        public PipelineStage build() {
+            final var o = new PipelineStage();
+            o.actions = actions;
+            o.name = name;
+            return o;
         }
     }
 }

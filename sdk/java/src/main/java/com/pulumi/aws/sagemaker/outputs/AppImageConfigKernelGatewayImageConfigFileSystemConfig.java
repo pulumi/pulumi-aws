@@ -16,28 +16,19 @@ public final class AppImageConfigKernelGatewayImageConfigFileSystemConfig {
      * @return The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
      * 
      */
-    private final @Nullable Integer defaultGid;
+    private @Nullable Integer defaultGid;
     /**
      * @return The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
      * 
      */
-    private final @Nullable Integer defaultUid;
+    private @Nullable Integer defaultUid;
     /**
      * @return The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
      * 
      */
-    private final @Nullable String mountPath;
+    private @Nullable String mountPath;
 
-    @CustomType.Constructor
-    private AppImageConfigKernelGatewayImageConfigFileSystemConfig(
-        @CustomType.Parameter("defaultGid") @Nullable Integer defaultGid,
-        @CustomType.Parameter("defaultUid") @Nullable Integer defaultUid,
-        @CustomType.Parameter("mountPath") @Nullable String mountPath) {
-        this.defaultGid = defaultGid;
-        this.defaultUid = defaultUid;
-        this.mountPath = mountPath;
-    }
-
+    private AppImageConfigKernelGatewayImageConfigFileSystemConfig() {}
     /**
      * @return The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
      * 
@@ -67,16 +58,12 @@ public final class AppImageConfigKernelGatewayImageConfigFileSystemConfig {
     public static Builder builder(AppImageConfigKernelGatewayImageConfigFileSystemConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer defaultGid;
         private @Nullable Integer defaultUid;
         private @Nullable String mountPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppImageConfigKernelGatewayImageConfigFileSystemConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultGid = defaults.defaultGid;
@@ -84,19 +71,27 @@ public final class AppImageConfigKernelGatewayImageConfigFileSystemConfig {
     	      this.mountPath = defaults.mountPath;
         }
 
+        @CustomType.Setter
         public Builder defaultGid(@Nullable Integer defaultGid) {
             this.defaultGid = defaultGid;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultUid(@Nullable Integer defaultUid) {
             this.defaultUid = defaultUid;
             return this;
         }
+        @CustomType.Setter
         public Builder mountPath(@Nullable String mountPath) {
             this.mountPath = mountPath;
             return this;
-        }        public AppImageConfigKernelGatewayImageConfigFileSystemConfig build() {
-            return new AppImageConfigKernelGatewayImageConfigFileSystemConfig(defaultGid, defaultUid, mountPath);
+        }
+        public AppImageConfigKernelGatewayImageConfigFileSystemConfig build() {
+            final var o = new AppImageConfigKernelGatewayImageConfigFileSystemConfig();
+            o.defaultGid = defaultGid;
+            o.defaultUid = defaultUid;
+            o.mountPath = mountPath;
+            return o;
         }
     }
 }

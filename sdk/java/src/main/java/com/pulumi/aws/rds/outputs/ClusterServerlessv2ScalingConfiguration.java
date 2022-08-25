@@ -13,21 +13,14 @@ public final class ClusterServerlessv2ScalingConfiguration {
      * @return The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
      * 
      */
-    private final Double maxCapacity;
+    private Double maxCapacity;
     /**
      * @return The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
      * 
      */
-    private final Double minCapacity;
+    private Double minCapacity;
 
-    @CustomType.Constructor
-    private ClusterServerlessv2ScalingConfiguration(
-        @CustomType.Parameter("maxCapacity") Double maxCapacity,
-        @CustomType.Parameter("minCapacity") Double minCapacity) {
-        this.maxCapacity = maxCapacity;
-        this.minCapacity = minCapacity;
-    }
-
+    private ClusterServerlessv2ScalingConfiguration() {}
     /**
      * @return The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
      * 
@@ -50,30 +43,32 @@ public final class ClusterServerlessv2ScalingConfiguration {
     public static Builder builder(ClusterServerlessv2ScalingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Double maxCapacity;
         private Double minCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterServerlessv2ScalingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxCapacity = defaults.maxCapacity;
     	      this.minCapacity = defaults.minCapacity;
         }
 
+        @CustomType.Setter
         public Builder maxCapacity(Double maxCapacity) {
             this.maxCapacity = Objects.requireNonNull(maxCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder minCapacity(Double minCapacity) {
             this.minCapacity = Objects.requireNonNull(minCapacity);
             return this;
-        }        public ClusterServerlessv2ScalingConfiguration build() {
-            return new ClusterServerlessv2ScalingConfiguration(maxCapacity, minCapacity);
+        }
+        public ClusterServerlessv2ScalingConfiguration build() {
+            final var o = new ClusterServerlessv2ScalingConfiguration();
+            o.maxCapacity = maxCapacity;
+            o.minCapacity = minCapacity;
+            return o;
         }
     }
 }

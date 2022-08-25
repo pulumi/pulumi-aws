@@ -15,21 +15,14 @@ public final class CanaryArtifactConfigS3Encryption {
      * @return The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
      * 
      */
-    private final @Nullable String encryptionMode;
+    private @Nullable String encryptionMode;
     /**
      * @return The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
 
-    @CustomType.Constructor
-    private CanaryArtifactConfigS3Encryption(
-        @CustomType.Parameter("encryptionMode") @Nullable String encryptionMode,
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn) {
-        this.encryptionMode = encryptionMode;
-        this.kmsKeyArn = kmsKeyArn;
-    }
-
+    private CanaryArtifactConfigS3Encryption() {}
     /**
      * @return The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
      * 
@@ -52,30 +45,32 @@ public final class CanaryArtifactConfigS3Encryption {
     public static Builder builder(CanaryArtifactConfigS3Encryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String encryptionMode;
         private @Nullable String kmsKeyArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CanaryArtifactConfigS3Encryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionMode = defaults.encryptionMode;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
         }
 
+        @CustomType.Setter
         public Builder encryptionMode(@Nullable String encryptionMode) {
             this.encryptionMode = encryptionMode;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
-        }        public CanaryArtifactConfigS3Encryption build() {
-            return new CanaryArtifactConfigS3Encryption(encryptionMode, kmsKeyArn);
+        }
+        public CanaryArtifactConfigS3Encryption build() {
+            final var o = new CanaryArtifactConfigS3Encryption();
+            o.encryptionMode = encryptionMode;
+            o.kmsKeyArn = kmsKeyArn;
+            return o;
         }
     }
 }

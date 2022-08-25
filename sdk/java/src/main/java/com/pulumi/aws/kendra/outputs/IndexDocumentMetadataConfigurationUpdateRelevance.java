@@ -18,42 +18,29 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevance {
      * @return Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
      * 
      */
-    private final @Nullable String duration;
+    private @Nullable String duration;
     /**
      * @return Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
      * 
      */
-    private final @Nullable Boolean freshness;
+    private @Nullable Boolean freshness;
     /**
      * @return The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
      * 
      */
-    private final @Nullable Integer importance;
+    private @Nullable Integer importance;
     /**
      * @return Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
      * 
      */
-    private final @Nullable String rankOrder;
+    private @Nullable String rankOrder;
     /**
      * @return A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
      * 
      */
-    private final @Nullable Map<String,Integer> valuesImportanceMap;
+    private @Nullable Map<String,Integer> valuesImportanceMap;
 
-    @CustomType.Constructor
-    private IndexDocumentMetadataConfigurationUpdateRelevance(
-        @CustomType.Parameter("duration") @Nullable String duration,
-        @CustomType.Parameter("freshness") @Nullable Boolean freshness,
-        @CustomType.Parameter("importance") @Nullable Integer importance,
-        @CustomType.Parameter("rankOrder") @Nullable String rankOrder,
-        @CustomType.Parameter("valuesImportanceMap") @Nullable Map<String,Integer> valuesImportanceMap) {
-        this.duration = duration;
-        this.freshness = freshness;
-        this.importance = importance;
-        this.rankOrder = rankOrder;
-        this.valuesImportanceMap = valuesImportanceMap;
-    }
-
+    private IndexDocumentMetadataConfigurationUpdateRelevance() {}
     /**
      * @return Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
      * 
@@ -97,18 +84,14 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevance {
     public static Builder builder(IndexDocumentMetadataConfigurationUpdateRelevance defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String duration;
         private @Nullable Boolean freshness;
         private @Nullable Integer importance;
         private @Nullable String rankOrder;
         private @Nullable Map<String,Integer> valuesImportanceMap;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexDocumentMetadataConfigurationUpdateRelevance defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
@@ -118,27 +101,39 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevance {
     	      this.valuesImportanceMap = defaults.valuesImportanceMap;
         }
 
+        @CustomType.Setter
         public Builder duration(@Nullable String duration) {
             this.duration = duration;
             return this;
         }
+        @CustomType.Setter
         public Builder freshness(@Nullable Boolean freshness) {
             this.freshness = freshness;
             return this;
         }
+        @CustomType.Setter
         public Builder importance(@Nullable Integer importance) {
             this.importance = importance;
             return this;
         }
+        @CustomType.Setter
         public Builder rankOrder(@Nullable String rankOrder) {
             this.rankOrder = rankOrder;
             return this;
         }
+        @CustomType.Setter
         public Builder valuesImportanceMap(@Nullable Map<String,Integer> valuesImportanceMap) {
             this.valuesImportanceMap = valuesImportanceMap;
             return this;
-        }        public IndexDocumentMetadataConfigurationUpdateRelevance build() {
-            return new IndexDocumentMetadataConfigurationUpdateRelevance(duration, freshness, importance, rankOrder, valuesImportanceMap);
+        }
+        public IndexDocumentMetadataConfigurationUpdateRelevance build() {
+            final var o = new IndexDocumentMetadataConfigurationUpdateRelevance();
+            o.duration = duration;
+            o.freshness = freshness;
+            o.importance = importance;
+            o.rankOrder = rankOrder;
+            o.valuesImportanceMap = valuesImportanceMap;
+            return o;
         }
     }
 }

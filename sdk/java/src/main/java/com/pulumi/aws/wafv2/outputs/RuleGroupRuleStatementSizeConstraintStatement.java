@@ -19,35 +19,24 @@ public final class RuleGroupRuleStatementSizeConstraintStatement {
      * @return The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
      * 
      */
-    private final String comparisonOperator;
+    private String comparisonOperator;
     /**
      * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatch fieldToMatch;
+    private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatch fieldToMatch;
     /**
      * @return The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
      * 
      */
-    private final Integer size;
+    private Integer size;
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
      * 
      */
-    private final List<RuleGroupRuleStatementSizeConstraintStatementTextTransformation> textTransformations;
+    private List<RuleGroupRuleStatementSizeConstraintStatementTextTransformation> textTransformations;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementSizeConstraintStatement(
-        @CustomType.Parameter("comparisonOperator") String comparisonOperator,
-        @CustomType.Parameter("fieldToMatch") @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatch fieldToMatch,
-        @CustomType.Parameter("size") Integer size,
-        @CustomType.Parameter("textTransformations") List<RuleGroupRuleStatementSizeConstraintStatementTextTransformation> textTransformations) {
-        this.comparisonOperator = comparisonOperator;
-        this.fieldToMatch = fieldToMatch;
-        this.size = size;
-        this.textTransformations = textTransformations;
-    }
-
+    private RuleGroupRuleStatementSizeConstraintStatement() {}
     /**
      * @return The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
      * 
@@ -84,17 +73,13 @@ public final class RuleGroupRuleStatementSizeConstraintStatement {
     public static Builder builder(RuleGroupRuleStatementSizeConstraintStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comparisonOperator;
         private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatch fieldToMatch;
         private Integer size;
         private List<RuleGroupRuleStatementSizeConstraintStatementTextTransformation> textTransformations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementSizeConstraintStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparisonOperator = defaults.comparisonOperator;
@@ -103,26 +88,36 @@ public final class RuleGroupRuleStatementSizeConstraintStatement {
     	      this.textTransformations = defaults.textTransformations;
         }
 
+        @CustomType.Setter
         public Builder comparisonOperator(String comparisonOperator) {
             this.comparisonOperator = Objects.requireNonNull(comparisonOperator);
             return this;
         }
+        @CustomType.Setter
         public Builder fieldToMatch(@Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatch fieldToMatch) {
             this.fieldToMatch = fieldToMatch;
             return this;
         }
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementSizeConstraintStatementTextTransformation> textTransformations) {
             this.textTransformations = Objects.requireNonNull(textTransformations);
             return this;
         }
         public Builder textTransformations(RuleGroupRuleStatementSizeConstraintStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
-        }        public RuleGroupRuleStatementSizeConstraintStatement build() {
-            return new RuleGroupRuleStatementSizeConstraintStatement(comparisonOperator, fieldToMatch, size, textTransformations);
+        }
+        public RuleGroupRuleStatementSizeConstraintStatement build() {
+            final var o = new RuleGroupRuleStatementSizeConstraintStatement();
+            o.comparisonOperator = comparisonOperator;
+            o.fieldToMatch = fieldToMatch;
+            o.size = size;
+            o.textTransformations = textTransformations;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class EntityRecognizerVpcConfig {
      * @return List of security group IDs.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return List of VPC subnets.
      * 
      */
-    private final List<String> subnets;
+    private List<String> subnets;
 
-    @CustomType.Constructor
-    private EntityRecognizerVpcConfig(
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnets") List<String> subnets) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnets = subnets;
-    }
-
+    private EntityRecognizerVpcConfig() {}
     /**
      * @return List of security group IDs.
      * 
@@ -51,21 +44,18 @@ public final class EntityRecognizerVpcConfig {
     public static Builder builder(EntityRecognizerVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroupIds;
         private List<String> subnets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EntityRecognizerVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnets = defaults.subnets;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -73,14 +63,19 @@ public final class EntityRecognizerVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
         }
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
-        }        public EntityRecognizerVpcConfig build() {
-            return new EntityRecognizerVpcConfig(securityGroupIds, subnets);
+        }
+        public EntityRecognizerVpcConfig build() {
+            final var o = new EntityRecognizerVpcConfig();
+            o.securityGroupIds = securityGroupIds;
+            o.subnets = subnets;
+            return o;
         }
     }
 }

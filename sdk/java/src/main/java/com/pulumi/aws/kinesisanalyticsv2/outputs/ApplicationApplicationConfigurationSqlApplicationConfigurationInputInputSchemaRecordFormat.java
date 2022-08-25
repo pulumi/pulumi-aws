@@ -14,21 +14,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
      * 
      */
-    private final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters mappingParameters;
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters mappingParameters;
     /**
      * @return The type of record format. Valid values: `CSV`, `JSON`.
      * 
      */
-    private final String recordFormatType;
+    private String recordFormatType;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat(
-        @CustomType.Parameter("mappingParameters") ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters mappingParameters,
-        @CustomType.Parameter("recordFormatType") String recordFormatType) {
-        this.mappingParameters = mappingParameters;
-        this.recordFormatType = recordFormatType;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat() {}
     /**
      * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
      * 
@@ -51,30 +44,32 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters mappingParameters;
         private String recordFormatType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mappingParameters = defaults.mappingParameters;
     	      this.recordFormatType = defaults.recordFormatType;
         }
 
+        @CustomType.Setter
         public Builder mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters mappingParameters) {
             this.mappingParameters = Objects.requireNonNull(mappingParameters);
             return this;
         }
+        @CustomType.Setter
         public Builder recordFormatType(String recordFormatType) {
             this.recordFormatType = Objects.requireNonNull(recordFormatType);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat(mappingParameters, recordFormatType);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat();
+            o.mappingParameters = mappingParameters;
+            o.recordFormatType = recordFormatType;
+            return o;
         }
     }
 }

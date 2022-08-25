@@ -16,42 +16,29 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
      * @return The document type specified in the Veeva document extract flow.
      * 
      */
-    private final @Nullable String documentType;
+    private @Nullable String documentType;
     /**
      * @return Boolean value to include All Versions of files in Veeva document extract flow.
      * 
      */
-    private final @Nullable Boolean includeAllVersions;
+    private @Nullable Boolean includeAllVersions;
     /**
      * @return Boolean value to include file renditions in Veeva document extract flow.
      * 
      */
-    private final @Nullable Boolean includeRenditions;
+    private @Nullable Boolean includeRenditions;
     /**
      * @return Boolean value to include source files in Veeva document extract flow.
      * 
      */
-    private final @Nullable Boolean includeSourceFiles;
+    private @Nullable Boolean includeSourceFiles;
     /**
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesVeeva(
-        @CustomType.Parameter("documentType") @Nullable String documentType,
-        @CustomType.Parameter("includeAllVersions") @Nullable Boolean includeAllVersions,
-        @CustomType.Parameter("includeRenditions") @Nullable Boolean includeRenditions,
-        @CustomType.Parameter("includeSourceFiles") @Nullable Boolean includeSourceFiles,
-        @CustomType.Parameter("object") String object) {
-        this.documentType = documentType;
-        this.includeAllVersions = includeAllVersions;
-        this.includeRenditions = includeRenditions;
-        this.includeSourceFiles = includeSourceFiles;
-        this.object = object;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesVeeva() {}
     /**
      * @return The document type specified in the Veeva document extract flow.
      * 
@@ -95,18 +82,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesVeeva defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String documentType;
         private @Nullable Boolean includeAllVersions;
         private @Nullable Boolean includeRenditions;
         private @Nullable Boolean includeSourceFiles;
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesVeeva defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.documentType = defaults.documentType;
@@ -116,27 +99,39 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder documentType(@Nullable String documentType) {
             this.documentType = documentType;
             return this;
         }
+        @CustomType.Setter
         public Builder includeAllVersions(@Nullable Boolean includeAllVersions) {
             this.includeAllVersions = includeAllVersions;
             return this;
         }
+        @CustomType.Setter
         public Builder includeRenditions(@Nullable Boolean includeRenditions) {
             this.includeRenditions = includeRenditions;
             return this;
         }
+        @CustomType.Setter
         public Builder includeSourceFiles(@Nullable Boolean includeSourceFiles) {
             this.includeSourceFiles = includeSourceFiles;
             return this;
         }
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesVeeva build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesVeeva(documentType, includeAllVersions, includeRenditions, includeSourceFiles, object);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesVeeva build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesVeeva();
+            o.documentType = documentType;
+            o.includeAllVersions = includeAllVersions;
+            o.includeRenditions = includeRenditions;
+            o.includeSourceFiles = includeSourceFiles;
+            o.object = object;
+            return o;
         }
     }
 }

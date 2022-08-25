@@ -14,28 +14,19 @@ public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
      * @return The HTTP response header name.
      * 
      */
-    private final String header;
+    private String header;
     /**
      * @return A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private final Boolean override;
+    private Boolean override;
     /**
      * @return The value for the HTTP response header.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetResponseHeadersPolicyCustomHeadersConfigItem(
-        @CustomType.Parameter("header") String header,
-        @CustomType.Parameter("override") Boolean override,
-        @CustomType.Parameter("value") String value) {
-        this.header = header;
-        this.override = override;
-        this.value = value;
-    }
-
+    private GetResponseHeadersPolicyCustomHeadersConfigItem() {}
     /**
      * @return The HTTP response header name.
      * 
@@ -65,16 +56,12 @@ public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
     public static Builder builder(GetResponseHeadersPolicyCustomHeadersConfigItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String header;
         private Boolean override;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResponseHeadersPolicyCustomHeadersConfigItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.header = defaults.header;
@@ -82,19 +69,27 @@ public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder header(String header) {
             this.header = Objects.requireNonNull(header);
             return this;
         }
+        @CustomType.Setter
         public Builder override(Boolean override) {
             this.override = Objects.requireNonNull(override);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetResponseHeadersPolicyCustomHeadersConfigItem build() {
-            return new GetResponseHeadersPolicyCustomHeadersConfigItem(header, override, value);
+        }
+        public GetResponseHeadersPolicyCustomHeadersConfigItem build() {
+            final var o = new GetResponseHeadersPolicyCustomHeadersConfigItem();
+            o.header = header;
+            o.override = override;
+            o.value = value;
+            return o;
         }
     }
 }

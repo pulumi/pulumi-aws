@@ -14,13 +14,9 @@ public final class DistributionOriginGroupFailoverCriteria {
      * @return A list of HTTP status codes for the origin group
      * 
      */
-    private final List<Integer> statusCodes;
+    private List<Integer> statusCodes;
 
-    @CustomType.Constructor
-    private DistributionOriginGroupFailoverCriteria(@CustomType.Parameter("statusCodes") List<Integer> statusCodes) {
-        this.statusCodes = statusCodes;
-    }
-
+    private DistributionOriginGroupFailoverCriteria() {}
     /**
      * @return A list of HTTP status codes for the origin group
      * 
@@ -36,27 +32,27 @@ public final class DistributionOriginGroupFailoverCriteria {
     public static Builder builder(DistributionOriginGroupFailoverCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<Integer> statusCodes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionOriginGroupFailoverCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statusCodes = defaults.statusCodes;
         }
 
+        @CustomType.Setter
         public Builder statusCodes(List<Integer> statusCodes) {
             this.statusCodes = Objects.requireNonNull(statusCodes);
             return this;
         }
         public Builder statusCodes(Integer... statusCodes) {
             return statusCodes(List.of(statusCodes));
-        }        public DistributionOriginGroupFailoverCriteria build() {
-            return new DistributionOriginGroupFailoverCriteria(statusCodes);
+        }
+        public DistributionOriginGroupFailoverCriteria build() {
+            final var o = new DistributionOriginGroupFailoverCriteria();
+            o.statusCodes = statusCodes;
+            return o;
         }
     }
 }

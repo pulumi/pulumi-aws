@@ -13,21 +13,14 @@ public final class GetCostCategoryRuleInheritedValue {
      * @return Key to extract cost category values.
      * 
      */
-    private final String dimensionKey;
+    private String dimensionKey;
     /**
      * @return Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
      * 
      */
-    private final String dimensionName;
+    private String dimensionName;
 
-    @CustomType.Constructor
-    private GetCostCategoryRuleInheritedValue(
-        @CustomType.Parameter("dimensionKey") String dimensionKey,
-        @CustomType.Parameter("dimensionName") String dimensionName) {
-        this.dimensionKey = dimensionKey;
-        this.dimensionName = dimensionName;
-    }
-
+    private GetCostCategoryRuleInheritedValue() {}
     /**
      * @return Key to extract cost category values.
      * 
@@ -50,30 +43,32 @@ public final class GetCostCategoryRuleInheritedValue {
     public static Builder builder(GetCostCategoryRuleInheritedValue defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dimensionKey;
         private String dimensionName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCostCategoryRuleInheritedValue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensionKey = defaults.dimensionKey;
     	      this.dimensionName = defaults.dimensionName;
         }
 
+        @CustomType.Setter
         public Builder dimensionKey(String dimensionKey) {
             this.dimensionKey = Objects.requireNonNull(dimensionKey);
             return this;
         }
+        @CustomType.Setter
         public Builder dimensionName(String dimensionName) {
             this.dimensionName = Objects.requireNonNull(dimensionName);
             return this;
-        }        public GetCostCategoryRuleInheritedValue build() {
-            return new GetCostCategoryRuleInheritedValue(dimensionKey, dimensionName);
+        }
+        public GetCostCategoryRuleInheritedValue build() {
+            final var o = new GetCostCategoryRuleInheritedValue();
+            o.dimensionKey = dimensionKey;
+            o.dimensionName = dimensionName;
+            return o;
         }
     }
 }

@@ -16,42 +16,29 @@ public final class InventoryDestinationBucket {
      * @return The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
      * 
      */
-    private final @Nullable String accountId;
+    private @Nullable String accountId;
     /**
      * @return The Amazon S3 bucket ARN of the destination.
      * 
      */
-    private final String bucketArn;
+    private String bucketArn;
     /**
      * @return Contains the type of server-side encryption to use to encrypt the inventory (documented below).
      * 
      */
-    private final @Nullable InventoryDestinationBucketEncryption encryption;
+    private @Nullable InventoryDestinationBucketEncryption encryption;
     /**
      * @return Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
      * 
      */
-    private final String format;
+    private String format;
     /**
      * @return The prefix that is prepended to all inventory results.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
 
-    @CustomType.Constructor
-    private InventoryDestinationBucket(
-        @CustomType.Parameter("accountId") @Nullable String accountId,
-        @CustomType.Parameter("bucketArn") String bucketArn,
-        @CustomType.Parameter("encryption") @Nullable InventoryDestinationBucketEncryption encryption,
-        @CustomType.Parameter("format") String format,
-        @CustomType.Parameter("prefix") @Nullable String prefix) {
-        this.accountId = accountId;
-        this.bucketArn = bucketArn;
-        this.encryption = encryption;
-        this.format = format;
-        this.prefix = prefix;
-    }
-
+    private InventoryDestinationBucket() {}
     /**
      * @return The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
      * 
@@ -95,18 +82,14 @@ public final class InventoryDestinationBucket {
     public static Builder builder(InventoryDestinationBucket defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accountId;
         private String bucketArn;
         private @Nullable InventoryDestinationBucketEncryption encryption;
         private String format;
         private @Nullable String prefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InventoryDestinationBucket defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
@@ -116,27 +99,39 @@ public final class InventoryDestinationBucket {
     	      this.prefix = defaults.prefix;
         }
 
+        @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
             this.accountId = accountId;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
             this.bucketArn = Objects.requireNonNull(bucketArn);
             return this;
         }
+        @CustomType.Setter
         public Builder encryption(@Nullable InventoryDestinationBucketEncryption encryption) {
             this.encryption = encryption;
             return this;
         }
+        @CustomType.Setter
         public Builder format(String format) {
             this.format = Objects.requireNonNull(format);
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
-        }        public InventoryDestinationBucket build() {
-            return new InventoryDestinationBucket(accountId, bucketArn, encryption, format, prefix);
+        }
+        public InventoryDestinationBucket build() {
+            final var o = new InventoryDestinationBucket();
+            o.accountId = accountId;
+            o.bucketArn = bucketArn;
+            o.encryption = encryption;
+            o.format = format;
+            o.prefix = prefix;
+            return o;
         }
     }
 }

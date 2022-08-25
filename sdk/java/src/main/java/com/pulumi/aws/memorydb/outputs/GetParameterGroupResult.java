@@ -16,56 +16,39 @@ public final class GetParameterGroupResult {
      * @return ARN of the parameter group.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Description of the parameter group.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The engine version that the parameter group can be used with.
      * 
      */
-    private final String family;
+    private String family;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Name of the parameter.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Set of user-defined MemoryDB parameters applied by the parameter group.
      * 
      */
-    private final List<GetParameterGroupParameter> parameters;
+    private List<GetParameterGroupParameter> parameters;
     /**
      * @return A map of tags assigned to the parameter group.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetParameterGroupResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("family") String family,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") List<GetParameterGroupParameter> parameters,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.description = description;
-        this.family = family;
-        this.id = id;
-        this.name = name;
-        this.parameters = parameters;
-        this.tags = tags;
-    }
-
+    private GetParameterGroupResult() {}
     /**
      * @return ARN of the parameter group.
      * 
@@ -123,7 +106,7 @@ public final class GetParameterGroupResult {
     public static Builder builder(GetParameterGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -132,11 +115,7 @@ public final class GetParameterGroupResult {
         private String name;
         private List<GetParameterGroupParameter> parameters;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetParameterGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -148,26 +127,32 @@ public final class GetParameterGroupResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder family(String family) {
             this.family = Objects.requireNonNull(family);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(List<GetParameterGroupParameter> parameters) {
             this.parameters = Objects.requireNonNull(parameters);
             return this;
@@ -175,11 +160,21 @@ public final class GetParameterGroupResult {
         public Builder parameters(GetParameterGroupParameter... parameters) {
             return parameters(List.of(parameters));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetParameterGroupResult build() {
-            return new GetParameterGroupResult(arn, description, family, id, name, parameters, tags);
+        }
+        public GetParameterGroupResult build() {
+            final var o = new GetParameterGroupResult();
+            o.arn = arn;
+            o.description = description;
+            o.family = family;
+            o.id = id;
+            o.name = name;
+            o.parameters = parameters;
+            o.tags = tags;
+            return o;
         }
     }
 }

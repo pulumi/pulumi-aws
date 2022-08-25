@@ -16,28 +16,19 @@ public final class CanaryVpcConfig {
      * @return IDs of the security groups for this canary.
      * 
      */
-    private final @Nullable List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return IDs of the subnets where this canary is to run.
      * 
      */
-    private final @Nullable List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return ID of the VPC where this canary is to run.
      * 
      */
-    private final @Nullable String vpcId;
+    private @Nullable String vpcId;
 
-    @CustomType.Constructor
-    private CanaryVpcConfig(
-        @CustomType.Parameter("securityGroupIds") @Nullable List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") @Nullable List<String> subnetIds,
-        @CustomType.Parameter("vpcId") @Nullable String vpcId) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private CanaryVpcConfig() {}
     /**
      * @return IDs of the security groups for this canary.
      * 
@@ -67,16 +58,12 @@ public final class CanaryVpcConfig {
     public static Builder builder(CanaryVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> securityGroupIds;
         private @Nullable List<String> subnetIds;
         private @Nullable String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CanaryVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
@@ -84,6 +71,7 @@ public final class CanaryVpcConfig {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
             this.securityGroupIds = securityGroupIds;
             return this;
@@ -91,6 +79,7 @@ public final class CanaryVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
             this.subnetIds = subnetIds;
             return this;
@@ -98,11 +87,17 @@ public final class CanaryVpcConfig {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
             this.vpcId = vpcId;
             return this;
-        }        public CanaryVpcConfig build() {
-            return new CanaryVpcConfig(securityGroupIds, subnetIds, vpcId);
+        }
+        public CanaryVpcConfig build() {
+            final var o = new CanaryVpcConfig();
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

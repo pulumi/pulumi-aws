@@ -11,20 +11,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerUser {
-    private final Boolean consoleAccess;
-    private final List<String> groups;
-    private final String username;
+    private Boolean consoleAccess;
+    private List<String> groups;
+    private String username;
 
-    @CustomType.Constructor
-    private GetBrokerUser(
-        @CustomType.Parameter("consoleAccess") Boolean consoleAccess,
-        @CustomType.Parameter("groups") List<String> groups,
-        @CustomType.Parameter("username") String username) {
-        this.consoleAccess = consoleAccess;
-        this.groups = groups;
-        this.username = username;
-    }
-
+    private GetBrokerUser() {}
     public Boolean consoleAccess() {
         return this.consoleAccess;
     }
@@ -42,16 +33,12 @@ public final class GetBrokerUser {
     public static Builder builder(GetBrokerUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean consoleAccess;
         private List<String> groups;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrokerUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consoleAccess = defaults.consoleAccess;
@@ -59,10 +46,12 @@ public final class GetBrokerUser {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder consoleAccess(Boolean consoleAccess) {
             this.consoleAccess = Objects.requireNonNull(consoleAccess);
             return this;
         }
+        @CustomType.Setter
         public Builder groups(List<String> groups) {
             this.groups = Objects.requireNonNull(groups);
             return this;
@@ -70,11 +59,17 @@ public final class GetBrokerUser {
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetBrokerUser build() {
-            return new GetBrokerUser(consoleAccess, groups, username);
+        }
+        public GetBrokerUser build() {
+            final var o = new GetBrokerUser();
+            o.consoleAccess = consoleAccess;
+            o.groups = groups;
+            o.username = username;
+            return o;
         }
     }
 }

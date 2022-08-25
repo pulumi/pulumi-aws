@@ -18,42 +18,29 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
      * @return The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
      */
-    private final @Nullable Map<String,String> customProperties;
+    private @Nullable Map<String,String> customProperties;
     /**
      * @return The entity specified in the custom connector as a source in the flow.
      * 
      */
-    private final String entityName;
+    private String entityName;
     /**
      * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
-    private final @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig;
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig;
     /**
      * @return The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
-    private final @Nullable List<String> idFieldNames;
+    private @Nullable List<String> idFieldNames;
     /**
      * @return This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
-    private final @Nullable String writeOperationType;
+    private @Nullable String writeOperationType;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector(
-        @CustomType.Parameter("customProperties") @Nullable Map<String,String> customProperties,
-        @CustomType.Parameter("entityName") String entityName,
-        @CustomType.Parameter("errorHandlingConfig") @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig,
-        @CustomType.Parameter("idFieldNames") @Nullable List<String> idFieldNames,
-        @CustomType.Parameter("writeOperationType") @Nullable String writeOperationType) {
-        this.customProperties = customProperties;
-        this.entityName = entityName;
-        this.errorHandlingConfig = errorHandlingConfig;
-        this.idFieldNames = idFieldNames;
-        this.writeOperationType = writeOperationType;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector() {}
     /**
      * @return The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
@@ -97,18 +84,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> customProperties;
         private String entityName;
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig;
         private @Nullable List<String> idFieldNames;
         private @Nullable String writeOperationType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customProperties = defaults.customProperties;
@@ -118,18 +101,22 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
     	      this.writeOperationType = defaults.writeOperationType;
         }
 
+        @CustomType.Setter
         public Builder customProperties(@Nullable Map<String,String> customProperties) {
             this.customProperties = customProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder entityName(String entityName) {
             this.entityName = Objects.requireNonNull(entityName);
             return this;
         }
+        @CustomType.Setter
         public Builder errorHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig) {
             this.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder idFieldNames(@Nullable List<String> idFieldNames) {
             this.idFieldNames = idFieldNames;
             return this;
@@ -137,11 +124,19 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         public Builder idFieldNames(String... idFieldNames) {
             return idFieldNames(List.of(idFieldNames));
         }
+        @CustomType.Setter
         public Builder writeOperationType(@Nullable String writeOperationType) {
             this.writeOperationType = writeOperationType;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector(customProperties, entityName, errorHandlingConfig, idFieldNames, writeOperationType);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector();
+            o.customProperties = customProperties;
+            o.entityName = entityName;
+            o.errorHandlingConfig = errorHandlingConfig;
+            o.idFieldNames = idFieldNames;
+            o.writeOperationType = writeOperationType;
+            return o;
         }
     }
 }

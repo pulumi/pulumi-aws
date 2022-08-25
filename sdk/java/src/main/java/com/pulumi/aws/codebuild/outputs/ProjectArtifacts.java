@@ -16,77 +16,54 @@ public final class ProjectArtifacts {
      * @return Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
      * 
      */
-    private final @Nullable String artifactIdentifier;
+    private @Nullable String artifactIdentifier;
     /**
      * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
      * 
      */
-    private final @Nullable String bucketOwnerAccess;
+    private @Nullable String bucketOwnerAccess;
     /**
      * @return Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean encryptionDisabled;
+    private @Nullable Boolean encryptionDisabled;
     /**
      * @return Location of the source code from git or s3.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
      * 
      */
-    private final @Nullable String namespaceType;
+    private @Nullable String namespaceType;
     /**
      * @return Whether a name specified in the build specification overrides the artifact name.
      * 
      */
-    private final @Nullable Boolean overrideArtifactName;
+    private @Nullable Boolean overrideArtifactName;
     /**
      * @return Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
      * 
      */
-    private final @Nullable String packaging;
+    private @Nullable String packaging;
     /**
      * @return If `type` is set to `S3`, this is the path to the output artifact.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ProjectArtifacts(
-        @CustomType.Parameter("artifactIdentifier") @Nullable String artifactIdentifier,
-        @CustomType.Parameter("bucketOwnerAccess") @Nullable String bucketOwnerAccess,
-        @CustomType.Parameter("encryptionDisabled") @Nullable Boolean encryptionDisabled,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("namespaceType") @Nullable String namespaceType,
-        @CustomType.Parameter("overrideArtifactName") @Nullable Boolean overrideArtifactName,
-        @CustomType.Parameter("packaging") @Nullable String packaging,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("type") String type) {
-        this.artifactIdentifier = artifactIdentifier;
-        this.bucketOwnerAccess = bucketOwnerAccess;
-        this.encryptionDisabled = encryptionDisabled;
-        this.location = location;
-        this.name = name;
-        this.namespaceType = namespaceType;
-        this.overrideArtifactName = overrideArtifactName;
-        this.packaging = packaging;
-        this.path = path;
-        this.type = type;
-    }
-
+    private ProjectArtifacts() {}
     /**
      * @return Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
      * 
@@ -165,7 +142,7 @@ public final class ProjectArtifacts {
     public static Builder builder(ProjectArtifacts defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String artifactIdentifier;
         private @Nullable String bucketOwnerAccess;
@@ -177,11 +154,7 @@ public final class ProjectArtifacts {
         private @Nullable String packaging;
         private @Nullable String path;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectArtifacts defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.artifactIdentifier = defaults.artifactIdentifier;
@@ -196,47 +169,69 @@ public final class ProjectArtifacts {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder artifactIdentifier(@Nullable String artifactIdentifier) {
             this.artifactIdentifier = artifactIdentifier;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketOwnerAccess(@Nullable String bucketOwnerAccess) {
             this.bucketOwnerAccess = bucketOwnerAccess;
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionDisabled(@Nullable Boolean encryptionDisabled) {
             this.encryptionDisabled = encryptionDisabled;
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceType(@Nullable String namespaceType) {
             this.namespaceType = namespaceType;
             return this;
         }
+        @CustomType.Setter
         public Builder overrideArtifactName(@Nullable Boolean overrideArtifactName) {
             this.overrideArtifactName = overrideArtifactName;
             return this;
         }
+        @CustomType.Setter
         public Builder packaging(@Nullable String packaging) {
             this.packaging = packaging;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ProjectArtifacts build() {
-            return new ProjectArtifacts(artifactIdentifier, bucketOwnerAccess, encryptionDisabled, location, name, namespaceType, overrideArtifactName, packaging, path, type);
+        }
+        public ProjectArtifacts build() {
+            final var o = new ProjectArtifacts();
+            o.artifactIdentifier = artifactIdentifier;
+            o.bucketOwnerAccess = bucketOwnerAccess;
+            o.encryptionDisabled = encryptionDisabled;
+            o.location = location;
+            o.name = name;
+            o.namespaceType = namespaceType;
+            o.overrideArtifactName = overrideArtifactName;
+            o.packaging = packaging;
+            o.path = path;
+            o.type = type;
+            return o;
         }
     }
 }

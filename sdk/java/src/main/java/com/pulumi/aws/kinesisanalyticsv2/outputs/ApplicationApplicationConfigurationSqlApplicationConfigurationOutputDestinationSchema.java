@@ -13,13 +13,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
      * 
      */
-    private final String recordFormatType;
+    private String recordFormatType;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema(@CustomType.Parameter("recordFormatType") String recordFormatType) {
-        this.recordFormatType = recordFormatType;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema() {}
     /**
      * @return Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
      * 
@@ -35,24 +31,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String recordFormatType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordFormatType = defaults.recordFormatType;
         }
 
+        @CustomType.Setter
         public Builder recordFormatType(String recordFormatType) {
             this.recordFormatType = Objects.requireNonNull(recordFormatType);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema(recordFormatType);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema();
+            o.recordFormatType = recordFormatType;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class GameServerGroupLaunchTemplate {
      * @return A unique identifier for an existing EC2 launch template.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return A readable identifier for an existing EC2 launch template.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The version of the EC2 launch template to use. If none is set, the default is the first version created.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private GameServerGroupLaunchTemplate(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.id = id;
-        this.name = name;
-        this.version = version;
-    }
-
+    private GameServerGroupLaunchTemplate() {}
     /**
      * @return A unique identifier for an existing EC2 launch template.
      * 
@@ -66,16 +57,12 @@ public final class GameServerGroupLaunchTemplate {
     public static Builder builder(GameServerGroupLaunchTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GameServerGroupLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,19 +70,27 @@ public final class GameServerGroupLaunchTemplate {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public GameServerGroupLaunchTemplate build() {
-            return new GameServerGroupLaunchTemplate(id, name, version);
+        }
+        public GameServerGroupLaunchTemplate build() {
+            final var o = new GameServerGroupLaunchTemplate();
+            o.id = id;
+            o.name = name;
+            o.version = version;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class ClusterEncryptionInfoEncryptionInTransit {
      * @return Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
      * 
      */
-    private final @Nullable String clientBroker;
+    private @Nullable String clientBroker;
     /**
      * @return Whether data communication among broker nodes is encrypted. Default value: `true`.
      * 
      */
-    private final @Nullable Boolean inCluster;
+    private @Nullable Boolean inCluster;
 
-    @CustomType.Constructor
-    private ClusterEncryptionInfoEncryptionInTransit(
-        @CustomType.Parameter("clientBroker") @Nullable String clientBroker,
-        @CustomType.Parameter("inCluster") @Nullable Boolean inCluster) {
-        this.clientBroker = clientBroker;
-        this.inCluster = inCluster;
-    }
-
+    private ClusterEncryptionInfoEncryptionInTransit() {}
     /**
      * @return Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
      * 
@@ -53,30 +46,32 @@ public final class ClusterEncryptionInfoEncryptionInTransit {
     public static Builder builder(ClusterEncryptionInfoEncryptionInTransit defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clientBroker;
         private @Nullable Boolean inCluster;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterEncryptionInfoEncryptionInTransit defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientBroker = defaults.clientBroker;
     	      this.inCluster = defaults.inCluster;
         }
 
+        @CustomType.Setter
         public Builder clientBroker(@Nullable String clientBroker) {
             this.clientBroker = clientBroker;
             return this;
         }
+        @CustomType.Setter
         public Builder inCluster(@Nullable Boolean inCluster) {
             this.inCluster = inCluster;
             return this;
-        }        public ClusterEncryptionInfoEncryptionInTransit build() {
-            return new ClusterEncryptionInfoEncryptionInTransit(clientBroker, inCluster);
+        }
+        public ClusterEncryptionInfoEncryptionInTransit build() {
+            final var o = new ClusterEncryptionInfoEncryptionInTransit();
+            o.clientBroker = clientBroker;
+            o.inCluster = inCluster;
+            return o;
         }
     }
 }

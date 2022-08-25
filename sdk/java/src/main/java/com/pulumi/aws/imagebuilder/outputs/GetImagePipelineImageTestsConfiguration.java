@@ -14,21 +14,14 @@ public final class GetImagePipelineImageTestsConfiguration {
      * @return Whether image tests are enabled.
      * 
      */
-    private final Boolean imageTestsEnabled;
+    private Boolean imageTestsEnabled;
     /**
      * @return Number of minutes before image tests time out.
      * 
      */
-    private final Integer timeoutMinutes;
+    private Integer timeoutMinutes;
 
-    @CustomType.Constructor
-    private GetImagePipelineImageTestsConfiguration(
-        @CustomType.Parameter("imageTestsEnabled") Boolean imageTestsEnabled,
-        @CustomType.Parameter("timeoutMinutes") Integer timeoutMinutes) {
-        this.imageTestsEnabled = imageTestsEnabled;
-        this.timeoutMinutes = timeoutMinutes;
-    }
-
+    private GetImagePipelineImageTestsConfiguration() {}
     /**
      * @return Whether image tests are enabled.
      * 
@@ -51,30 +44,32 @@ public final class GetImagePipelineImageTestsConfiguration {
     public static Builder builder(GetImagePipelineImageTestsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean imageTestsEnabled;
         private Integer timeoutMinutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImagePipelineImageTestsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.imageTestsEnabled = defaults.imageTestsEnabled;
     	      this.timeoutMinutes = defaults.timeoutMinutes;
         }
 
+        @CustomType.Setter
         public Builder imageTestsEnabled(Boolean imageTestsEnabled) {
             this.imageTestsEnabled = Objects.requireNonNull(imageTestsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder timeoutMinutes(Integer timeoutMinutes) {
             this.timeoutMinutes = Objects.requireNonNull(timeoutMinutes);
             return this;
-        }        public GetImagePipelineImageTestsConfiguration build() {
-            return new GetImagePipelineImageTestsConfiguration(imageTestsEnabled, timeoutMinutes);
+        }
+        public GetImagePipelineImageTestsConfiguration build() {
+            final var o = new GetImagePipelineImageTestsConfiguration();
+            o.imageTestsEnabled = imageTestsEnabled;
+            o.timeoutMinutes = timeoutMinutes;
+            return o;
         }
     }
 }

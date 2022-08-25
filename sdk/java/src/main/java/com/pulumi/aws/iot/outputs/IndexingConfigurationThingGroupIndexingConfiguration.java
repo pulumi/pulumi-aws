@@ -17,28 +17,19 @@ public final class IndexingConfigurationThingGroupIndexingConfiguration {
      * @return A list of thing group fields to index. This list cannot contain any managed fields. See below.
      * 
      */
-    private final @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationCustomField> customFields;
+    private @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationCustomField> customFields;
     /**
      * @return Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
      * 
      */
-    private final @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationManagedField> managedFields;
+    private @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationManagedField> managedFields;
     /**
      * @return Thing group indexing mode. Valid values: `OFF`, `ON`.
      * 
      */
-    private final String thingGroupIndexingMode;
+    private String thingGroupIndexingMode;
 
-    @CustomType.Constructor
-    private IndexingConfigurationThingGroupIndexingConfiguration(
-        @CustomType.Parameter("customFields") @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationCustomField> customFields,
-        @CustomType.Parameter("managedFields") @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationManagedField> managedFields,
-        @CustomType.Parameter("thingGroupIndexingMode") String thingGroupIndexingMode) {
-        this.customFields = customFields;
-        this.managedFields = managedFields;
-        this.thingGroupIndexingMode = thingGroupIndexingMode;
-    }
-
+    private IndexingConfigurationThingGroupIndexingConfiguration() {}
     /**
      * @return A list of thing group fields to index. This list cannot contain any managed fields. See below.
      * 
@@ -68,16 +59,12 @@ public final class IndexingConfigurationThingGroupIndexingConfiguration {
     public static Builder builder(IndexingConfigurationThingGroupIndexingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationCustomField> customFields;
         private @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationManagedField> managedFields;
         private String thingGroupIndexingMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexingConfigurationThingGroupIndexingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customFields = defaults.customFields;
@@ -85,6 +72,7 @@ public final class IndexingConfigurationThingGroupIndexingConfiguration {
     	      this.thingGroupIndexingMode = defaults.thingGroupIndexingMode;
         }
 
+        @CustomType.Setter
         public Builder customFields(@Nullable List<IndexingConfigurationThingGroupIndexingConfigurationCustomField> customFields) {
             this.customFields = customFields;
             return this;
@@ -92,6 +80,7 @@ public final class IndexingConfigurationThingGroupIndexingConfiguration {
         public Builder customFields(IndexingConfigurationThingGroupIndexingConfigurationCustomField... customFields) {
             return customFields(List.of(customFields));
         }
+        @CustomType.Setter
         public Builder managedFields(@Nullable List<IndexingConfigurationThingGroupIndexingConfigurationManagedField> managedFields) {
             this.managedFields = managedFields;
             return this;
@@ -99,11 +88,17 @@ public final class IndexingConfigurationThingGroupIndexingConfiguration {
         public Builder managedFields(IndexingConfigurationThingGroupIndexingConfigurationManagedField... managedFields) {
             return managedFields(List.of(managedFields));
         }
+        @CustomType.Setter
         public Builder thingGroupIndexingMode(String thingGroupIndexingMode) {
             this.thingGroupIndexingMode = Objects.requireNonNull(thingGroupIndexingMode);
             return this;
-        }        public IndexingConfigurationThingGroupIndexingConfiguration build() {
-            return new IndexingConfigurationThingGroupIndexingConfiguration(customFields, managedFields, thingGroupIndexingMode);
+        }
+        public IndexingConfigurationThingGroupIndexingConfiguration build() {
+            final var o = new IndexingConfigurationThingGroupIndexingConfiguration();
+            o.customFields = customFields;
+            o.managedFields = managedFields;
+            o.thingGroupIndexingMode = thingGroupIndexingMode;
+            return o;
         }
     }
 }

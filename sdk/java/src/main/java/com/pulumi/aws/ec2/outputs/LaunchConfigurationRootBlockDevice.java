@@ -13,29 +13,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchConfigurationRootBlockDevice {
-    private final @Nullable Boolean deleteOnTermination;
-    private final @Nullable Boolean encrypted;
-    private final @Nullable Integer iops;
-    private final @Nullable Integer throughput;
-    private final @Nullable Integer volumeSize;
-    private final @Nullable String volumeType;
+    private @Nullable Boolean deleteOnTermination;
+    private @Nullable Boolean encrypted;
+    private @Nullable Integer iops;
+    private @Nullable Integer throughput;
+    private @Nullable Integer volumeSize;
+    private @Nullable String volumeType;
 
-    @CustomType.Constructor
-    private LaunchConfigurationRootBlockDevice(
-        @CustomType.Parameter("deleteOnTermination") @Nullable Boolean deleteOnTermination,
-        @CustomType.Parameter("encrypted") @Nullable Boolean encrypted,
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("throughput") @Nullable Integer throughput,
-        @CustomType.Parameter("volumeSize") @Nullable Integer volumeSize,
-        @CustomType.Parameter("volumeType") @Nullable String volumeType) {
-        this.deleteOnTermination = deleteOnTermination;
-        this.encrypted = encrypted;
-        this.iops = iops;
-        this.throughput = throughput;
-        this.volumeSize = volumeSize;
-        this.volumeType = volumeType;
-    }
-
+    private LaunchConfigurationRootBlockDevice() {}
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
@@ -62,7 +47,7 @@ public final class LaunchConfigurationRootBlockDevice {
     public static Builder builder(LaunchConfigurationRootBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean deleteOnTermination;
         private @Nullable Boolean encrypted;
@@ -70,11 +55,7 @@ public final class LaunchConfigurationRootBlockDevice {
         private @Nullable Integer throughput;
         private @Nullable Integer volumeSize;
         private @Nullable String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchConfigurationRootBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOnTermination = defaults.deleteOnTermination;
@@ -85,31 +66,45 @@ public final class LaunchConfigurationRootBlockDevice {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
             this.encrypted = encrypted;
             return this;
         }
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
             this.throughput = throughput;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
             this.volumeSize = volumeSize;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
             this.volumeType = volumeType;
             return this;
-        }        public LaunchConfigurationRootBlockDevice build() {
-            return new LaunchConfigurationRootBlockDevice(deleteOnTermination, encrypted, iops, throughput, volumeSize, volumeType);
+        }
+        public LaunchConfigurationRootBlockDevice build() {
+            final var o = new LaunchConfigurationRootBlockDevice();
+            o.deleteOnTermination = deleteOnTermination;
+            o.encrypted = encrypted;
+            o.iops = iops;
+            o.throughput = throughput;
+            o.volumeSize = volumeSize;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

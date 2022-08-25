@@ -13,66 +13,45 @@ public final class GetApprovalRuleTemplateResult {
      * @return The ID of the approval rule template.
      * 
      */
-    private final String approvalRuleTemplateId;
+    private String approvalRuleTemplateId;
     /**
      * @return The content of the approval rule template.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private final String creationDate;
+    private String creationDate;
     /**
      * @return The description of the approval rule template.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private final String lastModifiedDate;
+    private String lastModifiedDate;
     /**
      * @return The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
      * 
      */
-    private final String lastModifiedUser;
-    private final String name;
+    private String lastModifiedUser;
+    private String name;
     /**
      * @return The SHA-256 hash signature for the content of the approval rule template.
      * 
      */
-    private final String ruleContentSha256;
+    private String ruleContentSha256;
 
-    @CustomType.Constructor
-    private GetApprovalRuleTemplateResult(
-        @CustomType.Parameter("approvalRuleTemplateId") String approvalRuleTemplateId,
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("creationDate") String creationDate,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastModifiedDate") String lastModifiedDate,
-        @CustomType.Parameter("lastModifiedUser") String lastModifiedUser,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("ruleContentSha256") String ruleContentSha256) {
-        this.approvalRuleTemplateId = approvalRuleTemplateId;
-        this.content = content;
-        this.creationDate = creationDate;
-        this.description = description;
-        this.id = id;
-        this.lastModifiedDate = lastModifiedDate;
-        this.lastModifiedUser = lastModifiedUser;
-        this.name = name;
-        this.ruleContentSha256 = ruleContentSha256;
-    }
-
+    private GetApprovalRuleTemplateResult() {}
     /**
      * @return The ID of the approval rule template.
      * 
@@ -140,7 +119,7 @@ public final class GetApprovalRuleTemplateResult {
     public static Builder builder(GetApprovalRuleTemplateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String approvalRuleTemplateId;
         private String content;
@@ -151,11 +130,7 @@ public final class GetApprovalRuleTemplateResult {
         private String lastModifiedUser;
         private String name;
         private String ruleContentSha256;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApprovalRuleTemplateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.approvalRuleTemplateId = defaults.approvalRuleTemplateId;
@@ -169,43 +144,63 @@ public final class GetApprovalRuleTemplateResult {
     	      this.ruleContentSha256 = defaults.ruleContentSha256;
         }
 
+        @CustomType.Setter
         public Builder approvalRuleTemplateId(String approvalRuleTemplateId) {
             this.approvalRuleTemplateId = Objects.requireNonNull(approvalRuleTemplateId);
             return this;
         }
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder creationDate(String creationDate) {
             this.creationDate = Objects.requireNonNull(creationDate);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModifiedDate(String lastModifiedDate) {
             this.lastModifiedDate = Objects.requireNonNull(lastModifiedDate);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModifiedUser(String lastModifiedUser) {
             this.lastModifiedUser = Objects.requireNonNull(lastModifiedUser);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleContentSha256(String ruleContentSha256) {
             this.ruleContentSha256 = Objects.requireNonNull(ruleContentSha256);
             return this;
-        }        public GetApprovalRuleTemplateResult build() {
-            return new GetApprovalRuleTemplateResult(approvalRuleTemplateId, content, creationDate, description, id, lastModifiedDate, lastModifiedUser, name, ruleContentSha256);
+        }
+        public GetApprovalRuleTemplateResult build() {
+            final var o = new GetApprovalRuleTemplateResult();
+            o.approvalRuleTemplateId = approvalRuleTemplateId;
+            o.content = content;
+            o.creationDate = creationDate;
+            o.description = description;
+            o.id = id;
+            o.lastModifiedDate = lastModifiedDate;
+            o.lastModifiedUser = lastModifiedUser;
+            o.name = name;
+            o.ruleContentSha256 = ruleContentSha256;
+            return o;
         }
     }
 }

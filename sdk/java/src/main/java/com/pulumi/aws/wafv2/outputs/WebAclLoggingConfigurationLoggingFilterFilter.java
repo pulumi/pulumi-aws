@@ -15,28 +15,19 @@ public final class WebAclLoggingConfigurationLoggingFilterFilter {
      * @return How to handle logs that satisfy the filter&#39;s conditions and requirement. Valid values: `KEEP` or `DROP`.
      * 
      */
-    private final String behavior;
+    private String behavior;
     /**
      * @return Match condition(s) for the filter. See Condition below for more details.
      * 
      */
-    private final List<WebAclLoggingConfigurationLoggingFilterFilterCondition> conditions;
+    private List<WebAclLoggingConfigurationLoggingFilterFilterCondition> conditions;
     /**
      * @return Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
      * 
      */
-    private final String requirement;
+    private String requirement;
 
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationLoggingFilterFilter(
-        @CustomType.Parameter("behavior") String behavior,
-        @CustomType.Parameter("conditions") List<WebAclLoggingConfigurationLoggingFilterFilterCondition> conditions,
-        @CustomType.Parameter("requirement") String requirement) {
-        this.behavior = behavior;
-        this.conditions = conditions;
-        this.requirement = requirement;
-    }
-
+    private WebAclLoggingConfigurationLoggingFilterFilter() {}
     /**
      * @return How to handle logs that satisfy the filter&#39;s conditions and requirement. Valid values: `KEEP` or `DROP`.
      * 
@@ -66,16 +57,12 @@ public final class WebAclLoggingConfigurationLoggingFilterFilter {
     public static Builder builder(WebAclLoggingConfigurationLoggingFilterFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String behavior;
         private List<WebAclLoggingConfigurationLoggingFilterFilterCondition> conditions;
         private String requirement;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationLoggingFilterFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.behavior = defaults.behavior;
@@ -83,10 +70,12 @@ public final class WebAclLoggingConfigurationLoggingFilterFilter {
     	      this.requirement = defaults.requirement;
         }
 
+        @CustomType.Setter
         public Builder behavior(String behavior) {
             this.behavior = Objects.requireNonNull(behavior);
             return this;
         }
+        @CustomType.Setter
         public Builder conditions(List<WebAclLoggingConfigurationLoggingFilterFilterCondition> conditions) {
             this.conditions = Objects.requireNonNull(conditions);
             return this;
@@ -94,11 +83,17 @@ public final class WebAclLoggingConfigurationLoggingFilterFilter {
         public Builder conditions(WebAclLoggingConfigurationLoggingFilterFilterCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder requirement(String requirement) {
             this.requirement = Objects.requireNonNull(requirement);
             return this;
-        }        public WebAclLoggingConfigurationLoggingFilterFilter build() {
-            return new WebAclLoggingConfigurationLoggingFilterFilter(behavior, conditions, requirement);
+        }
+        public WebAclLoggingConfigurationLoggingFilterFilter build() {
+            final var o = new WebAclLoggingConfigurationLoggingFilterFilter();
+            o.behavior = behavior;
+            o.conditions = conditions;
+            o.requirement = requirement;
+            return o;
         }
     }
 }

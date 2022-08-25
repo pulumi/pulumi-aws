@@ -13,21 +13,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
-    private final String apiKey;
+    private String apiKey;
     /**
      * @return The Secret Access Key portion of the credentials.
      * 
      */
-    private final String secretKey;
+    private String secretKey;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude(
-        @CustomType.Parameter("apiKey") String apiKey,
-        @CustomType.Parameter("secretKey") String secretKey) {
-        this.apiKey = apiKey;
-        this.secretKey = secretKey;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude() {}
     /**
      * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
@@ -50,30 +43,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiKey;
         private String secretKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
     	      this.secretKey = defaults.secretKey;
         }
 
+        @CustomType.Setter
         public Builder apiKey(String apiKey) {
             this.apiKey = Objects.requireNonNull(apiKey);
             return this;
         }
+        @CustomType.Setter
         public Builder secretKey(String secretKey) {
             this.secretKey = Objects.requireNonNull(secretKey);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude(apiKey, secretKey);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude();
+            o.apiKey = apiKey;
+            o.secretKey = secretKey;
+            return o;
         }
     }
 }

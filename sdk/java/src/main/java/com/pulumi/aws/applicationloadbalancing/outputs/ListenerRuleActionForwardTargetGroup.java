@@ -16,21 +16,14 @@ public final class ListenerRuleActionForwardTargetGroup {
      * @return The Amazon Resource Name (ARN) of the target group.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The weight. The range is 0 to 999.
      * 
      */
-    private final @Nullable Integer weight;
+    private @Nullable Integer weight;
 
-    @CustomType.Constructor
-    private ListenerRuleActionForwardTargetGroup(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("weight") @Nullable Integer weight) {
-        this.arn = arn;
-        this.weight = weight;
-    }
-
+    private ListenerRuleActionForwardTargetGroup() {}
     /**
      * @return The Amazon Resource Name (ARN) of the target group.
      * 
@@ -53,30 +46,32 @@ public final class ListenerRuleActionForwardTargetGroup {
     public static Builder builder(ListenerRuleActionForwardTargetGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private @Nullable Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerRuleActionForwardTargetGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder weight(@Nullable Integer weight) {
             this.weight = weight;
             return this;
-        }        public ListenerRuleActionForwardTargetGroup build() {
-            return new ListenerRuleActionForwardTargetGroup(arn, weight);
+        }
+        public ListenerRuleActionForwardTargetGroup build() {
+            final var o = new ListenerRuleActionForwardTargetGroup();
+            o.arn = arn;
+            o.weight = weight;
+            return o;
         }
     }
 }

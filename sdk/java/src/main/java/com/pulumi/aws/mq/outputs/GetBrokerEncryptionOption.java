@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerEncryptionOption {
-    private final String kmsKeyId;
-    private final Boolean useAwsOwnedKey;
+    private String kmsKeyId;
+    private Boolean useAwsOwnedKey;
 
-    @CustomType.Constructor
-    private GetBrokerEncryptionOption(
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("useAwsOwnedKey") Boolean useAwsOwnedKey) {
-        this.kmsKeyId = kmsKeyId;
-        this.useAwsOwnedKey = useAwsOwnedKey;
-    }
-
+    private GetBrokerEncryptionOption() {}
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
@@ -35,30 +28,32 @@ public final class GetBrokerEncryptionOption {
     public static Builder builder(GetBrokerEncryptionOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String kmsKeyId;
         private Boolean useAwsOwnedKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrokerEncryptionOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.useAwsOwnedKey = defaults.useAwsOwnedKey;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder useAwsOwnedKey(Boolean useAwsOwnedKey) {
             this.useAwsOwnedKey = Objects.requireNonNull(useAwsOwnedKey);
             return this;
-        }        public GetBrokerEncryptionOption build() {
-            return new GetBrokerEncryptionOption(kmsKeyId, useAwsOwnedKey);
+        }
+        public GetBrokerEncryptionOption build() {
+            final var o = new GetBrokerEncryptionOption();
+            o.kmsKeyId = kmsKeyId;
+            o.useAwsOwnedKey = useAwsOwnedKey;
+            return o;
         }
     }
 }

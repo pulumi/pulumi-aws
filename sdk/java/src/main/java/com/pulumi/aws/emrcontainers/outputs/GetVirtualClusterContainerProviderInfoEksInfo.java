@@ -13,13 +13,9 @@ public final class GetVirtualClusterContainerProviderInfoEksInfo {
      * @return The namespace where the EMR Containers cluster is running
      * 
      */
-    private final String namespace;
+    private String namespace;
 
-    @CustomType.Constructor
-    private GetVirtualClusterContainerProviderInfoEksInfo(@CustomType.Parameter("namespace") String namespace) {
-        this.namespace = namespace;
-    }
-
+    private GetVirtualClusterContainerProviderInfoEksInfo() {}
     /**
      * @return The namespace where the EMR Containers cluster is running
      * 
@@ -35,24 +31,24 @@ public final class GetVirtualClusterContainerProviderInfoEksInfo {
     public static Builder builder(GetVirtualClusterContainerProviderInfoEksInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String namespace;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualClusterContainerProviderInfoEksInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.namespace = defaults.namespace;
         }
 
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
-        }        public GetVirtualClusterContainerProviderInfoEksInfo build() {
-            return new GetVirtualClusterContainerProviderInfoEksInfo(namespace);
+        }
+        public GetVirtualClusterContainerProviderInfoEksInfo build() {
+            final var o = new GetVirtualClusterContainerProviderInfoEksInfo();
+            o.namespace = namespace;
+            return o;
         }
     }
 }

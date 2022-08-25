@@ -16,13 +16,9 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteria {
      * in `destination` must be specified as well.
      * 
      */
-    private final @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
+    private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigurationRuleSourceSelectionCriteria(@CustomType.Parameter("sseKmsEncryptedObjects") @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects) {
-        this.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
-    }
-
+    private BucketReplicationConfigurationRuleSourceSelectionCriteria() {}
     /**
      * @return Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
      * in `destination` must be specified as well.
@@ -39,24 +35,24 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteria {
     public static Builder builder(BucketReplicationConfigurationRuleSourceSelectionCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigurationRuleSourceSelectionCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sseKmsEncryptedObjects = defaults.sseKmsEncryptedObjects;
         }
 
+        @CustomType.Setter
         public Builder sseKmsEncryptedObjects(@Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects) {
             this.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
             return this;
-        }        public BucketReplicationConfigurationRuleSourceSelectionCriteria build() {
-            return new BucketReplicationConfigurationRuleSourceSelectionCriteria(sseKmsEncryptedObjects);
+        }
+        public BucketReplicationConfigurationRuleSourceSelectionCriteria build() {
+            final var o = new BucketReplicationConfigurationRuleSourceSelectionCriteria();
+            o.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
+            return o;
         }
     }
 }

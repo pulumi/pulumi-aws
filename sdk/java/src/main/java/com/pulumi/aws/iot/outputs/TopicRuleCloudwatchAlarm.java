@@ -13,35 +13,24 @@ public final class TopicRuleCloudwatchAlarm {
      * @return The CloudWatch alarm name.
      * 
      */
-    private final String alarmName;
+    private String alarmName;
     /**
      * @return The IAM role ARN that allows access to the CloudWatch alarm.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The reason for the alarm change.
      * 
      */
-    private final String stateReason;
+    private String stateReason;
     /**
      * @return The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
      * 
      */
-    private final String stateValue;
+    private String stateValue;
 
-    @CustomType.Constructor
-    private TopicRuleCloudwatchAlarm(
-        @CustomType.Parameter("alarmName") String alarmName,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("stateReason") String stateReason,
-        @CustomType.Parameter("stateValue") String stateValue) {
-        this.alarmName = alarmName;
-        this.roleArn = roleArn;
-        this.stateReason = stateReason;
-        this.stateValue = stateValue;
-    }
-
+    private TopicRuleCloudwatchAlarm() {}
     /**
      * @return The CloudWatch alarm name.
      * 
@@ -78,17 +67,13 @@ public final class TopicRuleCloudwatchAlarm {
     public static Builder builder(TopicRuleCloudwatchAlarm defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String alarmName;
         private String roleArn;
         private String stateReason;
         private String stateValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleCloudwatchAlarm defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alarmName = defaults.alarmName;
@@ -97,23 +82,33 @@ public final class TopicRuleCloudwatchAlarm {
     	      this.stateValue = defaults.stateValue;
         }
 
+        @CustomType.Setter
         public Builder alarmName(String alarmName) {
             this.alarmName = Objects.requireNonNull(alarmName);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder stateReason(String stateReason) {
             this.stateReason = Objects.requireNonNull(stateReason);
             return this;
         }
+        @CustomType.Setter
         public Builder stateValue(String stateValue) {
             this.stateValue = Objects.requireNonNull(stateValue);
             return this;
-        }        public TopicRuleCloudwatchAlarm build() {
-            return new TopicRuleCloudwatchAlarm(alarmName, roleArn, stateReason, stateValue);
+        }
+        public TopicRuleCloudwatchAlarm build() {
+            final var o = new TopicRuleCloudwatchAlarm();
+            o.alarmName = alarmName;
+            o.roleArn = roleArn;
+            o.stateReason = stateReason;
+            o.stateValue = stateValue;
+            return o;
         }
     }
 }

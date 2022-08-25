@@ -15,21 +15,14 @@ public final class WorkgroupConfigurationResultConfigurationEncryptionConfigurat
      * @return Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup&#39;s setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
      * 
      */
-    private final @Nullable String encryptionOption;
+    private @Nullable String encryptionOption;
     /**
      * @return For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
 
-    @CustomType.Constructor
-    private WorkgroupConfigurationResultConfigurationEncryptionConfiguration(
-        @CustomType.Parameter("encryptionOption") @Nullable String encryptionOption,
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn) {
-        this.encryptionOption = encryptionOption;
-        this.kmsKeyArn = kmsKeyArn;
-    }
-
+    private WorkgroupConfigurationResultConfigurationEncryptionConfiguration() {}
     /**
      * @return Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup&#39;s setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
      * 
@@ -52,30 +45,32 @@ public final class WorkgroupConfigurationResultConfigurationEncryptionConfigurat
     public static Builder builder(WorkgroupConfigurationResultConfigurationEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String encryptionOption;
         private @Nullable String kmsKeyArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkgroupConfigurationResultConfigurationEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionOption = defaults.encryptionOption;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
         }
 
+        @CustomType.Setter
         public Builder encryptionOption(@Nullable String encryptionOption) {
             this.encryptionOption = encryptionOption;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
-        }        public WorkgroupConfigurationResultConfigurationEncryptionConfiguration build() {
-            return new WorkgroupConfigurationResultConfigurationEncryptionConfiguration(encryptionOption, kmsKeyArn);
+        }
+        public WorkgroupConfigurationResultConfigurationEncryptionConfiguration build() {
+            final var o = new WorkgroupConfigurationResultConfigurationEncryptionConfiguration();
+            o.encryptionOption = encryptionOption;
+            o.kmsKeyArn = kmsKeyArn;
+            return o;
         }
     }
 }

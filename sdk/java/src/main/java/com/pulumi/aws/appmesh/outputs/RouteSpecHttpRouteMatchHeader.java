@@ -17,28 +17,19 @@ public final class RouteSpecHttpRouteMatchHeader {
      * @return If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
      * 
      */
-    private final @Nullable Boolean invert;
+    private @Nullable Boolean invert;
     /**
      * @return The method and value to match the header value sent with a request. Specify one match method.
      * 
      */
-    private final @Nullable RouteSpecHttpRouteMatchHeaderMatch match;
+    private @Nullable RouteSpecHttpRouteMatchHeaderMatch match;
     /**
      * @return A name for the HTTP header in the client request that will be matched on.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private RouteSpecHttpRouteMatchHeader(
-        @CustomType.Parameter("invert") @Nullable Boolean invert,
-        @CustomType.Parameter("match") @Nullable RouteSpecHttpRouteMatchHeaderMatch match,
-        @CustomType.Parameter("name") String name) {
-        this.invert = invert;
-        this.match = match;
-        this.name = name;
-    }
-
+    private RouteSpecHttpRouteMatchHeader() {}
     /**
      * @return If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
      * 
@@ -68,16 +59,12 @@ public final class RouteSpecHttpRouteMatchHeader {
     public static Builder builder(RouteSpecHttpRouteMatchHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean invert;
         private @Nullable RouteSpecHttpRouteMatchHeaderMatch match;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttpRouteMatchHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.invert = defaults.invert;
@@ -85,19 +72,27 @@ public final class RouteSpecHttpRouteMatchHeader {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder invert(@Nullable Boolean invert) {
             this.invert = invert;
             return this;
         }
+        @CustomType.Setter
         public Builder match(@Nullable RouteSpecHttpRouteMatchHeaderMatch match) {
             this.match = match;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public RouteSpecHttpRouteMatchHeader build() {
-            return new RouteSpecHttpRouteMatchHeader(invert, match, name);
+        }
+        public RouteSpecHttpRouteMatchHeader build() {
+            final var o = new RouteSpecHttpRouteMatchHeader();
+            o.invert = invert;
+            o.match = match;
+            o.name = name;
+            return o;
         }
     }
 }

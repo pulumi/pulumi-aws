@@ -17,12 +17,12 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * @return Describes the interval in milliseconds between checkpoint operations.
      * 
      */
-    private final @Nullable Integer checkpointInterval;
+    private @Nullable Integer checkpointInterval;
     /**
      * @return Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
      * 
      */
-    private final @Nullable Boolean checkpointingEnabled;
+    private @Nullable Boolean checkpointingEnabled;
     /**
      * @return Describes whether the application uses Kinesis Data Analytics&#39; default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
      * * `checkpointing_enabled = true`
@@ -30,25 +30,14 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * * `min_pause_between_checkpoints = 5000`
      * 
      */
-    private final String configurationType;
+    private String configurationType;
     /**
      * @return Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
      * 
      */
-    private final @Nullable Integer minPauseBetweenCheckpoints;
+    private @Nullable Integer minPauseBetweenCheckpoints;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration(
-        @CustomType.Parameter("checkpointInterval") @Nullable Integer checkpointInterval,
-        @CustomType.Parameter("checkpointingEnabled") @Nullable Boolean checkpointingEnabled,
-        @CustomType.Parameter("configurationType") String configurationType,
-        @CustomType.Parameter("minPauseBetweenCheckpoints") @Nullable Integer minPauseBetweenCheckpoints) {
-        this.checkpointInterval = checkpointInterval;
-        this.checkpointingEnabled = checkpointingEnabled;
-        this.configurationType = configurationType;
-        this.minPauseBetweenCheckpoints = minPauseBetweenCheckpoints;
-    }
-
+    private ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration() {}
     /**
      * @return Describes the interval in milliseconds between checkpoint operations.
      * 
@@ -88,17 +77,13 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     public static Builder builder(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer checkpointInterval;
         private @Nullable Boolean checkpointingEnabled;
         private String configurationType;
         private @Nullable Integer minPauseBetweenCheckpoints;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.checkpointInterval = defaults.checkpointInterval;
@@ -107,23 +92,33 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     	      this.minPauseBetweenCheckpoints = defaults.minPauseBetweenCheckpoints;
         }
 
+        @CustomType.Setter
         public Builder checkpointInterval(@Nullable Integer checkpointInterval) {
             this.checkpointInterval = checkpointInterval;
             return this;
         }
+        @CustomType.Setter
         public Builder checkpointingEnabled(@Nullable Boolean checkpointingEnabled) {
             this.checkpointingEnabled = checkpointingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder configurationType(String configurationType) {
             this.configurationType = Objects.requireNonNull(configurationType);
             return this;
         }
+        @CustomType.Setter
         public Builder minPauseBetweenCheckpoints(@Nullable Integer minPauseBetweenCheckpoints) {
             this.minPauseBetweenCheckpoints = minPauseBetweenCheckpoints;
             return this;
-        }        public ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration build() {
-            return new ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration(checkpointInterval, checkpointingEnabled, configurationType, minPauseBetweenCheckpoints);
+        }
+        public ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration();
+            o.checkpointInterval = checkpointInterval;
+            o.checkpointingEnabled = checkpointingEnabled;
+            o.configurationType = configurationType;
+            o.minPauseBetweenCheckpoints = minPauseBetweenCheckpoints;
+            return o;
         }
     }
 }

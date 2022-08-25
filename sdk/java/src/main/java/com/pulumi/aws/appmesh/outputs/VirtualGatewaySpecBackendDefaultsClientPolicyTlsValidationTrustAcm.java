@@ -14,13 +14,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
      * @return One or more ACM Amazon Resource Name (ARN)s.
      * 
      */
-    private final List<String> certificateAuthorityArns;
+    private List<String> certificateAuthorityArns;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(@CustomType.Parameter("certificateAuthorityArns") List<String> certificateAuthorityArns) {
-        this.certificateAuthorityArns = certificateAuthorityArns;
-    }
-
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm() {}
     /**
      * @return One or more ACM Amazon Resource Name (ARN)s.
      * 
@@ -36,27 +32,27 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
     public static Builder builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> certificateAuthorityArns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateAuthorityArns = defaults.certificateAuthorityArns;
         }
 
+        @CustomType.Setter
         public Builder certificateAuthorityArns(List<String> certificateAuthorityArns) {
             this.certificateAuthorityArns = Objects.requireNonNull(certificateAuthorityArns);
             return this;
         }
         public Builder certificateAuthorityArns(String... certificateAuthorityArns) {
             return certificateAuthorityArns(List.of(certificateAuthorityArns));
-        }        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm build() {
-            return new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(certificateAuthorityArns);
+        }
+        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm build() {
+            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm();
+            o.certificateAuthorityArns = certificateAuthorityArns;
+            return o;
         }
     }
 }

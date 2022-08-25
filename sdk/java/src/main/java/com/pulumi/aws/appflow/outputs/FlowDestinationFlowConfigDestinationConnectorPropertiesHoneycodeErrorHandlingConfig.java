@@ -16,28 +16,19 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
      */
-    private final @Nullable String bucketName;
+    private @Nullable String bucketName;
     /**
      * @return The object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
-    private final @Nullable String bucketPrefix;
+    private @Nullable String bucketPrefix;
     /**
      * @return Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
      * 
      */
-    private final @Nullable Boolean failOnFirstDestinationError;
+    private @Nullable Boolean failOnFirstDestinationError;
 
-    @CustomType.Constructor
-    private FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig(
-        @CustomType.Parameter("bucketName") @Nullable String bucketName,
-        @CustomType.Parameter("bucketPrefix") @Nullable String bucketPrefix,
-        @CustomType.Parameter("failOnFirstDestinationError") @Nullable Boolean failOnFirstDestinationError) {
-        this.bucketName = bucketName;
-        this.bucketPrefix = bucketPrefix;
-        this.failOnFirstDestinationError = failOnFirstDestinationError;
-    }
-
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig() {}
     /**
      * @return The Amazon S3 bucket name where the source files are stored.
      * 
@@ -67,16 +58,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
     public static Builder builder(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucketName;
         private @Nullable String bucketPrefix;
         private @Nullable Boolean failOnFirstDestinationError;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -84,19 +71,27 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
     	      this.failOnFirstDestinationError = defaults.failOnFirstDestinationError;
         }
 
+        @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
             this.bucketName = bucketName;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder failOnFirstDestinationError(@Nullable Boolean failOnFirstDestinationError) {
             this.failOnFirstDestinationError = failOnFirstDestinationError;
             return this;
-        }        public FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig build() {
-            return new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig(bucketName, bucketPrefix, failOnFirstDestinationError);
+        }
+        public FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig build() {
+            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig();
+            o.bucketName = bucketName;
+            o.bucketPrefix = bucketPrefix;
+            o.failOnFirstDestinationError = failOnFirstDestinationError;
+            return o;
         }
     }
 }

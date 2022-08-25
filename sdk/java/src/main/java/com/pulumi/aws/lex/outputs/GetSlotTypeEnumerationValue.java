@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSlotTypeEnumerationValue {
-    private final List<String> synonyms;
-    private final String value;
+    private List<String> synonyms;
+    private String value;
 
-    @CustomType.Constructor
-    private GetSlotTypeEnumerationValue(
-        @CustomType.Parameter("synonyms") List<String> synonyms,
-        @CustomType.Parameter("value") String value) {
-        this.synonyms = synonyms;
-        this.value = value;
-    }
-
+    private GetSlotTypeEnumerationValue() {}
     public List<String> synonyms() {
         return this.synonyms;
     }
@@ -35,21 +28,18 @@ public final class GetSlotTypeEnumerationValue {
     public static Builder builder(GetSlotTypeEnumerationValue defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> synonyms;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSlotTypeEnumerationValue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.synonyms = defaults.synonyms;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder synonyms(List<String> synonyms) {
             this.synonyms = Objects.requireNonNull(synonyms);
             return this;
@@ -57,11 +47,16 @@ public final class GetSlotTypeEnumerationValue {
         public Builder synonyms(String... synonyms) {
             return synonyms(List.of(synonyms));
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetSlotTypeEnumerationValue build() {
-            return new GetSlotTypeEnumerationValue(synonyms, value);
+        }
+        public GetSlotTypeEnumerationValue build() {
+            final var o = new GetSlotTypeEnumerationValue();
+            o.synonyms = synonyms;
+            o.value = value;
+            return o;
         }
     }
 }

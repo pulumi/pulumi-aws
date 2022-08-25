@@ -14,21 +14,14 @@ public final class GetImageImageTestsConfiguration {
      * @return Whether image tests are enabled.
      * 
      */
-    private final Boolean imageTestsEnabled;
+    private Boolean imageTestsEnabled;
     /**
      * @return Number of minutes before image tests time out.
      * 
      */
-    private final Integer timeoutMinutes;
+    private Integer timeoutMinutes;
 
-    @CustomType.Constructor
-    private GetImageImageTestsConfiguration(
-        @CustomType.Parameter("imageTestsEnabled") Boolean imageTestsEnabled,
-        @CustomType.Parameter("timeoutMinutes") Integer timeoutMinutes) {
-        this.imageTestsEnabled = imageTestsEnabled;
-        this.timeoutMinutes = timeoutMinutes;
-    }
-
+    private GetImageImageTestsConfiguration() {}
     /**
      * @return Whether image tests are enabled.
      * 
@@ -51,30 +44,32 @@ public final class GetImageImageTestsConfiguration {
     public static Builder builder(GetImageImageTestsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean imageTestsEnabled;
         private Integer timeoutMinutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImageImageTestsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.imageTestsEnabled = defaults.imageTestsEnabled;
     	      this.timeoutMinutes = defaults.timeoutMinutes;
         }
 
+        @CustomType.Setter
         public Builder imageTestsEnabled(Boolean imageTestsEnabled) {
             this.imageTestsEnabled = Objects.requireNonNull(imageTestsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder timeoutMinutes(Integer timeoutMinutes) {
             this.timeoutMinutes = Objects.requireNonNull(timeoutMinutes);
             return this;
-        }        public GetImageImageTestsConfiguration build() {
-            return new GetImageImageTestsConfiguration(imageTestsEnabled, timeoutMinutes);
+        }
+        public GetImageImageTestsConfiguration build() {
+            final var o = new GetImageImageTestsConfiguration();
+            o.imageTestsEnabled = imageTestsEnabled;
+            o.timeoutMinutes = timeoutMinutes;
+            return o;
         }
     }
 }

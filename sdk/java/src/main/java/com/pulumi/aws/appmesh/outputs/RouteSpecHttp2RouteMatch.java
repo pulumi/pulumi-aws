@@ -17,36 +17,25 @@ public final class RouteSpecHttp2RouteMatch {
      * @return The client request headers to match on.
      * 
      */
-    private final @Nullable List<RouteSpecHttp2RouteMatchHeader> headers;
+    private @Nullable List<RouteSpecHttp2RouteMatchHeader> headers;
     /**
      * @return The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
      * 
      */
-    private final @Nullable String method;
+    private @Nullable String method;
     /**
      * @return The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
-    private final String prefix;
+    private String prefix;
     /**
      * @return The client request header scheme to match on. Valid values: `http`, `https`.
      * 
      */
-    private final @Nullable String scheme;
+    private @Nullable String scheme;
 
-    @CustomType.Constructor
-    private RouteSpecHttp2RouteMatch(
-        @CustomType.Parameter("headers") @Nullable List<RouteSpecHttp2RouteMatchHeader> headers,
-        @CustomType.Parameter("method") @Nullable String method,
-        @CustomType.Parameter("prefix") String prefix,
-        @CustomType.Parameter("scheme") @Nullable String scheme) {
-        this.headers = headers;
-        this.method = method;
-        this.prefix = prefix;
-        this.scheme = scheme;
-    }
-
+    private RouteSpecHttp2RouteMatch() {}
     /**
      * @return The client request headers to match on.
      * 
@@ -84,17 +73,13 @@ public final class RouteSpecHttp2RouteMatch {
     public static Builder builder(RouteSpecHttp2RouteMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<RouteSpecHttp2RouteMatchHeader> headers;
         private @Nullable String method;
         private String prefix;
         private @Nullable String scheme;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttp2RouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headers = defaults.headers;
@@ -103,6 +88,7 @@ public final class RouteSpecHttp2RouteMatch {
     	      this.scheme = defaults.scheme;
         }
 
+        @CustomType.Setter
         public Builder headers(@Nullable List<RouteSpecHttp2RouteMatchHeader> headers) {
             this.headers = headers;
             return this;
@@ -110,19 +96,28 @@ public final class RouteSpecHttp2RouteMatch {
         public Builder headers(RouteSpecHttp2RouteMatchHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder method(@Nullable String method) {
             this.method = method;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(String prefix) {
             this.prefix = Objects.requireNonNull(prefix);
             return this;
         }
+        @CustomType.Setter
         public Builder scheme(@Nullable String scheme) {
             this.scheme = scheme;
             return this;
-        }        public RouteSpecHttp2RouteMatch build() {
-            return new RouteSpecHttp2RouteMatch(headers, method, prefix, scheme);
+        }
+        public RouteSpecHttp2RouteMatch build() {
+            final var o = new RouteSpecHttp2RouteMatch();
+            o.headers = headers;
+            o.method = method;
+            o.prefix = prefix;
+            o.scheme = scheme;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class TopicRuleRepublish {
      * @return The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
      * 
      */
-    private final @Nullable Integer qos;
+    private @Nullable Integer qos;
     /**
      * @return The ARN of the IAM role that grants access.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The name of the MQTT topic the message should be republished to.
      * 
      */
-    private final String topic;
+    private String topic;
 
-    @CustomType.Constructor
-    private TopicRuleRepublish(
-        @CustomType.Parameter("qos") @Nullable Integer qos,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("topic") String topic) {
-        this.qos = qos;
-        this.roleArn = roleArn;
-        this.topic = topic;
-    }
-
+    private TopicRuleRepublish() {}
     /**
      * @return The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
      * 
@@ -67,16 +58,12 @@ public final class TopicRuleRepublish {
     public static Builder builder(TopicRuleRepublish defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer qos;
         private String roleArn;
         private String topic;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleRepublish defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.qos = defaults.qos;
@@ -84,19 +71,27 @@ public final class TopicRuleRepublish {
     	      this.topic = defaults.topic;
         }
 
+        @CustomType.Setter
         public Builder qos(@Nullable Integer qos) {
             this.qos = qos;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder topic(String topic) {
             this.topic = Objects.requireNonNull(topic);
             return this;
-        }        public TopicRuleRepublish build() {
-            return new TopicRuleRepublish(qos, roleArn, topic);
+        }
+        public TopicRuleRepublish build() {
+            final var o = new TopicRuleRepublish();
+            o.qos = qos;
+            o.roleArn = roleArn;
+            o.topic = topic;
+            return o;
         }
     }
 }

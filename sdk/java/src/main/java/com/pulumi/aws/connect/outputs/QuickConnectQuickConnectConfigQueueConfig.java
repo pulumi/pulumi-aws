@@ -13,21 +13,14 @@ public final class QuickConnectQuickConnectConfigQueueConfig {
      * @return Specifies the identifier of the contact flow.
      * 
      */
-    private final String contactFlowId;
+    private String contactFlowId;
     /**
      * @return Specifies the identifier for the queue.
      * 
      */
-    private final String queueId;
+    private String queueId;
 
-    @CustomType.Constructor
-    private QuickConnectQuickConnectConfigQueueConfig(
-        @CustomType.Parameter("contactFlowId") String contactFlowId,
-        @CustomType.Parameter("queueId") String queueId) {
-        this.contactFlowId = contactFlowId;
-        this.queueId = queueId;
-    }
-
+    private QuickConnectQuickConnectConfigQueueConfig() {}
     /**
      * @return Specifies the identifier of the contact flow.
      * 
@@ -50,30 +43,32 @@ public final class QuickConnectQuickConnectConfigQueueConfig {
     public static Builder builder(QuickConnectQuickConnectConfigQueueConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contactFlowId;
         private String queueId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(QuickConnectQuickConnectConfigQueueConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contactFlowId = defaults.contactFlowId;
     	      this.queueId = defaults.queueId;
         }
 
+        @CustomType.Setter
         public Builder contactFlowId(String contactFlowId) {
             this.contactFlowId = Objects.requireNonNull(contactFlowId);
             return this;
         }
+        @CustomType.Setter
         public Builder queueId(String queueId) {
             this.queueId = Objects.requireNonNull(queueId);
             return this;
-        }        public QuickConnectQuickConnectConfigQueueConfig build() {
-            return new QuickConnectQuickConnectConfigQueueConfig(contactFlowId, queueId);
+        }
+        public QuickConnectQuickConnectConfigQueueConfig build() {
+            final var o = new QuickConnectQuickConnectConfigQueueConfig();
+            o.contactFlowId = contactFlowId;
+            o.queueId = queueId;
+            return o;
         }
     }
 }

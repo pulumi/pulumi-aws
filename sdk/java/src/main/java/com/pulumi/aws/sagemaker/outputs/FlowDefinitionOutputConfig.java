@@ -15,21 +15,14 @@ public final class FlowDefinitionOutputConfig {
      * @return The Amazon Key Management Service (KMS) key ARN for server-side encryption.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return The Amazon S3 path where the object containing human output will be made available.
      * 
      */
-    private final String s3OutputPath;
+    private String s3OutputPath;
 
-    @CustomType.Constructor
-    private FlowDefinitionOutputConfig(
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("s3OutputPath") String s3OutputPath) {
-        this.kmsKeyId = kmsKeyId;
-        this.s3OutputPath = s3OutputPath;
-    }
-
+    private FlowDefinitionOutputConfig() {}
     /**
      * @return The Amazon Key Management Service (KMS) key ARN for server-side encryption.
      * 
@@ -52,30 +45,32 @@ public final class FlowDefinitionOutputConfig {
     public static Builder builder(FlowDefinitionOutputConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyId;
         private String s3OutputPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDefinitionOutputConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.s3OutputPath = defaults.s3OutputPath;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder s3OutputPath(String s3OutputPath) {
             this.s3OutputPath = Objects.requireNonNull(s3OutputPath);
             return this;
-        }        public FlowDefinitionOutputConfig build() {
-            return new FlowDefinitionOutputConfig(kmsKeyId, s3OutputPath);
+        }
+        public FlowDefinitionOutputConfig build() {
+            final var o = new FlowDefinitionOutputConfig();
+            o.kmsKeyId = kmsKeyId;
+            o.s3OutputPath = s3OutputPath;
+            return o;
         }
     }
 }

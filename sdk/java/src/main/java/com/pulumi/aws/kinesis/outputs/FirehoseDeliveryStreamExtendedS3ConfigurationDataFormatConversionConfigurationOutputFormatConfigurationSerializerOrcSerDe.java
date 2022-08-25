@@ -19,77 +19,54 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * @return The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
      * 
      */
-    private final @Nullable Integer blockSizeBytes;
+    private @Nullable Integer blockSizeBytes;
     /**
      * @return A list of column names for which you want Kinesis Data Firehose to create bloom filters.
      * 
      */
-    private final @Nullable List<String> bloomFilterColumns;
+    private @Nullable List<String> bloomFilterColumns;
     /**
      * @return The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
      * 
      */
-    private final @Nullable Double bloomFilterFalsePositiveProbability;
+    private @Nullable Double bloomFilterFalsePositiveProbability;
     /**
      * @return The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
      * 
      */
-    private final @Nullable String compression;
+    private @Nullable String compression;
     /**
      * @return A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
      * 
      */
-    private final @Nullable Double dictionaryKeyThreshold;
+    private @Nullable Double dictionaryKeyThreshold;
     /**
      * @return Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
      * 
      */
-    private final @Nullable Boolean enablePadding;
+    private @Nullable Boolean enablePadding;
     /**
      * @return The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
      * 
      */
-    private final @Nullable String formatVersion;
+    private @Nullable String formatVersion;
     /**
      * @return A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
      * 
      */
-    private final @Nullable Double paddingTolerance;
+    private @Nullable Double paddingTolerance;
     /**
      * @return The number of rows between index entries. The default is `10000` and the minimum is `1000`.
      * 
      */
-    private final @Nullable Integer rowIndexStride;
+    private @Nullable Integer rowIndexStride;
     /**
      * @return The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
      * 
      */
-    private final @Nullable Integer stripeSizeBytes;
+    private @Nullable Integer stripeSizeBytes;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe(
-        @CustomType.Parameter("blockSizeBytes") @Nullable Integer blockSizeBytes,
-        @CustomType.Parameter("bloomFilterColumns") @Nullable List<String> bloomFilterColumns,
-        @CustomType.Parameter("bloomFilterFalsePositiveProbability") @Nullable Double bloomFilterFalsePositiveProbability,
-        @CustomType.Parameter("compression") @Nullable String compression,
-        @CustomType.Parameter("dictionaryKeyThreshold") @Nullable Double dictionaryKeyThreshold,
-        @CustomType.Parameter("enablePadding") @Nullable Boolean enablePadding,
-        @CustomType.Parameter("formatVersion") @Nullable String formatVersion,
-        @CustomType.Parameter("paddingTolerance") @Nullable Double paddingTolerance,
-        @CustomType.Parameter("rowIndexStride") @Nullable Integer rowIndexStride,
-        @CustomType.Parameter("stripeSizeBytes") @Nullable Integer stripeSizeBytes) {
-        this.blockSizeBytes = blockSizeBytes;
-        this.bloomFilterColumns = bloomFilterColumns;
-        this.bloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
-        this.compression = compression;
-        this.dictionaryKeyThreshold = dictionaryKeyThreshold;
-        this.enablePadding = enablePadding;
-        this.formatVersion = formatVersion;
-        this.paddingTolerance = paddingTolerance;
-        this.rowIndexStride = rowIndexStride;
-        this.stripeSizeBytes = stripeSizeBytes;
-    }
-
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe() {}
     /**
      * @return The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
      * 
@@ -168,7 +145,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     public static Builder builder(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer blockSizeBytes;
         private @Nullable List<String> bloomFilterColumns;
@@ -180,11 +157,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         private @Nullable Double paddingTolerance;
         private @Nullable Integer rowIndexStride;
         private @Nullable Integer stripeSizeBytes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blockSizeBytes = defaults.blockSizeBytes;
@@ -199,10 +172,12 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     	      this.stripeSizeBytes = defaults.stripeSizeBytes;
         }
 
+        @CustomType.Setter
         public Builder blockSizeBytes(@Nullable Integer blockSizeBytes) {
             this.blockSizeBytes = blockSizeBytes;
             return this;
         }
+        @CustomType.Setter
         public Builder bloomFilterColumns(@Nullable List<String> bloomFilterColumns) {
             this.bloomFilterColumns = bloomFilterColumns;
             return this;
@@ -210,39 +185,59 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         public Builder bloomFilterColumns(String... bloomFilterColumns) {
             return bloomFilterColumns(List.of(bloomFilterColumns));
         }
+        @CustomType.Setter
         public Builder bloomFilterFalsePositiveProbability(@Nullable Double bloomFilterFalsePositiveProbability) {
             this.bloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
             return this;
         }
+        @CustomType.Setter
         public Builder compression(@Nullable String compression) {
             this.compression = compression;
             return this;
         }
+        @CustomType.Setter
         public Builder dictionaryKeyThreshold(@Nullable Double dictionaryKeyThreshold) {
             this.dictionaryKeyThreshold = dictionaryKeyThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder enablePadding(@Nullable Boolean enablePadding) {
             this.enablePadding = enablePadding;
             return this;
         }
+        @CustomType.Setter
         public Builder formatVersion(@Nullable String formatVersion) {
             this.formatVersion = formatVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder paddingTolerance(@Nullable Double paddingTolerance) {
             this.paddingTolerance = paddingTolerance;
             return this;
         }
+        @CustomType.Setter
         public Builder rowIndexStride(@Nullable Integer rowIndexStride) {
             this.rowIndexStride = rowIndexStride;
             return this;
         }
+        @CustomType.Setter
         public Builder stripeSizeBytes(@Nullable Integer stripeSizeBytes) {
             this.stripeSizeBytes = stripeSizeBytes;
             return this;
-        }        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe build() {
-            return new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe(blockSizeBytes, bloomFilterColumns, bloomFilterFalsePositiveProbability, compression, dictionaryKeyThreshold, enablePadding, formatVersion, paddingTolerance, rowIndexStride, stripeSizeBytes);
+        }
+        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe build() {
+            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe();
+            o.blockSizeBytes = blockSizeBytes;
+            o.bloomFilterColumns = bloomFilterColumns;
+            o.bloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
+            o.compression = compression;
+            o.dictionaryKeyThreshold = dictionaryKeyThreshold;
+            o.enablePadding = enablePadding;
+            o.formatVersion = formatVersion;
+            o.paddingTolerance = paddingTolerance;
+            o.rowIndexStride = rowIndexStride;
+            o.stripeSizeBytes = stripeSizeBytes;
+            return o;
         }
     }
 }

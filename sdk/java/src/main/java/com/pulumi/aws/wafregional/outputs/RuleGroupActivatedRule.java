@@ -17,35 +17,24 @@ public final class RuleGroupActivatedRule {
      * @return Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
      * 
      */
-    private final RuleGroupActivatedRuleAction action;
+    private RuleGroupActivatedRuleAction action;
     /**
      * @return Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The ID of a `waf_regional_rule`
      * 
      */
-    private final String ruleId;
+    private String ruleId;
     /**
      * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private RuleGroupActivatedRule(
-        @CustomType.Parameter("action") RuleGroupActivatedRuleAction action,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("ruleId") String ruleId,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.action = action;
-        this.priority = priority;
-        this.ruleId = ruleId;
-        this.type = type;
-    }
-
+    private RuleGroupActivatedRule() {}
     /**
      * @return Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
      * 
@@ -82,17 +71,13 @@ public final class RuleGroupActivatedRule {
     public static Builder builder(RuleGroupActivatedRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RuleGroupActivatedRuleAction action;
         private Integer priority;
         private String ruleId;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupActivatedRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -101,23 +86,33 @@ public final class RuleGroupActivatedRule {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder action(RuleGroupActivatedRuleAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleId(String ruleId) {
             this.ruleId = Objects.requireNonNull(ruleId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public RuleGroupActivatedRule build() {
-            return new RuleGroupActivatedRule(action, priority, ruleId, type);
+        }
+        public RuleGroupActivatedRule build() {
+            final var o = new RuleGroupActivatedRule();
+            o.action = action;
+            o.priority = priority;
+            o.ruleId = ruleId;
+            o.type = type;
+            return o;
         }
     }
 }

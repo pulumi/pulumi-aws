@@ -16,35 +16,24 @@ public final class GetSecretsSecret {
      * @return An optional mapping that makes up the Encryption Context for the secret.
      * 
      */
-    private final @Nullable Map<String,String> context;
+    private @Nullable Map<String,String> context;
     /**
      * @return An optional list of Grant Tokens for the secret.
      * 
      */
-    private final @Nullable List<String> grantTokens;
+    private @Nullable List<String> grantTokens;
     /**
      * @return The name to export this secret under in the attributes.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Base64 encoded payload, as returned from a KMS encrypt operation.
      * 
      */
-    private final String payload;
+    private String payload;
 
-    @CustomType.Constructor
-    private GetSecretsSecret(
-        @CustomType.Parameter("context") @Nullable Map<String,String> context,
-        @CustomType.Parameter("grantTokens") @Nullable List<String> grantTokens,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("payload") String payload) {
-        this.context = context;
-        this.grantTokens = grantTokens;
-        this.name = name;
-        this.payload = payload;
-    }
-
+    private GetSecretsSecret() {}
     /**
      * @return An optional mapping that makes up the Encryption Context for the secret.
      * 
@@ -81,17 +70,13 @@ public final class GetSecretsSecret {
     public static Builder builder(GetSecretsSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> context;
         private @Nullable List<String> grantTokens;
         private String name;
         private String payload;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecretsSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.context = defaults.context;
@@ -100,10 +85,12 @@ public final class GetSecretsSecret {
     	      this.payload = defaults.payload;
         }
 
+        @CustomType.Setter
         public Builder context(@Nullable Map<String,String> context) {
             this.context = context;
             return this;
         }
+        @CustomType.Setter
         public Builder grantTokens(@Nullable List<String> grantTokens) {
             this.grantTokens = grantTokens;
             return this;
@@ -111,15 +98,23 @@ public final class GetSecretsSecret {
         public Builder grantTokens(String... grantTokens) {
             return grantTokens(List.of(grantTokens));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder payload(String payload) {
             this.payload = Objects.requireNonNull(payload);
             return this;
-        }        public GetSecretsSecret build() {
-            return new GetSecretsSecret(context, grantTokens, name, payload);
+        }
+        public GetSecretsSecret build() {
+            final var o = new GetSecretsSecret();
+            o.context = context;
+            o.grantTokens = grantTokens;
+            o.name = name;
+            o.payload = payload;
+            return o;
         }
     }
 }

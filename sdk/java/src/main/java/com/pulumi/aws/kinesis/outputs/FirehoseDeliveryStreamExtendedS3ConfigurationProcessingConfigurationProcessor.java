@@ -16,21 +16,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
      * @return Array of processor parameters. More details are given below
      * 
      */
-    private final @Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter> parameters;
+    private @Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter> parameters;
     /**
      * @return The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor(
-        @CustomType.Parameter("parameters") @Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter> parameters,
-        @CustomType.Parameter("type") String type) {
-        this.parameters = parameters;
-        this.type = type;
-    }
-
+    private FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor() {}
     /**
      * @return Array of processor parameters. More details are given below
      * 
@@ -53,21 +46,18 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
     public static Builder builder(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter> parameters;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameters = defaults.parameters;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder parameters(@Nullable List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter> parameters) {
             this.parameters = parameters;
             return this;
@@ -75,11 +65,16 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
         public Builder parameters(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter... parameters) {
             return parameters(List.of(parameters));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor build() {
-            return new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor(parameters, type);
+        }
+        public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor build() {
+            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor();
+            o.parameters = parameters;
+            o.type = type;
+            return o;
         }
     }
 }

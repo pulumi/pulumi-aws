@@ -14,21 +14,14 @@ public final class GetDomainAutoTuneOptionMaintenanceScheduleDuration {
      * @return Unit of time specifying the duration of an Auto-Tune maintenance window.
      * 
      */
-    private final String unit;
+    private String unit;
     /**
      * @return An integer specifying the value of the duration of an Auto-Tune maintenance window.
      * 
      */
-    private final Integer value;
+    private Integer value;
 
-    @CustomType.Constructor
-    private GetDomainAutoTuneOptionMaintenanceScheduleDuration(
-        @CustomType.Parameter("unit") String unit,
-        @CustomType.Parameter("value") Integer value) {
-        this.unit = unit;
-        this.value = value;
-    }
-
+    private GetDomainAutoTuneOptionMaintenanceScheduleDuration() {}
     /**
      * @return Unit of time specifying the duration of an Auto-Tune maintenance window.
      * 
@@ -51,30 +44,32 @@ public final class GetDomainAutoTuneOptionMaintenanceScheduleDuration {
     public static Builder builder(GetDomainAutoTuneOptionMaintenanceScheduleDuration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String unit;
         private Integer value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainAutoTuneOptionMaintenanceScheduleDuration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.unit = defaults.unit;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder unit(String unit) {
             this.unit = Objects.requireNonNull(unit);
             return this;
         }
+        @CustomType.Setter
         public Builder value(Integer value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetDomainAutoTuneOptionMaintenanceScheduleDuration build() {
-            return new GetDomainAutoTuneOptionMaintenanceScheduleDuration(unit, value);
+        }
+        public GetDomainAutoTuneOptionMaintenanceScheduleDuration build() {
+            final var o = new GetDomainAutoTuneOptionMaintenanceScheduleDuration();
+            o.unit = unit;
+            o.value = value;
+            return o;
         }
     }
 }

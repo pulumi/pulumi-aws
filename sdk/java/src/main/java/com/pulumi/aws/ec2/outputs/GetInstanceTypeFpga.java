@@ -10,27 +10,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceTypeFpga {
-    private final Integer count;
-    private final String manufacturer;
+    private Integer count;
+    private String manufacturer;
     /**
      * @return Size of the instance memory, in MiB.
      * 
      */
-    private final Integer memorySize;
-    private final String name;
+    private Integer memorySize;
+    private String name;
 
-    @CustomType.Constructor
-    private GetInstanceTypeFpga(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("manufacturer") String manufacturer,
-        @CustomType.Parameter("memorySize") Integer memorySize,
-        @CustomType.Parameter("name") String name) {
-        this.count = count;
-        this.manufacturer = manufacturer;
-        this.memorySize = memorySize;
-        this.name = name;
-    }
-
+    private GetInstanceTypeFpga() {}
     public Integer count() {
         return this.count;
     }
@@ -55,17 +44,13 @@ public final class GetInstanceTypeFpga {
     public static Builder builder(GetInstanceTypeFpga defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private String manufacturer;
         private Integer memorySize;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypeFpga defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -74,23 +59,33 @@ public final class GetInstanceTypeFpga {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder manufacturer(String manufacturer) {
             this.manufacturer = Objects.requireNonNull(manufacturer);
             return this;
         }
+        @CustomType.Setter
         public Builder memorySize(Integer memorySize) {
             this.memorySize = Objects.requireNonNull(memorySize);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetInstanceTypeFpga build() {
-            return new GetInstanceTypeFpga(count, manufacturer, memorySize, name);
+        }
+        public GetInstanceTypeFpga build() {
+            final var o = new GetInstanceTypeFpga();
+            o.count = count;
+            o.manufacturer = manufacturer;
+            o.memorySize = memorySize;
+            o.name = name;
+            return o;
         }
     }
 }

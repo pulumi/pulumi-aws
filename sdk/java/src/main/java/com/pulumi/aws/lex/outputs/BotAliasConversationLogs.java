@@ -16,21 +16,14 @@ public final class BotAliasConversationLogs {
      * @return The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
      * 
      */
-    private final String iamRoleArn;
+    private String iamRoleArn;
     /**
      * @return The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
      * 
      */
-    private final @Nullable List<BotAliasConversationLogsLogSetting> logSettings;
+    private @Nullable List<BotAliasConversationLogsLogSetting> logSettings;
 
-    @CustomType.Constructor
-    private BotAliasConversationLogs(
-        @CustomType.Parameter("iamRoleArn") String iamRoleArn,
-        @CustomType.Parameter("logSettings") @Nullable List<BotAliasConversationLogsLogSetting> logSettings) {
-        this.iamRoleArn = iamRoleArn;
-        this.logSettings = logSettings;
-    }
-
+    private BotAliasConversationLogs() {}
     /**
      * @return The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
      * 
@@ -53,33 +46,35 @@ public final class BotAliasConversationLogs {
     public static Builder builder(BotAliasConversationLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String iamRoleArn;
         private @Nullable List<BotAliasConversationLogsLogSetting> logSettings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BotAliasConversationLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.iamRoleArn = defaults.iamRoleArn;
     	      this.logSettings = defaults.logSettings;
         }
 
+        @CustomType.Setter
         public Builder iamRoleArn(String iamRoleArn) {
             this.iamRoleArn = Objects.requireNonNull(iamRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder logSettings(@Nullable List<BotAliasConversationLogsLogSetting> logSettings) {
             this.logSettings = logSettings;
             return this;
         }
         public Builder logSettings(BotAliasConversationLogsLogSetting... logSettings) {
             return logSettings(List.of(logSettings));
-        }        public BotAliasConversationLogs build() {
-            return new BotAliasConversationLogs(iamRoleArn, logSettings);
+        }
+        public BotAliasConversationLogs build() {
+            final var o = new BotAliasConversationLogs();
+            o.iamRoleArn = iamRoleArn;
+            o.logSettings = logSettings;
+            return o;
         }
     }
 }

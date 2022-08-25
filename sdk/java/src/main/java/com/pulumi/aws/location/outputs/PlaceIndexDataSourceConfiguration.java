@@ -15,13 +15,9 @@ public final class PlaceIndexDataSourceConfiguration {
      * @return Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
      * 
      */
-    private final @Nullable String intendedUse;
+    private @Nullable String intendedUse;
 
-    @CustomType.Constructor
-    private PlaceIndexDataSourceConfiguration(@CustomType.Parameter("intendedUse") @Nullable String intendedUse) {
-        this.intendedUse = intendedUse;
-    }
-
+    private PlaceIndexDataSourceConfiguration() {}
     /**
      * @return Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
      * 
@@ -37,24 +33,24 @@ public final class PlaceIndexDataSourceConfiguration {
     public static Builder builder(PlaceIndexDataSourceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String intendedUse;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PlaceIndexDataSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.intendedUse = defaults.intendedUse;
         }
 
+        @CustomType.Setter
         public Builder intendedUse(@Nullable String intendedUse) {
             this.intendedUse = intendedUse;
             return this;
-        }        public PlaceIndexDataSourceConfiguration build() {
-            return new PlaceIndexDataSourceConfiguration(intendedUse);
+        }
+        public PlaceIndexDataSourceConfiguration build() {
+            final var o = new PlaceIndexDataSourceConfiguration();
+            o.intendedUse = intendedUse;
+            return o;
         }
     }
 }

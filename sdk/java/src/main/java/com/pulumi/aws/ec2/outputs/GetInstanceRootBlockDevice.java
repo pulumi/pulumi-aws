@@ -16,69 +16,46 @@ public final class GetInstanceRootBlockDevice {
      * @return If the root block device will be deleted on termination.
      * 
      */
-    private final Boolean deleteOnTermination;
+    private Boolean deleteOnTermination;
     /**
      * @return The physical name of the device.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return If the EBS volume is encrypted.
      * 
      */
-    private final Boolean encrypted;
+    private Boolean encrypted;
     /**
      * @return `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
      * 
      */
-    private final Integer iops;
-    private final String kmsKeyId;
+    private Integer iops;
+    private String kmsKeyId;
     /**
      * @return A map of tags assigned to the Instance.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The throughput of the volume, in MiB/s.
      * 
      */
-    private final Integer throughput;
-    private final String volumeId;
+    private Integer throughput;
+    private String volumeId;
     /**
      * @return The size of the volume, in GiB.
      * 
      */
-    private final Integer volumeSize;
+    private Integer volumeSize;
     /**
      * @return The type of the volume.
      * 
      */
-    private final String volumeType;
+    private String volumeType;
 
-    @CustomType.Constructor
-    private GetInstanceRootBlockDevice(
-        @CustomType.Parameter("deleteOnTermination") Boolean deleteOnTermination,
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("iops") Integer iops,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("throughput") Integer throughput,
-        @CustomType.Parameter("volumeId") String volumeId,
-        @CustomType.Parameter("volumeSize") Integer volumeSize,
-        @CustomType.Parameter("volumeType") String volumeType) {
-        this.deleteOnTermination = deleteOnTermination;
-        this.deviceName = deviceName;
-        this.encrypted = encrypted;
-        this.iops = iops;
-        this.kmsKeyId = kmsKeyId;
-        this.tags = tags;
-        this.throughput = throughput;
-        this.volumeId = volumeId;
-        this.volumeSize = volumeSize;
-        this.volumeType = volumeType;
-    }
-
+    private GetInstanceRootBlockDevice() {}
     /**
      * @return If the root block device will be deleted on termination.
      * 
@@ -149,7 +126,7 @@ public final class GetInstanceRootBlockDevice {
     public static Builder builder(GetInstanceRootBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean deleteOnTermination;
         private String deviceName;
@@ -161,11 +138,7 @@ public final class GetInstanceRootBlockDevice {
         private String volumeId;
         private Integer volumeSize;
         private String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceRootBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOnTermination = defaults.deleteOnTermination;
@@ -180,47 +153,69 @@ public final class GetInstanceRootBlockDevice {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder deleteOnTermination(Boolean deleteOnTermination) {
             this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder iops(Integer iops) {
             this.iops = Objects.requireNonNull(iops);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(Integer throughput) {
             this.throughput = Objects.requireNonNull(throughput);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeId(String volumeId) {
             this.volumeId = Objects.requireNonNull(volumeId);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(Integer volumeSize) {
             this.volumeSize = Objects.requireNonNull(volumeSize);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(String volumeType) {
             this.volumeType = Objects.requireNonNull(volumeType);
             return this;
-        }        public GetInstanceRootBlockDevice build() {
-            return new GetInstanceRootBlockDevice(deleteOnTermination, deviceName, encrypted, iops, kmsKeyId, tags, throughput, volumeId, volumeSize, volumeType);
+        }
+        public GetInstanceRootBlockDevice build() {
+            final var o = new GetInstanceRootBlockDevice();
+            o.deleteOnTermination = deleteOnTermination;
+            o.deviceName = deviceName;
+            o.encrypted = encrypted;
+            o.iops = iops;
+            o.kmsKeyId = kmsKeyId;
+            o.tags = tags;
+            o.throughput = throughput;
+            o.volumeId = volumeId;
+            o.volumeSize = volumeSize;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

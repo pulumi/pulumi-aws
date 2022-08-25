@@ -17,65 +17,42 @@ public final class GetVirtualServiceResult {
      * @return The ARN of the virtual service.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The creation date of the virtual service.
      * 
      */
-    private final String createdDate;
+    private String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The last update date of the virtual service.
      * 
      */
-    private final String lastUpdatedDate;
-    private final String meshName;
-    private final String meshOwner;
-    private final String name;
+    private String lastUpdatedDate;
+    private String meshName;
+    private String meshOwner;
+    private String name;
     /**
      * @return The resource owner&#39;s AWS account ID.
      * 
      */
-    private final String resourceOwner;
+    private String resourceOwner;
     /**
      * @return The virtual service specification
      * 
      */
-    private final List<GetVirtualServiceSpec> specs;
+    private List<GetVirtualServiceSpec> specs;
     /**
      * @return A map of tags.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetVirtualServiceResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastUpdatedDate") String lastUpdatedDate,
-        @CustomType.Parameter("meshName") String meshName,
-        @CustomType.Parameter("meshOwner") String meshOwner,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceOwner") String resourceOwner,
-        @CustomType.Parameter("specs") List<GetVirtualServiceSpec> specs,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.arn = arn;
-        this.createdDate = createdDate;
-        this.id = id;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.meshName = meshName;
-        this.meshOwner = meshOwner;
-        this.name = name;
-        this.resourceOwner = resourceOwner;
-        this.specs = specs;
-        this.tags = tags;
-    }
-
+    private GetVirtualServiceResult() {}
     /**
      * @return The ARN of the virtual service.
      * 
@@ -142,7 +119,7 @@ public final class GetVirtualServiceResult {
     public static Builder builder(GetVirtualServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String createdDate;
@@ -154,11 +131,7 @@ public final class GetVirtualServiceResult {
         private String resourceOwner;
         private List<GetVirtualServiceSpec> specs;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -173,38 +146,47 @@ public final class GetVirtualServiceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
             this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
             return this;
         }
+        @CustomType.Setter
         public Builder meshName(String meshName) {
             this.meshName = Objects.requireNonNull(meshName);
             return this;
         }
+        @CustomType.Setter
         public Builder meshOwner(String meshOwner) {
             this.meshOwner = Objects.requireNonNull(meshOwner);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceOwner(String resourceOwner) {
             this.resourceOwner = Objects.requireNonNull(resourceOwner);
             return this;
         }
+        @CustomType.Setter
         public Builder specs(List<GetVirtualServiceSpec> specs) {
             this.specs = Objects.requireNonNull(specs);
             return this;
@@ -212,11 +194,24 @@ public final class GetVirtualServiceResult {
         public Builder specs(GetVirtualServiceSpec... specs) {
             return specs(List.of(specs));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetVirtualServiceResult build() {
-            return new GetVirtualServiceResult(arn, createdDate, id, lastUpdatedDate, meshName, meshOwner, name, resourceOwner, specs, tags);
+        }
+        public GetVirtualServiceResult build() {
+            final var o = new GetVirtualServiceResult();
+            o.arn = arn;
+            o.createdDate = createdDate;
+            o.id = id;
+            o.lastUpdatedDate = lastUpdatedDate;
+            o.meshName = meshName;
+            o.meshOwner = meshOwner;
+            o.name = name;
+            o.resourceOwner = resourceOwner;
+            o.specs = specs;
+            o.tags = tags;
+            return o;
         }
     }
 }

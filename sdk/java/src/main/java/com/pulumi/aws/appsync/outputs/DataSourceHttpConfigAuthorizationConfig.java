@@ -16,21 +16,14 @@ public final class DataSourceHttpConfigAuthorizationConfig {
      * @return The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
      * 
      */
-    private final @Nullable String authorizationType;
+    private @Nullable String authorizationType;
     /**
      * @return The Identity and Access Management (IAM) settings. See AWS IAM Config.
      * 
      */
-    private final @Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig;
+    private @Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig;
 
-    @CustomType.Constructor
-    private DataSourceHttpConfigAuthorizationConfig(
-        @CustomType.Parameter("authorizationType") @Nullable String authorizationType,
-        @CustomType.Parameter("awsIamConfig") @Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig) {
-        this.authorizationType = authorizationType;
-        this.awsIamConfig = awsIamConfig;
-    }
-
+    private DataSourceHttpConfigAuthorizationConfig() {}
     /**
      * @return The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
      * 
@@ -53,30 +46,32 @@ public final class DataSourceHttpConfigAuthorizationConfig {
     public static Builder builder(DataSourceHttpConfigAuthorizationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String authorizationType;
         private @Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceHttpConfigAuthorizationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationType = defaults.authorizationType;
     	      this.awsIamConfig = defaults.awsIamConfig;
         }
 
+        @CustomType.Setter
         public Builder authorizationType(@Nullable String authorizationType) {
             this.authorizationType = authorizationType;
             return this;
         }
+        @CustomType.Setter
         public Builder awsIamConfig(@Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig) {
             this.awsIamConfig = awsIamConfig;
             return this;
-        }        public DataSourceHttpConfigAuthorizationConfig build() {
-            return new DataSourceHttpConfigAuthorizationConfig(authorizationType, awsIamConfig);
+        }
+        public DataSourceHttpConfigAuthorizationConfig build() {
+            final var o = new DataSourceHttpConfigAuthorizationConfig();
+            o.authorizationType = authorizationType;
+            o.awsIamConfig = awsIamConfig;
+            return o;
         }
     }
 }

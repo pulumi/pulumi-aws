@@ -15,13 +15,9 @@ public final class EndpointNetworkInterface {
      * @return Identifier of the Elastic Network Interface (ENI).
      * 
      */
-    private final @Nullable String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
 
-    @CustomType.Constructor
-    private EndpointNetworkInterface(@CustomType.Parameter("networkInterfaceId") @Nullable String networkInterfaceId) {
-        this.networkInterfaceId = networkInterfaceId;
-    }
-
+    private EndpointNetworkInterface() {}
     /**
      * @return Identifier of the Elastic Network Interface (ENI).
      * 
@@ -37,24 +33,24 @@ public final class EndpointNetworkInterface {
     public static Builder builder(EndpointNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String networkInterfaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.networkInterfaceId = defaults.networkInterfaceId;
         }
 
+        @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
             this.networkInterfaceId = networkInterfaceId;
             return this;
-        }        public EndpointNetworkInterface build() {
-            return new EndpointNetworkInterface(networkInterfaceId);
+        }
+        public EndpointNetworkInterface build() {
+            final var o = new EndpointNetworkInterface();
+            o.networkInterfaceId = networkInterfaceId;
+            return o;
         }
     }
 }

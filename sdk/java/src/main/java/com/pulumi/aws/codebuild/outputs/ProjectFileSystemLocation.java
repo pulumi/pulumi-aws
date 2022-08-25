@@ -15,42 +15,29 @@ public final class ProjectFileSystemLocation {
      * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
      * 
      */
-    private final @Nullable String identifier;
+    private @Nullable String identifier;
     /**
      * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return The mount options for a file system created by AWS EFS.
      * 
      */
-    private final @Nullable String mountOptions;
+    private @Nullable String mountOptions;
     /**
      * @return The location in the container where you mount the file system.
      * 
      */
-    private final @Nullable String mountPoint;
+    private @Nullable String mountPoint;
     /**
      * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ProjectFileSystemLocation(
-        @CustomType.Parameter("identifier") @Nullable String identifier,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("mountOptions") @Nullable String mountOptions,
-        @CustomType.Parameter("mountPoint") @Nullable String mountPoint,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.identifier = identifier;
-        this.location = location;
-        this.mountOptions = mountOptions;
-        this.mountPoint = mountPoint;
-        this.type = type;
-    }
-
+    private ProjectFileSystemLocation() {}
     /**
      * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
      * 
@@ -94,18 +81,14 @@ public final class ProjectFileSystemLocation {
     public static Builder builder(ProjectFileSystemLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String identifier;
         private @Nullable String location;
         private @Nullable String mountOptions;
         private @Nullable String mountPoint;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectFileSystemLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identifier = defaults.identifier;
@@ -115,27 +98,39 @@ public final class ProjectFileSystemLocation {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identifier(@Nullable String identifier) {
             this.identifier = identifier;
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder mountOptions(@Nullable String mountOptions) {
             this.mountOptions = mountOptions;
             return this;
         }
+        @CustomType.Setter
         public Builder mountPoint(@Nullable String mountPoint) {
             this.mountPoint = mountPoint;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ProjectFileSystemLocation build() {
-            return new ProjectFileSystemLocation(identifier, location, mountOptions, mountPoint, type);
+        }
+        public ProjectFileSystemLocation build() {
+            final var o = new ProjectFileSystemLocation();
+            o.identifier = identifier;
+            o.location = location;
+            o.mountOptions = mountOptions;
+            o.mountPoint = mountPoint;
+            o.type = type;
+            return o;
         }
     }
 }

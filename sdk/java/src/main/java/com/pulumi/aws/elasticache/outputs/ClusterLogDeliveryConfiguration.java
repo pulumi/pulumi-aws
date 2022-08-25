@@ -13,35 +13,24 @@ public final class ClusterLogDeliveryConfiguration {
      * @return Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
      * 
      */
-    private final String destination;
+    private String destination;
     /**
      * @return For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
      * 
      */
-    private final String destinationType;
+    private String destinationType;
     /**
      * @return Valid values are `json` or `text`
      * 
      */
-    private final String logFormat;
+    private String logFormat;
     /**
      * @return Valid values are  `slow-log` or `engine-log`. Max 1 of each.
      * 
      */
-    private final String logType;
+    private String logType;
 
-    @CustomType.Constructor
-    private ClusterLogDeliveryConfiguration(
-        @CustomType.Parameter("destination") String destination,
-        @CustomType.Parameter("destinationType") String destinationType,
-        @CustomType.Parameter("logFormat") String logFormat,
-        @CustomType.Parameter("logType") String logType) {
-        this.destination = destination;
-        this.destinationType = destinationType;
-        this.logFormat = logFormat;
-        this.logType = logType;
-    }
-
+    private ClusterLogDeliveryConfiguration() {}
     /**
      * @return Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
      * 
@@ -78,17 +67,13 @@ public final class ClusterLogDeliveryConfiguration {
     public static Builder builder(ClusterLogDeliveryConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destination;
         private String destinationType;
         private String logFormat;
         private String logType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterLogDeliveryConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destination = defaults.destination;
@@ -97,23 +82,33 @@ public final class ClusterLogDeliveryConfiguration {
     	      this.logType = defaults.logType;
         }
 
+        @CustomType.Setter
         public Builder destination(String destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
         }
+        @CustomType.Setter
         public Builder destinationType(String destinationType) {
             this.destinationType = Objects.requireNonNull(destinationType);
             return this;
         }
+        @CustomType.Setter
         public Builder logFormat(String logFormat) {
             this.logFormat = Objects.requireNonNull(logFormat);
             return this;
         }
+        @CustomType.Setter
         public Builder logType(String logType) {
             this.logType = Objects.requireNonNull(logType);
             return this;
-        }        public ClusterLogDeliveryConfiguration build() {
-            return new ClusterLogDeliveryConfiguration(destination, destinationType, logFormat, logType);
+        }
+        public ClusterLogDeliveryConfiguration build() {
+            final var o = new ClusterLogDeliveryConfiguration();
+            o.destination = destination;
+            o.destinationType = destinationType;
+            o.logFormat = logFormat;
+            o.logType = logType;
+            return o;
         }
     }
 }

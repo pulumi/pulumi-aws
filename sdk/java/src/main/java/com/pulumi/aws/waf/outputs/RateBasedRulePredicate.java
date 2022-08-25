@@ -14,7 +14,7 @@ public final class RateBasedRulePredicate {
      * @return A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
      * 
      */
-    private final String dataId;
+    private String dataId;
     /**
      * @return Set this to `false` if you want to allow, block, or count requests
      * based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
@@ -22,23 +22,14 @@ public final class RateBasedRulePredicate {
      * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
      * 
      */
-    private final Boolean negated;
+    private Boolean negated;
     /**
      * @return The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private RateBasedRulePredicate(
-        @CustomType.Parameter("dataId") String dataId,
-        @CustomType.Parameter("negated") Boolean negated,
-        @CustomType.Parameter("type") String type) {
-        this.dataId = dataId;
-        this.negated = negated;
-        this.type = type;
-    }
-
+    private RateBasedRulePredicate() {}
     /**
      * @return A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
      * 
@@ -71,16 +62,12 @@ public final class RateBasedRulePredicate {
     public static Builder builder(RateBasedRulePredicate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dataId;
         private Boolean negated;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RateBasedRulePredicate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataId = defaults.dataId;
@@ -88,19 +75,27 @@ public final class RateBasedRulePredicate {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder dataId(String dataId) {
             this.dataId = Objects.requireNonNull(dataId);
             return this;
         }
+        @CustomType.Setter
         public Builder negated(Boolean negated) {
             this.negated = Objects.requireNonNull(negated);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public RateBasedRulePredicate build() {
-            return new RateBasedRulePredicate(dataId, negated, type);
+        }
+        public RateBasedRulePredicate build() {
+            final var o = new RateBasedRulePredicate();
+            o.dataId = dataId;
+            o.negated = negated;
+            o.type = type;
+            return o;
         }
     }
 }

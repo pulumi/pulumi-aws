@@ -16,21 +16,14 @@ public final class ListenerDefaultActionForwardStickiness {
      * @return Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
      * 
      */
-    private final Integer duration;
+    private Integer duration;
     /**
      * @return Whether target group stickiness is enabled. Default is `false`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private ListenerDefaultActionForwardStickiness(
-        @CustomType.Parameter("duration") Integer duration,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.duration = duration;
-        this.enabled = enabled;
-    }
-
+    private ListenerDefaultActionForwardStickiness() {}
     /**
      * @return Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
      * 
@@ -53,30 +46,32 @@ public final class ListenerDefaultActionForwardStickiness {
     public static Builder builder(ListenerDefaultActionForwardStickiness defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer duration;
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerDefaultActionForwardStickiness defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder duration(Integer duration) {
             this.duration = Objects.requireNonNull(duration);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public ListenerDefaultActionForwardStickiness build() {
-            return new ListenerDefaultActionForwardStickiness(duration, enabled);
+        }
+        public ListenerDefaultActionForwardStickiness build() {
+            final var o = new ListenerDefaultActionForwardStickiness();
+            o.duration = duration;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

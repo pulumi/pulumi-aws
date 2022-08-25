@@ -15,28 +15,19 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
      * @return The identifiers of the data sources you want to use for your Amazon Kendra Experience.
      * 
      */
-    private final List<String> dataSourceIds;
+    private List<String> dataSourceIds;
     /**
      * @return Whether to use documents you indexed directly using the `BatchPutDocument API`.
      * 
      */
-    private final Boolean directPutContent;
+    private Boolean directPutContent;
     /**
      * @return The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
      * 
      */
-    private final List<String> faqIds;
+    private List<String> faqIds;
 
-    @CustomType.Constructor
-    private GetExperienceConfigurationContentSourceConfiguration(
-        @CustomType.Parameter("dataSourceIds") List<String> dataSourceIds,
-        @CustomType.Parameter("directPutContent") Boolean directPutContent,
-        @CustomType.Parameter("faqIds") List<String> faqIds) {
-        this.dataSourceIds = dataSourceIds;
-        this.directPutContent = directPutContent;
-        this.faqIds = faqIds;
-    }
-
+    private GetExperienceConfigurationContentSourceConfiguration() {}
     /**
      * @return The identifiers of the data sources you want to use for your Amazon Kendra Experience.
      * 
@@ -66,16 +57,12 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
     public static Builder builder(GetExperienceConfigurationContentSourceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> dataSourceIds;
         private Boolean directPutContent;
         private List<String> faqIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExperienceConfigurationContentSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataSourceIds = defaults.dataSourceIds;
@@ -83,6 +70,7 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
     	      this.faqIds = defaults.faqIds;
         }
 
+        @CustomType.Setter
         public Builder dataSourceIds(List<String> dataSourceIds) {
             this.dataSourceIds = Objects.requireNonNull(dataSourceIds);
             return this;
@@ -90,18 +78,25 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
         public Builder dataSourceIds(String... dataSourceIds) {
             return dataSourceIds(List.of(dataSourceIds));
         }
+        @CustomType.Setter
         public Builder directPutContent(Boolean directPutContent) {
             this.directPutContent = Objects.requireNonNull(directPutContent);
             return this;
         }
+        @CustomType.Setter
         public Builder faqIds(List<String> faqIds) {
             this.faqIds = Objects.requireNonNull(faqIds);
             return this;
         }
         public Builder faqIds(String... faqIds) {
             return faqIds(List.of(faqIds));
-        }        public GetExperienceConfigurationContentSourceConfiguration build() {
-            return new GetExperienceConfigurationContentSourceConfiguration(dataSourceIds, directPutContent, faqIds);
+        }
+        public GetExperienceConfigurationContentSourceConfiguration build() {
+            final var o = new GetExperienceConfigurationContentSourceConfiguration();
+            o.dataSourceIds = dataSourceIds;
+            o.directPutContent = directPutContent;
+            o.faqIds = faqIds;
+            return o;
         }
     }
 }

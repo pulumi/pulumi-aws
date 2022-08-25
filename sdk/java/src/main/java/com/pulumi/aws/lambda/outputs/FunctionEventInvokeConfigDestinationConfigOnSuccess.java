@@ -13,13 +13,9 @@ public final class FunctionEventInvokeConfigDestinationConfigOnSuccess {
      * @return Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
      * 
      */
-    private final String destination;
+    private String destination;
 
-    @CustomType.Constructor
-    private FunctionEventInvokeConfigDestinationConfigOnSuccess(@CustomType.Parameter("destination") String destination) {
-        this.destination = destination;
-    }
-
+    private FunctionEventInvokeConfigDestinationConfigOnSuccess() {}
     /**
      * @return Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
      * 
@@ -35,24 +31,24 @@ public final class FunctionEventInvokeConfigDestinationConfigOnSuccess {
     public static Builder builder(FunctionEventInvokeConfigDestinationConfigOnSuccess defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destination;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionEventInvokeConfigDestinationConfigOnSuccess defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destination = defaults.destination;
         }
 
+        @CustomType.Setter
         public Builder destination(String destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
-        }        public FunctionEventInvokeConfigDestinationConfigOnSuccess build() {
-            return new FunctionEventInvokeConfigDestinationConfigOnSuccess(destination);
+        }
+        public FunctionEventInvokeConfigDestinationConfigOnSuccess build() {
+            final var o = new FunctionEventInvokeConfigDestinationConfigOnSuccess();
+            o.destination = destination;
+            return o;
         }
     }
 }

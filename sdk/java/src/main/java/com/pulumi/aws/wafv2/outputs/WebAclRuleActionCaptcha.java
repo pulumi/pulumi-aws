@@ -15,13 +15,9 @@ public final class WebAclRuleActionCaptcha {
      * @return Defines custom handling for the web request. See Custom Request Handling below for details.
      * 
      */
-    private final @Nullable WebAclRuleActionCaptchaCustomRequestHandling customRequestHandling;
+    private @Nullable WebAclRuleActionCaptchaCustomRequestHandling customRequestHandling;
 
-    @CustomType.Constructor
-    private WebAclRuleActionCaptcha(@CustomType.Parameter("customRequestHandling") @Nullable WebAclRuleActionCaptchaCustomRequestHandling customRequestHandling) {
-        this.customRequestHandling = customRequestHandling;
-    }
-
+    private WebAclRuleActionCaptcha() {}
     /**
      * @return Defines custom handling for the web request. See Custom Request Handling below for details.
      * 
@@ -37,24 +33,24 @@ public final class WebAclRuleActionCaptcha {
     public static Builder builder(WebAclRuleActionCaptcha defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleActionCaptchaCustomRequestHandling customRequestHandling;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleActionCaptcha defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customRequestHandling = defaults.customRequestHandling;
         }
 
+        @CustomType.Setter
         public Builder customRequestHandling(@Nullable WebAclRuleActionCaptchaCustomRequestHandling customRequestHandling) {
             this.customRequestHandling = customRequestHandling;
             return this;
-        }        public WebAclRuleActionCaptcha build() {
-            return new WebAclRuleActionCaptcha(customRequestHandling);
+        }
+        public WebAclRuleActionCaptcha build() {
+            final var o = new WebAclRuleActionCaptcha();
+            o.customRequestHandling = customRequestHandling;
+            return o;
         }
     }
 }

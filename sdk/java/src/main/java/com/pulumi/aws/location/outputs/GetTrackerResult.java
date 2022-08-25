@@ -14,66 +14,45 @@ public final class GetTrackerResult {
      * @return The timestamp for when the tracker resource was created in ISO 8601 format.
      * 
      */
-    private final String createTime;
+    private String createTime;
     /**
      * @return The optional description for the tracker resource.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
-    private final String kmsKeyId;
+    private String kmsKeyId;
     /**
      * @return The position filtering method of the tracker resource.
      * 
      */
-    private final String positionFiltering;
+    private String positionFiltering;
     /**
      * @return Key-value map of resource tags for the tracker.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    private final String trackerArn;
-    private final String trackerName;
+    private String trackerArn;
+    private String trackerName;
     /**
      * @return The timestamp for when the tracker resource was last updated in ISO 8601 format.
      * 
      */
-    private final String updateTime;
+    private String updateTime;
 
-    @CustomType.Constructor
-    private GetTrackerResult(
-        @CustomType.Parameter("createTime") String createTime,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("positionFiltering") String positionFiltering,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("trackerArn") String trackerArn,
-        @CustomType.Parameter("trackerName") String trackerName,
-        @CustomType.Parameter("updateTime") String updateTime) {
-        this.createTime = createTime;
-        this.description = description;
-        this.id = id;
-        this.kmsKeyId = kmsKeyId;
-        this.positionFiltering = positionFiltering;
-        this.tags = tags;
-        this.trackerArn = trackerArn;
-        this.trackerName = trackerName;
-        this.updateTime = updateTime;
-    }
-
+    private GetTrackerResult() {}
     /**
      * @return The timestamp for when the tracker resource was created in ISO 8601 format.
      * 
@@ -141,7 +120,7 @@ public final class GetTrackerResult {
     public static Builder builder(GetTrackerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String createTime;
         private String description;
@@ -152,11 +131,7 @@ public final class GetTrackerResult {
         private String trackerArn;
         private String trackerName;
         private String updateTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrackerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createTime = defaults.createTime;
@@ -170,43 +145,63 @@ public final class GetTrackerResult {
     	      this.updateTime = defaults.updateTime;
         }
 
+        @CustomType.Setter
         public Builder createTime(String createTime) {
             this.createTime = Objects.requireNonNull(createTime);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder positionFiltering(String positionFiltering) {
             this.positionFiltering = Objects.requireNonNull(positionFiltering);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder trackerArn(String trackerArn) {
             this.trackerArn = Objects.requireNonNull(trackerArn);
             return this;
         }
+        @CustomType.Setter
         public Builder trackerName(String trackerName) {
             this.trackerName = Objects.requireNonNull(trackerName);
             return this;
         }
+        @CustomType.Setter
         public Builder updateTime(String updateTime) {
             this.updateTime = Objects.requireNonNull(updateTime);
             return this;
-        }        public GetTrackerResult build() {
-            return new GetTrackerResult(createTime, description, id, kmsKeyId, positionFiltering, tags, trackerArn, trackerName, updateTime);
+        }
+        public GetTrackerResult build() {
+            final var o = new GetTrackerResult();
+            o.createTime = createTime;
+            o.description = description;
+            o.id = id;
+            o.kmsKeyId = kmsKeyId;
+            o.positionFiltering = positionFiltering;
+            o.tags = tags;
+            o.trackerArn = trackerArn;
+            o.trackerName = trackerName;
+            o.updateTime = updateTime;
+            return o;
         }
     }
 }

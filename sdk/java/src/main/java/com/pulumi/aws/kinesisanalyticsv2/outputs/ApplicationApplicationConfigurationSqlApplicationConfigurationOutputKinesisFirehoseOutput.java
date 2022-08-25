@@ -13,13 +13,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return The ARN of the destination delivery stream to write to.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput(@CustomType.Parameter("resourceArn") String resourceArn) {
-        this.resourceArn = resourceArn;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput() {}
     /**
      * @return The ARN of the destination delivery stream to write to.
      * 
@@ -35,24 +31,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput(resourceArn);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput();
+            o.resourceArn = resourceArn;
+            return o;
         }
     }
 }

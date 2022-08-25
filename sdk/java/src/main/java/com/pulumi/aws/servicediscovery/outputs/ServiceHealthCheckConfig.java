@@ -16,28 +16,19 @@ public final class ServiceHealthCheckConfig {
      * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
      * 
      */
-    private final @Nullable Integer failureThreshold;
+    private @Nullable Integer failureThreshold;
     /**
      * @return The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don&#39;t specify a value, the default value is /.
      * 
      */
-    private final @Nullable String resourcePath;
+    private @Nullable String resourcePath;
     /**
      * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ServiceHealthCheckConfig(
-        @CustomType.Parameter("failureThreshold") @Nullable Integer failureThreshold,
-        @CustomType.Parameter("resourcePath") @Nullable String resourcePath,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.failureThreshold = failureThreshold;
-        this.resourcePath = resourcePath;
-        this.type = type;
-    }
-
+    private ServiceHealthCheckConfig() {}
     /**
      * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
      * 
@@ -67,16 +58,12 @@ public final class ServiceHealthCheckConfig {
     public static Builder builder(ServiceHealthCheckConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer failureThreshold;
         private @Nullable String resourcePath;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceHealthCheckConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.failureThreshold = defaults.failureThreshold;
@@ -84,19 +71,27 @@ public final class ServiceHealthCheckConfig {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder failureThreshold(@Nullable Integer failureThreshold) {
             this.failureThreshold = failureThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder resourcePath(@Nullable String resourcePath) {
             this.resourcePath = resourcePath;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ServiceHealthCheckConfig build() {
-            return new ServiceHealthCheckConfig(failureThreshold, resourcePath, type);
+        }
+        public ServiceHealthCheckConfig build() {
+            final var o = new ServiceHealthCheckConfig();
+            o.failureThreshold = failureThreshold;
+            o.resourcePath = resourcePath;
+            o.type = type;
+            return o;
         }
     }
 }

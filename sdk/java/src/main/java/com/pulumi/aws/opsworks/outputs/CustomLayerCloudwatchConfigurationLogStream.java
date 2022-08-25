@@ -16,84 +16,59 @@ public final class CustomLayerCloudwatchConfigurationLogStream {
      * @return Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
      * 
      */
-    private final @Nullable Integer batchCount;
+    private @Nullable Integer batchCount;
     /**
      * @return Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
      * 
      */
-    private final @Nullable Integer batchSize;
+    private @Nullable Integer batchSize;
     /**
      * @return Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
      * 
      */
-    private final @Nullable Integer bufferDuration;
+    private @Nullable Integer bufferDuration;
     /**
      * @return Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
      * 
      */
-    private final @Nullable String datetimeFormat;
+    private @Nullable String datetimeFormat;
     /**
      * @return Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
      * 
      */
-    private final @Nullable String encoding;
+    private @Nullable String encoding;
     /**
      * @return Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
      * 
      */
-    private final String file;
+    private String file;
     /**
      * @return Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
      * 
      */
-    private final @Nullable String fileFingerprintLines;
+    private @Nullable String fileFingerprintLines;
     /**
      * @return Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
      * 
      */
-    private final @Nullable String initialPosition;
+    private @Nullable String initialPosition;
     /**
      * @return Specifies the destination log group. A log group is created automatically if it doesn&#39;t already exist.
      * 
      */
-    private final String logGroupName;
+    private String logGroupName;
     /**
      * @return Specifies the pattern for identifying the start of a log message.
      * 
      */
-    private final @Nullable String multilineStartPattern;
+    private @Nullable String multilineStartPattern;
     /**
      * @return Specifies the time zone of log event time stamps.
      * 
      */
-    private final @Nullable String timeZone;
+    private @Nullable String timeZone;
 
-    @CustomType.Constructor
-    private CustomLayerCloudwatchConfigurationLogStream(
-        @CustomType.Parameter("batchCount") @Nullable Integer batchCount,
-        @CustomType.Parameter("batchSize") @Nullable Integer batchSize,
-        @CustomType.Parameter("bufferDuration") @Nullable Integer bufferDuration,
-        @CustomType.Parameter("datetimeFormat") @Nullable String datetimeFormat,
-        @CustomType.Parameter("encoding") @Nullable String encoding,
-        @CustomType.Parameter("file") String file,
-        @CustomType.Parameter("fileFingerprintLines") @Nullable String fileFingerprintLines,
-        @CustomType.Parameter("initialPosition") @Nullable String initialPosition,
-        @CustomType.Parameter("logGroupName") String logGroupName,
-        @CustomType.Parameter("multilineStartPattern") @Nullable String multilineStartPattern,
-        @CustomType.Parameter("timeZone") @Nullable String timeZone) {
-        this.batchCount = batchCount;
-        this.batchSize = batchSize;
-        this.bufferDuration = bufferDuration;
-        this.datetimeFormat = datetimeFormat;
-        this.encoding = encoding;
-        this.file = file;
-        this.fileFingerprintLines = fileFingerprintLines;
-        this.initialPosition = initialPosition;
-        this.logGroupName = logGroupName;
-        this.multilineStartPattern = multilineStartPattern;
-        this.timeZone = timeZone;
-    }
-
+    private CustomLayerCloudwatchConfigurationLogStream() {}
     /**
      * @return Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
      * 
@@ -179,7 +154,7 @@ public final class CustomLayerCloudwatchConfigurationLogStream {
     public static Builder builder(CustomLayerCloudwatchConfigurationLogStream defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer batchCount;
         private @Nullable Integer batchSize;
@@ -192,11 +167,7 @@ public final class CustomLayerCloudwatchConfigurationLogStream {
         private String logGroupName;
         private @Nullable String multilineStartPattern;
         private @Nullable String timeZone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CustomLayerCloudwatchConfigurationLogStream defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.batchCount = defaults.batchCount;
@@ -212,51 +183,75 @@ public final class CustomLayerCloudwatchConfigurationLogStream {
     	      this.timeZone = defaults.timeZone;
         }
 
+        @CustomType.Setter
         public Builder batchCount(@Nullable Integer batchCount) {
             this.batchCount = batchCount;
             return this;
         }
+        @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
             this.batchSize = batchSize;
             return this;
         }
+        @CustomType.Setter
         public Builder bufferDuration(@Nullable Integer bufferDuration) {
             this.bufferDuration = bufferDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder datetimeFormat(@Nullable String datetimeFormat) {
             this.datetimeFormat = datetimeFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
             this.encoding = encoding;
             return this;
         }
+        @CustomType.Setter
         public Builder file(String file) {
             this.file = Objects.requireNonNull(file);
             return this;
         }
+        @CustomType.Setter
         public Builder fileFingerprintLines(@Nullable String fileFingerprintLines) {
             this.fileFingerprintLines = fileFingerprintLines;
             return this;
         }
+        @CustomType.Setter
         public Builder initialPosition(@Nullable String initialPosition) {
             this.initialPosition = initialPosition;
             return this;
         }
+        @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
             this.logGroupName = Objects.requireNonNull(logGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder multilineStartPattern(@Nullable String multilineStartPattern) {
             this.multilineStartPattern = multilineStartPattern;
             return this;
         }
+        @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
             this.timeZone = timeZone;
             return this;
-        }        public CustomLayerCloudwatchConfigurationLogStream build() {
-            return new CustomLayerCloudwatchConfigurationLogStream(batchCount, batchSize, bufferDuration, datetimeFormat, encoding, file, fileFingerprintLines, initialPosition, logGroupName, multilineStartPattern, timeZone);
+        }
+        public CustomLayerCloudwatchConfigurationLogStream build() {
+            final var o = new CustomLayerCloudwatchConfigurationLogStream();
+            o.batchCount = batchCount;
+            o.batchSize = batchSize;
+            o.bufferDuration = bufferDuration;
+            o.datetimeFormat = datetimeFormat;
+            o.encoding = encoding;
+            o.file = file;
+            o.fileFingerprintLines = fileFingerprintLines;
+            o.initialPosition = initialPosition;
+            o.logGroupName = logGroupName;
+            o.multilineStartPattern = multilineStartPattern;
+            o.timeZone = timeZone;
+            return o;
         }
     }
 }

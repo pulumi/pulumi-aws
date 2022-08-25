@@ -16,21 +16,14 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
      * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
      * 
      */
-    private final @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput provisionedThroughput;
+    private @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput provisionedThroughput;
     /**
      * @return The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
      * 
      */
-    private final @Nullable Integer volumeSize;
+    private @Nullable Integer volumeSize;
 
-    @CustomType.Constructor
-    private ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo(
-        @CustomType.Parameter("provisionedThroughput") @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput provisionedThroughput,
-        @CustomType.Parameter("volumeSize") @Nullable Integer volumeSize) {
-        this.provisionedThroughput = provisionedThroughput;
-        this.volumeSize = volumeSize;
-    }
-
+    private ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo() {}
     /**
      * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
      * 
@@ -53,30 +46,32 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
     public static Builder builder(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput provisionedThroughput;
         private @Nullable Integer volumeSize;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.provisionedThroughput = defaults.provisionedThroughput;
     	      this.volumeSize = defaults.volumeSize;
         }
 
+        @CustomType.Setter
         public Builder provisionedThroughput(@Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput provisionedThroughput) {
             this.provisionedThroughput = provisionedThroughput;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
             this.volumeSize = volumeSize;
             return this;
-        }        public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo build() {
-            return new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo(provisionedThroughput, volumeSize);
+        }
+        public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo build() {
+            final var o = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo();
+            o.provisionedThroughput = provisionedThroughput;
+            o.volumeSize = volumeSize;
+            return o;
         }
     }
 }

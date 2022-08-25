@@ -15,28 +15,19 @@ public final class JobCommand {
      * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
      * 
      */
-    private final @Nullable String pythonVersion;
+    private @Nullable String pythonVersion;
     /**
      * @return Specifies the S3 path to a script that executes a job.
      * 
      */
-    private final String scriptLocation;
+    private String scriptLocation;
 
-    @CustomType.Constructor
-    private JobCommand(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("pythonVersion") @Nullable String pythonVersion,
-        @CustomType.Parameter("scriptLocation") String scriptLocation) {
-        this.name = name;
-        this.pythonVersion = pythonVersion;
-        this.scriptLocation = scriptLocation;
-    }
-
+    private JobCommand() {}
     /**
      * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
      * 
@@ -66,16 +57,12 @@ public final class JobCommand {
     public static Builder builder(JobCommand defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String pythonVersion;
         private String scriptLocation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(JobCommand defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -83,19 +70,27 @@ public final class JobCommand {
     	      this.scriptLocation = defaults.scriptLocation;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder pythonVersion(@Nullable String pythonVersion) {
             this.pythonVersion = pythonVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder scriptLocation(String scriptLocation) {
             this.scriptLocation = Objects.requireNonNull(scriptLocation);
             return this;
-        }        public JobCommand build() {
-            return new JobCommand(name, pythonVersion, scriptLocation);
+        }
+        public JobCommand build() {
+            final var o = new JobCommand();
+            o.name = name;
+            o.pythonVersion = pythonVersion;
+            o.scriptLocation = scriptLocation;
+            return o;
         }
     }
 }

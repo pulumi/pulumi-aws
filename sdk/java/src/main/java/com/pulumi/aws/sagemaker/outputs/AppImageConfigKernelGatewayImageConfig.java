@@ -16,21 +16,14 @@ public final class AppImageConfigKernelGatewayImageConfig {
      * @return The URL where the Git repository is located. See File System Config details below.
      * 
      */
-    private final @Nullable AppImageConfigKernelGatewayImageConfigFileSystemConfig fileSystemConfig;
+    private @Nullable AppImageConfigKernelGatewayImageConfigFileSystemConfig fileSystemConfig;
     /**
      * @return The default branch for the Git repository. See Kernel Spec details below.
      * 
      */
-    private final AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec;
+    private AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec;
 
-    @CustomType.Constructor
-    private AppImageConfigKernelGatewayImageConfig(
-        @CustomType.Parameter("fileSystemConfig") @Nullable AppImageConfigKernelGatewayImageConfigFileSystemConfig fileSystemConfig,
-        @CustomType.Parameter("kernelSpec") AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec) {
-        this.fileSystemConfig = fileSystemConfig;
-        this.kernelSpec = kernelSpec;
-    }
-
+    private AppImageConfigKernelGatewayImageConfig() {}
     /**
      * @return The URL where the Git repository is located. See File System Config details below.
      * 
@@ -53,30 +46,32 @@ public final class AppImageConfigKernelGatewayImageConfig {
     public static Builder builder(AppImageConfigKernelGatewayImageConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AppImageConfigKernelGatewayImageConfigFileSystemConfig fileSystemConfig;
         private AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppImageConfigKernelGatewayImageConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fileSystemConfig = defaults.fileSystemConfig;
     	      this.kernelSpec = defaults.kernelSpec;
         }
 
+        @CustomType.Setter
         public Builder fileSystemConfig(@Nullable AppImageConfigKernelGatewayImageConfigFileSystemConfig fileSystemConfig) {
             this.fileSystemConfig = fileSystemConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec) {
             this.kernelSpec = Objects.requireNonNull(kernelSpec);
             return this;
-        }        public AppImageConfigKernelGatewayImageConfig build() {
-            return new AppImageConfigKernelGatewayImageConfig(fileSystemConfig, kernelSpec);
+        }
+        public AppImageConfigKernelGatewayImageConfig build() {
+            final var o = new AppImageConfigKernelGatewayImageConfig();
+            o.fileSystemConfig = fileSystemConfig;
+            o.kernelSpec = kernelSpec;
+            return o;
         }
     }
 }

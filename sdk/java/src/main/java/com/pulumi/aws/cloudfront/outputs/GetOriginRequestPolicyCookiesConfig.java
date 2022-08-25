@@ -11,17 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOriginRequestPolicyCookiesConfig {
-    private final String cookieBehavior;
-    private final List<GetOriginRequestPolicyCookiesConfigCookie> cookies;
+    private String cookieBehavior;
+    private List<GetOriginRequestPolicyCookiesConfigCookie> cookies;
 
-    @CustomType.Constructor
-    private GetOriginRequestPolicyCookiesConfig(
-        @CustomType.Parameter("cookieBehavior") String cookieBehavior,
-        @CustomType.Parameter("cookies") List<GetOriginRequestPolicyCookiesConfigCookie> cookies) {
-        this.cookieBehavior = cookieBehavior;
-        this.cookies = cookies;
-    }
-
+    private GetOriginRequestPolicyCookiesConfig() {}
     public String cookieBehavior() {
         return this.cookieBehavior;
     }
@@ -36,33 +29,35 @@ public final class GetOriginRequestPolicyCookiesConfig {
     public static Builder builder(GetOriginRequestPolicyCookiesConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cookieBehavior;
         private List<GetOriginRequestPolicyCookiesConfigCookie> cookies;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOriginRequestPolicyCookiesConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cookieBehavior = defaults.cookieBehavior;
     	      this.cookies = defaults.cookies;
         }
 
+        @CustomType.Setter
         public Builder cookieBehavior(String cookieBehavior) {
             this.cookieBehavior = Objects.requireNonNull(cookieBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder cookies(List<GetOriginRequestPolicyCookiesConfigCookie> cookies) {
             this.cookies = Objects.requireNonNull(cookies);
             return this;
         }
         public Builder cookies(GetOriginRequestPolicyCookiesConfigCookie... cookies) {
             return cookies(List.of(cookies));
-        }        public GetOriginRequestPolicyCookiesConfig build() {
-            return new GetOriginRequestPolicyCookiesConfig(cookieBehavior, cookies);
+        }
+        public GetOriginRequestPolicyCookiesConfig build() {
+            final var o = new GetOriginRequestPolicyCookiesConfig();
+            o.cookieBehavior = cookieBehavior;
+            o.cookies = cookies;
+            return o;
         }
     }
 }

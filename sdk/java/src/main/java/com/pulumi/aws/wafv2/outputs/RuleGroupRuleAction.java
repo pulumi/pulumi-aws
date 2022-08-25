@@ -17,28 +17,19 @@ public final class RuleGroupRuleAction {
      * @return Instructs AWS WAF to allow the web request. See Allow below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleActionAllow allow;
+    private @Nullable RuleGroupRuleActionAllow allow;
     /**
      * @return Instructs AWS WAF to block the web request. See Block below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleActionBlock block;
+    private @Nullable RuleGroupRuleActionBlock block;
     /**
      * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleActionCount count;
+    private @Nullable RuleGroupRuleActionCount count;
 
-    @CustomType.Constructor
-    private RuleGroupRuleAction(
-        @CustomType.Parameter("allow") @Nullable RuleGroupRuleActionAllow allow,
-        @CustomType.Parameter("block") @Nullable RuleGroupRuleActionBlock block,
-        @CustomType.Parameter("count") @Nullable RuleGroupRuleActionCount count) {
-        this.allow = allow;
-        this.block = block;
-        this.count = count;
-    }
-
+    private RuleGroupRuleAction() {}
     /**
      * @return Instructs AWS WAF to allow the web request. See Allow below for details.
      * 
@@ -68,16 +59,12 @@ public final class RuleGroupRuleAction {
     public static Builder builder(RuleGroupRuleAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleActionAllow allow;
         private @Nullable RuleGroupRuleActionBlock block;
         private @Nullable RuleGroupRuleActionCount count;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allow = defaults.allow;
@@ -85,19 +72,27 @@ public final class RuleGroupRuleAction {
     	      this.count = defaults.count;
         }
 
+        @CustomType.Setter
         public Builder allow(@Nullable RuleGroupRuleActionAllow allow) {
             this.allow = allow;
             return this;
         }
+        @CustomType.Setter
         public Builder block(@Nullable RuleGroupRuleActionBlock block) {
             this.block = block;
             return this;
         }
+        @CustomType.Setter
         public Builder count(@Nullable RuleGroupRuleActionCount count) {
             this.count = count;
             return this;
-        }        public RuleGroupRuleAction build() {
-            return new RuleGroupRuleAction(allow, block, count);
+        }
+        public RuleGroupRuleAction build() {
+            final var o = new RuleGroupRuleAction();
+            o.allow = allow;
+            o.block = block;
+            o.count = count;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class BucketWebsiteConfigurationV2RedirectAllRequestsTo {
      * @return Name of the host where requests are redirected.
      * 
      */
-    private final String hostName;
+    private String hostName;
     /**
      * @return Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
 
-    @CustomType.Constructor
-    private BucketWebsiteConfigurationV2RedirectAllRequestsTo(
-        @CustomType.Parameter("hostName") String hostName,
-        @CustomType.Parameter("protocol") @Nullable String protocol) {
-        this.hostName = hostName;
-        this.protocol = protocol;
-    }
-
+    private BucketWebsiteConfigurationV2RedirectAllRequestsTo() {}
     /**
      * @return Name of the host where requests are redirected.
      * 
@@ -52,30 +45,32 @@ public final class BucketWebsiteConfigurationV2RedirectAllRequestsTo {
     public static Builder builder(BucketWebsiteConfigurationV2RedirectAllRequestsTo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostName;
         private @Nullable String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketWebsiteConfigurationV2RedirectAllRequestsTo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostName = defaults.hostName;
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder hostName(String hostName) {
             this.hostName = Objects.requireNonNull(hostName);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
-        }        public BucketWebsiteConfigurationV2RedirectAllRequestsTo build() {
-            return new BucketWebsiteConfigurationV2RedirectAllRequestsTo(hostName, protocol);
+        }
+        public BucketWebsiteConfigurationV2RedirectAllRequestsTo build() {
+            final var o = new BucketWebsiteConfigurationV2RedirectAllRequestsTo();
+            o.hostName = hostName;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

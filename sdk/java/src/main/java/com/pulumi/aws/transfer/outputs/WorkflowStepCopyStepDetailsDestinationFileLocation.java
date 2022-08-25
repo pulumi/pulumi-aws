@@ -16,21 +16,14 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocation {
      * @return Specifies the details for the EFS file being copied.
      * 
      */
-    private final @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation;
+    private @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation;
     /**
      * @return Specifies the details for the S3 file being copied.
      * 
      */
-    private final @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation s3FileLocation;
+    private @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation s3FileLocation;
 
-    @CustomType.Constructor
-    private WorkflowStepCopyStepDetailsDestinationFileLocation(
-        @CustomType.Parameter("efsFileLocation") @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation,
-        @CustomType.Parameter("s3FileLocation") @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation s3FileLocation) {
-        this.efsFileLocation = efsFileLocation;
-        this.s3FileLocation = s3FileLocation;
-    }
-
+    private WorkflowStepCopyStepDetailsDestinationFileLocation() {}
     /**
      * @return Specifies the details for the EFS file being copied.
      * 
@@ -53,30 +46,32 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocation {
     public static Builder builder(WorkflowStepCopyStepDetailsDestinationFileLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation;
         private @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation s3FileLocation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowStepCopyStepDetailsDestinationFileLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.efsFileLocation = defaults.efsFileLocation;
     	      this.s3FileLocation = defaults.s3FileLocation;
         }
 
+        @CustomType.Setter
         public Builder efsFileLocation(@Nullable WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation) {
             this.efsFileLocation = efsFileLocation;
             return this;
         }
+        @CustomType.Setter
         public Builder s3FileLocation(@Nullable WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation s3FileLocation) {
             this.s3FileLocation = s3FileLocation;
             return this;
-        }        public WorkflowStepCopyStepDetailsDestinationFileLocation build() {
-            return new WorkflowStepCopyStepDetailsDestinationFileLocation(efsFileLocation, s3FileLocation);
+        }
+        public WorkflowStepCopyStepDetailsDestinationFileLocation build() {
+            final var o = new WorkflowStepCopyStepDetailsDestinationFileLocation();
+            o.efsFileLocation = efsFileLocation;
+            o.s3FileLocation = s3FileLocation;
+            return o;
         }
     }
 }

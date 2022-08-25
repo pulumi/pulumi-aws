@@ -18,49 +18,34 @@ public final class FunctionUrlCors {
      * @return Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
      * 
      */
-    private final @Nullable Boolean allowCredentials;
+    private @Nullable Boolean allowCredentials;
     /**
      * @return The HTTP headers that origins can include in requests to the function URL. For example: `[&#34;date&#34;, &#34;keep-alive&#34;, &#34;x-custom-header&#34;]`.
      * 
      */
-    private final @Nullable List<String> allowHeaders;
+    private @Nullable List<String> allowHeaders;
     /**
      * @return The HTTP methods that are allowed when calling the function URL. For example: `[&#34;GET&#34;, &#34;POST&#34;, &#34;DELETE&#34;]`, or the wildcard character (`[&#34;*&#34;]`).
      * 
      */
-    private final @Nullable List<String> allowMethods;
+    private @Nullable List<String> allowMethods;
     /**
      * @return The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`&#34;*&#34;`)), separated by a comma. For example: `[&#34;https://www.example.com&#34;, &#34;http://localhost:60905&#34;]`.
      * 
      */
-    private final @Nullable List<String> allowOrigins;
+    private @Nullable List<String> allowOrigins;
     /**
      * @return The HTTP headers in your function response that you want to expose to origins that call the function URL.
      * 
      */
-    private final @Nullable List<String> exposeHeaders;
+    private @Nullable List<String> exposeHeaders;
     /**
      * @return The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn&#39;t cache results. The maximum value is `86400`.
      * 
      */
-    private final @Nullable Integer maxAge;
+    private @Nullable Integer maxAge;
 
-    @CustomType.Constructor
-    private FunctionUrlCors(
-        @CustomType.Parameter("allowCredentials") @Nullable Boolean allowCredentials,
-        @CustomType.Parameter("allowHeaders") @Nullable List<String> allowHeaders,
-        @CustomType.Parameter("allowMethods") @Nullable List<String> allowMethods,
-        @CustomType.Parameter("allowOrigins") @Nullable List<String> allowOrigins,
-        @CustomType.Parameter("exposeHeaders") @Nullable List<String> exposeHeaders,
-        @CustomType.Parameter("maxAge") @Nullable Integer maxAge) {
-        this.allowCredentials = allowCredentials;
-        this.allowHeaders = allowHeaders;
-        this.allowMethods = allowMethods;
-        this.allowOrigins = allowOrigins;
-        this.exposeHeaders = exposeHeaders;
-        this.maxAge = maxAge;
-    }
-
+    private FunctionUrlCors() {}
     /**
      * @return Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
      * 
@@ -111,7 +96,7 @@ public final class FunctionUrlCors {
     public static Builder builder(FunctionUrlCors defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowCredentials;
         private @Nullable List<String> allowHeaders;
@@ -119,11 +104,7 @@ public final class FunctionUrlCors {
         private @Nullable List<String> allowOrigins;
         private @Nullable List<String> exposeHeaders;
         private @Nullable Integer maxAge;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionUrlCors defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowCredentials = defaults.allowCredentials;
@@ -134,10 +115,12 @@ public final class FunctionUrlCors {
     	      this.maxAge = defaults.maxAge;
         }
 
+        @CustomType.Setter
         public Builder allowCredentials(@Nullable Boolean allowCredentials) {
             this.allowCredentials = allowCredentials;
             return this;
         }
+        @CustomType.Setter
         public Builder allowHeaders(@Nullable List<String> allowHeaders) {
             this.allowHeaders = allowHeaders;
             return this;
@@ -145,6 +128,7 @@ public final class FunctionUrlCors {
         public Builder allowHeaders(String... allowHeaders) {
             return allowHeaders(List.of(allowHeaders));
         }
+        @CustomType.Setter
         public Builder allowMethods(@Nullable List<String> allowMethods) {
             this.allowMethods = allowMethods;
             return this;
@@ -152,6 +136,7 @@ public final class FunctionUrlCors {
         public Builder allowMethods(String... allowMethods) {
             return allowMethods(List.of(allowMethods));
         }
+        @CustomType.Setter
         public Builder allowOrigins(@Nullable List<String> allowOrigins) {
             this.allowOrigins = allowOrigins;
             return this;
@@ -159,6 +144,7 @@ public final class FunctionUrlCors {
         public Builder allowOrigins(String... allowOrigins) {
             return allowOrigins(List.of(allowOrigins));
         }
+        @CustomType.Setter
         public Builder exposeHeaders(@Nullable List<String> exposeHeaders) {
             this.exposeHeaders = exposeHeaders;
             return this;
@@ -166,11 +152,20 @@ public final class FunctionUrlCors {
         public Builder exposeHeaders(String... exposeHeaders) {
             return exposeHeaders(List.of(exposeHeaders));
         }
+        @CustomType.Setter
         public Builder maxAge(@Nullable Integer maxAge) {
             this.maxAge = maxAge;
             return this;
-        }        public FunctionUrlCors build() {
-            return new FunctionUrlCors(allowCredentials, allowHeaders, allowMethods, allowOrigins, exposeHeaders, maxAge);
+        }
+        public FunctionUrlCors build() {
+            final var o = new FunctionUrlCors();
+            o.allowCredentials = allowCredentials;
+            o.allowHeaders = allowHeaders;
+            o.allowMethods = allowMethods;
+            o.allowOrigins = allowOrigins;
+            o.exposeHeaders = exposeHeaders;
+            o.maxAge = maxAge;
+            return o;
         }
     }
 }

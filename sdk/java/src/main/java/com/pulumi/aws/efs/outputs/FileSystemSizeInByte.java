@@ -15,28 +15,19 @@ public final class FileSystemSizeInByte {
      * @return The latest known metered size (in bytes) of data stored in the file system.
      * 
      */
-    private final @Nullable Integer value;
+    private @Nullable Integer value;
     /**
      * @return The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
      * 
      */
-    private final @Nullable Integer valueInIa;
+    private @Nullable Integer valueInIa;
     /**
      * @return The latest known metered size (in bytes) of data stored in the Standard storage class.
      * 
      */
-    private final @Nullable Integer valueInStandard;
+    private @Nullable Integer valueInStandard;
 
-    @CustomType.Constructor
-    private FileSystemSizeInByte(
-        @CustomType.Parameter("value") @Nullable Integer value,
-        @CustomType.Parameter("valueInIa") @Nullable Integer valueInIa,
-        @CustomType.Parameter("valueInStandard") @Nullable Integer valueInStandard) {
-        this.value = value;
-        this.valueInIa = valueInIa;
-        this.valueInStandard = valueInStandard;
-    }
-
+    private FileSystemSizeInByte() {}
     /**
      * @return The latest known metered size (in bytes) of data stored in the file system.
      * 
@@ -66,16 +57,12 @@ public final class FileSystemSizeInByte {
     public static Builder builder(FileSystemSizeInByte defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer value;
         private @Nullable Integer valueInIa;
         private @Nullable Integer valueInStandard;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FileSystemSizeInByte defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
@@ -83,19 +70,27 @@ public final class FileSystemSizeInByte {
     	      this.valueInStandard = defaults.valueInStandard;
         }
 
+        @CustomType.Setter
         public Builder value(@Nullable Integer value) {
             this.value = value;
             return this;
         }
+        @CustomType.Setter
         public Builder valueInIa(@Nullable Integer valueInIa) {
             this.valueInIa = valueInIa;
             return this;
         }
+        @CustomType.Setter
         public Builder valueInStandard(@Nullable Integer valueInStandard) {
             this.valueInStandard = valueInStandard;
             return this;
-        }        public FileSystemSizeInByte build() {
-            return new FileSystemSizeInByte(value, valueInIa, valueInStandard);
+        }
+        public FileSystemSizeInByte build() {
+            final var o = new FileSystemSizeInByte();
+            o.value = value;
+            o.valueInIa = valueInIa;
+            o.valueInStandard = valueInStandard;
+            return o;
         }
     }
 }

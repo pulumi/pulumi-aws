@@ -17,21 +17,14 @@ public final class ListenerRuleActionForward {
      * @return The target group stickiness for the rule.
      * 
      */
-    private final @Nullable ListenerRuleActionForwardStickiness stickiness;
+    private @Nullable ListenerRuleActionForwardStickiness stickiness;
     /**
      * @return One or more target groups block.
      * 
      */
-    private final List<ListenerRuleActionForwardTargetGroup> targetGroups;
+    private List<ListenerRuleActionForwardTargetGroup> targetGroups;
 
-    @CustomType.Constructor
-    private ListenerRuleActionForward(
-        @CustomType.Parameter("stickiness") @Nullable ListenerRuleActionForwardStickiness stickiness,
-        @CustomType.Parameter("targetGroups") List<ListenerRuleActionForwardTargetGroup> targetGroups) {
-        this.stickiness = stickiness;
-        this.targetGroups = targetGroups;
-    }
-
+    private ListenerRuleActionForward() {}
     /**
      * @return The target group stickiness for the rule.
      * 
@@ -54,33 +47,35 @@ public final class ListenerRuleActionForward {
     public static Builder builder(ListenerRuleActionForward defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ListenerRuleActionForwardStickiness stickiness;
         private List<ListenerRuleActionForwardTargetGroup> targetGroups;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerRuleActionForward defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.stickiness = defaults.stickiness;
     	      this.targetGroups = defaults.targetGroups;
         }
 
+        @CustomType.Setter
         public Builder stickiness(@Nullable ListenerRuleActionForwardStickiness stickiness) {
             this.stickiness = stickiness;
             return this;
         }
+        @CustomType.Setter
         public Builder targetGroups(List<ListenerRuleActionForwardTargetGroup> targetGroups) {
             this.targetGroups = Objects.requireNonNull(targetGroups);
             return this;
         }
         public Builder targetGroups(ListenerRuleActionForwardTargetGroup... targetGroups) {
             return targetGroups(List.of(targetGroups));
-        }        public ListenerRuleActionForward build() {
-            return new ListenerRuleActionForward(stickiness, targetGroups);
+        }
+        public ListenerRuleActionForward build() {
+            final var o = new ListenerRuleActionForward();
+            o.stickiness = stickiness;
+            o.targetGroups = targetGroups;
+            return o;
         }
     }
 }

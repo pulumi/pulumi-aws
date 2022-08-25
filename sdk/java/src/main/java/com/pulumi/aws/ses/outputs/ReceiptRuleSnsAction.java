@@ -16,28 +16,19 @@ public final class ReceiptRuleSnsAction {
      * @return The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
      * 
      */
-    private final @Nullable String encoding;
+    private @Nullable String encoding;
     /**
      * @return The position of the action in the receipt rule
      * 
      */
-    private final Integer position;
+    private Integer position;
     /**
      * @return The ARN of an SNS topic to notify
      * 
      */
-    private final String topicArn;
+    private String topicArn;
 
-    @CustomType.Constructor
-    private ReceiptRuleSnsAction(
-        @CustomType.Parameter("encoding") @Nullable String encoding,
-        @CustomType.Parameter("position") Integer position,
-        @CustomType.Parameter("topicArn") String topicArn) {
-        this.encoding = encoding;
-        this.position = position;
-        this.topicArn = topicArn;
-    }
-
+    private ReceiptRuleSnsAction() {}
     /**
      * @return The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
      * 
@@ -67,16 +58,12 @@ public final class ReceiptRuleSnsAction {
     public static Builder builder(ReceiptRuleSnsAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String encoding;
         private Integer position;
         private String topicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReceiptRuleSnsAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encoding = defaults.encoding;
@@ -84,19 +71,27 @@ public final class ReceiptRuleSnsAction {
     	      this.topicArn = defaults.topicArn;
         }
 
+        @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
             this.encoding = encoding;
             return this;
         }
+        @CustomType.Setter
         public Builder position(Integer position) {
             this.position = Objects.requireNonNull(position);
             return this;
         }
+        @CustomType.Setter
         public Builder topicArn(String topicArn) {
             this.topicArn = Objects.requireNonNull(topicArn);
             return this;
-        }        public ReceiptRuleSnsAction build() {
-            return new ReceiptRuleSnsAction(encoding, position, topicArn);
+        }
+        public ReceiptRuleSnsAction build() {
+            final var o = new ReceiptRuleSnsAction();
+            o.encoding = encoding;
+            o.position = position;
+            o.topicArn = topicArn;
+            return o;
         }
     }
 }

@@ -17,21 +17,14 @@ public final class DistributionTrustedSigner {
      * @return A flag that specifies whether Origin Shield is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return List of nested attributes for each trusted signer
      * 
      */
-    private final @Nullable List<DistributionTrustedSignerItem> items;
+    private @Nullable List<DistributionTrustedSignerItem> items;
 
-    @CustomType.Constructor
-    private DistributionTrustedSigner(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("items") @Nullable List<DistributionTrustedSignerItem> items) {
-        this.enabled = enabled;
-        this.items = items;
-    }
-
+    private DistributionTrustedSigner() {}
     /**
      * @return A flag that specifies whether Origin Shield is enabled.
      * 
@@ -54,33 +47,35 @@ public final class DistributionTrustedSigner {
     public static Builder builder(DistributionTrustedSigner defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<DistributionTrustedSignerItem> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionTrustedSigner defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder items(@Nullable List<DistributionTrustedSignerItem> items) {
             this.items = items;
             return this;
         }
         public Builder items(DistributionTrustedSignerItem... items) {
             return items(List.of(items));
-        }        public DistributionTrustedSigner build() {
-            return new DistributionTrustedSigner(enabled, items);
+        }
+        public DistributionTrustedSigner build() {
+            final var o = new DistributionTrustedSigner();
+            o.enabled = enabled;
+            o.items = items;
+            return o;
         }
     }
 }

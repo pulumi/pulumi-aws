@@ -15,35 +15,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The name of the Amazon S3 bucket associated with Snowflake.
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
      * 
      */
-    private final @Nullable String bucketPrefix;
+    private @Nullable String bucketPrefix;
     /**
      * @return The JDBC URL of the Amazon Redshift cluster.
      * 
      */
-    private final @Nullable String databaseUrl;
+    private @Nullable String databaseUrl;
     /**
      * @return The Amazon Resource Name (ARN) of the IAM role.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("bucketPrefix") @Nullable String bucketPrefix,
-        @CustomType.Parameter("databaseUrl") @Nullable String databaseUrl,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.bucketName = bucketName;
-        this.bucketPrefix = bucketPrefix;
-        this.databaseUrl = databaseUrl;
-        this.roleArn = roleArn;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift() {}
     /**
      * @return The name of the Amazon S3 bucket associated with Snowflake.
      * 
@@ -80,17 +69,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketName;
         private @Nullable String bucketPrefix;
         private @Nullable String databaseUrl;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -99,23 +84,33 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder databaseUrl(@Nullable String databaseUrl) {
             this.databaseUrl = databaseUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(bucketName, bucketPrefix, databaseUrl, roleArn);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift();
+            o.bucketName = bucketName;
+            o.bucketPrefix = bucketPrefix;
+            o.databaseUrl = databaseUrl;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

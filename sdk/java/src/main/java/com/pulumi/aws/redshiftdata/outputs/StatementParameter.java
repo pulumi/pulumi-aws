@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class StatementParameter {
-    private final String name;
-    private final String value;
+    private String name;
+    private String value;
 
-    @CustomType.Constructor
-    private StatementParameter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.value = value;
-    }
-
+    private StatementParameter() {}
     public String name() {
         return this.name;
     }
@@ -34,30 +27,32 @@ public final class StatementParameter {
     public static Builder builder(StatementParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StatementParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public StatementParameter build() {
-            return new StatementParameter(name, value);
+        }
+        public StatementParameter build() {
+            final var o = new StatementParameter();
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

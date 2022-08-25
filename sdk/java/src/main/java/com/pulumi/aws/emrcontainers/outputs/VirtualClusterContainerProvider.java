@@ -14,28 +14,19 @@ public final class VirtualClusterContainerProvider {
      * @return The name of the container provider that is running your EMR Containers cluster
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Nested list containing information about the configuration of the container provider
      * 
      */
-    private final VirtualClusterContainerProviderInfo info;
+    private VirtualClusterContainerProviderInfo info;
     /**
      * @return The type of the container provider
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private VirtualClusterContainerProvider(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("info") VirtualClusterContainerProviderInfo info,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.info = info;
-        this.type = type;
-    }
-
+    private VirtualClusterContainerProvider() {}
     /**
      * @return The name of the container provider that is running your EMR Containers cluster
      * 
@@ -65,16 +56,12 @@ public final class VirtualClusterContainerProvider {
     public static Builder builder(VirtualClusterContainerProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private VirtualClusterContainerProviderInfo info;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualClusterContainerProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -82,19 +69,27 @@ public final class VirtualClusterContainerProvider {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder info(VirtualClusterContainerProviderInfo info) {
             this.info = Objects.requireNonNull(info);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public VirtualClusterContainerProvider build() {
-            return new VirtualClusterContainerProvider(id, info, type);
+        }
+        public VirtualClusterContainerProvider build() {
+            final var o = new VirtualClusterContainerProvider();
+            o.id = id;
+            o.info = info;
+            o.type = type;
+            return o;
         }
     }
 }

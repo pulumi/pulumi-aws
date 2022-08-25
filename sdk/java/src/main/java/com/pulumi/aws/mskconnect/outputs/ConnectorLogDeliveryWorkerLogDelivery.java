@@ -17,28 +17,19 @@ public final class ConnectorLogDeliveryWorkerLogDelivery {
      * @return Details about delivering logs to Amazon CloudWatch Logs. See below.
      * 
      */
-    private final @Nullable ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs cloudwatchLogs;
+    private @Nullable ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs cloudwatchLogs;
     /**
      * @return Details about delivering logs to Amazon Kinesis Data Firehose. See below.
      * 
      */
-    private final @Nullable ConnectorLogDeliveryWorkerLogDeliveryFirehose firehose;
+    private @Nullable ConnectorLogDeliveryWorkerLogDeliveryFirehose firehose;
     /**
      * @return Details about delivering logs to Amazon S3. See below.
      * 
      */
-    private final @Nullable ConnectorLogDeliveryWorkerLogDeliveryS3 s3;
+    private @Nullable ConnectorLogDeliveryWorkerLogDeliveryS3 s3;
 
-    @CustomType.Constructor
-    private ConnectorLogDeliveryWorkerLogDelivery(
-        @CustomType.Parameter("cloudwatchLogs") @Nullable ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs cloudwatchLogs,
-        @CustomType.Parameter("firehose") @Nullable ConnectorLogDeliveryWorkerLogDeliveryFirehose firehose,
-        @CustomType.Parameter("s3") @Nullable ConnectorLogDeliveryWorkerLogDeliveryS3 s3) {
-        this.cloudwatchLogs = cloudwatchLogs;
-        this.firehose = firehose;
-        this.s3 = s3;
-    }
-
+    private ConnectorLogDeliveryWorkerLogDelivery() {}
     /**
      * @return Details about delivering logs to Amazon CloudWatch Logs. See below.
      * 
@@ -68,16 +59,12 @@ public final class ConnectorLogDeliveryWorkerLogDelivery {
     public static Builder builder(ConnectorLogDeliveryWorkerLogDelivery defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs cloudwatchLogs;
         private @Nullable ConnectorLogDeliveryWorkerLogDeliveryFirehose firehose;
         private @Nullable ConnectorLogDeliveryWorkerLogDeliveryS3 s3;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorLogDeliveryWorkerLogDelivery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogs = defaults.cloudwatchLogs;
@@ -85,19 +72,27 @@ public final class ConnectorLogDeliveryWorkerLogDelivery {
     	      this.s3 = defaults.s3;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs cloudwatchLogs) {
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder firehose(@Nullable ConnectorLogDeliveryWorkerLogDeliveryFirehose firehose) {
             this.firehose = firehose;
             return this;
         }
+        @CustomType.Setter
         public Builder s3(@Nullable ConnectorLogDeliveryWorkerLogDeliveryS3 s3) {
             this.s3 = s3;
             return this;
-        }        public ConnectorLogDeliveryWorkerLogDelivery build() {
-            return new ConnectorLogDeliveryWorkerLogDelivery(cloudwatchLogs, firehose, s3);
+        }
+        public ConnectorLogDeliveryWorkerLogDelivery build() {
+            final var o = new ConnectorLogDeliveryWorkerLogDelivery();
+            o.cloudwatchLogs = cloudwatchLogs;
+            o.firehose = firehose;
+            o.s3 = s3;
+            return o;
         }
     }
 }

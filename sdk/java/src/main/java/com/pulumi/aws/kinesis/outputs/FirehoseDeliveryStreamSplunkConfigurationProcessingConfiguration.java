@@ -17,21 +17,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
      * @return Enables or disables data processing.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Array of data processors. More details are given below
      * 
      */
-    private final @Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors;
+    private @Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("processors") @Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors) {
-        this.enabled = enabled;
-        this.processors = processors;
-    }
-
+    private FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration() {}
     /**
      * @return Enables or disables data processing.
      * 
@@ -54,33 +47,35 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
     public static Builder builder(FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.processors = defaults.processors;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder processors(@Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors) {
             this.processors = processors;
             return this;
         }
         public Builder processors(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor... processors) {
             return processors(List.of(processors));
-        }        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration build() {
-            return new FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration(enabled, processors);
+        }
+        public FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration build() {
+            final var o = new FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration();
+            o.enabled = enabled;
+            o.processors = processors;
+            return o;
         }
     }
 }

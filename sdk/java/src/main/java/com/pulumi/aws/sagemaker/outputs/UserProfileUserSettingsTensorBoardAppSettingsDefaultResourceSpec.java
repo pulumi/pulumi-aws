@@ -15,35 +15,24 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceS
      * @return The instance type.
      * 
      */
-    private final @Nullable String instanceType;
+    private @Nullable String instanceType;
     /**
      * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
      * 
      */
-    private final @Nullable String lifecycleConfigArn;
+    private @Nullable String lifecycleConfigArn;
     /**
      * @return The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
      * 
      */
-    private final @Nullable String sagemakerImageArn;
+    private @Nullable String sagemakerImageArn;
     /**
      * @return The ARN of the image version created on the instance.
      * 
      */
-    private final @Nullable String sagemakerImageVersionArn;
+    private @Nullable String sagemakerImageVersionArn;
 
-    @CustomType.Constructor
-    private UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(
-        @CustomType.Parameter("instanceType") @Nullable String instanceType,
-        @CustomType.Parameter("lifecycleConfigArn") @Nullable String lifecycleConfigArn,
-        @CustomType.Parameter("sagemakerImageArn") @Nullable String sagemakerImageArn,
-        @CustomType.Parameter("sagemakerImageVersionArn") @Nullable String sagemakerImageVersionArn) {
-        this.instanceType = instanceType;
-        this.lifecycleConfigArn = lifecycleConfigArn;
-        this.sagemakerImageArn = sagemakerImageArn;
-        this.sagemakerImageVersionArn = sagemakerImageVersionArn;
-    }
-
+    private UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec() {}
     /**
      * @return The instance type.
      * 
@@ -80,17 +69,13 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceS
     public static Builder builder(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String instanceType;
         private @Nullable String lifecycleConfigArn;
         private @Nullable String sagemakerImageArn;
         private @Nullable String sagemakerImageVersionArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceType = defaults.instanceType;
@@ -99,23 +84,33 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceS
     	      this.sagemakerImageVersionArn = defaults.sagemakerImageVersionArn;
         }
 
+        @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
             this.instanceType = instanceType;
             return this;
         }
+        @CustomType.Setter
         public Builder lifecycleConfigArn(@Nullable String lifecycleConfigArn) {
             this.lifecycleConfigArn = lifecycleConfigArn;
             return this;
         }
+        @CustomType.Setter
         public Builder sagemakerImageArn(@Nullable String sagemakerImageArn) {
             this.sagemakerImageArn = sagemakerImageArn;
             return this;
         }
+        @CustomType.Setter
         public Builder sagemakerImageVersionArn(@Nullable String sagemakerImageVersionArn) {
             this.sagemakerImageVersionArn = sagemakerImageVersionArn;
             return this;
-        }        public UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec build() {
-            return new UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(instanceType, lifecycleConfigArn, sagemakerImageArn, sagemakerImageVersionArn);
+        }
+        public UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec build() {
+            final var o = new UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec();
+            o.instanceType = instanceType;
+            o.lifecycleConfigArn = lifecycleConfigArn;
+            o.sagemakerImageArn = sagemakerImageArn;
+            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return o;
         }
     }
 }

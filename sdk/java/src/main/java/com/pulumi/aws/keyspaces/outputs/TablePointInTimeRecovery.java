@@ -15,13 +15,9 @@ public final class TablePointInTimeRecovery {
      * @return Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
 
-    @CustomType.Constructor
-    private TablePointInTimeRecovery(@CustomType.Parameter("status") @Nullable String status) {
-        this.status = status;
-    }
-
+    private TablePointInTimeRecovery() {}
     /**
      * @return Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
      * 
@@ -37,24 +33,24 @@ public final class TablePointInTimeRecovery {
     public static Builder builder(TablePointInTimeRecovery defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TablePointInTimeRecovery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
-        }        public TablePointInTimeRecovery build() {
-            return new TablePointInTimeRecovery(status);
+        }
+        public TablePointInTimeRecovery build() {
+            final var o = new TablePointInTimeRecovery();
+            o.status = status;
+            return o;
         }
     }
 }

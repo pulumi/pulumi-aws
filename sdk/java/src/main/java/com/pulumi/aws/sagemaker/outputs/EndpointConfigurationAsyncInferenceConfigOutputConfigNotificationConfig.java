@@ -15,21 +15,14 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
      * @return Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
      * 
      */
-    private final @Nullable String errorTopic;
+    private @Nullable String errorTopic;
     /**
      * @return Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
      * 
      */
-    private final @Nullable String successTopic;
+    private @Nullable String successTopic;
 
-    @CustomType.Constructor
-    private EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(
-        @CustomType.Parameter("errorTopic") @Nullable String errorTopic,
-        @CustomType.Parameter("successTopic") @Nullable String successTopic) {
-        this.errorTopic = errorTopic;
-        this.successTopic = successTopic;
-    }
-
+    private EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig() {}
     /**
      * @return Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
      * 
@@ -52,30 +45,32 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
     public static Builder builder(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String errorTopic;
         private @Nullable String successTopic;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.errorTopic = defaults.errorTopic;
     	      this.successTopic = defaults.successTopic;
         }
 
+        @CustomType.Setter
         public Builder errorTopic(@Nullable String errorTopic) {
             this.errorTopic = errorTopic;
             return this;
         }
+        @CustomType.Setter
         public Builder successTopic(@Nullable String successTopic) {
             this.successTopic = successTopic;
             return this;
-        }        public EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig build() {
-            return new EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(errorTopic, successTopic);
+        }
+        public EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig build() {
+            final var o = new EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig();
+            o.errorTopic = errorTopic;
+            o.successTopic = successTopic;
+            return o;
         }
     }
 }

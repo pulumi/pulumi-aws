@@ -12,28 +12,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMaintenanceWindowsResult {
-    private final @Nullable List<GetMaintenanceWindowsFilter> filters;
+    private @Nullable List<GetMaintenanceWindowsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of window IDs of the matched SSM maintenance windows.
      * 
      */
-    private final List<String> ids;
+    private List<String> ids;
 
-    @CustomType.Constructor
-    private GetMaintenanceWindowsResult(
-        @CustomType.Parameter("filters") @Nullable List<GetMaintenanceWindowsFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids) {
-        this.filters = filters;
-        this.id = id;
-        this.ids = ids;
-    }
-
+    private GetMaintenanceWindowsResult() {}
     public List<GetMaintenanceWindowsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -59,16 +50,12 @@ public final class GetMaintenanceWindowsResult {
     public static Builder builder(GetMaintenanceWindowsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetMaintenanceWindowsFilter> filters;
         private String id;
         private List<String> ids;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMaintenanceWindowsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -76,6 +63,7 @@ public final class GetMaintenanceWindowsResult {
     	      this.ids = defaults.ids;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetMaintenanceWindowsFilter> filters) {
             this.filters = filters;
             return this;
@@ -83,18 +71,25 @@ public final class GetMaintenanceWindowsResult {
         public Builder filters(GetMaintenanceWindowsFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
         }
         public Builder ids(String... ids) {
             return ids(List.of(ids));
-        }        public GetMaintenanceWindowsResult build() {
-            return new GetMaintenanceWindowsResult(filters, id, ids);
+        }
+        public GetMaintenanceWindowsResult build() {
+            final var o = new GetMaintenanceWindowsResult();
+            o.filters = filters;
+            o.id = id;
+            o.ids = ids;
+            return o;
         }
     }
 }

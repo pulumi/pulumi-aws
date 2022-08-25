@@ -13,13 +13,9 @@ public final class GetStreamStreamModeDetail {
      * @return The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
      * 
      */
-    private final String streamMode;
+    private String streamMode;
 
-    @CustomType.Constructor
-    private GetStreamStreamModeDetail(@CustomType.Parameter("streamMode") String streamMode) {
-        this.streamMode = streamMode;
-    }
-
+    private GetStreamStreamModeDetail() {}
     /**
      * @return The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
      * 
@@ -35,24 +31,24 @@ public final class GetStreamStreamModeDetail {
     public static Builder builder(GetStreamStreamModeDetail defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String streamMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStreamStreamModeDetail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.streamMode = defaults.streamMode;
         }
 
+        @CustomType.Setter
         public Builder streamMode(String streamMode) {
             this.streamMode = Objects.requireNonNull(streamMode);
             return this;
-        }        public GetStreamStreamModeDetail build() {
-            return new GetStreamStreamModeDetail(streamMode);
+        }
+        public GetStreamStreamModeDetail build() {
+            final var o = new GetStreamStreamModeDetail();
+            o.streamMode = streamMode;
+            return o;
         }
     }
 }

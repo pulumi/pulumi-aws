@@ -19,43 +19,30 @@ public final class StageDefaultRouteSettings {
      * Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
-    private final @Nullable Boolean dataTraceEnabled;
+    private @Nullable Boolean dataTraceEnabled;
     /**
      * @return Whether detailed metrics are enabled for the default route. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean detailedMetricsEnabled;
+    private @Nullable Boolean detailedMetricsEnabled;
     /**
      * @return The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
      * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private final @Nullable String loggingLevel;
+    private @Nullable String loggingLevel;
     /**
      * @return The throttling burst limit for the default route.
      * 
      */
-    private final @Nullable Integer throttlingBurstLimit;
+    private @Nullable Integer throttlingBurstLimit;
     /**
      * @return The throttling rate limit for the default route.
      * 
      */
-    private final @Nullable Double throttlingRateLimit;
+    private @Nullable Double throttlingRateLimit;
 
-    @CustomType.Constructor
-    private StageDefaultRouteSettings(
-        @CustomType.Parameter("dataTraceEnabled") @Nullable Boolean dataTraceEnabled,
-        @CustomType.Parameter("detailedMetricsEnabled") @Nullable Boolean detailedMetricsEnabled,
-        @CustomType.Parameter("loggingLevel") @Nullable String loggingLevel,
-        @CustomType.Parameter("throttlingBurstLimit") @Nullable Integer throttlingBurstLimit,
-        @CustomType.Parameter("throttlingRateLimit") @Nullable Double throttlingRateLimit) {
-        this.dataTraceEnabled = dataTraceEnabled;
-        this.detailedMetricsEnabled = detailedMetricsEnabled;
-        this.loggingLevel = loggingLevel;
-        this.throttlingBurstLimit = throttlingBurstLimit;
-        this.throttlingRateLimit = throttlingRateLimit;
-    }
-
+    private StageDefaultRouteSettings() {}
     /**
      * @return Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
      * Defaults to `false`. Supported only for WebSocket APIs.
@@ -101,18 +88,14 @@ public final class StageDefaultRouteSettings {
     public static Builder builder(StageDefaultRouteSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean dataTraceEnabled;
         private @Nullable Boolean detailedMetricsEnabled;
         private @Nullable String loggingLevel;
         private @Nullable Integer throttlingBurstLimit;
         private @Nullable Double throttlingRateLimit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StageDefaultRouteSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataTraceEnabled = defaults.dataTraceEnabled;
@@ -122,27 +105,39 @@ public final class StageDefaultRouteSettings {
     	      this.throttlingRateLimit = defaults.throttlingRateLimit;
         }
 
+        @CustomType.Setter
         public Builder dataTraceEnabled(@Nullable Boolean dataTraceEnabled) {
             this.dataTraceEnabled = dataTraceEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder detailedMetricsEnabled(@Nullable Boolean detailedMetricsEnabled) {
             this.detailedMetricsEnabled = detailedMetricsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder loggingLevel(@Nullable String loggingLevel) {
             this.loggingLevel = loggingLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder throttlingBurstLimit(@Nullable Integer throttlingBurstLimit) {
             this.throttlingBurstLimit = throttlingBurstLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder throttlingRateLimit(@Nullable Double throttlingRateLimit) {
             this.throttlingRateLimit = throttlingRateLimit;
             return this;
-        }        public StageDefaultRouteSettings build() {
-            return new StageDefaultRouteSettings(dataTraceEnabled, detailedMetricsEnabled, loggingLevel, throttlingBurstLimit, throttlingRateLimit);
+        }
+        public StageDefaultRouteSettings build() {
+            final var o = new StageDefaultRouteSettings();
+            o.dataTraceEnabled = dataTraceEnabled;
+            o.detailedMetricsEnabled = detailedMetricsEnabled;
+            o.loggingLevel = loggingLevel;
+            o.throttlingBurstLimit = throttlingBurstLimit;
+            o.throttlingRateLimit = throttlingRateLimit;
+            return o;
         }
     }
 }

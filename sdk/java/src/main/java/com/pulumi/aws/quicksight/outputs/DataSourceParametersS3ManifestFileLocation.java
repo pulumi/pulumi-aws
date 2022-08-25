@@ -13,21 +13,14 @@ public final class DataSourceParametersS3ManifestFileLocation {
      * @return The name of the bucket that contains the manifest file.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return The key of the manifest file within the bucket.
      * 
      */
-    private final String key;
+    private String key;
 
-    @CustomType.Constructor
-    private DataSourceParametersS3ManifestFileLocation(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("key") String key) {
-        this.bucket = bucket;
-        this.key = key;
-    }
-
+    private DataSourceParametersS3ManifestFileLocation() {}
     /**
      * @return The name of the bucket that contains the manifest file.
      * 
@@ -50,30 +43,32 @@ public final class DataSourceParametersS3ManifestFileLocation {
     public static Builder builder(DataSourceParametersS3ManifestFileLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersS3ManifestFileLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public DataSourceParametersS3ManifestFileLocation build() {
-            return new DataSourceParametersS3ManifestFileLocation(bucket, key);
+        }
+        public DataSourceParametersS3ManifestFileLocation build() {
+            final var o = new DataSourceParametersS3ManifestFileLocation();
+            o.bucket = bucket;
+            o.key = key;
+            return o;
         }
     }
 }

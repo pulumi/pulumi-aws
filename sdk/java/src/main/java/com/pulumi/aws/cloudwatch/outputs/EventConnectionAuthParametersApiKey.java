@@ -13,21 +13,14 @@ public final class EventConnectionAuthParametersApiKey {
      * @return Header Name.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Header Value. Created and stored in AWS Secrets Manager.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private EventConnectionAuthParametersApiKey(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") String value) {
-        this.key = key;
-        this.value = value;
-    }
-
+    private EventConnectionAuthParametersApiKey() {}
     /**
      * @return Header Name.
      * 
@@ -50,30 +43,32 @@ public final class EventConnectionAuthParametersApiKey {
     public static Builder builder(EventConnectionAuthParametersApiKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventConnectionAuthParametersApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public EventConnectionAuthParametersApiKey build() {
-            return new EventConnectionAuthParametersApiKey(key, value);
+        }
+        public EventConnectionAuthParametersApiKey build() {
+            final var o = new EventConnectionAuthParametersApiKey();
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

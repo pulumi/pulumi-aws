@@ -13,13 +13,9 @@ public final class InsightFiltersNetworkDestinationIpv6 {
      * @return A finding&#39;s CIDR value.
      * 
      */
-    private final String cidr;
+    private String cidr;
 
-    @CustomType.Constructor
-    private InsightFiltersNetworkDestinationIpv6(@CustomType.Parameter("cidr") String cidr) {
-        this.cidr = cidr;
-    }
-
+    private InsightFiltersNetworkDestinationIpv6() {}
     /**
      * @return A finding&#39;s CIDR value.
      * 
@@ -35,24 +31,24 @@ public final class InsightFiltersNetworkDestinationIpv6 {
     public static Builder builder(InsightFiltersNetworkDestinationIpv6 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cidr;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersNetworkDestinationIpv6 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidr = defaults.cidr;
         }
 
+        @CustomType.Setter
         public Builder cidr(String cidr) {
             this.cidr = Objects.requireNonNull(cidr);
             return this;
-        }        public InsightFiltersNetworkDestinationIpv6 build() {
-            return new InsightFiltersNetworkDestinationIpv6(cidr);
+        }
+        public InsightFiltersNetworkDestinationIpv6 build() {
+            final var o = new InsightFiltersNetworkDestinationIpv6();
+            o.cidr = cidr;
+            return o;
         }
     }
 }

@@ -19,110 +19,73 @@ public final class GetDirectoryResult {
      * @return The access URL for the directory/connector, such as http://alias.awsapps.com.
      * 
      */
-    private final String accessUrl;
+    private String accessUrl;
     /**
      * @return The alias for the directory/connector, such as `d-991708b282.awsapps.com`.
      * 
      */
-    private final String alias;
-    private final List<GetDirectoryConnectSetting> connectSettings;
+    private String alias;
+    private List<GetDirectoryConnectSetting> connectSettings;
     /**
      * @return A textual description for the directory/connector.
      * 
      */
-    private final String description;
-    private final String directoryId;
+    private String description;
+    private String directoryId;
     /**
      * @return A list of IP addresses of the DNS servers for the directory/connector.
      * 
      */
-    private final List<String> dnsIpAddresses;
+    private List<String> dnsIpAddresses;
     /**
      * @return (for `MicrosoftAD`) The Microsoft AD edition (`Standard` or `Enterprise`).
      * 
      */
-    private final String edition;
+    private String edition;
     /**
      * @return The directory/connector single-sign on status.
      * 
      */
-    private final Boolean enableSso;
+    private Boolean enableSso;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The fully qualified name for the directory/connector.
      * 
      */
-    private final String name;
-    private final List<GetDirectoryRadiusSetting> radiusSettings;
+    private String name;
+    private List<GetDirectoryRadiusSetting> radiusSettings;
     /**
      * @return The ID of the security group created by the directory/connector.
      * 
      */
-    private final String securityGroupId;
+    private String securityGroupId;
     /**
      * @return The short name of the directory/connector, such as `CORP`.
      * 
      */
-    private final String shortName;
+    private String shortName;
     /**
      * @return (for `SimpleAD` and `ADConnector`) The size of the directory/connector (`Small` or `Large`).
      * 
      */
-    private final String size;
+    private String size;
     /**
      * @return A map of tags assigned to the directory/connector.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      * 
      */
-    private final String type;
-    private final List<GetDirectoryVpcSetting> vpcSettings;
+    private String type;
+    private List<GetDirectoryVpcSetting> vpcSettings;
 
-    @CustomType.Constructor
-    private GetDirectoryResult(
-        @CustomType.Parameter("accessUrl") String accessUrl,
-        @CustomType.Parameter("alias") String alias,
-        @CustomType.Parameter("connectSettings") List<GetDirectoryConnectSetting> connectSettings,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("directoryId") String directoryId,
-        @CustomType.Parameter("dnsIpAddresses") List<String> dnsIpAddresses,
-        @CustomType.Parameter("edition") String edition,
-        @CustomType.Parameter("enableSso") Boolean enableSso,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("radiusSettings") List<GetDirectoryRadiusSetting> radiusSettings,
-        @CustomType.Parameter("securityGroupId") String securityGroupId,
-        @CustomType.Parameter("shortName") String shortName,
-        @CustomType.Parameter("size") String size,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("vpcSettings") List<GetDirectoryVpcSetting> vpcSettings) {
-        this.accessUrl = accessUrl;
-        this.alias = alias;
-        this.connectSettings = connectSettings;
-        this.description = description;
-        this.directoryId = directoryId;
-        this.dnsIpAddresses = dnsIpAddresses;
-        this.edition = edition;
-        this.enableSso = enableSso;
-        this.id = id;
-        this.name = name;
-        this.radiusSettings = radiusSettings;
-        this.securityGroupId = securityGroupId;
-        this.shortName = shortName;
-        this.size = size;
-        this.tags = tags;
-        this.type = type;
-        this.vpcSettings = vpcSettings;
-    }
-
+    private GetDirectoryResult() {}
     /**
      * @return The access URL for the directory/connector, such as http://alias.awsapps.com.
      * 
@@ -234,7 +197,7 @@ public final class GetDirectoryResult {
     public static Builder builder(GetDirectoryResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessUrl;
         private String alias;
@@ -253,11 +216,7 @@ public final class GetDirectoryResult {
         private Map<String,String> tags;
         private String type;
         private List<GetDirectoryVpcSetting> vpcSettings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDirectoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessUrl = defaults.accessUrl;
@@ -279,14 +238,17 @@ public final class GetDirectoryResult {
     	      this.vpcSettings = defaults.vpcSettings;
         }
 
+        @CustomType.Setter
         public Builder accessUrl(String accessUrl) {
             this.accessUrl = Objects.requireNonNull(accessUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder alias(String alias) {
             this.alias = Objects.requireNonNull(alias);
             return this;
         }
+        @CustomType.Setter
         public Builder connectSettings(List<GetDirectoryConnectSetting> connectSettings) {
             this.connectSettings = Objects.requireNonNull(connectSettings);
             return this;
@@ -294,14 +256,17 @@ public final class GetDirectoryResult {
         public Builder connectSettings(GetDirectoryConnectSetting... connectSettings) {
             return connectSettings(List.of(connectSettings));
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder directoryId(String directoryId) {
             this.directoryId = Objects.requireNonNull(directoryId);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsIpAddresses(List<String> dnsIpAddresses) {
             this.dnsIpAddresses = Objects.requireNonNull(dnsIpAddresses);
             return this;
@@ -309,22 +274,27 @@ public final class GetDirectoryResult {
         public Builder dnsIpAddresses(String... dnsIpAddresses) {
             return dnsIpAddresses(List.of(dnsIpAddresses));
         }
+        @CustomType.Setter
         public Builder edition(String edition) {
             this.edition = Objects.requireNonNull(edition);
             return this;
         }
+        @CustomType.Setter
         public Builder enableSso(Boolean enableSso) {
             this.enableSso = Objects.requireNonNull(enableSso);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder radiusSettings(List<GetDirectoryRadiusSetting> radiusSettings) {
             this.radiusSettings = Objects.requireNonNull(radiusSettings);
             return this;
@@ -332,34 +302,59 @@ public final class GetDirectoryResult {
         public Builder radiusSettings(GetDirectoryRadiusSetting... radiusSettings) {
             return radiusSettings(List.of(radiusSettings));
         }
+        @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
             this.securityGroupId = Objects.requireNonNull(securityGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder shortName(String shortName) {
             this.shortName = Objects.requireNonNull(shortName);
             return this;
         }
+        @CustomType.Setter
         public Builder size(String size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcSettings(List<GetDirectoryVpcSetting> vpcSettings) {
             this.vpcSettings = Objects.requireNonNull(vpcSettings);
             return this;
         }
         public Builder vpcSettings(GetDirectoryVpcSetting... vpcSettings) {
             return vpcSettings(List.of(vpcSettings));
-        }        public GetDirectoryResult build() {
-            return new GetDirectoryResult(accessUrl, alias, connectSettings, description, directoryId, dnsIpAddresses, edition, enableSso, id, name, radiusSettings, securityGroupId, shortName, size, tags, type, vpcSettings);
+        }
+        public GetDirectoryResult build() {
+            final var o = new GetDirectoryResult();
+            o.accessUrl = accessUrl;
+            o.alias = alias;
+            o.connectSettings = connectSettings;
+            o.description = description;
+            o.directoryId = directoryId;
+            o.dnsIpAddresses = dnsIpAddresses;
+            o.edition = edition;
+            o.enableSso = enableSso;
+            o.id = id;
+            o.name = name;
+            o.radiusSettings = radiusSettings;
+            o.securityGroupId = securityGroupId;
+            o.shortName = shortName;
+            o.size = size;
+            o.tags = tags;
+            o.type = type;
+            o.vpcSettings = vpcSettings;
+            return o;
         }
     }
 }

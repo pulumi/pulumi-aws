@@ -13,13 +13,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return The ARN of the Lambda function that operates on records in the stream.
      * 
      */
-    private final String resourceArn;
+    private String resourceArn;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor(@CustomType.Parameter("resourceArn") String resourceArn) {
-        this.resourceArn = resourceArn;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor() {}
     /**
      * @return The ARN of the Lambda function that operates on records in the stream.
      * 
@@ -35,24 +31,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resourceArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
             this.resourceArn = Objects.requireNonNull(resourceArn);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor(resourceArn);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor();
+            o.resourceArn = resourceArn;
+            return o;
         }
     }
 }

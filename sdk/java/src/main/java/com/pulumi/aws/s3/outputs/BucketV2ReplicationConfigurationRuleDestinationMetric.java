@@ -16,21 +16,14 @@ public final class BucketV2ReplicationConfigurationRuleDestinationMetric {
      * @return Threshold within which objects are to be replicated. The only valid value is `15`.
      * 
      */
-    private final @Nullable Integer minutes;
+    private @Nullable Integer minutes;
     /**
      * @return The status of replication metrics. Either `Enabled` or `Disabled`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
 
-    @CustomType.Constructor
-    private BucketV2ReplicationConfigurationRuleDestinationMetric(
-        @CustomType.Parameter("minutes") @Nullable Integer minutes,
-        @CustomType.Parameter("status") @Nullable String status) {
-        this.minutes = minutes;
-        this.status = status;
-    }
-
+    private BucketV2ReplicationConfigurationRuleDestinationMetric() {}
     /**
      * @return Threshold within which objects are to be replicated. The only valid value is `15`.
      * 
@@ -53,30 +46,32 @@ public final class BucketV2ReplicationConfigurationRuleDestinationMetric {
     public static Builder builder(BucketV2ReplicationConfigurationRuleDestinationMetric defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer minutes;
         private @Nullable String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2ReplicationConfigurationRuleDestinationMetric defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.minutes = defaults.minutes;
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder minutes(@Nullable Integer minutes) {
             this.minutes = minutes;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
-        }        public BucketV2ReplicationConfigurationRuleDestinationMetric build() {
-            return new BucketV2ReplicationConfigurationRuleDestinationMetric(minutes, status);
+        }
+        public BucketV2ReplicationConfigurationRuleDestinationMetric build() {
+            final var o = new BucketV2ReplicationConfigurationRuleDestinationMetric();
+            o.minutes = minutes;
+            o.status = status;
+            return o;
         }
     }
 }

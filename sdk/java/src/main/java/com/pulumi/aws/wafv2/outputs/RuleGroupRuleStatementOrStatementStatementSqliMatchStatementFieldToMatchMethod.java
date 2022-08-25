@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod {
-    @CustomType.Constructor
-    private RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod() {
-    }
-
+    private RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class RuleGroupRuleStatementOrStatementStatementSqliMatchStatementF
     public static Builder builder(RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod build() {
-            return new RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod();
+            final var o = new RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod();
+            return o;
         }
     }
 }

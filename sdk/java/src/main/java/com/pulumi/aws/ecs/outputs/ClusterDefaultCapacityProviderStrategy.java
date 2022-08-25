@@ -16,28 +16,19 @@ public final class ClusterDefaultCapacityProviderStrategy {
      * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
      * 
      */
-    private final @Nullable Integer base;
+    private @Nullable Integer base;
     /**
      * @return The short name of the capacity provider.
      * 
      */
-    private final String capacityProvider;
+    private String capacityProvider;
     /**
      * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider.
      * 
      */
-    private final @Nullable Integer weight;
+    private @Nullable Integer weight;
 
-    @CustomType.Constructor
-    private ClusterDefaultCapacityProviderStrategy(
-        @CustomType.Parameter("base") @Nullable Integer base,
-        @CustomType.Parameter("capacityProvider") String capacityProvider,
-        @CustomType.Parameter("weight") @Nullable Integer weight) {
-        this.base = base;
-        this.capacityProvider = capacityProvider;
-        this.weight = weight;
-    }
-
+    private ClusterDefaultCapacityProviderStrategy() {}
     /**
      * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
      * 
@@ -67,16 +58,12 @@ public final class ClusterDefaultCapacityProviderStrategy {
     public static Builder builder(ClusterDefaultCapacityProviderStrategy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer base;
         private String capacityProvider;
         private @Nullable Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterDefaultCapacityProviderStrategy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.base = defaults.base;
@@ -84,19 +71,27 @@ public final class ClusterDefaultCapacityProviderStrategy {
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder base(@Nullable Integer base) {
             this.base = base;
             return this;
         }
+        @CustomType.Setter
         public Builder capacityProvider(String capacityProvider) {
             this.capacityProvider = Objects.requireNonNull(capacityProvider);
             return this;
         }
+        @CustomType.Setter
         public Builder weight(@Nullable Integer weight) {
             this.weight = weight;
             return this;
-        }        public ClusterDefaultCapacityProviderStrategy build() {
-            return new ClusterDefaultCapacityProviderStrategy(base, capacityProvider, weight);
+        }
+        public ClusterDefaultCapacityProviderStrategy build() {
+            final var o = new ClusterDefaultCapacityProviderStrategy();
+            o.base = base;
+            o.capacityProvider = capacityProvider;
+            o.weight = weight;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class LaunchTemplateInstanceRequirementsMemoryMib {
      * @return Maximum.
      * 
      */
-    private final @Nullable Integer max;
+    private @Nullable Integer max;
     /**
      * @return Minimum.
      * 
      */
-    private final Integer min;
+    private Integer min;
 
-    @CustomType.Constructor
-    private LaunchTemplateInstanceRequirementsMemoryMib(
-        @CustomType.Parameter("max") @Nullable Integer max,
-        @CustomType.Parameter("min") Integer min) {
-        this.max = max;
-        this.min = min;
-    }
-
+    private LaunchTemplateInstanceRequirementsMemoryMib() {}
     /**
      * @return Maximum.
      * 
@@ -52,30 +45,32 @@ public final class LaunchTemplateInstanceRequirementsMemoryMib {
     public static Builder builder(LaunchTemplateInstanceRequirementsMemoryMib defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer max;
         private Integer min;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateInstanceRequirementsMemoryMib defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.max = defaults.max;
     	      this.min = defaults.min;
         }
 
+        @CustomType.Setter
         public Builder max(@Nullable Integer max) {
             this.max = max;
             return this;
         }
+        @CustomType.Setter
         public Builder min(Integer min) {
             this.min = Objects.requireNonNull(min);
             return this;
-        }        public LaunchTemplateInstanceRequirementsMemoryMib build() {
-            return new LaunchTemplateInstanceRequirementsMemoryMib(max, min);
+        }
+        public LaunchTemplateInstanceRequirementsMemoryMib build() {
+            final var o = new LaunchTemplateInstanceRequirementsMemoryMib();
+            o.max = max;
+            o.min = min;
+            return o;
         }
     }
 }

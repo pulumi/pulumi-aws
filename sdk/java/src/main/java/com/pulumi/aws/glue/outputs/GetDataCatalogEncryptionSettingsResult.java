@@ -11,28 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDataCatalogEncryptionSettingsResult {
-    private final String catalogId;
+    private String catalogId;
     /**
      * @return The security configuration to set. see Data Catalog Encryption Settings.
      * 
      */
-    private final List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings;
+    private List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetDataCatalogEncryptionSettingsResult(
-        @CustomType.Parameter("catalogId") String catalogId,
-        @CustomType.Parameter("dataCatalogEncryptionSettings") List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings,
-        @CustomType.Parameter("id") String id) {
-        this.catalogId = catalogId;
-        this.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
-        this.id = id;
-    }
-
+    private GetDataCatalogEncryptionSettingsResult() {}
     public String catalogId() {
         return this.catalogId;
     }
@@ -58,16 +49,12 @@ public final class GetDataCatalogEncryptionSettingsResult {
     public static Builder builder(GetDataCatalogEncryptionSettingsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String catalogId;
         private List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDataCatalogEncryptionSettingsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -75,10 +62,12 @@ public final class GetDataCatalogEncryptionSettingsResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder catalogId(String catalogId) {
             this.catalogId = Objects.requireNonNull(catalogId);
             return this;
         }
+        @CustomType.Setter
         public Builder dataCatalogEncryptionSettings(List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings) {
             this.dataCatalogEncryptionSettings = Objects.requireNonNull(dataCatalogEncryptionSettings);
             return this;
@@ -86,11 +75,17 @@ public final class GetDataCatalogEncryptionSettingsResult {
         public Builder dataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting... dataCatalogEncryptionSettings) {
             return dataCatalogEncryptionSettings(List.of(dataCatalogEncryptionSettings));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetDataCatalogEncryptionSettingsResult build() {
-            return new GetDataCatalogEncryptionSettingsResult(catalogId, dataCatalogEncryptionSettings, id);
+        }
+        public GetDataCatalogEncryptionSettingsResult build() {
+            final var o = new GetDataCatalogEncryptionSettingsResult();
+            o.catalogId = catalogId;
+            o.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
+            o.id = id;
+            return o;
         }
     }
 }

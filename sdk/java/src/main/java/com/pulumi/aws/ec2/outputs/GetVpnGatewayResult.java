@@ -13,35 +13,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpnGatewayResult {
-    private final String amazonSideAsn;
-    private final String arn;
-    private final String attachedVpcId;
-    private final String availabilityZone;
-    private final @Nullable List<GetVpnGatewayFilter> filters;
-    private final String id;
-    private final String state;
-    private final Map<String,String> tags;
+    private String amazonSideAsn;
+    private String arn;
+    private String attachedVpcId;
+    private String availabilityZone;
+    private @Nullable List<GetVpnGatewayFilter> filters;
+    private String id;
+    private String state;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetVpnGatewayResult(
-        @CustomType.Parameter("amazonSideAsn") String amazonSideAsn,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("attachedVpcId") String attachedVpcId,
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("filters") @Nullable List<GetVpnGatewayFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.amazonSideAsn = amazonSideAsn;
-        this.arn = arn;
-        this.attachedVpcId = attachedVpcId;
-        this.availabilityZone = availabilityZone;
-        this.filters = filters;
-        this.id = id;
-        this.state = state;
-        this.tags = tags;
-    }
-
+    private GetVpnGatewayResult() {}
     public String amazonSideAsn() {
         return this.amazonSideAsn;
     }
@@ -74,7 +55,7 @@ public final class GetVpnGatewayResult {
     public static Builder builder(GetVpnGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String amazonSideAsn;
         private String arn;
@@ -84,11 +65,7 @@ public final class GetVpnGatewayResult {
         private String id;
         private String state;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpnGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amazonSideAsn = defaults.amazonSideAsn;
@@ -101,22 +78,27 @@ public final class GetVpnGatewayResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder amazonSideAsn(String amazonSideAsn) {
             this.amazonSideAsn = Objects.requireNonNull(amazonSideAsn);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder attachedVpcId(String attachedVpcId) {
             this.attachedVpcId = Objects.requireNonNull(attachedVpcId);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVpnGatewayFilter> filters) {
             this.filters = filters;
             return this;
@@ -124,19 +106,32 @@ public final class GetVpnGatewayResult {
         public Builder filters(GetVpnGatewayFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetVpnGatewayResult build() {
-            return new GetVpnGatewayResult(amazonSideAsn, arn, attachedVpcId, availabilityZone, filters, id, state, tags);
+        }
+        public GetVpnGatewayResult build() {
+            final var o = new GetVpnGatewayResult();
+            o.amazonSideAsn = amazonSideAsn;
+            o.arn = arn;
+            o.attachedVpcId = attachedVpcId;
+            o.availabilityZone = availabilityZone;
+            o.filters = filters;
+            o.id = id;
+            o.state = state;
+            o.tags = tags;
+            return o;
         }
     }
 }

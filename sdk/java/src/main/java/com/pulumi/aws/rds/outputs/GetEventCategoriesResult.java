@@ -16,24 +16,15 @@ public final class GetEventCategoriesResult {
      * @return A list of the event categories.
      * 
      */
-    private final List<String> eventCategories;
+    private List<String> eventCategories;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String sourceType;
+    private String id;
+    private @Nullable String sourceType;
 
-    @CustomType.Constructor
-    private GetEventCategoriesResult(
-        @CustomType.Parameter("eventCategories") List<String> eventCategories,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("sourceType") @Nullable String sourceType) {
-        this.eventCategories = eventCategories;
-        this.id = id;
-        this.sourceType = sourceType;
-    }
-
+    private GetEventCategoriesResult() {}
     /**
      * @return A list of the event categories.
      * 
@@ -59,16 +50,12 @@ public final class GetEventCategoriesResult {
     public static Builder builder(GetEventCategoriesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> eventCategories;
         private String id;
         private @Nullable String sourceType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEventCategoriesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventCategories = defaults.eventCategories;
@@ -76,6 +63,7 @@ public final class GetEventCategoriesResult {
     	      this.sourceType = defaults.sourceType;
         }
 
+        @CustomType.Setter
         public Builder eventCategories(List<String> eventCategories) {
             this.eventCategories = Objects.requireNonNull(eventCategories);
             return this;
@@ -83,15 +71,22 @@ public final class GetEventCategoriesResult {
         public Builder eventCategories(String... eventCategories) {
             return eventCategories(List.of(eventCategories));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceType(@Nullable String sourceType) {
             this.sourceType = sourceType;
             return this;
-        }        public GetEventCategoriesResult build() {
-            return new GetEventCategoriesResult(eventCategories, id, sourceType);
+        }
+        public GetEventCategoriesResult build() {
+            final var o = new GetEventCategoriesResult();
+            o.eventCategories = eventCategories;
+            o.id = id;
+            o.sourceType = sourceType;
+            return o;
         }
     }
 }

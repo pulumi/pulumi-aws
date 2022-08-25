@@ -16,21 +16,14 @@ public final class VirtualNodeSpecListenerTimeoutHttp {
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTimeoutHttpIdle idle;
+    private @Nullable VirtualNodeSpecListenerTimeoutHttpIdle idle;
     /**
      * @return The per request timeout.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTimeoutHttpPerRequest perRequest;
+    private @Nullable VirtualNodeSpecListenerTimeoutHttpPerRequest perRequest;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTimeoutHttp(
-        @CustomType.Parameter("idle") @Nullable VirtualNodeSpecListenerTimeoutHttpIdle idle,
-        @CustomType.Parameter("perRequest") @Nullable VirtualNodeSpecListenerTimeoutHttpPerRequest perRequest) {
-        this.idle = idle;
-        this.perRequest = perRequest;
-    }
-
+    private VirtualNodeSpecListenerTimeoutHttp() {}
     /**
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
@@ -53,30 +46,32 @@ public final class VirtualNodeSpecListenerTimeoutHttp {
     public static Builder builder(VirtualNodeSpecListenerTimeoutHttp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecListenerTimeoutHttpIdle idle;
         private @Nullable VirtualNodeSpecListenerTimeoutHttpPerRequest perRequest;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTimeoutHttp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.idle = defaults.idle;
     	      this.perRequest = defaults.perRequest;
         }
 
+        @CustomType.Setter
         public Builder idle(@Nullable VirtualNodeSpecListenerTimeoutHttpIdle idle) {
             this.idle = idle;
             return this;
         }
+        @CustomType.Setter
         public Builder perRequest(@Nullable VirtualNodeSpecListenerTimeoutHttpPerRequest perRequest) {
             this.perRequest = perRequest;
             return this;
-        }        public VirtualNodeSpecListenerTimeoutHttp build() {
-            return new VirtualNodeSpecListenerTimeoutHttp(idle, perRequest);
+        }
+        public VirtualNodeSpecListenerTimeoutHttp build() {
+            final var o = new VirtualNodeSpecListenerTimeoutHttp();
+            o.idle = idle;
+            o.perRequest = perRequest;
+            return o;
         }
     }
 }

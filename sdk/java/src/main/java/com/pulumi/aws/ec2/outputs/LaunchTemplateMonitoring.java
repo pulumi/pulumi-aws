@@ -15,13 +15,9 @@ public final class LaunchTemplateMonitoring {
      * @return If `true`, the launched EC2 instance will have detailed monitoring enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private LaunchTemplateMonitoring(@CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private LaunchTemplateMonitoring() {}
     /**
      * @return If `true`, the launched EC2 instance will have detailed monitoring enabled.
      * 
@@ -37,24 +33,24 @@ public final class LaunchTemplateMonitoring {
     public static Builder builder(LaunchTemplateMonitoring defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateMonitoring defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public LaunchTemplateMonitoring build() {
-            return new LaunchTemplateMonitoring(enabled);
+        }
+        public LaunchTemplateMonitoring build() {
+            final var o = new LaunchTemplateMonitoring();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

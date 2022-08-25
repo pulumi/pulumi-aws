@@ -13,17 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RailsAppLayerCloudwatchConfiguration {
-    private final @Nullable Boolean enabled;
-    private final @Nullable List<RailsAppLayerCloudwatchConfigurationLogStream> logStreams;
+    private @Nullable Boolean enabled;
+    private @Nullable List<RailsAppLayerCloudwatchConfigurationLogStream> logStreams;
 
-    @CustomType.Constructor
-    private RailsAppLayerCloudwatchConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("logStreams") @Nullable List<RailsAppLayerCloudwatchConfigurationLogStream> logStreams) {
-        this.enabled = enabled;
-        this.logStreams = logStreams;
-    }
-
+    private RailsAppLayerCloudwatchConfiguration() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -38,33 +31,35 @@ public final class RailsAppLayerCloudwatchConfiguration {
     public static Builder builder(RailsAppLayerCloudwatchConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<RailsAppLayerCloudwatchConfigurationLogStream> logStreams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RailsAppLayerCloudwatchConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.logStreams = defaults.logStreams;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder logStreams(@Nullable List<RailsAppLayerCloudwatchConfigurationLogStream> logStreams) {
             this.logStreams = logStreams;
             return this;
         }
         public Builder logStreams(RailsAppLayerCloudwatchConfigurationLogStream... logStreams) {
             return logStreams(List.of(logStreams));
-        }        public RailsAppLayerCloudwatchConfiguration build() {
-            return new RailsAppLayerCloudwatchConfiguration(enabled, logStreams);
+        }
+        public RailsAppLayerCloudwatchConfiguration build() {
+            final var o = new RailsAppLayerCloudwatchConfiguration();
+            o.enabled = enabled;
+            o.logStreams = logStreams;
+            return o;
         }
     }
 }

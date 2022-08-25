@@ -15,21 +15,14 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
      * @return The CSV content type headers to capture.
      * 
      */
-    private final @Nullable List<String> csvContentTypes;
+    private @Nullable List<String> csvContentTypes;
     /**
      * @return The JSON content type headers to capture.
      * 
      */
-    private final @Nullable List<String> jsonContentTypes;
+    private @Nullable List<String> jsonContentTypes;
 
-    @CustomType.Constructor
-    private EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(
-        @CustomType.Parameter("csvContentTypes") @Nullable List<String> csvContentTypes,
-        @CustomType.Parameter("jsonContentTypes") @Nullable List<String> jsonContentTypes) {
-        this.csvContentTypes = csvContentTypes;
-        this.jsonContentTypes = jsonContentTypes;
-    }
-
+    private EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader() {}
     /**
      * @return The CSV content type headers to capture.
      * 
@@ -52,21 +45,18 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
     public static Builder builder(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> csvContentTypes;
         private @Nullable List<String> jsonContentTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.csvContentTypes = defaults.csvContentTypes;
     	      this.jsonContentTypes = defaults.jsonContentTypes;
         }
 
+        @CustomType.Setter
         public Builder csvContentTypes(@Nullable List<String> csvContentTypes) {
             this.csvContentTypes = csvContentTypes;
             return this;
@@ -74,14 +64,19 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
         public Builder csvContentTypes(String... csvContentTypes) {
             return csvContentTypes(List.of(csvContentTypes));
         }
+        @CustomType.Setter
         public Builder jsonContentTypes(@Nullable List<String> jsonContentTypes) {
             this.jsonContentTypes = jsonContentTypes;
             return this;
         }
         public Builder jsonContentTypes(String... jsonContentTypes) {
             return jsonContentTypes(List.of(jsonContentTypes));
-        }        public EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader build() {
-            return new EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(csvContentTypes, jsonContentTypes);
+        }
+        public EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader build() {
+            final var o = new EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader();
+            o.csvContentTypes = csvContentTypes;
+            o.jsonContentTypes = jsonContentTypes;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class TopicRuleErrorActionDynamodbv2PutItem {
      * @return The name of the DynamoDB table.
      * 
      */
-    private final String tableName;
+    private String tableName;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionDynamodbv2PutItem(@CustomType.Parameter("tableName") String tableName) {
-        this.tableName = tableName;
-    }
-
+    private TopicRuleErrorActionDynamodbv2PutItem() {}
     /**
      * @return The name of the DynamoDB table.
      * 
@@ -35,24 +31,24 @@ public final class TopicRuleErrorActionDynamodbv2PutItem {
     public static Builder builder(TopicRuleErrorActionDynamodbv2PutItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String tableName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionDynamodbv2PutItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.tableName = defaults.tableName;
         }
 
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             this.tableName = Objects.requireNonNull(tableName);
             return this;
-        }        public TopicRuleErrorActionDynamodbv2PutItem build() {
-            return new TopicRuleErrorActionDynamodbv2PutItem(tableName);
+        }
+        public TopicRuleErrorActionDynamodbv2PutItem build() {
+            final var o = new TopicRuleErrorActionDynamodbv2PutItem();
+            o.tableName = tableName;
+            return o;
         }
     }
 }

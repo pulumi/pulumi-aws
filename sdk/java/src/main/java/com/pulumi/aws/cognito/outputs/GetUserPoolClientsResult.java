@@ -14,31 +14,20 @@ public final class GetUserPoolClientsResult {
      * @return List of Cognito user pool client IDs.
      * 
      */
-    private final List<String> clientIds;
+    private List<String> clientIds;
     /**
      * @return List of Cognito user pool client names.
      * 
      */
-    private final List<String> clientNames;
+    private List<String> clientNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String userPoolId;
+    private String id;
+    private String userPoolId;
 
-    @CustomType.Constructor
-    private GetUserPoolClientsResult(
-        @CustomType.Parameter("clientIds") List<String> clientIds,
-        @CustomType.Parameter("clientNames") List<String> clientNames,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("userPoolId") String userPoolId) {
-        this.clientIds = clientIds;
-        this.clientNames = clientNames;
-        this.id = id;
-        this.userPoolId = userPoolId;
-    }
-
+    private GetUserPoolClientsResult() {}
     /**
      * @return List of Cognito user pool client IDs.
      * 
@@ -71,17 +60,13 @@ public final class GetUserPoolClientsResult {
     public static Builder builder(GetUserPoolClientsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> clientIds;
         private List<String> clientNames;
         private String id;
         private String userPoolId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserPoolClientsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientIds = defaults.clientIds;
@@ -90,6 +75,7 @@ public final class GetUserPoolClientsResult {
     	      this.userPoolId = defaults.userPoolId;
         }
 
+        @CustomType.Setter
         public Builder clientIds(List<String> clientIds) {
             this.clientIds = Objects.requireNonNull(clientIds);
             return this;
@@ -97,6 +83,7 @@ public final class GetUserPoolClientsResult {
         public Builder clientIds(String... clientIds) {
             return clientIds(List.of(clientIds));
         }
+        @CustomType.Setter
         public Builder clientNames(List<String> clientNames) {
             this.clientNames = Objects.requireNonNull(clientNames);
             return this;
@@ -104,15 +91,23 @@ public final class GetUserPoolClientsResult {
         public Builder clientNames(String... clientNames) {
             return clientNames(List.of(clientNames));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             this.userPoolId = Objects.requireNonNull(userPoolId);
             return this;
-        }        public GetUserPoolClientsResult build() {
-            return new GetUserPoolClientsResult(clientIds, clientNames, id, userPoolId);
+        }
+        public GetUserPoolClientsResult build() {
+            final var o = new GetUserPoolClientsResult();
+            o.clientIds = clientIds;
+            o.clientNames = clientNames;
+            o.id = id;
+            o.userPoolId = userPoolId;
+            return o;
         }
     }
 }

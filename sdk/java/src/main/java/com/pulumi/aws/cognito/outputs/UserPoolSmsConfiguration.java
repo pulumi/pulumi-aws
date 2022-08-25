@@ -13,21 +13,14 @@ public final class UserPoolSmsConfiguration {
      * @return External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
      * 
      */
-    private final String externalId;
+    private String externalId;
     /**
      * @return ARN of the Amazon SNS caller. This is usually the IAM role that you&#39;ve given Cognito permission to assume.
      * 
      */
-    private final String snsCallerArn;
+    private String snsCallerArn;
 
-    @CustomType.Constructor
-    private UserPoolSmsConfiguration(
-        @CustomType.Parameter("externalId") String externalId,
-        @CustomType.Parameter("snsCallerArn") String snsCallerArn) {
-        this.externalId = externalId;
-        this.snsCallerArn = snsCallerArn;
-    }
-
+    private UserPoolSmsConfiguration() {}
     /**
      * @return External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
      * 
@@ -50,30 +43,32 @@ public final class UserPoolSmsConfiguration {
     public static Builder builder(UserPoolSmsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String externalId;
         private String snsCallerArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolSmsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.externalId = defaults.externalId;
     	      this.snsCallerArn = defaults.snsCallerArn;
         }
 
+        @CustomType.Setter
         public Builder externalId(String externalId) {
             this.externalId = Objects.requireNonNull(externalId);
             return this;
         }
+        @CustomType.Setter
         public Builder snsCallerArn(String snsCallerArn) {
             this.snsCallerArn = Objects.requireNonNull(snsCallerArn);
             return this;
-        }        public UserPoolSmsConfiguration build() {
-            return new UserPoolSmsConfiguration(externalId, snsCallerArn);
+        }
+        public UserPoolSmsConfiguration build() {
+            final var o = new UserPoolSmsConfiguration();
+            o.externalId = externalId;
+            o.snsCallerArn = snsCallerArn;
+            return o;
         }
     }
 }

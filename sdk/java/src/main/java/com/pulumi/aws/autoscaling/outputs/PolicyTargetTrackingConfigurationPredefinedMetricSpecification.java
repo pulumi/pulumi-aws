@@ -15,21 +15,14 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
      * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
      * 
      */
-    private final String predefinedMetricType;
+    private String predefinedMetricType;
     /**
      * @return A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
-    private final @Nullable String resourceLabel;
+    private @Nullable String resourceLabel;
 
-    @CustomType.Constructor
-    private PolicyTargetTrackingConfigurationPredefinedMetricSpecification(
-        @CustomType.Parameter("predefinedMetricType") String predefinedMetricType,
-        @CustomType.Parameter("resourceLabel") @Nullable String resourceLabel) {
-        this.predefinedMetricType = predefinedMetricType;
-        this.resourceLabel = resourceLabel;
-    }
-
+    private PolicyTargetTrackingConfigurationPredefinedMetricSpecification() {}
     /**
      * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
      * 
@@ -52,30 +45,32 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
     public static Builder builder(PolicyTargetTrackingConfigurationPredefinedMetricSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String predefinedMetricType;
         private @Nullable String resourceLabel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyTargetTrackingConfigurationPredefinedMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.predefinedMetricType = defaults.predefinedMetricType;
     	      this.resourceLabel = defaults.resourceLabel;
         }
 
+        @CustomType.Setter
         public Builder predefinedMetricType(String predefinedMetricType) {
             this.predefinedMetricType = Objects.requireNonNull(predefinedMetricType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceLabel(@Nullable String resourceLabel) {
             this.resourceLabel = resourceLabel;
             return this;
-        }        public PolicyTargetTrackingConfigurationPredefinedMetricSpecification build() {
-            return new PolicyTargetTrackingConfigurationPredefinedMetricSpecification(predefinedMetricType, resourceLabel);
+        }
+        public PolicyTargetTrackingConfigurationPredefinedMetricSpecification build() {
+            final var o = new PolicyTargetTrackingConfigurationPredefinedMetricSpecification();
+            o.predefinedMetricType = predefinedMetricType;
+            o.resourceLabel = resourceLabel;
+            return o;
         }
     }
 }

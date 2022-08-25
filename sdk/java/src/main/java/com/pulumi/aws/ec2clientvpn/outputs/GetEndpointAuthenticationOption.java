@@ -9,26 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEndpointAuthenticationOption {
-    private final String activeDirectoryId;
-    private final String rootCertificateChainArn;
-    private final String samlProviderArn;
-    private final String selfServiceSamlProviderArn;
-    private final String type;
+    private String activeDirectoryId;
+    private String rootCertificateChainArn;
+    private String samlProviderArn;
+    private String selfServiceSamlProviderArn;
+    private String type;
 
-    @CustomType.Constructor
-    private GetEndpointAuthenticationOption(
-        @CustomType.Parameter("activeDirectoryId") String activeDirectoryId,
-        @CustomType.Parameter("rootCertificateChainArn") String rootCertificateChainArn,
-        @CustomType.Parameter("samlProviderArn") String samlProviderArn,
-        @CustomType.Parameter("selfServiceSamlProviderArn") String selfServiceSamlProviderArn,
-        @CustomType.Parameter("type") String type) {
-        this.activeDirectoryId = activeDirectoryId;
-        this.rootCertificateChainArn = rootCertificateChainArn;
-        this.samlProviderArn = samlProviderArn;
-        this.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
-        this.type = type;
-    }
-
+    private GetEndpointAuthenticationOption() {}
     public String activeDirectoryId() {
         return this.activeDirectoryId;
     }
@@ -52,18 +39,14 @@ public final class GetEndpointAuthenticationOption {
     public static Builder builder(GetEndpointAuthenticationOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String activeDirectoryId;
         private String rootCertificateChainArn;
         private String samlProviderArn;
         private String selfServiceSamlProviderArn;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEndpointAuthenticationOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectoryId = defaults.activeDirectoryId;
@@ -73,27 +56,39 @@ public final class GetEndpointAuthenticationOption {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder activeDirectoryId(String activeDirectoryId) {
             this.activeDirectoryId = Objects.requireNonNull(activeDirectoryId);
             return this;
         }
+        @CustomType.Setter
         public Builder rootCertificateChainArn(String rootCertificateChainArn) {
             this.rootCertificateChainArn = Objects.requireNonNull(rootCertificateChainArn);
             return this;
         }
+        @CustomType.Setter
         public Builder samlProviderArn(String samlProviderArn) {
             this.samlProviderArn = Objects.requireNonNull(samlProviderArn);
             return this;
         }
+        @CustomType.Setter
         public Builder selfServiceSamlProviderArn(String selfServiceSamlProviderArn) {
             this.selfServiceSamlProviderArn = Objects.requireNonNull(selfServiceSamlProviderArn);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetEndpointAuthenticationOption build() {
-            return new GetEndpointAuthenticationOption(activeDirectoryId, rootCertificateChainArn, samlProviderArn, selfServiceSamlProviderArn, type);
+        }
+        public GetEndpointAuthenticationOption build() {
+            final var o = new GetEndpointAuthenticationOption();
+            o.activeDirectoryId = activeDirectoryId;
+            o.rootCertificateChainArn = rootCertificateChainArn;
+            o.samlProviderArn = samlProviderArn;
+            o.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
+            o.type = type;
+            return o;
         }
     }
 }

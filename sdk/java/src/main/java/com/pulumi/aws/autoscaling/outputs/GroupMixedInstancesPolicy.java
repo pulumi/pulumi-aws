@@ -16,21 +16,14 @@ public final class GroupMixedInstancesPolicy {
      * @return Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
      * 
      */
-    private final @Nullable GroupMixedInstancesPolicyInstancesDistribution instancesDistribution;
+    private @Nullable GroupMixedInstancesPolicyInstancesDistribution instancesDistribution;
     /**
      * @return Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
      * 
      */
-    private final GroupMixedInstancesPolicyLaunchTemplate launchTemplate;
+    private GroupMixedInstancesPolicyLaunchTemplate launchTemplate;
 
-    @CustomType.Constructor
-    private GroupMixedInstancesPolicy(
-        @CustomType.Parameter("instancesDistribution") @Nullable GroupMixedInstancesPolicyInstancesDistribution instancesDistribution,
-        @CustomType.Parameter("launchTemplate") GroupMixedInstancesPolicyLaunchTemplate launchTemplate) {
-        this.instancesDistribution = instancesDistribution;
-        this.launchTemplate = launchTemplate;
-    }
-
+    private GroupMixedInstancesPolicy() {}
     /**
      * @return Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
      * 
@@ -53,30 +46,32 @@ public final class GroupMixedInstancesPolicy {
     public static Builder builder(GroupMixedInstancesPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GroupMixedInstancesPolicyInstancesDistribution instancesDistribution;
         private GroupMixedInstancesPolicyLaunchTemplate launchTemplate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupMixedInstancesPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instancesDistribution = defaults.instancesDistribution;
     	      this.launchTemplate = defaults.launchTemplate;
         }
 
+        @CustomType.Setter
         public Builder instancesDistribution(@Nullable GroupMixedInstancesPolicyInstancesDistribution instancesDistribution) {
             this.instancesDistribution = instancesDistribution;
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplate(GroupMixedInstancesPolicyLaunchTemplate launchTemplate) {
             this.launchTemplate = Objects.requireNonNull(launchTemplate);
             return this;
-        }        public GroupMixedInstancesPolicy build() {
-            return new GroupMixedInstancesPolicy(instancesDistribution, launchTemplate);
+        }
+        public GroupMixedInstancesPolicy build() {
+            final var o = new GroupMixedInstancesPolicy();
+            o.instancesDistribution = instancesDistribution;
+            o.launchTemplate = launchTemplate;
+            return o;
         }
     }
 }

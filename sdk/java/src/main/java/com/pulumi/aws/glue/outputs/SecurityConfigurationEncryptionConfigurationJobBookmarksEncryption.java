@@ -15,21 +15,14 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
      * @return Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
      * 
      */
-    private final @Nullable String jobBookmarksEncryptionMode;
+    private @Nullable String jobBookmarksEncryptionMode;
     /**
      * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
 
-    @CustomType.Constructor
-    private SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(
-        @CustomType.Parameter("jobBookmarksEncryptionMode") @Nullable String jobBookmarksEncryptionMode,
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn) {
-        this.jobBookmarksEncryptionMode = jobBookmarksEncryptionMode;
-        this.kmsKeyArn = kmsKeyArn;
-    }
-
+    private SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption() {}
     /**
      * @return Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
      * 
@@ -52,30 +45,32 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
     public static Builder builder(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String jobBookmarksEncryptionMode;
         private @Nullable String kmsKeyArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.jobBookmarksEncryptionMode = defaults.jobBookmarksEncryptionMode;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
         }
 
+        @CustomType.Setter
         public Builder jobBookmarksEncryptionMode(@Nullable String jobBookmarksEncryptionMode) {
             this.jobBookmarksEncryptionMode = jobBookmarksEncryptionMode;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
-        }        public SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption build() {
-            return new SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(jobBookmarksEncryptionMode, kmsKeyArn);
+        }
+        public SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption build() {
+            final var o = new SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption();
+            o.jobBookmarksEncryptionMode = jobBookmarksEncryptionMode;
+            o.kmsKeyArn = kmsKeyArn;
+            return o;
         }
     }
 }

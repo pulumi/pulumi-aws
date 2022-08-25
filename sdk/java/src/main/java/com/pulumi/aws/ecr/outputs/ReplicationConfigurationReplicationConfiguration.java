@@ -14,13 +14,9 @@ public final class ReplicationConfigurationReplicationConfiguration {
      * @return The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
      * 
      */
-    private final List<ReplicationConfigurationReplicationConfigurationRule> rules;
+    private List<ReplicationConfigurationReplicationConfigurationRule> rules;
 
-    @CustomType.Constructor
-    private ReplicationConfigurationReplicationConfiguration(@CustomType.Parameter("rules") List<ReplicationConfigurationReplicationConfigurationRule> rules) {
-        this.rules = rules;
-    }
-
+    private ReplicationConfigurationReplicationConfiguration() {}
     /**
      * @return The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
      * 
@@ -36,27 +32,27 @@ public final class ReplicationConfigurationReplicationConfiguration {
     public static Builder builder(ReplicationConfigurationReplicationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ReplicationConfigurationReplicationConfigurationRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicationConfigurationReplicationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder rules(List<ReplicationConfigurationReplicationConfigurationRule> rules) {
             this.rules = Objects.requireNonNull(rules);
             return this;
         }
         public Builder rules(ReplicationConfigurationReplicationConfigurationRule... rules) {
             return rules(List.of(rules));
-        }        public ReplicationConfigurationReplicationConfiguration build() {
-            return new ReplicationConfigurationReplicationConfiguration(rules);
+        }
+        public ReplicationConfigurationReplicationConfiguration build() {
+            final var o = new ReplicationConfigurationReplicationConfiguration();
+            o.rules = rules;
+            return o;
         }
     }
 }

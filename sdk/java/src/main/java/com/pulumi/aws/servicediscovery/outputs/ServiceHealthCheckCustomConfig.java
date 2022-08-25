@@ -15,13 +15,9 @@ public final class ServiceHealthCheckCustomConfig {
      * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
      * 
      */
-    private final @Nullable Integer failureThreshold;
+    private @Nullable Integer failureThreshold;
 
-    @CustomType.Constructor
-    private ServiceHealthCheckCustomConfig(@CustomType.Parameter("failureThreshold") @Nullable Integer failureThreshold) {
-        this.failureThreshold = failureThreshold;
-    }
-
+    private ServiceHealthCheckCustomConfig() {}
     /**
      * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
      * 
@@ -37,24 +33,24 @@ public final class ServiceHealthCheckCustomConfig {
     public static Builder builder(ServiceHealthCheckCustomConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer failureThreshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceHealthCheckCustomConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.failureThreshold = defaults.failureThreshold;
         }
 
+        @CustomType.Setter
         public Builder failureThreshold(@Nullable Integer failureThreshold) {
             this.failureThreshold = failureThreshold;
             return this;
-        }        public ServiceHealthCheckCustomConfig build() {
-            return new ServiceHealthCheckCustomConfig(failureThreshold);
+        }
+        public ServiceHealthCheckCustomConfig build() {
+            final var o = new ServiceHealthCheckCustomConfig();
+            o.failureThreshold = failureThreshold;
+            return o;
         }
     }
 }

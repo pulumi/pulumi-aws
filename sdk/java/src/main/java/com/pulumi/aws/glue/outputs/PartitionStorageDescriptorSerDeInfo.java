@@ -16,28 +16,19 @@ public final class PartitionStorageDescriptorSerDeInfo {
      * @return Name of the SerDe.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return A map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
      * 
      */
-    private final @Nullable String serializationLibrary;
+    private @Nullable String serializationLibrary;
 
-    @CustomType.Constructor
-    private PartitionStorageDescriptorSerDeInfo(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters,
-        @CustomType.Parameter("serializationLibrary") @Nullable String serializationLibrary) {
-        this.name = name;
-        this.parameters = parameters;
-        this.serializationLibrary = serializationLibrary;
-    }
-
+    private PartitionStorageDescriptorSerDeInfo() {}
     /**
      * @return Name of the SerDe.
      * 
@@ -67,16 +58,12 @@ public final class PartitionStorageDescriptorSerDeInfo {
     public static Builder builder(PartitionStorageDescriptorSerDeInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable Map<String,String> parameters;
         private @Nullable String serializationLibrary;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PartitionStorageDescriptorSerDeInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -84,19 +71,27 @@ public final class PartitionStorageDescriptorSerDeInfo {
     	      this.serializationLibrary = defaults.serializationLibrary;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder serializationLibrary(@Nullable String serializationLibrary) {
             this.serializationLibrary = serializationLibrary;
             return this;
-        }        public PartitionStorageDescriptorSerDeInfo build() {
-            return new PartitionStorageDescriptorSerDeInfo(name, parameters, serializationLibrary);
+        }
+        public PartitionStorageDescriptorSerDeInfo build() {
+            final var o = new PartitionStorageDescriptorSerDeInfo();
+            o.name = name;
+            o.parameters = parameters;
+            o.serializationLibrary = serializationLibrary;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class InventorySchedule {
      * @return Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
      * 
      */
-    private final String frequency;
+    private String frequency;
 
-    @CustomType.Constructor
-    private InventorySchedule(@CustomType.Parameter("frequency") String frequency) {
-        this.frequency = frequency;
-    }
-
+    private InventorySchedule() {}
     /**
      * @return Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
      * 
@@ -35,24 +31,24 @@ public final class InventorySchedule {
     public static Builder builder(InventorySchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String frequency;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InventorySchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frequency = defaults.frequency;
         }
 
+        @CustomType.Setter
         public Builder frequency(String frequency) {
             this.frequency = Objects.requireNonNull(frequency);
             return this;
-        }        public InventorySchedule build() {
-            return new InventorySchedule(frequency);
+        }
+        public InventorySchedule build() {
+            final var o = new InventorySchedule();
+            o.frequency = frequency;
+            return o;
         }
     }
 }

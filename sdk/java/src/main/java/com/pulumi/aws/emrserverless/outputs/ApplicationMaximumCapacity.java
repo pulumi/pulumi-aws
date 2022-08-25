@@ -15,28 +15,19 @@ public final class ApplicationMaximumCapacity {
      * @return The CPU requirements for every worker instance of the worker type.
      * 
      */
-    private final String cpu;
+    private String cpu;
     /**
      * @return The disk requirements for every worker instance of the worker type.
      * 
      */
-    private final @Nullable String disk;
+    private @Nullable String disk;
     /**
      * @return The memory requirements for every worker instance of the worker type.
      * 
      */
-    private final String memory;
+    private String memory;
 
-    @CustomType.Constructor
-    private ApplicationMaximumCapacity(
-        @CustomType.Parameter("cpu") String cpu,
-        @CustomType.Parameter("disk") @Nullable String disk,
-        @CustomType.Parameter("memory") String memory) {
-        this.cpu = cpu;
-        this.disk = disk;
-        this.memory = memory;
-    }
-
+    private ApplicationMaximumCapacity() {}
     /**
      * @return The CPU requirements for every worker instance of the worker type.
      * 
@@ -66,16 +57,12 @@ public final class ApplicationMaximumCapacity {
     public static Builder builder(ApplicationMaximumCapacity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cpu;
         private @Nullable String disk;
         private String memory;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationMaximumCapacity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cpu = defaults.cpu;
@@ -83,19 +70,27 @@ public final class ApplicationMaximumCapacity {
     	      this.memory = defaults.memory;
         }
 
+        @CustomType.Setter
         public Builder cpu(String cpu) {
             this.cpu = Objects.requireNonNull(cpu);
             return this;
         }
+        @CustomType.Setter
         public Builder disk(@Nullable String disk) {
             this.disk = disk;
             return this;
         }
+        @CustomType.Setter
         public Builder memory(String memory) {
             this.memory = Objects.requireNonNull(memory);
             return this;
-        }        public ApplicationMaximumCapacity build() {
-            return new ApplicationMaximumCapacity(cpu, disk, memory);
+        }
+        public ApplicationMaximumCapacity build() {
+            final var o = new ApplicationMaximumCapacity();
+            o.cpu = cpu;
+            o.disk = disk;
+            o.memory = memory;
+            return o;
         }
     }
 }

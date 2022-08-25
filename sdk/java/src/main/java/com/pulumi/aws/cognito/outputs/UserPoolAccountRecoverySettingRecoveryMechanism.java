@@ -14,21 +14,14 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanism {
      * @return Name of the attribute.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Positive integer specifying priority of a method with 1 being the highest priority.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
 
-    @CustomType.Constructor
-    private UserPoolAccountRecoverySettingRecoveryMechanism(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority) {
-        this.name = name;
-        this.priority = priority;
-    }
-
+    private UserPoolAccountRecoverySettingRecoveryMechanism() {}
     /**
      * @return Name of the attribute.
      * 
@@ -51,30 +44,32 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanism {
     public static Builder builder(UserPoolAccountRecoverySettingRecoveryMechanism defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private Integer priority;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolAccountRecoverySettingRecoveryMechanism defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.priority = defaults.priority;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
-        }        public UserPoolAccountRecoverySettingRecoveryMechanism build() {
-            return new UserPoolAccountRecoverySettingRecoveryMechanism(name, priority);
+        }
+        public UserPoolAccountRecoverySettingRecoveryMechanism build() {
+            final var o = new UserPoolAccountRecoverySettingRecoveryMechanism();
+            o.name = name;
+            o.priority = priority;
+            return o;
         }
     }
 }

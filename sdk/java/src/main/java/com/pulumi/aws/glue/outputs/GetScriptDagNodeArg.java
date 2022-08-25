@@ -16,28 +16,19 @@ public final class GetScriptDagNodeArg {
      * @return The name of the argument or property.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Boolean if the value is used as a parameter. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean param;
+    private @Nullable Boolean param;
     /**
      * @return The value of the argument or property.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetScriptDagNodeArg(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("param") @Nullable Boolean param,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.param = param;
-        this.value = value;
-    }
-
+    private GetScriptDagNodeArg() {}
     /**
      * @return The name of the argument or property.
      * 
@@ -67,16 +58,12 @@ public final class GetScriptDagNodeArg {
     public static Builder builder(GetScriptDagNodeArg defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Boolean param;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScriptDagNodeArg defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -84,19 +71,27 @@ public final class GetScriptDagNodeArg {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder param(@Nullable Boolean param) {
             this.param = param;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetScriptDagNodeArg build() {
-            return new GetScriptDagNodeArg(name, param, value);
+        }
+        public GetScriptDagNodeArg build() {
+            final var o = new GetScriptDagNodeArg();
+            o.name = name;
+            o.param = param;
+            o.value = value;
+            return o;
         }
     }
 }

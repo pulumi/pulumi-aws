@@ -13,24 +13,15 @@ public final class GetUserPoolSigningCertificateResult {
      * @return The certificate string
      * 
      */
-    private final String certificate;
+    private String certificate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String userPoolId;
+    private String id;
+    private String userPoolId;
 
-    @CustomType.Constructor
-    private GetUserPoolSigningCertificateResult(
-        @CustomType.Parameter("certificate") String certificate,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("userPoolId") String userPoolId) {
-        this.certificate = certificate;
-        this.id = id;
-        this.userPoolId = userPoolId;
-    }
-
+    private GetUserPoolSigningCertificateResult() {}
     /**
      * @return The certificate string
      * 
@@ -56,16 +47,12 @@ public final class GetUserPoolSigningCertificateResult {
     public static Builder builder(GetUserPoolSigningCertificateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificate;
         private String id;
         private String userPoolId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserPoolSigningCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
@@ -73,19 +60,27 @@ public final class GetUserPoolSigningCertificateResult {
     	      this.userPoolId = defaults.userPoolId;
         }
 
+        @CustomType.Setter
         public Builder certificate(String certificate) {
             this.certificate = Objects.requireNonNull(certificate);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             this.userPoolId = Objects.requireNonNull(userPoolId);
             return this;
-        }        public GetUserPoolSigningCertificateResult build() {
-            return new GetUserPoolSigningCertificateResult(certificate, id, userPoolId);
+        }
+        public GetUserPoolSigningCertificateResult build() {
+            final var o = new GetUserPoolSigningCertificateResult();
+            o.certificate = certificate;
+            o.id = id;
+            o.userPoolId = userPoolId;
+            return o;
         }
     }
 }

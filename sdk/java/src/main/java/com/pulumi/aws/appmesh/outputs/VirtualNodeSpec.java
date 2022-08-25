@@ -20,42 +20,29 @@ public final class VirtualNodeSpec {
      * @return The defaults for backends.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendDefaults backendDefaults;
+    private @Nullable VirtualNodeSpecBackendDefaults backendDefaults;
     /**
      * @return The backends to which the virtual node is expected to send outbound traffic.
      * 
      */
-    private final @Nullable List<VirtualNodeSpecBackend> backends;
+    private @Nullable List<VirtualNodeSpecBackend> backends;
     /**
      * @return The listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    private final @Nullable VirtualNodeSpecListener listener;
+    private @Nullable VirtualNodeSpecListener listener;
     /**
      * @return The inbound and outbound access logging information for the virtual node.
      * 
      */
-    private final @Nullable VirtualNodeSpecLogging logging;
+    private @Nullable VirtualNodeSpecLogging logging;
     /**
      * @return The service discovery information for the virtual node.
      * 
      */
-    private final @Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery;
+    private @Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery;
 
-    @CustomType.Constructor
-    private VirtualNodeSpec(
-        @CustomType.Parameter("backendDefaults") @Nullable VirtualNodeSpecBackendDefaults backendDefaults,
-        @CustomType.Parameter("backends") @Nullable List<VirtualNodeSpecBackend> backends,
-        @CustomType.Parameter("listener") @Nullable VirtualNodeSpecListener listener,
-        @CustomType.Parameter("logging") @Nullable VirtualNodeSpecLogging logging,
-        @CustomType.Parameter("serviceDiscovery") @Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery) {
-        this.backendDefaults = backendDefaults;
-        this.backends = backends;
-        this.listener = listener;
-        this.logging = logging;
-        this.serviceDiscovery = serviceDiscovery;
-    }
-
+    private VirtualNodeSpec() {}
     /**
      * @return The defaults for backends.
      * 
@@ -99,18 +86,14 @@ public final class VirtualNodeSpec {
     public static Builder builder(VirtualNodeSpec defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendDefaults backendDefaults;
         private @Nullable List<VirtualNodeSpecBackend> backends;
         private @Nullable VirtualNodeSpecListener listener;
         private @Nullable VirtualNodeSpecLogging logging;
         private @Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendDefaults = defaults.backendDefaults;
@@ -120,10 +103,12 @@ public final class VirtualNodeSpec {
     	      this.serviceDiscovery = defaults.serviceDiscovery;
         }
 
+        @CustomType.Setter
         public Builder backendDefaults(@Nullable VirtualNodeSpecBackendDefaults backendDefaults) {
             this.backendDefaults = backendDefaults;
             return this;
         }
+        @CustomType.Setter
         public Builder backends(@Nullable List<VirtualNodeSpecBackend> backends) {
             this.backends = backends;
             return this;
@@ -131,19 +116,29 @@ public final class VirtualNodeSpec {
         public Builder backends(VirtualNodeSpecBackend... backends) {
             return backends(List.of(backends));
         }
+        @CustomType.Setter
         public Builder listener(@Nullable VirtualNodeSpecListener listener) {
             this.listener = listener;
             return this;
         }
+        @CustomType.Setter
         public Builder logging(@Nullable VirtualNodeSpecLogging logging) {
             this.logging = logging;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceDiscovery(@Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery) {
             this.serviceDiscovery = serviceDiscovery;
             return this;
-        }        public VirtualNodeSpec build() {
-            return new VirtualNodeSpec(backendDefaults, backends, listener, logging, serviceDiscovery);
+        }
+        public VirtualNodeSpec build() {
+            final var o = new VirtualNodeSpec();
+            o.backendDefaults = backendDefaults;
+            o.backends = backends;
+            o.listener = listener;
+            o.logging = logging;
+            o.serviceDiscovery = serviceDiscovery;
+            return o;
         }
     }
 }

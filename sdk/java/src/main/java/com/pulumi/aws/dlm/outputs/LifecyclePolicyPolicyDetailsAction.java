@@ -15,21 +15,14 @@ public final class LifecyclePolicyPolicyDetailsAction {
      * @return The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
      * 
      */
-    private final List<LifecyclePolicyPolicyDetailsActionCrossRegionCopy> crossRegionCopies;
+    private List<LifecyclePolicyPolicyDetailsActionCrossRegionCopy> crossRegionCopies;
     /**
      * @return A name for the schedule.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsAction(
-        @CustomType.Parameter("crossRegionCopies") List<LifecyclePolicyPolicyDetailsActionCrossRegionCopy> crossRegionCopies,
-        @CustomType.Parameter("name") String name) {
-        this.crossRegionCopies = crossRegionCopies;
-        this.name = name;
-    }
-
+    private LifecyclePolicyPolicyDetailsAction() {}
     /**
      * @return The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
      * 
@@ -52,21 +45,18 @@ public final class LifecyclePolicyPolicyDetailsAction {
     public static Builder builder(LifecyclePolicyPolicyDetailsAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<LifecyclePolicyPolicyDetailsActionCrossRegionCopy> crossRegionCopies;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.crossRegionCopies = defaults.crossRegionCopies;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder crossRegionCopies(List<LifecyclePolicyPolicyDetailsActionCrossRegionCopy> crossRegionCopies) {
             this.crossRegionCopies = Objects.requireNonNull(crossRegionCopies);
             return this;
@@ -74,11 +64,16 @@ public final class LifecyclePolicyPolicyDetailsAction {
         public Builder crossRegionCopies(LifecyclePolicyPolicyDetailsActionCrossRegionCopy... crossRegionCopies) {
             return crossRegionCopies(List.of(crossRegionCopies));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public LifecyclePolicyPolicyDetailsAction build() {
-            return new LifecyclePolicyPolicyDetailsAction(crossRegionCopies, name);
+        }
+        public LifecyclePolicyPolicyDetailsAction build() {
+            final var o = new LifecyclePolicyPolicyDetailsAction();
+            o.crossRegionCopies = crossRegionCopies;
+            o.name = name;
+            return o;
         }
     }
 }

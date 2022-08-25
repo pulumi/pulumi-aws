@@ -15,21 +15,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
      * @return Maximum.
      * 
      */
-    private final @Nullable Double max;
+    private @Nullable Double max;
     /**
      * @return Minimum.
      * 
      */
-    private final @Nullable Double min;
+    private @Nullable Double min;
 
-    @CustomType.Constructor
-    private FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(
-        @CustomType.Parameter("max") @Nullable Double max,
-        @CustomType.Parameter("min") @Nullable Double min) {
-        this.max = max;
-        this.min = min;
-    }
-
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb() {}
     /**
      * @return Maximum.
      * 
@@ -52,30 +45,32 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
     public static Builder builder(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Double max;
         private @Nullable Double min;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.max = defaults.max;
     	      this.min = defaults.min;
         }
 
+        @CustomType.Setter
         public Builder max(@Nullable Double max) {
             this.max = max;
             return this;
         }
+        @CustomType.Setter
         public Builder min(@Nullable Double min) {
             this.min = min;
             return this;
-        }        public FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb build() {
-            return new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(max, min);
+        }
+        public FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb build() {
+            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb();
+            o.max = max;
+            o.min = min;
+            return o;
         }
     }
 }

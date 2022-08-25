@@ -14,28 +14,19 @@ public final class FleetNetwork {
      * @return A list of security group IDs associated with access to the provided subnets.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return The VPC ID with connectivity to associated websites.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private FleetNetwork(
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private FleetNetwork() {}
     /**
      * @return A list of security group IDs associated with access to the provided subnets.
      * 
@@ -65,16 +56,12 @@ public final class FleetNetwork {
     public static Builder builder(FleetNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
@@ -82,6 +69,7 @@ public final class FleetNetwork {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -89,6 +77,7 @@ public final class FleetNetwork {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -96,11 +85,17 @@ public final class FleetNetwork {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public FleetNetwork build() {
-            return new FleetNetwork(securityGroupIds, subnetIds, vpcId);
+        }
+        public FleetNetwork build() {
+            final var o = new FleetNetwork();
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

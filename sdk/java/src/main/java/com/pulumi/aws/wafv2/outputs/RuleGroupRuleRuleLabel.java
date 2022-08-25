@@ -13,13 +13,9 @@ public final class RuleGroupRuleRuleLabel {
      * @return The label string.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private RuleGroupRuleRuleLabel(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private RuleGroupRuleRuleLabel() {}
     /**
      * @return The label string.
      * 
@@ -35,24 +31,24 @@ public final class RuleGroupRuleRuleLabel {
     public static Builder builder(RuleGroupRuleRuleLabel defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleRuleLabel defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public RuleGroupRuleRuleLabel build() {
-            return new RuleGroupRuleRuleLabel(name);
+        }
+        public RuleGroupRuleRuleLabel build() {
+            final var o = new RuleGroupRuleRuleLabel();
+            o.name = name;
+            return o;
         }
     }
 }

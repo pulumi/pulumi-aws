@@ -17,28 +17,19 @@ public final class UsagePlanApiStageThrottle {
      * @return The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
      * 
      */
-    private final @Nullable Integer burstLimit;
+    private @Nullable Integer burstLimit;
     /**
      * @return The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return The API request steady-state rate limit.
      * 
      */
-    private final @Nullable Double rateLimit;
+    private @Nullable Double rateLimit;
 
-    @CustomType.Constructor
-    private UsagePlanApiStageThrottle(
-        @CustomType.Parameter("burstLimit") @Nullable Integer burstLimit,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("rateLimit") @Nullable Double rateLimit) {
-        this.burstLimit = burstLimit;
-        this.path = path;
-        this.rateLimit = rateLimit;
-    }
-
+    private UsagePlanApiStageThrottle() {}
     /**
      * @return The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
      * 
@@ -68,16 +59,12 @@ public final class UsagePlanApiStageThrottle {
     public static Builder builder(UsagePlanApiStageThrottle defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer burstLimit;
         private String path;
         private @Nullable Double rateLimit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UsagePlanApiStageThrottle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.burstLimit = defaults.burstLimit;
@@ -85,19 +72,27 @@ public final class UsagePlanApiStageThrottle {
     	      this.rateLimit = defaults.rateLimit;
         }
 
+        @CustomType.Setter
         public Builder burstLimit(@Nullable Integer burstLimit) {
             this.burstLimit = burstLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder rateLimit(@Nullable Double rateLimit) {
             this.rateLimit = rateLimit;
             return this;
-        }        public UsagePlanApiStageThrottle build() {
-            return new UsagePlanApiStageThrottle(burstLimit, path, rateLimit);
+        }
+        public UsagePlanApiStageThrottle build() {
+            final var o = new UsagePlanApiStageThrottle();
+            o.burstLimit = burstLimit;
+            o.path = path;
+            o.rateLimit = rateLimit;
+            return o;
         }
     }
 }

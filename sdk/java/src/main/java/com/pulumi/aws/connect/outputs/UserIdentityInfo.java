@@ -15,28 +15,19 @@ public final class UserIdentityInfo {
      * @return The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker&#39;s email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      * 
      */
-    private final @Nullable String email;
+    private @Nullable String email;
     /**
      * @return The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private final @Nullable String firstName;
+    private @Nullable String firstName;
     /**
      * @return The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private final @Nullable String lastName;
+    private @Nullable String lastName;
 
-    @CustomType.Constructor
-    private UserIdentityInfo(
-        @CustomType.Parameter("email") @Nullable String email,
-        @CustomType.Parameter("firstName") @Nullable String firstName,
-        @CustomType.Parameter("lastName") @Nullable String lastName) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
+    private UserIdentityInfo() {}
     /**
      * @return The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker&#39;s email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      * 
@@ -66,16 +57,12 @@ public final class UserIdentityInfo {
     public static Builder builder(UserIdentityInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String email;
         private @Nullable String firstName;
         private @Nullable String lastName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserIdentityInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
@@ -83,19 +70,27 @@ public final class UserIdentityInfo {
     	      this.lastName = defaults.lastName;
         }
 
+        @CustomType.Setter
         public Builder email(@Nullable String email) {
             this.email = email;
             return this;
         }
+        @CustomType.Setter
         public Builder firstName(@Nullable String firstName) {
             this.firstName = firstName;
             return this;
         }
+        @CustomType.Setter
         public Builder lastName(@Nullable String lastName) {
             this.lastName = lastName;
             return this;
-        }        public UserIdentityInfo build() {
-            return new UserIdentityInfo(email, firstName, lastName);
+        }
+        public UserIdentityInfo build() {
+            final var o = new UserIdentityInfo();
+            o.email = email;
+            o.firstName = firstName;
+            o.lastName = lastName;
+            return o;
         }
     }
 }

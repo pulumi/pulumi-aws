@@ -11,35 +11,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultActionAuthenticateCognito {
-    private final Map<String,String> authenticationRequestExtraParams;
-    private final String onUnauthenticatedRequest;
-    private final String scope;
-    private final String sessionCookieName;
-    private final Integer sessionTimeout;
-    private final String userPoolArn;
-    private final String userPoolClientId;
-    private final String userPoolDomain;
+    private Map<String,String> authenticationRequestExtraParams;
+    private String onUnauthenticatedRequest;
+    private String scope;
+    private String sessionCookieName;
+    private Integer sessionTimeout;
+    private String userPoolArn;
+    private String userPoolClientId;
+    private String userPoolDomain;
 
-    @CustomType.Constructor
-    private GetListenerDefaultActionAuthenticateCognito(
-        @CustomType.Parameter("authenticationRequestExtraParams") Map<String,String> authenticationRequestExtraParams,
-        @CustomType.Parameter("onUnauthenticatedRequest") String onUnauthenticatedRequest,
-        @CustomType.Parameter("scope") String scope,
-        @CustomType.Parameter("sessionCookieName") String sessionCookieName,
-        @CustomType.Parameter("sessionTimeout") Integer sessionTimeout,
-        @CustomType.Parameter("userPoolArn") String userPoolArn,
-        @CustomType.Parameter("userPoolClientId") String userPoolClientId,
-        @CustomType.Parameter("userPoolDomain") String userPoolDomain) {
-        this.authenticationRequestExtraParams = authenticationRequestExtraParams;
-        this.onUnauthenticatedRequest = onUnauthenticatedRequest;
-        this.scope = scope;
-        this.sessionCookieName = sessionCookieName;
-        this.sessionTimeout = sessionTimeout;
-        this.userPoolArn = userPoolArn;
-        this.userPoolClientId = userPoolClientId;
-        this.userPoolDomain = userPoolDomain;
-    }
-
+    private GetListenerDefaultActionAuthenticateCognito() {}
     public Map<String,String> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams;
     }
@@ -72,7 +53,7 @@ public final class GetListenerDefaultActionAuthenticateCognito {
     public static Builder builder(GetListenerDefaultActionAuthenticateCognito defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> authenticationRequestExtraParams;
         private String onUnauthenticatedRequest;
@@ -82,11 +63,7 @@ public final class GetListenerDefaultActionAuthenticateCognito {
         private String userPoolArn;
         private String userPoolClientId;
         private String userPoolDomain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetListenerDefaultActionAuthenticateCognito defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationRequestExtraParams = defaults.authenticationRequestExtraParams;
@@ -99,39 +76,57 @@ public final class GetListenerDefaultActionAuthenticateCognito {
     	      this.userPoolDomain = defaults.userPoolDomain;
         }
 
+        @CustomType.Setter
         public Builder authenticationRequestExtraParams(Map<String,String> authenticationRequestExtraParams) {
             this.authenticationRequestExtraParams = Objects.requireNonNull(authenticationRequestExtraParams);
             return this;
         }
+        @CustomType.Setter
         public Builder onUnauthenticatedRequest(String onUnauthenticatedRequest) {
             this.onUnauthenticatedRequest = Objects.requireNonNull(onUnauthenticatedRequest);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(String scope) {
             this.scope = Objects.requireNonNull(scope);
             return this;
         }
+        @CustomType.Setter
         public Builder sessionCookieName(String sessionCookieName) {
             this.sessionCookieName = Objects.requireNonNull(sessionCookieName);
             return this;
         }
+        @CustomType.Setter
         public Builder sessionTimeout(Integer sessionTimeout) {
             this.sessionTimeout = Objects.requireNonNull(sessionTimeout);
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolArn(String userPoolArn) {
             this.userPoolArn = Objects.requireNonNull(userPoolArn);
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolClientId(String userPoolClientId) {
             this.userPoolClientId = Objects.requireNonNull(userPoolClientId);
             return this;
         }
+        @CustomType.Setter
         public Builder userPoolDomain(String userPoolDomain) {
             this.userPoolDomain = Objects.requireNonNull(userPoolDomain);
             return this;
-        }        public GetListenerDefaultActionAuthenticateCognito build() {
-            return new GetListenerDefaultActionAuthenticateCognito(authenticationRequestExtraParams, onUnauthenticatedRequest, scope, sessionCookieName, sessionTimeout, userPoolArn, userPoolClientId, userPoolDomain);
+        }
+        public GetListenerDefaultActionAuthenticateCognito build() {
+            final var o = new GetListenerDefaultActionAuthenticateCognito();
+            o.authenticationRequestExtraParams = authenticationRequestExtraParams;
+            o.onUnauthenticatedRequest = onUnauthenticatedRequest;
+            o.scope = scope;
+            o.sessionCookieName = sessionCookieName;
+            o.sessionTimeout = sessionTimeout;
+            o.userPoolArn = userPoolArn;
+            o.userPoolClientId = userPoolClientId;
+            o.userPoolDomain = userPoolDomain;
+            return o;
         }
     }
 }

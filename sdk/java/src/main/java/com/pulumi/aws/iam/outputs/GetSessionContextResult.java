@@ -9,49 +9,34 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSessionContextResult {
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.
      * 
      */
-    private final String issuerArn;
+    private String issuerArn;
     /**
      * @return Unique identifier of the IAM role that issues the STS assumed role.
      * 
      */
-    private final String issuerId;
+    private String issuerId;
     /**
      * @return Name of the source role. Only available if `arn` corresponds to an STS assumed role.
      * 
      */
-    private final String issuerName;
+    private String issuerName;
     /**
      * @return Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
      * 
      */
-    private final String sessionName;
+    private String sessionName;
 
-    @CustomType.Constructor
-    private GetSessionContextResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("issuerArn") String issuerArn,
-        @CustomType.Parameter("issuerId") String issuerId,
-        @CustomType.Parameter("issuerName") String issuerName,
-        @CustomType.Parameter("sessionName") String sessionName) {
-        this.arn = arn;
-        this.id = id;
-        this.issuerArn = issuerArn;
-        this.issuerId = issuerId;
-        this.issuerName = issuerName;
-        this.sessionName = sessionName;
-    }
-
+    private GetSessionContextResult() {}
     public String arn() {
         return this.arn;
     }
@@ -98,7 +83,7 @@ public final class GetSessionContextResult {
     public static Builder builder(GetSessionContextResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
@@ -106,11 +91,7 @@ public final class GetSessionContextResult {
         private String issuerId;
         private String issuerName;
         private String sessionName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSessionContextResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -121,31 +102,45 @@ public final class GetSessionContextResult {
     	      this.sessionName = defaults.sessionName;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder issuerArn(String issuerArn) {
             this.issuerArn = Objects.requireNonNull(issuerArn);
             return this;
         }
+        @CustomType.Setter
         public Builder issuerId(String issuerId) {
             this.issuerId = Objects.requireNonNull(issuerId);
             return this;
         }
+        @CustomType.Setter
         public Builder issuerName(String issuerName) {
             this.issuerName = Objects.requireNonNull(issuerName);
             return this;
         }
+        @CustomType.Setter
         public Builder sessionName(String sessionName) {
             this.sessionName = Objects.requireNonNull(sessionName);
             return this;
-        }        public GetSessionContextResult build() {
-            return new GetSessionContextResult(arn, id, issuerArn, issuerId, issuerName, sessionName);
+        }
+        public GetSessionContextResult build() {
+            final var o = new GetSessionContextResult();
+            o.arn = arn;
+            o.id = id;
+            o.issuerArn = issuerArn;
+            o.issuerId = issuerId;
+            o.issuerName = issuerName;
+            o.sessionName = sessionName;
+            return o;
         }
     }
 }

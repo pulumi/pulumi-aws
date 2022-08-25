@@ -19,43 +19,30 @@ public final class RouteSpec {
      * @return The gRPC routing information for the route.
      * 
      */
-    private final @Nullable RouteSpecGrpcRoute grpcRoute;
+    private @Nullable RouteSpecGrpcRoute grpcRoute;
     /**
      * @return The HTTP/2 routing information for the route.
      * 
      */
-    private final @Nullable RouteSpecHttp2Route http2Route;
+    private @Nullable RouteSpecHttp2Route http2Route;
     /**
      * @return The HTTP routing information for the route.
      * 
      */
-    private final @Nullable RouteSpecHttpRoute httpRoute;
+    private @Nullable RouteSpecHttpRoute httpRoute;
     /**
      * @return The priority for the route, between `0` and `1000`.
      * Routes are matched based on the specified value, where `0` is the highest priority.
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return The TCP routing information for the route.
      * 
      */
-    private final @Nullable RouteSpecTcpRoute tcpRoute;
+    private @Nullable RouteSpecTcpRoute tcpRoute;
 
-    @CustomType.Constructor
-    private RouteSpec(
-        @CustomType.Parameter("grpcRoute") @Nullable RouteSpecGrpcRoute grpcRoute,
-        @CustomType.Parameter("http2Route") @Nullable RouteSpecHttp2Route http2Route,
-        @CustomType.Parameter("httpRoute") @Nullable RouteSpecHttpRoute httpRoute,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("tcpRoute") @Nullable RouteSpecTcpRoute tcpRoute) {
-        this.grpcRoute = grpcRoute;
-        this.http2Route = http2Route;
-        this.httpRoute = httpRoute;
-        this.priority = priority;
-        this.tcpRoute = tcpRoute;
-    }
-
+    private RouteSpec() {}
     /**
      * @return The gRPC routing information for the route.
      * 
@@ -100,18 +87,14 @@ public final class RouteSpec {
     public static Builder builder(RouteSpec defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RouteSpecGrpcRoute grpcRoute;
         private @Nullable RouteSpecHttp2Route http2Route;
         private @Nullable RouteSpecHttpRoute httpRoute;
         private @Nullable Integer priority;
         private @Nullable RouteSpecTcpRoute tcpRoute;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.grpcRoute = defaults.grpcRoute;
@@ -121,27 +104,39 @@ public final class RouteSpec {
     	      this.tcpRoute = defaults.tcpRoute;
         }
 
+        @CustomType.Setter
         public Builder grpcRoute(@Nullable RouteSpecGrpcRoute grpcRoute) {
             this.grpcRoute = grpcRoute;
             return this;
         }
+        @CustomType.Setter
         public Builder http2Route(@Nullable RouteSpecHttp2Route http2Route) {
             this.http2Route = http2Route;
             return this;
         }
+        @CustomType.Setter
         public Builder httpRoute(@Nullable RouteSpecHttpRoute httpRoute) {
             this.httpRoute = httpRoute;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder tcpRoute(@Nullable RouteSpecTcpRoute tcpRoute) {
             this.tcpRoute = tcpRoute;
             return this;
-        }        public RouteSpec build() {
-            return new RouteSpec(grpcRoute, http2Route, httpRoute, priority, tcpRoute);
+        }
+        public RouteSpec build() {
+            final var o = new RouteSpec();
+            o.grpcRoute = grpcRoute;
+            o.http2Route = http2Route;
+            o.httpRoute = httpRoute;
+            o.priority = priority;
+            o.tcpRoute = tcpRoute;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class AnalyticsApplicationInputsProcessingConfiguration {
      * @return The Lambda function configuration. See Lambda below for more details.
      * 
      */
-    private final AnalyticsApplicationInputsProcessingConfigurationLambda lambda;
+    private AnalyticsApplicationInputsProcessingConfigurationLambda lambda;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationInputsProcessingConfiguration(@CustomType.Parameter("lambda") AnalyticsApplicationInputsProcessingConfigurationLambda lambda) {
-        this.lambda = lambda;
-    }
-
+    private AnalyticsApplicationInputsProcessingConfiguration() {}
     /**
      * @return The Lambda function configuration. See Lambda below for more details.
      * 
@@ -35,24 +31,24 @@ public final class AnalyticsApplicationInputsProcessingConfiguration {
     public static Builder builder(AnalyticsApplicationInputsProcessingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private AnalyticsApplicationInputsProcessingConfigurationLambda lambda;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationInputsProcessingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lambda = defaults.lambda;
         }
 
+        @CustomType.Setter
         public Builder lambda(AnalyticsApplicationInputsProcessingConfigurationLambda lambda) {
             this.lambda = Objects.requireNonNull(lambda);
             return this;
-        }        public AnalyticsApplicationInputsProcessingConfiguration build() {
-            return new AnalyticsApplicationInputsProcessingConfiguration(lambda);
+        }
+        public AnalyticsApplicationInputsProcessingConfiguration build() {
+            final var o = new AnalyticsApplicationInputsProcessingConfiguration();
+            o.lambda = lambda;
+            return o;
         }
     }
 }

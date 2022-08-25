@@ -12,34 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSnapshotIdsResult {
-    private final @Nullable List<GetSnapshotIdsFilter> filters;
+    private @Nullable List<GetSnapshotIdsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of EBS snapshot IDs, sorted by creation time in descending order.
      * 
      */
-    private final List<String> ids;
-    private final @Nullable List<String> owners;
-    private final @Nullable List<String> restorableByUserIds;
+    private List<String> ids;
+    private @Nullable List<String> owners;
+    private @Nullable List<String> restorableByUserIds;
 
-    @CustomType.Constructor
-    private GetSnapshotIdsResult(
-        @CustomType.Parameter("filters") @Nullable List<GetSnapshotIdsFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("owners") @Nullable List<String> owners,
-        @CustomType.Parameter("restorableByUserIds") @Nullable List<String> restorableByUserIds) {
-        this.filters = filters;
-        this.id = id;
-        this.ids = ids;
-        this.owners = owners;
-        this.restorableByUserIds = restorableByUserIds;
-    }
-
+    private GetSnapshotIdsResult() {}
     public List<GetSnapshotIdsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -71,18 +58,14 @@ public final class GetSnapshotIdsResult {
     public static Builder builder(GetSnapshotIdsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetSnapshotIdsFilter> filters;
         private String id;
         private List<String> ids;
         private @Nullable List<String> owners;
         private @Nullable List<String> restorableByUserIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotIdsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -92,6 +75,7 @@ public final class GetSnapshotIdsResult {
     	      this.restorableByUserIds = defaults.restorableByUserIds;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetSnapshotIdsFilter> filters) {
             this.filters = filters;
             return this;
@@ -99,10 +83,12 @@ public final class GetSnapshotIdsResult {
         public Builder filters(GetSnapshotIdsFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -110,6 +96,7 @@ public final class GetSnapshotIdsResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder owners(@Nullable List<String> owners) {
             this.owners = owners;
             return this;
@@ -117,14 +104,22 @@ public final class GetSnapshotIdsResult {
         public Builder owners(String... owners) {
             return owners(List.of(owners));
         }
+        @CustomType.Setter
         public Builder restorableByUserIds(@Nullable List<String> restorableByUserIds) {
             this.restorableByUserIds = restorableByUserIds;
             return this;
         }
         public Builder restorableByUserIds(String... restorableByUserIds) {
             return restorableByUserIds(List.of(restorableByUserIds));
-        }        public GetSnapshotIdsResult build() {
-            return new GetSnapshotIdsResult(filters, id, ids, owners, restorableByUserIds);
+        }
+        public GetSnapshotIdsResult build() {
+            final var o = new GetSnapshotIdsResult();
+            o.filters = filters;
+            o.id = id;
+            o.ids = ids;
+            o.owners = owners;
+            o.restorableByUserIds = restorableByUserIds;
+            return o;
         }
     }
 }

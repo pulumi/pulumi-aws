@@ -14,13 +14,9 @@ public final class WebAclRuleActionCaptchaCustomRequestHandling {
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
-    private final List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
+    private List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
 
-    @CustomType.Constructor
-    private WebAclRuleActionCaptchaCustomRequestHandling(@CustomType.Parameter("insertHeaders") List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders) {
-        this.insertHeaders = insertHeaders;
-    }
-
+    private WebAclRuleActionCaptchaCustomRequestHandling() {}
     /**
      * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclRuleActionCaptchaCustomRequestHandling {
     public static Builder builder(WebAclRuleActionCaptchaCustomRequestHandling defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleActionCaptchaCustomRequestHandling defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.insertHeaders = defaults.insertHeaders;
         }
 
+        @CustomType.Setter
         public Builder insertHeaders(List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders) {
             this.insertHeaders = Objects.requireNonNull(insertHeaders);
             return this;
         }
         public Builder insertHeaders(WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
-        }        public WebAclRuleActionCaptchaCustomRequestHandling build() {
-            return new WebAclRuleActionCaptchaCustomRequestHandling(insertHeaders);
+        }
+        public WebAclRuleActionCaptchaCustomRequestHandling build() {
+            final var o = new WebAclRuleActionCaptchaCustomRequestHandling();
+            o.insertHeaders = insertHeaders;
+            return o;
         }
     }
 }

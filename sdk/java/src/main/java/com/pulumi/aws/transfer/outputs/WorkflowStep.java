@@ -19,42 +19,29 @@ public final class WorkflowStep {
      * @return Details for a step that performs a file copy. See Copy Step Details below.
      * 
      */
-    private final @Nullable WorkflowStepCopyStepDetails copyStepDetails;
+    private @Nullable WorkflowStepCopyStepDetails copyStepDetails;
     /**
      * @return Details for a step that invokes a lambda function.
      * 
      */
-    private final @Nullable WorkflowStepCustomStepDetails customStepDetails;
+    private @Nullable WorkflowStepCustomStepDetails customStepDetails;
     /**
      * @return Details for a step that deletes the file.
      * 
      */
-    private final @Nullable WorkflowStepDeleteStepDetails deleteStepDetails;
+    private @Nullable WorkflowStepDeleteStepDetails deleteStepDetails;
     /**
      * @return Details for a step that creates one or more tags.
      * 
      */
-    private final @Nullable WorkflowStepTagStepDetails tagStepDetails;
+    private @Nullable WorkflowStepTagStepDetails tagStepDetails;
     /**
      * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private WorkflowStep(
-        @CustomType.Parameter("copyStepDetails") @Nullable WorkflowStepCopyStepDetails copyStepDetails,
-        @CustomType.Parameter("customStepDetails") @Nullable WorkflowStepCustomStepDetails customStepDetails,
-        @CustomType.Parameter("deleteStepDetails") @Nullable WorkflowStepDeleteStepDetails deleteStepDetails,
-        @CustomType.Parameter("tagStepDetails") @Nullable WorkflowStepTagStepDetails tagStepDetails,
-        @CustomType.Parameter("type") String type) {
-        this.copyStepDetails = copyStepDetails;
-        this.customStepDetails = customStepDetails;
-        this.deleteStepDetails = deleteStepDetails;
-        this.tagStepDetails = tagStepDetails;
-        this.type = type;
-    }
-
+    private WorkflowStep() {}
     /**
      * @return Details for a step that performs a file copy. See Copy Step Details below.
      * 
@@ -98,18 +85,14 @@ public final class WorkflowStep {
     public static Builder builder(WorkflowStep defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WorkflowStepCopyStepDetails copyStepDetails;
         private @Nullable WorkflowStepCustomStepDetails customStepDetails;
         private @Nullable WorkflowStepDeleteStepDetails deleteStepDetails;
         private @Nullable WorkflowStepTagStepDetails tagStepDetails;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.copyStepDetails = defaults.copyStepDetails;
@@ -119,27 +102,39 @@ public final class WorkflowStep {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder copyStepDetails(@Nullable WorkflowStepCopyStepDetails copyStepDetails) {
             this.copyStepDetails = copyStepDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder customStepDetails(@Nullable WorkflowStepCustomStepDetails customStepDetails) {
             this.customStepDetails = customStepDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder deleteStepDetails(@Nullable WorkflowStepDeleteStepDetails deleteStepDetails) {
             this.deleteStepDetails = deleteStepDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder tagStepDetails(@Nullable WorkflowStepTagStepDetails tagStepDetails) {
             this.tagStepDetails = tagStepDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public WorkflowStep build() {
-            return new WorkflowStep(copyStepDetails, customStepDetails, deleteStepDetails, tagStepDetails, type);
+        }
+        public WorkflowStep build() {
+            final var o = new WorkflowStep();
+            o.copyStepDetails = copyStepDetails;
+            o.customStepDetails = customStepDetails;
+            o.deleteStepDetails = deleteStepDetails;
+            o.tagStepDetails = tagStepDetails;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableTtl {
-    private final String attributeName;
-    private final Boolean enabled;
+    private String attributeName;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetTableTtl(
-        @CustomType.Parameter("attributeName") String attributeName,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.attributeName = attributeName;
-        this.enabled = enabled;
-    }
-
+    private GetTableTtl() {}
     public String attributeName() {
         return this.attributeName;
     }
@@ -35,30 +28,32 @@ public final class GetTableTtl {
     public static Builder builder(GetTableTtl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String attributeName;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTableTtl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attributeName = defaults.attributeName;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder attributeName(String attributeName) {
             this.attributeName = Objects.requireNonNull(attributeName);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetTableTtl build() {
-            return new GetTableTtl(attributeName, enabled);
+        }
+        public GetTableTtl build() {
+            final var o = new GetTableTtl();
+            o.attributeName = attributeName;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

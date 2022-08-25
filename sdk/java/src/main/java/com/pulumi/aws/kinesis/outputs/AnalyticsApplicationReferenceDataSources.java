@@ -17,35 +17,24 @@ public final class AnalyticsApplicationReferenceDataSources {
      * @return The ARN of the Kinesis Analytics Application.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The S3 configuration for the reference data source. See S3 Reference below for more details.
      * 
      */
-    private final AnalyticsApplicationReferenceDataSourcesS3 s3;
+    private AnalyticsApplicationReferenceDataSourcesS3 s3;
     /**
      * @return The Schema format of the data in the streaming source. See Source Schema below for more details.
      * 
      */
-    private final AnalyticsApplicationReferenceDataSourcesSchema schema;
+    private AnalyticsApplicationReferenceDataSourcesSchema schema;
     /**
      * @return The in-application Table Name.
      * 
      */
-    private final String tableName;
+    private String tableName;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationReferenceDataSources(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("s3") AnalyticsApplicationReferenceDataSourcesS3 s3,
-        @CustomType.Parameter("schema") AnalyticsApplicationReferenceDataSourcesSchema schema,
-        @CustomType.Parameter("tableName") String tableName) {
-        this.id = id;
-        this.s3 = s3;
-        this.schema = schema;
-        this.tableName = tableName;
-    }
-
+    private AnalyticsApplicationReferenceDataSources() {}
     /**
      * @return The ARN of the Kinesis Analytics Application.
      * 
@@ -82,17 +71,13 @@ public final class AnalyticsApplicationReferenceDataSources {
     public static Builder builder(AnalyticsApplicationReferenceDataSources defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private AnalyticsApplicationReferenceDataSourcesS3 s3;
         private AnalyticsApplicationReferenceDataSourcesSchema schema;
         private String tableName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationReferenceDataSources defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -101,23 +86,33 @@ public final class AnalyticsApplicationReferenceDataSources {
     	      this.tableName = defaults.tableName;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder s3(AnalyticsApplicationReferenceDataSourcesS3 s3) {
             this.s3 = Objects.requireNonNull(s3);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(AnalyticsApplicationReferenceDataSourcesSchema schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
         }
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             this.tableName = Objects.requireNonNull(tableName);
             return this;
-        }        public AnalyticsApplicationReferenceDataSources build() {
-            return new AnalyticsApplicationReferenceDataSources(id, s3, schema, tableName);
+        }
+        public AnalyticsApplicationReferenceDataSources build() {
+            final var o = new AnalyticsApplicationReferenceDataSources();
+            o.id = id;
+            o.s3 = s3;
+            o.schema = schema;
+            o.tableName = tableName;
+            return o;
         }
     }
 }

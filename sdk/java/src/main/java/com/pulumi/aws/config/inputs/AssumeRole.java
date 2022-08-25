@@ -14,44 +14,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AssumeRole {
-    private final @Nullable String duration;
+    private @Nullable String duration;
     /**
      * @deprecated
      * Use assume_role.duration instead
      * 
      */
     @Deprecated /* Use assume_role.duration instead */
-    private final @Nullable Integer durationSeconds;
-    private final @Nullable String externalId;
-    private final @Nullable String policy;
-    private final @Nullable List<String> policyArns;
-    private final @Nullable String roleArn;
-    private final @Nullable String sessionName;
-    private final @Nullable Map<String,String> tags;
-    private final @Nullable List<String> transitiveTagKeys;
+    private @Nullable Integer durationSeconds;
+    private @Nullable String externalId;
+    private @Nullable String policy;
+    private @Nullable List<String> policyArns;
+    private @Nullable String roleArn;
+    private @Nullable String sessionName;
+    private @Nullable Map<String,String> tags;
+    private @Nullable List<String> transitiveTagKeys;
 
-    @CustomType.Constructor
-    private AssumeRole(
-        @CustomType.Parameter("duration") @Nullable String duration,
-        @CustomType.Parameter("durationSeconds") @Nullable Integer durationSeconds,
-        @CustomType.Parameter("externalId") @Nullable String externalId,
-        @CustomType.Parameter("policy") @Nullable String policy,
-        @CustomType.Parameter("policyArns") @Nullable List<String> policyArns,
-        @CustomType.Parameter("roleArn") @Nullable String roleArn,
-        @CustomType.Parameter("sessionName") @Nullable String sessionName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("transitiveTagKeys") @Nullable List<String> transitiveTagKeys) {
-        this.duration = duration;
-        this.durationSeconds = durationSeconds;
-        this.externalId = externalId;
-        this.policy = policy;
-        this.policyArns = policyArns;
-        this.roleArn = roleArn;
-        this.sessionName = sessionName;
-        this.tags = tags;
-        this.transitiveTagKeys = transitiveTagKeys;
-    }
-
+    private AssumeRole() {}
     public Optional<String> duration() {
         return Optional.ofNullable(this.duration);
     }
@@ -93,7 +72,7 @@ public final class AssumeRole {
     public static Builder builder(AssumeRole defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String duration;
         private @Nullable Integer durationSeconds;
@@ -104,11 +83,7 @@ public final class AssumeRole {
         private @Nullable String sessionName;
         private @Nullable Map<String,String> tags;
         private @Nullable List<String> transitiveTagKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AssumeRole defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
@@ -122,22 +97,27 @@ public final class AssumeRole {
     	      this.transitiveTagKeys = defaults.transitiveTagKeys;
         }
 
+        @CustomType.Setter
         public Builder duration(@Nullable String duration) {
             this.duration = duration;
             return this;
         }
+        @CustomType.Setter
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
             this.durationSeconds = durationSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder externalId(@Nullable String externalId) {
             this.externalId = externalId;
             return this;
         }
+        @CustomType.Setter
         public Builder policy(@Nullable String policy) {
             this.policy = policy;
             return this;
         }
+        @CustomType.Setter
         public Builder policyArns(@Nullable List<String> policyArns) {
             this.policyArns = policyArns;
             return this;
@@ -145,26 +125,41 @@ public final class AssumeRole {
         public Builder policyArns(String... policyArns) {
             return policyArns(List.of(policyArns));
         }
+        @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
             this.roleArn = roleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder sessionName(@Nullable String sessionName) {
             this.sessionName = sessionName;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder transitiveTagKeys(@Nullable List<String> transitiveTagKeys) {
             this.transitiveTagKeys = transitiveTagKeys;
             return this;
         }
         public Builder transitiveTagKeys(String... transitiveTagKeys) {
             return transitiveTagKeys(List.of(transitiveTagKeys));
-        }        public AssumeRole build() {
-            return new AssumeRole(duration, durationSeconds, externalId, policy, policyArns, roleArn, sessionName, tags, transitiveTagKeys);
+        }
+        public AssumeRole build() {
+            final var o = new AssumeRole();
+            o.duration = duration;
+            o.durationSeconds = durationSeconds;
+            o.externalId = externalId;
+            o.policy = policy;
+            o.policyArns = policyArns;
+            o.roleArn = roleArn;
+            o.sessionName = sessionName;
+            o.tags = tags;
+            o.transitiveTagKeys = transitiveTagKeys;
+            return o;
         }
     }
 }

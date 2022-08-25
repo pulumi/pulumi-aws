@@ -20,49 +20,34 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
      * @return Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
      * 
      */
-    private final @Nullable String bidPrice;
+    private @Nullable String bidPrice;
     /**
      * @return Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
      * 
      */
-    private final @Nullable Double bidPriceAsPercentageOfOnDemandPrice;
+    private @Nullable Double bidPriceAsPercentageOfOnDemandPrice;
     /**
      * @return Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
      * 
      */
-    private final @Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigConfiguration> configurations;
+    private @Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigConfiguration> configurations;
     /**
      * @return Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
      * 
      */
-    private final @Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig> ebsConfigs;
+    private @Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig> ebsConfigs;
     /**
      * @return EC2 instance type for all instances in the instance group.
      * 
      */
-    private final String instanceType;
+    private String instanceType;
     /**
      * @return Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
      * 
      */
-    private final @Nullable Integer weightedCapacity;
+    private @Nullable Integer weightedCapacity;
 
-    @CustomType.Constructor
-    private ClusterMasterInstanceFleetInstanceTypeConfig(
-        @CustomType.Parameter("bidPrice") @Nullable String bidPrice,
-        @CustomType.Parameter("bidPriceAsPercentageOfOnDemandPrice") @Nullable Double bidPriceAsPercentageOfOnDemandPrice,
-        @CustomType.Parameter("configurations") @Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigConfiguration> configurations,
-        @CustomType.Parameter("ebsConfigs") @Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig> ebsConfigs,
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("weightedCapacity") @Nullable Integer weightedCapacity) {
-        this.bidPrice = bidPrice;
-        this.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
-        this.configurations = configurations;
-        this.ebsConfigs = ebsConfigs;
-        this.instanceType = instanceType;
-        this.weightedCapacity = weightedCapacity;
-    }
-
+    private ClusterMasterInstanceFleetInstanceTypeConfig() {}
     /**
      * @return Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
      * 
@@ -113,7 +98,7 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
     public static Builder builder(ClusterMasterInstanceFleetInstanceTypeConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bidPrice;
         private @Nullable Double bidPriceAsPercentageOfOnDemandPrice;
@@ -121,11 +106,7 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
         private @Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig> ebsConfigs;
         private String instanceType;
         private @Nullable Integer weightedCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterMasterInstanceFleetInstanceTypeConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bidPrice = defaults.bidPrice;
@@ -136,14 +117,17 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
     	      this.weightedCapacity = defaults.weightedCapacity;
         }
 
+        @CustomType.Setter
         public Builder bidPrice(@Nullable String bidPrice) {
             this.bidPrice = bidPrice;
             return this;
         }
+        @CustomType.Setter
         public Builder bidPriceAsPercentageOfOnDemandPrice(@Nullable Double bidPriceAsPercentageOfOnDemandPrice) {
             this.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
             return this;
         }
+        @CustomType.Setter
         public Builder configurations(@Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigConfiguration> configurations) {
             this.configurations = configurations;
             return this;
@@ -151,6 +135,7 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
         public Builder configurations(ClusterMasterInstanceFleetInstanceTypeConfigConfiguration... configurations) {
             return configurations(List.of(configurations));
         }
+        @CustomType.Setter
         public Builder ebsConfigs(@Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig> ebsConfigs) {
             this.ebsConfigs = ebsConfigs;
             return this;
@@ -158,15 +143,25 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
         public Builder ebsConfigs(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig... ebsConfigs) {
             return ebsConfigs(List.of(ebsConfigs));
         }
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder weightedCapacity(@Nullable Integer weightedCapacity) {
             this.weightedCapacity = weightedCapacity;
             return this;
-        }        public ClusterMasterInstanceFleetInstanceTypeConfig build() {
-            return new ClusterMasterInstanceFleetInstanceTypeConfig(bidPrice, bidPriceAsPercentageOfOnDemandPrice, configurations, ebsConfigs, instanceType, weightedCapacity);
+        }
+        public ClusterMasterInstanceFleetInstanceTypeConfig build() {
+            final var o = new ClusterMasterInstanceFleetInstanceTypeConfig();
+            o.bidPrice = bidPrice;
+            o.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
+            o.configurations = configurations;
+            o.ebsConfigs = ebsConfigs;
+            o.instanceType = instanceType;
+            o.weightedCapacity = weightedCapacity;
+            return o;
         }
     }
 }

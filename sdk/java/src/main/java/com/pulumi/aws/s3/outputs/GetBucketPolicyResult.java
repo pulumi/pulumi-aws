@@ -9,28 +9,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketPolicyResult {
-    private final String bucket;
+    private String bucket;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return IAM bucket policy.
      * 
      */
-    private final String policy;
+    private String policy;
 
-    @CustomType.Constructor
-    private GetBucketPolicyResult(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("policy") String policy) {
-        this.bucket = bucket;
-        this.id = id;
-        this.policy = policy;
-    }
-
+    private GetBucketPolicyResult() {}
     public String bucket() {
         return this.bucket;
     }
@@ -56,16 +47,12 @@ public final class GetBucketPolicyResult {
     public static Builder builder(GetBucketPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private String id;
         private String policy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBucketPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -73,19 +60,27 @@ public final class GetBucketPolicyResult {
     	      this.policy = defaults.policy;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder policy(String policy) {
             this.policy = Objects.requireNonNull(policy);
             return this;
-        }        public GetBucketPolicyResult build() {
-            return new GetBucketPolicyResult(bucket, id, policy);
+        }
+        public GetBucketPolicyResult build() {
+            final var o = new GetBucketPolicyResult();
+            o.bucket = bucket;
+            o.id = id;
+            o.policy = policy;
+            return o;
         }
     }
 }

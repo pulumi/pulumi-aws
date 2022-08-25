@@ -16,59 +16,40 @@ public final class GetMapResult {
      * @return List of configurations that specify the map tile style selected from a partner data provider.
      * 
      */
-    private final List<GetMapConfiguration> configurations;
+    private List<GetMapConfiguration> configurations;
     /**
      * @return The timestamp for when the map resource was created in ISO 8601 format.
      * 
      */
-    private final String createTime;
+    private String createTime;
     /**
      * @return The optional description for the map resource.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Amazon Resource Name (ARN) for the map resource.
      * 
      */
-    private final String mapArn;
-    private final String mapName;
+    private String mapArn;
+    private String mapName;
     /**
      * @return Key-value map of resource tags for the map.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
-    private final String updateTime;
+    private String updateTime;
 
-    @CustomType.Constructor
-    private GetMapResult(
-        @CustomType.Parameter("configurations") List<GetMapConfiguration> configurations,
-        @CustomType.Parameter("createTime") String createTime,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("mapArn") String mapArn,
-        @CustomType.Parameter("mapName") String mapName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("updateTime") String updateTime) {
-        this.configurations = configurations;
-        this.createTime = createTime;
-        this.description = description;
-        this.id = id;
-        this.mapArn = mapArn;
-        this.mapName = mapName;
-        this.tags = tags;
-        this.updateTime = updateTime;
-    }
-
+    private GetMapResult() {}
     /**
      * @return List of configurations that specify the map tile style selected from a partner data provider.
      * 
@@ -129,7 +110,7 @@ public final class GetMapResult {
     public static Builder builder(GetMapResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetMapConfiguration> configurations;
         private String createTime;
@@ -139,11 +120,7 @@ public final class GetMapResult {
         private String mapName;
         private Map<String,String> tags;
         private String updateTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMapResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configurations = defaults.configurations;
@@ -156,6 +133,7 @@ public final class GetMapResult {
     	      this.updateTime = defaults.updateTime;
         }
 
+        @CustomType.Setter
         public Builder configurations(List<GetMapConfiguration> configurations) {
             this.configurations = Objects.requireNonNull(configurations);
             return this;
@@ -163,35 +141,52 @@ public final class GetMapResult {
         public Builder configurations(GetMapConfiguration... configurations) {
             return configurations(List.of(configurations));
         }
+        @CustomType.Setter
         public Builder createTime(String createTime) {
             this.createTime = Objects.requireNonNull(createTime);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder mapArn(String mapArn) {
             this.mapArn = Objects.requireNonNull(mapArn);
             return this;
         }
+        @CustomType.Setter
         public Builder mapName(String mapName) {
             this.mapName = Objects.requireNonNull(mapName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder updateTime(String updateTime) {
             this.updateTime = Objects.requireNonNull(updateTime);
             return this;
-        }        public GetMapResult build() {
-            return new GetMapResult(configurations, createTime, description, id, mapArn, mapName, tags, updateTime);
+        }
+        public GetMapResult build() {
+            final var o = new GetMapResult();
+            o.configurations = configurations;
+            o.createTime = createTime;
+            o.description = description;
+            o.id = id;
+            o.mapArn = mapArn;
+            o.mapName = mapName;
+            o.tags = tags;
+            o.updateTime = updateTime;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig {
      * @return The encryption configuration. Documented below.
      * 
      */
-    private final InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig encryptionConfig;
+    private InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig encryptionConfig;
     /**
      * @return The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `&lt;prefix&gt;-connect-&lt;connect_instance_alias&gt;-contact-` since the API appends additional details to the `prefix`.
      * 
      */
-    private final String prefix;
+    private String prefix;
     /**
      * @return The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
      * 
      */
-    private final Integer retentionPeriodHours;
+    private Integer retentionPeriodHours;
 
-    @CustomType.Constructor
-    private InstanceStorageConfigStorageConfigKinesisVideoStreamConfig(
-        @CustomType.Parameter("encryptionConfig") InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig encryptionConfig,
-        @CustomType.Parameter("prefix") String prefix,
-        @CustomType.Parameter("retentionPeriodHours") Integer retentionPeriodHours) {
-        this.encryptionConfig = encryptionConfig;
-        this.prefix = prefix;
-        this.retentionPeriodHours = retentionPeriodHours;
-    }
-
+    private InstanceStorageConfigStorageConfigKinesisVideoStreamConfig() {}
     /**
      * @return The encryption configuration. Documented below.
      * 
@@ -66,16 +57,12 @@ public final class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig {
     public static Builder builder(InstanceStorageConfigStorageConfigKinesisVideoStreamConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig encryptionConfig;
         private String prefix;
         private Integer retentionPeriodHours;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceStorageConfigStorageConfigKinesisVideoStreamConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionConfig = defaults.encryptionConfig;
@@ -83,19 +70,27 @@ public final class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig {
     	      this.retentionPeriodHours = defaults.retentionPeriodHours;
         }
 
+        @CustomType.Setter
         public Builder encryptionConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig encryptionConfig) {
             this.encryptionConfig = Objects.requireNonNull(encryptionConfig);
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(String prefix) {
             this.prefix = Objects.requireNonNull(prefix);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPeriodHours(Integer retentionPeriodHours) {
             this.retentionPeriodHours = Objects.requireNonNull(retentionPeriodHours);
             return this;
-        }        public InstanceStorageConfigStorageConfigKinesisVideoStreamConfig build() {
-            return new InstanceStorageConfigStorageConfigKinesisVideoStreamConfig(encryptionConfig, prefix, retentionPeriodHours);
+        }
+        public InstanceStorageConfigStorageConfigKinesisVideoStreamConfig build() {
+            final var o = new InstanceStorageConfigStorageConfigKinesisVideoStreamConfig();
+            o.encryptionConfig = encryptionConfig;
+            o.prefix = prefix;
+            o.retentionPeriodHours = retentionPeriodHours;
+            return o;
         }
     }
 }

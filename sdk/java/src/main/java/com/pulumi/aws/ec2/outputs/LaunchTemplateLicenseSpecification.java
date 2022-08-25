@@ -13,13 +13,9 @@ public final class LaunchTemplateLicenseSpecification {
      * @return ARN of the license configuration.
      * 
      */
-    private final String licenseConfigurationArn;
+    private String licenseConfigurationArn;
 
-    @CustomType.Constructor
-    private LaunchTemplateLicenseSpecification(@CustomType.Parameter("licenseConfigurationArn") String licenseConfigurationArn) {
-        this.licenseConfigurationArn = licenseConfigurationArn;
-    }
-
+    private LaunchTemplateLicenseSpecification() {}
     /**
      * @return ARN of the license configuration.
      * 
@@ -35,24 +31,24 @@ public final class LaunchTemplateLicenseSpecification {
     public static Builder builder(LaunchTemplateLicenseSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String licenseConfigurationArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateLicenseSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.licenseConfigurationArn = defaults.licenseConfigurationArn;
         }
 
+        @CustomType.Setter
         public Builder licenseConfigurationArn(String licenseConfigurationArn) {
             this.licenseConfigurationArn = Objects.requireNonNull(licenseConfigurationArn);
             return this;
-        }        public LaunchTemplateLicenseSpecification build() {
-            return new LaunchTemplateLicenseSpecification(licenseConfigurationArn);
+        }
+        public LaunchTemplateLicenseSpecification build() {
+            final var o = new LaunchTemplateLicenseSpecification();
+            o.licenseConfigurationArn = licenseConfigurationArn;
+            return o;
         }
     }
 }

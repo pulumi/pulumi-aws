@@ -16,21 +16,14 @@ public final class VirtualServiceSpecProvider {
      * @return The virtual node associated with a virtual service.
      * 
      */
-    private final @Nullable VirtualServiceSpecProviderVirtualNode virtualNode;
+    private @Nullable VirtualServiceSpecProviderVirtualNode virtualNode;
     /**
      * @return The virtual router associated with a virtual service.
      * 
      */
-    private final @Nullable VirtualServiceSpecProviderVirtualRouter virtualRouter;
+    private @Nullable VirtualServiceSpecProviderVirtualRouter virtualRouter;
 
-    @CustomType.Constructor
-    private VirtualServiceSpecProvider(
-        @CustomType.Parameter("virtualNode") @Nullable VirtualServiceSpecProviderVirtualNode virtualNode,
-        @CustomType.Parameter("virtualRouter") @Nullable VirtualServiceSpecProviderVirtualRouter virtualRouter) {
-        this.virtualNode = virtualNode;
-        this.virtualRouter = virtualRouter;
-    }
-
+    private VirtualServiceSpecProvider() {}
     /**
      * @return The virtual node associated with a virtual service.
      * 
@@ -53,30 +46,32 @@ public final class VirtualServiceSpecProvider {
     public static Builder builder(VirtualServiceSpecProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualServiceSpecProviderVirtualNode virtualNode;
         private @Nullable VirtualServiceSpecProviderVirtualRouter virtualRouter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualServiceSpecProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualNode = defaults.virtualNode;
     	      this.virtualRouter = defaults.virtualRouter;
         }
 
+        @CustomType.Setter
         public Builder virtualNode(@Nullable VirtualServiceSpecProviderVirtualNode virtualNode) {
             this.virtualNode = virtualNode;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualRouter(@Nullable VirtualServiceSpecProviderVirtualRouter virtualRouter) {
             this.virtualRouter = virtualRouter;
             return this;
-        }        public VirtualServiceSpecProvider build() {
-            return new VirtualServiceSpecProvider(virtualNode, virtualRouter);
+        }
+        public VirtualServiceSpecProvider build() {
+            final var o = new VirtualServiceSpecProvider();
+            o.virtualNode = virtualNode;
+            o.virtualRouter = virtualRouter;
+            return o;
         }
     }
 }

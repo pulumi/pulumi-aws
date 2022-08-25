@@ -24,212 +24,147 @@ public final class GetFunctionResult {
      * @return The instruction set architecture for the Lambda function.
      * 
      */
-    private final List<String> architectures;
+    private List<String> architectures;
     /**
      * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Amazon Resource Name (ARN) for a Code Signing Configuration.
      * 
      */
-    private final String codeSigningConfigArn;
+    private String codeSigningConfigArn;
     /**
      * @return Configure the function&#39;s *dead letter queue*.
      * 
      */
-    private final GetFunctionDeadLetterConfig deadLetterConfig;
+    private GetFunctionDeadLetterConfig deadLetterConfig;
     /**
      * @return Description of what your Lambda Function does.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The Lambda environment&#39;s configuration settings.
      * 
      */
-    private final GetFunctionEnvironment environment;
+    private GetFunctionEnvironment environment;
     /**
      * @return The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
      * 
      */
-    private final List<GetFunctionEphemeralStorage> ephemeralStorages;
+    private List<GetFunctionEphemeralStorage> ephemeralStorages;
     /**
      * @return The connection settings for an Amazon EFS file system.
      * 
      */
-    private final List<GetFunctionFileSystemConfig> fileSystemConfigs;
-    private final String functionName;
+    private List<GetFunctionFileSystemConfig> fileSystemConfigs;
+    private String functionName;
     /**
      * @return The function entrypoint in your code.
      * 
      */
-    private final String handler;
+    private String handler;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The URI of the container image.
      * 
      */
-    private final String imageUri;
+    private String imageUri;
     /**
      * @return The ARN to be used for invoking Lambda Function from API Gateway.
      * 
      */
-    private final String invokeArn;
+    private String invokeArn;
     /**
      * @return The ARN for the KMS encryption key.
      * 
      */
-    private final String kmsKeyArn;
+    private String kmsKeyArn;
     /**
      * @return The date this resource was last modified.
      * 
      */
-    private final String lastModified;
+    private String lastModified;
     /**
      * @return A list of Lambda Layer ARNs attached to your Lambda Function.
      * 
      */
-    private final List<String> layers;
+    private List<String> layers;
     /**
      * @return Amount of memory in MB your Lambda Function can use at runtime.
      * 
      */
-    private final Integer memorySize;
+    private Integer memorySize;
     /**
      * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
      * 
      */
-    private final String qualifiedArn;
-    private final @Nullable String qualifier;
+    private String qualifiedArn;
+    private @Nullable String qualifier;
     /**
      * @return The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
      * 
      */
-    private final Integer reservedConcurrentExecutions;
+    private Integer reservedConcurrentExecutions;
     /**
      * @return IAM role attached to the Lambda Function.
      * 
      */
-    private final String role;
+    private String role;
     /**
      * @return The runtime environment for the Lambda function.
      * 
      */
-    private final String runtime;
+    private String runtime;
     /**
      * @return The Amazon Resource Name (ARN) of a signing job.
      * 
      */
-    private final String signingJobArn;
+    private String signingJobArn;
     /**
      * @return The Amazon Resource Name (ARN) for a signing profile version.
      * 
      */
-    private final String signingProfileVersionArn;
+    private String signingProfileVersionArn;
     /**
      * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      */
-    private final String sourceCodeHash;
+    private String sourceCodeHash;
     /**
      * @return The size in bytes of the function .zip file.
      * 
      */
-    private final Integer sourceCodeSize;
-    private final Map<String,String> tags;
+    private Integer sourceCodeSize;
+    private Map<String,String> tags;
     /**
      * @return The function execution time at which Lambda should terminate the function.
      * 
      */
-    private final Integer timeout;
+    private Integer timeout;
     /**
      * @return Tracing settings of the function.
      * 
      */
-    private final GetFunctionTracingConfig tracingConfig;
+    private GetFunctionTracingConfig tracingConfig;
     /**
      * @return The version of the Lambda function.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return VPC configuration associated with your Lambda function.
      * 
      */
-    private final GetFunctionVpcConfig vpcConfig;
+    private GetFunctionVpcConfig vpcConfig;
 
-    @CustomType.Constructor
-    private GetFunctionResult(
-        @CustomType.Parameter("architectures") List<String> architectures,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("codeSigningConfigArn") String codeSigningConfigArn,
-        @CustomType.Parameter("deadLetterConfig") GetFunctionDeadLetterConfig deadLetterConfig,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("environment") GetFunctionEnvironment environment,
-        @CustomType.Parameter("ephemeralStorages") List<GetFunctionEphemeralStorage> ephemeralStorages,
-        @CustomType.Parameter("fileSystemConfigs") List<GetFunctionFileSystemConfig> fileSystemConfigs,
-        @CustomType.Parameter("functionName") String functionName,
-        @CustomType.Parameter("handler") String handler,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageUri") String imageUri,
-        @CustomType.Parameter("invokeArn") String invokeArn,
-        @CustomType.Parameter("kmsKeyArn") String kmsKeyArn,
-        @CustomType.Parameter("lastModified") String lastModified,
-        @CustomType.Parameter("layers") List<String> layers,
-        @CustomType.Parameter("memorySize") Integer memorySize,
-        @CustomType.Parameter("qualifiedArn") String qualifiedArn,
-        @CustomType.Parameter("qualifier") @Nullable String qualifier,
-        @CustomType.Parameter("reservedConcurrentExecutions") Integer reservedConcurrentExecutions,
-        @CustomType.Parameter("role") String role,
-        @CustomType.Parameter("runtime") String runtime,
-        @CustomType.Parameter("signingJobArn") String signingJobArn,
-        @CustomType.Parameter("signingProfileVersionArn") String signingProfileVersionArn,
-        @CustomType.Parameter("sourceCodeHash") String sourceCodeHash,
-        @CustomType.Parameter("sourceCodeSize") Integer sourceCodeSize,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("timeout") Integer timeout,
-        @CustomType.Parameter("tracingConfig") GetFunctionTracingConfig tracingConfig,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("vpcConfig") GetFunctionVpcConfig vpcConfig) {
-        this.architectures = architectures;
-        this.arn = arn;
-        this.codeSigningConfigArn = codeSigningConfigArn;
-        this.deadLetterConfig = deadLetterConfig;
-        this.description = description;
-        this.environment = environment;
-        this.ephemeralStorages = ephemeralStorages;
-        this.fileSystemConfigs = fileSystemConfigs;
-        this.functionName = functionName;
-        this.handler = handler;
-        this.id = id;
-        this.imageUri = imageUri;
-        this.invokeArn = invokeArn;
-        this.kmsKeyArn = kmsKeyArn;
-        this.lastModified = lastModified;
-        this.layers = layers;
-        this.memorySize = memorySize;
-        this.qualifiedArn = qualifiedArn;
-        this.qualifier = qualifier;
-        this.reservedConcurrentExecutions = reservedConcurrentExecutions;
-        this.role = role;
-        this.runtime = runtime;
-        this.signingJobArn = signingJobArn;
-        this.signingProfileVersionArn = signingProfileVersionArn;
-        this.sourceCodeHash = sourceCodeHash;
-        this.sourceCodeSize = sourceCodeSize;
-        this.tags = tags;
-        this.timeout = timeout;
-        this.tracingConfig = tracingConfig;
-        this.version = version;
-        this.vpcConfig = vpcConfig;
-    }
-
+    private GetFunctionResult() {}
     /**
      * @return The instruction set architecture for the Lambda function.
      * 
@@ -443,7 +378,7 @@ public final class GetFunctionResult {
     public static Builder builder(GetFunctionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> architectures;
         private String arn;
@@ -476,11 +411,7 @@ public final class GetFunctionResult {
         private GetFunctionTracingConfig tracingConfig;
         private String version;
         private GetFunctionVpcConfig vpcConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.architectures = defaults.architectures;
@@ -516,6 +447,7 @@ public final class GetFunctionResult {
     	      this.vpcConfig = defaults.vpcConfig;
         }
 
+        @CustomType.Setter
         public Builder architectures(List<String> architectures) {
             this.architectures = Objects.requireNonNull(architectures);
             return this;
@@ -523,26 +455,32 @@ public final class GetFunctionResult {
         public Builder architectures(String... architectures) {
             return architectures(List.of(architectures));
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder codeSigningConfigArn(String codeSigningConfigArn) {
             this.codeSigningConfigArn = Objects.requireNonNull(codeSigningConfigArn);
             return this;
         }
+        @CustomType.Setter
         public Builder deadLetterConfig(GetFunctionDeadLetterConfig deadLetterConfig) {
             this.deadLetterConfig = Objects.requireNonNull(deadLetterConfig);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder environment(GetFunctionEnvironment environment) {
             this.environment = Objects.requireNonNull(environment);
             return this;
         }
+        @CustomType.Setter
         public Builder ephemeralStorages(List<GetFunctionEphemeralStorage> ephemeralStorages) {
             this.ephemeralStorages = Objects.requireNonNull(ephemeralStorages);
             return this;
@@ -550,6 +488,7 @@ public final class GetFunctionResult {
         public Builder ephemeralStorages(GetFunctionEphemeralStorage... ephemeralStorages) {
             return ephemeralStorages(List.of(ephemeralStorages));
         }
+        @CustomType.Setter
         public Builder fileSystemConfigs(List<GetFunctionFileSystemConfig> fileSystemConfigs) {
             this.fileSystemConfigs = Objects.requireNonNull(fileSystemConfigs);
             return this;
@@ -557,34 +496,42 @@ public final class GetFunctionResult {
         public Builder fileSystemConfigs(GetFunctionFileSystemConfig... fileSystemConfigs) {
             return fileSystemConfigs(List.of(fileSystemConfigs));
         }
+        @CustomType.Setter
         public Builder functionName(String functionName) {
             this.functionName = Objects.requireNonNull(functionName);
             return this;
         }
+        @CustomType.Setter
         public Builder handler(String handler) {
             this.handler = Objects.requireNonNull(handler);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageUri(String imageUri) {
             this.imageUri = Objects.requireNonNull(imageUri);
             return this;
         }
+        @CustomType.Setter
         public Builder invokeArn(String invokeArn) {
             this.invokeArn = Objects.requireNonNull(invokeArn);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
             this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModified(String lastModified) {
             this.lastModified = Objects.requireNonNull(lastModified);
             return this;
         }
+        @CustomType.Setter
         public Builder layers(List<String> layers) {
             this.layers = Objects.requireNonNull(layers);
             return this;
@@ -592,67 +539,115 @@ public final class GetFunctionResult {
         public Builder layers(String... layers) {
             return layers(List.of(layers));
         }
+        @CustomType.Setter
         public Builder memorySize(Integer memorySize) {
             this.memorySize = Objects.requireNonNull(memorySize);
             return this;
         }
+        @CustomType.Setter
         public Builder qualifiedArn(String qualifiedArn) {
             this.qualifiedArn = Objects.requireNonNull(qualifiedArn);
             return this;
         }
+        @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
             this.qualifier = qualifier;
             return this;
         }
+        @CustomType.Setter
         public Builder reservedConcurrentExecutions(Integer reservedConcurrentExecutions) {
             this.reservedConcurrentExecutions = Objects.requireNonNull(reservedConcurrentExecutions);
             return this;
         }
+        @CustomType.Setter
         public Builder role(String role) {
             this.role = Objects.requireNonNull(role);
             return this;
         }
+        @CustomType.Setter
         public Builder runtime(String runtime) {
             this.runtime = Objects.requireNonNull(runtime);
             return this;
         }
+        @CustomType.Setter
         public Builder signingJobArn(String signingJobArn) {
             this.signingJobArn = Objects.requireNonNull(signingJobArn);
             return this;
         }
+        @CustomType.Setter
         public Builder signingProfileVersionArn(String signingProfileVersionArn) {
             this.signingProfileVersionArn = Objects.requireNonNull(signingProfileVersionArn);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceCodeHash(String sourceCodeHash) {
             this.sourceCodeHash = Objects.requireNonNull(sourceCodeHash);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceCodeSize(Integer sourceCodeSize) {
             this.sourceCodeSize = Objects.requireNonNull(sourceCodeSize);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(Integer timeout) {
             this.timeout = Objects.requireNonNull(timeout);
             return this;
         }
+        @CustomType.Setter
         public Builder tracingConfig(GetFunctionTracingConfig tracingConfig) {
             this.tracingConfig = Objects.requireNonNull(tracingConfig);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcConfig(GetFunctionVpcConfig vpcConfig) {
             this.vpcConfig = Objects.requireNonNull(vpcConfig);
             return this;
-        }        public GetFunctionResult build() {
-            return new GetFunctionResult(architectures, arn, codeSigningConfigArn, deadLetterConfig, description, environment, ephemeralStorages, fileSystemConfigs, functionName, handler, id, imageUri, invokeArn, kmsKeyArn, lastModified, layers, memorySize, qualifiedArn, qualifier, reservedConcurrentExecutions, role, runtime, signingJobArn, signingProfileVersionArn, sourceCodeHash, sourceCodeSize, tags, timeout, tracingConfig, version, vpcConfig);
+        }
+        public GetFunctionResult build() {
+            final var o = new GetFunctionResult();
+            o.architectures = architectures;
+            o.arn = arn;
+            o.codeSigningConfigArn = codeSigningConfigArn;
+            o.deadLetterConfig = deadLetterConfig;
+            o.description = description;
+            o.environment = environment;
+            o.ephemeralStorages = ephemeralStorages;
+            o.fileSystemConfigs = fileSystemConfigs;
+            o.functionName = functionName;
+            o.handler = handler;
+            o.id = id;
+            o.imageUri = imageUri;
+            o.invokeArn = invokeArn;
+            o.kmsKeyArn = kmsKeyArn;
+            o.lastModified = lastModified;
+            o.layers = layers;
+            o.memorySize = memorySize;
+            o.qualifiedArn = qualifiedArn;
+            o.qualifier = qualifier;
+            o.reservedConcurrentExecutions = reservedConcurrentExecutions;
+            o.role = role;
+            o.runtime = runtime;
+            o.signingJobArn = signingJobArn;
+            o.signingProfileVersionArn = signingProfileVersionArn;
+            o.sourceCodeHash = sourceCodeHash;
+            o.sourceCodeSize = sourceCodeSize;
+            o.tags = tags;
+            o.timeout = timeout;
+            o.tracingConfig = tracingConfig;
+            o.version = version;
+            o.vpcConfig = vpcConfig;
+            return o;
         }
     }
 }

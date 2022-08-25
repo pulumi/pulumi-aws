@@ -15,21 +15,14 @@ public final class UserPoolSchemaStringAttributeConstraints {
      * @return Maximum length of an attribute value of the string type.
      * 
      */
-    private final @Nullable String maxLength;
+    private @Nullable String maxLength;
     /**
      * @return Minimum length of an attribute value of the string type.
      * 
      */
-    private final @Nullable String minLength;
+    private @Nullable String minLength;
 
-    @CustomType.Constructor
-    private UserPoolSchemaStringAttributeConstraints(
-        @CustomType.Parameter("maxLength") @Nullable String maxLength,
-        @CustomType.Parameter("minLength") @Nullable String minLength) {
-        this.maxLength = maxLength;
-        this.minLength = minLength;
-    }
-
+    private UserPoolSchemaStringAttributeConstraints() {}
     /**
      * @return Maximum length of an attribute value of the string type.
      * 
@@ -52,30 +45,32 @@ public final class UserPoolSchemaStringAttributeConstraints {
     public static Builder builder(UserPoolSchemaStringAttributeConstraints defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String maxLength;
         private @Nullable String minLength;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolSchemaStringAttributeConstraints defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxLength = defaults.maxLength;
     	      this.minLength = defaults.minLength;
         }
 
+        @CustomType.Setter
         public Builder maxLength(@Nullable String maxLength) {
             this.maxLength = maxLength;
             return this;
         }
+        @CustomType.Setter
         public Builder minLength(@Nullable String minLength) {
             this.minLength = minLength;
             return this;
-        }        public UserPoolSchemaStringAttributeConstraints build() {
-            return new UserPoolSchemaStringAttributeConstraints(maxLength, minLength);
+        }
+        public UserPoolSchemaStringAttributeConstraints build() {
+            final var o = new UserPoolSchemaStringAttributeConstraints();
+            o.maxLength = maxLength;
+            o.minLength = minLength;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class RegistryScanningConfigurationRule {
      * @return One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
      * 
      */
-    private final List<RegistryScanningConfigurationRuleRepositoryFilter> repositoryFilters;
+    private List<RegistryScanningConfigurationRuleRepositoryFilter> repositoryFilters;
     /**
      * @return The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
      * 
      */
-    private final String scanFrequency;
+    private String scanFrequency;
 
-    @CustomType.Constructor
-    private RegistryScanningConfigurationRule(
-        @CustomType.Parameter("repositoryFilters") List<RegistryScanningConfigurationRuleRepositoryFilter> repositoryFilters,
-        @CustomType.Parameter("scanFrequency") String scanFrequency) {
-        this.repositoryFilters = repositoryFilters;
-        this.scanFrequency = scanFrequency;
-    }
-
+    private RegistryScanningConfigurationRule() {}
     /**
      * @return One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
      * 
@@ -52,21 +45,18 @@ public final class RegistryScanningConfigurationRule {
     public static Builder builder(RegistryScanningConfigurationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<RegistryScanningConfigurationRuleRepositoryFilter> repositoryFilters;
         private String scanFrequency;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryScanningConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.repositoryFilters = defaults.repositoryFilters;
     	      this.scanFrequency = defaults.scanFrequency;
         }
 
+        @CustomType.Setter
         public Builder repositoryFilters(List<RegistryScanningConfigurationRuleRepositoryFilter> repositoryFilters) {
             this.repositoryFilters = Objects.requireNonNull(repositoryFilters);
             return this;
@@ -74,11 +64,16 @@ public final class RegistryScanningConfigurationRule {
         public Builder repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilter... repositoryFilters) {
             return repositoryFilters(List.of(repositoryFilters));
         }
+        @CustomType.Setter
         public Builder scanFrequency(String scanFrequency) {
             this.scanFrequency = Objects.requireNonNull(scanFrequency);
             return this;
-        }        public RegistryScanningConfigurationRule build() {
-            return new RegistryScanningConfigurationRule(repositoryFilters, scanFrequency);
+        }
+        public RegistryScanningConfigurationRule build() {
+            final var o = new RegistryScanningConfigurationRule();
+            o.repositoryFilters = repositoryFilters;
+            o.scanFrequency = scanFrequency;
+            return o;
         }
     }
 }

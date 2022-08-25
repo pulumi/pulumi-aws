@@ -12,59 +12,40 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPortfolioResult {
-    private final @Nullable String acceptLanguage;
+    private @Nullable String acceptLanguage;
     /**
      * @return Portfolio ARN.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Time the portfolio was created.
      * 
      */
-    private final String createdTime;
+    private String createdTime;
     /**
      * @return Description of the portfolio
      * 
      */
-    private final String description;
-    private final String id;
+    private String description;
+    private String id;
     /**
      * @return Portfolio name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Name of the person or organization who owns the portfolio.
      * 
      */
-    private final String providerName;
+    private String providerName;
     /**
      * @return Tags applied to the portfolio.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetPortfolioResult(
-        @CustomType.Parameter("acceptLanguage") @Nullable String acceptLanguage,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("createdTime") String createdTime,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("providerName") String providerName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.acceptLanguage = acceptLanguage;
-        this.arn = arn;
-        this.createdTime = createdTime;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.providerName = providerName;
-        this.tags = tags;
-    }
-
+    private GetPortfolioResult() {}
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
@@ -121,7 +102,7 @@ public final class GetPortfolioResult {
     public static Builder builder(GetPortfolioResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
         private String arn;
@@ -131,11 +112,7 @@ public final class GetPortfolioResult {
         private String name;
         private String providerName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPortfolioResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceptLanguage = defaults.acceptLanguage;
@@ -148,39 +125,57 @@ public final class GetPortfolioResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
             this.acceptLanguage = acceptLanguage;
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder createdTime(String createdTime) {
             this.createdTime = Objects.requireNonNull(createdTime);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder providerName(String providerName) {
             this.providerName = Objects.requireNonNull(providerName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetPortfolioResult build() {
-            return new GetPortfolioResult(acceptLanguage, arn, createdTime, description, id, name, providerName, tags);
+        }
+        public GetPortfolioResult build() {
+            final var o = new GetPortfolioResult();
+            o.acceptLanguage = acceptLanguage;
+            o.arn = arn;
+            o.createdTime = createdTime;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.providerName = providerName;
+            o.tags = tags;
+            return o;
         }
     }
 }

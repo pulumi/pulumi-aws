@@ -13,13 +13,9 @@ public final class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeName
      * @return The criteria for determining a SAN&#39;s match.
      * 
      */
-    private final VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch match;
+    private VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch match;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(@CustomType.Parameter("match") VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch match) {
-        this.match = match;
-    }
-
+    private VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames() {}
     /**
      * @return The criteria for determining a SAN&#39;s match.
      * 
@@ -35,24 +31,24 @@ public final class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeName
     public static Builder builder(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch match;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.match = defaults.match;
         }
 
+        @CustomType.Setter
         public Builder match(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch match) {
             this.match = Objects.requireNonNull(match);
             return this;
-        }        public VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames build() {
-            return new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(match);
+        }
+        public VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames build() {
+            final var o = new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames();
+            o.match = match;
+            return o;
         }
     }
 }

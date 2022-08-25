@@ -15,28 +15,19 @@ public final class SiteLocation {
      * @return Address of the location.
      * 
      */
-    private final @Nullable String address;
+    private @Nullable String address;
     /**
      * @return Latitude of the location.
      * 
      */
-    private final @Nullable String latitude;
+    private @Nullable String latitude;
     /**
      * @return Longitude of the location.
      * 
      */
-    private final @Nullable String longitude;
+    private @Nullable String longitude;
 
-    @CustomType.Constructor
-    private SiteLocation(
-        @CustomType.Parameter("address") @Nullable String address,
-        @CustomType.Parameter("latitude") @Nullable String latitude,
-        @CustomType.Parameter("longitude") @Nullable String longitude) {
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
+    private SiteLocation() {}
     /**
      * @return Address of the location.
      * 
@@ -66,16 +57,12 @@ public final class SiteLocation {
     public static Builder builder(SiteLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String address;
         private @Nullable String latitude;
         private @Nullable String longitude;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SiteLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -83,19 +70,27 @@ public final class SiteLocation {
     	      this.longitude = defaults.longitude;
         }
 
+        @CustomType.Setter
         public Builder address(@Nullable String address) {
             this.address = address;
             return this;
         }
+        @CustomType.Setter
         public Builder latitude(@Nullable String latitude) {
             this.latitude = latitude;
             return this;
         }
+        @CustomType.Setter
         public Builder longitude(@Nullable String longitude) {
             this.longitude = longitude;
             return this;
-        }        public SiteLocation build() {
-            return new SiteLocation(address, latitude, longitude);
+        }
+        public SiteLocation build() {
+            final var o = new SiteLocation();
+            o.address = address;
+            o.latitude = latitude;
+            o.longitude = longitude;
+            return o;
         }
     }
 }

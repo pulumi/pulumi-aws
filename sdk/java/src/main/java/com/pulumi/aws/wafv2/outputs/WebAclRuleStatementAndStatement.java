@@ -14,13 +14,9 @@ public final class WebAclRuleStatementAndStatement {
      * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
-    private final List<WebAclRuleStatementAndStatementStatement> statements;
+    private List<WebAclRuleStatementAndStatementStatement> statements;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementAndStatement(@CustomType.Parameter("statements") List<WebAclRuleStatementAndStatementStatement> statements) {
-        this.statements = statements;
-    }
-
+    private WebAclRuleStatementAndStatement() {}
     /**
      * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
@@ -36,27 +32,27 @@ public final class WebAclRuleStatementAndStatement {
     public static Builder builder(WebAclRuleStatementAndStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclRuleStatementAndStatementStatement> statements;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementAndStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.statements = defaults.statements;
         }
 
+        @CustomType.Setter
         public Builder statements(List<WebAclRuleStatementAndStatementStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
         public Builder statements(WebAclRuleStatementAndStatementStatement... statements) {
             return statements(List.of(statements));
-        }        public WebAclRuleStatementAndStatement build() {
-            return new WebAclRuleStatementAndStatement(statements);
+        }
+        public WebAclRuleStatementAndStatement build() {
+            final var o = new WebAclRuleStatementAndStatement();
+            o.statements = statements;
+            return o;
         }
     }
 }

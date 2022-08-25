@@ -15,42 +15,29 @@ public final class PresetAudio {
      * @return The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
      * 
      */
-    private final @Nullable String audioPackingMode;
+    private @Nullable String audioPackingMode;
     /**
      * @return The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
      * 
      */
-    private final @Nullable String bitRate;
+    private @Nullable String bitRate;
     /**
      * @return The number of audio channels in the output file
      * 
      */
-    private final @Nullable String channels;
+    private @Nullable String channels;
     /**
      * @return The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
      * 
      */
-    private final @Nullable String codec;
+    private @Nullable String codec;
     /**
      * @return The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
      * 
      */
-    private final @Nullable String sampleRate;
+    private @Nullable String sampleRate;
 
-    @CustomType.Constructor
-    private PresetAudio(
-        @CustomType.Parameter("audioPackingMode") @Nullable String audioPackingMode,
-        @CustomType.Parameter("bitRate") @Nullable String bitRate,
-        @CustomType.Parameter("channels") @Nullable String channels,
-        @CustomType.Parameter("codec") @Nullable String codec,
-        @CustomType.Parameter("sampleRate") @Nullable String sampleRate) {
-        this.audioPackingMode = audioPackingMode;
-        this.bitRate = bitRate;
-        this.channels = channels;
-        this.codec = codec;
-        this.sampleRate = sampleRate;
-    }
-
+    private PresetAudio() {}
     /**
      * @return The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
      * 
@@ -94,18 +81,14 @@ public final class PresetAudio {
     public static Builder builder(PresetAudio defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String audioPackingMode;
         private @Nullable String bitRate;
         private @Nullable String channels;
         private @Nullable String codec;
         private @Nullable String sampleRate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PresetAudio defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audioPackingMode = defaults.audioPackingMode;
@@ -115,27 +98,39 @@ public final class PresetAudio {
     	      this.sampleRate = defaults.sampleRate;
         }
 
+        @CustomType.Setter
         public Builder audioPackingMode(@Nullable String audioPackingMode) {
             this.audioPackingMode = audioPackingMode;
             return this;
         }
+        @CustomType.Setter
         public Builder bitRate(@Nullable String bitRate) {
             this.bitRate = bitRate;
             return this;
         }
+        @CustomType.Setter
         public Builder channels(@Nullable String channels) {
             this.channels = channels;
             return this;
         }
+        @CustomType.Setter
         public Builder codec(@Nullable String codec) {
             this.codec = codec;
             return this;
         }
+        @CustomType.Setter
         public Builder sampleRate(@Nullable String sampleRate) {
             this.sampleRate = sampleRate;
             return this;
-        }        public PresetAudio build() {
-            return new PresetAudio(audioPackingMode, bitRate, channels, codec, sampleRate);
+        }
+        public PresetAudio build() {
+            final var o = new PresetAudio();
+            o.audioPackingMode = audioPackingMode;
+            o.bitRate = bitRate;
+            o.channels = channels;
+            o.codec = codec;
+            o.sampleRate = sampleRate;
+            return o;
         }
     }
 }

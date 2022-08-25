@@ -17,28 +17,19 @@ public final class RuleGroupRuleGroup {
      * @return A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleGroupRuleVariables ruleVariables;
+    private @Nullable RuleGroupRuleGroupRuleVariables ruleVariables;
     /**
      * @return A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
      * 
      */
-    private final RuleGroupRuleGroupRulesSource rulesSource;
+    private RuleGroupRuleGroupRulesSource rulesSource;
     /**
      * @return A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleGroupStatefulRuleOptions statefulRuleOptions;
+    private @Nullable RuleGroupRuleGroupStatefulRuleOptions statefulRuleOptions;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroup(
-        @CustomType.Parameter("ruleVariables") @Nullable RuleGroupRuleGroupRuleVariables ruleVariables,
-        @CustomType.Parameter("rulesSource") RuleGroupRuleGroupRulesSource rulesSource,
-        @CustomType.Parameter("statefulRuleOptions") @Nullable RuleGroupRuleGroupStatefulRuleOptions statefulRuleOptions) {
-        this.ruleVariables = ruleVariables;
-        this.rulesSource = rulesSource;
-        this.statefulRuleOptions = statefulRuleOptions;
-    }
-
+    private RuleGroupRuleGroup() {}
     /**
      * @return A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
      * 
@@ -68,16 +59,12 @@ public final class RuleGroupRuleGroup {
     public static Builder builder(RuleGroupRuleGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleGroupRuleVariables ruleVariables;
         private RuleGroupRuleGroupRulesSource rulesSource;
         private @Nullable RuleGroupRuleGroupStatefulRuleOptions statefulRuleOptions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ruleVariables = defaults.ruleVariables;
@@ -85,19 +72,27 @@ public final class RuleGroupRuleGroup {
     	      this.statefulRuleOptions = defaults.statefulRuleOptions;
         }
 
+        @CustomType.Setter
         public Builder ruleVariables(@Nullable RuleGroupRuleGroupRuleVariables ruleVariables) {
             this.ruleVariables = ruleVariables;
             return this;
         }
+        @CustomType.Setter
         public Builder rulesSource(RuleGroupRuleGroupRulesSource rulesSource) {
             this.rulesSource = Objects.requireNonNull(rulesSource);
             return this;
         }
+        @CustomType.Setter
         public Builder statefulRuleOptions(@Nullable RuleGroupRuleGroupStatefulRuleOptions statefulRuleOptions) {
             this.statefulRuleOptions = statefulRuleOptions;
             return this;
-        }        public RuleGroupRuleGroup build() {
-            return new RuleGroupRuleGroup(ruleVariables, rulesSource, statefulRuleOptions);
+        }
+        public RuleGroupRuleGroup build() {
+            final var o = new RuleGroupRuleGroup();
+            o.ruleVariables = ruleVariables;
+            o.rulesSource = rulesSource;
+            o.statefulRuleOptions = statefulRuleOptions;
+            return o;
         }
     }
 }

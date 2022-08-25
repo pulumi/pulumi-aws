@@ -13,35 +13,24 @@ public final class GetPartitionResult {
      * @return Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
      * 
      */
-    private final String dnsSuffix;
+    private String dnsSuffix;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
-    private final String partition;
+    private String partition;
     /**
      * @return Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
      * 
      */
-    private final String reverseDnsPrefix;
+    private String reverseDnsPrefix;
 
-    @CustomType.Constructor
-    private GetPartitionResult(
-        @CustomType.Parameter("dnsSuffix") String dnsSuffix,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("partition") String partition,
-        @CustomType.Parameter("reverseDnsPrefix") String reverseDnsPrefix) {
-        this.dnsSuffix = dnsSuffix;
-        this.id = id;
-        this.partition = partition;
-        this.reverseDnsPrefix = reverseDnsPrefix;
-    }
-
+    private GetPartitionResult() {}
     /**
      * @return Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
      * 
@@ -78,17 +67,13 @@ public final class GetPartitionResult {
     public static Builder builder(GetPartitionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dnsSuffix;
         private String id;
         private String partition;
         private String reverseDnsPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPartitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsSuffix = defaults.dnsSuffix;
@@ -97,23 +82,33 @@ public final class GetPartitionResult {
     	      this.reverseDnsPrefix = defaults.reverseDnsPrefix;
         }
 
+        @CustomType.Setter
         public Builder dnsSuffix(String dnsSuffix) {
             this.dnsSuffix = Objects.requireNonNull(dnsSuffix);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder partition(String partition) {
             this.partition = Objects.requireNonNull(partition);
             return this;
         }
+        @CustomType.Setter
         public Builder reverseDnsPrefix(String reverseDnsPrefix) {
             this.reverseDnsPrefix = Objects.requireNonNull(reverseDnsPrefix);
             return this;
-        }        public GetPartitionResult build() {
-            return new GetPartitionResult(dnsSuffix, id, partition, reverseDnsPrefix);
+        }
+        public GetPartitionResult build() {
+            final var o = new GetPartitionResult();
+            o.dnsSuffix = dnsSuffix;
+            o.id = id;
+            o.partition = partition;
+            o.reverseDnsPrefix = reverseDnsPrefix;
+            return o;
         }
     }
 }

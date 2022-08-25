@@ -13,24 +13,15 @@ public final class GetGroupLaunchTemplate {
      * @return Name of the Auto Scaling Group.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specify the exact name of the desired autoscaling group.
      * 
      */
-    private final String name;
-    private final String version;
+    private String name;
+    private String version;
 
-    @CustomType.Constructor
-    private GetGroupLaunchTemplate(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("version") String version) {
-        this.id = id;
-        this.name = name;
-        this.version = version;
-    }
-
+    private GetGroupLaunchTemplate() {}
     /**
      * @return Name of the Auto Scaling Group.
      * 
@@ -56,16 +47,12 @@ public final class GetGroupLaunchTemplate {
     public static Builder builder(GetGroupLaunchTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -73,19 +60,27 @@ public final class GetGroupLaunchTemplate {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetGroupLaunchTemplate build() {
-            return new GetGroupLaunchTemplate(id, name, version);
+        }
+        public GetGroupLaunchTemplate build() {
+            final var o = new GetGroupLaunchTemplate();
+            o.id = id;
+            o.name = name;
+            o.version = version;
+            return o;
         }
     }
 }

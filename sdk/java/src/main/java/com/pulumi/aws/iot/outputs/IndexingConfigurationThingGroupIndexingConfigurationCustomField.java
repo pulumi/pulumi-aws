@@ -15,21 +15,14 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationCustomFie
      * @return The name of the field.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The data type of the field. Valid values: `Number`, `String`, `Boolean`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private IndexingConfigurationThingGroupIndexingConfigurationCustomField(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.name = name;
-        this.type = type;
-    }
-
+    private IndexingConfigurationThingGroupIndexingConfigurationCustomField() {}
     /**
      * @return The name of the field.
      * 
@@ -52,30 +45,32 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationCustomFie
     public static Builder builder(IndexingConfigurationThingGroupIndexingConfigurationCustomField defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexingConfigurationThingGroupIndexingConfigurationCustomField defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public IndexingConfigurationThingGroupIndexingConfigurationCustomField build() {
-            return new IndexingConfigurationThingGroupIndexingConfigurationCustomField(name, type);
+        }
+        public IndexingConfigurationThingGroupIndexingConfigurationCustomField build() {
+            final var o = new IndexingConfigurationThingGroupIndexingConfigurationCustomField();
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

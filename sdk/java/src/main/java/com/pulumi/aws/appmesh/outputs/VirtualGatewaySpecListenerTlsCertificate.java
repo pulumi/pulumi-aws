@@ -17,28 +17,19 @@ public final class VirtualGatewaySpecListenerTlsCertificate {
      * @return An AWS Certificate Manager (ACM) certificate.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerTlsCertificateAcm acm;
+    private @Nullable VirtualGatewaySpecListenerTlsCertificateAcm acm;
     /**
      * @return A local file certificate.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerTlsCertificateFile file;
+    private @Nullable VirtualGatewaySpecListenerTlsCertificateFile file;
     /**
      * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private final @Nullable VirtualGatewaySpecListenerTlsCertificateSds sds;
+    private @Nullable VirtualGatewaySpecListenerTlsCertificateSds sds;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerTlsCertificate(
-        @CustomType.Parameter("acm") @Nullable VirtualGatewaySpecListenerTlsCertificateAcm acm,
-        @CustomType.Parameter("file") @Nullable VirtualGatewaySpecListenerTlsCertificateFile file,
-        @CustomType.Parameter("sds") @Nullable VirtualGatewaySpecListenerTlsCertificateSds sds) {
-        this.acm = acm;
-        this.file = file;
-        this.sds = sds;
-    }
-
+    private VirtualGatewaySpecListenerTlsCertificate() {}
     /**
      * @return An AWS Certificate Manager (ACM) certificate.
      * 
@@ -68,16 +59,12 @@ public final class VirtualGatewaySpecListenerTlsCertificate {
     public static Builder builder(VirtualGatewaySpecListenerTlsCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecListenerTlsCertificateAcm acm;
         private @Nullable VirtualGatewaySpecListenerTlsCertificateFile file;
         private @Nullable VirtualGatewaySpecListenerTlsCertificateSds sds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerTlsCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acm = defaults.acm;
@@ -85,19 +72,27 @@ public final class VirtualGatewaySpecListenerTlsCertificate {
     	      this.sds = defaults.sds;
         }
 
+        @CustomType.Setter
         public Builder acm(@Nullable VirtualGatewaySpecListenerTlsCertificateAcm acm) {
             this.acm = acm;
             return this;
         }
+        @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecListenerTlsCertificateFile file) {
             this.file = file;
             return this;
         }
+        @CustomType.Setter
         public Builder sds(@Nullable VirtualGatewaySpecListenerTlsCertificateSds sds) {
             this.sds = sds;
             return this;
-        }        public VirtualGatewaySpecListenerTlsCertificate build() {
-            return new VirtualGatewaySpecListenerTlsCertificate(acm, file, sds);
+        }
+        public VirtualGatewaySpecListenerTlsCertificate build() {
+            final var o = new VirtualGatewaySpecListenerTlsCertificate();
+            o.acm = acm;
+            o.file = file;
+            o.sds = sds;
+            return o;
         }
     }
 }

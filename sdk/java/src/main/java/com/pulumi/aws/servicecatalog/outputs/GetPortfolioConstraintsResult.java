@@ -13,42 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPortfolioConstraintsResult {
-    private final @Nullable String acceptLanguage;
+    private @Nullable String acceptLanguage;
     /**
      * @return List of information about the constraints. See details below.
      * 
      */
-    private final List<GetPortfolioConstraintsDetail> details;
+    private List<GetPortfolioConstraintsDetail> details;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
      * 
      */
-    private final String portfolioId;
+    private String portfolioId;
     /**
      * @return Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
      * 
      */
-    private final @Nullable String productId;
+    private @Nullable String productId;
 
-    @CustomType.Constructor
-    private GetPortfolioConstraintsResult(
-        @CustomType.Parameter("acceptLanguage") @Nullable String acceptLanguage,
-        @CustomType.Parameter("details") List<GetPortfolioConstraintsDetail> details,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("portfolioId") String portfolioId,
-        @CustomType.Parameter("productId") @Nullable String productId) {
-        this.acceptLanguage = acceptLanguage;
-        this.details = details;
-        this.id = id;
-        this.portfolioId = portfolioId;
-        this.productId = productId;
-    }
-
+    private GetPortfolioConstraintsResult() {}
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
@@ -88,18 +75,14 @@ public final class GetPortfolioConstraintsResult {
     public static Builder builder(GetPortfolioConstraintsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceptLanguage;
         private List<GetPortfolioConstraintsDetail> details;
         private String id;
         private String portfolioId;
         private @Nullable String productId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPortfolioConstraintsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceptLanguage = defaults.acceptLanguage;
@@ -109,10 +92,12 @@ public final class GetPortfolioConstraintsResult {
     	      this.productId = defaults.productId;
         }
 
+        @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
             this.acceptLanguage = acceptLanguage;
             return this;
         }
+        @CustomType.Setter
         public Builder details(List<GetPortfolioConstraintsDetail> details) {
             this.details = Objects.requireNonNull(details);
             return this;
@@ -120,19 +105,29 @@ public final class GetPortfolioConstraintsResult {
         public Builder details(GetPortfolioConstraintsDetail... details) {
             return details(List.of(details));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder portfolioId(String portfolioId) {
             this.portfolioId = Objects.requireNonNull(portfolioId);
             return this;
         }
+        @CustomType.Setter
         public Builder productId(@Nullable String productId) {
             this.productId = productId;
             return this;
-        }        public GetPortfolioConstraintsResult build() {
-            return new GetPortfolioConstraintsResult(acceptLanguage, details, id, portfolioId, productId);
+        }
+        public GetPortfolioConstraintsResult build() {
+            final var o = new GetPortfolioConstraintsResult();
+            o.acceptLanguage = acceptLanguage;
+            o.details = details;
+            o.id = id;
+            o.portfolioId = portfolioId;
+            o.productId = productId;
+            return o;
         }
     }
 }

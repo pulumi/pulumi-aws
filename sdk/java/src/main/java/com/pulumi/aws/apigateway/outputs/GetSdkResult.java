@@ -15,47 +15,28 @@ public final class GetSdkResult {
      * @return The SDK as a string.
      * 
      */
-    private final String body;
+    private String body;
     /**
      * @return The content-disposition header value in the HTTP response.
      * 
      */
-    private final String contentDisposition;
+    private String contentDisposition;
     /**
      * @return The content-type header value in the HTTP response.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Map<String,String> parameters;
-    private final String restApiId;
-    private final String sdkType;
-    private final String stageName;
+    private String id;
+    private @Nullable Map<String,String> parameters;
+    private String restApiId;
+    private String sdkType;
+    private String stageName;
 
-    @CustomType.Constructor
-    private GetSdkResult(
-        @CustomType.Parameter("body") String body,
-        @CustomType.Parameter("contentDisposition") String contentDisposition,
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters,
-        @CustomType.Parameter("restApiId") String restApiId,
-        @CustomType.Parameter("sdkType") String sdkType,
-        @CustomType.Parameter("stageName") String stageName) {
-        this.body = body;
-        this.contentDisposition = contentDisposition;
-        this.contentType = contentType;
-        this.id = id;
-        this.parameters = parameters;
-        this.restApiId = restApiId;
-        this.sdkType = sdkType;
-        this.stageName = stageName;
-    }
-
+    private GetSdkResult() {}
     /**
      * @return The SDK as a string.
      * 
@@ -104,7 +85,7 @@ public final class GetSdkResult {
     public static Builder builder(GetSdkResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String body;
         private String contentDisposition;
@@ -114,11 +95,7 @@ public final class GetSdkResult {
         private String restApiId;
         private String sdkType;
         private String stageName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSdkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.body = defaults.body;
@@ -131,39 +108,57 @@ public final class GetSdkResult {
     	      this.stageName = defaults.stageName;
         }
 
+        @CustomType.Setter
         public Builder body(String body) {
             this.body = Objects.requireNonNull(body);
             return this;
         }
+        @CustomType.Setter
         public Builder contentDisposition(String contentDisposition) {
             this.contentDisposition = Objects.requireNonNull(contentDisposition);
             return this;
         }
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder restApiId(String restApiId) {
             this.restApiId = Objects.requireNonNull(restApiId);
             return this;
         }
+        @CustomType.Setter
         public Builder sdkType(String sdkType) {
             this.sdkType = Objects.requireNonNull(sdkType);
             return this;
         }
+        @CustomType.Setter
         public Builder stageName(String stageName) {
             this.stageName = Objects.requireNonNull(stageName);
             return this;
-        }        public GetSdkResult build() {
-            return new GetSdkResult(body, contentDisposition, contentType, id, parameters, restApiId, sdkType, stageName);
+        }
+        public GetSdkResult build() {
+            final var o = new GetSdkResult();
+            o.body = body;
+            o.contentDisposition = contentDisposition;
+            o.contentType = contentType;
+            o.id = id;
+            o.parameters = parameters;
+            o.restApiId = restApiId;
+            o.sdkType = sdkType;
+            o.stageName = stageName;
+            return o;
         }
     }
 }

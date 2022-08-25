@@ -18,80 +18,55 @@ public final class SpotInstanceRequestEbsBlockDevice {
      * @return Whether the volume should be destroyed on instance termination. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean deleteOnTermination;
+    private @Nullable Boolean deleteOnTermination;
     /**
      * @return Name of the device to mount.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
      * 
      */
-    private final @Nullable Boolean encrypted;
+    private @Nullable Boolean encrypted;
     /**
      * @return Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
      * 
      */
-    private final @Nullable Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Snapshot ID to mount.
      * 
      */
-    private final @Nullable String snapshotId;
+    private @Nullable String snapshotId;
     /**
      * @return A map of tags to assign to the device.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
-    private final @Nullable Integer throughput;
-    private final @Nullable String volumeId;
+    private @Nullable Integer throughput;
+    private @Nullable String volumeId;
     /**
      * @return Size of the volume in gibibytes (GiB).
      * 
      */
-    private final @Nullable Integer volumeSize;
+    private @Nullable Integer volumeSize;
     /**
      * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
      * 
      */
-    private final @Nullable String volumeType;
+    private @Nullable String volumeType;
 
-    @CustomType.Constructor
-    private SpotInstanceRequestEbsBlockDevice(
-        @CustomType.Parameter("deleteOnTermination") @Nullable Boolean deleteOnTermination,
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("encrypted") @Nullable Boolean encrypted,
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("snapshotId") @Nullable String snapshotId,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("throughput") @Nullable Integer throughput,
-        @CustomType.Parameter("volumeId") @Nullable String volumeId,
-        @CustomType.Parameter("volumeSize") @Nullable Integer volumeSize,
-        @CustomType.Parameter("volumeType") @Nullable String volumeType) {
-        this.deleteOnTermination = deleteOnTermination;
-        this.deviceName = deviceName;
-        this.encrypted = encrypted;
-        this.iops = iops;
-        this.kmsKeyId = kmsKeyId;
-        this.snapshotId = snapshotId;
-        this.tags = tags;
-        this.throughput = throughput;
-        this.volumeId = volumeId;
-        this.volumeSize = volumeSize;
-        this.volumeType = volumeType;
-    }
-
+    private SpotInstanceRequestEbsBlockDevice() {}
     /**
      * @return Whether the volume should be destroyed on instance termination. Defaults to `true`.
      * 
@@ -173,7 +148,7 @@ public final class SpotInstanceRequestEbsBlockDevice {
     public static Builder builder(SpotInstanceRequestEbsBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean deleteOnTermination;
         private String deviceName;
@@ -186,11 +161,7 @@ public final class SpotInstanceRequestEbsBlockDevice {
         private @Nullable String volumeId;
         private @Nullable Integer volumeSize;
         private @Nullable String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotInstanceRequestEbsBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOnTermination = defaults.deleteOnTermination;
@@ -206,51 +177,75 @@ public final class SpotInstanceRequestEbsBlockDevice {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
             this.encrypted = encrypted;
             return this;
         }
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotId(@Nullable String snapshotId) {
             this.snapshotId = snapshotId;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
             this.throughput = throughput;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeId(@Nullable String volumeId) {
             this.volumeId = volumeId;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
             this.volumeSize = volumeSize;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
             this.volumeType = volumeType;
             return this;
-        }        public SpotInstanceRequestEbsBlockDevice build() {
-            return new SpotInstanceRequestEbsBlockDevice(deleteOnTermination, deviceName, encrypted, iops, kmsKeyId, snapshotId, tags, throughput, volumeId, volumeSize, volumeType);
+        }
+        public SpotInstanceRequestEbsBlockDevice build() {
+            final var o = new SpotInstanceRequestEbsBlockDevice();
+            o.deleteOnTermination = deleteOnTermination;
+            o.deviceName = deviceName;
+            o.encrypted = encrypted;
+            o.iops = iops;
+            o.kmsKeyId = kmsKeyId;
+            o.snapshotId = snapshotId;
+            o.tags = tags;
+            o.throughput = throughput;
+            o.volumeId = volumeId;
+            o.volumeSize = volumeSize;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

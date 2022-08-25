@@ -14,31 +14,20 @@ public final class GetAccessPointsResult {
      * @return Set of Amazon Resource Names (ARNs).
      * 
      */
-    private final List<String> arns;
-    private final String fileSystemId;
+    private List<String> arns;
+    private String fileSystemId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of identifiers.
      * 
      */
-    private final List<String> ids;
+    private List<String> ids;
 
-    @CustomType.Constructor
-    private GetAccessPointsResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("fileSystemId") String fileSystemId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids) {
-        this.arns = arns;
-        this.fileSystemId = fileSystemId;
-        this.id = id;
-        this.ids = ids;
-    }
-
+    private GetAccessPointsResult() {}
     /**
      * @return Set of Amazon Resource Names (ARNs).
      * 
@@ -71,17 +60,13 @@ public final class GetAccessPointsResult {
     public static Builder builder(GetAccessPointsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private String fileSystemId;
         private String id;
         private List<String> ids;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccessPointsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -90,6 +75,7 @@ public final class GetAccessPointsResult {
     	      this.ids = defaults.ids;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -97,22 +83,31 @@ public final class GetAccessPointsResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
             this.fileSystemId = Objects.requireNonNull(fileSystemId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
         }
         public Builder ids(String... ids) {
             return ids(List.of(ids));
-        }        public GetAccessPointsResult build() {
-            return new GetAccessPointsResult(arns, fileSystemId, id, ids);
+        }
+        public GetAccessPointsResult build() {
+            final var o = new GetAccessPointsResult();
+            o.arns = arns;
+            o.fileSystemId = fileSystemId;
+            o.id = id;
+            o.ids = ids;
+            return o;
         }
     }
 }

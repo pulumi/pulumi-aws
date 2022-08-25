@@ -14,13 +14,9 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * @return A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
      * 
      */
-    private final List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery> metricDataQueries;
+    private List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery> metricDataQueries;
 
-    @CustomType.Constructor
-    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification(@CustomType.Parameter("metricDataQueries") List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery> metricDataQueries) {
-        this.metricDataQueries = metricDataQueries;
-    }
-
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification() {}
     /**
      * @return A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
      * 
@@ -36,27 +32,27 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static Builder builder(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery> metricDataQueries;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricDataQueries = defaults.metricDataQueries;
         }
 
+        @CustomType.Setter
         public Builder metricDataQueries(List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery> metricDataQueries) {
             this.metricDataQueries = Objects.requireNonNull(metricDataQueries);
             return this;
         }
         public Builder metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery... metricDataQueries) {
             return metricDataQueries(List.of(metricDataQueries));
-        }        public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification build() {
-            return new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification(metricDataQueries);
+        }
+        public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification build() {
+            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification();
+            o.metricDataQueries = metricDataQueries;
+            return o;
         }
     }
 }

@@ -12,31 +12,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainVpcOptions {
-    private final @Nullable List<String> availabilityZones;
+    private @Nullable List<String> availabilityZones;
     /**
      * @return List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
      * 
      */
-    private final @Nullable List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
      * 
      */
-    private final @Nullable List<String> subnetIds;
-    private final @Nullable String vpcId;
+    private @Nullable List<String> subnetIds;
+    private @Nullable String vpcId;
 
-    @CustomType.Constructor
-    private DomainVpcOptions(
-        @CustomType.Parameter("availabilityZones") @Nullable List<String> availabilityZones,
-        @CustomType.Parameter("securityGroupIds") @Nullable List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") @Nullable List<String> subnetIds,
-        @CustomType.Parameter("vpcId") @Nullable String vpcId) {
-        this.availabilityZones = availabilityZones;
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private DomainVpcOptions() {}
     public List<String> availabilityZones() {
         return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
@@ -65,17 +54,13 @@ public final class DomainVpcOptions {
     public static Builder builder(DomainVpcOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> availabilityZones;
         private @Nullable List<String> securityGroupIds;
         private @Nullable List<String> subnetIds;
         private @Nullable String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainVpcOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZones = defaults.availabilityZones;
@@ -84,6 +69,7 @@ public final class DomainVpcOptions {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder availabilityZones(@Nullable List<String> availabilityZones) {
             this.availabilityZones = availabilityZones;
             return this;
@@ -91,6 +77,7 @@ public final class DomainVpcOptions {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
             this.securityGroupIds = securityGroupIds;
             return this;
@@ -98,6 +85,7 @@ public final class DomainVpcOptions {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
             this.subnetIds = subnetIds;
             return this;
@@ -105,11 +93,18 @@ public final class DomainVpcOptions {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
             this.vpcId = vpcId;
             return this;
-        }        public DomainVpcOptions build() {
-            return new DomainVpcOptions(availabilityZones, securityGroupIds, subnetIds, vpcId);
+        }
+        public DomainVpcOptions build() {
+            final var o = new DomainVpcOptions();
+            o.availabilityZones = availabilityZones;
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetImagePipelineSchedule {
      * @return Condition when the pipeline should trigger a new image build.
      * 
      */
-    private final String pipelineExecutionStartCondition;
+    private String pipelineExecutionStartCondition;
     /**
      * @return Cron expression of how often the pipeline start condition is evaluated.
      * 
      */
-    private final String scheduleExpression;
+    private String scheduleExpression;
 
-    @CustomType.Constructor
-    private GetImagePipelineSchedule(
-        @CustomType.Parameter("pipelineExecutionStartCondition") String pipelineExecutionStartCondition,
-        @CustomType.Parameter("scheduleExpression") String scheduleExpression) {
-        this.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
-        this.scheduleExpression = scheduleExpression;
-    }
-
+    private GetImagePipelineSchedule() {}
     /**
      * @return Condition when the pipeline should trigger a new image build.
      * 
@@ -50,30 +43,32 @@ public final class GetImagePipelineSchedule {
     public static Builder builder(GetImagePipelineSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String pipelineExecutionStartCondition;
         private String scheduleExpression;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImagePipelineSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.pipelineExecutionStartCondition = defaults.pipelineExecutionStartCondition;
     	      this.scheduleExpression = defaults.scheduleExpression;
         }
 
+        @CustomType.Setter
         public Builder pipelineExecutionStartCondition(String pipelineExecutionStartCondition) {
             this.pipelineExecutionStartCondition = Objects.requireNonNull(pipelineExecutionStartCondition);
             return this;
         }
+        @CustomType.Setter
         public Builder scheduleExpression(String scheduleExpression) {
             this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
             return this;
-        }        public GetImagePipelineSchedule build() {
-            return new GetImagePipelineSchedule(pipelineExecutionStartCondition, scheduleExpression);
+        }
+        public GetImagePipelineSchedule build() {
+            final var o = new GetImagePipelineSchedule();
+            o.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
+            o.scheduleExpression = scheduleExpression;
+            return o;
         }
     }
 }

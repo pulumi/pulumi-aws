@@ -13,21 +13,14 @@ public final class DomainSamlOptionsSamlOptionsIdp {
      * @return The unique Entity ID of the application in SAML Identity Provider.
      * 
      */
-    private final String entityId;
+    private String entityId;
     /**
      * @return The Metadata of the SAML application in xml format.
      * 
      */
-    private final String metadataContent;
+    private String metadataContent;
 
-    @CustomType.Constructor
-    private DomainSamlOptionsSamlOptionsIdp(
-        @CustomType.Parameter("entityId") String entityId,
-        @CustomType.Parameter("metadataContent") String metadataContent) {
-        this.entityId = entityId;
-        this.metadataContent = metadataContent;
-    }
-
+    private DomainSamlOptionsSamlOptionsIdp() {}
     /**
      * @return The unique Entity ID of the application in SAML Identity Provider.
      * 
@@ -50,30 +43,32 @@ public final class DomainSamlOptionsSamlOptionsIdp {
     public static Builder builder(DomainSamlOptionsSamlOptionsIdp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String entityId;
         private String metadataContent;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainSamlOptionsSamlOptionsIdp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.entityId = defaults.entityId;
     	      this.metadataContent = defaults.metadataContent;
         }
 
+        @CustomType.Setter
         public Builder entityId(String entityId) {
             this.entityId = Objects.requireNonNull(entityId);
             return this;
         }
+        @CustomType.Setter
         public Builder metadataContent(String metadataContent) {
             this.metadataContent = Objects.requireNonNull(metadataContent);
             return this;
-        }        public DomainSamlOptionsSamlOptionsIdp build() {
-            return new DomainSamlOptionsSamlOptionsIdp(entityId, metadataContent);
+        }
+        public DomainSamlOptionsSamlOptionsIdp build() {
+            final var o = new DomainSamlOptionsSamlOptionsIdp();
+            o.entityId = entityId;
+            o.metadataContent = metadataContent;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class CodeSigningConfigPolicies {
      * @return Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
      * 
      */
-    private final String untrustedArtifactOnDeployment;
+    private String untrustedArtifactOnDeployment;
 
-    @CustomType.Constructor
-    private CodeSigningConfigPolicies(@CustomType.Parameter("untrustedArtifactOnDeployment") String untrustedArtifactOnDeployment) {
-        this.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
-    }
-
+    private CodeSigningConfigPolicies() {}
     /**
      * @return Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
      * 
@@ -35,24 +31,24 @@ public final class CodeSigningConfigPolicies {
     public static Builder builder(CodeSigningConfigPolicies defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String untrustedArtifactOnDeployment;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CodeSigningConfigPolicies defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.untrustedArtifactOnDeployment = defaults.untrustedArtifactOnDeployment;
         }
 
+        @CustomType.Setter
         public Builder untrustedArtifactOnDeployment(String untrustedArtifactOnDeployment) {
             this.untrustedArtifactOnDeployment = Objects.requireNonNull(untrustedArtifactOnDeployment);
             return this;
-        }        public CodeSigningConfigPolicies build() {
-            return new CodeSigningConfigPolicies(untrustedArtifactOnDeployment);
+        }
+        public CodeSigningConfigPolicies build() {
+            final var o = new CodeSigningConfigPolicies();
+            o.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
+            return o;
         }
     }
 }

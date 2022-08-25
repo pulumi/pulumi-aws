@@ -13,13 +13,9 @@ public final class EventSourceMappingDestinationConfigOnFailure {
      * @return The Amazon Resource Name (ARN) of the destination resource.
      * 
      */
-    private final String destinationArn;
+    private String destinationArn;
 
-    @CustomType.Constructor
-    private EventSourceMappingDestinationConfigOnFailure(@CustomType.Parameter("destinationArn") String destinationArn) {
-        this.destinationArn = destinationArn;
-    }
-
+    private EventSourceMappingDestinationConfigOnFailure() {}
     /**
      * @return The Amazon Resource Name (ARN) of the destination resource.
      * 
@@ -35,24 +31,24 @@ public final class EventSourceMappingDestinationConfigOnFailure {
     public static Builder builder(EventSourceMappingDestinationConfigOnFailure defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destinationArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSourceMappingDestinationConfigOnFailure defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationArn = defaults.destinationArn;
         }
 
+        @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
             this.destinationArn = Objects.requireNonNull(destinationArn);
             return this;
-        }        public EventSourceMappingDestinationConfigOnFailure build() {
-            return new EventSourceMappingDestinationConfigOnFailure(destinationArn);
+        }
+        public EventSourceMappingDestinationConfigOnFailure build() {
+            final var o = new EventSourceMappingDestinationConfigOnFailure();
+            o.destinationArn = destinationArn;
+            return o;
         }
     }
 }

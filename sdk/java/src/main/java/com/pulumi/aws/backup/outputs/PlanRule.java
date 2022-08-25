@@ -21,70 +21,49 @@ public final class PlanRule {
      * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
      * 
      */
-    private final @Nullable Integer completionWindow;
+    private @Nullable Integer completionWindow;
     /**
      * @return Configuration block(s) with copy operation settings. Detailed below.
      * 
      */
-    private final @Nullable List<PlanRuleCopyAction> copyActions;
+    private @Nullable List<PlanRuleCopyAction> copyActions;
     /**
      * @return Enable continuous backups for supported resources.
      * 
      */
-    private final @Nullable Boolean enableContinuousBackup;
+    private @Nullable Boolean enableContinuousBackup;
     /**
      * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
      * 
      */
-    private final @Nullable PlanRuleLifecycle lifecycle;
+    private @Nullable PlanRuleLifecycle lifecycle;
     /**
      * @return Metadata that you can assign to help organize the resources that you create.
      * 
      */
-    private final @Nullable Map<String,String> recoveryPointTags;
+    private @Nullable Map<String,String> recoveryPointTags;
     /**
      * @return An display name for a backup rule.
      * 
      */
-    private final String ruleName;
+    private String ruleName;
     /**
      * @return A CRON expression specifying when AWS Backup initiates a backup job.
      * 
      */
-    private final @Nullable String schedule;
+    private @Nullable String schedule;
     /**
      * @return The amount of time in minutes before beginning a backup.
      * 
      */
-    private final @Nullable Integer startWindow;
+    private @Nullable Integer startWindow;
     /**
      * @return The name of a logical container where backups are stored.
      * 
      */
-    private final String targetVaultName;
+    private String targetVaultName;
 
-    @CustomType.Constructor
-    private PlanRule(
-        @CustomType.Parameter("completionWindow") @Nullable Integer completionWindow,
-        @CustomType.Parameter("copyActions") @Nullable List<PlanRuleCopyAction> copyActions,
-        @CustomType.Parameter("enableContinuousBackup") @Nullable Boolean enableContinuousBackup,
-        @CustomType.Parameter("lifecycle") @Nullable PlanRuleLifecycle lifecycle,
-        @CustomType.Parameter("recoveryPointTags") @Nullable Map<String,String> recoveryPointTags,
-        @CustomType.Parameter("ruleName") String ruleName,
-        @CustomType.Parameter("schedule") @Nullable String schedule,
-        @CustomType.Parameter("startWindow") @Nullable Integer startWindow,
-        @CustomType.Parameter("targetVaultName") String targetVaultName) {
-        this.completionWindow = completionWindow;
-        this.copyActions = copyActions;
-        this.enableContinuousBackup = enableContinuousBackup;
-        this.lifecycle = lifecycle;
-        this.recoveryPointTags = recoveryPointTags;
-        this.ruleName = ruleName;
-        this.schedule = schedule;
-        this.startWindow = startWindow;
-        this.targetVaultName = targetVaultName;
-    }
-
+    private PlanRule() {}
     /**
      * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
      * 
@@ -156,7 +135,7 @@ public final class PlanRule {
     public static Builder builder(PlanRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer completionWindow;
         private @Nullable List<PlanRuleCopyAction> copyActions;
@@ -167,11 +146,7 @@ public final class PlanRule {
         private @Nullable String schedule;
         private @Nullable Integer startWindow;
         private String targetVaultName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PlanRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.completionWindow = defaults.completionWindow;
@@ -185,10 +160,12 @@ public final class PlanRule {
     	      this.targetVaultName = defaults.targetVaultName;
         }
 
+        @CustomType.Setter
         public Builder completionWindow(@Nullable Integer completionWindow) {
             this.completionWindow = completionWindow;
             return this;
         }
+        @CustomType.Setter
         public Builder copyActions(@Nullable List<PlanRuleCopyAction> copyActions) {
             this.copyActions = copyActions;
             return this;
@@ -196,35 +173,53 @@ public final class PlanRule {
         public Builder copyActions(PlanRuleCopyAction... copyActions) {
             return copyActions(List.of(copyActions));
         }
+        @CustomType.Setter
         public Builder enableContinuousBackup(@Nullable Boolean enableContinuousBackup) {
             this.enableContinuousBackup = enableContinuousBackup;
             return this;
         }
+        @CustomType.Setter
         public Builder lifecycle(@Nullable PlanRuleLifecycle lifecycle) {
             this.lifecycle = lifecycle;
             return this;
         }
+        @CustomType.Setter
         public Builder recoveryPointTags(@Nullable Map<String,String> recoveryPointTags) {
             this.recoveryPointTags = recoveryPointTags;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleName(String ruleName) {
             this.ruleName = Objects.requireNonNull(ruleName);
             return this;
         }
+        @CustomType.Setter
         public Builder schedule(@Nullable String schedule) {
             this.schedule = schedule;
             return this;
         }
+        @CustomType.Setter
         public Builder startWindow(@Nullable Integer startWindow) {
             this.startWindow = startWindow;
             return this;
         }
+        @CustomType.Setter
         public Builder targetVaultName(String targetVaultName) {
             this.targetVaultName = Objects.requireNonNull(targetVaultName);
             return this;
-        }        public PlanRule build() {
-            return new PlanRule(completionWindow, copyActions, enableContinuousBackup, lifecycle, recoveryPointTags, ruleName, schedule, startWindow, targetVaultName);
+        }
+        public PlanRule build() {
+            final var o = new PlanRule();
+            o.completionWindow = completionWindow;
+            o.copyActions = copyActions;
+            o.enableContinuousBackup = enableContinuousBackup;
+            o.lifecycle = lifecycle;
+            o.recoveryPointTags = recoveryPointTags;
+            o.ruleName = ruleName;
+            o.schedule = schedule;
+            o.startWindow = startWindow;
+            o.targetVaultName = targetVaultName;
+            return o;
         }
     }
 }

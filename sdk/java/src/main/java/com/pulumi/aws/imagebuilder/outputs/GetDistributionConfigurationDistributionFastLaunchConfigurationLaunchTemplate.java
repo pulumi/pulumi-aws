@@ -13,28 +13,19 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
      * @return ID of the Amazon EC2 launch template.
      * 
      */
-    private final String launchTemplateId;
+    private String launchTemplateId;
     /**
      * @return The name of the launch template to use for faster launching for a Windows AMI.
      * 
      */
-    private final String launchTemplateName;
+    private String launchTemplateName;
     /**
      * @return The version of the launch template to use for faster launching for a Windows AMI.
      * 
      */
-    private final String launchTemplateVersion;
+    private String launchTemplateVersion;
 
-    @CustomType.Constructor
-    private GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate(
-        @CustomType.Parameter("launchTemplateId") String launchTemplateId,
-        @CustomType.Parameter("launchTemplateName") String launchTemplateName,
-        @CustomType.Parameter("launchTemplateVersion") String launchTemplateVersion) {
-        this.launchTemplateId = launchTemplateId;
-        this.launchTemplateName = launchTemplateName;
-        this.launchTemplateVersion = launchTemplateVersion;
-    }
-
+    private GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate() {}
     /**
      * @return ID of the Amazon EC2 launch template.
      * 
@@ -64,16 +55,12 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
     public static Builder builder(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String launchTemplateId;
         private String launchTemplateName;
         private String launchTemplateVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.launchTemplateId = defaults.launchTemplateId;
@@ -81,19 +68,27 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
     	      this.launchTemplateVersion = defaults.launchTemplateVersion;
         }
 
+        @CustomType.Setter
         public Builder launchTemplateId(String launchTemplateId) {
             this.launchTemplateId = Objects.requireNonNull(launchTemplateId);
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplateName(String launchTemplateName) {
             this.launchTemplateName = Objects.requireNonNull(launchTemplateName);
             return this;
         }
+        @CustomType.Setter
         public Builder launchTemplateVersion(String launchTemplateVersion) {
             this.launchTemplateVersion = Objects.requireNonNull(launchTemplateVersion);
             return this;
-        }        public GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate build() {
-            return new GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate(launchTemplateId, launchTemplateName, launchTemplateVersion);
+        }
+        public GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate build() {
+            final var o = new GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate();
+            o.launchTemplateId = launchTemplateId;
+            o.launchTemplateName = launchTemplateName;
+            o.launchTemplateVersion = launchTemplateVersion;
+            return o;
         }
     }
 }

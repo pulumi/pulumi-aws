@@ -16,63 +16,44 @@ public final class LaunchTemplatePlacement {
      * @return The affinity setting for an instance on a Dedicated Host.
      * 
      */
-    private final @Nullable String affinity;
+    private @Nullable String affinity;
     /**
      * @return The Availability Zone for the instance.
      * 
      */
-    private final @Nullable String availabilityZone;
+    private @Nullable String availabilityZone;
     /**
      * @return The name of the placement group for the instance.
      * 
      */
-    private final @Nullable String groupName;
+    private @Nullable String groupName;
     /**
      * @return The ID of the Dedicated Host for the instance.
      * 
      */
-    private final @Nullable String hostId;
+    private @Nullable String hostId;
     /**
      * @return The ARN of the Host Resource Group in which to launch instances.
      * 
      */
-    private final @Nullable String hostResourceGroupArn;
+    private @Nullable String hostResourceGroupArn;
     /**
      * @return The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
      * 
      */
-    private final @Nullable Integer partitionNumber;
+    private @Nullable Integer partitionNumber;
     /**
      * @return Reserved for future use.
      * 
      */
-    private final @Nullable String spreadDomain;
+    private @Nullable String spreadDomain;
     /**
      * @return The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
      * 
      */
-    private final @Nullable String tenancy;
+    private @Nullable String tenancy;
 
-    @CustomType.Constructor
-    private LaunchTemplatePlacement(
-        @CustomType.Parameter("affinity") @Nullable String affinity,
-        @CustomType.Parameter("availabilityZone") @Nullable String availabilityZone,
-        @CustomType.Parameter("groupName") @Nullable String groupName,
-        @CustomType.Parameter("hostId") @Nullable String hostId,
-        @CustomType.Parameter("hostResourceGroupArn") @Nullable String hostResourceGroupArn,
-        @CustomType.Parameter("partitionNumber") @Nullable Integer partitionNumber,
-        @CustomType.Parameter("spreadDomain") @Nullable String spreadDomain,
-        @CustomType.Parameter("tenancy") @Nullable String tenancy) {
-        this.affinity = affinity;
-        this.availabilityZone = availabilityZone;
-        this.groupName = groupName;
-        this.hostId = hostId;
-        this.hostResourceGroupArn = hostResourceGroupArn;
-        this.partitionNumber = partitionNumber;
-        this.spreadDomain = spreadDomain;
-        this.tenancy = tenancy;
-    }
-
+    private LaunchTemplatePlacement() {}
     /**
      * @return The affinity setting for an instance on a Dedicated Host.
      * 
@@ -137,7 +118,7 @@ public final class LaunchTemplatePlacement {
     public static Builder builder(LaunchTemplatePlacement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String affinity;
         private @Nullable String availabilityZone;
@@ -147,11 +128,7 @@ public final class LaunchTemplatePlacement {
         private @Nullable Integer partitionNumber;
         private @Nullable String spreadDomain;
         private @Nullable String tenancy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplatePlacement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.affinity = defaults.affinity;
@@ -164,39 +141,57 @@ public final class LaunchTemplatePlacement {
     	      this.tenancy = defaults.tenancy;
         }
 
+        @CustomType.Setter
         public Builder affinity(@Nullable String affinity) {
             this.affinity = affinity;
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
             this.availabilityZone = availabilityZone;
             return this;
         }
+        @CustomType.Setter
         public Builder groupName(@Nullable String groupName) {
             this.groupName = groupName;
             return this;
         }
+        @CustomType.Setter
         public Builder hostId(@Nullable String hostId) {
             this.hostId = hostId;
             return this;
         }
+        @CustomType.Setter
         public Builder hostResourceGroupArn(@Nullable String hostResourceGroupArn) {
             this.hostResourceGroupArn = hostResourceGroupArn;
             return this;
         }
+        @CustomType.Setter
         public Builder partitionNumber(@Nullable Integer partitionNumber) {
             this.partitionNumber = partitionNumber;
             return this;
         }
+        @CustomType.Setter
         public Builder spreadDomain(@Nullable String spreadDomain) {
             this.spreadDomain = spreadDomain;
             return this;
         }
+        @CustomType.Setter
         public Builder tenancy(@Nullable String tenancy) {
             this.tenancy = tenancy;
             return this;
-        }        public LaunchTemplatePlacement build() {
-            return new LaunchTemplatePlacement(affinity, availabilityZone, groupName, hostId, hostResourceGroupArn, partitionNumber, spreadDomain, tenancy);
+        }
+        public LaunchTemplatePlacement build() {
+            final var o = new LaunchTemplatePlacement();
+            o.affinity = affinity;
+            o.availabilityZone = availabilityZone;
+            o.groupName = groupName;
+            o.hostId = hostId;
+            o.hostResourceGroupArn = hostResourceGroupArn;
+            o.partitionNumber = partitionNumber;
+            o.spreadDomain = spreadDomain;
+            o.tenancy = tenancy;
+            return o;
         }
     }
 }

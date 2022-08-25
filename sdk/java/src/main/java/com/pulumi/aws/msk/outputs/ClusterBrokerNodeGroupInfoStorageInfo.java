@@ -15,13 +15,9 @@ public final class ClusterBrokerNodeGroupInfoStorageInfo {
      * @return A block that contains EBS volume information. See below.
      * 
      */
-    private final @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo ebsStorageInfo;
+    private @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo ebsStorageInfo;
 
-    @CustomType.Constructor
-    private ClusterBrokerNodeGroupInfoStorageInfo(@CustomType.Parameter("ebsStorageInfo") @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo ebsStorageInfo) {
-        this.ebsStorageInfo = ebsStorageInfo;
-    }
-
+    private ClusterBrokerNodeGroupInfoStorageInfo() {}
     /**
      * @return A block that contains EBS volume information. See below.
      * 
@@ -37,24 +33,24 @@ public final class ClusterBrokerNodeGroupInfoStorageInfo {
     public static Builder builder(ClusterBrokerNodeGroupInfoStorageInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo ebsStorageInfo;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterBrokerNodeGroupInfoStorageInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ebsStorageInfo = defaults.ebsStorageInfo;
         }
 
+        @CustomType.Setter
         public Builder ebsStorageInfo(@Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo ebsStorageInfo) {
             this.ebsStorageInfo = ebsStorageInfo;
             return this;
-        }        public ClusterBrokerNodeGroupInfoStorageInfo build() {
-            return new ClusterBrokerNodeGroupInfoStorageInfo(ebsStorageInfo);
+        }
+        public ClusterBrokerNodeGroupInfoStorageInfo build() {
+            final var o = new ClusterBrokerNodeGroupInfoStorageInfo();
+            o.ebsStorageInfo = ebsStorageInfo;
+            return o;
         }
     }
 }

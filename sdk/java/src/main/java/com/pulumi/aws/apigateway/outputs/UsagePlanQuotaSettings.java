@@ -16,28 +16,19 @@ public final class UsagePlanQuotaSettings {
      * @return The maximum number of requests that can be made in a given time period.
      * 
      */
-    private final Integer limit;
+    private Integer limit;
     /**
      * @return The number of requests subtracted from the given limit in the initial time period.
      * 
      */
-    private final @Nullable Integer offset;
+    private @Nullable Integer offset;
     /**
      * @return The time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
      * 
      */
-    private final String period;
+    private String period;
 
-    @CustomType.Constructor
-    private UsagePlanQuotaSettings(
-        @CustomType.Parameter("limit") Integer limit,
-        @CustomType.Parameter("offset") @Nullable Integer offset,
-        @CustomType.Parameter("period") String period) {
-        this.limit = limit;
-        this.offset = offset;
-        this.period = period;
-    }
-
+    private UsagePlanQuotaSettings() {}
     /**
      * @return The maximum number of requests that can be made in a given time period.
      * 
@@ -67,16 +58,12 @@ public final class UsagePlanQuotaSettings {
     public static Builder builder(UsagePlanQuotaSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer limit;
         private @Nullable Integer offset;
         private String period;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UsagePlanQuotaSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.limit = defaults.limit;
@@ -84,19 +71,27 @@ public final class UsagePlanQuotaSettings {
     	      this.period = defaults.period;
         }
 
+        @CustomType.Setter
         public Builder limit(Integer limit) {
             this.limit = Objects.requireNonNull(limit);
             return this;
         }
+        @CustomType.Setter
         public Builder offset(@Nullable Integer offset) {
             this.offset = offset;
             return this;
         }
+        @CustomType.Setter
         public Builder period(String period) {
             this.period = Objects.requireNonNull(period);
             return this;
-        }        public UsagePlanQuotaSettings build() {
-            return new UsagePlanQuotaSettings(limit, offset, period);
+        }
+        public UsagePlanQuotaSettings build() {
+            final var o = new UsagePlanQuotaSettings();
+            o.limit = limit;
+            o.offset = offset;
+            o.period = period;
+            return o;
         }
     }
 }

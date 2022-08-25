@@ -16,28 +16,19 @@ public final class ReceiptRuleStopAction {
      * @return The position of the action in the receipt rule
      * 
      */
-    private final Integer position;
+    private Integer position;
     /**
      * @return The scope to apply. The only acceptable value is `RuleSet`.
      * 
      */
-    private final String scope;
+    private String scope;
     /**
      * @return The ARN of an SNS topic to notify
      * 
      */
-    private final @Nullable String topicArn;
+    private @Nullable String topicArn;
 
-    @CustomType.Constructor
-    private ReceiptRuleStopAction(
-        @CustomType.Parameter("position") Integer position,
-        @CustomType.Parameter("scope") String scope,
-        @CustomType.Parameter("topicArn") @Nullable String topicArn) {
-        this.position = position;
-        this.scope = scope;
-        this.topicArn = topicArn;
-    }
-
+    private ReceiptRuleStopAction() {}
     /**
      * @return The position of the action in the receipt rule
      * 
@@ -67,16 +58,12 @@ public final class ReceiptRuleStopAction {
     public static Builder builder(ReceiptRuleStopAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer position;
         private String scope;
         private @Nullable String topicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReceiptRuleStopAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.position = defaults.position;
@@ -84,19 +71,27 @@ public final class ReceiptRuleStopAction {
     	      this.topicArn = defaults.topicArn;
         }
 
+        @CustomType.Setter
         public Builder position(Integer position) {
             this.position = Objects.requireNonNull(position);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(String scope) {
             this.scope = Objects.requireNonNull(scope);
             return this;
         }
+        @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
             this.topicArn = topicArn;
             return this;
-        }        public ReceiptRuleStopAction build() {
-            return new ReceiptRuleStopAction(position, scope, topicArn);
+        }
+        public ReceiptRuleStopAction build() {
+            final var o = new ReceiptRuleStopAction();
+            o.position = position;
+            o.scope = scope;
+            o.topicArn = topicArn;
+            return o;
         }
     }
 }

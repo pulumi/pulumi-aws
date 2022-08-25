@@ -16,21 +16,14 @@ public final class OntapFileSystemEndpointIntercluster {
      * @return The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
-    private final @Nullable String dnsName;
+    private @Nullable String dnsName;
     /**
      * @return IP addresses of the file system endpoint.
      * 
      */
-    private final @Nullable List<String> ipAddresses;
+    private @Nullable List<String> ipAddresses;
 
-    @CustomType.Constructor
-    private OntapFileSystemEndpointIntercluster(
-        @CustomType.Parameter("dnsName") @Nullable String dnsName,
-        @CustomType.Parameter("ipAddresses") @Nullable List<String> ipAddresses) {
-        this.dnsName = dnsName;
-        this.ipAddresses = ipAddresses;
-    }
-
+    private OntapFileSystemEndpointIntercluster() {}
     /**
      * @return The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
@@ -53,33 +46,35 @@ public final class OntapFileSystemEndpointIntercluster {
     public static Builder builder(OntapFileSystemEndpointIntercluster defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dnsName;
         private @Nullable List<String> ipAddresses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OntapFileSystemEndpointIntercluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsName = defaults.dnsName;
     	      this.ipAddresses = defaults.ipAddresses;
         }
 
+        @CustomType.Setter
         public Builder dnsName(@Nullable String dnsName) {
             this.dnsName = dnsName;
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
             this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
-        }        public OntapFileSystemEndpointIntercluster build() {
-            return new OntapFileSystemEndpointIntercluster(dnsName, ipAddresses);
+        }
+        public OntapFileSystemEndpointIntercluster build() {
+            final var o = new OntapFileSystemEndpointIntercluster();
+            o.dnsName = dnsName;
+            o.ipAddresses = ipAddresses;
+            return o;
         }
     }
 }

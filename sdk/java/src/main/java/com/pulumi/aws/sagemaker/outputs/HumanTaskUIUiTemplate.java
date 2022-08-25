@@ -15,28 +15,19 @@ public final class HumanTaskUIUiTemplate {
      * @return The content of the Liquid template for the worker user interface.
      * 
      */
-    private final @Nullable String content;
+    private @Nullable String content;
     /**
      * @return The SHA-256 digest of the contents of the template.
      * 
      */
-    private final @Nullable String contentSha256;
+    private @Nullable String contentSha256;
     /**
      * @return The URL for the user interface template.
      * 
      */
-    private final @Nullable String url;
+    private @Nullable String url;
 
-    @CustomType.Constructor
-    private HumanTaskUIUiTemplate(
-        @CustomType.Parameter("content") @Nullable String content,
-        @CustomType.Parameter("contentSha256") @Nullable String contentSha256,
-        @CustomType.Parameter("url") @Nullable String url) {
-        this.content = content;
-        this.contentSha256 = contentSha256;
-        this.url = url;
-    }
-
+    private HumanTaskUIUiTemplate() {}
     /**
      * @return The content of the Liquid template for the worker user interface.
      * 
@@ -66,16 +57,12 @@ public final class HumanTaskUIUiTemplate {
     public static Builder builder(HumanTaskUIUiTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String content;
         private @Nullable String contentSha256;
         private @Nullable String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HumanTaskUIUiTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
@@ -83,19 +70,27 @@ public final class HumanTaskUIUiTemplate {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder content(@Nullable String content) {
             this.content = content;
             return this;
         }
+        @CustomType.Setter
         public Builder contentSha256(@Nullable String contentSha256) {
             this.contentSha256 = contentSha256;
             return this;
         }
+        @CustomType.Setter
         public Builder url(@Nullable String url) {
             this.url = url;
             return this;
-        }        public HumanTaskUIUiTemplate build() {
-            return new HumanTaskUIUiTemplate(content, contentSha256, url);
+        }
+        public HumanTaskUIUiTemplate build() {
+            final var o = new HumanTaskUIUiTemplate();
+            o.content = content;
+            o.contentSha256 = contentSha256;
+            o.url = url;
+            return o;
         }
     }
 }

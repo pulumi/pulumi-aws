@@ -17,24 +17,15 @@ public final class CostCategoryRuleRuleOr {
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
      */
-    private final @Nullable CostCategoryRuleRuleOrCostCategory costCategory;
+    private @Nullable CostCategoryRuleRuleOrCostCategory costCategory;
     /**
      * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
-    private final @Nullable CostCategoryRuleRuleOrDimension dimension;
-    private final @Nullable CostCategoryRuleRuleOrTags tags;
+    private @Nullable CostCategoryRuleRuleOrDimension dimension;
+    private @Nullable CostCategoryRuleRuleOrTags tags;
 
-    @CustomType.Constructor
-    private CostCategoryRuleRuleOr(
-        @CustomType.Parameter("costCategory") @Nullable CostCategoryRuleRuleOrCostCategory costCategory,
-        @CustomType.Parameter("dimension") @Nullable CostCategoryRuleRuleOrDimension dimension,
-        @CustomType.Parameter("tags") @Nullable CostCategoryRuleRuleOrTags tags) {
-        this.costCategory = costCategory;
-        this.dimension = dimension;
-        this.tags = tags;
-    }
-
+    private CostCategoryRuleRuleOr() {}
     /**
      * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
@@ -60,16 +51,12 @@ public final class CostCategoryRuleRuleOr {
     public static Builder builder(CostCategoryRuleRuleOr defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable CostCategoryRuleRuleOrCostCategory costCategory;
         private @Nullable CostCategoryRuleRuleOrDimension dimension;
         private @Nullable CostCategoryRuleRuleOrTags tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CostCategoryRuleRuleOr defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.costCategory = defaults.costCategory;
@@ -77,19 +64,27 @@ public final class CostCategoryRuleRuleOr {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder costCategory(@Nullable CostCategoryRuleRuleOrCostCategory costCategory) {
             this.costCategory = costCategory;
             return this;
         }
+        @CustomType.Setter
         public Builder dimension(@Nullable CostCategoryRuleRuleOrDimension dimension) {
             this.dimension = dimension;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable CostCategoryRuleRuleOrTags tags) {
             this.tags = tags;
             return this;
-        }        public CostCategoryRuleRuleOr build() {
-            return new CostCategoryRuleRuleOr(costCategory, dimension, tags);
+        }
+        public CostCategoryRuleRuleOr build() {
+            final var o = new CostCategoryRuleRuleOr();
+            o.costCategory = costCategory;
+            o.dimension = dimension;
+            o.tags = tags;
+            return o;
         }
     }
 }

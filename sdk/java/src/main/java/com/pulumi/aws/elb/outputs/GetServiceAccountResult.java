@@ -15,24 +15,15 @@ public final class GetServiceAccountResult {
      * @return The ARN of the AWS ELB service account in the selected region.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String region;
+    private String id;
+    private @Nullable String region;
 
-    @CustomType.Constructor
-    private GetServiceAccountResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("region") @Nullable String region) {
-        this.arn = arn;
-        this.id = id;
-        this.region = region;
-    }
-
+    private GetServiceAccountResult() {}
     /**
      * @return The ARN of the AWS ELB service account in the selected region.
      * 
@@ -58,16 +49,12 @@ public final class GetServiceAccountResult {
     public static Builder builder(GetServiceAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private @Nullable String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -75,19 +62,27 @@ public final class GetServiceAccountResult {
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
-        }        public GetServiceAccountResult build() {
-            return new GetServiceAccountResult(arn, id, region);
+        }
+        public GetServiceAccountResult build() {
+            final var o = new GetServiceAccountResult();
+            o.arn = arn;
+            o.id = id;
+            o.region = region;
+            return o;
         }
     }
 }

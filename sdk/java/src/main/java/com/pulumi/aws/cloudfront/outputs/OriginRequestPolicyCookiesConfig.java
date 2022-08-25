@@ -12,17 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OriginRequestPolicyCookiesConfig {
-    private final String cookieBehavior;
-    private final @Nullable OriginRequestPolicyCookiesConfigCookies cookies;
+    private String cookieBehavior;
+    private @Nullable OriginRequestPolicyCookiesConfigCookies cookies;
 
-    @CustomType.Constructor
-    private OriginRequestPolicyCookiesConfig(
-        @CustomType.Parameter("cookieBehavior") String cookieBehavior,
-        @CustomType.Parameter("cookies") @Nullable OriginRequestPolicyCookiesConfigCookies cookies) {
-        this.cookieBehavior = cookieBehavior;
-        this.cookies = cookies;
-    }
-
+    private OriginRequestPolicyCookiesConfig() {}
     public String cookieBehavior() {
         return this.cookieBehavior;
     }
@@ -37,30 +30,32 @@ public final class OriginRequestPolicyCookiesConfig {
     public static Builder builder(OriginRequestPolicyCookiesConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cookieBehavior;
         private @Nullable OriginRequestPolicyCookiesConfigCookies cookies;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OriginRequestPolicyCookiesConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cookieBehavior = defaults.cookieBehavior;
     	      this.cookies = defaults.cookies;
         }
 
+        @CustomType.Setter
         public Builder cookieBehavior(String cookieBehavior) {
             this.cookieBehavior = Objects.requireNonNull(cookieBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder cookies(@Nullable OriginRequestPolicyCookiesConfigCookies cookies) {
             this.cookies = cookies;
             return this;
-        }        public OriginRequestPolicyCookiesConfig build() {
-            return new OriginRequestPolicyCookiesConfig(cookieBehavior, cookies);
+        }
+        public OriginRequestPolicyCookiesConfig build() {
+            final var o = new OriginRequestPolicyCookiesConfig();
+            o.cookieBehavior = cookieBehavior;
+            o.cookies = cookies;
+            return o;
         }
     }
 }

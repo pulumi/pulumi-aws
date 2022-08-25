@@ -16,22 +16,15 @@ public final class S3BucketAssociationClassificationType {
      * The only valid value is the default value, `FULL`.
      * 
      */
-    private final @Nullable String continuous;
+    private @Nullable String continuous;
     /**
      * @return A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
      * Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
      * 
      */
-    private final @Nullable String oneTime;
+    private @Nullable String oneTime;
 
-    @CustomType.Constructor
-    private S3BucketAssociationClassificationType(
-        @CustomType.Parameter("continuous") @Nullable String continuous,
-        @CustomType.Parameter("oneTime") @Nullable String oneTime) {
-        this.continuous = continuous;
-        this.oneTime = oneTime;
-    }
-
+    private S3BucketAssociationClassificationType() {}
     /**
      * @return A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
      * The only valid value is the default value, `FULL`.
@@ -56,30 +49,32 @@ public final class S3BucketAssociationClassificationType {
     public static Builder builder(S3BucketAssociationClassificationType defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String continuous;
         private @Nullable String oneTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(S3BucketAssociationClassificationType defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.continuous = defaults.continuous;
     	      this.oneTime = defaults.oneTime;
         }
 
+        @CustomType.Setter
         public Builder continuous(@Nullable String continuous) {
             this.continuous = continuous;
             return this;
         }
+        @CustomType.Setter
         public Builder oneTime(@Nullable String oneTime) {
             this.oneTime = oneTime;
             return this;
-        }        public S3BucketAssociationClassificationType build() {
-            return new S3BucketAssociationClassificationType(continuous, oneTime);
+        }
+        public S3BucketAssociationClassificationType build() {
+            final var o = new S3BucketAssociationClassificationType();
+            o.continuous = continuous;
+            o.oneTime = oneTime;
+            return o;
         }
     }
 }

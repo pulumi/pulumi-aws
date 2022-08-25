@@ -15,13 +15,9 @@ public final class DeliveryChannelSnapshotDeliveryProperties {
      * @return - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
      * 
      */
-    private final @Nullable String deliveryFrequency;
+    private @Nullable String deliveryFrequency;
 
-    @CustomType.Constructor
-    private DeliveryChannelSnapshotDeliveryProperties(@CustomType.Parameter("deliveryFrequency") @Nullable String deliveryFrequency) {
-        this.deliveryFrequency = deliveryFrequency;
-    }
-
+    private DeliveryChannelSnapshotDeliveryProperties() {}
     /**
      * @return - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
      * 
@@ -37,24 +33,24 @@ public final class DeliveryChannelSnapshotDeliveryProperties {
     public static Builder builder(DeliveryChannelSnapshotDeliveryProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deliveryFrequency;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeliveryChannelSnapshotDeliveryProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deliveryFrequency = defaults.deliveryFrequency;
         }
 
+        @CustomType.Setter
         public Builder deliveryFrequency(@Nullable String deliveryFrequency) {
             this.deliveryFrequency = deliveryFrequency;
             return this;
-        }        public DeliveryChannelSnapshotDeliveryProperties build() {
-            return new DeliveryChannelSnapshotDeliveryProperties(deliveryFrequency);
+        }
+        public DeliveryChannelSnapshotDeliveryProperties build() {
+            final var o = new DeliveryChannelSnapshotDeliveryProperties();
+            o.deliveryFrequency = deliveryFrequency;
+            return o;
         }
     }
 }

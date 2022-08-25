@@ -11,17 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IgnoreTags {
-    private final @Nullable List<String> keyPrefixes;
-    private final @Nullable List<String> keys;
+    private @Nullable List<String> keyPrefixes;
+    private @Nullable List<String> keys;
 
-    @CustomType.Constructor
-    private IgnoreTags(
-        @CustomType.Parameter("keyPrefixes") @Nullable List<String> keyPrefixes,
-        @CustomType.Parameter("keys") @Nullable List<String> keys) {
-        this.keyPrefixes = keyPrefixes;
-        this.keys = keys;
-    }
-
+    private IgnoreTags() {}
     public List<String> keyPrefixes() {
         return this.keyPrefixes == null ? List.of() : this.keyPrefixes;
     }
@@ -36,21 +29,18 @@ public final class IgnoreTags {
     public static Builder builder(IgnoreTags defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> keyPrefixes;
         private @Nullable List<String> keys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IgnoreTags defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyPrefixes = defaults.keyPrefixes;
     	      this.keys = defaults.keys;
         }
 
+        @CustomType.Setter
         public Builder keyPrefixes(@Nullable List<String> keyPrefixes) {
             this.keyPrefixes = keyPrefixes;
             return this;
@@ -58,14 +48,19 @@ public final class IgnoreTags {
         public Builder keyPrefixes(String... keyPrefixes) {
             return keyPrefixes(List.of(keyPrefixes));
         }
+        @CustomType.Setter
         public Builder keys(@Nullable List<String> keys) {
             this.keys = keys;
             return this;
         }
         public Builder keys(String... keys) {
             return keys(List.of(keys));
-        }        public IgnoreTags build() {
-            return new IgnoreTags(keyPrefixes, keys);
+        }
+        public IgnoreTags build() {
+            final var o = new IgnoreTags();
+            o.keyPrefixes = keyPrefixes;
+            o.keys = keys;
+            return o;
         }
     }
 }

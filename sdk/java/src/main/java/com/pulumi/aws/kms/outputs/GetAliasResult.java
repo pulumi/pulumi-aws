@@ -13,38 +13,25 @@ public final class GetAliasResult {
      * @return The Amazon Resource Name(ARN) of the key alias.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return ARN pointed to by the alias.
      * 
      */
-    private final String targetKeyArn;
+    private String targetKeyArn;
     /**
      * @return Key identifier pointed to by the alias.
      * 
      */
-    private final String targetKeyId;
+    private String targetKeyId;
 
-    @CustomType.Constructor
-    private GetAliasResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("targetKeyArn") String targetKeyArn,
-        @CustomType.Parameter("targetKeyId") String targetKeyId) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-        this.targetKeyArn = targetKeyArn;
-        this.targetKeyId = targetKeyId;
-    }
-
+    private GetAliasResult() {}
     /**
      * @return The Amazon Resource Name(ARN) of the key alias.
      * 
@@ -84,18 +71,14 @@ public final class GetAliasResult {
     public static Builder builder(GetAliasResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private String name;
         private String targetKeyArn;
         private String targetKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAliasResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -105,27 +88,39 @@ public final class GetAliasResult {
     	      this.targetKeyId = defaults.targetKeyId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder targetKeyArn(String targetKeyArn) {
             this.targetKeyArn = Objects.requireNonNull(targetKeyArn);
             return this;
         }
+        @CustomType.Setter
         public Builder targetKeyId(String targetKeyId) {
             this.targetKeyId = Objects.requireNonNull(targetKeyId);
             return this;
-        }        public GetAliasResult build() {
-            return new GetAliasResult(arn, id, name, targetKeyArn, targetKeyId);
+        }
+        public GetAliasResult build() {
+            final var o = new GetAliasResult();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            o.targetKeyArn = targetKeyArn;
+            o.targetKeyId = targetKeyId;
+            return o;
         }
     }
 }

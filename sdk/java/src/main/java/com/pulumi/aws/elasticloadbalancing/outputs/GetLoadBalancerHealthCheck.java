@@ -10,26 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerHealthCheck {
-    private final Integer healthyThreshold;
-    private final Integer interval;
-    private final String target;
-    private final Integer timeout;
-    private final Integer unhealthyThreshold;
+    private Integer healthyThreshold;
+    private Integer interval;
+    private String target;
+    private Integer timeout;
+    private Integer unhealthyThreshold;
 
-    @CustomType.Constructor
-    private GetLoadBalancerHealthCheck(
-        @CustomType.Parameter("healthyThreshold") Integer healthyThreshold,
-        @CustomType.Parameter("interval") Integer interval,
-        @CustomType.Parameter("target") String target,
-        @CustomType.Parameter("timeout") Integer timeout,
-        @CustomType.Parameter("unhealthyThreshold") Integer unhealthyThreshold) {
-        this.healthyThreshold = healthyThreshold;
-        this.interval = interval;
-        this.target = target;
-        this.timeout = timeout;
-        this.unhealthyThreshold = unhealthyThreshold;
-    }
-
+    private GetLoadBalancerHealthCheck() {}
     public Integer healthyThreshold() {
         return this.healthyThreshold;
     }
@@ -53,18 +40,14 @@ public final class GetLoadBalancerHealthCheck {
     public static Builder builder(GetLoadBalancerHealthCheck defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer healthyThreshold;
         private Integer interval;
         private String target;
         private Integer timeout;
         private Integer unhealthyThreshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLoadBalancerHealthCheck defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.healthyThreshold = defaults.healthyThreshold;
@@ -74,27 +57,39 @@ public final class GetLoadBalancerHealthCheck {
     	      this.unhealthyThreshold = defaults.unhealthyThreshold;
         }
 
+        @CustomType.Setter
         public Builder healthyThreshold(Integer healthyThreshold) {
             this.healthyThreshold = Objects.requireNonNull(healthyThreshold);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(Integer interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
         }
+        @CustomType.Setter
         public Builder target(String target) {
             this.target = Objects.requireNonNull(target);
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(Integer timeout) {
             this.timeout = Objects.requireNonNull(timeout);
             return this;
         }
+        @CustomType.Setter
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
             this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
             return this;
-        }        public GetLoadBalancerHealthCheck build() {
-            return new GetLoadBalancerHealthCheck(healthyThreshold, interval, target, timeout, unhealthyThreshold);
+        }
+        public GetLoadBalancerHealthCheck build() {
+            final var o = new GetLoadBalancerHealthCheck();
+            o.healthyThreshold = healthyThreshold;
+            o.interval = interval;
+            o.target = target;
+            o.timeout = timeout;
+            o.unhealthyThreshold = unhealthyThreshold;
+            return o;
         }
     }
 }

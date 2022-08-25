@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateElasticGpuSpecification {
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateElasticGpuSpecification(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private GetLaunchTemplateElasticGpuSpecification() {}
     public String type() {
         return this.type;
     }
@@ -27,24 +23,24 @@ public final class GetLaunchTemplateElasticGpuSpecification {
     public static Builder builder(GetLaunchTemplateElasticGpuSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateElasticGpuSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetLaunchTemplateElasticGpuSpecification build() {
-            return new GetLaunchTemplateElasticGpuSpecification(type);
+        }
+        public GetLaunchTemplateElasticGpuSpecification build() {
+            final var o = new GetLaunchTemplateElasticGpuSpecification();
+            o.type = type;
+            return o;
         }
     }
 }

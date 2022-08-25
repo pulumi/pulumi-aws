@@ -15,13 +15,9 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
      * @return Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
      * 
      */
-    private final @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd amountInUsd;
+    private @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd amountInUsd;
 
-    @CustomType.Constructor
-    private FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice(@CustomType.Parameter("amountInUsd") @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd amountInUsd) {
-        this.amountInUsd = amountInUsd;
-    }
-
+    private FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice() {}
     /**
      * @return Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
      * 
@@ -37,24 +33,24 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
     public static Builder builder(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd amountInUsd;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amountInUsd = defaults.amountInUsd;
         }
 
+        @CustomType.Setter
         public Builder amountInUsd(@Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd amountInUsd) {
             this.amountInUsd = amountInUsd;
             return this;
-        }        public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice build() {
-            return new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice(amountInUsd);
+        }
+        public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice build() {
+            final var o = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice();
+            o.amountInUsd = amountInUsd;
+            return o;
         }
     }
 }

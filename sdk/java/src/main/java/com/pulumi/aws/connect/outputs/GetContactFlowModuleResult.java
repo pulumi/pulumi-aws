@@ -14,65 +14,42 @@ public final class GetContactFlowModuleResult {
      * @return The Amazon Resource Name (ARN) of the Contact Flow Module.
      * 
      */
-    private final String arn;
-    private final String contactFlowModuleId;
+    private String arn;
+    private String contactFlowModuleId;
     /**
      * @return Specifies the logic of the Contact Flow Module.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return Specifies the description of the Contact Flow Module.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
-    private final String name;
+    private String id;
+    private String instanceId;
+    private String name;
     /**
      * @return Specifies the type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      * 
      */
-    private final String state;
+    private String state;
     /**
      * @return The status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return A map of tags to assign to the Contact Flow Module.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetContactFlowModuleResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("contactFlowModuleId") String contactFlowModuleId,
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.contactFlowModuleId = contactFlowModuleId;
-        this.content = content;
-        this.description = description;
-        this.id = id;
-        this.instanceId = instanceId;
-        this.name = name;
-        this.state = state;
-        this.status = status;
-        this.tags = tags;
-    }
-
+    private GetContactFlowModuleResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Contact Flow Module.
      * 
@@ -139,7 +116,7 @@ public final class GetContactFlowModuleResult {
     public static Builder builder(GetContactFlowModuleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String contactFlowModuleId;
@@ -151,11 +128,7 @@ public final class GetContactFlowModuleResult {
         private String state;
         private String status;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetContactFlowModuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -170,47 +143,69 @@ public final class GetContactFlowModuleResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder contactFlowModuleId(String contactFlowModuleId) {
             this.contactFlowModuleId = Objects.requireNonNull(contactFlowModuleId);
             return this;
         }
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetContactFlowModuleResult build() {
-            return new GetContactFlowModuleResult(arn, contactFlowModuleId, content, description, id, instanceId, name, state, status, tags);
+        }
+        public GetContactFlowModuleResult build() {
+            final var o = new GetContactFlowModuleResult();
+            o.arn = arn;
+            o.contactFlowModuleId = contactFlowModuleId;
+            o.content = content;
+            o.description = description;
+            o.id = id;
+            o.instanceId = instanceId;
+            o.name = name;
+            o.state = state;
+            o.status = status;
+            o.tags = tags;
+            return o;
         }
     }
 }

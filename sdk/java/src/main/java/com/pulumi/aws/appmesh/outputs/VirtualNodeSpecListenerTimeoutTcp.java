@@ -15,13 +15,9 @@ public final class VirtualNodeSpecListenerTimeoutTcp {
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTimeoutTcpIdle idle;
+    private @Nullable VirtualNodeSpecListenerTimeoutTcpIdle idle;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTimeoutTcp(@CustomType.Parameter("idle") @Nullable VirtualNodeSpecListenerTimeoutTcpIdle idle) {
-        this.idle = idle;
-    }
-
+    private VirtualNodeSpecListenerTimeoutTcp() {}
     /**
      * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
@@ -37,24 +33,24 @@ public final class VirtualNodeSpecListenerTimeoutTcp {
     public static Builder builder(VirtualNodeSpecListenerTimeoutTcp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecListenerTimeoutTcpIdle idle;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTimeoutTcp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.idle = defaults.idle;
         }
 
+        @CustomType.Setter
         public Builder idle(@Nullable VirtualNodeSpecListenerTimeoutTcpIdle idle) {
             this.idle = idle;
             return this;
-        }        public VirtualNodeSpecListenerTimeoutTcp build() {
-            return new VirtualNodeSpecListenerTimeoutTcp(idle);
+        }
+        public VirtualNodeSpecListenerTimeoutTcp build() {
+            final var o = new VirtualNodeSpecListenerTimeoutTcp();
+            o.idle = idle;
+            return o;
         }
     }
 }

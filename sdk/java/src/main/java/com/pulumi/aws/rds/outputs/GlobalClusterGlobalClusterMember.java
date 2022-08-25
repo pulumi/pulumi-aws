@@ -16,21 +16,14 @@ public final class GlobalClusterGlobalClusterMember {
      * @return Amazon Resource Name (ARN) of member DB Cluster
      * 
      */
-    private final @Nullable String dbClusterArn;
+    private @Nullable String dbClusterArn;
     /**
      * @return Whether the member is the primary DB Cluster
      * 
      */
-    private final @Nullable Boolean isWriter;
+    private @Nullable Boolean isWriter;
 
-    @CustomType.Constructor
-    private GlobalClusterGlobalClusterMember(
-        @CustomType.Parameter("dbClusterArn") @Nullable String dbClusterArn,
-        @CustomType.Parameter("isWriter") @Nullable Boolean isWriter) {
-        this.dbClusterArn = dbClusterArn;
-        this.isWriter = isWriter;
-    }
-
+    private GlobalClusterGlobalClusterMember() {}
     /**
      * @return Amazon Resource Name (ARN) of member DB Cluster
      * 
@@ -53,30 +46,32 @@ public final class GlobalClusterGlobalClusterMember {
     public static Builder builder(GlobalClusterGlobalClusterMember defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dbClusterArn;
         private @Nullable Boolean isWriter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GlobalClusterGlobalClusterMember defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dbClusterArn = defaults.dbClusterArn;
     	      this.isWriter = defaults.isWriter;
         }
 
+        @CustomType.Setter
         public Builder dbClusterArn(@Nullable String dbClusterArn) {
             this.dbClusterArn = dbClusterArn;
             return this;
         }
+        @CustomType.Setter
         public Builder isWriter(@Nullable Boolean isWriter) {
             this.isWriter = isWriter;
             return this;
-        }        public GlobalClusterGlobalClusterMember build() {
-            return new GlobalClusterGlobalClusterMember(dbClusterArn, isWriter);
+        }
+        public GlobalClusterGlobalClusterMember build() {
+            final var o = new GlobalClusterGlobalClusterMember();
+            o.dbClusterArn = dbClusterArn;
+            o.isWriter = isWriter;
+            return o;
         }
     }
 }

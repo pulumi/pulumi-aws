@@ -16,21 +16,14 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    private final UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
+    private UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
      * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
      */
-    private final @Nullable List<String> lifecycleConfigArns;
+    private @Nullable List<String> lifecycleConfigArns;
 
-    @CustomType.Constructor
-    private UserProfileUserSettingsJupyterServerAppSettings(
-        @CustomType.Parameter("defaultResourceSpec") UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec,
-        @CustomType.Parameter("lifecycleConfigArns") @Nullable List<String> lifecycleConfigArns) {
-        this.defaultResourceSpec = defaultResourceSpec;
-        this.lifecycleConfigArns = lifecycleConfigArns;
-    }
-
+    private UserProfileUserSettingsJupyterServerAppSettings() {}
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
@@ -53,33 +46,35 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
     public static Builder builder(UserProfileUserSettingsJupyterServerAppSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
         private @Nullable List<String> lifecycleConfigArns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserProfileUserSettingsJupyterServerAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultResourceSpec = defaults.defaultResourceSpec;
     	      this.lifecycleConfigArns = defaults.lifecycleConfigArns;
         }
 
+        @CustomType.Setter
         public Builder defaultResourceSpec(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec) {
             this.defaultResourceSpec = Objects.requireNonNull(defaultResourceSpec);
             return this;
         }
+        @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
         public Builder lifecycleConfigArns(String... lifecycleConfigArns) {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
-        }        public UserProfileUserSettingsJupyterServerAppSettings build() {
-            return new UserProfileUserSettingsJupyterServerAppSettings(defaultResourceSpec, lifecycleConfigArns);
+        }
+        public UserProfileUserSettingsJupyterServerAppSettings build() {
+            final var o = new UserProfileUserSettingsJupyterServerAppSettings();
+            o.defaultResourceSpec = defaultResourceSpec;
+            o.lifecycleConfigArns = lifecycleConfigArns;
+            return o;
         }
     }
 }

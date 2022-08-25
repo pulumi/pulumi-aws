@@ -15,21 +15,14 @@ public final class LaunchTemplateIamInstanceProfile {
      * @return The Amazon Resource Name (ARN) of the instance profile.
      * 
      */
-    private final @Nullable String arn;
+    private @Nullable String arn;
     /**
      * @return The name of the instance profile.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private LaunchTemplateIamInstanceProfile(
-        @CustomType.Parameter("arn") @Nullable String arn,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.arn = arn;
-        this.name = name;
-    }
-
+    private LaunchTemplateIamInstanceProfile() {}
     /**
      * @return The Amazon Resource Name (ARN) of the instance profile.
      * 
@@ -52,30 +45,32 @@ public final class LaunchTemplateIamInstanceProfile {
     public static Builder builder(LaunchTemplateIamInstanceProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateIamInstanceProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder arn(@Nullable String arn) {
             this.arn = arn;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public LaunchTemplateIamInstanceProfile build() {
-            return new LaunchTemplateIamInstanceProfile(arn, name);
+        }
+        public LaunchTemplateIamInstanceProfile build() {
+            final var o = new LaunchTemplateIamInstanceProfile();
+            o.arn = arn;
+            o.name = name;
+            return o;
         }
     }
 }

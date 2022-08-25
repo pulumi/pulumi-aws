@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader {
-    private final List<String> items;
+    private List<String> items;
 
-    @CustomType.Constructor
-    private GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader(@CustomType.Parameter("items") List<String> items) {
-        this.items = items;
-    }
-
+    private GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader() {}
     public List<String> items() {
         return this.items;
     }
@@ -28,27 +24,27 @@ public final class GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader {
     public static Builder builder(GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(List<String> items) {
             this.items = Objects.requireNonNull(items);
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader build() {
-            return new GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader(items);
+        }
+        public GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader build() {
+            final var o = new GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader();
+            o.items = items;
+            return o;
         }
     }
 }

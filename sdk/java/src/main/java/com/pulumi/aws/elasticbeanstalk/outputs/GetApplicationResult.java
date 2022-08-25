@@ -10,38 +10,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationResult {
-    private final GetApplicationAppversionLifecycle appversionLifecycle;
+    private GetApplicationAppversionLifecycle appversionLifecycle;
     /**
      * @return The Amazon Resource Name (ARN) of the application.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Short description of the application
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
 
-    @CustomType.Constructor
-    private GetApplicationResult(
-        @CustomType.Parameter("appversionLifecycle") GetApplicationAppversionLifecycle appversionLifecycle,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.appversionLifecycle = appversionLifecycle;
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetApplicationResult() {}
     public GetApplicationAppversionLifecycle appversionLifecycle() {
         return this.appversionLifecycle;
     }
@@ -77,18 +64,14 @@ public final class GetApplicationResult {
     public static Builder builder(GetApplicationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GetApplicationAppversionLifecycle appversionLifecycle;
         private String arn;
         private String description;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appversionLifecycle = defaults.appversionLifecycle;
@@ -98,27 +81,39 @@ public final class GetApplicationResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder appversionLifecycle(GetApplicationAppversionLifecycle appversionLifecycle) {
             this.appversionLifecycle = Objects.requireNonNull(appversionLifecycle);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetApplicationResult build() {
-            return new GetApplicationResult(appversionLifecycle, arn, description, id, name);
+        }
+        public GetApplicationResult build() {
+            final var o = new GetApplicationResult();
+            o.appversionLifecycle = appversionLifecycle;
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class EventTargetDeadLetterConfig {
      * @return - ARN of the SQS queue specified as the target for the dead-letter queue.
      * 
      */
-    private final @Nullable String arn;
+    private @Nullable String arn;
 
-    @CustomType.Constructor
-    private EventTargetDeadLetterConfig(@CustomType.Parameter("arn") @Nullable String arn) {
-        this.arn = arn;
-    }
-
+    private EventTargetDeadLetterConfig() {}
     /**
      * @return - ARN of the SQS queue specified as the target for the dead-letter queue.
      * 
@@ -37,24 +33,24 @@ public final class EventTargetDeadLetterConfig {
     public static Builder builder(EventTargetDeadLetterConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventTargetDeadLetterConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
         }
 
+        @CustomType.Setter
         public Builder arn(@Nullable String arn) {
             this.arn = arn;
             return this;
-        }        public EventTargetDeadLetterConfig build() {
-            return new EventTargetDeadLetterConfig(arn);
+        }
+        public EventTargetDeadLetterConfig build() {
+            final var o = new EventTargetDeadLetterConfig();
+            o.arn = arn;
+            return o;
         }
     }
 }

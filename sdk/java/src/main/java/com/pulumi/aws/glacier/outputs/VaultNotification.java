@@ -14,21 +14,14 @@ public final class VaultNotification {
      * @return You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
      * 
      */
-    private final List<String> events;
+    private List<String> events;
     /**
      * @return The SNS Topic ARN.
      * 
      */
-    private final String snsTopic;
+    private String snsTopic;
 
-    @CustomType.Constructor
-    private VaultNotification(
-        @CustomType.Parameter("events") List<String> events,
-        @CustomType.Parameter("snsTopic") String snsTopic) {
-        this.events = events;
-        this.snsTopic = snsTopic;
-    }
-
+    private VaultNotification() {}
     /**
      * @return You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
      * 
@@ -51,21 +44,18 @@ public final class VaultNotification {
     public static Builder builder(VaultNotification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> events;
         private String snsTopic;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VaultNotification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.events = defaults.events;
     	      this.snsTopic = defaults.snsTopic;
         }
 
+        @CustomType.Setter
         public Builder events(List<String> events) {
             this.events = Objects.requireNonNull(events);
             return this;
@@ -73,11 +63,16 @@ public final class VaultNotification {
         public Builder events(String... events) {
             return events(List.of(events));
         }
+        @CustomType.Setter
         public Builder snsTopic(String snsTopic) {
             this.snsTopic = Objects.requireNonNull(snsTopic);
             return this;
-        }        public VaultNotification build() {
-            return new VaultNotification(events, snsTopic);
+        }
+        public VaultNotification build() {
+            final var o = new VaultNotification();
+            o.events = events;
+            o.snsTopic = snsTopic;
+            return o;
         }
     }
 }

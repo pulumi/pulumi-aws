@@ -15,21 +15,14 @@ public final class TaskExcludes {
      * @return The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
      * 
      */
-    private final @Nullable String filterType;
+    private @Nullable String filterType;
     /**
      * @return A single filter string that consists of the patterns to exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private TaskExcludes(
-        @CustomType.Parameter("filterType") @Nullable String filterType,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.filterType = filterType;
-        this.value = value;
-    }
-
+    private TaskExcludes() {}
     /**
      * @return The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
      * 
@@ -52,30 +45,32 @@ public final class TaskExcludes {
     public static Builder builder(TaskExcludes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String filterType;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskExcludes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filterType = defaults.filterType;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder filterType(@Nullable String filterType) {
             this.filterType = filterType;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public TaskExcludes build() {
-            return new TaskExcludes(filterType, value);
+        }
+        public TaskExcludes build() {
+            final var o = new TaskExcludes();
+            o.filterType = filterType;
+            o.value = value;
+            return o;
         }
     }
 }

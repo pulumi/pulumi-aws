@@ -15,52 +15,35 @@ public final class GetLogGroupResult {
      * @return The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * 
      */
-    private final Integer creationTime;
+    private Integer creationTime;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ARN of the KMS Key to use when encrypting log data.
      * 
      */
-    private final String kmsKeyId;
-    private final String name;
+    private String kmsKeyId;
+    private String name;
     /**
      * @return The number of days log events retained in the specified log group.
      * 
      */
-    private final Integer retentionInDays;
+    private Integer retentionInDays;
     /**
      * @return A map of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetLogGroupResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("creationTime") Integer creationTime,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("retentionInDays") Integer retentionInDays,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.creationTime = creationTime;
-        this.id = id;
-        this.kmsKeyId = kmsKeyId;
-        this.name = name;
-        this.retentionInDays = retentionInDays;
-        this.tags = tags;
-    }
-
+    private GetLogGroupResult() {}
     /**
      * @return The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
@@ -114,7 +97,7 @@ public final class GetLogGroupResult {
     public static Builder builder(GetLogGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Integer creationTime;
@@ -123,11 +106,7 @@ public final class GetLogGroupResult {
         private String name;
         private Integer retentionInDays;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLogGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -139,35 +118,51 @@ public final class GetLogGroupResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder creationTime(Integer creationTime) {
             this.creationTime = Objects.requireNonNull(creationTime);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             this.retentionInDays = Objects.requireNonNull(retentionInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetLogGroupResult build() {
-            return new GetLogGroupResult(arn, creationTime, id, kmsKeyId, name, retentionInDays, tags);
+        }
+        public GetLogGroupResult build() {
+            final var o = new GetLogGroupResult();
+            o.arn = arn;
+            o.creationTime = creationTime;
+            o.id = id;
+            o.kmsKeyId = kmsKeyId;
+            o.name = name;
+            o.retentionInDays = retentionInDays;
+            o.tags = tags;
+            return o;
         }
     }
 }

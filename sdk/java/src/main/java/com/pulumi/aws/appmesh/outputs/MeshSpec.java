@@ -15,13 +15,9 @@ public final class MeshSpec {
      * @return The egress filter rules for the service mesh.
      * 
      */
-    private final @Nullable MeshSpecEgressFilter egressFilter;
+    private @Nullable MeshSpecEgressFilter egressFilter;
 
-    @CustomType.Constructor
-    private MeshSpec(@CustomType.Parameter("egressFilter") @Nullable MeshSpecEgressFilter egressFilter) {
-        this.egressFilter = egressFilter;
-    }
-
+    private MeshSpec() {}
     /**
      * @return The egress filter rules for the service mesh.
      * 
@@ -37,24 +33,24 @@ public final class MeshSpec {
     public static Builder builder(MeshSpec defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable MeshSpecEgressFilter egressFilter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MeshSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.egressFilter = defaults.egressFilter;
         }
 
+        @CustomType.Setter
         public Builder egressFilter(@Nullable MeshSpecEgressFilter egressFilter) {
             this.egressFilter = egressFilter;
             return this;
-        }        public MeshSpec build() {
-            return new MeshSpec(egressFilter);
+        }
+        public MeshSpec build() {
+            final var o = new MeshSpec();
+            o.egressFilter = egressFilter;
+            return o;
         }
     }
 }

@@ -34,132 +34,51 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateResult {
-    private final String arn;
-    private final List<GetLaunchTemplateBlockDeviceMapping> blockDeviceMappings;
-    private final List<GetLaunchTemplateCapacityReservationSpecification> capacityReservationSpecifications;
-    private final List<GetLaunchTemplateCpuOption> cpuOptions;
-    private final List<GetLaunchTemplateCreditSpecification> creditSpecifications;
-    private final Integer defaultVersion;
-    private final String description;
-    private final Boolean disableApiStop;
-    private final Boolean disableApiTermination;
-    private final String ebsOptimized;
-    private final List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications;
-    private final List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators;
-    private final List<GetLaunchTemplateEnclaveOption> enclaveOptions;
-    private final @Nullable List<GetLaunchTemplateFilter> filters;
-    private final List<GetLaunchTemplateHibernationOption> hibernationOptions;
-    private final List<GetLaunchTemplateIamInstanceProfile> iamInstanceProfiles;
+    private String arn;
+    private List<GetLaunchTemplateBlockDeviceMapping> blockDeviceMappings;
+    private List<GetLaunchTemplateCapacityReservationSpecification> capacityReservationSpecifications;
+    private List<GetLaunchTemplateCpuOption> cpuOptions;
+    private List<GetLaunchTemplateCreditSpecification> creditSpecifications;
+    private Integer defaultVersion;
+    private String description;
+    private Boolean disableApiStop;
+    private Boolean disableApiTermination;
+    private String ebsOptimized;
+    private List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications;
+    private List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators;
+    private List<GetLaunchTemplateEnclaveOption> enclaveOptions;
+    private @Nullable List<GetLaunchTemplateFilter> filters;
+    private List<GetLaunchTemplateHibernationOption> hibernationOptions;
+    private List<GetLaunchTemplateIamInstanceProfile> iamInstanceProfiles;
     /**
      * @return The ID of the launch template.
      * 
      */
-    private final String id;
-    private final String imageId;
-    private final String instanceInitiatedShutdownBehavior;
-    private final List<GetLaunchTemplateInstanceMarketOption> instanceMarketOptions;
-    private final List<GetLaunchTemplateInstanceRequirement> instanceRequirements;
-    private final String instanceType;
-    private final String kernelId;
-    private final String keyName;
-    private final Integer latestVersion;
-    private final List<GetLaunchTemplateLicenseSpecification> licenseSpecifications;
-    private final List<GetLaunchTemplateMaintenanceOption> maintenanceOptions;
-    private final List<GetLaunchTemplateMetadataOption> metadataOptions;
-    private final List<GetLaunchTemplateMonitoring> monitorings;
-    private final String name;
-    private final List<GetLaunchTemplateNetworkInterface> networkInterfaces;
-    private final List<GetLaunchTemplatePlacement> placements;
-    private final List<GetLaunchTemplatePrivateDnsNameOption> privateDnsNameOptions;
-    private final String ramDiskId;
-    private final List<String> securityGroupNames;
-    private final List<GetLaunchTemplateTagSpecification> tagSpecifications;
-    private final Map<String,String> tags;
-    private final String userData;
-    private final List<String> vpcSecurityGroupIds;
+    private String id;
+    private String imageId;
+    private String instanceInitiatedShutdownBehavior;
+    private List<GetLaunchTemplateInstanceMarketOption> instanceMarketOptions;
+    private List<GetLaunchTemplateInstanceRequirement> instanceRequirements;
+    private String instanceType;
+    private String kernelId;
+    private String keyName;
+    private Integer latestVersion;
+    private List<GetLaunchTemplateLicenseSpecification> licenseSpecifications;
+    private List<GetLaunchTemplateMaintenanceOption> maintenanceOptions;
+    private List<GetLaunchTemplateMetadataOption> metadataOptions;
+    private List<GetLaunchTemplateMonitoring> monitorings;
+    private String name;
+    private List<GetLaunchTemplateNetworkInterface> networkInterfaces;
+    private List<GetLaunchTemplatePlacement> placements;
+    private List<GetLaunchTemplatePrivateDnsNameOption> privateDnsNameOptions;
+    private String ramDiskId;
+    private List<String> securityGroupNames;
+    private List<GetLaunchTemplateTagSpecification> tagSpecifications;
+    private Map<String,String> tags;
+    private String userData;
+    private List<String> vpcSecurityGroupIds;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("blockDeviceMappings") List<GetLaunchTemplateBlockDeviceMapping> blockDeviceMappings,
-        @CustomType.Parameter("capacityReservationSpecifications") List<GetLaunchTemplateCapacityReservationSpecification> capacityReservationSpecifications,
-        @CustomType.Parameter("cpuOptions") List<GetLaunchTemplateCpuOption> cpuOptions,
-        @CustomType.Parameter("creditSpecifications") List<GetLaunchTemplateCreditSpecification> creditSpecifications,
-        @CustomType.Parameter("defaultVersion") Integer defaultVersion,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("disableApiStop") Boolean disableApiStop,
-        @CustomType.Parameter("disableApiTermination") Boolean disableApiTermination,
-        @CustomType.Parameter("ebsOptimized") String ebsOptimized,
-        @CustomType.Parameter("elasticGpuSpecifications") List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications,
-        @CustomType.Parameter("elasticInferenceAccelerators") List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators,
-        @CustomType.Parameter("enclaveOptions") List<GetLaunchTemplateEnclaveOption> enclaveOptions,
-        @CustomType.Parameter("filters") @Nullable List<GetLaunchTemplateFilter> filters,
-        @CustomType.Parameter("hibernationOptions") List<GetLaunchTemplateHibernationOption> hibernationOptions,
-        @CustomType.Parameter("iamInstanceProfiles") List<GetLaunchTemplateIamInstanceProfile> iamInstanceProfiles,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageId") String imageId,
-        @CustomType.Parameter("instanceInitiatedShutdownBehavior") String instanceInitiatedShutdownBehavior,
-        @CustomType.Parameter("instanceMarketOptions") List<GetLaunchTemplateInstanceMarketOption> instanceMarketOptions,
-        @CustomType.Parameter("instanceRequirements") List<GetLaunchTemplateInstanceRequirement> instanceRequirements,
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("kernelId") String kernelId,
-        @CustomType.Parameter("keyName") String keyName,
-        @CustomType.Parameter("latestVersion") Integer latestVersion,
-        @CustomType.Parameter("licenseSpecifications") List<GetLaunchTemplateLicenseSpecification> licenseSpecifications,
-        @CustomType.Parameter("maintenanceOptions") List<GetLaunchTemplateMaintenanceOption> maintenanceOptions,
-        @CustomType.Parameter("metadataOptions") List<GetLaunchTemplateMetadataOption> metadataOptions,
-        @CustomType.Parameter("monitorings") List<GetLaunchTemplateMonitoring> monitorings,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkInterfaces") List<GetLaunchTemplateNetworkInterface> networkInterfaces,
-        @CustomType.Parameter("placements") List<GetLaunchTemplatePlacement> placements,
-        @CustomType.Parameter("privateDnsNameOptions") List<GetLaunchTemplatePrivateDnsNameOption> privateDnsNameOptions,
-        @CustomType.Parameter("ramDiskId") String ramDiskId,
-        @CustomType.Parameter("securityGroupNames") List<String> securityGroupNames,
-        @CustomType.Parameter("tagSpecifications") List<GetLaunchTemplateTagSpecification> tagSpecifications,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("userData") String userData,
-        @CustomType.Parameter("vpcSecurityGroupIds") List<String> vpcSecurityGroupIds) {
-        this.arn = arn;
-        this.blockDeviceMappings = blockDeviceMappings;
-        this.capacityReservationSpecifications = capacityReservationSpecifications;
-        this.cpuOptions = cpuOptions;
-        this.creditSpecifications = creditSpecifications;
-        this.defaultVersion = defaultVersion;
-        this.description = description;
-        this.disableApiStop = disableApiStop;
-        this.disableApiTermination = disableApiTermination;
-        this.ebsOptimized = ebsOptimized;
-        this.elasticGpuSpecifications = elasticGpuSpecifications;
-        this.elasticInferenceAccelerators = elasticInferenceAccelerators;
-        this.enclaveOptions = enclaveOptions;
-        this.filters = filters;
-        this.hibernationOptions = hibernationOptions;
-        this.iamInstanceProfiles = iamInstanceProfiles;
-        this.id = id;
-        this.imageId = imageId;
-        this.instanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
-        this.instanceMarketOptions = instanceMarketOptions;
-        this.instanceRequirements = instanceRequirements;
-        this.instanceType = instanceType;
-        this.kernelId = kernelId;
-        this.keyName = keyName;
-        this.latestVersion = latestVersion;
-        this.licenseSpecifications = licenseSpecifications;
-        this.maintenanceOptions = maintenanceOptions;
-        this.metadataOptions = metadataOptions;
-        this.monitorings = monitorings;
-        this.name = name;
-        this.networkInterfaces = networkInterfaces;
-        this.placements = placements;
-        this.privateDnsNameOptions = privateDnsNameOptions;
-        this.ramDiskId = ramDiskId;
-        this.securityGroupNames = securityGroupNames;
-        this.tagSpecifications = tagSpecifications;
-        this.tags = tags;
-        this.userData = userData;
-        this.vpcSecurityGroupIds = vpcSecurityGroupIds;
-    }
-
+    private GetLaunchTemplateResult() {}
     public String arn() {
         return this.arn;
     }
@@ -289,7 +208,7 @@ public final class GetLaunchTemplateResult {
     public static Builder builder(GetLaunchTemplateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetLaunchTemplateBlockDeviceMapping> blockDeviceMappings;
@@ -330,11 +249,7 @@ public final class GetLaunchTemplateResult {
         private Map<String,String> tags;
         private String userData;
         private List<String> vpcSecurityGroupIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -378,10 +293,12 @@ public final class GetLaunchTemplateResult {
     	      this.vpcSecurityGroupIds = defaults.vpcSecurityGroupIds;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder blockDeviceMappings(List<GetLaunchTemplateBlockDeviceMapping> blockDeviceMappings) {
             this.blockDeviceMappings = Objects.requireNonNull(blockDeviceMappings);
             return this;
@@ -389,6 +306,7 @@ public final class GetLaunchTemplateResult {
         public Builder blockDeviceMappings(GetLaunchTemplateBlockDeviceMapping... blockDeviceMappings) {
             return blockDeviceMappings(List.of(blockDeviceMappings));
         }
+        @CustomType.Setter
         public Builder capacityReservationSpecifications(List<GetLaunchTemplateCapacityReservationSpecification> capacityReservationSpecifications) {
             this.capacityReservationSpecifications = Objects.requireNonNull(capacityReservationSpecifications);
             return this;
@@ -396,6 +314,7 @@ public final class GetLaunchTemplateResult {
         public Builder capacityReservationSpecifications(GetLaunchTemplateCapacityReservationSpecification... capacityReservationSpecifications) {
             return capacityReservationSpecifications(List.of(capacityReservationSpecifications));
         }
+        @CustomType.Setter
         public Builder cpuOptions(List<GetLaunchTemplateCpuOption> cpuOptions) {
             this.cpuOptions = Objects.requireNonNull(cpuOptions);
             return this;
@@ -403,6 +322,7 @@ public final class GetLaunchTemplateResult {
         public Builder cpuOptions(GetLaunchTemplateCpuOption... cpuOptions) {
             return cpuOptions(List.of(cpuOptions));
         }
+        @CustomType.Setter
         public Builder creditSpecifications(List<GetLaunchTemplateCreditSpecification> creditSpecifications) {
             this.creditSpecifications = Objects.requireNonNull(creditSpecifications);
             return this;
@@ -410,26 +330,32 @@ public final class GetLaunchTemplateResult {
         public Builder creditSpecifications(GetLaunchTemplateCreditSpecification... creditSpecifications) {
             return creditSpecifications(List.of(creditSpecifications));
         }
+        @CustomType.Setter
         public Builder defaultVersion(Integer defaultVersion) {
             this.defaultVersion = Objects.requireNonNull(defaultVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder disableApiStop(Boolean disableApiStop) {
             this.disableApiStop = Objects.requireNonNull(disableApiStop);
             return this;
         }
+        @CustomType.Setter
         public Builder disableApiTermination(Boolean disableApiTermination) {
             this.disableApiTermination = Objects.requireNonNull(disableApiTermination);
             return this;
         }
+        @CustomType.Setter
         public Builder ebsOptimized(String ebsOptimized) {
             this.ebsOptimized = Objects.requireNonNull(ebsOptimized);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticGpuSpecifications(List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications) {
             this.elasticGpuSpecifications = Objects.requireNonNull(elasticGpuSpecifications);
             return this;
@@ -437,6 +363,7 @@ public final class GetLaunchTemplateResult {
         public Builder elasticGpuSpecifications(GetLaunchTemplateElasticGpuSpecification... elasticGpuSpecifications) {
             return elasticGpuSpecifications(List.of(elasticGpuSpecifications));
         }
+        @CustomType.Setter
         public Builder elasticInferenceAccelerators(List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators) {
             this.elasticInferenceAccelerators = Objects.requireNonNull(elasticInferenceAccelerators);
             return this;
@@ -444,6 +371,7 @@ public final class GetLaunchTemplateResult {
         public Builder elasticInferenceAccelerators(GetLaunchTemplateElasticInferenceAccelerator... elasticInferenceAccelerators) {
             return elasticInferenceAccelerators(List.of(elasticInferenceAccelerators));
         }
+        @CustomType.Setter
         public Builder enclaveOptions(List<GetLaunchTemplateEnclaveOption> enclaveOptions) {
             this.enclaveOptions = Objects.requireNonNull(enclaveOptions);
             return this;
@@ -451,6 +379,7 @@ public final class GetLaunchTemplateResult {
         public Builder enclaveOptions(GetLaunchTemplateEnclaveOption... enclaveOptions) {
             return enclaveOptions(List.of(enclaveOptions));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetLaunchTemplateFilter> filters) {
             this.filters = filters;
             return this;
@@ -458,6 +387,7 @@ public final class GetLaunchTemplateResult {
         public Builder filters(GetLaunchTemplateFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder hibernationOptions(List<GetLaunchTemplateHibernationOption> hibernationOptions) {
             this.hibernationOptions = Objects.requireNonNull(hibernationOptions);
             return this;
@@ -465,6 +395,7 @@ public final class GetLaunchTemplateResult {
         public Builder hibernationOptions(GetLaunchTemplateHibernationOption... hibernationOptions) {
             return hibernationOptions(List.of(hibernationOptions));
         }
+        @CustomType.Setter
         public Builder iamInstanceProfiles(List<GetLaunchTemplateIamInstanceProfile> iamInstanceProfiles) {
             this.iamInstanceProfiles = Objects.requireNonNull(iamInstanceProfiles);
             return this;
@@ -472,18 +403,22 @@ public final class GetLaunchTemplateResult {
         public Builder iamInstanceProfiles(GetLaunchTemplateIamInstanceProfile... iamInstanceProfiles) {
             return iamInstanceProfiles(List.of(iamInstanceProfiles));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageId(String imageId) {
             this.imageId = Objects.requireNonNull(imageId);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceInitiatedShutdownBehavior(String instanceInitiatedShutdownBehavior) {
             this.instanceInitiatedShutdownBehavior = Objects.requireNonNull(instanceInitiatedShutdownBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceMarketOptions(List<GetLaunchTemplateInstanceMarketOption> instanceMarketOptions) {
             this.instanceMarketOptions = Objects.requireNonNull(instanceMarketOptions);
             return this;
@@ -491,6 +426,7 @@ public final class GetLaunchTemplateResult {
         public Builder instanceMarketOptions(GetLaunchTemplateInstanceMarketOption... instanceMarketOptions) {
             return instanceMarketOptions(List.of(instanceMarketOptions));
         }
+        @CustomType.Setter
         public Builder instanceRequirements(List<GetLaunchTemplateInstanceRequirement> instanceRequirements) {
             this.instanceRequirements = Objects.requireNonNull(instanceRequirements);
             return this;
@@ -498,22 +434,27 @@ public final class GetLaunchTemplateResult {
         public Builder instanceRequirements(GetLaunchTemplateInstanceRequirement... instanceRequirements) {
             return instanceRequirements(List.of(instanceRequirements));
         }
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder kernelId(String kernelId) {
             this.kernelId = Objects.requireNonNull(kernelId);
             return this;
         }
+        @CustomType.Setter
         public Builder keyName(String keyName) {
             this.keyName = Objects.requireNonNull(keyName);
             return this;
         }
+        @CustomType.Setter
         public Builder latestVersion(Integer latestVersion) {
             this.latestVersion = Objects.requireNonNull(latestVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder licenseSpecifications(List<GetLaunchTemplateLicenseSpecification> licenseSpecifications) {
             this.licenseSpecifications = Objects.requireNonNull(licenseSpecifications);
             return this;
@@ -521,6 +462,7 @@ public final class GetLaunchTemplateResult {
         public Builder licenseSpecifications(GetLaunchTemplateLicenseSpecification... licenseSpecifications) {
             return licenseSpecifications(List.of(licenseSpecifications));
         }
+        @CustomType.Setter
         public Builder maintenanceOptions(List<GetLaunchTemplateMaintenanceOption> maintenanceOptions) {
             this.maintenanceOptions = Objects.requireNonNull(maintenanceOptions);
             return this;
@@ -528,6 +470,7 @@ public final class GetLaunchTemplateResult {
         public Builder maintenanceOptions(GetLaunchTemplateMaintenanceOption... maintenanceOptions) {
             return maintenanceOptions(List.of(maintenanceOptions));
         }
+        @CustomType.Setter
         public Builder metadataOptions(List<GetLaunchTemplateMetadataOption> metadataOptions) {
             this.metadataOptions = Objects.requireNonNull(metadataOptions);
             return this;
@@ -535,6 +478,7 @@ public final class GetLaunchTemplateResult {
         public Builder metadataOptions(GetLaunchTemplateMetadataOption... metadataOptions) {
             return metadataOptions(List.of(metadataOptions));
         }
+        @CustomType.Setter
         public Builder monitorings(List<GetLaunchTemplateMonitoring> monitorings) {
             this.monitorings = Objects.requireNonNull(monitorings);
             return this;
@@ -542,10 +486,12 @@ public final class GetLaunchTemplateResult {
         public Builder monitorings(GetLaunchTemplateMonitoring... monitorings) {
             return monitorings(List.of(monitorings));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaces(List<GetLaunchTemplateNetworkInterface> networkInterfaces) {
             this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
             return this;
@@ -553,6 +499,7 @@ public final class GetLaunchTemplateResult {
         public Builder networkInterfaces(GetLaunchTemplateNetworkInterface... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
+        @CustomType.Setter
         public Builder placements(List<GetLaunchTemplatePlacement> placements) {
             this.placements = Objects.requireNonNull(placements);
             return this;
@@ -560,6 +507,7 @@ public final class GetLaunchTemplateResult {
         public Builder placements(GetLaunchTemplatePlacement... placements) {
             return placements(List.of(placements));
         }
+        @CustomType.Setter
         public Builder privateDnsNameOptions(List<GetLaunchTemplatePrivateDnsNameOption> privateDnsNameOptions) {
             this.privateDnsNameOptions = Objects.requireNonNull(privateDnsNameOptions);
             return this;
@@ -567,10 +515,12 @@ public final class GetLaunchTemplateResult {
         public Builder privateDnsNameOptions(GetLaunchTemplatePrivateDnsNameOption... privateDnsNameOptions) {
             return privateDnsNameOptions(List.of(privateDnsNameOptions));
         }
+        @CustomType.Setter
         public Builder ramDiskId(String ramDiskId) {
             this.ramDiskId = Objects.requireNonNull(ramDiskId);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupNames(List<String> securityGroupNames) {
             this.securityGroupNames = Objects.requireNonNull(securityGroupNames);
             return this;
@@ -578,6 +528,7 @@ public final class GetLaunchTemplateResult {
         public Builder securityGroupNames(String... securityGroupNames) {
             return securityGroupNames(List.of(securityGroupNames));
         }
+        @CustomType.Setter
         public Builder tagSpecifications(List<GetLaunchTemplateTagSpecification> tagSpecifications) {
             this.tagSpecifications = Objects.requireNonNull(tagSpecifications);
             return this;
@@ -585,22 +536,66 @@ public final class GetLaunchTemplateResult {
         public Builder tagSpecifications(GetLaunchTemplateTagSpecification... tagSpecifications) {
             return tagSpecifications(List.of(tagSpecifications));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder userData(String userData) {
             this.userData = Objects.requireNonNull(userData);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
             this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
             return this;
         }
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
-        }        public GetLaunchTemplateResult build() {
-            return new GetLaunchTemplateResult(arn, blockDeviceMappings, capacityReservationSpecifications, cpuOptions, creditSpecifications, defaultVersion, description, disableApiStop, disableApiTermination, ebsOptimized, elasticGpuSpecifications, elasticInferenceAccelerators, enclaveOptions, filters, hibernationOptions, iamInstanceProfiles, id, imageId, instanceInitiatedShutdownBehavior, instanceMarketOptions, instanceRequirements, instanceType, kernelId, keyName, latestVersion, licenseSpecifications, maintenanceOptions, metadataOptions, monitorings, name, networkInterfaces, placements, privateDnsNameOptions, ramDiskId, securityGroupNames, tagSpecifications, tags, userData, vpcSecurityGroupIds);
+        }
+        public GetLaunchTemplateResult build() {
+            final var o = new GetLaunchTemplateResult();
+            o.arn = arn;
+            o.blockDeviceMappings = blockDeviceMappings;
+            o.capacityReservationSpecifications = capacityReservationSpecifications;
+            o.cpuOptions = cpuOptions;
+            o.creditSpecifications = creditSpecifications;
+            o.defaultVersion = defaultVersion;
+            o.description = description;
+            o.disableApiStop = disableApiStop;
+            o.disableApiTermination = disableApiTermination;
+            o.ebsOptimized = ebsOptimized;
+            o.elasticGpuSpecifications = elasticGpuSpecifications;
+            o.elasticInferenceAccelerators = elasticInferenceAccelerators;
+            o.enclaveOptions = enclaveOptions;
+            o.filters = filters;
+            o.hibernationOptions = hibernationOptions;
+            o.iamInstanceProfiles = iamInstanceProfiles;
+            o.id = id;
+            o.imageId = imageId;
+            o.instanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
+            o.instanceMarketOptions = instanceMarketOptions;
+            o.instanceRequirements = instanceRequirements;
+            o.instanceType = instanceType;
+            o.kernelId = kernelId;
+            o.keyName = keyName;
+            o.latestVersion = latestVersion;
+            o.licenseSpecifications = licenseSpecifications;
+            o.maintenanceOptions = maintenanceOptions;
+            o.metadataOptions = metadataOptions;
+            o.monitorings = monitorings;
+            o.name = name;
+            o.networkInterfaces = networkInterfaces;
+            o.placements = placements;
+            o.privateDnsNameOptions = privateDnsNameOptions;
+            o.ramDiskId = ramDiskId;
+            o.securityGroupNames = securityGroupNames;
+            o.tagSpecifications = tagSpecifications;
+            o.tags = tags;
+            o.userData = userData;
+            o.vpcSecurityGroupIds = vpcSecurityGroupIds;
+            return o;
         }
     }
 }

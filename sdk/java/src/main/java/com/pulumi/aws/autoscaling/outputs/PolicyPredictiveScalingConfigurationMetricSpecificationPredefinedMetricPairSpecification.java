@@ -13,21 +13,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
      * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
      * 
      */
-    private final String predefinedMetricType;
+    private String predefinedMetricType;
     /**
      * @return A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
-    private final String resourceLabel;
+    private String resourceLabel;
 
-    @CustomType.Constructor
-    private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification(
-        @CustomType.Parameter("predefinedMetricType") String predefinedMetricType,
-        @CustomType.Parameter("resourceLabel") String resourceLabel) {
-        this.predefinedMetricType = predefinedMetricType;
-        this.resourceLabel = resourceLabel;
-    }
-
+    private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification() {}
     /**
      * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
      * 
@@ -50,30 +43,32 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
     public static Builder builder(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String predefinedMetricType;
         private String resourceLabel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.predefinedMetricType = defaults.predefinedMetricType;
     	      this.resourceLabel = defaults.resourceLabel;
         }
 
+        @CustomType.Setter
         public Builder predefinedMetricType(String predefinedMetricType) {
             this.predefinedMetricType = Objects.requireNonNull(predefinedMetricType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceLabel(String resourceLabel) {
             this.resourceLabel = Objects.requireNonNull(resourceLabel);
             return this;
-        }        public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification build() {
-            return new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification(predefinedMetricType, resourceLabel);
+        }
+        public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification build() {
+            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification();
+            o.predefinedMetricType = predefinedMetricType;
+            o.resourceLabel = resourceLabel;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class PlanAdvancedBackupSetting {
      * @return Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = &#34;enabled&#34; }` to enable Windows VSS backup option and create a VSS Windows backup.
      * 
      */
-    private final Map<String,String> backupOptions;
+    private Map<String,String> backupOptions;
     /**
      * @return The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
      * 
      */
-    private final String resourceType;
+    private String resourceType;
 
-    @CustomType.Constructor
-    private PlanAdvancedBackupSetting(
-        @CustomType.Parameter("backupOptions") Map<String,String> backupOptions,
-        @CustomType.Parameter("resourceType") String resourceType) {
-        this.backupOptions = backupOptions;
-        this.resourceType = resourceType;
-    }
-
+    private PlanAdvancedBackupSetting() {}
     /**
      * @return Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = &#34;enabled&#34; }` to enable Windows VSS backup option and create a VSS Windows backup.
      * 
@@ -51,30 +44,32 @@ public final class PlanAdvancedBackupSetting {
     public static Builder builder(PlanAdvancedBackupSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> backupOptions;
         private String resourceType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PlanAdvancedBackupSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backupOptions = defaults.backupOptions;
     	      this.resourceType = defaults.resourceType;
         }
 
+        @CustomType.Setter
         public Builder backupOptions(Map<String,String> backupOptions) {
             this.backupOptions = Objects.requireNonNull(backupOptions);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceType(String resourceType) {
             this.resourceType = Objects.requireNonNull(resourceType);
             return this;
-        }        public PlanAdvancedBackupSetting build() {
-            return new PlanAdvancedBackupSetting(backupOptions, resourceType);
+        }
+        public PlanAdvancedBackupSetting build() {
+            final var o = new PlanAdvancedBackupSetting();
+            o.backupOptions = backupOptions;
+            o.resourceType = resourceType;
+            return o;
         }
     }
 }

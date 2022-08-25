@@ -17,34 +17,21 @@ public final class GetPrefixListResult {
      * @return The list of CIDR blocks for the AWS service associated with the prefix list.
      * 
      */
-    private final List<String> cidrBlocks;
-    private final @Nullable List<GetPrefixListFilter> filters;
+    private List<String> cidrBlocks;
+    private @Nullable List<GetPrefixListFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the selected prefix list.
      * 
      */
-    private final String name;
-    private final @Nullable String prefixListId;
+    private String name;
+    private @Nullable String prefixListId;
 
-    @CustomType.Constructor
-    private GetPrefixListResult(
-        @CustomType.Parameter("cidrBlocks") List<String> cidrBlocks,
-        @CustomType.Parameter("filters") @Nullable List<GetPrefixListFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("prefixListId") @Nullable String prefixListId) {
-        this.cidrBlocks = cidrBlocks;
-        this.filters = filters;
-        this.id = id;
-        this.name = name;
-        this.prefixListId = prefixListId;
-    }
-
+    private GetPrefixListResult() {}
     /**
      * @return The list of CIDR blocks for the AWS service associated with the prefix list.
      * 
@@ -80,18 +67,14 @@ public final class GetPrefixListResult {
     public static Builder builder(GetPrefixListResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> cidrBlocks;
         private @Nullable List<GetPrefixListFilter> filters;
         private String id;
         private String name;
         private @Nullable String prefixListId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPrefixListResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidrBlocks = defaults.cidrBlocks;
@@ -101,6 +84,7 @@ public final class GetPrefixListResult {
     	      this.prefixListId = defaults.prefixListId;
         }
 
+        @CustomType.Setter
         public Builder cidrBlocks(List<String> cidrBlocks) {
             this.cidrBlocks = Objects.requireNonNull(cidrBlocks);
             return this;
@@ -108,6 +92,7 @@ public final class GetPrefixListResult {
         public Builder cidrBlocks(String... cidrBlocks) {
             return cidrBlocks(List.of(cidrBlocks));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetPrefixListFilter> filters) {
             this.filters = filters;
             return this;
@@ -115,19 +100,29 @@ public final class GetPrefixListResult {
         public Builder filters(GetPrefixListFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder prefixListId(@Nullable String prefixListId) {
             this.prefixListId = prefixListId;
             return this;
-        }        public GetPrefixListResult build() {
-            return new GetPrefixListResult(cidrBlocks, filters, id, name, prefixListId);
+        }
+        public GetPrefixListResult build() {
+            final var o = new GetPrefixListResult();
+            o.cidrBlocks = cidrBlocks;
+            o.filters = filters;
+            o.id = id;
+            o.name = name;
+            o.prefixListId = prefixListId;
+            return o;
         }
     }
 }

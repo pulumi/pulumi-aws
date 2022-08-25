@@ -15,21 +15,14 @@ public final class EventTargetRetryPolicy {
      * @return The age in seconds to continue to make retry attempts.
      * 
      */
-    private final @Nullable Integer maximumEventAgeInSeconds;
+    private @Nullable Integer maximumEventAgeInSeconds;
     /**
      * @return maximum number of retry attempts to make before the request fails
      * 
      */
-    private final @Nullable Integer maximumRetryAttempts;
+    private @Nullable Integer maximumRetryAttempts;
 
-    @CustomType.Constructor
-    private EventTargetRetryPolicy(
-        @CustomType.Parameter("maximumEventAgeInSeconds") @Nullable Integer maximumEventAgeInSeconds,
-        @CustomType.Parameter("maximumRetryAttempts") @Nullable Integer maximumRetryAttempts) {
-        this.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
-        this.maximumRetryAttempts = maximumRetryAttempts;
-    }
-
+    private EventTargetRetryPolicy() {}
     /**
      * @return The age in seconds to continue to make retry attempts.
      * 
@@ -52,30 +45,32 @@ public final class EventTargetRetryPolicy {
     public static Builder builder(EventTargetRetryPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maximumEventAgeInSeconds;
         private @Nullable Integer maximumRetryAttempts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventTargetRetryPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maximumEventAgeInSeconds = defaults.maximumEventAgeInSeconds;
     	      this.maximumRetryAttempts = defaults.maximumRetryAttempts;
         }
 
+        @CustomType.Setter
         public Builder maximumEventAgeInSeconds(@Nullable Integer maximumEventAgeInSeconds) {
             this.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder maximumRetryAttempts(@Nullable Integer maximumRetryAttempts) {
             this.maximumRetryAttempts = maximumRetryAttempts;
             return this;
-        }        public EventTargetRetryPolicy build() {
-            return new EventTargetRetryPolicy(maximumEventAgeInSeconds, maximumRetryAttempts);
+        }
+        public EventTargetRetryPolicy build() {
+            final var o = new EventTargetRetryPolicy();
+            o.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
+            o.maximumRetryAttempts = maximumRetryAttempts;
+            return o;
         }
     }
 }

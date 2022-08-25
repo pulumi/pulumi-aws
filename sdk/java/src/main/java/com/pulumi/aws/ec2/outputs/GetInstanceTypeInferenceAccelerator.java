@@ -10,20 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceTypeInferenceAccelerator {
-    private final Integer count;
-    private final String manufacturer;
-    private final String name;
+    private Integer count;
+    private String manufacturer;
+    private String name;
 
-    @CustomType.Constructor
-    private GetInstanceTypeInferenceAccelerator(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("manufacturer") String manufacturer,
-        @CustomType.Parameter("name") String name) {
-        this.count = count;
-        this.manufacturer = manufacturer;
-        this.name = name;
-    }
-
+    private GetInstanceTypeInferenceAccelerator() {}
     public Integer count() {
         return this.count;
     }
@@ -41,16 +32,12 @@ public final class GetInstanceTypeInferenceAccelerator {
     public static Builder builder(GetInstanceTypeInferenceAccelerator defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private String manufacturer;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypeInferenceAccelerator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -58,19 +45,27 @@ public final class GetInstanceTypeInferenceAccelerator {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder manufacturer(String manufacturer) {
             this.manufacturer = Objects.requireNonNull(manufacturer);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetInstanceTypeInferenceAccelerator build() {
-            return new GetInstanceTypeInferenceAccelerator(count, manufacturer, name);
+        }
+        public GetInstanceTypeInferenceAccelerator build() {
+            final var o = new GetInstanceTypeInferenceAccelerator();
+            o.count = count;
+            o.manufacturer = manufacturer;
+            o.name = name;
+            return o;
         }
     }
 }

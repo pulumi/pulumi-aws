@@ -17,80 +17,55 @@ public final class GetSigningProfileResult {
      * @return The Amazon Resource Name (ARN) for the signing profile.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return A human-readable name for the signing platform associated with the signing profile.
      * 
      */
-    private final String platformDisplayName;
+    private String platformDisplayName;
     /**
      * @return The ID of the platform that is used by the target signing profile.
      * 
      */
-    private final String platformId;
+    private String platformId;
     /**
      * @return Revocation information for a signing profile.
      * 
      */
-    private final List<GetSigningProfileRevocationRecord> revocationRecords;
+    private List<GetSigningProfileRevocationRecord> revocationRecords;
     /**
      * @return The validity period for a signing job.
      * 
      */
-    private final List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
+    private List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
     /**
      * @return The status of the target signing profile.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return A list of tags associated with the signing profile.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The current version of the signing profile.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return The signing profile ARN, including the profile version.
      * 
      */
-    private final String versionArn;
+    private String versionArn;
 
-    @CustomType.Constructor
-    private GetSigningProfileResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("platformDisplayName") String platformDisplayName,
-        @CustomType.Parameter("platformId") String platformId,
-        @CustomType.Parameter("revocationRecords") List<GetSigningProfileRevocationRecord> revocationRecords,
-        @CustomType.Parameter("signatureValidityPeriods") List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("versionArn") String versionArn) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-        this.platformDisplayName = platformDisplayName;
-        this.platformId = platformId;
-        this.revocationRecords = revocationRecords;
-        this.signatureValidityPeriods = signatureValidityPeriods;
-        this.status = status;
-        this.tags = tags;
-        this.version = version;
-        this.versionArn = versionArn;
-    }
-
+    private GetSigningProfileResult() {}
     /**
      * @return The Amazon Resource Name (ARN) for the signing profile.
      * 
@@ -172,7 +147,7 @@ public final class GetSigningProfileResult {
     public static Builder builder(GetSigningProfileResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
@@ -185,11 +160,7 @@ public final class GetSigningProfileResult {
         private Map<String,String> tags;
         private String version;
         private String versionArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSigningProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -205,26 +176,32 @@ public final class GetSigningProfileResult {
     	      this.versionArn = defaults.versionArn;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder platformDisplayName(String platformDisplayName) {
             this.platformDisplayName = Objects.requireNonNull(platformDisplayName);
             return this;
         }
+        @CustomType.Setter
         public Builder platformId(String platformId) {
             this.platformId = Objects.requireNonNull(platformId);
             return this;
         }
+        @CustomType.Setter
         public Builder revocationRecords(List<GetSigningProfileRevocationRecord> revocationRecords) {
             this.revocationRecords = Objects.requireNonNull(revocationRecords);
             return this;
@@ -232,6 +209,7 @@ public final class GetSigningProfileResult {
         public Builder revocationRecords(GetSigningProfileRevocationRecord... revocationRecords) {
             return revocationRecords(List.of(revocationRecords));
         }
+        @CustomType.Setter
         public Builder signatureValidityPeriods(List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods) {
             this.signatureValidityPeriods = Objects.requireNonNull(signatureValidityPeriods);
             return this;
@@ -239,23 +217,40 @@ public final class GetSigningProfileResult {
         public Builder signatureValidityPeriods(GetSigningProfileSignatureValidityPeriod... signatureValidityPeriods) {
             return signatureValidityPeriods(List.of(signatureValidityPeriods));
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder versionArn(String versionArn) {
             this.versionArn = Objects.requireNonNull(versionArn);
             return this;
-        }        public GetSigningProfileResult build() {
-            return new GetSigningProfileResult(arn, id, name, platformDisplayName, platformId, revocationRecords, signatureValidityPeriods, status, tags, version, versionArn);
+        }
+        public GetSigningProfileResult build() {
+            final var o = new GetSigningProfileResult();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            o.platformDisplayName = platformDisplayName;
+            o.platformId = platformId;
+            o.revocationRecords = revocationRecords;
+            o.signatureValidityPeriods = signatureValidityPeriods;
+            o.status = status;
+            o.tags = tags;
+            o.version = version;
+            o.versionArn = versionArn;
+            return o;
         }
     }
 }

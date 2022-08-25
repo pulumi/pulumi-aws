@@ -15,31 +15,20 @@ public final class GetClusterShardNode {
      * @return The Availability Zone in which the node resides.
      * 
      */
-    private final String availabilityZone;
+    private String availabilityZone;
     /**
      * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
-    private final String createTime;
-    private final List<GetClusterShardNodeEndpoint> endpoints;
+    private String createTime;
+    private List<GetClusterShardNodeEndpoint> endpoints;
     /**
      * @return Name of the cluster.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetClusterShardNode(
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("createTime") String createTime,
-        @CustomType.Parameter("endpoints") List<GetClusterShardNodeEndpoint> endpoints,
-        @CustomType.Parameter("name") String name) {
-        this.availabilityZone = availabilityZone;
-        this.createTime = createTime;
-        this.endpoints = endpoints;
-        this.name = name;
-    }
-
+    private GetClusterShardNode() {}
     /**
      * @return The Availability Zone in which the node resides.
      * 
@@ -72,17 +61,13 @@ public final class GetClusterShardNode {
     public static Builder builder(GetClusterShardNode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String availabilityZone;
         private String createTime;
         private List<GetClusterShardNodeEndpoint> endpoints;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterShardNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZone = defaults.availabilityZone;
@@ -91,14 +76,17 @@ public final class GetClusterShardNode {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder createTime(String createTime) {
             this.createTime = Objects.requireNonNull(createTime);
             return this;
         }
+        @CustomType.Setter
         public Builder endpoints(List<GetClusterShardNodeEndpoint> endpoints) {
             this.endpoints = Objects.requireNonNull(endpoints);
             return this;
@@ -106,11 +94,18 @@ public final class GetClusterShardNode {
         public Builder endpoints(GetClusterShardNodeEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetClusterShardNode build() {
-            return new GetClusterShardNode(availabilityZone, createTime, endpoints, name);
+        }
+        public GetClusterShardNode build() {
+            final var o = new GetClusterShardNode();
+            o.availabilityZone = availabilityZone;
+            o.createTime = createTime;
+            o.endpoints = endpoints;
+            o.name = name;
+            return o;
         }
     }
 }

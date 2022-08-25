@@ -14,45 +14,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAcceleratorResult {
-    private final String arn;
-    private final List<GetAcceleratorAttribute> attributes;
-    private final String dnsName;
-    private final Boolean enabled;
-    private final String hostedZoneId;
+    private String arn;
+    private List<GetAcceleratorAttribute> attributes;
+    private String dnsName;
+    private Boolean enabled;
+    private String hostedZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String ipAddressType;
-    private final List<GetAcceleratorIpSet> ipSets;
-    private final String name;
-    private final Map<String,String> tags;
+    private String id;
+    private String ipAddressType;
+    private List<GetAcceleratorIpSet> ipSets;
+    private String name;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetAcceleratorResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("attributes") List<GetAcceleratorAttribute> attributes,
-        @CustomType.Parameter("dnsName") String dnsName,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("hostedZoneId") String hostedZoneId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddressType") String ipAddressType,
-        @CustomType.Parameter("ipSets") List<GetAcceleratorIpSet> ipSets,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.attributes = attributes;
-        this.dnsName = dnsName;
-        this.enabled = enabled;
-        this.hostedZoneId = hostedZoneId;
-        this.id = id;
-        this.ipAddressType = ipAddressType;
-        this.ipSets = ipSets;
-        this.name = name;
-        this.tags = tags;
-    }
-
+    private GetAcceleratorResult() {}
     public String arn() {
         return this.arn;
     }
@@ -95,7 +72,7 @@ public final class GetAcceleratorResult {
     public static Builder builder(GetAcceleratorResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetAcceleratorAttribute> attributes;
@@ -107,11 +84,7 @@ public final class GetAcceleratorResult {
         private List<GetAcceleratorIpSet> ipSets;
         private String name;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAcceleratorResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -126,10 +99,12 @@ public final class GetAcceleratorResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder attributes(List<GetAcceleratorAttribute> attributes) {
             this.attributes = Objects.requireNonNull(attributes);
             return this;
@@ -137,26 +112,32 @@ public final class GetAcceleratorResult {
         public Builder attributes(GetAcceleratorAttribute... attributes) {
             return attributes(List.of(attributes));
         }
+        @CustomType.Setter
         public Builder dnsName(String dnsName) {
             this.dnsName = Objects.requireNonNull(dnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder hostedZoneId(String hostedZoneId) {
             this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddressType(String ipAddressType) {
             this.ipAddressType = Objects.requireNonNull(ipAddressType);
             return this;
         }
+        @CustomType.Setter
         public Builder ipSets(List<GetAcceleratorIpSet> ipSets) {
             this.ipSets = Objects.requireNonNull(ipSets);
             return this;
@@ -164,15 +145,29 @@ public final class GetAcceleratorResult {
         public Builder ipSets(GetAcceleratorIpSet... ipSets) {
             return ipSets(List.of(ipSets));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetAcceleratorResult build() {
-            return new GetAcceleratorResult(arn, attributes, dnsName, enabled, hostedZoneId, id, ipAddressType, ipSets, name, tags);
+        }
+        public GetAcceleratorResult build() {
+            final var o = new GetAcceleratorResult();
+            o.arn = arn;
+            o.attributes = attributes;
+            o.dnsName = dnsName;
+            o.enabled = enabled;
+            o.hostedZoneId = hostedZoneId;
+            o.id = id;
+            o.ipAddressType = ipAddressType;
+            o.ipSets = ipSets;
+            o.name = name;
+            o.tags = tags;
+            return o;
         }
     }
 }

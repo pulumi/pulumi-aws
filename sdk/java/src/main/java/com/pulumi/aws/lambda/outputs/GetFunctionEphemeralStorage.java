@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionEphemeralStorage {
-    private final Integer size;
+    private Integer size;
 
-    @CustomType.Constructor
-    private GetFunctionEphemeralStorage(@CustomType.Parameter("size") Integer size) {
-        this.size = size;
-    }
-
+    private GetFunctionEphemeralStorage() {}
     public Integer size() {
         return this.size;
     }
@@ -27,24 +23,24 @@ public final class GetFunctionEphemeralStorage {
     public static Builder builder(GetFunctionEphemeralStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer size;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionEphemeralStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.size = defaults.size;
         }
 
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
-        }        public GetFunctionEphemeralStorage build() {
-            return new GetFunctionEphemeralStorage(size);
+        }
+        public GetFunctionEphemeralStorage build() {
+            final var o = new GetFunctionEphemeralStorage();
+            o.size = size;
+            return o;
         }
     }
 }

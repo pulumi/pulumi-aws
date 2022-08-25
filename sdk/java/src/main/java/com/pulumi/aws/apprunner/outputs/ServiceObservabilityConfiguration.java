@@ -14,21 +14,14 @@ public final class ServiceObservabilityConfiguration {
      * @return The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
      * 
      */
-    private final String observabilityConfigurationArn;
+    private String observabilityConfigurationArn;
     /**
      * @return When `true`, an observability configuration resource is associated with the service.
      * 
      */
-    private final Boolean observabilityEnabled;
+    private Boolean observabilityEnabled;
 
-    @CustomType.Constructor
-    private ServiceObservabilityConfiguration(
-        @CustomType.Parameter("observabilityConfigurationArn") String observabilityConfigurationArn,
-        @CustomType.Parameter("observabilityEnabled") Boolean observabilityEnabled) {
-        this.observabilityConfigurationArn = observabilityConfigurationArn;
-        this.observabilityEnabled = observabilityEnabled;
-    }
-
+    private ServiceObservabilityConfiguration() {}
     /**
      * @return The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
      * 
@@ -51,30 +44,32 @@ public final class ServiceObservabilityConfiguration {
     public static Builder builder(ServiceObservabilityConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String observabilityConfigurationArn;
         private Boolean observabilityEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceObservabilityConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.observabilityConfigurationArn = defaults.observabilityConfigurationArn;
     	      this.observabilityEnabled = defaults.observabilityEnabled;
         }
 
+        @CustomType.Setter
         public Builder observabilityConfigurationArn(String observabilityConfigurationArn) {
             this.observabilityConfigurationArn = Objects.requireNonNull(observabilityConfigurationArn);
             return this;
         }
+        @CustomType.Setter
         public Builder observabilityEnabled(Boolean observabilityEnabled) {
             this.observabilityEnabled = Objects.requireNonNull(observabilityEnabled);
             return this;
-        }        public ServiceObservabilityConfiguration build() {
-            return new ServiceObservabilityConfiguration(observabilityConfigurationArn, observabilityEnabled);
+        }
+        public ServiceObservabilityConfiguration build() {
+            final var o = new ServiceObservabilityConfiguration();
+            o.observabilityConfigurationArn = observabilityConfigurationArn;
+            o.observabilityEnabled = observabilityEnabled;
+            return o;
         }
     }
 }

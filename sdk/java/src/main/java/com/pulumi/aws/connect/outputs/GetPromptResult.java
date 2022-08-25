@@ -13,34 +13,21 @@ public final class GetPromptResult {
      * @return The Amazon Resource Name (ARN) of the Prompt.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
-    private final String name;
+    private String id;
+    private String instanceId;
+    private String name;
     /**
      * @return The identifier for the prompt.
      * 
      */
-    private final String promptId;
+    private String promptId;
 
-    @CustomType.Constructor
-    private GetPromptResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("promptId") String promptId) {
-        this.arn = arn;
-        this.id = id;
-        this.instanceId = instanceId;
-        this.name = name;
-        this.promptId = promptId;
-    }
-
+    private GetPromptResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Prompt.
      * 
@@ -76,18 +63,14 @@ public final class GetPromptResult {
     public static Builder builder(GetPromptResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private String instanceId;
         private String name;
         private String promptId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPromptResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -97,27 +80,39 @@ public final class GetPromptResult {
     	      this.promptId = defaults.promptId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder promptId(String promptId) {
             this.promptId = Objects.requireNonNull(promptId);
             return this;
-        }        public GetPromptResult build() {
-            return new GetPromptResult(arn, id, instanceId, name, promptId);
+        }
+        public GetPromptResult build() {
+            final var o = new GetPromptResult();
+            o.arn = arn;
+            o.id = id;
+            o.instanceId = instanceId;
+            o.name = name;
+            o.promptId = promptId;
+            return o;
         }
     }
 }

@@ -13,28 +13,19 @@ public final class GetQueueOutboundCallerConfig {
      * @return Specifies the caller ID name.
      * 
      */
-    private final String outboundCallerIdName;
+    private String outboundCallerIdName;
     /**
      * @return Specifies the caller ID number.
      * 
      */
-    private final String outboundCallerIdNumberId;
+    private String outboundCallerIdNumberId;
     /**
      * @return Specifies the outbound whisper flow to be used during an outbound call.
      * 
      */
-    private final String outboundFlowId;
+    private String outboundFlowId;
 
-    @CustomType.Constructor
-    private GetQueueOutboundCallerConfig(
-        @CustomType.Parameter("outboundCallerIdName") String outboundCallerIdName,
-        @CustomType.Parameter("outboundCallerIdNumberId") String outboundCallerIdNumberId,
-        @CustomType.Parameter("outboundFlowId") String outboundFlowId) {
-        this.outboundCallerIdName = outboundCallerIdName;
-        this.outboundCallerIdNumberId = outboundCallerIdNumberId;
-        this.outboundFlowId = outboundFlowId;
-    }
-
+    private GetQueueOutboundCallerConfig() {}
     /**
      * @return Specifies the caller ID name.
      * 
@@ -64,16 +55,12 @@ public final class GetQueueOutboundCallerConfig {
     public static Builder builder(GetQueueOutboundCallerConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String outboundCallerIdName;
         private String outboundCallerIdNumberId;
         private String outboundFlowId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetQueueOutboundCallerConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.outboundCallerIdName = defaults.outboundCallerIdName;
@@ -81,19 +68,27 @@ public final class GetQueueOutboundCallerConfig {
     	      this.outboundFlowId = defaults.outboundFlowId;
         }
 
+        @CustomType.Setter
         public Builder outboundCallerIdName(String outboundCallerIdName) {
             this.outboundCallerIdName = Objects.requireNonNull(outboundCallerIdName);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundCallerIdNumberId(String outboundCallerIdNumberId) {
             this.outboundCallerIdNumberId = Objects.requireNonNull(outboundCallerIdNumberId);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundFlowId(String outboundFlowId) {
             this.outboundFlowId = Objects.requireNonNull(outboundFlowId);
             return this;
-        }        public GetQueueOutboundCallerConfig build() {
-            return new GetQueueOutboundCallerConfig(outboundCallerIdName, outboundCallerIdNumberId, outboundFlowId);
+        }
+        public GetQueueOutboundCallerConfig build() {
+            final var o = new GetQueueOutboundCallerConfig();
+            o.outboundCallerIdName = outboundCallerIdName;
+            o.outboundCallerIdNumberId = outboundCallerIdNumberId;
+            o.outboundFlowId = outboundFlowId;
+            return o;
         }
     }
 }

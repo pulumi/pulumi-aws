@@ -15,13 +15,9 @@ public final class RouteSpecGrpcRouteAction {
      * You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
-    private final List<RouteSpecGrpcRouteActionWeightedTarget> weightedTargets;
+    private List<RouteSpecGrpcRouteActionWeightedTarget> weightedTargets;
 
-    @CustomType.Constructor
-    private RouteSpecGrpcRouteAction(@CustomType.Parameter("weightedTargets") List<RouteSpecGrpcRouteActionWeightedTarget> weightedTargets) {
-        this.weightedTargets = weightedTargets;
-    }
-
+    private RouteSpecGrpcRouteAction() {}
     /**
      * @return The targets that traffic is routed to when a request matches the route.
      * You can specify one or more targets and their relative weights with which to distribute traffic.
@@ -38,27 +34,27 @@ public final class RouteSpecGrpcRouteAction {
     public static Builder builder(RouteSpecGrpcRouteAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<RouteSpecGrpcRouteActionWeightedTarget> weightedTargets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecGrpcRouteAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.weightedTargets = defaults.weightedTargets;
         }
 
+        @CustomType.Setter
         public Builder weightedTargets(List<RouteSpecGrpcRouteActionWeightedTarget> weightedTargets) {
             this.weightedTargets = Objects.requireNonNull(weightedTargets);
             return this;
         }
         public Builder weightedTargets(RouteSpecGrpcRouteActionWeightedTarget... weightedTargets) {
             return weightedTargets(List.of(weightedTargets));
-        }        public RouteSpecGrpcRouteAction build() {
-            return new RouteSpecGrpcRouteAction(weightedTargets);
+        }
+        public RouteSpecGrpcRouteAction build() {
+            final var o = new RouteSpecGrpcRouteAction();
+            o.weightedTargets = weightedTargets;
+            return o;
         }
     }
 }

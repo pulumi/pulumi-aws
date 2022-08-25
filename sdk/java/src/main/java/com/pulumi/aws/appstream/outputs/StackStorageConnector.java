@@ -16,28 +16,19 @@ public final class StackStorageConnector {
      * @return Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
      * 
      */
-    private final String connectorType;
+    private String connectorType;
     /**
      * @return Names of the domains for the account.
      * 
      */
-    private final @Nullable List<String> domains;
+    private @Nullable List<String> domains;
     /**
      * @return ARN of the storage connector.
      * 
      */
-    private final @Nullable String resourceIdentifier;
+    private @Nullable String resourceIdentifier;
 
-    @CustomType.Constructor
-    private StackStorageConnector(
-        @CustomType.Parameter("connectorType") String connectorType,
-        @CustomType.Parameter("domains") @Nullable List<String> domains,
-        @CustomType.Parameter("resourceIdentifier") @Nullable String resourceIdentifier) {
-        this.connectorType = connectorType;
-        this.domains = domains;
-        this.resourceIdentifier = resourceIdentifier;
-    }
-
+    private StackStorageConnector() {}
     /**
      * @return Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
      * 
@@ -67,16 +58,12 @@ public final class StackStorageConnector {
     public static Builder builder(StackStorageConnector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String connectorType;
         private @Nullable List<String> domains;
         private @Nullable String resourceIdentifier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StackStorageConnector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectorType = defaults.connectorType;
@@ -84,10 +71,12 @@ public final class StackStorageConnector {
     	      this.resourceIdentifier = defaults.resourceIdentifier;
         }
 
+        @CustomType.Setter
         public Builder connectorType(String connectorType) {
             this.connectorType = Objects.requireNonNull(connectorType);
             return this;
         }
+        @CustomType.Setter
         public Builder domains(@Nullable List<String> domains) {
             this.domains = domains;
             return this;
@@ -95,11 +84,17 @@ public final class StackStorageConnector {
         public Builder domains(String... domains) {
             return domains(List.of(domains));
         }
+        @CustomType.Setter
         public Builder resourceIdentifier(@Nullable String resourceIdentifier) {
             this.resourceIdentifier = resourceIdentifier;
             return this;
-        }        public StackStorageConnector build() {
-            return new StackStorageConnector(connectorType, domains, resourceIdentifier);
+        }
+        public StackStorageConnector build() {
+            final var o = new StackStorageConnector();
+            o.connectorType = connectorType;
+            o.domains = domains;
+            o.resourceIdentifier = resourceIdentifier;
+            return o;
         }
     }
 }

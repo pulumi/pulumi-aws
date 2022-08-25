@@ -14,35 +14,24 @@ public final class GetAmiBlockDeviceMapping {
      * @return The physical name of the device.
      * 
      */
-    private final String deviceName;
+    private String deviceName;
     /**
      * @return Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs[&#34;volume_size&#34;]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
      * 
      */
-    private final Map<String,String> ebs;
+    private Map<String,String> ebs;
     /**
      * @return Suppresses the specified device included in the block device mapping of the AMI.
      * 
      */
-    private final String noDevice;
+    private String noDevice;
     /**
      * @return The virtual device name (for instance stores).
      * 
      */
-    private final String virtualName;
+    private String virtualName;
 
-    @CustomType.Constructor
-    private GetAmiBlockDeviceMapping(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("ebs") Map<String,String> ebs,
-        @CustomType.Parameter("noDevice") String noDevice,
-        @CustomType.Parameter("virtualName") String virtualName) {
-        this.deviceName = deviceName;
-        this.ebs = ebs;
-        this.noDevice = noDevice;
-        this.virtualName = virtualName;
-    }
-
+    private GetAmiBlockDeviceMapping() {}
     /**
      * @return The physical name of the device.
      * 
@@ -79,17 +68,13 @@ public final class GetAmiBlockDeviceMapping {
     public static Builder builder(GetAmiBlockDeviceMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private Map<String,String> ebs;
         private String noDevice;
         private String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAmiBlockDeviceMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
@@ -98,23 +83,33 @@ public final class GetAmiBlockDeviceMapping {
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder ebs(Map<String,String> ebs) {
             this.ebs = Objects.requireNonNull(ebs);
             return this;
         }
+        @CustomType.Setter
         public Builder noDevice(String noDevice) {
             this.noDevice = Objects.requireNonNull(noDevice);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(String virtualName) {
             this.virtualName = Objects.requireNonNull(virtualName);
             return this;
-        }        public GetAmiBlockDeviceMapping build() {
-            return new GetAmiBlockDeviceMapping(deviceName, ebs, noDevice, virtualName);
+        }
+        public GetAmiBlockDeviceMapping build() {
+            final var o = new GetAmiBlockDeviceMapping();
+            o.deviceName = deviceName;
+            o.ebs = ebs;
+            o.noDevice = noDevice;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

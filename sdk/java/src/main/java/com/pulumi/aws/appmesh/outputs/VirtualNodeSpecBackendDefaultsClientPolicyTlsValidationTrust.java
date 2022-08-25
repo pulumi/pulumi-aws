@@ -17,28 +17,19 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust 
      * @return The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm acm;
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm acm;
     /**
      * @return The TLS validation context trust for a local file certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile file;
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile file;
     /**
      * @return The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds sds;
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds sds;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(
-        @CustomType.Parameter("acm") @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm acm,
-        @CustomType.Parameter("file") @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile file,
-        @CustomType.Parameter("sds") @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds sds) {
-        this.acm = acm;
-        this.file = file;
-        this.sds = sds;
-    }
-
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust() {}
     /**
      * @return The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
      * 
@@ -68,16 +59,12 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust 
     public static Builder builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm acm;
         private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile file;
         private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds sds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acm = defaults.acm;
@@ -85,19 +72,27 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust 
     	      this.sds = defaults.sds;
         }
 
+        @CustomType.Setter
         public Builder acm(@Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm acm) {
             this.acm = acm;
             return this;
         }
+        @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile file) {
             this.file = file;
             return this;
         }
+        @CustomType.Setter
         public Builder sds(@Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds sds) {
             this.sds = sds;
             return this;
-        }        public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust build() {
-            return new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(acm, file, sds);
+        }
+        public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust build() {
+            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust();
+            o.acm = acm;
+            o.file = file;
+            o.sds = sds;
+            return o;
         }
     }
 }

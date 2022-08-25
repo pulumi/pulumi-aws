@@ -13,13 +13,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The location of the Salesforce resource.
      * 
      */
-    private final String instanceUrl;
+    private String instanceUrl;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack(@CustomType.Parameter("instanceUrl") String instanceUrl) {
-        this.instanceUrl = instanceUrl;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack() {}
     /**
      * @return The location of the Salesforce resource.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String instanceUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceUrl = defaults.instanceUrl;
         }
 
+        @CustomType.Setter
         public Builder instanceUrl(String instanceUrl) {
             this.instanceUrl = Objects.requireNonNull(instanceUrl);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack(instanceUrl);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack();
+            o.instanceUrl = instanceUrl;
+            return o;
         }
     }
 }

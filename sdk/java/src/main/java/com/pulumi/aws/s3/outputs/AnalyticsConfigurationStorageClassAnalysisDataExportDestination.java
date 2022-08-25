@@ -13,13 +13,9 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
      * @return Analytics data export currently only supports an S3 bucket destination (documented below).
      * 
      */
-    private final AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination s3BucketDestination;
+    private AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination s3BucketDestination;
 
-    @CustomType.Constructor
-    private AnalyticsConfigurationStorageClassAnalysisDataExportDestination(@CustomType.Parameter("s3BucketDestination") AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination s3BucketDestination) {
-        this.s3BucketDestination = s3BucketDestination;
-    }
-
+    private AnalyticsConfigurationStorageClassAnalysisDataExportDestination() {}
     /**
      * @return Analytics data export currently only supports an S3 bucket destination (documented below).
      * 
@@ -35,24 +31,24 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
     public static Builder builder(AnalyticsConfigurationStorageClassAnalysisDataExportDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination s3BucketDestination;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsConfigurationStorageClassAnalysisDataExportDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3BucketDestination = defaults.s3BucketDestination;
         }
 
+        @CustomType.Setter
         public Builder s3BucketDestination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination s3BucketDestination) {
             this.s3BucketDestination = Objects.requireNonNull(s3BucketDestination);
             return this;
-        }        public AnalyticsConfigurationStorageClassAnalysisDataExportDestination build() {
-            return new AnalyticsConfigurationStorageClassAnalysisDataExportDestination(s3BucketDestination);
+        }
+        public AnalyticsConfigurationStorageClassAnalysisDataExportDestination build() {
+            final var o = new AnalyticsConfigurationStorageClassAnalysisDataExportDestination();
+            o.s3BucketDestination = s3BucketDestination;
+            return o;
         }
     }
 }

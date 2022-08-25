@@ -18,23 +18,16 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookies {
      * subsequent `whitelisted_names`
      * 
      */
-    private final String forward;
+    private String forward;
     /**
      * @return If you have specified `whitelist` to
      * `forward`, the whitelisted cookies that you want CloudFront to forward to
      * your origin.
      * 
      */
-    private final @Nullable List<String> whitelistedNames;
+    private @Nullable List<String> whitelistedNames;
 
-    @CustomType.Constructor
-    private DistributionDefaultCacheBehaviorForwardedValuesCookies(
-        @CustomType.Parameter("forward") String forward,
-        @CustomType.Parameter("whitelistedNames") @Nullable List<String> whitelistedNames) {
-        this.forward = forward;
-        this.whitelistedNames = whitelistedNames;
-    }
-
+    private DistributionDefaultCacheBehaviorForwardedValuesCookies() {}
     /**
      * @return Specifies whether you want CloudFront to forward
      * cookies to the origin that is associated with this cache behavior. You can
@@ -62,33 +55,35 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookies {
     public static Builder builder(DistributionDefaultCacheBehaviorForwardedValuesCookies defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String forward;
         private @Nullable List<String> whitelistedNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionDefaultCacheBehaviorForwardedValuesCookies defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.forward = defaults.forward;
     	      this.whitelistedNames = defaults.whitelistedNames;
         }
 
+        @CustomType.Setter
         public Builder forward(String forward) {
             this.forward = Objects.requireNonNull(forward);
             return this;
         }
+        @CustomType.Setter
         public Builder whitelistedNames(@Nullable List<String> whitelistedNames) {
             this.whitelistedNames = whitelistedNames;
             return this;
         }
         public Builder whitelistedNames(String... whitelistedNames) {
             return whitelistedNames(List.of(whitelistedNames));
-        }        public DistributionDefaultCacheBehaviorForwardedValuesCookies build() {
-            return new DistributionDefaultCacheBehaviorForwardedValuesCookies(forward, whitelistedNames);
+        }
+        public DistributionDefaultCacheBehaviorForwardedValuesCookies build() {
+            final var o = new DistributionDefaultCacheBehaviorForwardedValuesCookies();
+            o.forward = forward;
+            o.whitelistedNames = whitelistedNames;
+            return o;
         }
     }
 }

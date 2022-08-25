@@ -15,21 +15,14 @@ public final class FleetResourceCreationLimitPolicy {
      * @return Maximum number of game sessions that an individual can create during the policy period.
      * 
      */
-    private final @Nullable Integer newGameSessionsPerCreator;
+    private @Nullable Integer newGameSessionsPerCreator;
     /**
      * @return Time span used in evaluating the resource creation limit policy.
      * 
      */
-    private final @Nullable Integer policyPeriodInMinutes;
+    private @Nullable Integer policyPeriodInMinutes;
 
-    @CustomType.Constructor
-    private FleetResourceCreationLimitPolicy(
-        @CustomType.Parameter("newGameSessionsPerCreator") @Nullable Integer newGameSessionsPerCreator,
-        @CustomType.Parameter("policyPeriodInMinutes") @Nullable Integer policyPeriodInMinutes) {
-        this.newGameSessionsPerCreator = newGameSessionsPerCreator;
-        this.policyPeriodInMinutes = policyPeriodInMinutes;
-    }
-
+    private FleetResourceCreationLimitPolicy() {}
     /**
      * @return Maximum number of game sessions that an individual can create during the policy period.
      * 
@@ -52,30 +45,32 @@ public final class FleetResourceCreationLimitPolicy {
     public static Builder builder(FleetResourceCreationLimitPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer newGameSessionsPerCreator;
         private @Nullable Integer policyPeriodInMinutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetResourceCreationLimitPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.newGameSessionsPerCreator = defaults.newGameSessionsPerCreator;
     	      this.policyPeriodInMinutes = defaults.policyPeriodInMinutes;
         }
 
+        @CustomType.Setter
         public Builder newGameSessionsPerCreator(@Nullable Integer newGameSessionsPerCreator) {
             this.newGameSessionsPerCreator = newGameSessionsPerCreator;
             return this;
         }
+        @CustomType.Setter
         public Builder policyPeriodInMinutes(@Nullable Integer policyPeriodInMinutes) {
             this.policyPeriodInMinutes = policyPeriodInMinutes;
             return this;
-        }        public FleetResourceCreationLimitPolicy build() {
-            return new FleetResourceCreationLimitPolicy(newGameSessionsPerCreator, policyPeriodInMinutes);
+        }
+        public FleetResourceCreationLimitPolicy build() {
+            final var o = new FleetResourceCreationLimitPolicy();
+            o.newGameSessionsPerCreator = newGameSessionsPerCreator;
+            o.policyPeriodInMinutes = policyPeriodInMinutes;
+            return o;
         }
     }
 }

@@ -13,48 +13,31 @@ public final class GetImageResult {
      * @return The description of the image.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String imageId;
+    private String id;
+    private String imageId;
     /**
      * @return The name of the image.
      * 
      */
-    private final String name;
-    private final String operatingSystemType;
+    private String name;
+    private String operatingSystemType;
     /**
      * @return Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
      * 
      */
-    private final String requiredTenancy;
+    private String requiredTenancy;
     /**
      * @return The status of the image.
      * 
      */
-    private final String state;
+    private String state;
 
-    @CustomType.Constructor
-    private GetImageResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageId") String imageId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("operatingSystemType") String operatingSystemType,
-        @CustomType.Parameter("requiredTenancy") String requiredTenancy,
-        @CustomType.Parameter("state") String state) {
-        this.description = description;
-        this.id = id;
-        this.imageId = imageId;
-        this.name = name;
-        this.operatingSystemType = operatingSystemType;
-        this.requiredTenancy = requiredTenancy;
-        this.state = state;
-    }
-
+    private GetImageResult() {}
     /**
      * @return The description of the image.
      * 
@@ -104,7 +87,7 @@ public final class GetImageResult {
     public static Builder builder(GetImageResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String id;
@@ -113,11 +96,7 @@ public final class GetImageResult {
         private String operatingSystemType;
         private String requiredTenancy;
         private String state;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImageResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -129,35 +108,51 @@ public final class GetImageResult {
     	      this.state = defaults.state;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageId(String imageId) {
             this.imageId = Objects.requireNonNull(imageId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder operatingSystemType(String operatingSystemType) {
             this.operatingSystemType = Objects.requireNonNull(operatingSystemType);
             return this;
         }
+        @CustomType.Setter
         public Builder requiredTenancy(String requiredTenancy) {
             this.requiredTenancy = Objects.requireNonNull(requiredTenancy);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
-        }        public GetImageResult build() {
-            return new GetImageResult(description, id, imageId, name, operatingSystemType, requiredTenancy, state);
+        }
+        public GetImageResult build() {
+            final var o = new GetImageResult();
+            o.description = description;
+            o.id = id;
+            o.imageId = imageId;
+            o.name = name;
+            o.operatingSystemType = operatingSystemType;
+            o.requiredTenancy = requiredTenancy;
+            o.state = state;
+            return o;
         }
     }
 }

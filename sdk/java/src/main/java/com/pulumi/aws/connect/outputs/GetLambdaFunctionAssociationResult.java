@@ -9,24 +9,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLambdaFunctionAssociationResult {
-    private final String functionArn;
+    private String functionArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
+    private String id;
+    private String instanceId;
 
-    @CustomType.Constructor
-    private GetLambdaFunctionAssociationResult(
-        @CustomType.Parameter("functionArn") String functionArn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId) {
-        this.functionArn = functionArn;
-        this.id = id;
-        this.instanceId = instanceId;
-    }
-
+    private GetLambdaFunctionAssociationResult() {}
     public String functionArn() {
         return this.functionArn;
     }
@@ -48,16 +39,12 @@ public final class GetLambdaFunctionAssociationResult {
     public static Builder builder(GetLambdaFunctionAssociationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String functionArn;
         private String id;
         private String instanceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLambdaFunctionAssociationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functionArn = defaults.functionArn;
@@ -65,19 +52,27 @@ public final class GetLambdaFunctionAssociationResult {
     	      this.instanceId = defaults.instanceId;
         }
 
+        @CustomType.Setter
         public Builder functionArn(String functionArn) {
             this.functionArn = Objects.requireNonNull(functionArn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
-        }        public GetLambdaFunctionAssociationResult build() {
-            return new GetLambdaFunctionAssociationResult(functionArn, id, instanceId);
+        }
+        public GetLambdaFunctionAssociationResult build() {
+            final var o = new GetLambdaFunctionAssociationResult();
+            o.functionArn = functionArn;
+            o.id = id;
+            o.instanceId = instanceId;
+            return o;
         }
     }
 }

@@ -14,41 +14,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetScriptResult {
-    private final List<GetScriptDagEdge> dagEdges;
-    private final List<GetScriptDagNode> dagNodes;
+    private List<GetScriptDagEdge> dagEdges;
+    private List<GetScriptDagNode> dagNodes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String language;
+    private String id;
+    private @Nullable String language;
     /**
      * @return The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
      * 
      */
-    private final String pythonScript;
+    private String pythonScript;
     /**
      * @return The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      * 
      */
-    private final String scalaCode;
+    private String scalaCode;
 
-    @CustomType.Constructor
-    private GetScriptResult(
-        @CustomType.Parameter("dagEdges") List<GetScriptDagEdge> dagEdges,
-        @CustomType.Parameter("dagNodes") List<GetScriptDagNode> dagNodes,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("language") @Nullable String language,
-        @CustomType.Parameter("pythonScript") String pythonScript,
-        @CustomType.Parameter("scalaCode") String scalaCode) {
-        this.dagEdges = dagEdges;
-        this.dagNodes = dagNodes;
-        this.id = id;
-        this.language = language;
-        this.pythonScript = pythonScript;
-        this.scalaCode = scalaCode;
-    }
-
+    private GetScriptResult() {}
     public List<GetScriptDagEdge> dagEdges() {
         return this.dagEdges;
     }
@@ -87,7 +72,7 @@ public final class GetScriptResult {
     public static Builder builder(GetScriptResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetScriptDagEdge> dagEdges;
         private List<GetScriptDagNode> dagNodes;
@@ -95,11 +80,7 @@ public final class GetScriptResult {
         private @Nullable String language;
         private String pythonScript;
         private String scalaCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScriptResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dagEdges = defaults.dagEdges;
@@ -110,6 +91,7 @@ public final class GetScriptResult {
     	      this.scalaCode = defaults.scalaCode;
         }
 
+        @CustomType.Setter
         public Builder dagEdges(List<GetScriptDagEdge> dagEdges) {
             this.dagEdges = Objects.requireNonNull(dagEdges);
             return this;
@@ -117,6 +99,7 @@ public final class GetScriptResult {
         public Builder dagEdges(GetScriptDagEdge... dagEdges) {
             return dagEdges(List.of(dagEdges));
         }
+        @CustomType.Setter
         public Builder dagNodes(List<GetScriptDagNode> dagNodes) {
             this.dagNodes = Objects.requireNonNull(dagNodes);
             return this;
@@ -124,23 +107,35 @@ public final class GetScriptResult {
         public Builder dagNodes(GetScriptDagNode... dagNodes) {
             return dagNodes(List.of(dagNodes));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder language(@Nullable String language) {
             this.language = language;
             return this;
         }
+        @CustomType.Setter
         public Builder pythonScript(String pythonScript) {
             this.pythonScript = Objects.requireNonNull(pythonScript);
             return this;
         }
+        @CustomType.Setter
         public Builder scalaCode(String scalaCode) {
             this.scalaCode = Objects.requireNonNull(scalaCode);
             return this;
-        }        public GetScriptResult build() {
-            return new GetScriptResult(dagEdges, dagNodes, id, language, pythonScript, scalaCode);
+        }
+        public GetScriptResult build() {
+            final var o = new GetScriptResult();
+            o.dagEdges = dagEdges;
+            o.dagNodes = dagNodes;
+            o.id = id;
+            o.language = language;
+            o.pythonScript = pythonScript;
+            o.scalaCode = scalaCode;
+            return o;
         }
     }
 }

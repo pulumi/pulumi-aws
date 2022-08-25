@@ -13,13 +13,9 @@ public final class VpcIpamOperatingRegion {
      * @return The name of the Region you want to add to the IPAM.
      * 
      */
-    private final String regionName;
+    private String regionName;
 
-    @CustomType.Constructor
-    private VpcIpamOperatingRegion(@CustomType.Parameter("regionName") String regionName) {
-        this.regionName = regionName;
-    }
-
+    private VpcIpamOperatingRegion() {}
     /**
      * @return The name of the Region you want to add to the IPAM.
      * 
@@ -35,24 +31,24 @@ public final class VpcIpamOperatingRegion {
     public static Builder builder(VpcIpamOperatingRegion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String regionName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpcIpamOperatingRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.regionName = defaults.regionName;
         }
 
+        @CustomType.Setter
         public Builder regionName(String regionName) {
             this.regionName = Objects.requireNonNull(regionName);
             return this;
-        }        public VpcIpamOperatingRegion build() {
-            return new VpcIpamOperatingRegion(regionName);
+        }
+        public VpcIpamOperatingRegion build() {
+            final var o = new VpcIpamOperatingRegion();
+            o.regionName = regionName;
+            return o;
         }
     }
 }

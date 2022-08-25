@@ -18,21 +18,14 @@ public final class ServiceOrderedPlacementStrategy {
      * needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
      * 
      */
-    private final @Nullable String field;
+    private @Nullable String field;
     /**
      * @return Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ServiceOrderedPlacementStrategy(
-        @CustomType.Parameter("field") @Nullable String field,
-        @CustomType.Parameter("type") String type) {
-        this.field = field;
-        this.type = type;
-    }
-
+    private ServiceOrderedPlacementStrategy() {}
     /**
      * @return For the `spread` placement strategy, valid values are `instanceId` (or `host`,
      * which has the same effect), or any platform or custom attribute that is applied to a container instance.
@@ -58,30 +51,32 @@ public final class ServiceOrderedPlacementStrategy {
     public static Builder builder(ServiceOrderedPlacementStrategy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String field;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceOrderedPlacementStrategy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.field = defaults.field;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder field(@Nullable String field) {
             this.field = field;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ServiceOrderedPlacementStrategy build() {
-            return new ServiceOrderedPlacementStrategy(field, type);
+        }
+        public ServiceOrderedPlacementStrategy build() {
+            final var o = new ServiceOrderedPlacementStrategy();
+            o.field = field;
+            o.type = type;
+            return o;
         }
     }
 }

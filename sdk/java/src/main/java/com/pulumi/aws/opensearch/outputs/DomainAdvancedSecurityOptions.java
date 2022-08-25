@@ -16,28 +16,19 @@ public final class DomainAdvancedSecurityOptions {
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Whether the internal user database is enabled. Default is `false`.
      * 
      */
-    private final @Nullable Boolean internalUserDatabaseEnabled;
+    private @Nullable Boolean internalUserDatabaseEnabled;
     /**
      * @return Configuration block for the main user. Detailed below.
      * 
      */
-    private final @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
+    private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
 
-    @CustomType.Constructor
-    private DomainAdvancedSecurityOptions(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("internalUserDatabaseEnabled") @Nullable Boolean internalUserDatabaseEnabled,
-        @CustomType.Parameter("masterUserOptions") @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions) {
-        this.enabled = enabled;
-        this.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
-        this.masterUserOptions = masterUserOptions;
-    }
-
+    private DomainAdvancedSecurityOptions() {}
     /**
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
@@ -67,16 +58,12 @@ public final class DomainAdvancedSecurityOptions {
     public static Builder builder(DomainAdvancedSecurityOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable Boolean internalUserDatabaseEnabled;
         private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainAdvancedSecurityOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -84,19 +71,27 @@ public final class DomainAdvancedSecurityOptions {
     	      this.masterUserOptions = defaults.masterUserOptions;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder internalUserDatabaseEnabled(@Nullable Boolean internalUserDatabaseEnabled) {
             this.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder masterUserOptions(@Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions) {
             this.masterUserOptions = masterUserOptions;
             return this;
-        }        public DomainAdvancedSecurityOptions build() {
-            return new DomainAdvancedSecurityOptions(enabled, internalUserDatabaseEnabled, masterUserOptions);
+        }
+        public DomainAdvancedSecurityOptions build() {
+            final var o = new DomainAdvancedSecurityOptions();
+            o.enabled = enabled;
+            o.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            o.masterUserOptions = masterUserOptions;
+            return o;
         }
     }
 }

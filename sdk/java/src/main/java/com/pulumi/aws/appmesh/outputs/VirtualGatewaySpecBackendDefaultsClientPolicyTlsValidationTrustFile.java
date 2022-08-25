@@ -13,13 +13,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String certificateChain;
+    private String certificateChain;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(@CustomType.Parameter("certificateChain") String certificateChain) {
-        this.certificateChain = certificateChain;
-    }
-
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile() {}
     /**
      * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
@@ -35,24 +31,24 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
     public static Builder builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateChain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateChain = defaults.certificateChain;
         }
 
+        @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
             this.certificateChain = Objects.requireNonNull(certificateChain);
             return this;
-        }        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile build() {
-            return new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(certificateChain);
+        }
+        public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile build() {
+            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile();
+            o.certificateChain = certificateChain;
+            return o;
         }
     }
 }

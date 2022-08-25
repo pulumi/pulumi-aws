@@ -9,26 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerSubnetMapping {
-    private final String allocationId;
-    private final String ipv6Address;
-    private final String outpostId;
-    private final String privateIpv4Address;
-    private final String subnetId;
+    private String allocationId;
+    private String ipv6Address;
+    private String outpostId;
+    private String privateIpv4Address;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetLoadBalancerSubnetMapping(
-        @CustomType.Parameter("allocationId") String allocationId,
-        @CustomType.Parameter("ipv6Address") String ipv6Address,
-        @CustomType.Parameter("outpostId") String outpostId,
-        @CustomType.Parameter("privateIpv4Address") String privateIpv4Address,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.allocationId = allocationId;
-        this.ipv6Address = ipv6Address;
-        this.outpostId = outpostId;
-        this.privateIpv4Address = privateIpv4Address;
-        this.subnetId = subnetId;
-    }
-
+    private GetLoadBalancerSubnetMapping() {}
     public String allocationId() {
         return this.allocationId;
     }
@@ -52,18 +39,14 @@ public final class GetLoadBalancerSubnetMapping {
     public static Builder builder(GetLoadBalancerSubnetMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String allocationId;
         private String ipv6Address;
         private String outpostId;
         private String privateIpv4Address;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLoadBalancerSubnetMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationId = defaults.allocationId;
@@ -73,27 +56,39 @@ public final class GetLoadBalancerSubnetMapping {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder allocationId(String allocationId) {
             this.allocationId = Objects.requireNonNull(allocationId);
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6Address(String ipv6Address) {
             this.ipv6Address = Objects.requireNonNull(ipv6Address);
             return this;
         }
+        @CustomType.Setter
         public Builder outpostId(String outpostId) {
             this.outpostId = Objects.requireNonNull(outpostId);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpv4Address(String privateIpv4Address) {
             this.privateIpv4Address = Objects.requireNonNull(privateIpv4Address);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetLoadBalancerSubnetMapping build() {
-            return new GetLoadBalancerSubnetMapping(allocationId, ipv6Address, outpostId, privateIpv4Address, subnetId);
+        }
+        public GetLoadBalancerSubnetMapping build() {
+            final var o = new GetLoadBalancerSubnetMapping();
+            o.allocationId = allocationId;
+            o.ipv6Address = ipv6Address;
+            o.outpostId = outpostId;
+            o.privateIpv4Address = privateIpv4Address;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class ResolverRuleTargetIp {
      * @return One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
      * 
      */
-    private final String ip;
+    private String ip;
     /**
      * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
 
-    @CustomType.Constructor
-    private ResolverRuleTargetIp(
-        @CustomType.Parameter("ip") String ip,
-        @CustomType.Parameter("port") @Nullable Integer port) {
-        this.ip = ip;
-        this.port = port;
-    }
-
+    private ResolverRuleTargetIp() {}
     /**
      * @return One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
      * 
@@ -53,30 +46,32 @@ public final class ResolverRuleTargetIp {
     public static Builder builder(ResolverRuleTargetIp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ip;
         private @Nullable Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResolverRuleTargetIp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ip = defaults.ip;
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder ip(String ip) {
             this.ip = Objects.requireNonNull(ip);
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
-        }        public ResolverRuleTargetIp build() {
-            return new ResolverRuleTargetIp(ip, port);
+        }
+        public ResolverRuleTargetIp build() {
+            final var o = new ResolverRuleTargetIp();
+            o.ip = ip;
+            o.port = port;
+            return o;
         }
     }
 }

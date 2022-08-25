@@ -14,35 +14,24 @@ public final class FleetEc2InboundPermission {
      * @return Starting value for a range of allowed port numbers.
      * 
      */
-    private final Integer fromPort;
+    private Integer fromPort;
     /**
      * @return Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
      * 
      */
-    private final String ipRange;
+    private String ipRange;
     /**
      * @return Network communication protocol used by the fleetE.g., `TCP` or `UDP`
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
      * 
      */
-    private final Integer toPort;
+    private Integer toPort;
 
-    @CustomType.Constructor
-    private FleetEc2InboundPermission(
-        @CustomType.Parameter("fromPort") Integer fromPort,
-        @CustomType.Parameter("ipRange") String ipRange,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("toPort") Integer toPort) {
-        this.fromPort = fromPort;
-        this.ipRange = ipRange;
-        this.protocol = protocol;
-        this.toPort = toPort;
-    }
-
+    private FleetEc2InboundPermission() {}
     /**
      * @return Starting value for a range of allowed port numbers.
      * 
@@ -79,17 +68,13 @@ public final class FleetEc2InboundPermission {
     public static Builder builder(FleetEc2InboundPermission defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer fromPort;
         private String ipRange;
         private String protocol;
         private Integer toPort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetEc2InboundPermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fromPort = defaults.fromPort;
@@ -98,23 +83,33 @@ public final class FleetEc2InboundPermission {
     	      this.toPort = defaults.toPort;
         }
 
+        @CustomType.Setter
         public Builder fromPort(Integer fromPort) {
             this.fromPort = Objects.requireNonNull(fromPort);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRange(String ipRange) {
             this.ipRange = Objects.requireNonNull(ipRange);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder toPort(Integer toPort) {
             this.toPort = Objects.requireNonNull(toPort);
             return this;
-        }        public FleetEc2InboundPermission build() {
-            return new FleetEc2InboundPermission(fromPort, ipRange, protocol, toPort);
+        }
+        public FleetEc2InboundPermission build() {
+            final var o = new FleetEc2InboundPermission();
+            o.fromPort = fromPort;
+            o.ipRange = ipRange;
+            o.protocol = protocol;
+            o.toPort = toPort;
+            return o;
         }
     }
 }

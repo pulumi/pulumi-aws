@@ -15,13 +15,9 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
      * @return The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
      * 
      */
-    private final @Nullable String replacementStrategy;
+    private @Nullable String replacementStrategy;
 
-    @CustomType.Constructor
-    private FleetSpotOptionsMaintenanceStrategiesCapacityRebalance(@CustomType.Parameter("replacementStrategy") @Nullable String replacementStrategy) {
-        this.replacementStrategy = replacementStrategy;
-    }
-
+    private FleetSpotOptionsMaintenanceStrategiesCapacityRebalance() {}
     /**
      * @return The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
      * 
@@ -37,24 +33,24 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
     public static Builder builder(FleetSpotOptionsMaintenanceStrategiesCapacityRebalance defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String replacementStrategy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetSpotOptionsMaintenanceStrategiesCapacityRebalance defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.replacementStrategy = defaults.replacementStrategy;
         }
 
+        @CustomType.Setter
         public Builder replacementStrategy(@Nullable String replacementStrategy) {
             this.replacementStrategy = replacementStrategy;
             return this;
-        }        public FleetSpotOptionsMaintenanceStrategiesCapacityRebalance build() {
-            return new FleetSpotOptionsMaintenanceStrategiesCapacityRebalance(replacementStrategy);
+        }
+        public FleetSpotOptionsMaintenanceStrategiesCapacityRebalance build() {
+            final var o = new FleetSpotOptionsMaintenanceStrategiesCapacityRebalance();
+            o.replacementStrategy = replacementStrategy;
+            return o;
         }
     }
 }

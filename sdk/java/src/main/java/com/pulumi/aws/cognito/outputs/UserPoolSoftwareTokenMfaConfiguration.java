@@ -13,13 +13,9 @@ public final class UserPoolSoftwareTokenMfaConfiguration {
      * @return Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private UserPoolSoftwareTokenMfaConfiguration(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private UserPoolSoftwareTokenMfaConfiguration() {}
     /**
      * @return Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
      * 
@@ -35,24 +31,24 @@ public final class UserPoolSoftwareTokenMfaConfiguration {
     public static Builder builder(UserPoolSoftwareTokenMfaConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPoolSoftwareTokenMfaConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public UserPoolSoftwareTokenMfaConfiguration build() {
-            return new UserPoolSoftwareTokenMfaConfiguration(enabled);
+        }
+        public UserPoolSoftwareTokenMfaConfiguration build() {
+            final var o = new UserPoolSoftwareTokenMfaConfiguration();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

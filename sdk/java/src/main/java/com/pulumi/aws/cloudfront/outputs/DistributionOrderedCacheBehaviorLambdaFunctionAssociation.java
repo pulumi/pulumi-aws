@@ -17,28 +17,19 @@ public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
      * Valid values: `viewer-request` or `viewer-response`
      * 
      */
-    private final String eventType;
+    private String eventType;
     /**
      * @return When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
      * 
      */
-    private final @Nullable Boolean includeBody;
+    private @Nullable Boolean includeBody;
     /**
      * @return ARN of the Lambda function.
      * 
      */
-    private final String lambdaArn;
+    private String lambdaArn;
 
-    @CustomType.Constructor
-    private DistributionOrderedCacheBehaviorLambdaFunctionAssociation(
-        @CustomType.Parameter("eventType") String eventType,
-        @CustomType.Parameter("includeBody") @Nullable Boolean includeBody,
-        @CustomType.Parameter("lambdaArn") String lambdaArn) {
-        this.eventType = eventType;
-        this.includeBody = includeBody;
-        this.lambdaArn = lambdaArn;
-    }
-
+    private DistributionOrderedCacheBehaviorLambdaFunctionAssociation() {}
     /**
      * @return The specific event to trigger this function.
      * Valid values: `viewer-request` or `viewer-response`
@@ -69,16 +60,12 @@ public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
     public static Builder builder(DistributionOrderedCacheBehaviorLambdaFunctionAssociation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String eventType;
         private @Nullable Boolean includeBody;
         private String lambdaArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionOrderedCacheBehaviorLambdaFunctionAssociation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventType = defaults.eventType;
@@ -86,19 +73,27 @@ public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
     	      this.lambdaArn = defaults.lambdaArn;
         }
 
+        @CustomType.Setter
         public Builder eventType(String eventType) {
             this.eventType = Objects.requireNonNull(eventType);
             return this;
         }
+        @CustomType.Setter
         public Builder includeBody(@Nullable Boolean includeBody) {
             this.includeBody = includeBody;
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaArn(String lambdaArn) {
             this.lambdaArn = Objects.requireNonNull(lambdaArn);
             return this;
-        }        public DistributionOrderedCacheBehaviorLambdaFunctionAssociation build() {
-            return new DistributionOrderedCacheBehaviorLambdaFunctionAssociation(eventType, includeBody, lambdaArn);
+        }
+        public DistributionOrderedCacheBehaviorLambdaFunctionAssociation build() {
+            final var o = new DistributionOrderedCacheBehaviorLambdaFunctionAssociation();
+            o.eventType = eventType;
+            o.includeBody = includeBody;
+            o.lambdaArn = lambdaArn;
+            return o;
         }
     }
 }

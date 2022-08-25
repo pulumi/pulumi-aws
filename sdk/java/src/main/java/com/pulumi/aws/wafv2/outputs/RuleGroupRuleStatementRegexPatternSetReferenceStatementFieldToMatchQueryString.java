@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
-    @CustomType.Constructor
-    private RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString() {
-    }
-
+    private RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
     public static Builder builder(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString build() {
-            return new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString();
+            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString();
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class GrantConstraint {
      * @return A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
      * 
      */
-    private final @Nullable Map<String,String> encryptionContextEquals;
+    private @Nullable Map<String,String> encryptionContextEquals;
     /**
      * @return A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
      * 
      */
-    private final @Nullable Map<String,String> encryptionContextSubset;
+    private @Nullable Map<String,String> encryptionContextSubset;
 
-    @CustomType.Constructor
-    private GrantConstraint(
-        @CustomType.Parameter("encryptionContextEquals") @Nullable Map<String,String> encryptionContextEquals,
-        @CustomType.Parameter("encryptionContextSubset") @Nullable Map<String,String> encryptionContextSubset) {
-        this.encryptionContextEquals = encryptionContextEquals;
-        this.encryptionContextSubset = encryptionContextSubset;
-    }
-
+    private GrantConstraint() {}
     /**
      * @return A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
      * 
@@ -52,30 +45,32 @@ public final class GrantConstraint {
     public static Builder builder(GrantConstraint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> encryptionContextEquals;
         private @Nullable Map<String,String> encryptionContextSubset;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GrantConstraint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionContextEquals = defaults.encryptionContextEquals;
     	      this.encryptionContextSubset = defaults.encryptionContextSubset;
         }
 
+        @CustomType.Setter
         public Builder encryptionContextEquals(@Nullable Map<String,String> encryptionContextEquals) {
             this.encryptionContextEquals = encryptionContextEquals;
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionContextSubset(@Nullable Map<String,String> encryptionContextSubset) {
             this.encryptionContextSubset = encryptionContextSubset;
             return this;
-        }        public GrantConstraint build() {
-            return new GrantConstraint(encryptionContextEquals, encryptionContextSubset);
+        }
+        public GrantConstraint build() {
+            final var o = new GrantConstraint();
+            o.encryptionContextEquals = encryptionContextEquals;
+            o.encryptionContextSubset = encryptionContextSubset;
+            return o;
         }
     }
 }

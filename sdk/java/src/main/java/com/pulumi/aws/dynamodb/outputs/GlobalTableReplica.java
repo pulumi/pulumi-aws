@@ -13,13 +13,9 @@ public final class GlobalTableReplica {
      * @return AWS region name of replica DynamoDB TableE.g., `us-east-1`
      * 
      */
-    private final String regionName;
+    private String regionName;
 
-    @CustomType.Constructor
-    private GlobalTableReplica(@CustomType.Parameter("regionName") String regionName) {
-        this.regionName = regionName;
-    }
-
+    private GlobalTableReplica() {}
     /**
      * @return AWS region name of replica DynamoDB TableE.g., `us-east-1`
      * 
@@ -35,24 +31,24 @@ public final class GlobalTableReplica {
     public static Builder builder(GlobalTableReplica defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String regionName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GlobalTableReplica defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.regionName = defaults.regionName;
         }
 
+        @CustomType.Setter
         public Builder regionName(String regionName) {
             this.regionName = Objects.requireNonNull(regionName);
             return this;
-        }        public GlobalTableReplica build() {
-            return new GlobalTableReplica(regionName);
+        }
+        public GlobalTableReplica build() {
+            final var o = new GlobalTableReplica();
+            o.regionName = regionName;
+            return o;
         }
     }
 }

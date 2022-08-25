@@ -15,28 +15,19 @@ public final class UserProfileUserSettingsSharingSettings {
      * @return Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
      * 
      */
-    private final @Nullable String notebookOutputOption;
+    private @Nullable String notebookOutputOption;
     /**
      * @return When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
      * 
      */
-    private final @Nullable String s3KmsKeyId;
+    private @Nullable String s3KmsKeyId;
     /**
      * @return When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
      * 
      */
-    private final @Nullable String s3OutputPath;
+    private @Nullable String s3OutputPath;
 
-    @CustomType.Constructor
-    private UserProfileUserSettingsSharingSettings(
-        @CustomType.Parameter("notebookOutputOption") @Nullable String notebookOutputOption,
-        @CustomType.Parameter("s3KmsKeyId") @Nullable String s3KmsKeyId,
-        @CustomType.Parameter("s3OutputPath") @Nullable String s3OutputPath) {
-        this.notebookOutputOption = notebookOutputOption;
-        this.s3KmsKeyId = s3KmsKeyId;
-        this.s3OutputPath = s3OutputPath;
-    }
-
+    private UserProfileUserSettingsSharingSettings() {}
     /**
      * @return Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
      * 
@@ -66,16 +57,12 @@ public final class UserProfileUserSettingsSharingSettings {
     public static Builder builder(UserProfileUserSettingsSharingSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String notebookOutputOption;
         private @Nullable String s3KmsKeyId;
         private @Nullable String s3OutputPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserProfileUserSettingsSharingSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.notebookOutputOption = defaults.notebookOutputOption;
@@ -83,19 +70,27 @@ public final class UserProfileUserSettingsSharingSettings {
     	      this.s3OutputPath = defaults.s3OutputPath;
         }
 
+        @CustomType.Setter
         public Builder notebookOutputOption(@Nullable String notebookOutputOption) {
             this.notebookOutputOption = notebookOutputOption;
             return this;
         }
+        @CustomType.Setter
         public Builder s3KmsKeyId(@Nullable String s3KmsKeyId) {
             this.s3KmsKeyId = s3KmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder s3OutputPath(@Nullable String s3OutputPath) {
             this.s3OutputPath = s3OutputPath;
             return this;
-        }        public UserProfileUserSettingsSharingSettings build() {
-            return new UserProfileUserSettingsSharingSettings(notebookOutputOption, s3KmsKeyId, s3OutputPath);
+        }
+        public UserProfileUserSettingsSharingSettings build() {
+            final var o = new UserProfileUserSettingsSharingSettings();
+            o.notebookOutputOption = notebookOutputOption;
+            o.s3KmsKeyId = s3KmsKeyId;
+            o.s3OutputPath = s3OutputPath;
+            return o;
         }
     }
 }

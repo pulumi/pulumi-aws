@@ -20,105 +20,74 @@ public final class GetFirewallResult {
      * @return The Amazon Resource Name (ARN) of the firewall.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return A boolean flag indicating whether it is possible to delete the firewall.
      * 
      */
-    private final Boolean deleteProtection;
+    private Boolean deleteProtection;
     /**
      * @return A description of the firewall.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
      * 
      */
-    private final List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
+    private List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
     /**
      * @return The Amazon Resource Name (ARN) of the VPC Firewall policy.
      * 
      */
-    private final String firewallPolicyArn;
+    private String firewallPolicyArn;
     /**
      * @return A boolean flag indicating whether it is possible to change the associated firewall policy.
      * 
      */
-    private final Boolean firewallPolicyChangeProtection;
+    private Boolean firewallPolicyChangeProtection;
     /**
      * @return Nested list of information about the current status of the firewall.
      * 
      */
-    private final List<GetFirewallFirewallStatus> firewallStatuses;
+    private List<GetFirewallFirewallStatus> firewallStatuses;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The descriptive name of the firewall.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A boolean flag indicating whether it is possible to change the associated subnet(s).
      * 
      */
-    private final Boolean subnetChangeProtection;
+    private Boolean subnetChangeProtection;
     /**
      * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
      * 
      */
-    private final List<GetFirewallSubnetMapping> subnetMappings;
+    private List<GetFirewallSubnetMapping> subnetMappings;
     /**
      * @return Map of resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return A string token used when updating a firewall.
      * 
      */
-    private final String updateToken;
+    private String updateToken;
     /**
      * @return The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetFirewallResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("deleteProtection") Boolean deleteProtection,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("encryptionConfigurations") List<GetFirewallEncryptionConfiguration> encryptionConfigurations,
-        @CustomType.Parameter("firewallPolicyArn") String firewallPolicyArn,
-        @CustomType.Parameter("firewallPolicyChangeProtection") Boolean firewallPolicyChangeProtection,
-        @CustomType.Parameter("firewallStatuses") List<GetFirewallFirewallStatus> firewallStatuses,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("subnetChangeProtection") Boolean subnetChangeProtection,
-        @CustomType.Parameter("subnetMappings") List<GetFirewallSubnetMapping> subnetMappings,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("updateToken") String updateToken,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.arn = arn;
-        this.deleteProtection = deleteProtection;
-        this.description = description;
-        this.encryptionConfigurations = encryptionConfigurations;
-        this.firewallPolicyArn = firewallPolicyArn;
-        this.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
-        this.firewallStatuses = firewallStatuses;
-        this.id = id;
-        this.name = name;
-        this.subnetChangeProtection = subnetChangeProtection;
-        this.subnetMappings = subnetMappings;
-        this.tags = tags;
-        this.updateToken = updateToken;
-        this.vpcId = vpcId;
-    }
-
+    private GetFirewallResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the firewall.
      * 
@@ -225,7 +194,7 @@ public final class GetFirewallResult {
     public static Builder builder(GetFirewallResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Boolean deleteProtection;
@@ -241,11 +210,7 @@ public final class GetFirewallResult {
         private @Nullable Map<String,String> tags;
         private String updateToken;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -264,18 +229,22 @@ public final class GetFirewallResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
             this.deleteProtection = Objects.requireNonNull(deleteProtection);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionConfigurations(List<GetFirewallEncryptionConfiguration> encryptionConfigurations) {
             this.encryptionConfigurations = Objects.requireNonNull(encryptionConfigurations);
             return this;
@@ -283,14 +252,17 @@ public final class GetFirewallResult {
         public Builder encryptionConfigurations(GetFirewallEncryptionConfiguration... encryptionConfigurations) {
             return encryptionConfigurations(List.of(encryptionConfigurations));
         }
+        @CustomType.Setter
         public Builder firewallPolicyArn(String firewallPolicyArn) {
             this.firewallPolicyArn = Objects.requireNonNull(firewallPolicyArn);
             return this;
         }
+        @CustomType.Setter
         public Builder firewallPolicyChangeProtection(Boolean firewallPolicyChangeProtection) {
             this.firewallPolicyChangeProtection = Objects.requireNonNull(firewallPolicyChangeProtection);
             return this;
         }
+        @CustomType.Setter
         public Builder firewallStatuses(List<GetFirewallFirewallStatus> firewallStatuses) {
             this.firewallStatuses = Objects.requireNonNull(firewallStatuses);
             return this;
@@ -298,18 +270,22 @@ public final class GetFirewallResult {
         public Builder firewallStatuses(GetFirewallFirewallStatus... firewallStatuses) {
             return firewallStatuses(List.of(firewallStatuses));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetChangeProtection(Boolean subnetChangeProtection) {
             this.subnetChangeProtection = Objects.requireNonNull(subnetChangeProtection);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetMappings(List<GetFirewallSubnetMapping> subnetMappings) {
             this.subnetMappings = Objects.requireNonNull(subnetMappings);
             return this;
@@ -317,19 +293,38 @@ public final class GetFirewallResult {
         public Builder subnetMappings(GetFirewallSubnetMapping... subnetMappings) {
             return subnetMappings(List.of(subnetMappings));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder updateToken(String updateToken) {
             this.updateToken = Objects.requireNonNull(updateToken);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetFirewallResult build() {
-            return new GetFirewallResult(arn, deleteProtection, description, encryptionConfigurations, firewallPolicyArn, firewallPolicyChangeProtection, firewallStatuses, id, name, subnetChangeProtection, subnetMappings, tags, updateToken, vpcId);
+        }
+        public GetFirewallResult build() {
+            final var o = new GetFirewallResult();
+            o.arn = arn;
+            o.deleteProtection = deleteProtection;
+            o.description = description;
+            o.encryptionConfigurations = encryptionConfigurations;
+            o.firewallPolicyArn = firewallPolicyArn;
+            o.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
+            o.firewallStatuses = firewallStatuses;
+            o.id = id;
+            o.name = name;
+            o.subnetChangeProtection = subnetChangeProtection;
+            o.subnetMappings = subnetMappings;
+            o.tags = tags;
+            o.updateToken = updateToken;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

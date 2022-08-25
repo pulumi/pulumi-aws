@@ -15,21 +15,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
      * @return The tag key.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return The tag value.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue(
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.key = key;
-        this.value = value;
-    }
-
+    private ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue() {}
     /**
      * @return The tag key.
      * 
@@ -52,30 +45,32 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
     public static Builder builder(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String key;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue build() {
-            return new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue(key, value);
+        }
+        public ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue build() {
+            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue();
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

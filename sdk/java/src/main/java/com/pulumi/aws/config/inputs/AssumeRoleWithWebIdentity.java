@@ -12,32 +12,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AssumeRoleWithWebIdentity {
-    private final @Nullable String duration;
-    private final @Nullable String policy;
-    private final @Nullable List<String> policyArns;
-    private final @Nullable String roleArn;
-    private final @Nullable String sessionName;
-    private final @Nullable String webIdentityToken;
-    private final @Nullable String webIdentityTokenFile;
+    private @Nullable String duration;
+    private @Nullable String policy;
+    private @Nullable List<String> policyArns;
+    private @Nullable String roleArn;
+    private @Nullable String sessionName;
+    private @Nullable String webIdentityToken;
+    private @Nullable String webIdentityTokenFile;
 
-    @CustomType.Constructor
-    private AssumeRoleWithWebIdentity(
-        @CustomType.Parameter("duration") @Nullable String duration,
-        @CustomType.Parameter("policy") @Nullable String policy,
-        @CustomType.Parameter("policyArns") @Nullable List<String> policyArns,
-        @CustomType.Parameter("roleArn") @Nullable String roleArn,
-        @CustomType.Parameter("sessionName") @Nullable String sessionName,
-        @CustomType.Parameter("webIdentityToken") @Nullable String webIdentityToken,
-        @CustomType.Parameter("webIdentityTokenFile") @Nullable String webIdentityTokenFile) {
-        this.duration = duration;
-        this.policy = policy;
-        this.policyArns = policyArns;
-        this.roleArn = roleArn;
-        this.sessionName = sessionName;
-        this.webIdentityToken = webIdentityToken;
-        this.webIdentityTokenFile = webIdentityTokenFile;
-    }
-
+    private AssumeRoleWithWebIdentity() {}
     public Optional<String> duration() {
         return Optional.ofNullable(this.duration);
     }
@@ -67,7 +50,7 @@ public final class AssumeRoleWithWebIdentity {
     public static Builder builder(AssumeRoleWithWebIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String duration;
         private @Nullable String policy;
@@ -76,11 +59,7 @@ public final class AssumeRoleWithWebIdentity {
         private @Nullable String sessionName;
         private @Nullable String webIdentityToken;
         private @Nullable String webIdentityTokenFile;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AssumeRoleWithWebIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
@@ -92,14 +71,17 @@ public final class AssumeRoleWithWebIdentity {
     	      this.webIdentityTokenFile = defaults.webIdentityTokenFile;
         }
 
+        @CustomType.Setter
         public Builder duration(@Nullable String duration) {
             this.duration = duration;
             return this;
         }
+        @CustomType.Setter
         public Builder policy(@Nullable String policy) {
             this.policy = policy;
             return this;
         }
+        @CustomType.Setter
         public Builder policyArns(@Nullable List<String> policyArns) {
             this.policyArns = policyArns;
             return this;
@@ -107,23 +89,36 @@ public final class AssumeRoleWithWebIdentity {
         public Builder policyArns(String... policyArns) {
             return policyArns(List.of(policyArns));
         }
+        @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
             this.roleArn = roleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder sessionName(@Nullable String sessionName) {
             this.sessionName = sessionName;
             return this;
         }
+        @CustomType.Setter
         public Builder webIdentityToken(@Nullable String webIdentityToken) {
             this.webIdentityToken = webIdentityToken;
             return this;
         }
+        @CustomType.Setter
         public Builder webIdentityTokenFile(@Nullable String webIdentityTokenFile) {
             this.webIdentityTokenFile = webIdentityTokenFile;
             return this;
-        }        public AssumeRoleWithWebIdentity build() {
-            return new AssumeRoleWithWebIdentity(duration, policy, policyArns, roleArn, sessionName, webIdentityToken, webIdentityTokenFile);
+        }
+        public AssumeRoleWithWebIdentity build() {
+            final var o = new AssumeRoleWithWebIdentity();
+            o.duration = duration;
+            o.policy = policy;
+            o.policyArns = policyArns;
+            o.roleArn = roleArn;
+            o.sessionName = sessionName;
+            o.webIdentityToken = webIdentityToken;
+            o.webIdentityTokenFile = webIdentityTokenFile;
+            return o;
         }
     }
 }

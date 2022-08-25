@@ -15,21 +15,14 @@ public final class BotAssociationLexBot {
      * @return The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
      * 
      */
-    private final @Nullable String lexRegion;
+    private @Nullable String lexRegion;
     /**
      * @return The name of the Amazon Lex (V1) bot.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private BotAssociationLexBot(
-        @CustomType.Parameter("lexRegion") @Nullable String lexRegion,
-        @CustomType.Parameter("name") String name) {
-        this.lexRegion = lexRegion;
-        this.name = name;
-    }
-
+    private BotAssociationLexBot() {}
     /**
      * @return The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
      * 
@@ -52,30 +45,32 @@ public final class BotAssociationLexBot {
     public static Builder builder(BotAssociationLexBot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String lexRegion;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BotAssociationLexBot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lexRegion = defaults.lexRegion;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder lexRegion(@Nullable String lexRegion) {
             this.lexRegion = lexRegion;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public BotAssociationLexBot build() {
-            return new BotAssociationLexBot(lexRegion, name);
+        }
+        public BotAssociationLexBot build() {
+            final var o = new BotAssociationLexBot();
+            o.lexRegion = lexRegion;
+            o.name = name;
+            return o;
         }
     }
 }

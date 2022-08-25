@@ -13,28 +13,19 @@ public final class DataSourceParametersSnowflake {
      * @return The database to which to connect.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The host to which to connect.
      * 
      */
-    private final String host;
+    private String host;
     /**
      * @return The warehouse to which to connect.
      * 
      */
-    private final String warehouse;
+    private String warehouse;
 
-    @CustomType.Constructor
-    private DataSourceParametersSnowflake(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("host") String host,
-        @CustomType.Parameter("warehouse") String warehouse) {
-        this.database = database;
-        this.host = host;
-        this.warehouse = warehouse;
-    }
-
+    private DataSourceParametersSnowflake() {}
     /**
      * @return The database to which to connect.
      * 
@@ -64,16 +55,12 @@ public final class DataSourceParametersSnowflake {
     public static Builder builder(DataSourceParametersSnowflake defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String host;
         private String warehouse;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParametersSnowflake defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -81,19 +68,27 @@ public final class DataSourceParametersSnowflake {
     	      this.warehouse = defaults.warehouse;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder host(String host) {
             this.host = Objects.requireNonNull(host);
             return this;
         }
+        @CustomType.Setter
         public Builder warehouse(String warehouse) {
             this.warehouse = Objects.requireNonNull(warehouse);
             return this;
-        }        public DataSourceParametersSnowflake build() {
-            return new DataSourceParametersSnowflake(database, host, warehouse);
+        }
+        public DataSourceParametersSnowflake build() {
+            final var o = new DataSourceParametersSnowflake();
+            o.database = database;
+            o.host = host;
+            o.warehouse = warehouse;
+            return o;
         }
     }
 }

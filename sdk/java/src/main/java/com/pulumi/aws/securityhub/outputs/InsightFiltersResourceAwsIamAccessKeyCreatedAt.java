@@ -16,28 +16,19 @@ public final class InsightFiltersResourceAwsIamAccessKeyCreatedAt {
      * @return A configuration block of the date range for the date filter. See date_range below for more details.
      * 
      */
-    private final @Nullable InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange dateRange;
+    private @Nullable InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange dateRange;
     /**
      * @return An end date for the date filter. Required with `start` if `date_range` is not specified.
      * 
      */
-    private final @Nullable String end;
+    private @Nullable String end;
     /**
      * @return A start date for the date filter. Required with `end` if `date_range` is not specified.
      * 
      */
-    private final @Nullable String start;
+    private @Nullable String start;
 
-    @CustomType.Constructor
-    private InsightFiltersResourceAwsIamAccessKeyCreatedAt(
-        @CustomType.Parameter("dateRange") @Nullable InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange dateRange,
-        @CustomType.Parameter("end") @Nullable String end,
-        @CustomType.Parameter("start") @Nullable String start) {
-        this.dateRange = dateRange;
-        this.end = end;
-        this.start = start;
-    }
-
+    private InsightFiltersResourceAwsIamAccessKeyCreatedAt() {}
     /**
      * @return A configuration block of the date range for the date filter. See date_range below for more details.
      * 
@@ -67,16 +58,12 @@ public final class InsightFiltersResourceAwsIamAccessKeyCreatedAt {
     public static Builder builder(InsightFiltersResourceAwsIamAccessKeyCreatedAt defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange dateRange;
         private @Nullable String end;
         private @Nullable String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InsightFiltersResourceAwsIamAccessKeyCreatedAt defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dateRange = defaults.dateRange;
@@ -84,19 +71,27 @@ public final class InsightFiltersResourceAwsIamAccessKeyCreatedAt {
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder dateRange(@Nullable InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange dateRange) {
             this.dateRange = dateRange;
             return this;
         }
+        @CustomType.Setter
         public Builder end(@Nullable String end) {
             this.end = end;
             return this;
         }
+        @CustomType.Setter
         public Builder start(@Nullable String start) {
             this.start = start;
             return this;
-        }        public InsightFiltersResourceAwsIamAccessKeyCreatedAt build() {
-            return new InsightFiltersResourceAwsIamAccessKeyCreatedAt(dateRange, end, start);
+        }
+        public InsightFiltersResourceAwsIamAccessKeyCreatedAt build() {
+            final var o = new InsightFiltersResourceAwsIamAccessKeyCreatedAt();
+            o.dateRange = dateRange;
+            o.end = end;
+            o.start = start;
+            return o;
         }
     }
 }

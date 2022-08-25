@@ -15,108 +15,75 @@ public final class GetClusterResult {
      * @return Amazon Resource Name (ARN) of the MSK cluster.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      * 
      */
-    private final String bootstrapBrokers;
+    private String bootstrapBrokers;
     /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private final String bootstrapBrokersPublicSaslIam;
+    private String bootstrapBrokersPublicSaslIam;
     /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private final String bootstrapBrokersPublicSaslScram;
+    private String bootstrapBrokersPublicSaslScram;
     /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private final String bootstrapBrokersPublicTls;
+    private String bootstrapBrokersPublicTls;
     /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private final String bootstrapBrokersSaslIam;
+    private String bootstrapBrokersSaslIam;
     /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private final String bootstrapBrokersSaslScram;
+    private String bootstrapBrokersSaslScram;
     /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    private final String bootstrapBrokersTls;
-    private final String clusterName;
+    private String bootstrapBrokersTls;
+    private String clusterName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Apache Kafka version.
      * 
      */
-    private final String kafkaVersion;
+    private String kafkaVersion;
     /**
      * @return Number of broker nodes in the cluster.
      * 
      */
-    private final Integer numberOfBrokerNodes;
+    private Integer numberOfBrokerNodes;
     /**
      * @return Map of key-value pairs assigned to the cluster.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    private final String zookeeperConnectString;
+    private String zookeeperConnectString;
     /**
      * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    private final String zookeeperConnectStringTls;
+    private String zookeeperConnectStringTls;
 
-    @CustomType.Constructor
-    private GetClusterResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("bootstrapBrokers") String bootstrapBrokers,
-        @CustomType.Parameter("bootstrapBrokersPublicSaslIam") String bootstrapBrokersPublicSaslIam,
-        @CustomType.Parameter("bootstrapBrokersPublicSaslScram") String bootstrapBrokersPublicSaslScram,
-        @CustomType.Parameter("bootstrapBrokersPublicTls") String bootstrapBrokersPublicTls,
-        @CustomType.Parameter("bootstrapBrokersSaslIam") String bootstrapBrokersSaslIam,
-        @CustomType.Parameter("bootstrapBrokersSaslScram") String bootstrapBrokersSaslScram,
-        @CustomType.Parameter("bootstrapBrokersTls") String bootstrapBrokersTls,
-        @CustomType.Parameter("clusterName") String clusterName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kafkaVersion") String kafkaVersion,
-        @CustomType.Parameter("numberOfBrokerNodes") Integer numberOfBrokerNodes,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zookeeperConnectString") String zookeeperConnectString,
-        @CustomType.Parameter("zookeeperConnectStringTls") String zookeeperConnectStringTls) {
-        this.arn = arn;
-        this.bootstrapBrokers = bootstrapBrokers;
-        this.bootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
-        this.bootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
-        this.bootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
-        this.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
-        this.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
-        this.bootstrapBrokersTls = bootstrapBrokersTls;
-        this.clusterName = clusterName;
-        this.id = id;
-        this.kafkaVersion = kafkaVersion;
-        this.numberOfBrokerNodes = numberOfBrokerNodes;
-        this.tags = tags;
-        this.zookeeperConnectString = zookeeperConnectString;
-        this.zookeeperConnectStringTls = zookeeperConnectStringTls;
-    }
-
+    private GetClusterResult() {}
     /**
      * @return Amazon Resource Name (ARN) of the MSK cluster.
      * 
@@ -226,7 +193,7 @@ public final class GetClusterResult {
     public static Builder builder(GetClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String bootstrapBrokers;
@@ -243,11 +210,7 @@ public final class GetClusterResult {
         private Map<String,String> tags;
         private String zookeeperConnectString;
         private String zookeeperConnectStringTls;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -267,67 +230,99 @@ public final class GetClusterResult {
     	      this.zookeeperConnectStringTls = defaults.zookeeperConnectStringTls;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder bootstrapBrokers(String bootstrapBrokers) {
             this.bootstrapBrokers = Objects.requireNonNull(bootstrapBrokers);
             return this;
         }
+        @CustomType.Setter
         public Builder bootstrapBrokersPublicSaslIam(String bootstrapBrokersPublicSaslIam) {
             this.bootstrapBrokersPublicSaslIam = Objects.requireNonNull(bootstrapBrokersPublicSaslIam);
             return this;
         }
+        @CustomType.Setter
         public Builder bootstrapBrokersPublicSaslScram(String bootstrapBrokersPublicSaslScram) {
             this.bootstrapBrokersPublicSaslScram = Objects.requireNonNull(bootstrapBrokersPublicSaslScram);
             return this;
         }
+        @CustomType.Setter
         public Builder bootstrapBrokersPublicTls(String bootstrapBrokersPublicTls) {
             this.bootstrapBrokersPublicTls = Objects.requireNonNull(bootstrapBrokersPublicTls);
             return this;
         }
+        @CustomType.Setter
         public Builder bootstrapBrokersSaslIam(String bootstrapBrokersSaslIam) {
             this.bootstrapBrokersSaslIam = Objects.requireNonNull(bootstrapBrokersSaslIam);
             return this;
         }
+        @CustomType.Setter
         public Builder bootstrapBrokersSaslScram(String bootstrapBrokersSaslScram) {
             this.bootstrapBrokersSaslScram = Objects.requireNonNull(bootstrapBrokersSaslScram);
             return this;
         }
+        @CustomType.Setter
         public Builder bootstrapBrokersTls(String bootstrapBrokersTls) {
             this.bootstrapBrokersTls = Objects.requireNonNull(bootstrapBrokersTls);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterName(String clusterName) {
             this.clusterName = Objects.requireNonNull(clusterName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kafkaVersion(String kafkaVersion) {
             this.kafkaVersion = Objects.requireNonNull(kafkaVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder numberOfBrokerNodes(Integer numberOfBrokerNodes) {
             this.numberOfBrokerNodes = Objects.requireNonNull(numberOfBrokerNodes);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zookeeperConnectString(String zookeeperConnectString) {
             this.zookeeperConnectString = Objects.requireNonNull(zookeeperConnectString);
             return this;
         }
+        @CustomType.Setter
         public Builder zookeeperConnectStringTls(String zookeeperConnectStringTls) {
             this.zookeeperConnectStringTls = Objects.requireNonNull(zookeeperConnectStringTls);
             return this;
-        }        public GetClusterResult build() {
-            return new GetClusterResult(arn, bootstrapBrokers, bootstrapBrokersPublicSaslIam, bootstrapBrokersPublicSaslScram, bootstrapBrokersPublicTls, bootstrapBrokersSaslIam, bootstrapBrokersSaslScram, bootstrapBrokersTls, clusterName, id, kafkaVersion, numberOfBrokerNodes, tags, zookeeperConnectString, zookeeperConnectStringTls);
+        }
+        public GetClusterResult build() {
+            final var o = new GetClusterResult();
+            o.arn = arn;
+            o.bootstrapBrokers = bootstrapBrokers;
+            o.bootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
+            o.bootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
+            o.bootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
+            o.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
+            o.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
+            o.bootstrapBrokersTls = bootstrapBrokersTls;
+            o.clusterName = clusterName;
+            o.id = id;
+            o.kafkaVersion = kafkaVersion;
+            o.numberOfBrokerNodes = numberOfBrokerNodes;
+            o.tags = tags;
+            o.zookeeperConnectString = zookeeperConnectString;
+            o.zookeeperConnectStringTls = zookeeperConnectStringTls;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class EventTargetEcsTargetPlacementConstraint {
      * @return Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
      * 
      */
-    private final @Nullable String expression;
+    private @Nullable String expression;
     /**
      * @return Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private EventTargetEcsTargetPlacementConstraint(
-        @CustomType.Parameter("expression") @Nullable String expression,
-        @CustomType.Parameter("type") String type) {
-        this.expression = expression;
-        this.type = type;
-    }
-
+    private EventTargetEcsTargetPlacementConstraint() {}
     /**
      * @return Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
      * 
@@ -52,30 +45,32 @@ public final class EventTargetEcsTargetPlacementConstraint {
     public static Builder builder(EventTargetEcsTargetPlacementConstraint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String expression;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventTargetEcsTargetPlacementConstraint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expression = defaults.expression;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder expression(@Nullable String expression) {
             this.expression = expression;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public EventTargetEcsTargetPlacementConstraint build() {
-            return new EventTargetEcsTargetPlacementConstraint(expression, type);
+        }
+        public EventTargetEcsTargetPlacementConstraint build() {
+            final var o = new EventTargetEcsTargetPlacementConstraint();
+            o.expression = expression;
+            o.type = type;
+            return o;
         }
     }
 }

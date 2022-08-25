@@ -15,13 +15,9 @@ public final class ThingGroupPropertiesAttributePayload {
      * @return Key-value map.
      * 
      */
-    private final @Nullable Map<String,String> attributes;
+    private @Nullable Map<String,String> attributes;
 
-    @CustomType.Constructor
-    private ThingGroupPropertiesAttributePayload(@CustomType.Parameter("attributes") @Nullable Map<String,String> attributes) {
-        this.attributes = attributes;
-    }
-
+    private ThingGroupPropertiesAttributePayload() {}
     /**
      * @return Key-value map.
      * 
@@ -37,24 +33,24 @@ public final class ThingGroupPropertiesAttributePayload {
     public static Builder builder(ThingGroupPropertiesAttributePayload defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> attributes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ThingGroupPropertiesAttributePayload defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attributes = defaults.attributes;
         }
 
+        @CustomType.Setter
         public Builder attributes(@Nullable Map<String,String> attributes) {
             this.attributes = attributes;
             return this;
-        }        public ThingGroupPropertiesAttributePayload build() {
-            return new ThingGroupPropertiesAttributePayload(attributes);
+        }
+        public ThingGroupPropertiesAttributePayload build() {
+            final var o = new ThingGroupPropertiesAttributePayload();
+            o.attributes = attributes;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class GroupWarmPoolInstanceReusePolicy {
      * @return Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
      * 
      */
-    private final @Nullable Boolean reuseOnScaleIn;
+    private @Nullable Boolean reuseOnScaleIn;
 
-    @CustomType.Constructor
-    private GroupWarmPoolInstanceReusePolicy(@CustomType.Parameter("reuseOnScaleIn") @Nullable Boolean reuseOnScaleIn) {
-        this.reuseOnScaleIn = reuseOnScaleIn;
-    }
-
+    private GroupWarmPoolInstanceReusePolicy() {}
     /**
      * @return Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
      * 
@@ -37,24 +33,24 @@ public final class GroupWarmPoolInstanceReusePolicy {
     public static Builder builder(GroupWarmPoolInstanceReusePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean reuseOnScaleIn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupWarmPoolInstanceReusePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.reuseOnScaleIn = defaults.reuseOnScaleIn;
         }
 
+        @CustomType.Setter
         public Builder reuseOnScaleIn(@Nullable Boolean reuseOnScaleIn) {
             this.reuseOnScaleIn = reuseOnScaleIn;
             return this;
-        }        public GroupWarmPoolInstanceReusePolicy build() {
-            return new GroupWarmPoolInstanceReusePolicy(reuseOnScaleIn);
+        }
+        public GroupWarmPoolInstanceReusePolicy build() {
+            final var o = new GroupWarmPoolInstanceReusePolicy();
+            o.reuseOnScaleIn = reuseOnScaleIn;
+            return o;
         }
     }
 }

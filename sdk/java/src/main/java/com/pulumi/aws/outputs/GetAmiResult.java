@@ -21,262 +21,183 @@ public final class GetAmiResult {
      * @return The OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
      */
-    private final String architecture;
+    private String architecture;
     /**
      * @return The ARN of the AMI.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Set of objects with block device mappings of the AMI.
      * 
      */
-    private final List<GetAmiBlockDeviceMapping> blockDeviceMappings;
+    private List<GetAmiBlockDeviceMapping> blockDeviceMappings;
     /**
      * @return The boot mode of the image.
      * 
      */
-    private final String bootMode;
+    private String bootMode;
     /**
      * @return The date and time the image was created.
      * 
      */
-    private final String creationDate;
+    private String creationDate;
     /**
      * @return The date and time when the image will be deprecated.
      * 
      */
-    private final String deprecationTime;
+    private String deprecationTime;
     /**
      * @return The description of the AMI that was provided during image
      * creation.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Specifies whether enhanced networking with ENA is enabled.
      * 
      */
-    private final Boolean enaSupport;
-    private final @Nullable List<String> executableUsers;
-    private final @Nullable List<GetAmiFilter> filters;
+    private Boolean enaSupport;
+    private @Nullable List<String> executableUsers;
+    private @Nullable List<GetAmiFilter> filters;
     /**
      * @return The hypervisor type of the image.
      * 
      */
-    private final String hypervisor;
+    private String hypervisor;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ID of the AMI. Should be the same as the resource `id`.
      * 
      */
-    private final String imageId;
+    private String imageId;
     /**
      * @return The location of the AMI.
      * 
      */
-    private final String imageLocation;
+    private String imageLocation;
     /**
      * @return The AWS account alias (for example, `amazon`, `self`) or
      * the AWS account ID of the AMI owner.
      * 
      */
-    private final String imageOwnerAlias;
+    private String imageOwnerAlias;
     /**
      * @return The type of image.
      * 
      */
-    private final String imageType;
-    private final @Nullable Boolean includeDeprecated;
+    private String imageType;
+    private @Nullable Boolean includeDeprecated;
     /**
      * @return The kernel associated with the image, if any. Only applicable
      * for machine images.
      * 
      */
-    private final String kernelId;
-    private final @Nullable Boolean mostRecent;
+    private String kernelId;
+    private @Nullable Boolean mostRecent;
     /**
      * @return The name of the AMI that was provided during image creation.
      * 
      */
-    private final String name;
-    private final @Nullable String nameRegex;
+    private String name;
+    private @Nullable String nameRegex;
     /**
      * @return The AWS account ID of the image owner.
      * 
      */
-    private final String ownerId;
-    private final @Nullable List<String> owners;
+    private String ownerId;
+    private @Nullable List<String> owners;
     /**
      * @return The value is Windows for `Windows` AMIs; otherwise blank.
      * 
      */
-    private final String platform;
+    private String platform;
     /**
      * @return The platform details associated with the billing code of the AMI.
      * 
      */
-    private final String platformDetails;
+    private String platformDetails;
     /**
      * @return Any product codes associated with the AMI.
      * * `product_codes.#.product_code_id` - The product code.
      * * `product_codes.#.product_code_type` - The type of product code.
      * 
      */
-    private final List<GetAmiProductCode> productCodes;
+    private List<GetAmiProductCode> productCodes;
     /**
      * @return `true` if the image has public launch permissions.
      * 
      */
-    private final Boolean public_;
+    private Boolean public_;
     /**
      * @return The RAM disk associated with the image, if any. Only applicable
      * for machine images.
      * 
      */
-    private final String ramdiskId;
+    private String ramdiskId;
     /**
      * @return The device name of the root device.
      * 
      */
-    private final String rootDeviceName;
+    private String rootDeviceName;
     /**
      * @return The type of root device (ie: `ebs` or `instance-store`).
      * 
      */
-    private final String rootDeviceType;
+    private String rootDeviceType;
     /**
      * @return The snapshot id associated with the root device, if any
      * (only applies to `ebs` root devices).
      * 
      */
-    private final String rootSnapshotId;
+    private String rootSnapshotId;
     /**
      * @return Specifies whether enhanced networking is enabled.
      * 
      */
-    private final String sriovNetSupport;
+    private String sriovNetSupport;
     /**
      * @return The current state of the AMI. If the state is `available`, the image
      * is successfully registered and can be used to launch an instance.
      * 
      */
-    private final String state;
+    private String state;
     /**
      * @return Describes a state change. Fields are `UNSET` if not available.
      * * `state_reason.code` - The reason code for the state change.
      * * `state_reason.message` - The message for the state change.
      * 
      */
-    private final Map<String,String> stateReason;
+    private Map<String,String> stateReason;
     /**
      * @return Any tags assigned to the image.
      * * `tags.#.key` - The key name of the tag.
      * * `tags.#.value` - The value of the tag.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return If the image is configured for NitroTPM support, the value is `v2.0`.
      * 
      */
-    private final String tpmSupport;
+    private String tpmSupport;
     /**
      * @return The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
-    private final String usageOperation;
+    private String usageOperation;
     /**
      * @return The type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).
      * 
      */
-    private final String virtualizationType;
+    private String virtualizationType;
 
-    @CustomType.Constructor
-    private GetAmiResult(
-        @CustomType.Parameter("architecture") String architecture,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("blockDeviceMappings") List<GetAmiBlockDeviceMapping> blockDeviceMappings,
-        @CustomType.Parameter("bootMode") String bootMode,
-        @CustomType.Parameter("creationDate") String creationDate,
-        @CustomType.Parameter("deprecationTime") String deprecationTime,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("enaSupport") Boolean enaSupport,
-        @CustomType.Parameter("executableUsers") @Nullable List<String> executableUsers,
-        @CustomType.Parameter("filters") @Nullable List<GetAmiFilter> filters,
-        @CustomType.Parameter("hypervisor") String hypervisor,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageId") String imageId,
-        @CustomType.Parameter("imageLocation") String imageLocation,
-        @CustomType.Parameter("imageOwnerAlias") String imageOwnerAlias,
-        @CustomType.Parameter("imageType") String imageType,
-        @CustomType.Parameter("includeDeprecated") @Nullable Boolean includeDeprecated,
-        @CustomType.Parameter("kernelId") String kernelId,
-        @CustomType.Parameter("mostRecent") @Nullable Boolean mostRecent,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nameRegex") @Nullable String nameRegex,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("owners") @Nullable List<String> owners,
-        @CustomType.Parameter("platform") String platform,
-        @CustomType.Parameter("platformDetails") String platformDetails,
-        @CustomType.Parameter("productCodes") List<GetAmiProductCode> productCodes,
-        @CustomType.Parameter("public") Boolean public_,
-        @CustomType.Parameter("ramdiskId") String ramdiskId,
-        @CustomType.Parameter("rootDeviceName") String rootDeviceName,
-        @CustomType.Parameter("rootDeviceType") String rootDeviceType,
-        @CustomType.Parameter("rootSnapshotId") String rootSnapshotId,
-        @CustomType.Parameter("sriovNetSupport") String sriovNetSupport,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("stateReason") Map<String,String> stateReason,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("tpmSupport") String tpmSupport,
-        @CustomType.Parameter("usageOperation") String usageOperation,
-        @CustomType.Parameter("virtualizationType") String virtualizationType) {
-        this.architecture = architecture;
-        this.arn = arn;
-        this.blockDeviceMappings = blockDeviceMappings;
-        this.bootMode = bootMode;
-        this.creationDate = creationDate;
-        this.deprecationTime = deprecationTime;
-        this.description = description;
-        this.enaSupport = enaSupport;
-        this.executableUsers = executableUsers;
-        this.filters = filters;
-        this.hypervisor = hypervisor;
-        this.id = id;
-        this.imageId = imageId;
-        this.imageLocation = imageLocation;
-        this.imageOwnerAlias = imageOwnerAlias;
-        this.imageType = imageType;
-        this.includeDeprecated = includeDeprecated;
-        this.kernelId = kernelId;
-        this.mostRecent = mostRecent;
-        this.name = name;
-        this.nameRegex = nameRegex;
-        this.ownerId = ownerId;
-        this.owners = owners;
-        this.platform = platform;
-        this.platformDetails = platformDetails;
-        this.productCodes = productCodes;
-        this.public_ = public_;
-        this.ramdiskId = ramdiskId;
-        this.rootDeviceName = rootDeviceName;
-        this.rootDeviceType = rootDeviceType;
-        this.rootSnapshotId = rootSnapshotId;
-        this.sriovNetSupport = sriovNetSupport;
-        this.state = state;
-        this.stateReason = stateReason;
-        this.tags = tags;
-        this.tpmSupport = tpmSupport;
-        this.usageOperation = usageOperation;
-        this.virtualizationType = virtualizationType;
-    }
-
+    private GetAmiResult() {}
     /**
      * @return The OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
@@ -540,7 +461,7 @@ public final class GetAmiResult {
     public static Builder builder(GetAmiResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String architecture;
         private String arn;
@@ -580,11 +501,7 @@ public final class GetAmiResult {
         private String tpmSupport;
         private String usageOperation;
         private String virtualizationType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAmiResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.architecture = defaults.architecture;
@@ -627,14 +544,17 @@ public final class GetAmiResult {
     	      this.virtualizationType = defaults.virtualizationType;
         }
 
+        @CustomType.Setter
         public Builder architecture(String architecture) {
             this.architecture = Objects.requireNonNull(architecture);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder blockDeviceMappings(List<GetAmiBlockDeviceMapping> blockDeviceMappings) {
             this.blockDeviceMappings = Objects.requireNonNull(blockDeviceMappings);
             return this;
@@ -642,26 +562,32 @@ public final class GetAmiResult {
         public Builder blockDeviceMappings(GetAmiBlockDeviceMapping... blockDeviceMappings) {
             return blockDeviceMappings(List.of(blockDeviceMappings));
         }
+        @CustomType.Setter
         public Builder bootMode(String bootMode) {
             this.bootMode = Objects.requireNonNull(bootMode);
             return this;
         }
+        @CustomType.Setter
         public Builder creationDate(String creationDate) {
             this.creationDate = Objects.requireNonNull(creationDate);
             return this;
         }
+        @CustomType.Setter
         public Builder deprecationTime(String deprecationTime) {
             this.deprecationTime = Objects.requireNonNull(deprecationTime);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder enaSupport(Boolean enaSupport) {
             this.enaSupport = Objects.requireNonNull(enaSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder executableUsers(@Nullable List<String> executableUsers) {
             this.executableUsers = executableUsers;
             return this;
@@ -669,6 +595,7 @@ public final class GetAmiResult {
         public Builder executableUsers(String... executableUsers) {
             return executableUsers(List.of(executableUsers));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetAmiFilter> filters) {
             this.filters = filters;
             return this;
@@ -676,54 +603,67 @@ public final class GetAmiResult {
         public Builder filters(GetAmiFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder hypervisor(String hypervisor) {
             this.hypervisor = Objects.requireNonNull(hypervisor);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageId(String imageId) {
             this.imageId = Objects.requireNonNull(imageId);
             return this;
         }
+        @CustomType.Setter
         public Builder imageLocation(String imageLocation) {
             this.imageLocation = Objects.requireNonNull(imageLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder imageOwnerAlias(String imageOwnerAlias) {
             this.imageOwnerAlias = Objects.requireNonNull(imageOwnerAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder imageType(String imageType) {
             this.imageType = Objects.requireNonNull(imageType);
             return this;
         }
+        @CustomType.Setter
         public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
             this.includeDeprecated = includeDeprecated;
             return this;
         }
+        @CustomType.Setter
         public Builder kernelId(String kernelId) {
             this.kernelId = Objects.requireNonNull(kernelId);
             return this;
         }
+        @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             this.mostRecent = mostRecent;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
             this.nameRegex = nameRegex;
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder owners(@Nullable List<String> owners) {
             this.owners = owners;
             return this;
@@ -731,14 +671,17 @@ public final class GetAmiResult {
         public Builder owners(String... owners) {
             return owners(List.of(owners));
         }
+        @CustomType.Setter
         public Builder platform(String platform) {
             this.platform = Objects.requireNonNull(platform);
             return this;
         }
+        @CustomType.Setter
         public Builder platformDetails(String platformDetails) {
             this.platformDetails = Objects.requireNonNull(platformDetails);
             return this;
         }
+        @CustomType.Setter
         public Builder productCodes(List<GetAmiProductCode> productCodes) {
             this.productCodes = Objects.requireNonNull(productCodes);
             return this;
@@ -746,55 +689,107 @@ public final class GetAmiResult {
         public Builder productCodes(GetAmiProductCode... productCodes) {
             return productCodes(List.of(productCodes));
         }
+        @CustomType.Setter("public")
         public Builder public_(Boolean public_) {
             this.public_ = Objects.requireNonNull(public_);
             return this;
         }
+        @CustomType.Setter
         public Builder ramdiskId(String ramdiskId) {
             this.ramdiskId = Objects.requireNonNull(ramdiskId);
             return this;
         }
+        @CustomType.Setter
         public Builder rootDeviceName(String rootDeviceName) {
             this.rootDeviceName = Objects.requireNonNull(rootDeviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder rootDeviceType(String rootDeviceType) {
             this.rootDeviceType = Objects.requireNonNull(rootDeviceType);
             return this;
         }
+        @CustomType.Setter
         public Builder rootSnapshotId(String rootSnapshotId) {
             this.rootSnapshotId = Objects.requireNonNull(rootSnapshotId);
             return this;
         }
+        @CustomType.Setter
         public Builder sriovNetSupport(String sriovNetSupport) {
             this.sriovNetSupport = Objects.requireNonNull(sriovNetSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder stateReason(Map<String,String> stateReason) {
             this.stateReason = Objects.requireNonNull(stateReason);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder tpmSupport(String tpmSupport) {
             this.tpmSupport = Objects.requireNonNull(tpmSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder usageOperation(String usageOperation) {
             this.usageOperation = Objects.requireNonNull(usageOperation);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualizationType(String virtualizationType) {
             this.virtualizationType = Objects.requireNonNull(virtualizationType);
             return this;
-        }        public GetAmiResult build() {
-            return new GetAmiResult(architecture, arn, blockDeviceMappings, bootMode, creationDate, deprecationTime, description, enaSupport, executableUsers, filters, hypervisor, id, imageId, imageLocation, imageOwnerAlias, imageType, includeDeprecated, kernelId, mostRecent, name, nameRegex, ownerId, owners, platform, platformDetails, productCodes, public_, ramdiskId, rootDeviceName, rootDeviceType, rootSnapshotId, sriovNetSupport, state, stateReason, tags, tpmSupport, usageOperation, virtualizationType);
+        }
+        public GetAmiResult build() {
+            final var o = new GetAmiResult();
+            o.architecture = architecture;
+            o.arn = arn;
+            o.blockDeviceMappings = blockDeviceMappings;
+            o.bootMode = bootMode;
+            o.creationDate = creationDate;
+            o.deprecationTime = deprecationTime;
+            o.description = description;
+            o.enaSupport = enaSupport;
+            o.executableUsers = executableUsers;
+            o.filters = filters;
+            o.hypervisor = hypervisor;
+            o.id = id;
+            o.imageId = imageId;
+            o.imageLocation = imageLocation;
+            o.imageOwnerAlias = imageOwnerAlias;
+            o.imageType = imageType;
+            o.includeDeprecated = includeDeprecated;
+            o.kernelId = kernelId;
+            o.mostRecent = mostRecent;
+            o.name = name;
+            o.nameRegex = nameRegex;
+            o.ownerId = ownerId;
+            o.owners = owners;
+            o.platform = platform;
+            o.platformDetails = platformDetails;
+            o.productCodes = productCodes;
+            o.public_ = public_;
+            o.ramdiskId = ramdiskId;
+            o.rootDeviceName = rootDeviceName;
+            o.rootDeviceType = rootDeviceType;
+            o.rootSnapshotId = rootSnapshotId;
+            o.sriovNetSupport = sriovNetSupport;
+            o.state = state;
+            o.stateReason = stateReason;
+            o.tags = tags;
+            o.tpmSupport = tpmSupport;
+            o.usageOperation = usageOperation;
+            o.virtualizationType = virtualizationType;
+            return o;
         }
     }
 }

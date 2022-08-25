@@ -15,28 +15,19 @@ public final class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
      * @return Pass client-specific information to the Lambda function that you are invoking.
      * 
      */
-    private final @Nullable String clientContext;
+    private @Nullable String clientContext;
     /**
      * @return JSON to provide to your Lambda function as input.
      * 
      */
-    private final @Nullable String payload;
+    private @Nullable String payload;
     /**
      * @return Specify a Lambda function version or alias name.
      * 
      */
-    private final @Nullable String qualifier;
+    private @Nullable String qualifier;
 
-    @CustomType.Constructor
-    private MaintenanceWindowTaskTaskInvocationParametersLambdaParameters(
-        @CustomType.Parameter("clientContext") @Nullable String clientContext,
-        @CustomType.Parameter("payload") @Nullable String payload,
-        @CustomType.Parameter("qualifier") @Nullable String qualifier) {
-        this.clientContext = clientContext;
-        this.payload = payload;
-        this.qualifier = qualifier;
-    }
-
+    private MaintenanceWindowTaskTaskInvocationParametersLambdaParameters() {}
     /**
      * @return Pass client-specific information to the Lambda function that you are invoking.
      * 
@@ -66,16 +57,12 @@ public final class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
     public static Builder builder(MaintenanceWindowTaskTaskInvocationParametersLambdaParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clientContext;
         private @Nullable String payload;
         private @Nullable String qualifier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceWindowTaskTaskInvocationParametersLambdaParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientContext = defaults.clientContext;
@@ -83,19 +70,27 @@ public final class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
     	      this.qualifier = defaults.qualifier;
         }
 
+        @CustomType.Setter
         public Builder clientContext(@Nullable String clientContext) {
             this.clientContext = clientContext;
             return this;
         }
+        @CustomType.Setter
         public Builder payload(@Nullable String payload) {
             this.payload = payload;
             return this;
         }
+        @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
             this.qualifier = qualifier;
             return this;
-        }        public MaintenanceWindowTaskTaskInvocationParametersLambdaParameters build() {
-            return new MaintenanceWindowTaskTaskInvocationParametersLambdaParameters(clientContext, payload, qualifier);
+        }
+        public MaintenanceWindowTaskTaskInvocationParametersLambdaParameters build() {
+            final var o = new MaintenanceWindowTaskTaskInvocationParametersLambdaParameters();
+            o.clientContext = clientContext;
+            o.payload = payload;
+            o.qualifier = qualifier;
+            return o;
         }
     }
 }

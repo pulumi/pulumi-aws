@@ -16,21 +16,14 @@ public final class RuleGroupRuleGroupRuleVariables {
      * @return Set of configuration blocks that define IP address information. See IP Sets below for details.
      * 
      */
-    private final @Nullable List<RuleGroupRuleGroupRuleVariablesIpSet> ipSets;
+    private @Nullable List<RuleGroupRuleGroupRuleVariablesIpSet> ipSets;
     /**
      * @return Set of configuration blocks that define port range information. See Port Sets below for details.
      * 
      */
-    private final @Nullable List<RuleGroupRuleGroupRuleVariablesPortSet> portSets;
+    private @Nullable List<RuleGroupRuleGroupRuleVariablesPortSet> portSets;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRuleVariables(
-        @CustomType.Parameter("ipSets") @Nullable List<RuleGroupRuleGroupRuleVariablesIpSet> ipSets,
-        @CustomType.Parameter("portSets") @Nullable List<RuleGroupRuleGroupRuleVariablesPortSet> portSets) {
-        this.ipSets = ipSets;
-        this.portSets = portSets;
-    }
-
+    private RuleGroupRuleGroupRuleVariables() {}
     /**
      * @return Set of configuration blocks that define IP address information. See IP Sets below for details.
      * 
@@ -53,21 +46,18 @@ public final class RuleGroupRuleGroupRuleVariables {
     public static Builder builder(RuleGroupRuleGroupRuleVariables defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<RuleGroupRuleGroupRuleVariablesIpSet> ipSets;
         private @Nullable List<RuleGroupRuleGroupRuleVariablesPortSet> portSets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRuleVariables defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipSets = defaults.ipSets;
     	      this.portSets = defaults.portSets;
         }
 
+        @CustomType.Setter
         public Builder ipSets(@Nullable List<RuleGroupRuleGroupRuleVariablesIpSet> ipSets) {
             this.ipSets = ipSets;
             return this;
@@ -75,14 +65,19 @@ public final class RuleGroupRuleGroupRuleVariables {
         public Builder ipSets(RuleGroupRuleGroupRuleVariablesIpSet... ipSets) {
             return ipSets(List.of(ipSets));
         }
+        @CustomType.Setter
         public Builder portSets(@Nullable List<RuleGroupRuleGroupRuleVariablesPortSet> portSets) {
             this.portSets = portSets;
             return this;
         }
         public Builder portSets(RuleGroupRuleGroupRuleVariablesPortSet... portSets) {
             return portSets(List.of(portSets));
-        }        public RuleGroupRuleGroupRuleVariables build() {
-            return new RuleGroupRuleGroupRuleVariables(ipSets, portSets);
+        }
+        public RuleGroupRuleGroupRuleVariables build() {
+            final var o = new RuleGroupRuleGroupRuleVariables();
+            o.ipSets = ipSets;
+            o.portSets = portSets;
+            return o;
         }
     }
 }

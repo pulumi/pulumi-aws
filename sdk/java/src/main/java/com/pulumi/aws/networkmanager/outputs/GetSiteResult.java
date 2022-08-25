@@ -16,48 +16,31 @@ public final class GetSiteResult {
      * @return The ARN of the site.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The description of the site.
      * 
      */
-    private final String description;
-    private final String globalNetworkId;
+    private String description;
+    private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The site location as documented below.
      * 
      */
-    private final List<GetSiteLocation> locations;
-    private final String siteId;
+    private List<GetSiteLocation> locations;
+    private String siteId;
     /**
      * @return Key-value tags for the Site.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetSiteResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("globalNetworkId") String globalNetworkId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("locations") List<GetSiteLocation> locations,
-        @CustomType.Parameter("siteId") String siteId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.description = description;
-        this.globalNetworkId = globalNetworkId;
-        this.id = id;
-        this.locations = locations;
-        this.siteId = siteId;
-        this.tags = tags;
-    }
-
+    private GetSiteResult() {}
     /**
      * @return The ARN of the site.
      * 
@@ -107,7 +90,7 @@ public final class GetSiteResult {
     public static Builder builder(GetSiteResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
@@ -116,11 +99,7 @@ public final class GetSiteResult {
         private List<GetSiteLocation> locations;
         private String siteId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSiteResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -132,22 +111,27 @@ public final class GetSiteResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
             this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder locations(List<GetSiteLocation> locations) {
             this.locations = Objects.requireNonNull(locations);
             return this;
@@ -155,15 +139,26 @@ public final class GetSiteResult {
         public Builder locations(GetSiteLocation... locations) {
             return locations(List.of(locations));
         }
+        @CustomType.Setter
         public Builder siteId(String siteId) {
             this.siteId = Objects.requireNonNull(siteId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetSiteResult build() {
-            return new GetSiteResult(arn, description, globalNetworkId, id, locations, siteId, tags);
+        }
+        public GetSiteResult build() {
+            final var o = new GetSiteResult();
+            o.arn = arn;
+            o.description = description;
+            o.globalNetworkId = globalNetworkId;
+            o.id = id;
+            o.locations = locations;
+            o.siteId = siteId;
+            o.tags = tags;
+            return o;
         }
     }
 }

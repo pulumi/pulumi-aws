@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns {
-    private final @Nullable List<String> items;
+    private @Nullable List<String> items;
 
-    @CustomType.Constructor
-    private FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns(@CustomType.Parameter("items") @Nullable List<String> items) {
-        this.items = items;
-    }
-
+    private FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns() {}
     public List<String> items() {
         return this.items == null ? List.of() : this.items;
     }
@@ -29,27 +25,27 @@ public final class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPattern
     public static Builder builder(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
             this.items = items;
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns build() {
-            return new FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns(items);
+        }
+        public FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns build() {
+            final var o = new FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns();
+            o.items = items;
+            return o;
         }
     }
 }

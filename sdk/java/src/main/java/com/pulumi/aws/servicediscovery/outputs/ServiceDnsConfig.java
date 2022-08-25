@@ -17,28 +17,19 @@ public final class ServiceDnsConfig {
      * @return An array that contains one DnsRecord object for each resource record set.
      * 
      */
-    private final List<ServiceDnsConfigDnsRecord> dnsRecords;
+    private List<ServiceDnsConfigDnsRecord> dnsRecords;
     /**
      * @return The ID of the namespace to use for DNS configuration.
      * 
      */
-    private final String namespaceId;
+    private String namespaceId;
     /**
      * @return The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
      * 
      */
-    private final @Nullable String routingPolicy;
+    private @Nullable String routingPolicy;
 
-    @CustomType.Constructor
-    private ServiceDnsConfig(
-        @CustomType.Parameter("dnsRecords") List<ServiceDnsConfigDnsRecord> dnsRecords,
-        @CustomType.Parameter("namespaceId") String namespaceId,
-        @CustomType.Parameter("routingPolicy") @Nullable String routingPolicy) {
-        this.dnsRecords = dnsRecords;
-        this.namespaceId = namespaceId;
-        this.routingPolicy = routingPolicy;
-    }
-
+    private ServiceDnsConfig() {}
     /**
      * @return An array that contains one DnsRecord object for each resource record set.
      * 
@@ -68,16 +59,12 @@ public final class ServiceDnsConfig {
     public static Builder builder(ServiceDnsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ServiceDnsConfigDnsRecord> dnsRecords;
         private String namespaceId;
         private @Nullable String routingPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceDnsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsRecords = defaults.dnsRecords;
@@ -85,6 +72,7 @@ public final class ServiceDnsConfig {
     	      this.routingPolicy = defaults.routingPolicy;
         }
 
+        @CustomType.Setter
         public Builder dnsRecords(List<ServiceDnsConfigDnsRecord> dnsRecords) {
             this.dnsRecords = Objects.requireNonNull(dnsRecords);
             return this;
@@ -92,15 +80,22 @@ public final class ServiceDnsConfig {
         public Builder dnsRecords(ServiceDnsConfigDnsRecord... dnsRecords) {
             return dnsRecords(List.of(dnsRecords));
         }
+        @CustomType.Setter
         public Builder namespaceId(String namespaceId) {
             this.namespaceId = Objects.requireNonNull(namespaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder routingPolicy(@Nullable String routingPolicy) {
             this.routingPolicy = routingPolicy;
             return this;
-        }        public ServiceDnsConfig build() {
-            return new ServiceDnsConfig(dnsRecords, namespaceId, routingPolicy);
+        }
+        public ServiceDnsConfig build() {
+            final var o = new ServiceDnsConfig();
+            o.dnsRecords = dnsRecords;
+            o.namespaceId = namespaceId;
+            o.routingPolicy = routingPolicy;
+            return o;
         }
     }
 }

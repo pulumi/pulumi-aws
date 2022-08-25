@@ -15,21 +15,14 @@ public final class WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
      * @return When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
      * 
      */
-    private final @Nullable String data;
+    private @Nullable String data;
     /**
      * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationRedactedFieldsFieldToMatch(
-        @CustomType.Parameter("data") @Nullable String data,
-        @CustomType.Parameter("type") String type) {
-        this.data = data;
-        this.type = type;
-    }
-
+    private WebAclLoggingConfigurationRedactedFieldsFieldToMatch() {}
     /**
      * @return When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
      * 
@@ -52,30 +45,32 @@ public final class WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
     public static Builder builder(WebAclLoggingConfigurationRedactedFieldsFieldToMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String data;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationRedactedFieldsFieldToMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.data = defaults.data;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder data(@Nullable String data) {
             this.data = data;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public WebAclLoggingConfigurationRedactedFieldsFieldToMatch build() {
-            return new WebAclLoggingConfigurationRedactedFieldsFieldToMatch(data, type);
+        }
+        public WebAclLoggingConfigurationRedactedFieldsFieldToMatch build() {
+            final var o = new WebAclLoggingConfigurationRedactedFieldsFieldToMatch();
+            o.data = data;
+            o.type = type;
+            return o;
         }
     }
 }

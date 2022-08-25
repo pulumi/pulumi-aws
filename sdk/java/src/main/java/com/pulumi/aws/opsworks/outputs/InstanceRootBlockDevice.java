@@ -13,23 +13,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceRootBlockDevice {
-    private final @Nullable Boolean deleteOnTermination;
-    private final @Nullable Integer iops;
-    private final @Nullable Integer volumeSize;
-    private final @Nullable String volumeType;
+    private @Nullable Boolean deleteOnTermination;
+    private @Nullable Integer iops;
+    private @Nullable Integer volumeSize;
+    private @Nullable String volumeType;
 
-    @CustomType.Constructor
-    private InstanceRootBlockDevice(
-        @CustomType.Parameter("deleteOnTermination") @Nullable Boolean deleteOnTermination,
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("volumeSize") @Nullable Integer volumeSize,
-        @CustomType.Parameter("volumeType") @Nullable String volumeType) {
-        this.deleteOnTermination = deleteOnTermination;
-        this.iops = iops;
-        this.volumeSize = volumeSize;
-        this.volumeType = volumeType;
-    }
-
+    private InstanceRootBlockDevice() {}
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
@@ -50,17 +39,13 @@ public final class InstanceRootBlockDevice {
     public static Builder builder(InstanceRootBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean deleteOnTermination;
         private @Nullable Integer iops;
         private @Nullable Integer volumeSize;
         private @Nullable String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceRootBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOnTermination = defaults.deleteOnTermination;
@@ -69,23 +54,33 @@ public final class InstanceRootBlockDevice {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
             this.volumeSize = volumeSize;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
             this.volumeType = volumeType;
             return this;
-        }        public InstanceRootBlockDevice build() {
-            return new InstanceRootBlockDevice(deleteOnTermination, iops, volumeSize, volumeType);
+        }
+        public InstanceRootBlockDevice build() {
+            final var o = new InstanceRootBlockDevice();
+            o.deleteOnTermination = deleteOnTermination;
+            o.iops = iops;
+            o.volumeSize = volumeSize;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

@@ -19,42 +19,29 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
      * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
-    private final GetCoreNetworkPolicyDocumentAttachmentPolicyAction action;
+    private GetCoreNetworkPolicyDocumentAttachmentPolicyAction action;
     /**
      * @return Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
      * 
      */
-    private final @Nullable String conditionLogic;
+    private @Nullable String conditionLogic;
     /**
      * @return A block argument. Detailed Below.
      * 
      */
-    private final List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions;
+    private List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions;
     /**
      * @return A user-defined string describing the segment action.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
      * 
      */
-    private final Integer ruleNumber;
+    private Integer ruleNumber;
 
-    @CustomType.Constructor
-    private GetCoreNetworkPolicyDocumentAttachmentPolicy(
-        @CustomType.Parameter("action") GetCoreNetworkPolicyDocumentAttachmentPolicyAction action,
-        @CustomType.Parameter("conditionLogic") @Nullable String conditionLogic,
-        @CustomType.Parameter("conditions") List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("ruleNumber") Integer ruleNumber) {
-        this.action = action;
-        this.conditionLogic = conditionLogic;
-        this.conditions = conditions;
-        this.description = description;
-        this.ruleNumber = ruleNumber;
-    }
-
+    private GetCoreNetworkPolicyDocumentAttachmentPolicy() {}
     /**
      * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
@@ -98,18 +85,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
     public static Builder builder(GetCoreNetworkPolicyDocumentAttachmentPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GetCoreNetworkPolicyDocumentAttachmentPolicyAction action;
         private @Nullable String conditionLogic;
         private List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions;
         private @Nullable String description;
         private Integer ruleNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentAttachmentPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -119,14 +102,17 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
     	      this.ruleNumber = defaults.ruleNumber;
         }
 
+        @CustomType.Setter
         public Builder action(GetCoreNetworkPolicyDocumentAttachmentPolicyAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder conditionLogic(@Nullable String conditionLogic) {
             this.conditionLogic = conditionLogic;
             return this;
         }
+        @CustomType.Setter
         public Builder conditions(List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions) {
             this.conditions = Objects.requireNonNull(conditions);
             return this;
@@ -134,15 +120,24 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
         public Builder conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleNumber(Integer ruleNumber) {
             this.ruleNumber = Objects.requireNonNull(ruleNumber);
             return this;
-        }        public GetCoreNetworkPolicyDocumentAttachmentPolicy build() {
-            return new GetCoreNetworkPolicyDocumentAttachmentPolicy(action, conditionLogic, conditions, description, ruleNumber);
+        }
+        public GetCoreNetworkPolicyDocumentAttachmentPolicy build() {
+            final var o = new GetCoreNetworkPolicyDocumentAttachmentPolicy();
+            o.action = action;
+            o.conditionLogic = conditionLogic;
+            o.conditions = conditions;
+            o.description = description;
+            o.ruleNumber = ruleNumber;
+            return o;
         }
     }
 }

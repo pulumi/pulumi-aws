@@ -18,28 +18,19 @@ public final class ClassificationJobS3JobDefinition {
      * @return The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
      * 
      */
-    private final @Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria;
+    private @Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria;
     /**
      * @return An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
      * 
      */
-    private final @Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions;
+    private @Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions;
     /**
      * @return The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
      * 
      */
-    private final @Nullable ClassificationJobS3JobDefinitionScoping scoping;
+    private @Nullable ClassificationJobS3JobDefinitionScoping scoping;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinition(
-        @CustomType.Parameter("bucketCriteria") @Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria,
-        @CustomType.Parameter("bucketDefinitions") @Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions,
-        @CustomType.Parameter("scoping") @Nullable ClassificationJobS3JobDefinitionScoping scoping) {
-        this.bucketCriteria = bucketCriteria;
-        this.bucketDefinitions = bucketDefinitions;
-        this.scoping = scoping;
-    }
-
+    private ClassificationJobS3JobDefinition() {}
     /**
      * @return The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
      * 
@@ -69,16 +60,12 @@ public final class ClassificationJobS3JobDefinition {
     public static Builder builder(ClassificationJobS3JobDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria;
         private @Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions;
         private @Nullable ClassificationJobS3JobDefinitionScoping scoping;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketCriteria = defaults.bucketCriteria;
@@ -86,10 +73,12 @@ public final class ClassificationJobS3JobDefinition {
     	      this.scoping = defaults.scoping;
         }
 
+        @CustomType.Setter
         public Builder bucketCriteria(@Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria) {
             this.bucketCriteria = bucketCriteria;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketDefinitions(@Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions) {
             this.bucketDefinitions = bucketDefinitions;
             return this;
@@ -97,11 +86,17 @@ public final class ClassificationJobS3JobDefinition {
         public Builder bucketDefinitions(ClassificationJobS3JobDefinitionBucketDefinition... bucketDefinitions) {
             return bucketDefinitions(List.of(bucketDefinitions));
         }
+        @CustomType.Setter
         public Builder scoping(@Nullable ClassificationJobS3JobDefinitionScoping scoping) {
             this.scoping = scoping;
             return this;
-        }        public ClassificationJobS3JobDefinition build() {
-            return new ClassificationJobS3JobDefinition(bucketCriteria, bucketDefinitions, scoping);
+        }
+        public ClassificationJobS3JobDefinition build() {
+            final var o = new ClassificationJobS3JobDefinition();
+            o.bucketCriteria = bucketCriteria;
+            o.bucketDefinitions = bucketDefinitions;
+            o.scoping = scoping;
+            return o;
         }
     }
 }

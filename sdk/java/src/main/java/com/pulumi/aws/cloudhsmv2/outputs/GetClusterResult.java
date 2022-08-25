@@ -21,48 +21,31 @@ public final class GetClusterResult {
      *   The number of available cluster certificates may vary depending on state of the cluster.
      * 
      */
-    private final List<GetClusterClusterCertificate> clusterCertificates;
-    private final String clusterId;
-    private final String clusterState;
+    private List<GetClusterClusterCertificate> clusterCertificates;
+    private String clusterId;
+    private String clusterState;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ID of the security group associated with the CloudHSM cluster.
      * 
      */
-    private final String securityGroupId;
+    private String securityGroupId;
     /**
      * @return The IDs of subnets in which cluster operates.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return The id of the VPC that the CloudHSM cluster resides in.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetClusterResult(
-        @CustomType.Parameter("clusterCertificates") List<GetClusterClusterCertificate> clusterCertificates,
-        @CustomType.Parameter("clusterId") String clusterId,
-        @CustomType.Parameter("clusterState") String clusterState,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("securityGroupId") String securityGroupId,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.clusterCertificates = clusterCertificates;
-        this.clusterId = clusterId;
-        this.clusterState = clusterState;
-        this.id = id;
-        this.securityGroupId = securityGroupId;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private GetClusterResult() {}
     /**
      * @return The list of cluster certificates.
      * * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
@@ -118,7 +101,7 @@ public final class GetClusterResult {
     public static Builder builder(GetClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetClusterClusterCertificate> clusterCertificates;
         private String clusterId;
@@ -127,11 +110,7 @@ public final class GetClusterResult {
         private String securityGroupId;
         private List<String> subnetIds;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterCertificates = defaults.clusterCertificates;
@@ -143,6 +122,7 @@ public final class GetClusterResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder clusterCertificates(List<GetClusterClusterCertificate> clusterCertificates) {
             this.clusterCertificates = Objects.requireNonNull(clusterCertificates);
             return this;
@@ -150,22 +130,27 @@ public final class GetClusterResult {
         public Builder clusterCertificates(GetClusterClusterCertificate... clusterCertificates) {
             return clusterCertificates(List.of(clusterCertificates));
         }
+        @CustomType.Setter
         public Builder clusterId(String clusterId) {
             this.clusterId = Objects.requireNonNull(clusterId);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterState(String clusterState) {
             this.clusterState = Objects.requireNonNull(clusterState);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
             this.securityGroupId = Objects.requireNonNull(securityGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -173,11 +158,21 @@ public final class GetClusterResult {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetClusterResult build() {
-            return new GetClusterResult(clusterCertificates, clusterId, clusterState, id, securityGroupId, subnetIds, vpcId);
+        }
+        public GetClusterResult build() {
+            final var o = new GetClusterResult();
+            o.clusterCertificates = clusterCertificates;
+            o.clusterId = clusterId;
+            o.clusterState = clusterState;
+            o.id = id;
+            o.securityGroupId = securityGroupId;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

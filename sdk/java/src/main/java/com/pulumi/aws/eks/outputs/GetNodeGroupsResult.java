@@ -10,28 +10,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNodeGroupsResult {
-    private final String clusterName;
+    private String clusterName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A set of all node group names in an EKS Cluster.
      * 
      */
-    private final List<String> names;
+    private List<String> names;
 
-    @CustomType.Constructor
-    private GetNodeGroupsResult(
-        @CustomType.Parameter("clusterName") String clusterName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("names") List<String> names) {
-        this.clusterName = clusterName;
-        this.id = id;
-        this.names = names;
-    }
-
+    private GetNodeGroupsResult() {}
     public String clusterName() {
         return this.clusterName;
     }
@@ -57,16 +48,12 @@ public final class GetNodeGroupsResult {
     public static Builder builder(GetNodeGroupsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clusterName;
         private String id;
         private List<String> names;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNodeGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterName = defaults.clusterName;
@@ -74,22 +61,30 @@ public final class GetNodeGroupsResult {
     	      this.names = defaults.names;
         }
 
+        @CustomType.Setter
         public Builder clusterName(String clusterName) {
             this.clusterName = Objects.requireNonNull(clusterName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder names(List<String> names) {
             this.names = Objects.requireNonNull(names);
             return this;
         }
         public Builder names(String... names) {
             return names(List.of(names));
-        }        public GetNodeGroupsResult build() {
-            return new GetNodeGroupsResult(clusterName, id, names);
+        }
+        public GetNodeGroupsResult build() {
+            final var o = new GetNodeGroupsResult();
+            o.clusterName = clusterName;
+            o.id = id;
+            o.names = names;
+            return o;
         }
     }
 }

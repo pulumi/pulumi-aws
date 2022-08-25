@@ -13,28 +13,19 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementO
      * @return - Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
-    private final String fallbackBehavior;
+    private String fallbackBehavior;
     /**
      * @return - Name of the HTTP header to use for the IP address.
      * 
      */
-    private final String headerName;
+    private String headerName;
     /**
      * @return - Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
      * 
      */
-    private final String position;
+    private String position;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig(
-        @CustomType.Parameter("fallbackBehavior") String fallbackBehavior,
-        @CustomType.Parameter("headerName") String headerName,
-        @CustomType.Parameter("position") String position) {
-        this.fallbackBehavior = fallbackBehavior;
-        this.headerName = headerName;
-        this.position = position;
-    }
-
+    private WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig() {}
     /**
      * @return - Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
@@ -64,16 +55,12 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementO
     public static Builder builder(WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String fallbackBehavior;
         private String headerName;
         private String position;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fallbackBehavior = defaults.fallbackBehavior;
@@ -81,19 +68,27 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementO
     	      this.position = defaults.position;
         }
 
+        @CustomType.Setter
         public Builder fallbackBehavior(String fallbackBehavior) {
             this.fallbackBehavior = Objects.requireNonNull(fallbackBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder headerName(String headerName) {
             this.headerName = Objects.requireNonNull(headerName);
             return this;
         }
+        @CustomType.Setter
         public Builder position(String position) {
             this.position = Objects.requireNonNull(position);
             return this;
-        }        public WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig build() {
-            return new WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig(fallbackBehavior, headerName, position);
+        }
+        public WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig build() {
+            final var o = new WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig();
+            o.fallbackBehavior = fallbackBehavior;
+            o.headerName = headerName;
+            o.position = position;
+            return o;
         }
     }
 }

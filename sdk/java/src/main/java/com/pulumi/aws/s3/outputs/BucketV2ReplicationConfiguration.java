@@ -15,21 +15,14 @@ public final class BucketV2ReplicationConfiguration {
      * @return The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
-    private final String role;
+    private String role;
     /**
      * @return Specifies the rules managing the replication (documented below).
      * 
      */
-    private final List<BucketV2ReplicationConfigurationRule> rules;
+    private List<BucketV2ReplicationConfigurationRule> rules;
 
-    @CustomType.Constructor
-    private BucketV2ReplicationConfiguration(
-        @CustomType.Parameter("role") String role,
-        @CustomType.Parameter("rules") List<BucketV2ReplicationConfigurationRule> rules) {
-        this.role = role;
-        this.rules = rules;
-    }
-
+    private BucketV2ReplicationConfiguration() {}
     /**
      * @return The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
@@ -52,33 +45,35 @@ public final class BucketV2ReplicationConfiguration {
     public static Builder builder(BucketV2ReplicationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String role;
         private List<BucketV2ReplicationConfigurationRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2ReplicationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.role = defaults.role;
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder role(String role) {
             this.role = Objects.requireNonNull(role);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(List<BucketV2ReplicationConfigurationRule> rules) {
             this.rules = Objects.requireNonNull(rules);
             return this;
         }
         public Builder rules(BucketV2ReplicationConfigurationRule... rules) {
             return rules(List.of(rules));
-        }        public BucketV2ReplicationConfiguration build() {
-            return new BucketV2ReplicationConfiguration(role, rules);
+        }
+        public BucketV2ReplicationConfiguration build() {
+            final var o = new BucketV2ReplicationConfiguration();
+            o.role = role;
+            o.rules = rules;
+            return o;
         }
     }
 }

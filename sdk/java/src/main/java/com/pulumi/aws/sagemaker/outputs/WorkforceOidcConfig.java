@@ -13,63 +13,44 @@ public final class WorkforceOidcConfig {
      * @return The OIDC IdP authorization endpoint used to configure your private workforce.
      * 
      */
-    private final String authorizationEndpoint;
+    private String authorizationEndpoint;
     /**
      * @return The OIDC IdP client ID used to configure your private workforce.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The OIDC IdP client secret used to configure your private workforce.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return The OIDC IdP issuer used to configure your private workforce.
      * 
      */
-    private final String issuer;
+    private String issuer;
     /**
      * @return The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
      * 
      */
-    private final String jwksUri;
+    private String jwksUri;
     /**
      * @return The OIDC IdP logout endpoint used to configure your private workforce.
      * 
      */
-    private final String logoutEndpoint;
+    private String logoutEndpoint;
     /**
      * @return The OIDC IdP token endpoint used to configure your private workforce.
      * 
      */
-    private final String tokenEndpoint;
+    private String tokenEndpoint;
     /**
      * @return The OIDC IdP user information endpoint used to configure your private workforce.
      * 
      */
-    private final String userInfoEndpoint;
+    private String userInfoEndpoint;
 
-    @CustomType.Constructor
-    private WorkforceOidcConfig(
-        @CustomType.Parameter("authorizationEndpoint") String authorizationEndpoint,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("jwksUri") String jwksUri,
-        @CustomType.Parameter("logoutEndpoint") String logoutEndpoint,
-        @CustomType.Parameter("tokenEndpoint") String tokenEndpoint,
-        @CustomType.Parameter("userInfoEndpoint") String userInfoEndpoint) {
-        this.authorizationEndpoint = authorizationEndpoint;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.issuer = issuer;
-        this.jwksUri = jwksUri;
-        this.logoutEndpoint = logoutEndpoint;
-        this.tokenEndpoint = tokenEndpoint;
-        this.userInfoEndpoint = userInfoEndpoint;
-    }
-
+    private WorkforceOidcConfig() {}
     /**
      * @return The OIDC IdP authorization endpoint used to configure your private workforce.
      * 
@@ -134,7 +115,7 @@ public final class WorkforceOidcConfig {
     public static Builder builder(WorkforceOidcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authorizationEndpoint;
         private String clientId;
@@ -144,11 +125,7 @@ public final class WorkforceOidcConfig {
         private String logoutEndpoint;
         private String tokenEndpoint;
         private String userInfoEndpoint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkforceOidcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationEndpoint = defaults.authorizationEndpoint;
@@ -161,39 +138,57 @@ public final class WorkforceOidcConfig {
     	      this.userInfoEndpoint = defaults.userInfoEndpoint;
         }
 
+        @CustomType.Setter
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             this.authorizationEndpoint = Objects.requireNonNull(authorizationEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder jwksUri(String jwksUri) {
             this.jwksUri = Objects.requireNonNull(jwksUri);
             return this;
         }
+        @CustomType.Setter
         public Builder logoutEndpoint(String logoutEndpoint) {
             this.logoutEndpoint = Objects.requireNonNull(logoutEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenEndpoint(String tokenEndpoint) {
             this.tokenEndpoint = Objects.requireNonNull(tokenEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder userInfoEndpoint(String userInfoEndpoint) {
             this.userInfoEndpoint = Objects.requireNonNull(userInfoEndpoint);
             return this;
-        }        public WorkforceOidcConfig build() {
-            return new WorkforceOidcConfig(authorizationEndpoint, clientId, clientSecret, issuer, jwksUri, logoutEndpoint, tokenEndpoint, userInfoEndpoint);
+        }
+        public WorkforceOidcConfig build() {
+            final var o = new WorkforceOidcConfig();
+            o.authorizationEndpoint = authorizationEndpoint;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.issuer = issuer;
+            o.jwksUri = jwksUri;
+            o.logoutEndpoint = logoutEndpoint;
+            o.tokenEndpoint = tokenEndpoint;
+            o.userInfoEndpoint = userInfoEndpoint;
+            return o;
         }
     }
 }

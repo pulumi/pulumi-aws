@@ -15,7 +15,7 @@ public final class GameServerGroupInstanceDefinition {
      * @return An EC2 instance type.
      * 
      */
-    private final String instanceType;
+    private String instanceType;
     /**
      * @return Instance weighting that indicates how much this instance type contributes
      * to the total capacity of a game server group.
@@ -23,16 +23,9 @@ public final class GameServerGroupInstanceDefinition {
      * the most cost-effective options.
      * 
      */
-    private final @Nullable String weightedCapacity;
+    private @Nullable String weightedCapacity;
 
-    @CustomType.Constructor
-    private GameServerGroupInstanceDefinition(
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("weightedCapacity") @Nullable String weightedCapacity) {
-        this.instanceType = instanceType;
-        this.weightedCapacity = weightedCapacity;
-    }
-
+    private GameServerGroupInstanceDefinition() {}
     /**
      * @return An EC2 instance type.
      * 
@@ -58,30 +51,32 @@ public final class GameServerGroupInstanceDefinition {
     public static Builder builder(GameServerGroupInstanceDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String instanceType;
         private @Nullable String weightedCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GameServerGroupInstanceDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceType = defaults.instanceType;
     	      this.weightedCapacity = defaults.weightedCapacity;
         }
 
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder weightedCapacity(@Nullable String weightedCapacity) {
             this.weightedCapacity = weightedCapacity;
             return this;
-        }        public GameServerGroupInstanceDefinition build() {
-            return new GameServerGroupInstanceDefinition(instanceType, weightedCapacity);
+        }
+        public GameServerGroupInstanceDefinition build() {
+            final var o = new GameServerGroupInstanceDefinition();
+            o.instanceType = instanceType;
+            o.weightedCapacity = weightedCapacity;
+            return o;
         }
     }
 }

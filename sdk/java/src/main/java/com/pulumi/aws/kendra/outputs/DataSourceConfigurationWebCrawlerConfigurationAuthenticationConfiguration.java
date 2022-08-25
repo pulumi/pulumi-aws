@@ -15,13 +15,9 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
      * @return The list of configuration information that&#39;s required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
      * 
      */
-    private final @Nullable List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication> basicAuthentications;
+    private @Nullable List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication> basicAuthentications;
 
-    @CustomType.Constructor
-    private DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration(@CustomType.Parameter("basicAuthentications") @Nullable List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication> basicAuthentications) {
-        this.basicAuthentications = basicAuthentications;
-    }
-
+    private DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration() {}
     /**
      * @return The list of configuration information that&#39;s required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
      * 
@@ -37,27 +33,27 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
     public static Builder builder(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication> basicAuthentications;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.basicAuthentications = defaults.basicAuthentications;
         }
 
+        @CustomType.Setter
         public Builder basicAuthentications(@Nullable List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication> basicAuthentications) {
             this.basicAuthentications = basicAuthentications;
             return this;
         }
         public Builder basicAuthentications(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication... basicAuthentications) {
             return basicAuthentications(List.of(basicAuthentications));
-        }        public DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration build() {
-            return new DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration(basicAuthentications);
+        }
+        public DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration build() {
+            final var o = new DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration();
+            o.basicAuthentications = basicAuthentications;
+            return o;
         }
     }
 }

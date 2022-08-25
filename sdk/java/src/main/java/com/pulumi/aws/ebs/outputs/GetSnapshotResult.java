@@ -20,127 +20,84 @@ public final class GetSnapshotResult {
      * @return Amazon Resource Name (ARN) of the EBS Snapshot.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The data encryption key identifier for the snapshot.
      * 
      */
-    private final String dataEncryptionKeyId;
+    private String dataEncryptionKeyId;
     /**
      * @return A description for the snapshot
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Whether the snapshot is encrypted.
      * 
      */
-    private final Boolean encrypted;
-    private final @Nullable List<GetSnapshotFilter> filters;
+    private Boolean encrypted;
+    private @Nullable List<GetSnapshotFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ARN for the KMS encryption key.
      * 
      */
-    private final String kmsKeyId;
-    private final @Nullable Boolean mostRecent;
+    private String kmsKeyId;
+    private @Nullable Boolean mostRecent;
     /**
      * @return The ARN of the Outpost on which the snapshot is stored.
      * 
      */
-    private final String outpostArn;
+    private String outpostArn;
     /**
      * @return Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      * 
      */
-    private final String ownerAlias;
+    private String ownerAlias;
     /**
      * @return The AWS account ID of the EBS snapshot owner.
      * 
      */
-    private final String ownerId;
-    private final @Nullable List<String> owners;
-    private final @Nullable List<String> restorableByUserIds;
+    private String ownerId;
+    private @Nullable List<String> owners;
+    private @Nullable List<String> restorableByUserIds;
     /**
      * @return The snapshot ID (e.g., snap-59fcb34e).
      * 
      */
-    private final String snapshotId;
-    private final @Nullable List<String> snapshotIds;
+    private String snapshotId;
+    private @Nullable List<String> snapshotIds;
     /**
      * @return The snapshot state.
      * 
      */
-    private final String state;
+    private String state;
     /**
      * @return The storage tier in which the snapshot is stored.
      * 
      */
-    private final String storageTier;
+    private String storageTier;
     /**
      * @return A map of tags for the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The volume ID (e.g., vol-59fcb34e).
      * 
      */
-    private final String volumeId;
+    private String volumeId;
     /**
      * @return The size of the drive in GiBs.
      * 
      */
-    private final Integer volumeSize;
+    private Integer volumeSize;
 
-    @CustomType.Constructor
-    private GetSnapshotResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("dataEncryptionKeyId") String dataEncryptionKeyId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("filters") @Nullable List<GetSnapshotFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kmsKeyId") String kmsKeyId,
-        @CustomType.Parameter("mostRecent") @Nullable Boolean mostRecent,
-        @CustomType.Parameter("outpostArn") String outpostArn,
-        @CustomType.Parameter("ownerAlias") String ownerAlias,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("owners") @Nullable List<String> owners,
-        @CustomType.Parameter("restorableByUserIds") @Nullable List<String> restorableByUserIds,
-        @CustomType.Parameter("snapshotId") String snapshotId,
-        @CustomType.Parameter("snapshotIds") @Nullable List<String> snapshotIds,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("storageTier") String storageTier,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("volumeId") String volumeId,
-        @CustomType.Parameter("volumeSize") Integer volumeSize) {
-        this.arn = arn;
-        this.dataEncryptionKeyId = dataEncryptionKeyId;
-        this.description = description;
-        this.encrypted = encrypted;
-        this.filters = filters;
-        this.id = id;
-        this.kmsKeyId = kmsKeyId;
-        this.mostRecent = mostRecent;
-        this.outpostArn = outpostArn;
-        this.ownerAlias = ownerAlias;
-        this.ownerId = ownerId;
-        this.owners = owners;
-        this.restorableByUserIds = restorableByUserIds;
-        this.snapshotId = snapshotId;
-        this.snapshotIds = snapshotIds;
-        this.state = state;
-        this.storageTier = storageTier;
-        this.tags = tags;
-        this.volumeId = volumeId;
-        this.volumeSize = volumeSize;
-    }
-
+    private GetSnapshotResult() {}
     /**
      * @return Amazon Resource Name (ARN) of the EBS Snapshot.
      * 
@@ -269,7 +226,7 @@ public final class GetSnapshotResult {
     public static Builder builder(GetSnapshotResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String dataEncryptionKeyId;
@@ -291,11 +248,7 @@ public final class GetSnapshotResult {
         private Map<String,String> tags;
         private String volumeId;
         private Integer volumeSize;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -320,22 +273,27 @@ public final class GetSnapshotResult {
     	      this.volumeSize = defaults.volumeSize;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder dataEncryptionKeyId(String dataEncryptionKeyId) {
             this.dataEncryptionKeyId = Objects.requireNonNull(dataEncryptionKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetSnapshotFilter> filters) {
             this.filters = filters;
             return this;
@@ -343,30 +301,37 @@ public final class GetSnapshotResult {
         public Builder filters(GetSnapshotFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
             this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             this.mostRecent = mostRecent;
             return this;
         }
+        @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
             this.outpostArn = Objects.requireNonNull(outpostArn);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerAlias(String ownerAlias) {
             this.ownerAlias = Objects.requireNonNull(ownerAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder owners(@Nullable List<String> owners) {
             this.owners = owners;
             return this;
@@ -374,6 +339,7 @@ public final class GetSnapshotResult {
         public Builder owners(String... owners) {
             return owners(List.of(owners));
         }
+        @CustomType.Setter
         public Builder restorableByUserIds(@Nullable List<String> restorableByUserIds) {
             this.restorableByUserIds = restorableByUserIds;
             return this;
@@ -381,10 +347,12 @@ public final class GetSnapshotResult {
         public Builder restorableByUserIds(String... restorableByUserIds) {
             return restorableByUserIds(List.of(restorableByUserIds));
         }
+        @CustomType.Setter
         public Builder snapshotId(String snapshotId) {
             this.snapshotId = Objects.requireNonNull(snapshotId);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotIds(@Nullable List<String> snapshotIds) {
             this.snapshotIds = snapshotIds;
             return this;
@@ -392,27 +360,54 @@ public final class GetSnapshotResult {
         public Builder snapshotIds(String... snapshotIds) {
             return snapshotIds(List.of(snapshotIds));
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder storageTier(String storageTier) {
             this.storageTier = Objects.requireNonNull(storageTier);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeId(String volumeId) {
             this.volumeId = Objects.requireNonNull(volumeId);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(Integer volumeSize) {
             this.volumeSize = Objects.requireNonNull(volumeSize);
             return this;
-        }        public GetSnapshotResult build() {
-            return new GetSnapshotResult(arn, dataEncryptionKeyId, description, encrypted, filters, id, kmsKeyId, mostRecent, outpostArn, ownerAlias, ownerId, owners, restorableByUserIds, snapshotId, snapshotIds, state, storageTier, tags, volumeId, volumeSize);
+        }
+        public GetSnapshotResult build() {
+            final var o = new GetSnapshotResult();
+            o.arn = arn;
+            o.dataEncryptionKeyId = dataEncryptionKeyId;
+            o.description = description;
+            o.encrypted = encrypted;
+            o.filters = filters;
+            o.id = id;
+            o.kmsKeyId = kmsKeyId;
+            o.mostRecent = mostRecent;
+            o.outpostArn = outpostArn;
+            o.ownerAlias = ownerAlias;
+            o.ownerId = ownerId;
+            o.owners = owners;
+            o.restorableByUserIds = restorableByUserIds;
+            o.snapshotId = snapshotId;
+            o.snapshotIds = snapshotIds;
+            o.state = state;
+            o.storageTier = storageTier;
+            o.tags = tags;
+            o.volumeId = volumeId;
+            o.volumeSize = volumeSize;
+            return o;
         }
     }
 }

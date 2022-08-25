@@ -16,35 +16,24 @@ public final class PipelineArtifactStore {
      * @return The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don&#39;t specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
      * 
      */
-    private final @Nullable PipelineArtifactStoreEncryptionKey encryptionKey;
+    private @Nullable PipelineArtifactStoreEncryptionKey encryptionKey;
     /**
      * @return The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
     /**
      * @return The type of the artifact store, such as Amazon S3
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private PipelineArtifactStore(
-        @CustomType.Parameter("encryptionKey") @Nullable PipelineArtifactStoreEncryptionKey encryptionKey,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("type") String type) {
-        this.encryptionKey = encryptionKey;
-        this.location = location;
-        this.region = region;
-        this.type = type;
-    }
-
+    private PipelineArtifactStore() {}
     /**
      * @return The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don&#39;t specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
      * 
@@ -81,17 +70,13 @@ public final class PipelineArtifactStore {
     public static Builder builder(PipelineArtifactStore defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable PipelineArtifactStoreEncryptionKey encryptionKey;
         private String location;
         private @Nullable String region;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineArtifactStore defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionKey = defaults.encryptionKey;
@@ -100,23 +85,33 @@ public final class PipelineArtifactStore {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder encryptionKey(@Nullable PipelineArtifactStoreEncryptionKey encryptionKey) {
             this.encryptionKey = encryptionKey;
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public PipelineArtifactStore build() {
-            return new PipelineArtifactStore(encryptionKey, location, region, type);
+        }
+        public PipelineArtifactStore build() {
+            final var o = new PipelineArtifactStore();
+            o.encryptionKey = encryptionKey;
+            o.location = location;
+            o.region = region;
+            o.type = type;
+            return o;
         }
     }
 }

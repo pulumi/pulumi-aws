@@ -13,13 +13,9 @@ public final class BucketReplicationConfigRuleExistingObjectReplication {
      * @return Whether the existing objects should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleExistingObjectReplication(@CustomType.Parameter("status") String status) {
-        this.status = status;
-    }
-
+    private BucketReplicationConfigRuleExistingObjectReplication() {}
     /**
      * @return Whether the existing objects should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
@@ -35,24 +31,24 @@ public final class BucketReplicationConfigRuleExistingObjectReplication {
     public static Builder builder(BucketReplicationConfigRuleExistingObjectReplication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleExistingObjectReplication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public BucketReplicationConfigRuleExistingObjectReplication build() {
-            return new BucketReplicationConfigRuleExistingObjectReplication(status);
+        }
+        public BucketReplicationConfigRuleExistingObjectReplication build() {
+            final var o = new BucketReplicationConfigRuleExistingObjectReplication();
+            o.status = status;
+            return o;
         }
     }
 }

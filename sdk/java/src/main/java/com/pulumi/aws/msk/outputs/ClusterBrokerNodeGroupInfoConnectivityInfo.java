@@ -15,13 +15,9 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
      * @return Access control settings for brokers. See below.
      * 
      */
-    private final @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess;
+    private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess;
 
-    @CustomType.Constructor
-    private ClusterBrokerNodeGroupInfoConnectivityInfo(@CustomType.Parameter("publicAccess") @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess) {
-        this.publicAccess = publicAccess;
-    }
-
+    private ClusterBrokerNodeGroupInfoConnectivityInfo() {}
     /**
      * @return Access control settings for brokers. See below.
      * 
@@ -37,24 +33,24 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
     public static Builder builder(ClusterBrokerNodeGroupInfoConnectivityInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterBrokerNodeGroupInfoConnectivityInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.publicAccess = defaults.publicAccess;
         }
 
+        @CustomType.Setter
         public Builder publicAccess(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess) {
             this.publicAccess = publicAccess;
             return this;
-        }        public ClusterBrokerNodeGroupInfoConnectivityInfo build() {
-            return new ClusterBrokerNodeGroupInfoConnectivityInfo(publicAccess);
+        }
+        public ClusterBrokerNodeGroupInfoConnectivityInfo build() {
+            final var o = new ClusterBrokerNodeGroupInfoConnectivityInfo();
+            o.publicAccess = publicAccess;
+            return o;
         }
     }
 }

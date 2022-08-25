@@ -15,35 +15,24 @@ public final class BuildStorageLocation {
      * @return Name of your S3 bucket.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return Name of the zip file containing your build files.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return A specific version of the file. If not set, the latest version of the file is retrieved.
      * 
      */
-    private final @Nullable String objectVersion;
+    private @Nullable String objectVersion;
     /**
      * @return ARN of the access role that allows Amazon GameLift to access your S3 bucket.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private BuildStorageLocation(
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("objectVersion") @Nullable String objectVersion,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.bucket = bucket;
-        this.key = key;
-        this.objectVersion = objectVersion;
-        this.roleArn = roleArn;
-    }
-
+    private BuildStorageLocation() {}
     /**
      * @return Name of your S3 bucket.
      * 
@@ -80,17 +69,13 @@ public final class BuildStorageLocation {
     public static Builder builder(BuildStorageLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucket;
         private String key;
         private @Nullable String objectVersion;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BuildStorageLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
@@ -99,23 +84,33 @@ public final class BuildStorageLocation {
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder objectVersion(@Nullable String objectVersion) {
             this.objectVersion = objectVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public BuildStorageLocation build() {
-            return new BuildStorageLocation(bucket, key, objectVersion, roleArn);
+        }
+        public BuildStorageLocation build() {
+            final var o = new BuildStorageLocation();
+            o.bucket = bucket;
+            o.key = key;
+            o.objectVersion = objectVersion;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

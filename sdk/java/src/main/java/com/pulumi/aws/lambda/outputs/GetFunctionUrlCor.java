@@ -12,29 +12,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionUrlCor {
-    private final Boolean allowCredentials;
-    private final List<String> allowHeaders;
-    private final List<String> allowMethods;
-    private final List<String> allowOrigins;
-    private final List<String> exposeHeaders;
-    private final Integer maxAge;
+    private Boolean allowCredentials;
+    private List<String> allowHeaders;
+    private List<String> allowMethods;
+    private List<String> allowOrigins;
+    private List<String> exposeHeaders;
+    private Integer maxAge;
 
-    @CustomType.Constructor
-    private GetFunctionUrlCor(
-        @CustomType.Parameter("allowCredentials") Boolean allowCredentials,
-        @CustomType.Parameter("allowHeaders") List<String> allowHeaders,
-        @CustomType.Parameter("allowMethods") List<String> allowMethods,
-        @CustomType.Parameter("allowOrigins") List<String> allowOrigins,
-        @CustomType.Parameter("exposeHeaders") List<String> exposeHeaders,
-        @CustomType.Parameter("maxAge") Integer maxAge) {
-        this.allowCredentials = allowCredentials;
-        this.allowHeaders = allowHeaders;
-        this.allowMethods = allowMethods;
-        this.allowOrigins = allowOrigins;
-        this.exposeHeaders = exposeHeaders;
-        this.maxAge = maxAge;
-    }
-
+    private GetFunctionUrlCor() {}
     public Boolean allowCredentials() {
         return this.allowCredentials;
     }
@@ -61,7 +46,7 @@ public final class GetFunctionUrlCor {
     public static Builder builder(GetFunctionUrlCor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean allowCredentials;
         private List<String> allowHeaders;
@@ -69,11 +54,7 @@ public final class GetFunctionUrlCor {
         private List<String> allowOrigins;
         private List<String> exposeHeaders;
         private Integer maxAge;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionUrlCor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowCredentials = defaults.allowCredentials;
@@ -84,10 +65,12 @@ public final class GetFunctionUrlCor {
     	      this.maxAge = defaults.maxAge;
         }
 
+        @CustomType.Setter
         public Builder allowCredentials(Boolean allowCredentials) {
             this.allowCredentials = Objects.requireNonNull(allowCredentials);
             return this;
         }
+        @CustomType.Setter
         public Builder allowHeaders(List<String> allowHeaders) {
             this.allowHeaders = Objects.requireNonNull(allowHeaders);
             return this;
@@ -95,6 +78,7 @@ public final class GetFunctionUrlCor {
         public Builder allowHeaders(String... allowHeaders) {
             return allowHeaders(List.of(allowHeaders));
         }
+        @CustomType.Setter
         public Builder allowMethods(List<String> allowMethods) {
             this.allowMethods = Objects.requireNonNull(allowMethods);
             return this;
@@ -102,6 +86,7 @@ public final class GetFunctionUrlCor {
         public Builder allowMethods(String... allowMethods) {
             return allowMethods(List.of(allowMethods));
         }
+        @CustomType.Setter
         public Builder allowOrigins(List<String> allowOrigins) {
             this.allowOrigins = Objects.requireNonNull(allowOrigins);
             return this;
@@ -109,6 +94,7 @@ public final class GetFunctionUrlCor {
         public Builder allowOrigins(String... allowOrigins) {
             return allowOrigins(List.of(allowOrigins));
         }
+        @CustomType.Setter
         public Builder exposeHeaders(List<String> exposeHeaders) {
             this.exposeHeaders = Objects.requireNonNull(exposeHeaders);
             return this;
@@ -116,11 +102,20 @@ public final class GetFunctionUrlCor {
         public Builder exposeHeaders(String... exposeHeaders) {
             return exposeHeaders(List.of(exposeHeaders));
         }
+        @CustomType.Setter
         public Builder maxAge(Integer maxAge) {
             this.maxAge = Objects.requireNonNull(maxAge);
             return this;
-        }        public GetFunctionUrlCor build() {
-            return new GetFunctionUrlCor(allowCredentials, allowHeaders, allowMethods, allowOrigins, exposeHeaders, maxAge);
+        }
+        public GetFunctionUrlCor build() {
+            final var o = new GetFunctionUrlCor();
+            o.allowCredentials = allowCredentials;
+            o.allowHeaders = allowHeaders;
+            o.allowMethods = allowMethods;
+            o.allowOrigins = allowOrigins;
+            o.exposeHeaders = exposeHeaders;
+            o.maxAge = maxAge;
+            return o;
         }
     }
 }

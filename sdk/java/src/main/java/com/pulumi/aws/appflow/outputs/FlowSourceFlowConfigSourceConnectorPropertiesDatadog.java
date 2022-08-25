@@ -13,13 +13,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesDatadog {
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesDatadog(@CustomType.Parameter("object") String object) {
-        this.object = object;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesDatadog() {}
     /**
      * @return The object specified in the Veeva flow source.
      * 
@@ -35,24 +31,24 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesDatadog {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesDatadog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesDatadog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesDatadog build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesDatadog(object);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesDatadog build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesDatadog();
+            o.object = object;
+            return o;
         }
     }
 }

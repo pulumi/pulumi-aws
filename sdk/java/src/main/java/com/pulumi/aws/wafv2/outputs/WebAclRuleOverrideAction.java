@@ -16,21 +16,14 @@ public final class WebAclRuleOverrideAction {
      * @return Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
      * 
      */
-    private final @Nullable WebAclRuleOverrideActionCount count;
+    private @Nullable WebAclRuleOverrideActionCount count;
     /**
      * @return Don&#39;t override the rule action setting. Configured as an empty block `{}`.
      * 
      */
-    private final @Nullable WebAclRuleOverrideActionNone none;
+    private @Nullable WebAclRuleOverrideActionNone none;
 
-    @CustomType.Constructor
-    private WebAclRuleOverrideAction(
-        @CustomType.Parameter("count") @Nullable WebAclRuleOverrideActionCount count,
-        @CustomType.Parameter("none") @Nullable WebAclRuleOverrideActionNone none) {
-        this.count = count;
-        this.none = none;
-    }
-
+    private WebAclRuleOverrideAction() {}
     /**
      * @return Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
      * 
@@ -53,30 +46,32 @@ public final class WebAclRuleOverrideAction {
     public static Builder builder(WebAclRuleOverrideAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleOverrideActionCount count;
         private @Nullable WebAclRuleOverrideActionNone none;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleOverrideAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.none = defaults.none;
         }
 
+        @CustomType.Setter
         public Builder count(@Nullable WebAclRuleOverrideActionCount count) {
             this.count = count;
             return this;
         }
+        @CustomType.Setter
         public Builder none(@Nullable WebAclRuleOverrideActionNone none) {
             this.none = none;
             return this;
-        }        public WebAclRuleOverrideAction build() {
-            return new WebAclRuleOverrideAction(count, none);
+        }
+        public WebAclRuleOverrideAction build() {
+            final var o = new WebAclRuleOverrideAction();
+            o.count = count;
+            o.none = none;
+            return o;
         }
     }
 }

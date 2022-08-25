@@ -9,20 +9,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultActionFixedResponse {
-    private final String contentType;
-    private final String messageBody;
-    private final String statusCode;
+    private String contentType;
+    private String messageBody;
+    private String statusCode;
 
-    @CustomType.Constructor
-    private GetListenerDefaultActionFixedResponse(
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("messageBody") String messageBody,
-        @CustomType.Parameter("statusCode") String statusCode) {
-        this.contentType = contentType;
-        this.messageBody = messageBody;
-        this.statusCode = statusCode;
-    }
-
+    private GetListenerDefaultActionFixedResponse() {}
     public String contentType() {
         return this.contentType;
     }
@@ -40,16 +31,12 @@ public final class GetListenerDefaultActionFixedResponse {
     public static Builder builder(GetListenerDefaultActionFixedResponse defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contentType;
         private String messageBody;
         private String statusCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetListenerDefaultActionFixedResponse defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
@@ -57,19 +44,27 @@ public final class GetListenerDefaultActionFixedResponse {
     	      this.statusCode = defaults.statusCode;
         }
 
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder messageBody(String messageBody) {
             this.messageBody = Objects.requireNonNull(messageBody);
             return this;
         }
+        @CustomType.Setter
         public Builder statusCode(String statusCode) {
             this.statusCode = Objects.requireNonNull(statusCode);
             return this;
-        }        public GetListenerDefaultActionFixedResponse build() {
-            return new GetListenerDefaultActionFixedResponse(contentType, messageBody, statusCode);
+        }
+        public GetListenerDefaultActionFixedResponse build() {
+            final var o = new GetListenerDefaultActionFixedResponse();
+            o.contentType = contentType;
+            o.messageBody = messageBody;
+            o.statusCode = statusCode;
+            return o;
         }
     }
 }

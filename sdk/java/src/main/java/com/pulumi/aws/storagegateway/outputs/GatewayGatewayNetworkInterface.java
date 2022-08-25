@@ -15,13 +15,9 @@ public final class GatewayGatewayNetworkInterface {
      * @return The Internet Protocol version 4 (IPv4) address of the interface.
      * 
      */
-    private final @Nullable String ipv4Address;
+    private @Nullable String ipv4Address;
 
-    @CustomType.Constructor
-    private GatewayGatewayNetworkInterface(@CustomType.Parameter("ipv4Address") @Nullable String ipv4Address) {
-        this.ipv4Address = ipv4Address;
-    }
-
+    private GatewayGatewayNetworkInterface() {}
     /**
      * @return The Internet Protocol version 4 (IPv4) address of the interface.
      * 
@@ -37,24 +33,24 @@ public final class GatewayGatewayNetworkInterface {
     public static Builder builder(GatewayGatewayNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String ipv4Address;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayGatewayNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipv4Address = defaults.ipv4Address;
         }
 
+        @CustomType.Setter
         public Builder ipv4Address(@Nullable String ipv4Address) {
             this.ipv4Address = ipv4Address;
             return this;
-        }        public GatewayGatewayNetworkInterface build() {
-            return new GatewayGatewayNetworkInterface(ipv4Address);
+        }
+        public GatewayGatewayNetworkInterface build() {
+            final var o = new GatewayGatewayNetworkInterface();
+            o.ipv4Address = ipv4Address;
+            return o;
         }
     }
 }

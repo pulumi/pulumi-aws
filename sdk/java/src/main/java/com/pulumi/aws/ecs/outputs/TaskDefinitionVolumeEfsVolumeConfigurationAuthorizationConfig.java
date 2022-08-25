@@ -15,21 +15,14 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig
      * @return Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
      * 
      */
-    private final @Nullable String accessPointId;
+    private @Nullable String accessPointId;
     /**
      * @return Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
      * 
      */
-    private final @Nullable String iam;
+    private @Nullable String iam;
 
-    @CustomType.Constructor
-    private TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig(
-        @CustomType.Parameter("accessPointId") @Nullable String accessPointId,
-        @CustomType.Parameter("iam") @Nullable String iam) {
-        this.accessPointId = accessPointId;
-        this.iam = iam;
-    }
-
+    private TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig() {}
     /**
      * @return Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
      * 
@@ -52,30 +45,32 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig
     public static Builder builder(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessPointId;
         private @Nullable String iam;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPointId = defaults.accessPointId;
     	      this.iam = defaults.iam;
         }
 
+        @CustomType.Setter
         public Builder accessPointId(@Nullable String accessPointId) {
             this.accessPointId = accessPointId;
             return this;
         }
+        @CustomType.Setter
         public Builder iam(@Nullable String iam) {
             this.iam = iam;
             return this;
-        }        public TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig build() {
-            return new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig(accessPointId, iam);
+        }
+        public TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig build() {
+            final var o = new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig();
+            o.accessPointId = accessPointId;
+            o.iam = iam;
+            return o;
         }
     }
 }

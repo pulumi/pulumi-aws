@@ -15,13 +15,9 @@ public final class IntegrationTlsConfig {
      * @return If you specify a server name, API Gateway uses it to verify the hostname on the integration&#39;s certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
      * 
      */
-    private final @Nullable String serverNameToVerify;
+    private @Nullable String serverNameToVerify;
 
-    @CustomType.Constructor
-    private IntegrationTlsConfig(@CustomType.Parameter("serverNameToVerify") @Nullable String serverNameToVerify) {
-        this.serverNameToVerify = serverNameToVerify;
-    }
-
+    private IntegrationTlsConfig() {}
     /**
      * @return If you specify a server name, API Gateway uses it to verify the hostname on the integration&#39;s certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
      * 
@@ -37,24 +33,24 @@ public final class IntegrationTlsConfig {
     public static Builder builder(IntegrationTlsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String serverNameToVerify;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationTlsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.serverNameToVerify = defaults.serverNameToVerify;
         }
 
+        @CustomType.Setter
         public Builder serverNameToVerify(@Nullable String serverNameToVerify) {
             this.serverNameToVerify = serverNameToVerify;
             return this;
-        }        public IntegrationTlsConfig build() {
-            return new IntegrationTlsConfig(serverNameToVerify);
+        }
+        public IntegrationTlsConfig build() {
+            final var o = new IntegrationTlsConfig();
+            o.serverNameToVerify = serverNameToVerify;
+            return o;
         }
     }
 }

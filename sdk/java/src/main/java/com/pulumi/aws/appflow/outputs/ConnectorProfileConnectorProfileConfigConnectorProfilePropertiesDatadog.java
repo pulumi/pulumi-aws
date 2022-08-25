@@ -13,13 +13,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The location of the Salesforce resource.
      * 
      */
-    private final String instanceUrl;
+    private String instanceUrl;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog(@CustomType.Parameter("instanceUrl") String instanceUrl) {
-        this.instanceUrl = instanceUrl;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog() {}
     /**
      * @return The location of the Salesforce resource.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String instanceUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceUrl = defaults.instanceUrl;
         }
 
+        @CustomType.Setter
         public Builder instanceUrl(String instanceUrl) {
             this.instanceUrl = Objects.requireNonNull(instanceUrl);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog(instanceUrl);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog();
+            o.instanceUrl = instanceUrl;
+            return o;
         }
     }
 }

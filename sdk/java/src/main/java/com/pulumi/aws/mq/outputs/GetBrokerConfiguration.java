@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerConfiguration {
-    private final String id;
-    private final Integer revision;
+    private String id;
+    private Integer revision;
 
-    @CustomType.Constructor
-    private GetBrokerConfiguration(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("revision") Integer revision) {
-        this.id = id;
-        this.revision = revision;
-    }
-
+    private GetBrokerConfiguration() {}
     public String id() {
         return this.id;
     }
@@ -35,30 +28,32 @@ public final class GetBrokerConfiguration {
     public static Builder builder(GetBrokerConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private Integer revision;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrokerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.revision = defaults.revision;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder revision(Integer revision) {
             this.revision = Objects.requireNonNull(revision);
             return this;
-        }        public GetBrokerConfiguration build() {
-            return new GetBrokerConfiguration(id, revision);
+        }
+        public GetBrokerConfiguration build() {
+            final var o = new GetBrokerConfiguration();
+            o.id = id;
+            o.revision = revision;
+            return o;
         }
     }
 }

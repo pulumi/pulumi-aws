@@ -16,90 +16,61 @@ public final class GetExperienceResult {
      * @return The Amazon Resource Name (ARN) of the Experience.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return A block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
      * 
      */
-    private final List<GetExperienceConfiguration> configurations;
+    private List<GetExperienceConfiguration> configurations;
     /**
      * @return The Unix datetime that the Experience was created.
      * 
      */
-    private final String createdAt;
+    private String createdAt;
     /**
      * @return The description of the Experience.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
      * 
      */
-    private final List<GetExperienceEndpoint> endpoints;
+    private List<GetExperienceEndpoint> endpoints;
     /**
      * @return The reason your Amazon Kendra Experience could not properly process.
      * 
      */
-    private final String errorMessage;
-    private final String experienceId;
+    private String errorMessage;
+    private String experienceId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String indexId;
+    private String id;
+    private String indexId;
     /**
      * @return The name of the Experience.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Shows the Amazon Resource Name (ARN) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The date and time that the Experience was last updated.
      * 
      */
-    private final String updatedAt;
+    private String updatedAt;
 
-    @CustomType.Constructor
-    private GetExperienceResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("configurations") List<GetExperienceConfiguration> configurations,
-        @CustomType.Parameter("createdAt") String createdAt,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("endpoints") List<GetExperienceEndpoint> endpoints,
-        @CustomType.Parameter("errorMessage") String errorMessage,
-        @CustomType.Parameter("experienceId") String experienceId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("indexId") String indexId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("updatedAt") String updatedAt) {
-        this.arn = arn;
-        this.configurations = configurations;
-        this.createdAt = createdAt;
-        this.description = description;
-        this.endpoints = endpoints;
-        this.errorMessage = errorMessage;
-        this.experienceId = experienceId;
-        this.id = id;
-        this.indexId = indexId;
-        this.name = name;
-        this.roleArn = roleArn;
-        this.status = status;
-        this.updatedAt = updatedAt;
-    }
-
+    private GetExperienceResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Experience.
      * 
@@ -191,7 +162,7 @@ public final class GetExperienceResult {
     public static Builder builder(GetExperienceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetExperienceConfiguration> configurations;
@@ -206,11 +177,7 @@ public final class GetExperienceResult {
         private String roleArn;
         private String status;
         private String updatedAt;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExperienceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -228,10 +195,12 @@ public final class GetExperienceResult {
     	      this.updatedAt = defaults.updatedAt;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder configurations(List<GetExperienceConfiguration> configurations) {
             this.configurations = Objects.requireNonNull(configurations);
             return this;
@@ -239,14 +208,17 @@ public final class GetExperienceResult {
         public Builder configurations(GetExperienceConfiguration... configurations) {
             return configurations(List.of(configurations));
         }
+        @CustomType.Setter
         public Builder createdAt(String createdAt) {
             this.createdAt = Objects.requireNonNull(createdAt);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder endpoints(List<GetExperienceEndpoint> endpoints) {
             this.endpoints = Objects.requireNonNull(endpoints);
             return this;
@@ -254,39 +226,62 @@ public final class GetExperienceResult {
         public Builder endpoints(GetExperienceEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
+        @CustomType.Setter
         public Builder errorMessage(String errorMessage) {
             this.errorMessage = Objects.requireNonNull(errorMessage);
             return this;
         }
+        @CustomType.Setter
         public Builder experienceId(String experienceId) {
             this.experienceId = Objects.requireNonNull(experienceId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder indexId(String indexId) {
             this.indexId = Objects.requireNonNull(indexId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
             this.updatedAt = Objects.requireNonNull(updatedAt);
             return this;
-        }        public GetExperienceResult build() {
-            return new GetExperienceResult(arn, configurations, createdAt, description, endpoints, errorMessage, experienceId, id, indexId, name, roleArn, status, updatedAt);
+        }
+        public GetExperienceResult build() {
+            final var o = new GetExperienceResult();
+            o.arn = arn;
+            o.configurations = configurations;
+            o.createdAt = createdAt;
+            o.description = description;
+            o.endpoints = endpoints;
+            o.errorMessage = errorMessage;
+            o.experienceId = experienceId;
+            o.id = id;
+            o.indexId = indexId;
+            o.name = name;
+            o.roleArn = roleArn;
+            o.status = status;
+            o.updatedAt = updatedAt;
+            return o;
         }
     }
 }

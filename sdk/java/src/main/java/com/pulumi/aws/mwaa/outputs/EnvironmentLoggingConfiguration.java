@@ -19,42 +19,29 @@ public final class EnvironmentLoggingConfiguration {
      * @return (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
      * 
      */
-    private final @Nullable EnvironmentLoggingConfigurationDagProcessingLogs dagProcessingLogs;
+    private @Nullable EnvironmentLoggingConfigurationDagProcessingLogs dagProcessingLogs;
     /**
      * @return Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
      * 
      */
-    private final @Nullable EnvironmentLoggingConfigurationSchedulerLogs schedulerLogs;
+    private @Nullable EnvironmentLoggingConfigurationSchedulerLogs schedulerLogs;
     /**
      * @return Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
      * 
      */
-    private final @Nullable EnvironmentLoggingConfigurationTaskLogs taskLogs;
+    private @Nullable EnvironmentLoggingConfigurationTaskLogs taskLogs;
     /**
      * @return Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
      * 
      */
-    private final @Nullable EnvironmentLoggingConfigurationWebserverLogs webserverLogs;
+    private @Nullable EnvironmentLoggingConfigurationWebserverLogs webserverLogs;
     /**
      * @return Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
      * 
      */
-    private final @Nullable EnvironmentLoggingConfigurationWorkerLogs workerLogs;
+    private @Nullable EnvironmentLoggingConfigurationWorkerLogs workerLogs;
 
-    @CustomType.Constructor
-    private EnvironmentLoggingConfiguration(
-        @CustomType.Parameter("dagProcessingLogs") @Nullable EnvironmentLoggingConfigurationDagProcessingLogs dagProcessingLogs,
-        @CustomType.Parameter("schedulerLogs") @Nullable EnvironmentLoggingConfigurationSchedulerLogs schedulerLogs,
-        @CustomType.Parameter("taskLogs") @Nullable EnvironmentLoggingConfigurationTaskLogs taskLogs,
-        @CustomType.Parameter("webserverLogs") @Nullable EnvironmentLoggingConfigurationWebserverLogs webserverLogs,
-        @CustomType.Parameter("workerLogs") @Nullable EnvironmentLoggingConfigurationWorkerLogs workerLogs) {
-        this.dagProcessingLogs = dagProcessingLogs;
-        this.schedulerLogs = schedulerLogs;
-        this.taskLogs = taskLogs;
-        this.webserverLogs = webserverLogs;
-        this.workerLogs = workerLogs;
-    }
-
+    private EnvironmentLoggingConfiguration() {}
     /**
      * @return (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
      * 
@@ -98,18 +85,14 @@ public final class EnvironmentLoggingConfiguration {
     public static Builder builder(EnvironmentLoggingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EnvironmentLoggingConfigurationDagProcessingLogs dagProcessingLogs;
         private @Nullable EnvironmentLoggingConfigurationSchedulerLogs schedulerLogs;
         private @Nullable EnvironmentLoggingConfigurationTaskLogs taskLogs;
         private @Nullable EnvironmentLoggingConfigurationWebserverLogs webserverLogs;
         private @Nullable EnvironmentLoggingConfigurationWorkerLogs workerLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EnvironmentLoggingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dagProcessingLogs = defaults.dagProcessingLogs;
@@ -119,27 +102,39 @@ public final class EnvironmentLoggingConfiguration {
     	      this.workerLogs = defaults.workerLogs;
         }
 
+        @CustomType.Setter
         public Builder dagProcessingLogs(@Nullable EnvironmentLoggingConfigurationDagProcessingLogs dagProcessingLogs) {
             this.dagProcessingLogs = dagProcessingLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder schedulerLogs(@Nullable EnvironmentLoggingConfigurationSchedulerLogs schedulerLogs) {
             this.schedulerLogs = schedulerLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder taskLogs(@Nullable EnvironmentLoggingConfigurationTaskLogs taskLogs) {
             this.taskLogs = taskLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder webserverLogs(@Nullable EnvironmentLoggingConfigurationWebserverLogs webserverLogs) {
             this.webserverLogs = webserverLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder workerLogs(@Nullable EnvironmentLoggingConfigurationWorkerLogs workerLogs) {
             this.workerLogs = workerLogs;
             return this;
-        }        public EnvironmentLoggingConfiguration build() {
-            return new EnvironmentLoggingConfiguration(dagProcessingLogs, schedulerLogs, taskLogs, webserverLogs, workerLogs);
+        }
+        public EnvironmentLoggingConfiguration build() {
+            final var o = new EnvironmentLoggingConfiguration();
+            o.dagProcessingLogs = dagProcessingLogs;
+            o.schedulerLogs = schedulerLogs;
+            o.taskLogs = taskLogs;
+            o.webserverLogs = webserverLogs;
+            o.workerLogs = workerLogs;
+            return o;
         }
     }
 }

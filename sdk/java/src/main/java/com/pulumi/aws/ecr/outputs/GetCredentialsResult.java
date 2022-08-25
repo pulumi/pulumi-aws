@@ -9,30 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCredentialsResult {
-    private final String authorizationToken;
-    private final String expiresAt;
+    private String authorizationToken;
+    private String expiresAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String proxyEndpoint;
-    private final String registryId;
+    private String id;
+    private String proxyEndpoint;
+    private String registryId;
 
-    @CustomType.Constructor
-    private GetCredentialsResult(
-        @CustomType.Parameter("authorizationToken") String authorizationToken,
-        @CustomType.Parameter("expiresAt") String expiresAt,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("proxyEndpoint") String proxyEndpoint,
-        @CustomType.Parameter("registryId") String registryId) {
-        this.authorizationToken = authorizationToken;
-        this.expiresAt = expiresAt;
-        this.id = id;
-        this.proxyEndpoint = proxyEndpoint;
-        this.registryId = registryId;
-    }
-
+    private GetCredentialsResult() {}
     public String authorizationToken() {
         return this.authorizationToken;
     }
@@ -60,18 +47,14 @@ public final class GetCredentialsResult {
     public static Builder builder(GetCredentialsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authorizationToken;
         private String expiresAt;
         private String id;
         private String proxyEndpoint;
         private String registryId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCredentialsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationToken = defaults.authorizationToken;
@@ -81,27 +64,39 @@ public final class GetCredentialsResult {
     	      this.registryId = defaults.registryId;
         }
 
+        @CustomType.Setter
         public Builder authorizationToken(String authorizationToken) {
             this.authorizationToken = Objects.requireNonNull(authorizationToken);
             return this;
         }
+        @CustomType.Setter
         public Builder expiresAt(String expiresAt) {
             this.expiresAt = Objects.requireNonNull(expiresAt);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder proxyEndpoint(String proxyEndpoint) {
             this.proxyEndpoint = Objects.requireNonNull(proxyEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder registryId(String registryId) {
             this.registryId = Objects.requireNonNull(registryId);
             return this;
-        }        public GetCredentialsResult build() {
-            return new GetCredentialsResult(authorizationToken, expiresAt, id, proxyEndpoint, registryId);
+        }
+        public GetCredentialsResult build() {
+            final var o = new GetCredentialsResult();
+            o.authorizationToken = authorizationToken;
+            o.expiresAt = expiresAt;
+            o.id = id;
+            o.proxyEndpoint = proxyEndpoint;
+            o.registryId = registryId;
+            return o;
         }
     }
 }

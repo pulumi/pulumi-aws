@@ -16,21 +16,14 @@ public final class ApplicationApplicationConfigurationRunConfiguration {
      * @return The restore behavior of a restarting application.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration applicationRestoreConfiguration;
+    private @Nullable ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration applicationRestoreConfiguration;
     /**
      * @return The starting parameters for a Flink-based Kinesis Data Analytics application.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration flinkRunConfiguration;
+    private @Nullable ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration flinkRunConfiguration;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationRunConfiguration(
-        @CustomType.Parameter("applicationRestoreConfiguration") @Nullable ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration applicationRestoreConfiguration,
-        @CustomType.Parameter("flinkRunConfiguration") @Nullable ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration flinkRunConfiguration) {
-        this.applicationRestoreConfiguration = applicationRestoreConfiguration;
-        this.flinkRunConfiguration = flinkRunConfiguration;
-    }
-
+    private ApplicationApplicationConfigurationRunConfiguration() {}
     /**
      * @return The restore behavior of a restarting application.
      * 
@@ -53,30 +46,32 @@ public final class ApplicationApplicationConfigurationRunConfiguration {
     public static Builder builder(ApplicationApplicationConfigurationRunConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration applicationRestoreConfiguration;
         private @Nullable ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration flinkRunConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationRunConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationRestoreConfiguration = defaults.applicationRestoreConfiguration;
     	      this.flinkRunConfiguration = defaults.flinkRunConfiguration;
         }
 
+        @CustomType.Setter
         public Builder applicationRestoreConfiguration(@Nullable ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration applicationRestoreConfiguration) {
             this.applicationRestoreConfiguration = applicationRestoreConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder flinkRunConfiguration(@Nullable ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration flinkRunConfiguration) {
             this.flinkRunConfiguration = flinkRunConfiguration;
             return this;
-        }        public ApplicationApplicationConfigurationRunConfiguration build() {
-            return new ApplicationApplicationConfigurationRunConfiguration(applicationRestoreConfiguration, flinkRunConfiguration);
+        }
+        public ApplicationApplicationConfigurationRunConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationRunConfiguration();
+            o.applicationRestoreConfiguration = applicationRestoreConfiguration;
+            o.flinkRunConfiguration = flinkRunConfiguration;
+            return o;
         }
     }
 }

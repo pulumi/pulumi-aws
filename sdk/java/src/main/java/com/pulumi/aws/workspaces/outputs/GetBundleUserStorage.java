@@ -13,13 +13,9 @@ public final class GetBundleUserStorage {
      * @return The size of the user storage.
      * 
      */
-    private final String capacity;
+    private String capacity;
 
-    @CustomType.Constructor
-    private GetBundleUserStorage(@CustomType.Parameter("capacity") String capacity) {
-        this.capacity = capacity;
-    }
-
+    private GetBundleUserStorage() {}
     /**
      * @return The size of the user storage.
      * 
@@ -35,24 +31,24 @@ public final class GetBundleUserStorage {
     public static Builder builder(GetBundleUserStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String capacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBundleUserStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
         }
 
+        @CustomType.Setter
         public Builder capacity(String capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
-        }        public GetBundleUserStorage build() {
-            return new GetBundleUserStorage(capacity);
+        }
+        public GetBundleUserStorage build() {
+            final var o = new GetBundleUserStorage();
+            o.capacity = capacity;
+            return o;
         }
     }
 }

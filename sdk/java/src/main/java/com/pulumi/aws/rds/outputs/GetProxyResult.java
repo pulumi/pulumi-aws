@@ -17,94 +17,65 @@ public final class GetProxyResult {
      * @return The ARN of the DB Proxy.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
      * 
      */
-    private final List<GetProxyAuth> auths;
+    private List<GetProxyAuth> auths;
     /**
      * @return Whether the proxy includes detailed information about SQL statements in its logs.
      * 
      */
-    private final Boolean debugLogging;
+    private Boolean debugLogging;
     /**
      * @return The endpoint that you can use to connect to the DB proxy.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return The kinds of databases that the proxy can connect to.
      * 
      */
-    private final String engineFamily;
+    private String engineFamily;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
      * 
      */
-    private final Integer idleClientTimeout;
-    private final String name;
+    private Integer idleClientTimeout;
+    private String name;
     /**
      * @return Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      * 
      */
-    private final Boolean requireTls;
+    private Boolean requireTls;
     /**
      * @return The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return Provides the VPC ID of the DB proxy.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
     /**
      * @return Provides a list of VPC security groups that the proxy belongs to.
      * 
      */
-    private final List<String> vpcSecurityGroupIds;
+    private List<String> vpcSecurityGroupIds;
     /**
      * @return The EC2 subnet IDs for the proxy.
      * 
      */
-    private final List<String> vpcSubnetIds;
+    private List<String> vpcSubnetIds;
 
-    @CustomType.Constructor
-    private GetProxyResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("auths") List<GetProxyAuth> auths,
-        @CustomType.Parameter("debugLogging") Boolean debugLogging,
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("engineFamily") String engineFamily,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("idleClientTimeout") Integer idleClientTimeout,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("requireTls") Boolean requireTls,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("vpcId") String vpcId,
-        @CustomType.Parameter("vpcSecurityGroupIds") List<String> vpcSecurityGroupIds,
-        @CustomType.Parameter("vpcSubnetIds") List<String> vpcSubnetIds) {
-        this.arn = arn;
-        this.auths = auths;
-        this.debugLogging = debugLogging;
-        this.endpoint = endpoint;
-        this.engineFamily = engineFamily;
-        this.id = id;
-        this.idleClientTimeout = idleClientTimeout;
-        this.name = name;
-        this.requireTls = requireTls;
-        this.roleArn = roleArn;
-        this.vpcId = vpcId;
-        this.vpcSecurityGroupIds = vpcSecurityGroupIds;
-        this.vpcSubnetIds = vpcSubnetIds;
-    }
-
+    private GetProxyResult() {}
     /**
      * @return The ARN of the DB Proxy.
      * 
@@ -200,7 +171,7 @@ public final class GetProxyResult {
     public static Builder builder(GetProxyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetProxyAuth> auths;
@@ -215,11 +186,7 @@ public final class GetProxyResult {
         private String vpcId;
         private List<String> vpcSecurityGroupIds;
         private List<String> vpcSubnetIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetProxyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -237,10 +204,12 @@ public final class GetProxyResult {
     	      this.vpcSubnetIds = defaults.vpcSubnetIds;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder auths(List<GetProxyAuth> auths) {
             this.auths = Objects.requireNonNull(auths);
             return this;
@@ -248,42 +217,52 @@ public final class GetProxyResult {
         public Builder auths(GetProxyAuth... auths) {
             return auths(List.of(auths));
         }
+        @CustomType.Setter
         public Builder debugLogging(Boolean debugLogging) {
             this.debugLogging = Objects.requireNonNull(debugLogging);
             return this;
         }
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder engineFamily(String engineFamily) {
             this.engineFamily = Objects.requireNonNull(engineFamily);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder idleClientTimeout(Integer idleClientTimeout) {
             this.idleClientTimeout = Objects.requireNonNull(idleClientTimeout);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder requireTls(Boolean requireTls) {
             this.requireTls = Objects.requireNonNull(requireTls);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
             this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
             return this;
@@ -291,14 +270,30 @@ public final class GetProxyResult {
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }
+        @CustomType.Setter
         public Builder vpcSubnetIds(List<String> vpcSubnetIds) {
             this.vpcSubnetIds = Objects.requireNonNull(vpcSubnetIds);
             return this;
         }
         public Builder vpcSubnetIds(String... vpcSubnetIds) {
             return vpcSubnetIds(List.of(vpcSubnetIds));
-        }        public GetProxyResult build() {
-            return new GetProxyResult(arn, auths, debugLogging, endpoint, engineFamily, id, idleClientTimeout, name, requireTls, roleArn, vpcId, vpcSecurityGroupIds, vpcSubnetIds);
+        }
+        public GetProxyResult build() {
+            final var o = new GetProxyResult();
+            o.arn = arn;
+            o.auths = auths;
+            o.debugLogging = debugLogging;
+            o.endpoint = endpoint;
+            o.engineFamily = engineFamily;
+            o.id = id;
+            o.idleClientTimeout = idleClientTimeout;
+            o.name = name;
+            o.requireTls = requireTls;
+            o.roleArn = roleArn;
+            o.vpcId = vpcId;
+            o.vpcSecurityGroupIds = vpcSecurityGroupIds;
+            o.vpcSubnetIds = vpcSubnetIds;
+            return o;
         }
     }
 }

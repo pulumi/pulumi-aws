@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class PatchBaselineGlobalFilter {
-    private final String key;
-    private final List<String> values;
+    private String key;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private PatchBaselineGlobalFilter(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("values") List<String> values) {
-        this.key = key;
-        this.values = values;
-    }
-
+    private PatchBaselineGlobalFilter() {}
     public String key() {
         return this.key;
     }
@@ -35,33 +28,35 @@ public final class PatchBaselineGlobalFilter {
     public static Builder builder(PatchBaselineGlobalFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PatchBaselineGlobalFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public PatchBaselineGlobalFilter build() {
-            return new PatchBaselineGlobalFilter(key, values);
+        }
+        public PatchBaselineGlobalFilter build() {
+            final var o = new PatchBaselineGlobalFilter();
+            o.key = key;
+            o.values = values;
+            return o;
         }
     }
 }

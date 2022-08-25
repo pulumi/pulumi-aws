@@ -19,35 +19,24 @@ public final class DataSourceCustomDocumentEnrichmentConfiguration {
      * @return Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
      * 
      */
-    private final @Nullable List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration> inlineConfigurations;
+    private @Nullable List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration> inlineConfigurations;
     /**
      * @return A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
      * 
      */
-    private final @Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration postExtractionHookConfiguration;
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration postExtractionHookConfiguration;
     /**
      * @return Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
      * 
      */
-    private final @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration preExtractionHookConfiguration;
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration preExtractionHookConfiguration;
     /**
      * @return The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    private final @Nullable String roleArn;
+    private @Nullable String roleArn;
 
-    @CustomType.Constructor
-    private DataSourceCustomDocumentEnrichmentConfiguration(
-        @CustomType.Parameter("inlineConfigurations") @Nullable List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration> inlineConfigurations,
-        @CustomType.Parameter("postExtractionHookConfiguration") @Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration postExtractionHookConfiguration,
-        @CustomType.Parameter("preExtractionHookConfiguration") @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration preExtractionHookConfiguration,
-        @CustomType.Parameter("roleArn") @Nullable String roleArn) {
-        this.inlineConfigurations = inlineConfigurations;
-        this.postExtractionHookConfiguration = postExtractionHookConfiguration;
-        this.preExtractionHookConfiguration = preExtractionHookConfiguration;
-        this.roleArn = roleArn;
-    }
-
+    private DataSourceCustomDocumentEnrichmentConfiguration() {}
     /**
      * @return Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
      * 
@@ -84,17 +73,13 @@ public final class DataSourceCustomDocumentEnrichmentConfiguration {
     public static Builder builder(DataSourceCustomDocumentEnrichmentConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration> inlineConfigurations;
         private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration postExtractionHookConfiguration;
         private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration preExtractionHookConfiguration;
         private @Nullable String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceCustomDocumentEnrichmentConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inlineConfigurations = defaults.inlineConfigurations;
@@ -103,6 +88,7 @@ public final class DataSourceCustomDocumentEnrichmentConfiguration {
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder inlineConfigurations(@Nullable List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration> inlineConfigurations) {
             this.inlineConfigurations = inlineConfigurations;
             return this;
@@ -110,19 +96,28 @@ public final class DataSourceCustomDocumentEnrichmentConfiguration {
         public Builder inlineConfigurations(DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration... inlineConfigurations) {
             return inlineConfigurations(List.of(inlineConfigurations));
         }
+        @CustomType.Setter
         public Builder postExtractionHookConfiguration(@Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration postExtractionHookConfiguration) {
             this.postExtractionHookConfiguration = postExtractionHookConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder preExtractionHookConfiguration(@Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration preExtractionHookConfiguration) {
             this.preExtractionHookConfiguration = preExtractionHookConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
             this.roleArn = roleArn;
             return this;
-        }        public DataSourceCustomDocumentEnrichmentConfiguration build() {
-            return new DataSourceCustomDocumentEnrichmentConfiguration(inlineConfigurations, postExtractionHookConfiguration, preExtractionHookConfiguration, roleArn);
+        }
+        public DataSourceCustomDocumentEnrichmentConfiguration build() {
+            final var o = new DataSourceCustomDocumentEnrichmentConfiguration();
+            o.inlineConfigurations = inlineConfigurations;
+            o.postExtractionHookConfiguration = postExtractionHookConfiguration;
+            o.preExtractionHookConfiguration = preExtractionHookConfiguration;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

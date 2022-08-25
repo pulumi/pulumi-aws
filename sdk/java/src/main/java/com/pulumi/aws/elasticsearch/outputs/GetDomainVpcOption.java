@@ -14,35 +14,24 @@ public final class GetDomainVpcOption {
      * @return The availability zones used by the domain.
      * 
      */
-    private final List<String> availabilityZones;
+    private List<String> availabilityZones;
     /**
      * @return The security groups used by the domain.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return The subnets used by the domain.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return The VPC used by the domain.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetDomainVpcOption(
-        @CustomType.Parameter("availabilityZones") List<String> availabilityZones,
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.availabilityZones = availabilityZones;
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private GetDomainVpcOption() {}
     /**
      * @return The availability zones used by the domain.
      * 
@@ -79,17 +68,13 @@ public final class GetDomainVpcOption {
     public static Builder builder(GetDomainVpcOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> availabilityZones;
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainVpcOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZones = defaults.availabilityZones;
@@ -98,6 +83,7 @@ public final class GetDomainVpcOption {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
             this.availabilityZones = Objects.requireNonNull(availabilityZones);
             return this;
@@ -105,6 +91,7 @@ public final class GetDomainVpcOption {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -112,6 +99,7 @@ public final class GetDomainVpcOption {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -119,11 +107,18 @@ public final class GetDomainVpcOption {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetDomainVpcOption build() {
-            return new GetDomainVpcOption(availabilityZones, securityGroupIds, subnetIds, vpcId);
+        }
+        public GetDomainVpcOption build() {
+            final var o = new GetDomainVpcOption();
+            o.availabilityZones = availabilityZones;
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

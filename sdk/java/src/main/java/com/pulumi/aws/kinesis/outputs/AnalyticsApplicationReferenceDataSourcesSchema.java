@@ -19,29 +19,20 @@ public final class AnalyticsApplicationReferenceDataSourcesSchema {
      * See Record Columns below for more details.
      * 
      */
-    private final List<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn> recordColumns;
+    private List<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn> recordColumns;
     /**
      * @return The Encoding of the record in the streaming source.
      * 
      */
-    private final @Nullable String recordEncoding;
+    private @Nullable String recordEncoding;
     /**
      * @return The Record Format and mapping information to schematize a record.
      * See Record Format below for more details.
      * 
      */
-    private final AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat recordFormat;
+    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat recordFormat;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationReferenceDataSourcesSchema(
-        @CustomType.Parameter("recordColumns") List<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn> recordColumns,
-        @CustomType.Parameter("recordEncoding") @Nullable String recordEncoding,
-        @CustomType.Parameter("recordFormat") AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat recordFormat) {
-        this.recordColumns = recordColumns;
-        this.recordEncoding = recordEncoding;
-        this.recordFormat = recordFormat;
-    }
-
+    private AnalyticsApplicationReferenceDataSourcesSchema() {}
     /**
      * @return The Record Column mapping for the streaming source data element.
      * See Record Columns below for more details.
@@ -73,16 +64,12 @@ public final class AnalyticsApplicationReferenceDataSourcesSchema {
     public static Builder builder(AnalyticsApplicationReferenceDataSourcesSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn> recordColumns;
         private @Nullable String recordEncoding;
         private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat recordFormat;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationReferenceDataSourcesSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordColumns = defaults.recordColumns;
@@ -90,6 +77,7 @@ public final class AnalyticsApplicationReferenceDataSourcesSchema {
     	      this.recordFormat = defaults.recordFormat;
         }
 
+        @CustomType.Setter
         public Builder recordColumns(List<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn> recordColumns) {
             this.recordColumns = Objects.requireNonNull(recordColumns);
             return this;
@@ -97,15 +85,22 @@ public final class AnalyticsApplicationReferenceDataSourcesSchema {
         public Builder recordColumns(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn... recordColumns) {
             return recordColumns(List.of(recordColumns));
         }
+        @CustomType.Setter
         public Builder recordEncoding(@Nullable String recordEncoding) {
             this.recordEncoding = recordEncoding;
             return this;
         }
+        @CustomType.Setter
         public Builder recordFormat(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat recordFormat) {
             this.recordFormat = Objects.requireNonNull(recordFormat);
             return this;
-        }        public AnalyticsApplicationReferenceDataSourcesSchema build() {
-            return new AnalyticsApplicationReferenceDataSourcesSchema(recordColumns, recordEncoding, recordFormat);
+        }
+        public AnalyticsApplicationReferenceDataSourcesSchema build() {
+            final var o = new AnalyticsApplicationReferenceDataSourcesSchema();
+            o.recordColumns = recordColumns;
+            o.recordEncoding = recordEncoding;
+            o.recordFormat = recordFormat;
+            return o;
         }
     }
 }

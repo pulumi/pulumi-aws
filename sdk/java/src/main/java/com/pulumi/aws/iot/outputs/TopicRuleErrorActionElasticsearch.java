@@ -13,42 +13,29 @@ public final class TopicRuleErrorActionElasticsearch {
      * @return The endpoint of your Elasticsearch domain.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return The unique identifier for the document you are storing.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Elasticsearch index where you want to store your data.
      * 
      */
-    private final String index;
+    private String index;
     /**
      * @return The IAM role ARN that has access to Elasticsearch.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The type of document you are storing.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionElasticsearch(
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("index") String index,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("type") String type) {
-        this.endpoint = endpoint;
-        this.id = id;
-        this.index = index;
-        this.roleArn = roleArn;
-        this.type = type;
-    }
-
+    private TopicRuleErrorActionElasticsearch() {}
     /**
      * @return The endpoint of your Elasticsearch domain.
      * 
@@ -92,18 +79,14 @@ public final class TopicRuleErrorActionElasticsearch {
     public static Builder builder(TopicRuleErrorActionElasticsearch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpoint;
         private String id;
         private String index;
         private String roleArn;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionElasticsearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
@@ -113,27 +96,39 @@ public final class TopicRuleErrorActionElasticsearch {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder index(String index) {
             this.index = Objects.requireNonNull(index);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public TopicRuleErrorActionElasticsearch build() {
-            return new TopicRuleErrorActionElasticsearch(endpoint, id, index, roleArn, type);
+        }
+        public TopicRuleErrorActionElasticsearch build() {
+            final var o = new TopicRuleErrorActionElasticsearch();
+            o.endpoint = endpoint;
+            o.id = id;
+            o.index = index;
+            o.roleArn = roleArn;
+            o.type = type;
+            return o;
         }
     }
 }

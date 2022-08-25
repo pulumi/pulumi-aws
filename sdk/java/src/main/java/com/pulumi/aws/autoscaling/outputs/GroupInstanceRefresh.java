@@ -17,28 +17,19 @@ public final class GroupInstanceRefresh {
      * @return Override default parameters for Instance Refresh.
      * 
      */
-    private final @Nullable GroupInstanceRefreshPreferences preferences;
+    private @Nullable GroupInstanceRefreshPreferences preferences;
     /**
      * @return The strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
      * 
      */
-    private final String strategy;
+    private String strategy;
     /**
      * @return Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
      * 
      */
-    private final @Nullable List<String> triggers;
+    private @Nullable List<String> triggers;
 
-    @CustomType.Constructor
-    private GroupInstanceRefresh(
-        @CustomType.Parameter("preferences") @Nullable GroupInstanceRefreshPreferences preferences,
-        @CustomType.Parameter("strategy") String strategy,
-        @CustomType.Parameter("triggers") @Nullable List<String> triggers) {
-        this.preferences = preferences;
-        this.strategy = strategy;
-        this.triggers = triggers;
-    }
-
+    private GroupInstanceRefresh() {}
     /**
      * @return Override default parameters for Instance Refresh.
      * 
@@ -68,16 +59,12 @@ public final class GroupInstanceRefresh {
     public static Builder builder(GroupInstanceRefresh defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GroupInstanceRefreshPreferences preferences;
         private String strategy;
         private @Nullable List<String> triggers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupInstanceRefresh defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.preferences = defaults.preferences;
@@ -85,22 +72,30 @@ public final class GroupInstanceRefresh {
     	      this.triggers = defaults.triggers;
         }
 
+        @CustomType.Setter
         public Builder preferences(@Nullable GroupInstanceRefreshPreferences preferences) {
             this.preferences = preferences;
             return this;
         }
+        @CustomType.Setter
         public Builder strategy(String strategy) {
             this.strategy = Objects.requireNonNull(strategy);
             return this;
         }
+        @CustomType.Setter
         public Builder triggers(@Nullable List<String> triggers) {
             this.triggers = triggers;
             return this;
         }
         public Builder triggers(String... triggers) {
             return triggers(List.of(triggers));
-        }        public GroupInstanceRefresh build() {
-            return new GroupInstanceRefresh(preferences, strategy, triggers);
+        }
+        public GroupInstanceRefresh build() {
+            final var o = new GroupInstanceRefresh();
+            o.preferences = preferences;
+            o.strategy = strategy;
+            o.triggers = triggers;
+            return o;
         }
     }
 }

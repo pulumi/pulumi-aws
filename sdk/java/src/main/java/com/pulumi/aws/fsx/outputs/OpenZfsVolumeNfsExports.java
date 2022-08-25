@@ -14,13 +14,9 @@ public final class OpenZfsVolumeNfsExports {
      * @return - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
      * 
      */
-    private final List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations;
+    private List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations;
 
-    @CustomType.Constructor
-    private OpenZfsVolumeNfsExports(@CustomType.Parameter("clientConfigurations") List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations) {
-        this.clientConfigurations = clientConfigurations;
-    }
-
+    private OpenZfsVolumeNfsExports() {}
     /**
      * @return - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
      * 
@@ -36,27 +32,27 @@ public final class OpenZfsVolumeNfsExports {
     public static Builder builder(OpenZfsVolumeNfsExports defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OpenZfsVolumeNfsExports defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientConfigurations = defaults.clientConfigurations;
         }
 
+        @CustomType.Setter
         public Builder clientConfigurations(List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations) {
             this.clientConfigurations = Objects.requireNonNull(clientConfigurations);
             return this;
         }
         public Builder clientConfigurations(OpenZfsVolumeNfsExportsClientConfiguration... clientConfigurations) {
             return clientConfigurations(List.of(clientConfigurations));
-        }        public OpenZfsVolumeNfsExports build() {
-            return new OpenZfsVolumeNfsExports(clientConfigurations);
+        }
+        public OpenZfsVolumeNfsExports build() {
+            final var o = new OpenZfsVolumeNfsExports();
+            o.clientConfigurations = clientConfigurations;
+            return o;
         }
     }
 }

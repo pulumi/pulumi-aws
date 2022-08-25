@@ -19,35 +19,24 @@ public final class RouteSpecHttpRouteRetryPolicy {
      * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
      * 
      */
-    private final @Nullable List<String> httpRetryEvents;
+    private @Nullable List<String> httpRetryEvents;
     /**
      * @return The maximum number of retries.
      * 
      */
-    private final Integer maxRetries;
+    private Integer maxRetries;
     /**
      * @return The per-retry timeout.
      * 
      */
-    private final RouteSpecHttpRouteRetryPolicyPerRetryTimeout perRetryTimeout;
+    private RouteSpecHttpRouteRetryPolicyPerRetryTimeout perRetryTimeout;
     /**
      * @return List of TCP retry events. The only valid value is `connection-error`.
      * 
      */
-    private final @Nullable List<String> tcpRetryEvents;
+    private @Nullable List<String> tcpRetryEvents;
 
-    @CustomType.Constructor
-    private RouteSpecHttpRouteRetryPolicy(
-        @CustomType.Parameter("httpRetryEvents") @Nullable List<String> httpRetryEvents,
-        @CustomType.Parameter("maxRetries") Integer maxRetries,
-        @CustomType.Parameter("perRetryTimeout") RouteSpecHttpRouteRetryPolicyPerRetryTimeout perRetryTimeout,
-        @CustomType.Parameter("tcpRetryEvents") @Nullable List<String> tcpRetryEvents) {
-        this.httpRetryEvents = httpRetryEvents;
-        this.maxRetries = maxRetries;
-        this.perRetryTimeout = perRetryTimeout;
-        this.tcpRetryEvents = tcpRetryEvents;
-    }
-
+    private RouteSpecHttpRouteRetryPolicy() {}
     /**
      * @return List of HTTP retry events.
      * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
@@ -86,17 +75,13 @@ public final class RouteSpecHttpRouteRetryPolicy {
     public static Builder builder(RouteSpecHttpRouteRetryPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> httpRetryEvents;
         private Integer maxRetries;
         private RouteSpecHttpRouteRetryPolicyPerRetryTimeout perRetryTimeout;
         private @Nullable List<String> tcpRetryEvents;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttpRouteRetryPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpRetryEvents = defaults.httpRetryEvents;
@@ -105,6 +90,7 @@ public final class RouteSpecHttpRouteRetryPolicy {
     	      this.tcpRetryEvents = defaults.tcpRetryEvents;
         }
 
+        @CustomType.Setter
         public Builder httpRetryEvents(@Nullable List<String> httpRetryEvents) {
             this.httpRetryEvents = httpRetryEvents;
             return this;
@@ -112,22 +98,31 @@ public final class RouteSpecHttpRouteRetryPolicy {
         public Builder httpRetryEvents(String... httpRetryEvents) {
             return httpRetryEvents(List.of(httpRetryEvents));
         }
+        @CustomType.Setter
         public Builder maxRetries(Integer maxRetries) {
             this.maxRetries = Objects.requireNonNull(maxRetries);
             return this;
         }
+        @CustomType.Setter
         public Builder perRetryTimeout(RouteSpecHttpRouteRetryPolicyPerRetryTimeout perRetryTimeout) {
             this.perRetryTimeout = Objects.requireNonNull(perRetryTimeout);
             return this;
         }
+        @CustomType.Setter
         public Builder tcpRetryEvents(@Nullable List<String> tcpRetryEvents) {
             this.tcpRetryEvents = tcpRetryEvents;
             return this;
         }
         public Builder tcpRetryEvents(String... tcpRetryEvents) {
             return tcpRetryEvents(List.of(tcpRetryEvents));
-        }        public RouteSpecHttpRouteRetryPolicy build() {
-            return new RouteSpecHttpRouteRetryPolicy(httpRetryEvents, maxRetries, perRetryTimeout, tcpRetryEvents);
+        }
+        public RouteSpecHttpRouteRetryPolicy build() {
+            final var o = new RouteSpecHttpRouteRetryPolicy();
+            o.httpRetryEvents = httpRetryEvents;
+            o.maxRetries = maxRetries;
+            o.perRetryTimeout = perRetryTimeout;
+            o.tcpRetryEvents = tcpRetryEvents;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class RepositoryEncryptionConfiguration {
      * @return The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
      * 
      */
-    private final @Nullable String encryptionType;
+    private @Nullable String encryptionType;
     /**
      * @return The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
      * 
      */
-    private final @Nullable String kmsKey;
+    private @Nullable String kmsKey;
 
-    @CustomType.Constructor
-    private RepositoryEncryptionConfiguration(
-        @CustomType.Parameter("encryptionType") @Nullable String encryptionType,
-        @CustomType.Parameter("kmsKey") @Nullable String kmsKey) {
-        this.encryptionType = encryptionType;
-        this.kmsKey = kmsKey;
-    }
-
+    private RepositoryEncryptionConfiguration() {}
     /**
      * @return The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
      * 
@@ -52,30 +45,32 @@ public final class RepositoryEncryptionConfiguration {
     public static Builder builder(RepositoryEncryptionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String encryptionType;
         private @Nullable String kmsKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RepositoryEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionType = defaults.encryptionType;
     	      this.kmsKey = defaults.kmsKey;
         }
 
+        @CustomType.Setter
         public Builder encryptionType(@Nullable String encryptionType) {
             this.encryptionType = encryptionType;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKey(@Nullable String kmsKey) {
             this.kmsKey = kmsKey;
             return this;
-        }        public RepositoryEncryptionConfiguration build() {
-            return new RepositoryEncryptionConfiguration(encryptionType, kmsKey);
+        }
+        public RepositoryEncryptionConfiguration build() {
+            final var o = new RepositoryEncryptionConfiguration();
+            o.encryptionType = encryptionType;
+            o.kmsKey = kmsKey;
+            return o;
         }
     }
 }

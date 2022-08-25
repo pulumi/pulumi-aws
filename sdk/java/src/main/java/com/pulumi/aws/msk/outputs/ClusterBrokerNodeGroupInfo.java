@@ -19,17 +19,17 @@ public final class ClusterBrokerNodeGroupInfo {
      * @return The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
      * 
      */
-    private final @Nullable String azDistribution;
+    private @Nullable String azDistribution;
     /**
      * @return A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
      * 
      */
-    private final List<String> clientSubnets;
+    private List<String> clientSubnets;
     /**
      * @return Information about the cluster access configuration. See below. For security reasons, you can&#39;t turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
      * 
      */
-    private final @Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo;
+    private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo;
     /**
      * @return The size in GiB of the EBS volume for the data drive on each broker node.
      * 
@@ -38,41 +38,24 @@ public final class ClusterBrokerNodeGroupInfo {
      * 
      */
     @Deprecated /* use 'storage_info' argument instead */
-    private final @Nullable Integer ebsVolumeSize;
+    private @Nullable Integer ebsVolumeSize;
     /**
      * @return Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
      * 
      */
-    private final String instanceType;
+    private String instanceType;
     /**
      * @return A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
      * 
      */
-    private final List<String> securityGroups;
+    private List<String> securityGroups;
     /**
      * @return A block that contains information about storage volumes attached to MSK broker nodes. See below.
      * 
      */
-    private final @Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo;
+    private @Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo;
 
-    @CustomType.Constructor
-    private ClusterBrokerNodeGroupInfo(
-        @CustomType.Parameter("azDistribution") @Nullable String azDistribution,
-        @CustomType.Parameter("clientSubnets") List<String> clientSubnets,
-        @CustomType.Parameter("connectivityInfo") @Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo,
-        @CustomType.Parameter("ebsVolumeSize") @Nullable Integer ebsVolumeSize,
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("securityGroups") List<String> securityGroups,
-        @CustomType.Parameter("storageInfo") @Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo) {
-        this.azDistribution = azDistribution;
-        this.clientSubnets = clientSubnets;
-        this.connectivityInfo = connectivityInfo;
-        this.ebsVolumeSize = ebsVolumeSize;
-        this.instanceType = instanceType;
-        this.securityGroups = securityGroups;
-        this.storageInfo = storageInfo;
-    }
-
+    private ClusterBrokerNodeGroupInfo() {}
     /**
      * @return The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
      * 
@@ -134,7 +117,7 @@ public final class ClusterBrokerNodeGroupInfo {
     public static Builder builder(ClusterBrokerNodeGroupInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String azDistribution;
         private List<String> clientSubnets;
@@ -143,11 +126,7 @@ public final class ClusterBrokerNodeGroupInfo {
         private String instanceType;
         private List<String> securityGroups;
         private @Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterBrokerNodeGroupInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azDistribution = defaults.azDistribution;
@@ -159,10 +138,12 @@ public final class ClusterBrokerNodeGroupInfo {
     	      this.storageInfo = defaults.storageInfo;
         }
 
+        @CustomType.Setter
         public Builder azDistribution(@Nullable String azDistribution) {
             this.azDistribution = azDistribution;
             return this;
         }
+        @CustomType.Setter
         public Builder clientSubnets(List<String> clientSubnets) {
             this.clientSubnets = Objects.requireNonNull(clientSubnets);
             return this;
@@ -170,18 +151,22 @@ public final class ClusterBrokerNodeGroupInfo {
         public Builder clientSubnets(String... clientSubnets) {
             return clientSubnets(List.of(clientSubnets));
         }
+        @CustomType.Setter
         public Builder connectivityInfo(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo) {
             this.connectivityInfo = connectivityInfo;
             return this;
         }
+        @CustomType.Setter
         public Builder ebsVolumeSize(@Nullable Integer ebsVolumeSize) {
             this.ebsVolumeSize = ebsVolumeSize;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             this.securityGroups = Objects.requireNonNull(securityGroups);
             return this;
@@ -189,11 +174,21 @@ public final class ClusterBrokerNodeGroupInfo {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder storageInfo(@Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo) {
             this.storageInfo = storageInfo;
             return this;
-        }        public ClusterBrokerNodeGroupInfo build() {
-            return new ClusterBrokerNodeGroupInfo(azDistribution, clientSubnets, connectivityInfo, ebsVolumeSize, instanceType, securityGroups, storageInfo);
+        }
+        public ClusterBrokerNodeGroupInfo build() {
+            final var o = new ClusterBrokerNodeGroupInfo();
+            o.azDistribution = azDistribution;
+            o.clientSubnets = clientSubnets;
+            o.connectivityInfo = connectivityInfo;
+            o.ebsVolumeSize = ebsVolumeSize;
+            o.instanceType = instanceType;
+            o.securityGroups = securityGroups;
+            o.storageInfo = storageInfo;
+            return o;
         }
     }
 }

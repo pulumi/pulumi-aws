@@ -18,115 +18,80 @@ public final class GetTransitGatewayResult {
      * @return Private Autonomous System Number (ASN) for the Amazon side of a BGP session
      * 
      */
-    private final Integer amazonSideAsn;
+    private Integer amazonSideAsn;
     /**
      * @return EC2 Transit Gateway Amazon Resource Name (ARN)
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Identifier of the default association route table
      * 
      */
-    private final String associationDefaultRouteTableId;
+    private String associationDefaultRouteTableId;
     /**
      * @return Whether resource attachment requests are automatically accepted
      * 
      */
-    private final String autoAcceptSharedAttachments;
+    private String autoAcceptSharedAttachments;
     /**
      * @return Whether resource attachments are automatically associated with the default association route table
      * 
      */
-    private final String defaultRouteTableAssociation;
+    private String defaultRouteTableAssociation;
     /**
      * @return Whether resource attachments automatically propagate routes to the default propagation route table
      * 
      */
-    private final String defaultRouteTablePropagation;
+    private String defaultRouteTablePropagation;
     /**
      * @return Description of the EC2 Transit Gateway
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Whether DNS support is enabled
      * 
      */
-    private final String dnsSupport;
-    private final @Nullable List<GetTransitGatewayFilter> filters;
+    private String dnsSupport;
+    private @Nullable List<GetTransitGatewayFilter> filters;
     /**
      * @return EC2 Transit Gateway identifier
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Whether Multicast support is enabled
      * 
      */
-    private final String multicastSupport;
+    private String multicastSupport;
     /**
      * @return Identifier of the AWS account that owns the EC2 Transit Gateway
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return Identifier of the default propagation route table
      * 
      */
-    private final String propagationDefaultRouteTableId;
+    private String propagationDefaultRouteTableId;
     /**
      * @return Key-value tags for the EC2 Transit Gateway
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The list of associated CIDR blocks
      * 
      */
-    private final List<String> transitGatewayCidrBlocks;
+    private List<String> transitGatewayCidrBlocks;
     /**
      * @return Whether VPN Equal Cost Multipath Protocol support is enabled
      * 
      */
-    private final String vpnEcmpSupport;
+    private String vpnEcmpSupport;
 
-    @CustomType.Constructor
-    private GetTransitGatewayResult(
-        @CustomType.Parameter("amazonSideAsn") Integer amazonSideAsn,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("associationDefaultRouteTableId") String associationDefaultRouteTableId,
-        @CustomType.Parameter("autoAcceptSharedAttachments") String autoAcceptSharedAttachments,
-        @CustomType.Parameter("defaultRouteTableAssociation") String defaultRouteTableAssociation,
-        @CustomType.Parameter("defaultRouteTablePropagation") String defaultRouteTablePropagation,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("dnsSupport") String dnsSupport,
-        @CustomType.Parameter("filters") @Nullable List<GetTransitGatewayFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("multicastSupport") String multicastSupport,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("propagationDefaultRouteTableId") String propagationDefaultRouteTableId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("transitGatewayCidrBlocks") List<String> transitGatewayCidrBlocks,
-        @CustomType.Parameter("vpnEcmpSupport") String vpnEcmpSupport) {
-        this.amazonSideAsn = amazonSideAsn;
-        this.arn = arn;
-        this.associationDefaultRouteTableId = associationDefaultRouteTableId;
-        this.autoAcceptSharedAttachments = autoAcceptSharedAttachments;
-        this.defaultRouteTableAssociation = defaultRouteTableAssociation;
-        this.defaultRouteTablePropagation = defaultRouteTablePropagation;
-        this.description = description;
-        this.dnsSupport = dnsSupport;
-        this.filters = filters;
-        this.id = id;
-        this.multicastSupport = multicastSupport;
-        this.ownerId = ownerId;
-        this.propagationDefaultRouteTableId = propagationDefaultRouteTableId;
-        this.tags = tags;
-        this.transitGatewayCidrBlocks = transitGatewayCidrBlocks;
-        this.vpnEcmpSupport = vpnEcmpSupport;
-    }
-
+    private GetTransitGatewayResult() {}
     /**
      * @return Private Autonomous System Number (ASN) for the Amazon side of a BGP session
      * 
@@ -243,7 +208,7 @@ public final class GetTransitGatewayResult {
     public static Builder builder(GetTransitGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer amazonSideAsn;
         private String arn;
@@ -261,11 +226,7 @@ public final class GetTransitGatewayResult {
         private Map<String,String> tags;
         private List<String> transitGatewayCidrBlocks;
         private String vpnEcmpSupport;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTransitGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amazonSideAsn = defaults.amazonSideAsn;
@@ -286,38 +247,47 @@ public final class GetTransitGatewayResult {
     	      this.vpnEcmpSupport = defaults.vpnEcmpSupport;
         }
 
+        @CustomType.Setter
         public Builder amazonSideAsn(Integer amazonSideAsn) {
             this.amazonSideAsn = Objects.requireNonNull(amazonSideAsn);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder associationDefaultRouteTableId(String associationDefaultRouteTableId) {
             this.associationDefaultRouteTableId = Objects.requireNonNull(associationDefaultRouteTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder autoAcceptSharedAttachments(String autoAcceptSharedAttachments) {
             this.autoAcceptSharedAttachments = Objects.requireNonNull(autoAcceptSharedAttachments);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultRouteTableAssociation(String defaultRouteTableAssociation) {
             this.defaultRouteTableAssociation = Objects.requireNonNull(defaultRouteTableAssociation);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultRouteTablePropagation(String defaultRouteTablePropagation) {
             this.defaultRouteTablePropagation = Objects.requireNonNull(defaultRouteTablePropagation);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsSupport(String dnsSupport) {
             this.dnsSupport = Objects.requireNonNull(dnsSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetTransitGatewayFilter> filters) {
             this.filters = filters;
             return this;
@@ -325,26 +295,32 @@ public final class GetTransitGatewayResult {
         public Builder filters(GetTransitGatewayFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder multicastSupport(String multicastSupport) {
             this.multicastSupport = Objects.requireNonNull(multicastSupport);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder propagationDefaultRouteTableId(String propagationDefaultRouteTableId) {
             this.propagationDefaultRouteTableId = Objects.requireNonNull(propagationDefaultRouteTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayCidrBlocks(List<String> transitGatewayCidrBlocks) {
             this.transitGatewayCidrBlocks = Objects.requireNonNull(transitGatewayCidrBlocks);
             return this;
@@ -352,11 +328,30 @@ public final class GetTransitGatewayResult {
         public Builder transitGatewayCidrBlocks(String... transitGatewayCidrBlocks) {
             return transitGatewayCidrBlocks(List.of(transitGatewayCidrBlocks));
         }
+        @CustomType.Setter
         public Builder vpnEcmpSupport(String vpnEcmpSupport) {
             this.vpnEcmpSupport = Objects.requireNonNull(vpnEcmpSupport);
             return this;
-        }        public GetTransitGatewayResult build() {
-            return new GetTransitGatewayResult(amazonSideAsn, arn, associationDefaultRouteTableId, autoAcceptSharedAttachments, defaultRouteTableAssociation, defaultRouteTablePropagation, description, dnsSupport, filters, id, multicastSupport, ownerId, propagationDefaultRouteTableId, tags, transitGatewayCidrBlocks, vpnEcmpSupport);
+        }
+        public GetTransitGatewayResult build() {
+            final var o = new GetTransitGatewayResult();
+            o.amazonSideAsn = amazonSideAsn;
+            o.arn = arn;
+            o.associationDefaultRouteTableId = associationDefaultRouteTableId;
+            o.autoAcceptSharedAttachments = autoAcceptSharedAttachments;
+            o.defaultRouteTableAssociation = defaultRouteTableAssociation;
+            o.defaultRouteTablePropagation = defaultRouteTablePropagation;
+            o.description = description;
+            o.dnsSupport = dnsSupport;
+            o.filters = filters;
+            o.id = id;
+            o.multicastSupport = multicastSupport;
+            o.ownerId = ownerId;
+            o.propagationDefaultRouteTableId = propagationDefaultRouteTableId;
+            o.tags = tags;
+            o.transitGatewayCidrBlocks = transitGatewayCidrBlocks;
+            o.vpnEcmpSupport = vpnEcmpSupport;
+            return o;
         }
     }
 }

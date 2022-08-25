@@ -18,35 +18,24 @@ public final class VirtualNodeSpecListenerTimeout {
      * @return Timeouts for gRPC listeners.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTimeoutGrpc grpc;
+    private @Nullable VirtualNodeSpecListenerTimeoutGrpc grpc;
     /**
      * @return Timeouts for HTTP listeners.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTimeoutHttp http;
+    private @Nullable VirtualNodeSpecListenerTimeoutHttp http;
     /**
      * @return Timeouts for HTTP2 listeners.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTimeoutHttp2 http2;
+    private @Nullable VirtualNodeSpecListenerTimeoutHttp2 http2;
     /**
      * @return Timeouts for TCP listeners.
      * 
      */
-    private final @Nullable VirtualNodeSpecListenerTimeoutTcp tcp;
+    private @Nullable VirtualNodeSpecListenerTimeoutTcp tcp;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerTimeout(
-        @CustomType.Parameter("grpc") @Nullable VirtualNodeSpecListenerTimeoutGrpc grpc,
-        @CustomType.Parameter("http") @Nullable VirtualNodeSpecListenerTimeoutHttp http,
-        @CustomType.Parameter("http2") @Nullable VirtualNodeSpecListenerTimeoutHttp2 http2,
-        @CustomType.Parameter("tcp") @Nullable VirtualNodeSpecListenerTimeoutTcp tcp) {
-        this.grpc = grpc;
-        this.http = http;
-        this.http2 = http2;
-        this.tcp = tcp;
-    }
-
+    private VirtualNodeSpecListenerTimeout() {}
     /**
      * @return Timeouts for gRPC listeners.
      * 
@@ -83,17 +72,13 @@ public final class VirtualNodeSpecListenerTimeout {
     public static Builder builder(VirtualNodeSpecListenerTimeout defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecListenerTimeoutGrpc grpc;
         private @Nullable VirtualNodeSpecListenerTimeoutHttp http;
         private @Nullable VirtualNodeSpecListenerTimeoutHttp2 http2;
         private @Nullable VirtualNodeSpecListenerTimeoutTcp tcp;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerTimeout defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.grpc = defaults.grpc;
@@ -102,23 +87,33 @@ public final class VirtualNodeSpecListenerTimeout {
     	      this.tcp = defaults.tcp;
         }
 
+        @CustomType.Setter
         public Builder grpc(@Nullable VirtualNodeSpecListenerTimeoutGrpc grpc) {
             this.grpc = grpc;
             return this;
         }
+        @CustomType.Setter
         public Builder http(@Nullable VirtualNodeSpecListenerTimeoutHttp http) {
             this.http = http;
             return this;
         }
+        @CustomType.Setter
         public Builder http2(@Nullable VirtualNodeSpecListenerTimeoutHttp2 http2) {
             this.http2 = http2;
             return this;
         }
+        @CustomType.Setter
         public Builder tcp(@Nullable VirtualNodeSpecListenerTimeoutTcp tcp) {
             this.tcp = tcp;
             return this;
-        }        public VirtualNodeSpecListenerTimeout build() {
-            return new VirtualNodeSpecListenerTimeout(grpc, http, http2, tcp);
+        }
+        public VirtualNodeSpecListenerTimeout build() {
+            final var o = new VirtualNodeSpecListenerTimeout();
+            o.grpc = grpc;
+            o.http = http;
+            o.http2 = http2;
+            o.tcp = tcp;
+            return o;
         }
     }
 }

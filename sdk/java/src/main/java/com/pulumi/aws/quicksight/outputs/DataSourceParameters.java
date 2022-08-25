@@ -34,147 +34,104 @@ public final class DataSourceParameters {
      * @return Parameters for connecting to Amazon Elasticsearch.
      * 
      */
-    private final @Nullable DataSourceParametersAmazonElasticsearch amazonElasticsearch;
+    private @Nullable DataSourceParametersAmazonElasticsearch amazonElasticsearch;
     /**
      * @return Parameters for connecting to Athena.
      * 
      */
-    private final @Nullable DataSourceParametersAthena athena;
+    private @Nullable DataSourceParametersAthena athena;
     /**
      * @return Parameters for connecting to Aurora MySQL.
      * 
      */
-    private final @Nullable DataSourceParametersAurora aurora;
+    private @Nullable DataSourceParametersAurora aurora;
     /**
      * @return Parameters for connecting to Aurora Postgresql.
      * 
      */
-    private final @Nullable DataSourceParametersAuroraPostgresql auroraPostgresql;
+    private @Nullable DataSourceParametersAuroraPostgresql auroraPostgresql;
     /**
      * @return Parameters for connecting to AWS IOT Analytics.
      * 
      */
-    private final @Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics;
+    private @Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics;
     /**
      * @return Parameters for connecting to Jira.
      * 
      */
-    private final @Nullable DataSourceParametersJira jira;
+    private @Nullable DataSourceParametersJira jira;
     /**
      * @return Parameters for connecting to MariaDB.
      * 
      */
-    private final @Nullable DataSourceParametersMariaDb mariaDb;
+    private @Nullable DataSourceParametersMariaDb mariaDb;
     /**
      * @return Parameters for connecting to MySQL.
      * 
      */
-    private final @Nullable DataSourceParametersMysql mysql;
+    private @Nullable DataSourceParametersMysql mysql;
     /**
      * @return Parameters for connecting to Oracle.
      * 
      */
-    private final @Nullable DataSourceParametersOracle oracle;
+    private @Nullable DataSourceParametersOracle oracle;
     /**
      * @return Parameters for connecting to Postgresql.
      * 
      */
-    private final @Nullable DataSourceParametersPostgresql postgresql;
+    private @Nullable DataSourceParametersPostgresql postgresql;
     /**
      * @return Parameters for connecting to Presto.
      * 
      */
-    private final @Nullable DataSourceParametersPresto presto;
+    private @Nullable DataSourceParametersPresto presto;
     /**
      * @return Parameters for connecting to RDS.
      * 
      */
-    private final @Nullable DataSourceParametersRds rds;
+    private @Nullable DataSourceParametersRds rds;
     /**
      * @return Parameters for connecting to Redshift.
      * 
      */
-    private final @Nullable DataSourceParametersRedshift redshift;
+    private @Nullable DataSourceParametersRedshift redshift;
     /**
      * @return Parameters for connecting to S3.
      * 
      */
-    private final @Nullable DataSourceParametersS3 s3;
+    private @Nullable DataSourceParametersS3 s3;
     /**
      * @return Parameters for connecting to ServiceNow.
      * 
      */
-    private final @Nullable DataSourceParametersServiceNow serviceNow;
+    private @Nullable DataSourceParametersServiceNow serviceNow;
     /**
      * @return Parameters for connecting to Snowflake.
      * 
      */
-    private final @Nullable DataSourceParametersSnowflake snowflake;
+    private @Nullable DataSourceParametersSnowflake snowflake;
     /**
      * @return Parameters for connecting to Spark.
      * 
      */
-    private final @Nullable DataSourceParametersSpark spark;
+    private @Nullable DataSourceParametersSpark spark;
     /**
      * @return Parameters for connecting to SQL Server.
      * 
      */
-    private final @Nullable DataSourceParametersSqlServer sqlServer;
+    private @Nullable DataSourceParametersSqlServer sqlServer;
     /**
      * @return Parameters for connecting to Teradata.
      * 
      */
-    private final @Nullable DataSourceParametersTeradata teradata;
+    private @Nullable DataSourceParametersTeradata teradata;
     /**
      * @return Parameters for connecting to Twitter.
      * 
      */
-    private final @Nullable DataSourceParametersTwitter twitter;
+    private @Nullable DataSourceParametersTwitter twitter;
 
-    @CustomType.Constructor
-    private DataSourceParameters(
-        @CustomType.Parameter("amazonElasticsearch") @Nullable DataSourceParametersAmazonElasticsearch amazonElasticsearch,
-        @CustomType.Parameter("athena") @Nullable DataSourceParametersAthena athena,
-        @CustomType.Parameter("aurora") @Nullable DataSourceParametersAurora aurora,
-        @CustomType.Parameter("auroraPostgresql") @Nullable DataSourceParametersAuroraPostgresql auroraPostgresql,
-        @CustomType.Parameter("awsIotAnalytics") @Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics,
-        @CustomType.Parameter("jira") @Nullable DataSourceParametersJira jira,
-        @CustomType.Parameter("mariaDb") @Nullable DataSourceParametersMariaDb mariaDb,
-        @CustomType.Parameter("mysql") @Nullable DataSourceParametersMysql mysql,
-        @CustomType.Parameter("oracle") @Nullable DataSourceParametersOracle oracle,
-        @CustomType.Parameter("postgresql") @Nullable DataSourceParametersPostgresql postgresql,
-        @CustomType.Parameter("presto") @Nullable DataSourceParametersPresto presto,
-        @CustomType.Parameter("rds") @Nullable DataSourceParametersRds rds,
-        @CustomType.Parameter("redshift") @Nullable DataSourceParametersRedshift redshift,
-        @CustomType.Parameter("s3") @Nullable DataSourceParametersS3 s3,
-        @CustomType.Parameter("serviceNow") @Nullable DataSourceParametersServiceNow serviceNow,
-        @CustomType.Parameter("snowflake") @Nullable DataSourceParametersSnowflake snowflake,
-        @CustomType.Parameter("spark") @Nullable DataSourceParametersSpark spark,
-        @CustomType.Parameter("sqlServer") @Nullable DataSourceParametersSqlServer sqlServer,
-        @CustomType.Parameter("teradata") @Nullable DataSourceParametersTeradata teradata,
-        @CustomType.Parameter("twitter") @Nullable DataSourceParametersTwitter twitter) {
-        this.amazonElasticsearch = amazonElasticsearch;
-        this.athena = athena;
-        this.aurora = aurora;
-        this.auroraPostgresql = auroraPostgresql;
-        this.awsIotAnalytics = awsIotAnalytics;
-        this.jira = jira;
-        this.mariaDb = mariaDb;
-        this.mysql = mysql;
-        this.oracle = oracle;
-        this.postgresql = postgresql;
-        this.presto = presto;
-        this.rds = rds;
-        this.redshift = redshift;
-        this.s3 = s3;
-        this.serviceNow = serviceNow;
-        this.snowflake = snowflake;
-        this.spark = spark;
-        this.sqlServer = sqlServer;
-        this.teradata = teradata;
-        this.twitter = twitter;
-    }
-
+    private DataSourceParameters() {}
     /**
      * @return Parameters for connecting to Amazon Elasticsearch.
      * 
@@ -323,7 +280,7 @@ public final class DataSourceParameters {
     public static Builder builder(DataSourceParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceParametersAmazonElasticsearch amazonElasticsearch;
         private @Nullable DataSourceParametersAthena athena;
@@ -345,11 +302,7 @@ public final class DataSourceParameters {
         private @Nullable DataSourceParametersSqlServer sqlServer;
         private @Nullable DataSourceParametersTeradata teradata;
         private @Nullable DataSourceParametersTwitter twitter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amazonElasticsearch = defaults.amazonElasticsearch;
@@ -374,87 +327,129 @@ public final class DataSourceParameters {
     	      this.twitter = defaults.twitter;
         }
 
+        @CustomType.Setter
         public Builder amazonElasticsearch(@Nullable DataSourceParametersAmazonElasticsearch amazonElasticsearch) {
             this.amazonElasticsearch = amazonElasticsearch;
             return this;
         }
+        @CustomType.Setter
         public Builder athena(@Nullable DataSourceParametersAthena athena) {
             this.athena = athena;
             return this;
         }
+        @CustomType.Setter
         public Builder aurora(@Nullable DataSourceParametersAurora aurora) {
             this.aurora = aurora;
             return this;
         }
+        @CustomType.Setter
         public Builder auroraPostgresql(@Nullable DataSourceParametersAuroraPostgresql auroraPostgresql) {
             this.auroraPostgresql = auroraPostgresql;
             return this;
         }
+        @CustomType.Setter
         public Builder awsIotAnalytics(@Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics) {
             this.awsIotAnalytics = awsIotAnalytics;
             return this;
         }
+        @CustomType.Setter
         public Builder jira(@Nullable DataSourceParametersJira jira) {
             this.jira = jira;
             return this;
         }
+        @CustomType.Setter
         public Builder mariaDb(@Nullable DataSourceParametersMariaDb mariaDb) {
             this.mariaDb = mariaDb;
             return this;
         }
+        @CustomType.Setter
         public Builder mysql(@Nullable DataSourceParametersMysql mysql) {
             this.mysql = mysql;
             return this;
         }
+        @CustomType.Setter
         public Builder oracle(@Nullable DataSourceParametersOracle oracle) {
             this.oracle = oracle;
             return this;
         }
+        @CustomType.Setter
         public Builder postgresql(@Nullable DataSourceParametersPostgresql postgresql) {
             this.postgresql = postgresql;
             return this;
         }
+        @CustomType.Setter
         public Builder presto(@Nullable DataSourceParametersPresto presto) {
             this.presto = presto;
             return this;
         }
+        @CustomType.Setter
         public Builder rds(@Nullable DataSourceParametersRds rds) {
             this.rds = rds;
             return this;
         }
+        @CustomType.Setter
         public Builder redshift(@Nullable DataSourceParametersRedshift redshift) {
             this.redshift = redshift;
             return this;
         }
+        @CustomType.Setter
         public Builder s3(@Nullable DataSourceParametersS3 s3) {
             this.s3 = s3;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceNow(@Nullable DataSourceParametersServiceNow serviceNow) {
             this.serviceNow = serviceNow;
             return this;
         }
+        @CustomType.Setter
         public Builder snowflake(@Nullable DataSourceParametersSnowflake snowflake) {
             this.snowflake = snowflake;
             return this;
         }
+        @CustomType.Setter
         public Builder spark(@Nullable DataSourceParametersSpark spark) {
             this.spark = spark;
             return this;
         }
+        @CustomType.Setter
         public Builder sqlServer(@Nullable DataSourceParametersSqlServer sqlServer) {
             this.sqlServer = sqlServer;
             return this;
         }
+        @CustomType.Setter
         public Builder teradata(@Nullable DataSourceParametersTeradata teradata) {
             this.teradata = teradata;
             return this;
         }
+        @CustomType.Setter
         public Builder twitter(@Nullable DataSourceParametersTwitter twitter) {
             this.twitter = twitter;
             return this;
-        }        public DataSourceParameters build() {
-            return new DataSourceParameters(amazonElasticsearch, athena, aurora, auroraPostgresql, awsIotAnalytics, jira, mariaDb, mysql, oracle, postgresql, presto, rds, redshift, s3, serviceNow, snowflake, spark, sqlServer, teradata, twitter);
+        }
+        public DataSourceParameters build() {
+            final var o = new DataSourceParameters();
+            o.amazonElasticsearch = amazonElasticsearch;
+            o.athena = athena;
+            o.aurora = aurora;
+            o.auroraPostgresql = auroraPostgresql;
+            o.awsIotAnalytics = awsIotAnalytics;
+            o.jira = jira;
+            o.mariaDb = mariaDb;
+            o.mysql = mysql;
+            o.oracle = oracle;
+            o.postgresql = postgresql;
+            o.presto = presto;
+            o.rds = rds;
+            o.redshift = redshift;
+            o.s3 = s3;
+            o.serviceNow = serviceNow;
+            o.snowflake = snowflake;
+            o.spark = spark;
+            o.sqlServer = sqlServer;
+            o.teradata = teradata;
+            o.twitter = twitter;
+            return o;
         }
     }
 }

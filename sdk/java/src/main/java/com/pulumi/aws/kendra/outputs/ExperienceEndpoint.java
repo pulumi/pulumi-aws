@@ -15,21 +15,14 @@ public final class ExperienceEndpoint {
      * @return The endpoint of your Amazon Kendra experience.
      * 
      */
-    private final @Nullable String endpoint;
+    private @Nullable String endpoint;
     /**
      * @return The type of endpoint for your Amazon Kendra experience.
      * 
      */
-    private final @Nullable String endpointType;
+    private @Nullable String endpointType;
 
-    @CustomType.Constructor
-    private ExperienceEndpoint(
-        @CustomType.Parameter("endpoint") @Nullable String endpoint,
-        @CustomType.Parameter("endpointType") @Nullable String endpointType) {
-        this.endpoint = endpoint;
-        this.endpointType = endpointType;
-    }
-
+    private ExperienceEndpoint() {}
     /**
      * @return The endpoint of your Amazon Kendra experience.
      * 
@@ -52,30 +45,32 @@ public final class ExperienceEndpoint {
     public static Builder builder(ExperienceEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String endpoint;
         private @Nullable String endpointType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExperienceEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
     	      this.endpointType = defaults.endpointType;
         }
 
+        @CustomType.Setter
         public Builder endpoint(@Nullable String endpoint) {
             this.endpoint = endpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder endpointType(@Nullable String endpointType) {
             this.endpointType = endpointType;
             return this;
-        }        public ExperienceEndpoint build() {
-            return new ExperienceEndpoint(endpoint, endpointType);
+        }
+        public ExperienceEndpoint build() {
+            final var o = new ExperienceEndpoint();
+            o.endpoint = endpoint;
+            o.endpointType = endpointType;
+            return o;
         }
     }
 }

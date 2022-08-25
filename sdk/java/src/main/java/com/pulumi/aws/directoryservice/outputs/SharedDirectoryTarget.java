@@ -15,21 +15,14 @@ public final class SharedDirectoryTarget {
      * @return Identifier of the directory consumer account.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private SharedDirectoryTarget(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private SharedDirectoryTarget() {}
     /**
      * @return Identifier of the directory consumer account.
      * 
@@ -52,30 +45,32 @@ public final class SharedDirectoryTarget {
     public static Builder builder(SharedDirectoryTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SharedDirectoryTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public SharedDirectoryTarget build() {
-            return new SharedDirectoryTarget(id, type);
+        }
+        public SharedDirectoryTarget build() {
+            final var o = new SharedDirectoryTarget();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -16,42 +16,29 @@ public final class ResourceSetResourceDnsTargetResource {
      * @return Domain name that is targeted.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return Hosted Zone ARN that contains the DNS record with the provided name of target resource.
      * 
      */
-    private final @Nullable String hostedZoneArn;
+    private @Nullable String hostedZoneArn;
     /**
      * @return Resource record set ID that is targeted.
      * 
      */
-    private final @Nullable String recordSetId;
+    private @Nullable String recordSetId;
     /**
      * @return Type of DNS Record of target resource.
      * 
      */
-    private final @Nullable String recordType;
+    private @Nullable String recordType;
     /**
      * @return Target resource the R53 record specified with the above params points to.
      * 
      */
-    private final @Nullable ResourceSetResourceDnsTargetResourceTargetResource targetResource;
+    private @Nullable ResourceSetResourceDnsTargetResourceTargetResource targetResource;
 
-    @CustomType.Constructor
-    private ResourceSetResourceDnsTargetResource(
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("hostedZoneArn") @Nullable String hostedZoneArn,
-        @CustomType.Parameter("recordSetId") @Nullable String recordSetId,
-        @CustomType.Parameter("recordType") @Nullable String recordType,
-        @CustomType.Parameter("targetResource") @Nullable ResourceSetResourceDnsTargetResourceTargetResource targetResource) {
-        this.domainName = domainName;
-        this.hostedZoneArn = hostedZoneArn;
-        this.recordSetId = recordSetId;
-        this.recordType = recordType;
-        this.targetResource = targetResource;
-    }
-
+    private ResourceSetResourceDnsTargetResource() {}
     /**
      * @return Domain name that is targeted.
      * 
@@ -95,18 +82,14 @@ public final class ResourceSetResourceDnsTargetResource {
     public static Builder builder(ResourceSetResourceDnsTargetResource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domainName;
         private @Nullable String hostedZoneArn;
         private @Nullable String recordSetId;
         private @Nullable String recordType;
         private @Nullable ResourceSetResourceDnsTargetResourceTargetResource targetResource;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceSetResourceDnsTargetResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainName = defaults.domainName;
@@ -116,27 +99,39 @@ public final class ResourceSetResourceDnsTargetResource {
     	      this.targetResource = defaults.targetResource;
         }
 
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder hostedZoneArn(@Nullable String hostedZoneArn) {
             this.hostedZoneArn = hostedZoneArn;
             return this;
         }
+        @CustomType.Setter
         public Builder recordSetId(@Nullable String recordSetId) {
             this.recordSetId = recordSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder recordType(@Nullable String recordType) {
             this.recordType = recordType;
             return this;
         }
+        @CustomType.Setter
         public Builder targetResource(@Nullable ResourceSetResourceDnsTargetResourceTargetResource targetResource) {
             this.targetResource = targetResource;
             return this;
-        }        public ResourceSetResourceDnsTargetResource build() {
-            return new ResourceSetResourceDnsTargetResource(domainName, hostedZoneArn, recordSetId, recordType, targetResource);
+        }
+        public ResourceSetResourceDnsTargetResource build() {
+            final var o = new ResourceSetResourceDnsTargetResource();
+            o.domainName = domainName;
+            o.hostedZoneArn = hostedZoneArn;
+            o.recordSetId = recordSetId;
+            o.recordType = recordType;
+            o.targetResource = targetResource;
+            return o;
         }
     }
 }

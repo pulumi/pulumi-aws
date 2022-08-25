@@ -15,21 +15,14 @@ public final class TriggerEventBatchingCondition {
      * @return Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
      * 
      */
-    private final Integer batchSize;
+    private Integer batchSize;
     /**
      * @return Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
      * 
      */
-    private final @Nullable Integer batchWindow;
+    private @Nullable Integer batchWindow;
 
-    @CustomType.Constructor
-    private TriggerEventBatchingCondition(
-        @CustomType.Parameter("batchSize") Integer batchSize,
-        @CustomType.Parameter("batchWindow") @Nullable Integer batchWindow) {
-        this.batchSize = batchSize;
-        this.batchWindow = batchWindow;
-    }
-
+    private TriggerEventBatchingCondition() {}
     /**
      * @return Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
      * 
@@ -52,30 +45,32 @@ public final class TriggerEventBatchingCondition {
     public static Builder builder(TriggerEventBatchingCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer batchSize;
         private @Nullable Integer batchWindow;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerEventBatchingCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.batchSize = defaults.batchSize;
     	      this.batchWindow = defaults.batchWindow;
         }
 
+        @CustomType.Setter
         public Builder batchSize(Integer batchSize) {
             this.batchSize = Objects.requireNonNull(batchSize);
             return this;
         }
+        @CustomType.Setter
         public Builder batchWindow(@Nullable Integer batchWindow) {
             this.batchWindow = batchWindow;
             return this;
-        }        public TriggerEventBatchingCondition build() {
-            return new TriggerEventBatchingCondition(batchSize, batchWindow);
+        }
+        public TriggerEventBatchingCondition build() {
+            final var o = new TriggerEventBatchingCondition();
+            o.batchSize = batchSize;
+            o.batchWindow = batchWindow;
+            return o;
         }
     }
 }

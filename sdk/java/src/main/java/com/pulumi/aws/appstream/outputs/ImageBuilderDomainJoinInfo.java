@@ -15,21 +15,14 @@ public final class ImageBuilderDomainJoinInfo {
      * @return Fully qualified name of the directory (for example, corp.example.com).
      * 
      */
-    private final @Nullable String directoryName;
+    private @Nullable String directoryName;
     /**
      * @return Distinguished name of the organizational unit for computer accounts.
      * 
      */
-    private final @Nullable String organizationalUnitDistinguishedName;
+    private @Nullable String organizationalUnitDistinguishedName;
 
-    @CustomType.Constructor
-    private ImageBuilderDomainJoinInfo(
-        @CustomType.Parameter("directoryName") @Nullable String directoryName,
-        @CustomType.Parameter("organizationalUnitDistinguishedName") @Nullable String organizationalUnitDistinguishedName) {
-        this.directoryName = directoryName;
-        this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-    }
-
+    private ImageBuilderDomainJoinInfo() {}
     /**
      * @return Fully qualified name of the directory (for example, corp.example.com).
      * 
@@ -52,30 +45,32 @@ public final class ImageBuilderDomainJoinInfo {
     public static Builder builder(ImageBuilderDomainJoinInfo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String directoryName;
         private @Nullable String organizationalUnitDistinguishedName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ImageBuilderDomainJoinInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.directoryName = defaults.directoryName;
     	      this.organizationalUnitDistinguishedName = defaults.organizationalUnitDistinguishedName;
         }
 
+        @CustomType.Setter
         public Builder directoryName(@Nullable String directoryName) {
             this.directoryName = directoryName;
             return this;
         }
+        @CustomType.Setter
         public Builder organizationalUnitDistinguishedName(@Nullable String organizationalUnitDistinguishedName) {
             this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             return this;
-        }        public ImageBuilderDomainJoinInfo build() {
-            return new ImageBuilderDomainJoinInfo(directoryName, organizationalUnitDistinguishedName);
+        }
+        public ImageBuilderDomainJoinInfo build() {
+            final var o = new ImageBuilderDomainJoinInfo();
+            o.directoryName = directoryName;
+            o.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
+            return o;
         }
     }
 }

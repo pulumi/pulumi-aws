@@ -14,13 +14,9 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
      * @return Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
      * 
      */
-    private final List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
+    private List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
 
-    @CustomType.Constructor
-    private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction(@CustomType.Parameter("dimensions") List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions) {
-        this.dimensions = dimensions;
-    }
-
+    private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction() {}
     /**
      * @return Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
      * 
@@ -36,27 +32,27 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
     public static Builder builder(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
         }
 
+        @CustomType.Setter
         public Builder dimensions(List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions) {
             this.dimensions = Objects.requireNonNull(dimensions);
             return this;
         }
         public Builder dimensions(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension... dimensions) {
             return dimensions(List.of(dimensions));
-        }        public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction build() {
-            return new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction(dimensions);
+        }
+        public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction build() {
+            final var o = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction();
+            o.dimensions = dimensions;
+            return o;
         }
     }
 }

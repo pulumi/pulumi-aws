@@ -13,21 +13,14 @@ public final class GetTagsTimePeriod {
      * @return Beginning of the time period.
      * 
      */
-    private final String end;
+    private String end;
     /**
      * @return End of the time period.
      * 
      */
-    private final String start;
+    private String start;
 
-    @CustomType.Constructor
-    private GetTagsTimePeriod(
-        @CustomType.Parameter("end") String end,
-        @CustomType.Parameter("start") String start) {
-        this.end = end;
-        this.start = start;
-    }
-
+    private GetTagsTimePeriod() {}
     /**
      * @return Beginning of the time period.
      * 
@@ -50,30 +43,32 @@ public final class GetTagsTimePeriod {
     public static Builder builder(GetTagsTimePeriod defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String end;
         private String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTagsTimePeriod defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.end = defaults.end;
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder end(String end) {
             this.end = Objects.requireNonNull(end);
             return this;
         }
+        @CustomType.Setter
         public Builder start(String start) {
             this.start = Objects.requireNonNull(start);
             return this;
-        }        public GetTagsTimePeriod build() {
-            return new GetTagsTimePeriod(end, start);
+        }
+        public GetTagsTimePeriod build() {
+            final var o = new GetTagsTimePeriod();
+            o.end = end;
+            o.start = start;
+            return o;
         }
     }
 }

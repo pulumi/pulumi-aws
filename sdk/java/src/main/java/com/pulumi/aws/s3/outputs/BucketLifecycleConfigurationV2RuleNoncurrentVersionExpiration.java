@@ -16,21 +16,14 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
      * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
-    private final @Nullable String newerNoncurrentVersions;
+    private @Nullable String newerNoncurrentVersions;
     /**
      * @return The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
      * 
      */
-    private final @Nullable Integer noncurrentDays;
+    private @Nullable Integer noncurrentDays;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(
-        @CustomType.Parameter("newerNoncurrentVersions") @Nullable String newerNoncurrentVersions,
-        @CustomType.Parameter("noncurrentDays") @Nullable Integer noncurrentDays) {
-        this.newerNoncurrentVersions = newerNoncurrentVersions;
-        this.noncurrentDays = noncurrentDays;
-    }
-
+    private BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration() {}
     /**
      * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
@@ -53,30 +46,32 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
     public static Builder builder(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String newerNoncurrentVersions;
         private @Nullable Integer noncurrentDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.newerNoncurrentVersions = defaults.newerNoncurrentVersions;
     	      this.noncurrentDays = defaults.noncurrentDays;
         }
 
+        @CustomType.Setter
         public Builder newerNoncurrentVersions(@Nullable String newerNoncurrentVersions) {
             this.newerNoncurrentVersions = newerNoncurrentVersions;
             return this;
         }
+        @CustomType.Setter
         public Builder noncurrentDays(@Nullable Integer noncurrentDays) {
             this.noncurrentDays = noncurrentDays;
             return this;
-        }        public BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration build() {
-            return new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(newerNoncurrentVersions, noncurrentDays);
+        }
+        public BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration build() {
+            final var o = new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration();
+            o.newerNoncurrentVersions = newerNoncurrentVersions;
+            o.noncurrentDays = noncurrentDays;
+            return o;
         }
     }
 }

@@ -10,28 +10,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOutpostInstanceTypesResult {
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set of instance types.
      * 
      */
-    private final List<String> instanceTypes;
+    private List<String> instanceTypes;
 
-    @CustomType.Constructor
-    private GetOutpostInstanceTypesResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceTypes") List<String> instanceTypes) {
-        this.arn = arn;
-        this.id = id;
-        this.instanceTypes = instanceTypes;
-    }
-
+    private GetOutpostInstanceTypesResult() {}
     public String arn() {
         return this.arn;
     }
@@ -57,16 +48,12 @@ public final class GetOutpostInstanceTypesResult {
     public static Builder builder(GetOutpostInstanceTypesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private List<String> instanceTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOutpostInstanceTypesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -74,22 +61,30 @@ public final class GetOutpostInstanceTypesResult {
     	      this.instanceTypes = defaults.instanceTypes;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceTypes(List<String> instanceTypes) {
             this.instanceTypes = Objects.requireNonNull(instanceTypes);
             return this;
         }
         public Builder instanceTypes(String... instanceTypes) {
             return instanceTypes(List.of(instanceTypes));
-        }        public GetOutpostInstanceTypesResult build() {
-            return new GetOutpostInstanceTypesResult(arn, id, instanceTypes);
+        }
+        public GetOutpostInstanceTypesResult build() {
+            final var o = new GetOutpostInstanceTypesResult();
+            o.arn = arn;
+            o.id = id;
+            o.instanceTypes = instanceTypes;
+            return o;
         }
     }
 }

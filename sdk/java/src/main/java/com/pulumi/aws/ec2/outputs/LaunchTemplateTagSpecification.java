@@ -16,21 +16,14 @@ public final class LaunchTemplateTagSpecification {
      * @return The type of resource to tag.
      * 
      */
-    private final @Nullable String resourceType;
+    private @Nullable String resourceType;
     /**
      * @return A map of tags to assign to the resource.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private LaunchTemplateTagSpecification(
-        @CustomType.Parameter("resourceType") @Nullable String resourceType,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.resourceType = resourceType;
-        this.tags = tags;
-    }
-
+    private LaunchTemplateTagSpecification() {}
     /**
      * @return The type of resource to tag.
      * 
@@ -53,30 +46,32 @@ public final class LaunchTemplateTagSpecification {
     public static Builder builder(LaunchTemplateTagSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String resourceType;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateTagSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceType = defaults.resourceType;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
             this.resourceType = resourceType;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public LaunchTemplateTagSpecification build() {
-            return new LaunchTemplateTagSpecification(resourceType, tags);
+        }
+        public LaunchTemplateTagSpecification build() {
+            final var o = new LaunchTemplateTagSpecification();
+            o.resourceType = resourceType;
+            o.tags = tags;
+            return o;
         }
     }
 }

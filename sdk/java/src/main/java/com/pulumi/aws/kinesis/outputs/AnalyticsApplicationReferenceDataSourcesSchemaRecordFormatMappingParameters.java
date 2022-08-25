@@ -17,22 +17,15 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
      * See CSV Mapping Parameters below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv csv;
+    private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv csv;
     /**
      * @return Mapping information when JSON is the record format on the streaming source.
      * See JSON Mapping Parameters below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson json;
+    private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson json;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters(
-        @CustomType.Parameter("csv") @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv csv,
-        @CustomType.Parameter("json") @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson json) {
-        this.csv = csv;
-        this.json = json;
-    }
-
+    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters() {}
     /**
      * @return Mapping information when the record format uses delimiters.
      * See CSV Mapping Parameters below for more details.
@@ -57,30 +50,32 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
     public static Builder builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv csv;
         private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson json;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.csv = defaults.csv;
     	      this.json = defaults.json;
         }
 
+        @CustomType.Setter
         public Builder csv(@Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv csv) {
             this.csv = csv;
             return this;
         }
+        @CustomType.Setter
         public Builder json(@Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson json) {
             this.json = json;
             return this;
-        }        public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters build() {
-            return new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters(csv, json);
+        }
+        public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters build() {
+            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters();
+            o.csv = csv;
+            o.json = json;
+            return o;
         }
     }
 }

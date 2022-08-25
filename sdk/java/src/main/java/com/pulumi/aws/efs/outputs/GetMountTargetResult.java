@@ -12,97 +12,66 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMountTargetResult {
-    private final @Nullable String accessPointId;
+    private @Nullable String accessPointId;
     /**
      * @return The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    private final String availabilityZoneId;
+    private String availabilityZoneId;
     /**
      * @return The name of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    private final String availabilityZoneName;
+    private String availabilityZoneName;
     /**
      * @return The DNS name for the EFS file system.
      * 
      */
-    private final String dnsName;
+    private String dnsName;
     /**
      * @return Amazon Resource Name of the file system for which the mount target is intended.
      * 
      */
-    private final String fileSystemArn;
-    private final String fileSystemId;
+    private String fileSystemArn;
+    private String fileSystemId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Address at which the file system may be mounted via the mount target.
      * 
      */
-    private final String ipAddress;
+    private String ipAddress;
     /**
      * @return The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    private final String mountTargetDnsName;
-    private final String mountTargetId;
+    private String mountTargetDnsName;
+    private String mountTargetId;
     /**
      * @return The ID of the network interface that Amazon EFS created when it created the mount target.
      * 
      */
-    private final String networkInterfaceId;
+    private String networkInterfaceId;
     /**
      * @return AWS account ID that owns the resource.
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return List of VPC security group IDs attached to the mount target.
      * 
      */
-    private final List<String> securityGroups;
+    private List<String> securityGroups;
     /**
      * @return ID of the mount target&#39;s subnet.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetMountTargetResult(
-        @CustomType.Parameter("accessPointId") @Nullable String accessPointId,
-        @CustomType.Parameter("availabilityZoneId") String availabilityZoneId,
-        @CustomType.Parameter("availabilityZoneName") String availabilityZoneName,
-        @CustomType.Parameter("dnsName") String dnsName,
-        @CustomType.Parameter("fileSystemArn") String fileSystemArn,
-        @CustomType.Parameter("fileSystemId") String fileSystemId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("mountTargetDnsName") String mountTargetDnsName,
-        @CustomType.Parameter("mountTargetId") String mountTargetId,
-        @CustomType.Parameter("networkInterfaceId") String networkInterfaceId,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("securityGroups") List<String> securityGroups,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.accessPointId = accessPointId;
-        this.availabilityZoneId = availabilityZoneId;
-        this.availabilityZoneName = availabilityZoneName;
-        this.dnsName = dnsName;
-        this.fileSystemArn = fileSystemArn;
-        this.fileSystemId = fileSystemId;
-        this.id = id;
-        this.ipAddress = ipAddress;
-        this.mountTargetDnsName = mountTargetDnsName;
-        this.mountTargetId = mountTargetId;
-        this.networkInterfaceId = networkInterfaceId;
-        this.ownerId = ownerId;
-        this.securityGroups = securityGroups;
-        this.subnetId = subnetId;
-    }
-
+    private GetMountTargetResult() {}
     public Optional<String> accessPointId() {
         return Optional.ofNullable(this.accessPointId);
     }
@@ -197,7 +166,7 @@ public final class GetMountTargetResult {
     public static Builder builder(GetMountTargetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessPointId;
         private String availabilityZoneId;
@@ -213,11 +182,7 @@ public final class GetMountTargetResult {
         private String ownerId;
         private List<String> securityGroups;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMountTargetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPointId = defaults.accessPointId;
@@ -236,54 +201,67 @@ public final class GetMountTargetResult {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder accessPointId(@Nullable String accessPointId) {
             this.accessPointId = accessPointId;
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZoneId(String availabilityZoneId) {
             this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZoneName(String availabilityZoneName) {
             this.availabilityZoneName = Objects.requireNonNull(availabilityZoneName);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsName(String dnsName) {
             this.dnsName = Objects.requireNonNull(dnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemArn(String fileSystemArn) {
             this.fileSystemArn = Objects.requireNonNull(fileSystemArn);
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
             this.fileSystemId = Objects.requireNonNull(fileSystemId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder mountTargetDnsName(String mountTargetDnsName) {
             this.mountTargetDnsName = Objects.requireNonNull(mountTargetDnsName);
             return this;
         }
+        @CustomType.Setter
         public Builder mountTargetId(String mountTargetId) {
             this.mountTargetId = Objects.requireNonNull(mountTargetId);
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
             this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             this.securityGroups = Objects.requireNonNull(securityGroups);
             return this;
@@ -291,11 +269,28 @@ public final class GetMountTargetResult {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetMountTargetResult build() {
-            return new GetMountTargetResult(accessPointId, availabilityZoneId, availabilityZoneName, dnsName, fileSystemArn, fileSystemId, id, ipAddress, mountTargetDnsName, mountTargetId, networkInterfaceId, ownerId, securityGroups, subnetId);
+        }
+        public GetMountTargetResult build() {
+            final var o = new GetMountTargetResult();
+            o.accessPointId = accessPointId;
+            o.availabilityZoneId = availabilityZoneId;
+            o.availabilityZoneName = availabilityZoneName;
+            o.dnsName = dnsName;
+            o.fileSystemArn = fileSystemArn;
+            o.fileSystemId = fileSystemId;
+            o.id = id;
+            o.ipAddress = ipAddress;
+            o.mountTargetDnsName = mountTargetDnsName;
+            o.mountTargetId = mountTargetId;
+            o.networkInterfaceId = networkInterfaceId;
+            o.ownerId = ownerId;
+            o.securityGroups = securityGroups;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

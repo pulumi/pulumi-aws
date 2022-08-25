@@ -32,133 +32,94 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude amplitude;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude amplitude;
     /**
      * @return The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector customConnector;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector customConnector;
     /**
      * @return The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog datadog;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog datadog;
     /**
      * @return The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace dynatrace;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace dynatrace;
     /**
      * @return The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics googleAnalytics;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics googleAnalytics;
     /**
      * @return The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode honeycode;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode honeycode;
     /**
      * @return The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus inforNexus;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus inforNexus;
     /**
      * @return The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo marketo;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo marketo;
     /**
      * @return The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift redshift;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift redshift;
     /**
      * @return The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce salesforce;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce salesforce;
     /**
      * @return The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData sapoData;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData sapoData;
     /**
      * @return The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow serviceNow;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow serviceNow;
     /**
      * @return The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular singular;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular singular;
     /**
      * @return The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack slack;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack slack;
     /**
      * @return The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake snowflake;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake snowflake;
     /**
      * @return The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro;
     /**
      * @return The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva veeva;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva veeva;
     /**
      * @return The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileProperties(
-        @CustomType.Parameter("amplitude") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude amplitude,
-        @CustomType.Parameter("customConnector") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector customConnector,
-        @CustomType.Parameter("datadog") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog datadog,
-        @CustomType.Parameter("dynatrace") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace dynatrace,
-        @CustomType.Parameter("googleAnalytics") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics googleAnalytics,
-        @CustomType.Parameter("honeycode") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode honeycode,
-        @CustomType.Parameter("inforNexus") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus inforNexus,
-        @CustomType.Parameter("marketo") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo marketo,
-        @CustomType.Parameter("redshift") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift redshift,
-        @CustomType.Parameter("salesforce") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce salesforce,
-        @CustomType.Parameter("sapoData") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData sapoData,
-        @CustomType.Parameter("serviceNow") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow serviceNow,
-        @CustomType.Parameter("singular") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular singular,
-        @CustomType.Parameter("slack") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack slack,
-        @CustomType.Parameter("snowflake") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake snowflake,
-        @CustomType.Parameter("trendmicro") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro,
-        @CustomType.Parameter("veeva") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva veeva,
-        @CustomType.Parameter("zendesk") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk) {
-        this.amplitude = amplitude;
-        this.customConnector = customConnector;
-        this.datadog = datadog;
-        this.dynatrace = dynatrace;
-        this.googleAnalytics = googleAnalytics;
-        this.honeycode = honeycode;
-        this.inforNexus = inforNexus;
-        this.marketo = marketo;
-        this.redshift = redshift;
-        this.salesforce = salesforce;
-        this.sapoData = sapoData;
-        this.serviceNow = serviceNow;
-        this.singular = singular;
-        this.slack = slack;
-        this.snowflake = snowflake;
-        this.trendmicro = trendmicro;
-        this.veeva = veeva;
-        this.zendesk = zendesk;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileProperties() {}
     /**
      * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
      * 
@@ -293,7 +254,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude amplitude;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector customConnector;
@@ -313,11 +274,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva veeva;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amplitude = defaults.amplitude;
@@ -340,79 +297,117 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     	      this.zendesk = defaults.zendesk;
         }
 
+        @CustomType.Setter
         public Builder amplitude(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude amplitude) {
             this.amplitude = amplitude;
             return this;
         }
+        @CustomType.Setter
         public Builder customConnector(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector customConnector) {
             this.customConnector = customConnector;
             return this;
         }
+        @CustomType.Setter
         public Builder datadog(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog datadog) {
             this.datadog = datadog;
             return this;
         }
+        @CustomType.Setter
         public Builder dynatrace(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace dynatrace) {
             this.dynatrace = dynatrace;
             return this;
         }
+        @CustomType.Setter
         public Builder googleAnalytics(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics googleAnalytics) {
             this.googleAnalytics = googleAnalytics;
             return this;
         }
+        @CustomType.Setter
         public Builder honeycode(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode honeycode) {
             this.honeycode = honeycode;
             return this;
         }
+        @CustomType.Setter
         public Builder inforNexus(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus inforNexus) {
             this.inforNexus = inforNexus;
             return this;
         }
+        @CustomType.Setter
         public Builder marketo(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo marketo) {
             this.marketo = marketo;
             return this;
         }
+        @CustomType.Setter
         public Builder redshift(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift redshift) {
             this.redshift = redshift;
             return this;
         }
+        @CustomType.Setter
         public Builder salesforce(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce salesforce) {
             this.salesforce = salesforce;
             return this;
         }
+        @CustomType.Setter
         public Builder sapoData(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData sapoData) {
             this.sapoData = sapoData;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceNow(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow serviceNow) {
             this.serviceNow = serviceNow;
             return this;
         }
+        @CustomType.Setter
         public Builder singular(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular singular) {
             this.singular = singular;
             return this;
         }
+        @CustomType.Setter
         public Builder slack(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack slack) {
             this.slack = slack;
             return this;
         }
+        @CustomType.Setter
         public Builder snowflake(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake snowflake) {
             this.snowflake = snowflake;
             return this;
         }
+        @CustomType.Setter
         public Builder trendmicro(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro) {
             this.trendmicro = trendmicro;
             return this;
         }
+        @CustomType.Setter
         public Builder veeva(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva veeva) {
             this.veeva = veeva;
             return this;
         }
+        @CustomType.Setter
         public Builder zendesk(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk) {
             this.zendesk = zendesk;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileProperties build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileProperties(amplitude, customConnector, datadog, dynatrace, googleAnalytics, honeycode, inforNexus, marketo, redshift, salesforce, sapoData, serviceNow, singular, slack, snowflake, trendmicro, veeva, zendesk);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileProperties build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileProperties();
+            o.amplitude = amplitude;
+            o.customConnector = customConnector;
+            o.datadog = datadog;
+            o.dynatrace = dynatrace;
+            o.googleAnalytics = googleAnalytics;
+            o.honeycode = honeycode;
+            o.inforNexus = inforNexus;
+            o.marketo = marketo;
+            o.redshift = redshift;
+            o.salesforce = salesforce;
+            o.sapoData = sapoData;
+            o.serviceNow = serviceNow;
+            o.singular = singular;
+            o.slack = slack;
+            o.snowflake = snowflake;
+            o.trendmicro = trendmicro;
+            o.veeva = veeva;
+            o.zendesk = zendesk;
+            return o;
         }
     }
 }

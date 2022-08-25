@@ -14,21 +14,14 @@ public final class RiskConfigurationAccountTakeoverRiskConfiguration {
      * @return The compromised credentials risk configuration actions. See details below.
      * 
      */
-    private final RiskConfigurationAccountTakeoverRiskConfigurationActions actions;
+    private RiskConfigurationAccountTakeoverRiskConfigurationActions actions;
     /**
      * @return The notify configuration used to construct email notifications. See details below.
      * 
      */
-    private final RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration;
+    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration;
 
-    @CustomType.Constructor
-    private RiskConfigurationAccountTakeoverRiskConfiguration(
-        @CustomType.Parameter("actions") RiskConfigurationAccountTakeoverRiskConfigurationActions actions,
-        @CustomType.Parameter("notifyConfiguration") RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration) {
-        this.actions = actions;
-        this.notifyConfiguration = notifyConfiguration;
-    }
-
+    private RiskConfigurationAccountTakeoverRiskConfiguration() {}
     /**
      * @return The compromised credentials risk configuration actions. See details below.
      * 
@@ -51,30 +44,32 @@ public final class RiskConfigurationAccountTakeoverRiskConfiguration {
     public static Builder builder(RiskConfigurationAccountTakeoverRiskConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RiskConfigurationAccountTakeoverRiskConfigurationActions actions;
         private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RiskConfigurationAccountTakeoverRiskConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.notifyConfiguration = defaults.notifyConfiguration;
         }
 
+        @CustomType.Setter
         public Builder actions(RiskConfigurationAccountTakeoverRiskConfigurationActions actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
         }
+        @CustomType.Setter
         public Builder notifyConfiguration(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration) {
             this.notifyConfiguration = Objects.requireNonNull(notifyConfiguration);
             return this;
-        }        public RiskConfigurationAccountTakeoverRiskConfiguration build() {
-            return new RiskConfigurationAccountTakeoverRiskConfiguration(actions, notifyConfiguration);
+        }
+        public RiskConfigurationAccountTakeoverRiskConfiguration build() {
+            final var o = new RiskConfigurationAccountTakeoverRiskConfiguration();
+            o.actions = actions;
+            o.notifyConfiguration = notifyConfiguration;
+            return o;
         }
     }
 }

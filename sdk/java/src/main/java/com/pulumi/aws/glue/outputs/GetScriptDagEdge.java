@@ -15,28 +15,19 @@ public final class GetScriptDagEdge {
      * @return The ID of the node at which the edge starts.
      * 
      */
-    private final String source;
+    private String source;
     /**
      * @return The ID of the node at which the edge ends.
      * 
      */
-    private final String target;
+    private String target;
     /**
      * @return The target of the edge.
      * 
      */
-    private final @Nullable String targetParameter;
+    private @Nullable String targetParameter;
 
-    @CustomType.Constructor
-    private GetScriptDagEdge(
-        @CustomType.Parameter("source") String source,
-        @CustomType.Parameter("target") String target,
-        @CustomType.Parameter("targetParameter") @Nullable String targetParameter) {
-        this.source = source;
-        this.target = target;
-        this.targetParameter = targetParameter;
-    }
-
+    private GetScriptDagEdge() {}
     /**
      * @return The ID of the node at which the edge starts.
      * 
@@ -66,16 +57,12 @@ public final class GetScriptDagEdge {
     public static Builder builder(GetScriptDagEdge defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String source;
         private String target;
         private @Nullable String targetParameter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScriptDagEdge defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.source = defaults.source;
@@ -83,19 +70,27 @@ public final class GetScriptDagEdge {
     	      this.targetParameter = defaults.targetParameter;
         }
 
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
         }
+        @CustomType.Setter
         public Builder target(String target) {
             this.target = Objects.requireNonNull(target);
             return this;
         }
+        @CustomType.Setter
         public Builder targetParameter(@Nullable String targetParameter) {
             this.targetParameter = targetParameter;
             return this;
-        }        public GetScriptDagEdge build() {
-            return new GetScriptDagEdge(source, target, targetParameter);
+        }
+        public GetScriptDagEdge build() {
+            final var o = new GetScriptDagEdge();
+            o.source = source;
+            o.target = target;
+            o.targetParameter = targetParameter;
+            return o;
         }
     }
 }

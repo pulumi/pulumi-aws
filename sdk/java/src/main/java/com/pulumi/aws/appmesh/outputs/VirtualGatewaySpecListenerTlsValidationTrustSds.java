@@ -13,13 +13,9 @@ public final class VirtualGatewaySpecListenerTlsValidationTrustSds {
      * @return The name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
-    private final String secretName;
+    private String secretName;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerTlsValidationTrustSds(@CustomType.Parameter("secretName") String secretName) {
-        this.secretName = secretName;
-    }
-
+    private VirtualGatewaySpecListenerTlsValidationTrustSds() {}
     /**
      * @return The name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
@@ -35,24 +31,24 @@ public final class VirtualGatewaySpecListenerTlsValidationTrustSds {
     public static Builder builder(VirtualGatewaySpecListenerTlsValidationTrustSds defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String secretName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerTlsValidationTrustSds defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretName = defaults.secretName;
         }
 
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
-        }        public VirtualGatewaySpecListenerTlsValidationTrustSds build() {
-            return new VirtualGatewaySpecListenerTlsValidationTrustSds(secretName);
+        }
+        public VirtualGatewaySpecListenerTlsValidationTrustSds build() {
+            final var o = new VirtualGatewaySpecListenerTlsValidationTrustSds();
+            o.secretName = secretName;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class ResourceServerScope {
      * @return The scope description.
      * 
      */
-    private final String scopeDescription;
+    private String scopeDescription;
     /**
      * @return The scope name.
      * 
      */
-    private final String scopeName;
+    private String scopeName;
 
-    @CustomType.Constructor
-    private ResourceServerScope(
-        @CustomType.Parameter("scopeDescription") String scopeDescription,
-        @CustomType.Parameter("scopeName") String scopeName) {
-        this.scopeDescription = scopeDescription;
-        this.scopeName = scopeName;
-    }
-
+    private ResourceServerScope() {}
     /**
      * @return The scope description.
      * 
@@ -50,30 +43,32 @@ public final class ResourceServerScope {
     public static Builder builder(ResourceServerScope defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String scopeDescription;
         private String scopeName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceServerScope defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.scopeDescription = defaults.scopeDescription;
     	      this.scopeName = defaults.scopeName;
         }
 
+        @CustomType.Setter
         public Builder scopeDescription(String scopeDescription) {
             this.scopeDescription = Objects.requireNonNull(scopeDescription);
             return this;
         }
+        @CustomType.Setter
         public Builder scopeName(String scopeName) {
             this.scopeName = Objects.requireNonNull(scopeName);
             return this;
-        }        public ResourceServerScope build() {
-            return new ResourceServerScope(scopeDescription, scopeName);
+        }
+        public ResourceServerScope build() {
+            final var o = new ResourceServerScope();
+            o.scopeDescription = scopeDescription;
+            o.scopeName = scopeName;
+            return o;
         }
     }
 }

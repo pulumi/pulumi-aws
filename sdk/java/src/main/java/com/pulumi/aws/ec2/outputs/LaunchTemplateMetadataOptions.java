@@ -16,42 +16,29 @@ public final class LaunchTemplateMetadataOptions {
      * @return Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
      * 
      */
-    private final @Nullable String httpEndpoint;
+    private @Nullable String httpEndpoint;
     /**
      * @return Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
      * 
      */
-    private final @Nullable String httpProtocolIpv6;
+    private @Nullable String httpProtocolIpv6;
     /**
      * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
      * 
      */
-    private final @Nullable Integer httpPutResponseHopLimit;
+    private @Nullable Integer httpPutResponseHopLimit;
     /**
      * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
      * 
      */
-    private final @Nullable String httpTokens;
+    private @Nullable String httpTokens;
     /**
      * @return Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
      * 
      */
-    private final @Nullable String instanceMetadataTags;
+    private @Nullable String instanceMetadataTags;
 
-    @CustomType.Constructor
-    private LaunchTemplateMetadataOptions(
-        @CustomType.Parameter("httpEndpoint") @Nullable String httpEndpoint,
-        @CustomType.Parameter("httpProtocolIpv6") @Nullable String httpProtocolIpv6,
-        @CustomType.Parameter("httpPutResponseHopLimit") @Nullable Integer httpPutResponseHopLimit,
-        @CustomType.Parameter("httpTokens") @Nullable String httpTokens,
-        @CustomType.Parameter("instanceMetadataTags") @Nullable String instanceMetadataTags) {
-        this.httpEndpoint = httpEndpoint;
-        this.httpProtocolIpv6 = httpProtocolIpv6;
-        this.httpPutResponseHopLimit = httpPutResponseHopLimit;
-        this.httpTokens = httpTokens;
-        this.instanceMetadataTags = instanceMetadataTags;
-    }
-
+    private LaunchTemplateMetadataOptions() {}
     /**
      * @return Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
      * 
@@ -95,18 +82,14 @@ public final class LaunchTemplateMetadataOptions {
     public static Builder builder(LaunchTemplateMetadataOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String httpEndpoint;
         private @Nullable String httpProtocolIpv6;
         private @Nullable Integer httpPutResponseHopLimit;
         private @Nullable String httpTokens;
         private @Nullable String instanceMetadataTags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateMetadataOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpEndpoint = defaults.httpEndpoint;
@@ -116,27 +99,39 @@ public final class LaunchTemplateMetadataOptions {
     	      this.instanceMetadataTags = defaults.instanceMetadataTags;
         }
 
+        @CustomType.Setter
         public Builder httpEndpoint(@Nullable String httpEndpoint) {
             this.httpEndpoint = httpEndpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder httpProtocolIpv6(@Nullable String httpProtocolIpv6) {
             this.httpProtocolIpv6 = httpProtocolIpv6;
             return this;
         }
+        @CustomType.Setter
         public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
             this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder httpTokens(@Nullable String httpTokens) {
             this.httpTokens = httpTokens;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceMetadataTags(@Nullable String instanceMetadataTags) {
             this.instanceMetadataTags = instanceMetadataTags;
             return this;
-        }        public LaunchTemplateMetadataOptions build() {
-            return new LaunchTemplateMetadataOptions(httpEndpoint, httpProtocolIpv6, httpPutResponseHopLimit, httpTokens, instanceMetadataTags);
+        }
+        public LaunchTemplateMetadataOptions build() {
+            final var o = new LaunchTemplateMetadataOptions();
+            o.httpEndpoint = httpEndpoint;
+            o.httpProtocolIpv6 = httpProtocolIpv6;
+            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            o.httpTokens = httpTokens;
+            o.instanceMetadataTags = instanceMetadataTags;
+            return o;
         }
     }
 }

@@ -23,70 +23,49 @@ public final class BucketV2LifecycleRule {
      * @return Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
      * 
      */
-    private final @Nullable Integer abortIncompleteMultipartUploadDays;
+    private @Nullable Integer abortIncompleteMultipartUploadDays;
     /**
      * @return Specifies lifecycle rule status.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
      * 
      */
-    private final @Nullable List<BucketV2LifecycleRuleExpiration> expirations;
+    private @Nullable List<BucketV2LifecycleRuleExpiration> expirations;
     /**
      * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
      * 
      */
-    private final @Nullable List<BucketV2LifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations;
+    private @Nullable List<BucketV2LifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations;
     /**
      * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
      * 
      */
-    private final @Nullable List<BucketV2LifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions;
+    private @Nullable List<BucketV2LifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions;
     /**
      * @return Object key prefix identifying one or more objects to which the rule applies.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return Specifies object tags key and value.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Specifies a period in the object&#39;s transitions. See Transition below for details.
      * 
      */
-    private final @Nullable List<BucketV2LifecycleRuleTransition> transitions;
+    private @Nullable List<BucketV2LifecycleRuleTransition> transitions;
 
-    @CustomType.Constructor
-    private BucketV2LifecycleRule(
-        @CustomType.Parameter("abortIncompleteMultipartUploadDays") @Nullable Integer abortIncompleteMultipartUploadDays,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("expirations") @Nullable List<BucketV2LifecycleRuleExpiration> expirations,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("noncurrentVersionExpirations") @Nullable List<BucketV2LifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations,
-        @CustomType.Parameter("noncurrentVersionTransitions") @Nullable List<BucketV2LifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("transitions") @Nullable List<BucketV2LifecycleRuleTransition> transitions) {
-        this.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
-        this.enabled = enabled;
-        this.expirations = expirations;
-        this.id = id;
-        this.noncurrentVersionExpirations = noncurrentVersionExpirations;
-        this.noncurrentVersionTransitions = noncurrentVersionTransitions;
-        this.prefix = prefix;
-        this.tags = tags;
-        this.transitions = transitions;
-    }
-
+    private BucketV2LifecycleRule() {}
     /**
      * @return Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
      * 
@@ -158,7 +137,7 @@ public final class BucketV2LifecycleRule {
     public static Builder builder(BucketV2LifecycleRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer abortIncompleteMultipartUploadDays;
         private Boolean enabled;
@@ -169,11 +148,7 @@ public final class BucketV2LifecycleRule {
         private @Nullable String prefix;
         private @Nullable Map<String,String> tags;
         private @Nullable List<BucketV2LifecycleRuleTransition> transitions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2LifecycleRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.abortIncompleteMultipartUploadDays = defaults.abortIncompleteMultipartUploadDays;
@@ -187,14 +162,17 @@ public final class BucketV2LifecycleRule {
     	      this.transitions = defaults.transitions;
         }
 
+        @CustomType.Setter
         public Builder abortIncompleteMultipartUploadDays(@Nullable Integer abortIncompleteMultipartUploadDays) {
             this.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder expirations(@Nullable List<BucketV2LifecycleRuleExpiration> expirations) {
             this.expirations = expirations;
             return this;
@@ -202,10 +180,12 @@ public final class BucketV2LifecycleRule {
         public Builder expirations(BucketV2LifecycleRuleExpiration... expirations) {
             return expirations(List.of(expirations));
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder noncurrentVersionExpirations(@Nullable List<BucketV2LifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations) {
             this.noncurrentVersionExpirations = noncurrentVersionExpirations;
             return this;
@@ -213,6 +193,7 @@ public final class BucketV2LifecycleRule {
         public Builder noncurrentVersionExpirations(BucketV2LifecycleRuleNoncurrentVersionExpiration... noncurrentVersionExpirations) {
             return noncurrentVersionExpirations(List.of(noncurrentVersionExpirations));
         }
+        @CustomType.Setter
         public Builder noncurrentVersionTransitions(@Nullable List<BucketV2LifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions) {
             this.noncurrentVersionTransitions = noncurrentVersionTransitions;
             return this;
@@ -220,22 +201,36 @@ public final class BucketV2LifecycleRule {
         public Builder noncurrentVersionTransitions(BucketV2LifecycleRuleNoncurrentVersionTransition... noncurrentVersionTransitions) {
             return noncurrentVersionTransitions(List.of(noncurrentVersionTransitions));
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder transitions(@Nullable List<BucketV2LifecycleRuleTransition> transitions) {
             this.transitions = transitions;
             return this;
         }
         public Builder transitions(BucketV2LifecycleRuleTransition... transitions) {
             return transitions(List.of(transitions));
-        }        public BucketV2LifecycleRule build() {
-            return new BucketV2LifecycleRule(abortIncompleteMultipartUploadDays, enabled, expirations, id, noncurrentVersionExpirations, noncurrentVersionTransitions, prefix, tags, transitions);
+        }
+        public BucketV2LifecycleRule build() {
+            final var o = new BucketV2LifecycleRule();
+            o.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
+            o.enabled = enabled;
+            o.expirations = expirations;
+            o.id = id;
+            o.noncurrentVersionExpirations = noncurrentVersionExpirations;
+            o.noncurrentVersionTransitions = noncurrentVersionTransitions;
+            o.prefix = prefix;
+            o.tags = tags;
+            o.transitions = transitions;
+            return o;
         }
     }
 }

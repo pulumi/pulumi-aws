@@ -10,52 +10,35 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAssetResult {
-    private final String arn;
-    private final String assetId;
+    private String arn;
+    private String assetId;
     /**
      * @return The type of the asset.
      * 
      */
-    private final String assetType;
+    private String assetType;
     /**
      * @return The host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
      * 
      */
-    private final String hostId;
+    private String hostId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The position of an asset in a rack measured in rack units.
      * 
      */
-    private final Integer rackElevation;
+    private Integer rackElevation;
     /**
      * @return The rack ID of the asset.
      * 
      */
-    private final String rackId;
+    private String rackId;
 
-    @CustomType.Constructor
-    private GetAssetResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("assetId") String assetId,
-        @CustomType.Parameter("assetType") String assetType,
-        @CustomType.Parameter("hostId") String hostId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("rackElevation") Integer rackElevation,
-        @CustomType.Parameter("rackId") String rackId) {
-        this.arn = arn;
-        this.assetId = assetId;
-        this.assetType = assetType;
-        this.hostId = hostId;
-        this.id = id;
-        this.rackElevation = rackElevation;
-        this.rackId = rackId;
-    }
-
+    private GetAssetResult() {}
     public String arn() {
         return this.arn;
     }
@@ -105,7 +88,7 @@ public final class GetAssetResult {
     public static Builder builder(GetAssetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String assetId;
@@ -114,11 +97,7 @@ public final class GetAssetResult {
         private String id;
         private Integer rackElevation;
         private String rackId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAssetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -130,35 +109,51 @@ public final class GetAssetResult {
     	      this.rackId = defaults.rackId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder assetId(String assetId) {
             this.assetId = Objects.requireNonNull(assetId);
             return this;
         }
+        @CustomType.Setter
         public Builder assetType(String assetType) {
             this.assetType = Objects.requireNonNull(assetType);
             return this;
         }
+        @CustomType.Setter
         public Builder hostId(String hostId) {
             this.hostId = Objects.requireNonNull(hostId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder rackElevation(Integer rackElevation) {
             this.rackElevation = Objects.requireNonNull(rackElevation);
             return this;
         }
+        @CustomType.Setter
         public Builder rackId(String rackId) {
             this.rackId = Objects.requireNonNull(rackId);
             return this;
-        }        public GetAssetResult build() {
-            return new GetAssetResult(arn, assetId, assetType, hostId, id, rackElevation, rackId);
+        }
+        public GetAssetResult build() {
+            final var o = new GetAssetResult();
+            o.arn = arn;
+            o.assetId = assetId;
+            o.assetType = assetType;
+            o.hostId = hostId;
+            o.id = id;
+            o.rackElevation = rackElevation;
+            o.rackId = rackId;
+            return o;
         }
     }
 }

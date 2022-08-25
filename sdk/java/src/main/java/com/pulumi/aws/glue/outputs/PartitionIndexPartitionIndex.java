@@ -16,24 +16,15 @@ public final class PartitionIndexPartitionIndex {
      * @return Name of the partition index.
      * 
      */
-    private final @Nullable String indexName;
-    private final @Nullable String indexStatus;
+    private @Nullable String indexName;
+    private @Nullable String indexStatus;
     /**
      * @return Keys for the partition index.
      * 
      */
-    private final @Nullable List<String> keys;
+    private @Nullable List<String> keys;
 
-    @CustomType.Constructor
-    private PartitionIndexPartitionIndex(
-        @CustomType.Parameter("indexName") @Nullable String indexName,
-        @CustomType.Parameter("indexStatus") @Nullable String indexStatus,
-        @CustomType.Parameter("keys") @Nullable List<String> keys) {
-        this.indexName = indexName;
-        this.indexStatus = indexStatus;
-        this.keys = keys;
-    }
-
+    private PartitionIndexPartitionIndex() {}
     /**
      * @return Name of the partition index.
      * 
@@ -59,16 +50,12 @@ public final class PartitionIndexPartitionIndex {
     public static Builder builder(PartitionIndexPartitionIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String indexName;
         private @Nullable String indexStatus;
         private @Nullable List<String> keys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PartitionIndexPartitionIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.indexName = defaults.indexName;
@@ -76,22 +63,30 @@ public final class PartitionIndexPartitionIndex {
     	      this.keys = defaults.keys;
         }
 
+        @CustomType.Setter
         public Builder indexName(@Nullable String indexName) {
             this.indexName = indexName;
             return this;
         }
+        @CustomType.Setter
         public Builder indexStatus(@Nullable String indexStatus) {
             this.indexStatus = indexStatus;
             return this;
         }
+        @CustomType.Setter
         public Builder keys(@Nullable List<String> keys) {
             this.keys = keys;
             return this;
         }
         public Builder keys(String... keys) {
             return keys(List.of(keys));
-        }        public PartitionIndexPartitionIndex build() {
-            return new PartitionIndexPartitionIndex(indexName, indexStatus, keys);
+        }
+        public PartitionIndexPartitionIndex build() {
+            final var o = new PartitionIndexPartitionIndex();
+            o.indexName = indexName;
+            o.indexStatus = indexStatus;
+            o.keys = keys;
+            return o;
         }
     }
 }

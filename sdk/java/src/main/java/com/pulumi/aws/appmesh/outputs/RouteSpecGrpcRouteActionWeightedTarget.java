@@ -14,21 +14,14 @@ public final class RouteSpecGrpcRouteActionWeightedTarget {
      * @return The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String virtualNode;
+    private String virtualNode;
     /**
      * @return The relative weight of the weighted target. An integer between 0 and 100.
      * 
      */
-    private final Integer weight;
+    private Integer weight;
 
-    @CustomType.Constructor
-    private RouteSpecGrpcRouteActionWeightedTarget(
-        @CustomType.Parameter("virtualNode") String virtualNode,
-        @CustomType.Parameter("weight") Integer weight) {
-        this.virtualNode = virtualNode;
-        this.weight = weight;
-    }
-
+    private RouteSpecGrpcRouteActionWeightedTarget() {}
     /**
      * @return The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
      * 
@@ -51,30 +44,32 @@ public final class RouteSpecGrpcRouteActionWeightedTarget {
     public static Builder builder(RouteSpecGrpcRouteActionWeightedTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String virtualNode;
         private Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecGrpcRouteActionWeightedTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualNode = defaults.virtualNode;
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder virtualNode(String virtualNode) {
             this.virtualNode = Objects.requireNonNull(virtualNode);
             return this;
         }
+        @CustomType.Setter
         public Builder weight(Integer weight) {
             this.weight = Objects.requireNonNull(weight);
             return this;
-        }        public RouteSpecGrpcRouteActionWeightedTarget build() {
-            return new RouteSpecGrpcRouteActionWeightedTarget(virtualNode, weight);
+        }
+        public RouteSpecGrpcRouteActionWeightedTarget build() {
+            final var o = new RouteSpecGrpcRouteActionWeightedTarget();
+            o.virtualNode = virtualNode;
+            o.weight = weight;
+            return o;
         }
     }
 }

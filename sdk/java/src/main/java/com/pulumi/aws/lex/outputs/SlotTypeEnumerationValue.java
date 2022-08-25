@@ -15,21 +15,14 @@ public final class SlotTypeEnumerationValue {
      * @return Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
      * 
      */
-    private final @Nullable List<String> synonyms;
+    private @Nullable List<String> synonyms;
     /**
      * @return The value of the slot type. Must be less than or equal to 140 characters in length.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private SlotTypeEnumerationValue(
-        @CustomType.Parameter("synonyms") @Nullable List<String> synonyms,
-        @CustomType.Parameter("value") String value) {
-        this.synonyms = synonyms;
-        this.value = value;
-    }
-
+    private SlotTypeEnumerationValue() {}
     /**
      * @return Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
      * 
@@ -52,21 +45,18 @@ public final class SlotTypeEnumerationValue {
     public static Builder builder(SlotTypeEnumerationValue defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> synonyms;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotTypeEnumerationValue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.synonyms = defaults.synonyms;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder synonyms(@Nullable List<String> synonyms) {
             this.synonyms = synonyms;
             return this;
@@ -74,11 +64,16 @@ public final class SlotTypeEnumerationValue {
         public Builder synonyms(String... synonyms) {
             return synonyms(List.of(synonyms));
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public SlotTypeEnumerationValue build() {
-            return new SlotTypeEnumerationValue(synonyms, value);
+        }
+        public SlotTypeEnumerationValue build() {
+            final var o = new SlotTypeEnumerationValue();
+            o.synonyms = synonyms;
+            o.value = value;
+            return o;
         }
     }
 }

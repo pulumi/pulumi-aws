@@ -15,45 +15,30 @@ public final class GetEventSourceResult {
      * @return The ARN of the partner event source
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The name of the SaaS partner that created the event source
      * 
      */
-    private final String createdBy;
+    private String createdBy;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the event source
      * 
      */
-    private final String name;
-    private final @Nullable String namePrefix;
+    private String name;
+    private @Nullable String namePrefix;
     /**
      * @return The state of the event source (`ACTIVE` or `PENDING`)
      * 
      */
-    private final String state;
+    private String state;
 
-    @CustomType.Constructor
-    private GetEventSourceResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("createdBy") String createdBy,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namePrefix") @Nullable String namePrefix,
-        @CustomType.Parameter("state") String state) {
-        this.arn = arn;
-        this.createdBy = createdBy;
-        this.id = id;
-        this.name = name;
-        this.namePrefix = namePrefix;
-        this.state = state;
-    }
-
+    private GetEventSourceResult() {}
     /**
      * @return The ARN of the partner event source
      * 
@@ -100,7 +85,7 @@ public final class GetEventSourceResult {
     public static Builder builder(GetEventSourceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String createdBy;
@@ -108,11 +93,7 @@ public final class GetEventSourceResult {
         private String name;
         private @Nullable String namePrefix;
         private String state;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEventSourceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -123,31 +104,45 @@ public final class GetEventSourceResult {
     	      this.state = defaults.state;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder createdBy(String createdBy) {
             this.createdBy = Objects.requireNonNull(createdBy);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namePrefix(@Nullable String namePrefix) {
             this.namePrefix = namePrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
-        }        public GetEventSourceResult build() {
-            return new GetEventSourceResult(arn, createdBy, id, name, namePrefix, state);
+        }
+        public GetEventSourceResult build() {
+            final var o = new GetEventSourceResult();
+            o.arn = arn;
+            o.createdBy = createdBy;
+            o.id = id;
+            o.name = name;
+            o.namePrefix = namePrefix;
+            o.state = state;
+            return o;
         }
     }
 }

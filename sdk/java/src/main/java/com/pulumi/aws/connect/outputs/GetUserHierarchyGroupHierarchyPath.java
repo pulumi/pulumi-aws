@@ -18,42 +18,29 @@ public final class GetUserHierarchyGroupHierarchyPath {
      * @return A block that defines the details of level five. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives;
+    private List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives;
     /**
      * @return A block that defines the details of level four. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours;
+    private List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours;
     /**
      * @return A block that defines the details of level one. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes;
+    private List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes;
     /**
      * @return A block that defines the details of level three. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees;
+    private List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees;
     /**
      * @return A block that defines the details of level two. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
+    private List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
 
-    @CustomType.Constructor
-    private GetUserHierarchyGroupHierarchyPath(
-        @CustomType.Parameter("levelFives") List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives,
-        @CustomType.Parameter("levelFours") List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours,
-        @CustomType.Parameter("levelOnes") List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes,
-        @CustomType.Parameter("levelThrees") List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees,
-        @CustomType.Parameter("levelTwos") List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos) {
-        this.levelFives = levelFives;
-        this.levelFours = levelFours;
-        this.levelOnes = levelOnes;
-        this.levelThrees = levelThrees;
-        this.levelTwos = levelTwos;
-    }
-
+    private GetUserHierarchyGroupHierarchyPath() {}
     /**
      * @return A block that defines the details of level five. The level block is documented below.
      * 
@@ -97,18 +84,14 @@ public final class GetUserHierarchyGroupHierarchyPath {
     public static Builder builder(GetUserHierarchyGroupHierarchyPath defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives;
         private List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours;
         private List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes;
         private List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees;
         private List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserHierarchyGroupHierarchyPath defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.levelFives = defaults.levelFives;
@@ -118,6 +101,7 @@ public final class GetUserHierarchyGroupHierarchyPath {
     	      this.levelTwos = defaults.levelTwos;
         }
 
+        @CustomType.Setter
         public Builder levelFives(List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives) {
             this.levelFives = Objects.requireNonNull(levelFives);
             return this;
@@ -125,6 +109,7 @@ public final class GetUserHierarchyGroupHierarchyPath {
         public Builder levelFives(GetUserHierarchyGroupHierarchyPathLevelFife... levelFives) {
             return levelFives(List.of(levelFives));
         }
+        @CustomType.Setter
         public Builder levelFours(List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours) {
             this.levelFours = Objects.requireNonNull(levelFours);
             return this;
@@ -132,6 +117,7 @@ public final class GetUserHierarchyGroupHierarchyPath {
         public Builder levelFours(GetUserHierarchyGroupHierarchyPathLevelFour... levelFours) {
             return levelFours(List.of(levelFours));
         }
+        @CustomType.Setter
         public Builder levelOnes(List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes) {
             this.levelOnes = Objects.requireNonNull(levelOnes);
             return this;
@@ -139,6 +125,7 @@ public final class GetUserHierarchyGroupHierarchyPath {
         public Builder levelOnes(GetUserHierarchyGroupHierarchyPathLevelOne... levelOnes) {
             return levelOnes(List.of(levelOnes));
         }
+        @CustomType.Setter
         public Builder levelThrees(List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees) {
             this.levelThrees = Objects.requireNonNull(levelThrees);
             return this;
@@ -146,14 +133,22 @@ public final class GetUserHierarchyGroupHierarchyPath {
         public Builder levelThrees(GetUserHierarchyGroupHierarchyPathLevelThree... levelThrees) {
             return levelThrees(List.of(levelThrees));
         }
+        @CustomType.Setter
         public Builder levelTwos(List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos) {
             this.levelTwos = Objects.requireNonNull(levelTwos);
             return this;
         }
         public Builder levelTwos(GetUserHierarchyGroupHierarchyPathLevelTwo... levelTwos) {
             return levelTwos(List.of(levelTwos));
-        }        public GetUserHierarchyGroupHierarchyPath build() {
-            return new GetUserHierarchyGroupHierarchyPath(levelFives, levelFours, levelOnes, levelThrees, levelTwos);
+        }
+        public GetUserHierarchyGroupHierarchyPath build() {
+            final var o = new GetUserHierarchyGroupHierarchyPath();
+            o.levelFives = levelFives;
+            o.levelFours = levelFours;
+            o.levelOnes = levelOnes;
+            o.levelThrees = levelThrees;
+            o.levelTwos = levelTwos;
+            return o;
         }
     }
 }

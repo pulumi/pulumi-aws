@@ -18,62 +18,41 @@ public final class GetCustomerGatewayResult {
      * @return The ARN of the customer gateway.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      * 
      */
-    private final Integer bgpAsn;
+    private Integer bgpAsn;
     /**
      * @return The Amazon Resource Name (ARN) for the customer gateway certificate.
      * 
      */
-    private final String certificateArn;
+    private String certificateArn;
     /**
      * @return A name for the customer gateway device.
      * 
      */
-    private final String deviceName;
-    private final @Nullable List<GetCustomerGatewayFilter> filters;
-    private final String id;
+    private String deviceName;
+    private @Nullable List<GetCustomerGatewayFilter> filters;
+    private String id;
     /**
      * @return The IP address of the gateway&#39;s Internet-routable external interface.
      * 
      */
-    private final String ipAddress;
+    private String ipAddress;
     /**
      * @return Map of key-value pairs assigned to the gateway.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The type of customer gateway. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetCustomerGatewayResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("bgpAsn") Integer bgpAsn,
-        @CustomType.Parameter("certificateArn") String certificateArn,
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("filters") @Nullable List<GetCustomerGatewayFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type) {
-        this.arn = arn;
-        this.bgpAsn = bgpAsn;
-        this.certificateArn = certificateArn;
-        this.deviceName = deviceName;
-        this.filters = filters;
-        this.id = id;
-        this.ipAddress = ipAddress;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private GetCustomerGatewayResult() {}
     /**
      * @return The ARN of the customer gateway.
      * 
@@ -137,7 +116,7 @@ public final class GetCustomerGatewayResult {
     public static Builder builder(GetCustomerGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Integer bgpAsn;
@@ -148,11 +127,7 @@ public final class GetCustomerGatewayResult {
         private String ipAddress;
         private Map<String,String> tags;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCustomerGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -166,22 +141,27 @@ public final class GetCustomerGatewayResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder bgpAsn(Integer bgpAsn) {
             this.bgpAsn = Objects.requireNonNull(bgpAsn);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
             this.certificateArn = Objects.requireNonNull(certificateArn);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetCustomerGatewayFilter> filters) {
             this.filters = filters;
             return this;
@@ -189,23 +169,38 @@ public final class GetCustomerGatewayResult {
         public Builder filters(GetCustomerGatewayFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetCustomerGatewayResult build() {
-            return new GetCustomerGatewayResult(arn, bgpAsn, certificateArn, deviceName, filters, id, ipAddress, tags, type);
+        }
+        public GetCustomerGatewayResult build() {
+            final var o = new GetCustomerGatewayResult();
+            o.arn = arn;
+            o.bgpAsn = bgpAsn;
+            o.certificateArn = certificateArn;
+            o.deviceName = deviceName;
+            o.filters = filters;
+            o.id = id;
+            o.ipAddress = ipAddress;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

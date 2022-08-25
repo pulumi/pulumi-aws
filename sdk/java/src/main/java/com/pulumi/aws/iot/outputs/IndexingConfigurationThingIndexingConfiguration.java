@@ -18,49 +18,34 @@ public final class IndexingConfigurationThingIndexingConfiguration {
      * @return Contains custom field names and their data type. See below.
      * 
      */
-    private final @Nullable List<IndexingConfigurationThingIndexingConfigurationCustomField> customFields;
+    private @Nullable List<IndexingConfigurationThingIndexingConfigurationCustomField> customFields;
     /**
      * @return Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
      * 
      */
-    private final @Nullable String deviceDefenderIndexingMode;
+    private @Nullable String deviceDefenderIndexingMode;
     /**
      * @return Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
      * 
      */
-    private final @Nullable List<IndexingConfigurationThingIndexingConfigurationManagedField> managedFields;
+    private @Nullable List<IndexingConfigurationThingIndexingConfigurationManagedField> managedFields;
     /**
      * @return [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
      * 
      */
-    private final @Nullable String namedShadowIndexingMode;
+    private @Nullable String namedShadowIndexingMode;
     /**
      * @return Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
      * 
      */
-    private final @Nullable String thingConnectivityIndexingMode;
+    private @Nullable String thingConnectivityIndexingMode;
     /**
      * @return Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
      * 
      */
-    private final String thingIndexingMode;
+    private String thingIndexingMode;
 
-    @CustomType.Constructor
-    private IndexingConfigurationThingIndexingConfiguration(
-        @CustomType.Parameter("customFields") @Nullable List<IndexingConfigurationThingIndexingConfigurationCustomField> customFields,
-        @CustomType.Parameter("deviceDefenderIndexingMode") @Nullable String deviceDefenderIndexingMode,
-        @CustomType.Parameter("managedFields") @Nullable List<IndexingConfigurationThingIndexingConfigurationManagedField> managedFields,
-        @CustomType.Parameter("namedShadowIndexingMode") @Nullable String namedShadowIndexingMode,
-        @CustomType.Parameter("thingConnectivityIndexingMode") @Nullable String thingConnectivityIndexingMode,
-        @CustomType.Parameter("thingIndexingMode") String thingIndexingMode) {
-        this.customFields = customFields;
-        this.deviceDefenderIndexingMode = deviceDefenderIndexingMode;
-        this.managedFields = managedFields;
-        this.namedShadowIndexingMode = namedShadowIndexingMode;
-        this.thingConnectivityIndexingMode = thingConnectivityIndexingMode;
-        this.thingIndexingMode = thingIndexingMode;
-    }
-
+    private IndexingConfigurationThingIndexingConfiguration() {}
     /**
      * @return Contains custom field names and their data type. See below.
      * 
@@ -111,7 +96,7 @@ public final class IndexingConfigurationThingIndexingConfiguration {
     public static Builder builder(IndexingConfigurationThingIndexingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<IndexingConfigurationThingIndexingConfigurationCustomField> customFields;
         private @Nullable String deviceDefenderIndexingMode;
@@ -119,11 +104,7 @@ public final class IndexingConfigurationThingIndexingConfiguration {
         private @Nullable String namedShadowIndexingMode;
         private @Nullable String thingConnectivityIndexingMode;
         private String thingIndexingMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexingConfigurationThingIndexingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customFields = defaults.customFields;
@@ -134,6 +115,7 @@ public final class IndexingConfigurationThingIndexingConfiguration {
     	      this.thingIndexingMode = defaults.thingIndexingMode;
         }
 
+        @CustomType.Setter
         public Builder customFields(@Nullable List<IndexingConfigurationThingIndexingConfigurationCustomField> customFields) {
             this.customFields = customFields;
             return this;
@@ -141,10 +123,12 @@ public final class IndexingConfigurationThingIndexingConfiguration {
         public Builder customFields(IndexingConfigurationThingIndexingConfigurationCustomField... customFields) {
             return customFields(List.of(customFields));
         }
+        @CustomType.Setter
         public Builder deviceDefenderIndexingMode(@Nullable String deviceDefenderIndexingMode) {
             this.deviceDefenderIndexingMode = deviceDefenderIndexingMode;
             return this;
         }
+        @CustomType.Setter
         public Builder managedFields(@Nullable List<IndexingConfigurationThingIndexingConfigurationManagedField> managedFields) {
             this.managedFields = managedFields;
             return this;
@@ -152,19 +136,30 @@ public final class IndexingConfigurationThingIndexingConfiguration {
         public Builder managedFields(IndexingConfigurationThingIndexingConfigurationManagedField... managedFields) {
             return managedFields(List.of(managedFields));
         }
+        @CustomType.Setter
         public Builder namedShadowIndexingMode(@Nullable String namedShadowIndexingMode) {
             this.namedShadowIndexingMode = namedShadowIndexingMode;
             return this;
         }
+        @CustomType.Setter
         public Builder thingConnectivityIndexingMode(@Nullable String thingConnectivityIndexingMode) {
             this.thingConnectivityIndexingMode = thingConnectivityIndexingMode;
             return this;
         }
+        @CustomType.Setter
         public Builder thingIndexingMode(String thingIndexingMode) {
             this.thingIndexingMode = Objects.requireNonNull(thingIndexingMode);
             return this;
-        }        public IndexingConfigurationThingIndexingConfiguration build() {
-            return new IndexingConfigurationThingIndexingConfiguration(customFields, deviceDefenderIndexingMode, managedFields, namedShadowIndexingMode, thingConnectivityIndexingMode, thingIndexingMode);
+        }
+        public IndexingConfigurationThingIndexingConfiguration build() {
+            final var o = new IndexingConfigurationThingIndexingConfiguration();
+            o.customFields = customFields;
+            o.deviceDefenderIndexingMode = deviceDefenderIndexingMode;
+            o.managedFields = managedFields;
+            o.namedShadowIndexingMode = namedShadowIndexingMode;
+            o.thingConnectivityIndexingMode = thingConnectivityIndexingMode;
+            o.thingIndexingMode = thingIndexingMode;
+            return o;
         }
     }
 }

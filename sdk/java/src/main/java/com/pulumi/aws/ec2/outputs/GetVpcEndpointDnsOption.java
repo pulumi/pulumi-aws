@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcEndpointDnsOption {
-    private final String dnsRecordIpType;
+    private String dnsRecordIpType;
 
-    @CustomType.Constructor
-    private GetVpcEndpointDnsOption(@CustomType.Parameter("dnsRecordIpType") String dnsRecordIpType) {
-        this.dnsRecordIpType = dnsRecordIpType;
-    }
-
+    private GetVpcEndpointDnsOption() {}
     public String dnsRecordIpType() {
         return this.dnsRecordIpType;
     }
@@ -27,24 +23,24 @@ public final class GetVpcEndpointDnsOption {
     public static Builder builder(GetVpcEndpointDnsOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dnsRecordIpType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcEndpointDnsOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsRecordIpType = defaults.dnsRecordIpType;
         }
 
+        @CustomType.Setter
         public Builder dnsRecordIpType(String dnsRecordIpType) {
             this.dnsRecordIpType = Objects.requireNonNull(dnsRecordIpType);
             return this;
-        }        public GetVpcEndpointDnsOption build() {
-            return new GetVpcEndpointDnsOption(dnsRecordIpType);
+        }
+        public GetVpcEndpointDnsOption build() {
+            final var o = new GetVpcEndpointDnsOption();
+            o.dnsRecordIpType = dnsRecordIpType;
+            return o;
         }
     }
 }

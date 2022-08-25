@@ -17,52 +17,37 @@ public final class DistributionOriginCustomOriginConfig {
      * @return The HTTP port the custom origin listens on.
      * 
      */
-    private final Integer httpPort;
+    private Integer httpPort;
     /**
      * @return The HTTPS port the custom origin listens on.
      * 
      */
-    private final Integer httpsPort;
+    private Integer httpsPort;
     /**
      * @return The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
      * 
      */
-    private final @Nullable Integer originKeepaliveTimeout;
+    private @Nullable Integer originKeepaliveTimeout;
     /**
      * @return The origin protocol policy to apply to
      * your origin. One of `http-only`, `https-only`, or `match-viewer`.
      * 
      */
-    private final String originProtocolPolicy;
+    private String originProtocolPolicy;
     /**
      * @return The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
      * 
      */
-    private final @Nullable Integer originReadTimeout;
+    private @Nullable Integer originReadTimeout;
     /**
      * @return The SSL/TLS protocols that you want
      * CloudFront to use when communicating with your origin over HTTPS. A list of
      * one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
      * 
      */
-    private final List<String> originSslProtocols;
+    private List<String> originSslProtocols;
 
-    @CustomType.Constructor
-    private DistributionOriginCustomOriginConfig(
-        @CustomType.Parameter("httpPort") Integer httpPort,
-        @CustomType.Parameter("httpsPort") Integer httpsPort,
-        @CustomType.Parameter("originKeepaliveTimeout") @Nullable Integer originKeepaliveTimeout,
-        @CustomType.Parameter("originProtocolPolicy") String originProtocolPolicy,
-        @CustomType.Parameter("originReadTimeout") @Nullable Integer originReadTimeout,
-        @CustomType.Parameter("originSslProtocols") List<String> originSslProtocols) {
-        this.httpPort = httpPort;
-        this.httpsPort = httpsPort;
-        this.originKeepaliveTimeout = originKeepaliveTimeout;
-        this.originProtocolPolicy = originProtocolPolicy;
-        this.originReadTimeout = originReadTimeout;
-        this.originSslProtocols = originSslProtocols;
-    }
-
+    private DistributionOriginCustomOriginConfig() {}
     /**
      * @return The HTTP port the custom origin listens on.
      * 
@@ -116,7 +101,7 @@ public final class DistributionOriginCustomOriginConfig {
     public static Builder builder(DistributionOriginCustomOriginConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer httpPort;
         private Integer httpsPort;
@@ -124,11 +109,7 @@ public final class DistributionOriginCustomOriginConfig {
         private String originProtocolPolicy;
         private @Nullable Integer originReadTimeout;
         private List<String> originSslProtocols;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionOriginCustomOriginConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpPort = defaults.httpPort;
@@ -139,34 +120,48 @@ public final class DistributionOriginCustomOriginConfig {
     	      this.originSslProtocols = defaults.originSslProtocols;
         }
 
+        @CustomType.Setter
         public Builder httpPort(Integer httpPort) {
             this.httpPort = Objects.requireNonNull(httpPort);
             return this;
         }
+        @CustomType.Setter
         public Builder httpsPort(Integer httpsPort) {
             this.httpsPort = Objects.requireNonNull(httpsPort);
             return this;
         }
+        @CustomType.Setter
         public Builder originKeepaliveTimeout(@Nullable Integer originKeepaliveTimeout) {
             this.originKeepaliveTimeout = originKeepaliveTimeout;
             return this;
         }
+        @CustomType.Setter
         public Builder originProtocolPolicy(String originProtocolPolicy) {
             this.originProtocolPolicy = Objects.requireNonNull(originProtocolPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder originReadTimeout(@Nullable Integer originReadTimeout) {
             this.originReadTimeout = originReadTimeout;
             return this;
         }
+        @CustomType.Setter
         public Builder originSslProtocols(List<String> originSslProtocols) {
             this.originSslProtocols = Objects.requireNonNull(originSslProtocols);
             return this;
         }
         public Builder originSslProtocols(String... originSslProtocols) {
             return originSslProtocols(List.of(originSslProtocols));
-        }        public DistributionOriginCustomOriginConfig build() {
-            return new DistributionOriginCustomOriginConfig(httpPort, httpsPort, originKeepaliveTimeout, originProtocolPolicy, originReadTimeout, originSslProtocols);
+        }
+        public DistributionOriginCustomOriginConfig build() {
+            final var o = new DistributionOriginCustomOriginConfig();
+            o.httpPort = httpPort;
+            o.httpsPort = httpsPort;
+            o.originKeepaliveTimeout = originKeepaliveTimeout;
+            o.originProtocolPolicy = originProtocolPolicy;
+            o.originReadTimeout = originReadTimeout;
+            o.originSslProtocols = originSslProtocols;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class RealtimeLogConfigEndpointKinesisStreamConfig {
      * See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return The ARN of the Kinesis data stream.
      * 
      */
-    private final String streamArn;
+    private String streamArn;
 
-    @CustomType.Constructor
-    private RealtimeLogConfigEndpointKinesisStreamConfig(
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("streamArn") String streamArn) {
-        this.roleArn = roleArn;
-        this.streamArn = streamArn;
-    }
-
+    private RealtimeLogConfigEndpointKinesisStreamConfig() {}
     /**
      * @return The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
      * See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
@@ -52,30 +45,32 @@ public final class RealtimeLogConfigEndpointKinesisStreamConfig {
     public static Builder builder(RealtimeLogConfigEndpointKinesisStreamConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String roleArn;
         private String streamArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RealtimeLogConfigEndpointKinesisStreamConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.roleArn = defaults.roleArn;
     	      this.streamArn = defaults.streamArn;
         }
 
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder streamArn(String streamArn) {
             this.streamArn = Objects.requireNonNull(streamArn);
             return this;
-        }        public RealtimeLogConfigEndpointKinesisStreamConfig build() {
-            return new RealtimeLogConfigEndpointKinesisStreamConfig(roleArn, streamArn);
+        }
+        public RealtimeLogConfigEndpointKinesisStreamConfig build() {
+            final var o = new RealtimeLogConfigEndpointKinesisStreamConfig();
+            o.roleArn = roleArn;
+            o.streamArn = streamArn;
+            return o;
         }
     }
 }

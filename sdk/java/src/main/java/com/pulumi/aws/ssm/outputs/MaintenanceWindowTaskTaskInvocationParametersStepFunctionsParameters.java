@@ -15,21 +15,14 @@ public final class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsPar
      * @return The inputs for the STEP_FUNCTION task.
      * 
      */
-    private final @Nullable String input;
+    private @Nullable String input;
     /**
      * @return The name of the STEP_FUNCTION task.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters(
-        @CustomType.Parameter("input") @Nullable String input,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.input = input;
-        this.name = name;
-    }
-
+    private MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters() {}
     /**
      * @return The inputs for the STEP_FUNCTION task.
      * 
@@ -52,30 +45,32 @@ public final class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsPar
     public static Builder builder(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String input;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.input = defaults.input;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder input(@Nullable String input) {
             this.input = input;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters build() {
-            return new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters(input, name);
+        }
+        public MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters build() {
+            final var o = new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters();
+            o.input = input;
+            o.name = name;
+            return o;
         }
     }
 }

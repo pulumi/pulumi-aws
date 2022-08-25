@@ -13,21 +13,14 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
      * @return The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ServiceSourceConfigurationCodeRepositorySourceCodeVersion(
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.type = type;
-        this.value = value;
-    }
-
+    private ServiceSourceConfigurationCodeRepositorySourceCodeVersion() {}
     /**
      * @return The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
      * 
@@ -50,30 +43,32 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
     public static Builder builder(ServiceSourceConfigurationCodeRepositorySourceCodeVersion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSourceConfigurationCodeRepositorySourceCodeVersion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ServiceSourceConfigurationCodeRepositorySourceCodeVersion build() {
-            return new ServiceSourceConfigurationCodeRepositorySourceCodeVersion(type, value);
+        }
+        public ServiceSourceConfigurationCodeRepositorySourceCodeVersion build() {
+            final var o = new ServiceSourceConfigurationCodeRepositorySourceCodeVersion();
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

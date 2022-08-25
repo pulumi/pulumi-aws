@@ -18,42 +18,29 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOrigin {
      * @return Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
      */
-    private final CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig cookiesConfig;
+    private CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig cookiesConfig;
     /**
      * @return A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
      * 
      */
-    private final @Nullable Boolean enableAcceptEncodingBrotli;
+    private @Nullable Boolean enableAcceptEncodingBrotli;
     /**
      * @return A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
      * 
      */
-    private final @Nullable Boolean enableAcceptEncodingGzip;
+    private @Nullable Boolean enableAcceptEncodingGzip;
     /**
      * @return Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      * 
      */
-    private final CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig headersConfig;
+    private CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig headersConfig;
     /**
      * @return Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      * 
      */
-    private final CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig queryStringsConfig;
+    private CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig queryStringsConfig;
 
-    @CustomType.Constructor
-    private CachePolicyParametersInCacheKeyAndForwardedToOrigin(
-        @CustomType.Parameter("cookiesConfig") CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig cookiesConfig,
-        @CustomType.Parameter("enableAcceptEncodingBrotli") @Nullable Boolean enableAcceptEncodingBrotli,
-        @CustomType.Parameter("enableAcceptEncodingGzip") @Nullable Boolean enableAcceptEncodingGzip,
-        @CustomType.Parameter("headersConfig") CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig headersConfig,
-        @CustomType.Parameter("queryStringsConfig") CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig queryStringsConfig) {
-        this.cookiesConfig = cookiesConfig;
-        this.enableAcceptEncodingBrotli = enableAcceptEncodingBrotli;
-        this.enableAcceptEncodingGzip = enableAcceptEncodingGzip;
-        this.headersConfig = headersConfig;
-        this.queryStringsConfig = queryStringsConfig;
-    }
-
+    private CachePolicyParametersInCacheKeyAndForwardedToOrigin() {}
     /**
      * @return Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
@@ -97,18 +84,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOrigin {
     public static Builder builder(CachePolicyParametersInCacheKeyAndForwardedToOrigin defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig cookiesConfig;
         private @Nullable Boolean enableAcceptEncodingBrotli;
         private @Nullable Boolean enableAcceptEncodingGzip;
         private CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig headersConfig;
         private CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig queryStringsConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CachePolicyParametersInCacheKeyAndForwardedToOrigin defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cookiesConfig = defaults.cookiesConfig;
@@ -118,27 +101,39 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOrigin {
     	      this.queryStringsConfig = defaults.queryStringsConfig;
         }
 
+        @CustomType.Setter
         public Builder cookiesConfig(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig cookiesConfig) {
             this.cookiesConfig = Objects.requireNonNull(cookiesConfig);
             return this;
         }
+        @CustomType.Setter
         public Builder enableAcceptEncodingBrotli(@Nullable Boolean enableAcceptEncodingBrotli) {
             this.enableAcceptEncodingBrotli = enableAcceptEncodingBrotli;
             return this;
         }
+        @CustomType.Setter
         public Builder enableAcceptEncodingGzip(@Nullable Boolean enableAcceptEncodingGzip) {
             this.enableAcceptEncodingGzip = enableAcceptEncodingGzip;
             return this;
         }
+        @CustomType.Setter
         public Builder headersConfig(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig headersConfig) {
             this.headersConfig = Objects.requireNonNull(headersConfig);
             return this;
         }
+        @CustomType.Setter
         public Builder queryStringsConfig(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig queryStringsConfig) {
             this.queryStringsConfig = Objects.requireNonNull(queryStringsConfig);
             return this;
-        }        public CachePolicyParametersInCacheKeyAndForwardedToOrigin build() {
-            return new CachePolicyParametersInCacheKeyAndForwardedToOrigin(cookiesConfig, enableAcceptEncodingBrotli, enableAcceptEncodingGzip, headersConfig, queryStringsConfig);
+        }
+        public CachePolicyParametersInCacheKeyAndForwardedToOrigin build() {
+            final var o = new CachePolicyParametersInCacheKeyAndForwardedToOrigin();
+            o.cookiesConfig = cookiesConfig;
+            o.enableAcceptEncodingBrotli = enableAcceptEncodingBrotli;
+            o.enableAcceptEncodingGzip = enableAcceptEncodingGzip;
+            o.headersConfig = headersConfig;
+            o.queryStringsConfig = queryStringsConfig;
+            return o;
         }
     }
 }

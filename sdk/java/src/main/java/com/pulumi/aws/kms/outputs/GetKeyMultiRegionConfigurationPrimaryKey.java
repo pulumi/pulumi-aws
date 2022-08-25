@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyMultiRegionConfigurationPrimaryKey {
-    private final String arn;
-    private final String region;
+    private String arn;
+    private String region;
 
-    @CustomType.Constructor
-    private GetKeyMultiRegionConfigurationPrimaryKey(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("region") String region) {
-        this.arn = arn;
-        this.region = region;
-    }
-
+    private GetKeyMultiRegionConfigurationPrimaryKey() {}
     public String arn() {
         return this.arn;
     }
@@ -34,30 +27,32 @@ public final class GetKeyMultiRegionConfigurationPrimaryKey {
     public static Builder builder(GetKeyMultiRegionConfigurationPrimaryKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKeyMultiRegionConfigurationPrimaryKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
-        }        public GetKeyMultiRegionConfigurationPrimaryKey build() {
-            return new GetKeyMultiRegionConfigurationPrimaryKey(arn, region);
+        }
+        public GetKeyMultiRegionConfigurationPrimaryKey build() {
+            final var o = new GetKeyMultiRegionConfigurationPrimaryKey();
+            o.arn = arn;
+            o.region = region;
+            return o;
         }
     }
 }

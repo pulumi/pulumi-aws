@@ -18,67 +18,46 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
-    private final @Nullable List<String> inAppStreamNames;
-    private final @Nullable String inputId;
+    private @Nullable List<String> inAppStreamNames;
+    private @Nullable String inputId;
     /**
      * @return Describes the number of in-application streams to create.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism inputParallelism;
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism inputParallelism;
     /**
      * @return The input processing configuration for the input.
      * An input processor transforms records as they are received from the stream, before the application&#39;s SQL code executes.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration inputProcessingConfiguration;
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration inputProcessingConfiguration;
     /**
      * @return Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
      * 
      */
-    private final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema inputSchema;
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema inputSchema;
     /**
      * @return The point at which the application starts processing records from the streaming source.
      * 
      */
-    private final @Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> inputStartingPositionConfigurations;
+    private @Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> inputStartingPositionConfigurations;
     /**
      * @return If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream&#39;s ARN.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput kinesisFirehoseInput;
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput kinesisFirehoseInput;
     /**
      * @return If the streaming source is a Kinesis data stream, identifies the stream&#39;s Amazon Resource Name (ARN).
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput kinesisStreamsInput;
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput kinesisStreamsInput;
     /**
      * @return The name prefix to use when creating an in-application stream.
      * 
      */
-    private final String namePrefix;
+    private String namePrefix;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInput(
-        @CustomType.Parameter("inAppStreamNames") @Nullable List<String> inAppStreamNames,
-        @CustomType.Parameter("inputId") @Nullable String inputId,
-        @CustomType.Parameter("inputParallelism") @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism inputParallelism,
-        @CustomType.Parameter("inputProcessingConfiguration") @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration inputProcessingConfiguration,
-        @CustomType.Parameter("inputSchema") ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema inputSchema,
-        @CustomType.Parameter("inputStartingPositionConfigurations") @Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> inputStartingPositionConfigurations,
-        @CustomType.Parameter("kinesisFirehoseInput") @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput kinesisFirehoseInput,
-        @CustomType.Parameter("kinesisStreamsInput") @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput kinesisStreamsInput,
-        @CustomType.Parameter("namePrefix") String namePrefix) {
-        this.inAppStreamNames = inAppStreamNames;
-        this.inputId = inputId;
-        this.inputParallelism = inputParallelism;
-        this.inputProcessingConfiguration = inputProcessingConfiguration;
-        this.inputSchema = inputSchema;
-        this.inputStartingPositionConfigurations = inputStartingPositionConfigurations;
-        this.kinesisFirehoseInput = kinesisFirehoseInput;
-        this.kinesisStreamsInput = kinesisStreamsInput;
-        this.namePrefix = namePrefix;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInput() {}
     public List<String> inAppStreamNames() {
         return this.inAppStreamNames == null ? List.of() : this.inAppStreamNames;
     }
@@ -143,7 +122,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> inAppStreamNames;
         private @Nullable String inputId;
@@ -154,11 +133,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput kinesisFirehoseInput;
         private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput kinesisStreamsInput;
         private String namePrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inAppStreamNames = defaults.inAppStreamNames;
@@ -172,6 +147,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     	      this.namePrefix = defaults.namePrefix;
         }
 
+        @CustomType.Setter
         public Builder inAppStreamNames(@Nullable List<String> inAppStreamNames) {
             this.inAppStreamNames = inAppStreamNames;
             return this;
@@ -179,22 +155,27 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         public Builder inAppStreamNames(String... inAppStreamNames) {
             return inAppStreamNames(List.of(inAppStreamNames));
         }
+        @CustomType.Setter
         public Builder inputId(@Nullable String inputId) {
             this.inputId = inputId;
             return this;
         }
+        @CustomType.Setter
         public Builder inputParallelism(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism inputParallelism) {
             this.inputParallelism = inputParallelism;
             return this;
         }
+        @CustomType.Setter
         public Builder inputProcessingConfiguration(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration inputProcessingConfiguration) {
             this.inputProcessingConfiguration = inputProcessingConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder inputSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema inputSchema) {
             this.inputSchema = Objects.requireNonNull(inputSchema);
             return this;
         }
+        @CustomType.Setter
         public Builder inputStartingPositionConfigurations(@Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> inputStartingPositionConfigurations) {
             this.inputStartingPositionConfigurations = inputStartingPositionConfigurations;
             return this;
@@ -202,19 +183,33 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         public Builder inputStartingPositionConfigurations(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration... inputStartingPositionConfigurations) {
             return inputStartingPositionConfigurations(List.of(inputStartingPositionConfigurations));
         }
+        @CustomType.Setter
         public Builder kinesisFirehoseInput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput kinesisFirehoseInput) {
             this.kinesisFirehoseInput = kinesisFirehoseInput;
             return this;
         }
+        @CustomType.Setter
         public Builder kinesisStreamsInput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput kinesisStreamsInput) {
             this.kinesisStreamsInput = kinesisStreamsInput;
             return this;
         }
+        @CustomType.Setter
         public Builder namePrefix(String namePrefix) {
             this.namePrefix = Objects.requireNonNull(namePrefix);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInput build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInput(inAppStreamNames, inputId, inputParallelism, inputProcessingConfiguration, inputSchema, inputStartingPositionConfigurations, kinesisFirehoseInput, kinesisStreamsInput, namePrefix);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInput build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInput();
+            o.inAppStreamNames = inAppStreamNames;
+            o.inputId = inputId;
+            o.inputParallelism = inputParallelism;
+            o.inputProcessingConfiguration = inputProcessingConfiguration;
+            o.inputSchema = inputSchema;
+            o.inputStartingPositionConfigurations = inputStartingPositionConfigurations;
+            o.kinesisFirehoseInput = kinesisFirehoseInput;
+            o.kinesisStreamsInput = kinesisStreamsInput;
+            o.namePrefix = namePrefix;
+            return o;
         }
     }
 }

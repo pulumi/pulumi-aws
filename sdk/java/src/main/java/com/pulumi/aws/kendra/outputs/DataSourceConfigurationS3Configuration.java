@@ -18,49 +18,34 @@ public final class DataSourceConfigurationS3Configuration {
      * @return A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
      * 
      */
-    private final @Nullable DataSourceConfigurationS3ConfigurationAccessControlListConfiguration accessControlListConfiguration;
+    private @Nullable DataSourceConfigurationS3ConfigurationAccessControlListConfiguration accessControlListConfiguration;
     /**
      * @return The name of the bucket that contains the documents.
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
      * 
      */
-    private final @Nullable DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration documentsMetadataConfiguration;
+    private @Nullable DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration documentsMetadataConfiguration;
     /**
      * @return A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
      * 
      */
-    private final @Nullable List<String> exclusionPatterns;
+    private @Nullable List<String> exclusionPatterns;
     /**
      * @return A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
      * 
      */
-    private final @Nullable List<String> inclusionPatterns;
+    private @Nullable List<String> inclusionPatterns;
     /**
      * @return A list of S3 prefixes for the documents that should be included in the index.
      * 
      */
-    private final @Nullable List<String> inclusionPrefixes;
+    private @Nullable List<String> inclusionPrefixes;
 
-    @CustomType.Constructor
-    private DataSourceConfigurationS3Configuration(
-        @CustomType.Parameter("accessControlListConfiguration") @Nullable DataSourceConfigurationS3ConfigurationAccessControlListConfiguration accessControlListConfiguration,
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("documentsMetadataConfiguration") @Nullable DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration documentsMetadataConfiguration,
-        @CustomType.Parameter("exclusionPatterns") @Nullable List<String> exclusionPatterns,
-        @CustomType.Parameter("inclusionPatterns") @Nullable List<String> inclusionPatterns,
-        @CustomType.Parameter("inclusionPrefixes") @Nullable List<String> inclusionPrefixes) {
-        this.accessControlListConfiguration = accessControlListConfiguration;
-        this.bucketName = bucketName;
-        this.documentsMetadataConfiguration = documentsMetadataConfiguration;
-        this.exclusionPatterns = exclusionPatterns;
-        this.inclusionPatterns = inclusionPatterns;
-        this.inclusionPrefixes = inclusionPrefixes;
-    }
-
+    private DataSourceConfigurationS3Configuration() {}
     /**
      * @return A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
      * 
@@ -111,7 +96,7 @@ public final class DataSourceConfigurationS3Configuration {
     public static Builder builder(DataSourceConfigurationS3Configuration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceConfigurationS3ConfigurationAccessControlListConfiguration accessControlListConfiguration;
         private String bucketName;
@@ -119,11 +104,7 @@ public final class DataSourceConfigurationS3Configuration {
         private @Nullable List<String> exclusionPatterns;
         private @Nullable List<String> inclusionPatterns;
         private @Nullable List<String> inclusionPrefixes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfigurationS3Configuration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessControlListConfiguration = defaults.accessControlListConfiguration;
@@ -134,18 +115,22 @@ public final class DataSourceConfigurationS3Configuration {
     	      this.inclusionPrefixes = defaults.inclusionPrefixes;
         }
 
+        @CustomType.Setter
         public Builder accessControlListConfiguration(@Nullable DataSourceConfigurationS3ConfigurationAccessControlListConfiguration accessControlListConfiguration) {
             this.accessControlListConfiguration = accessControlListConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder documentsMetadataConfiguration(@Nullable DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration documentsMetadataConfiguration) {
             this.documentsMetadataConfiguration = documentsMetadataConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder exclusionPatterns(@Nullable List<String> exclusionPatterns) {
             this.exclusionPatterns = exclusionPatterns;
             return this;
@@ -153,6 +138,7 @@ public final class DataSourceConfigurationS3Configuration {
         public Builder exclusionPatterns(String... exclusionPatterns) {
             return exclusionPatterns(List.of(exclusionPatterns));
         }
+        @CustomType.Setter
         public Builder inclusionPatterns(@Nullable List<String> inclusionPatterns) {
             this.inclusionPatterns = inclusionPatterns;
             return this;
@@ -160,14 +146,23 @@ public final class DataSourceConfigurationS3Configuration {
         public Builder inclusionPatterns(String... inclusionPatterns) {
             return inclusionPatterns(List.of(inclusionPatterns));
         }
+        @CustomType.Setter
         public Builder inclusionPrefixes(@Nullable List<String> inclusionPrefixes) {
             this.inclusionPrefixes = inclusionPrefixes;
             return this;
         }
         public Builder inclusionPrefixes(String... inclusionPrefixes) {
             return inclusionPrefixes(List.of(inclusionPrefixes));
-        }        public DataSourceConfigurationS3Configuration build() {
-            return new DataSourceConfigurationS3Configuration(accessControlListConfiguration, bucketName, documentsMetadataConfiguration, exclusionPatterns, inclusionPatterns, inclusionPrefixes);
+        }
+        public DataSourceConfigurationS3Configuration build() {
+            final var o = new DataSourceConfigurationS3Configuration();
+            o.accessControlListConfiguration = accessControlListConfiguration;
+            o.bucketName = bucketName;
+            o.documentsMetadataConfiguration = documentsMetadataConfiguration;
+            o.exclusionPatterns = exclusionPatterns;
+            o.inclusionPatterns = inclusionPatterns;
+            o.inclusionPrefixes = inclusionPrefixes;
+            return o;
         }
     }
 }

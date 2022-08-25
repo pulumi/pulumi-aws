@@ -14,39 +14,26 @@ public final class GetUserPoolClientAnalyticsConfiguration {
      * @return (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
      * 
      */
-    private final String applicationArn;
+    private String applicationArn;
     /**
      * @return (Optional) Application ID for an Amazon Pinpoint application.
      * 
      */
-    private final String applicationId;
+    private String applicationId;
     /**
      * @return (Optional) ID for the Analytics Configuration. Conflicts with `application_arn`.
      * 
      */
-    private final String externalId;
+    private String externalId;
     /**
      * @return (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
      * * `user_data_shared` (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
-    private final String roleArn;
-    private final Boolean userDataShared;
+    private String roleArn;
+    private Boolean userDataShared;
 
-    @CustomType.Constructor
-    private GetUserPoolClientAnalyticsConfiguration(
-        @CustomType.Parameter("applicationArn") String applicationArn,
-        @CustomType.Parameter("applicationId") String applicationId,
-        @CustomType.Parameter("externalId") String externalId,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("userDataShared") Boolean userDataShared) {
-        this.applicationArn = applicationArn;
-        this.applicationId = applicationId;
-        this.externalId = externalId;
-        this.roleArn = roleArn;
-        this.userDataShared = userDataShared;
-    }
-
+    private GetUserPoolClientAnalyticsConfiguration() {}
     /**
      * @return (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
      * 
@@ -87,18 +74,14 @@ public final class GetUserPoolClientAnalyticsConfiguration {
     public static Builder builder(GetUserPoolClientAnalyticsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String applicationArn;
         private String applicationId;
         private String externalId;
         private String roleArn;
         private Boolean userDataShared;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserPoolClientAnalyticsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationArn = defaults.applicationArn;
@@ -108,27 +91,39 @@ public final class GetUserPoolClientAnalyticsConfiguration {
     	      this.userDataShared = defaults.userDataShared;
         }
 
+        @CustomType.Setter
         public Builder applicationArn(String applicationArn) {
             this.applicationArn = Objects.requireNonNull(applicationArn);
             return this;
         }
+        @CustomType.Setter
         public Builder applicationId(String applicationId) {
             this.applicationId = Objects.requireNonNull(applicationId);
             return this;
         }
+        @CustomType.Setter
         public Builder externalId(String externalId) {
             this.externalId = Objects.requireNonNull(externalId);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder userDataShared(Boolean userDataShared) {
             this.userDataShared = Objects.requireNonNull(userDataShared);
             return this;
-        }        public GetUserPoolClientAnalyticsConfiguration build() {
-            return new GetUserPoolClientAnalyticsConfiguration(applicationArn, applicationId, externalId, roleArn, userDataShared);
+        }
+        public GetUserPoolClientAnalyticsConfiguration build() {
+            final var o = new GetUserPoolClientAnalyticsConfiguration();
+            o.applicationArn = applicationArn;
+            o.applicationId = applicationId;
+            o.externalId = externalId;
+            o.roleArn = roleArn;
+            o.userDataShared = userDataShared;
+            return o;
         }
     }
 }

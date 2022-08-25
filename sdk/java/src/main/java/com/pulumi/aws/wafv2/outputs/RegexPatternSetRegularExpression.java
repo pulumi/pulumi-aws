@@ -13,13 +13,9 @@ public final class RegexPatternSetRegularExpression {
      * @return The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
      * 
      */
-    private final String regexString;
+    private String regexString;
 
-    @CustomType.Constructor
-    private RegexPatternSetRegularExpression(@CustomType.Parameter("regexString") String regexString) {
-        this.regexString = regexString;
-    }
-
+    private RegexPatternSetRegularExpression() {}
     /**
      * @return The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
      * 
@@ -35,24 +31,24 @@ public final class RegexPatternSetRegularExpression {
     public static Builder builder(RegexPatternSetRegularExpression defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String regexString;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegexPatternSetRegularExpression defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.regexString = defaults.regexString;
         }
 
+        @CustomType.Setter
         public Builder regexString(String regexString) {
             this.regexString = Objects.requireNonNull(regexString);
             return this;
-        }        public RegexPatternSetRegularExpression build() {
-            return new RegexPatternSetRegularExpression(regexString);
+        }
+        public RegexPatternSetRegularExpression build() {
+            final var o = new RegexPatternSetRegularExpression();
+            o.regexString = regexString;
+            return o;
         }
     }
 }

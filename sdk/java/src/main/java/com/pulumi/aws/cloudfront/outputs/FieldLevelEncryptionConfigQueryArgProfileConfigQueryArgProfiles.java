@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles {
-    private final @Nullable List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem> items;
+    private @Nullable List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem> items;
 
-    @CustomType.Constructor
-    private FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles(@CustomType.Parameter("items") @Nullable List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem> items) {
-        this.items = items;
-    }
-
+    private FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles() {}
     public List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem> items() {
         return this.items == null ? List.of() : this.items;
     }
@@ -29,27 +25,27 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
     public static Builder builder(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(@Nullable List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem> items) {
             this.items = items;
             return this;
         }
         public Builder items(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem... items) {
             return items(List.of(items));
-        }        public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles build() {
-            return new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles(items);
+        }
+        public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles build() {
+            final var o = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles();
+            o.items = items;
+            return o;
         }
     }
 }

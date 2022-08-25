@@ -15,21 +15,14 @@ public final class AppImageConfigKernelGatewayImageConfigKernelSpec {
      * @return The display name of the kernel.
      * 
      */
-    private final @Nullable String displayName;
+    private @Nullable String displayName;
     /**
      * @return The name of the kernel.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private AppImageConfigKernelGatewayImageConfigKernelSpec(
-        @CustomType.Parameter("displayName") @Nullable String displayName,
-        @CustomType.Parameter("name") String name) {
-        this.displayName = displayName;
-        this.name = name;
-    }
-
+    private AppImageConfigKernelGatewayImageConfigKernelSpec() {}
     /**
      * @return The display name of the kernel.
      * 
@@ -52,30 +45,32 @@ public final class AppImageConfigKernelGatewayImageConfigKernelSpec {
     public static Builder builder(AppImageConfigKernelGatewayImageConfigKernelSpec defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String displayName;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppImageConfigKernelGatewayImageConfigKernelSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
             this.displayName = displayName;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public AppImageConfigKernelGatewayImageConfigKernelSpec build() {
-            return new AppImageConfigKernelGatewayImageConfigKernelSpec(displayName, name);
+        }
+        public AppImageConfigKernelGatewayImageConfigKernelSpec build() {
+            final var o = new AppImageConfigKernelGatewayImageConfigKernelSpec();
+            o.displayName = displayName;
+            o.name = name;
+            return o;
         }
     }
 }

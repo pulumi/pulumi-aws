@@ -15,80 +15,55 @@ public final class GetRoleResult {
      * @return The Amazon Resource Name (ARN) specifying the role.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The policy document associated with the role.
      * 
      */
-    private final String assumeRolePolicy;
+    private String assumeRolePolicy;
     /**
      * @return Creation date of the role in RFC 3339 format.
      * 
      */
-    private final String createDate;
+    private String createDate;
     /**
      * @return Description for the role.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Maximum session duration.
      * 
      */
-    private final Integer maxSessionDuration;
-    private final String name;
+    private Integer maxSessionDuration;
+    private String name;
     /**
      * @return The path to the role.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return The ARN of the policy that is used to set the permissions boundary for the role.
      * 
      */
-    private final String permissionsBoundary;
+    private String permissionsBoundary;
     /**
      * @return The tags attached to the role.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The stable and unique string identifying the role.
      * 
      */
-    private final String uniqueId;
+    private String uniqueId;
 
-    @CustomType.Constructor
-    private GetRoleResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("assumeRolePolicy") String assumeRolePolicy,
-        @CustomType.Parameter("createDate") String createDate,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("maxSessionDuration") Integer maxSessionDuration,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("permissionsBoundary") String permissionsBoundary,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("uniqueId") String uniqueId) {
-        this.arn = arn;
-        this.assumeRolePolicy = assumeRolePolicy;
-        this.createDate = createDate;
-        this.description = description;
-        this.id = id;
-        this.maxSessionDuration = maxSessionDuration;
-        this.name = name;
-        this.path = path;
-        this.permissionsBoundary = permissionsBoundary;
-        this.tags = tags;
-        this.uniqueId = uniqueId;
-    }
-
+    private GetRoleResult() {}
     /**
      * @return The Amazon Resource Name (ARN) specifying the role.
      * 
@@ -170,7 +145,7 @@ public final class GetRoleResult {
     public static Builder builder(GetRoleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String assumeRolePolicy;
@@ -183,11 +158,7 @@ public final class GetRoleResult {
         private String permissionsBoundary;
         private Map<String,String> tags;
         private String uniqueId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRoleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -203,51 +174,75 @@ public final class GetRoleResult {
     	      this.uniqueId = defaults.uniqueId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder assumeRolePolicy(String assumeRolePolicy) {
             this.assumeRolePolicy = Objects.requireNonNull(assumeRolePolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder createDate(String createDate) {
             this.createDate = Objects.requireNonNull(createDate);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder maxSessionDuration(Integer maxSessionDuration) {
             this.maxSessionDuration = Objects.requireNonNull(maxSessionDuration);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder permissionsBoundary(String permissionsBoundary) {
             this.permissionsBoundary = Objects.requireNonNull(permissionsBoundary);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder uniqueId(String uniqueId) {
             this.uniqueId = Objects.requireNonNull(uniqueId);
             return this;
-        }        public GetRoleResult build() {
-            return new GetRoleResult(arn, assumeRolePolicy, createDate, description, id, maxSessionDuration, name, path, permissionsBoundary, tags, uniqueId);
+        }
+        public GetRoleResult build() {
+            final var o = new GetRoleResult();
+            o.arn = arn;
+            o.assumeRolePolicy = assumeRolePolicy;
+            o.createDate = createDate;
+            o.description = description;
+            o.id = id;
+            o.maxSessionDuration = maxSessionDuration;
+            o.name = name;
+            o.path = path;
+            o.permissionsBoundary = permissionsBoundary;
+            o.tags = tags;
+            o.uniqueId = uniqueId;
+            return o;
         }
     }
 }

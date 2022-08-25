@@ -17,259 +17,184 @@ public final class EndpointS3Settings {
      * @return Whether to add column name information to the .csv output file. Default is `false`.
      * 
      */
-    private final @Nullable Boolean addColumnName;
+    private @Nullable Boolean addColumnName;
     /**
      * @return S3 object prefix.
      * 
      */
-    private final @Nullable String bucketFolder;
+    private @Nullable String bucketFolder;
     /**
      * @return S3 bucket name.
      * 
      */
-    private final @Nullable String bucketName;
+    private @Nullable String bucketName;
     /**
      * @return Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
      * 
      */
-    private final @Nullable String cannedAclForObjects;
+    private @Nullable String cannedAclForObjects;
     /**
      * @return Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
      * 
      */
-    private final @Nullable Boolean cdcInsertsAndUpdates;
+    private @Nullable Boolean cdcInsertsAndUpdates;
     /**
      * @return Whether to write insert operations to .csv or .parquet output files. Default is `false`.
      * 
      */
-    private final @Nullable Boolean cdcInsertsOnly;
+    private @Nullable Boolean cdcInsertsOnly;
     /**
      * @return Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
      * 
      */
-    private final @Nullable Integer cdcMaxBatchInterval;
+    private @Nullable Integer cdcMaxBatchInterval;
     /**
      * @return Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
      * 
      */
-    private final @Nullable Integer cdcMinFileSize;
+    private @Nullable Integer cdcMinFileSize;
     /**
      * @return Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it&#39;s optional. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
      * 
      */
-    private final @Nullable String cdcPath;
+    private @Nullable String cdcPath;
     /**
      * @return Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
      * 
      */
-    private final @Nullable String compressionType;
+    private @Nullable String compressionType;
     /**
      * @return Delimiter used to separate columns in the source files. Default is `,`.
      * 
      */
-    private final @Nullable String csvDelimiter;
+    private @Nullable String csvDelimiter;
     /**
      * @return String to use for all columns not included in the supplemental log.
      * 
      */
-    private final @Nullable String csvNoSupValue;
+    private @Nullable String csvNoSupValue;
     /**
      * @return String to as null when writing to the target.
      * 
      */
-    private final @Nullable String csvNullValue;
+    private @Nullable String csvNullValue;
     /**
      * @return Delimiter used to separate rows in the source files. Default is `\n`.
      * 
      */
-    private final @Nullable String csvRowDelimiter;
+    private @Nullable String csvRowDelimiter;
     /**
      * @return Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`. Default is `csv`.
      * 
      */
-    private final @Nullable String dataFormat;
+    private @Nullable String dataFormat;
     /**
      * @return Size of one data page in bytes. Default is `1048576` (1 MiB).
      * 
      */
-    private final @Nullable Integer dataPageSize;
+    private @Nullable Integer dataPageSize;
     /**
      * @return Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. Default is `SLASH`.
      * 
      */
-    private final @Nullable String datePartitionDelimiter;
+    private @Nullable String datePartitionDelimiter;
     /**
      * @return Partition S3 bucket folders based on transaction commit dates. Default is `false`.
      * 
      */
-    private final @Nullable Boolean datePartitionEnabled;
+    private @Nullable Boolean datePartitionEnabled;
     /**
      * @return Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. Default is `YYYYMMDD`.
      * 
      */
-    private final @Nullable String datePartitionSequence;
+    private @Nullable String datePartitionSequence;
     /**
      * @return Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
      * 
      */
-    private final @Nullable Integer dictPageSizeLimit;
+    private @Nullable Integer dictPageSizeLimit;
     /**
      * @return Whether to enable statistics for Parquet pages and row groups. Default is `true`.
      * 
      */
-    private final @Nullable Boolean enableStatistics;
+    private @Nullable Boolean enableStatistics;
     /**
      * @return Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
      * 
      */
-    private final @Nullable String encodingType;
+    private @Nullable String encodingType;
     /**
      * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
      * 
      */
-    private final @Nullable String encryptionMode;
+    private @Nullable String encryptionMode;
     /**
      * @return JSON document that describes how AWS DMS should interpret the data.
      * 
      */
-    private final @Nullable String externalTableDefinition;
+    private @Nullable String externalTableDefinition;
     /**
      * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
      * 
      */
-    private final @Nullable Integer ignoreHeadersRow;
+    private @Nullable Integer ignoreHeadersRow;
     /**
      * @return Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      * 
      */
-    private final @Nullable Boolean includeOpForFullLoad;
+    private @Nullable Boolean includeOpForFullLoad;
     /**
      * @return Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
      * 
      */
-    private final @Nullable Integer maxFileSize;
+    private @Nullable Integer maxFileSize;
     /**
      * @return - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
      * 
      */
-    private final @Nullable Boolean parquetTimestampInMillisecond;
+    private @Nullable Boolean parquetTimestampInMillisecond;
     /**
      * @return Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
      * 
      */
-    private final @Nullable String parquetVersion;
+    private @Nullable String parquetVersion;
     /**
      * @return Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
      * 
      */
-    private final @Nullable Boolean preserveTransactions;
+    private @Nullable Boolean preserveTransactions;
     /**
      * @return For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      * 
      */
-    private final @Nullable Boolean rfc4180;
+    private @Nullable Boolean rfc4180;
     /**
      * @return Number of rows in a row group. Default is `10000`.
      * 
      */
-    private final @Nullable Integer rowGroupLength;
+    private @Nullable Integer rowGroupLength;
     /**
      * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
      * 
      */
-    private final @Nullable String serverSideEncryptionKmsKeyId;
+    private @Nullable String serverSideEncryptionKmsKeyId;
     /**
      * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
      * 
      */
-    private final @Nullable String serviceAccessRoleArn;
+    private @Nullable String serviceAccessRoleArn;
     /**
      * @return Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      * 
      */
-    private final @Nullable String timestampColumnName;
+    private @Nullable String timestampColumnName;
     /**
      * @return Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
      * 
      */
-    private final @Nullable Boolean useCsvNoSupValue;
+    private @Nullable Boolean useCsvNoSupValue;
 
-    @CustomType.Constructor
-    private EndpointS3Settings(
-        @CustomType.Parameter("addColumnName") @Nullable Boolean addColumnName,
-        @CustomType.Parameter("bucketFolder") @Nullable String bucketFolder,
-        @CustomType.Parameter("bucketName") @Nullable String bucketName,
-        @CustomType.Parameter("cannedAclForObjects") @Nullable String cannedAclForObjects,
-        @CustomType.Parameter("cdcInsertsAndUpdates") @Nullable Boolean cdcInsertsAndUpdates,
-        @CustomType.Parameter("cdcInsertsOnly") @Nullable Boolean cdcInsertsOnly,
-        @CustomType.Parameter("cdcMaxBatchInterval") @Nullable Integer cdcMaxBatchInterval,
-        @CustomType.Parameter("cdcMinFileSize") @Nullable Integer cdcMinFileSize,
-        @CustomType.Parameter("cdcPath") @Nullable String cdcPath,
-        @CustomType.Parameter("compressionType") @Nullable String compressionType,
-        @CustomType.Parameter("csvDelimiter") @Nullable String csvDelimiter,
-        @CustomType.Parameter("csvNoSupValue") @Nullable String csvNoSupValue,
-        @CustomType.Parameter("csvNullValue") @Nullable String csvNullValue,
-        @CustomType.Parameter("csvRowDelimiter") @Nullable String csvRowDelimiter,
-        @CustomType.Parameter("dataFormat") @Nullable String dataFormat,
-        @CustomType.Parameter("dataPageSize") @Nullable Integer dataPageSize,
-        @CustomType.Parameter("datePartitionDelimiter") @Nullable String datePartitionDelimiter,
-        @CustomType.Parameter("datePartitionEnabled") @Nullable Boolean datePartitionEnabled,
-        @CustomType.Parameter("datePartitionSequence") @Nullable String datePartitionSequence,
-        @CustomType.Parameter("dictPageSizeLimit") @Nullable Integer dictPageSizeLimit,
-        @CustomType.Parameter("enableStatistics") @Nullable Boolean enableStatistics,
-        @CustomType.Parameter("encodingType") @Nullable String encodingType,
-        @CustomType.Parameter("encryptionMode") @Nullable String encryptionMode,
-        @CustomType.Parameter("externalTableDefinition") @Nullable String externalTableDefinition,
-        @CustomType.Parameter("ignoreHeadersRow") @Nullable Integer ignoreHeadersRow,
-        @CustomType.Parameter("includeOpForFullLoad") @Nullable Boolean includeOpForFullLoad,
-        @CustomType.Parameter("maxFileSize") @Nullable Integer maxFileSize,
-        @CustomType.Parameter("parquetTimestampInMillisecond") @Nullable Boolean parquetTimestampInMillisecond,
-        @CustomType.Parameter("parquetVersion") @Nullable String parquetVersion,
-        @CustomType.Parameter("preserveTransactions") @Nullable Boolean preserveTransactions,
-        @CustomType.Parameter("rfc4180") @Nullable Boolean rfc4180,
-        @CustomType.Parameter("rowGroupLength") @Nullable Integer rowGroupLength,
-        @CustomType.Parameter("serverSideEncryptionKmsKeyId") @Nullable String serverSideEncryptionKmsKeyId,
-        @CustomType.Parameter("serviceAccessRoleArn") @Nullable String serviceAccessRoleArn,
-        @CustomType.Parameter("timestampColumnName") @Nullable String timestampColumnName,
-        @CustomType.Parameter("useCsvNoSupValue") @Nullable Boolean useCsvNoSupValue) {
-        this.addColumnName = addColumnName;
-        this.bucketFolder = bucketFolder;
-        this.bucketName = bucketName;
-        this.cannedAclForObjects = cannedAclForObjects;
-        this.cdcInsertsAndUpdates = cdcInsertsAndUpdates;
-        this.cdcInsertsOnly = cdcInsertsOnly;
-        this.cdcMaxBatchInterval = cdcMaxBatchInterval;
-        this.cdcMinFileSize = cdcMinFileSize;
-        this.cdcPath = cdcPath;
-        this.compressionType = compressionType;
-        this.csvDelimiter = csvDelimiter;
-        this.csvNoSupValue = csvNoSupValue;
-        this.csvNullValue = csvNullValue;
-        this.csvRowDelimiter = csvRowDelimiter;
-        this.dataFormat = dataFormat;
-        this.dataPageSize = dataPageSize;
-        this.datePartitionDelimiter = datePartitionDelimiter;
-        this.datePartitionEnabled = datePartitionEnabled;
-        this.datePartitionSequence = datePartitionSequence;
-        this.dictPageSizeLimit = dictPageSizeLimit;
-        this.enableStatistics = enableStatistics;
-        this.encodingType = encodingType;
-        this.encryptionMode = encryptionMode;
-        this.externalTableDefinition = externalTableDefinition;
-        this.ignoreHeadersRow = ignoreHeadersRow;
-        this.includeOpForFullLoad = includeOpForFullLoad;
-        this.maxFileSize = maxFileSize;
-        this.parquetTimestampInMillisecond = parquetTimestampInMillisecond;
-        this.parquetVersion = parquetVersion;
-        this.preserveTransactions = preserveTransactions;
-        this.rfc4180 = rfc4180;
-        this.rowGroupLength = rowGroupLength;
-        this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
-        this.serviceAccessRoleArn = serviceAccessRoleArn;
-        this.timestampColumnName = timestampColumnName;
-        this.useCsvNoSupValue = useCsvNoSupValue;
-    }
-
+    private EndpointS3Settings() {}
     /**
      * @return Whether to add column name information to the .csv output file. Default is `false`.
      * 
@@ -530,7 +455,7 @@ public final class EndpointS3Settings {
     public static Builder builder(EndpointS3Settings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean addColumnName;
         private @Nullable String bucketFolder;
@@ -568,11 +493,7 @@ public final class EndpointS3Settings {
         private @Nullable String serviceAccessRoleArn;
         private @Nullable String timestampColumnName;
         private @Nullable Boolean useCsvNoSupValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointS3Settings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addColumnName = defaults.addColumnName;
@@ -613,151 +534,225 @@ public final class EndpointS3Settings {
     	      this.useCsvNoSupValue = defaults.useCsvNoSupValue;
         }
 
+        @CustomType.Setter
         public Builder addColumnName(@Nullable Boolean addColumnName) {
             this.addColumnName = addColumnName;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketFolder(@Nullable String bucketFolder) {
             this.bucketFolder = bucketFolder;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
             this.bucketName = bucketName;
             return this;
         }
+        @CustomType.Setter
         public Builder cannedAclForObjects(@Nullable String cannedAclForObjects) {
             this.cannedAclForObjects = cannedAclForObjects;
             return this;
         }
+        @CustomType.Setter
         public Builder cdcInsertsAndUpdates(@Nullable Boolean cdcInsertsAndUpdates) {
             this.cdcInsertsAndUpdates = cdcInsertsAndUpdates;
             return this;
         }
+        @CustomType.Setter
         public Builder cdcInsertsOnly(@Nullable Boolean cdcInsertsOnly) {
             this.cdcInsertsOnly = cdcInsertsOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder cdcMaxBatchInterval(@Nullable Integer cdcMaxBatchInterval) {
             this.cdcMaxBatchInterval = cdcMaxBatchInterval;
             return this;
         }
+        @CustomType.Setter
         public Builder cdcMinFileSize(@Nullable Integer cdcMinFileSize) {
             this.cdcMinFileSize = cdcMinFileSize;
             return this;
         }
+        @CustomType.Setter
         public Builder cdcPath(@Nullable String cdcPath) {
             this.cdcPath = cdcPath;
             return this;
         }
+        @CustomType.Setter
         public Builder compressionType(@Nullable String compressionType) {
             this.compressionType = compressionType;
             return this;
         }
+        @CustomType.Setter
         public Builder csvDelimiter(@Nullable String csvDelimiter) {
             this.csvDelimiter = csvDelimiter;
             return this;
         }
+        @CustomType.Setter
         public Builder csvNoSupValue(@Nullable String csvNoSupValue) {
             this.csvNoSupValue = csvNoSupValue;
             return this;
         }
+        @CustomType.Setter
         public Builder csvNullValue(@Nullable String csvNullValue) {
             this.csvNullValue = csvNullValue;
             return this;
         }
+        @CustomType.Setter
         public Builder csvRowDelimiter(@Nullable String csvRowDelimiter) {
             this.csvRowDelimiter = csvRowDelimiter;
             return this;
         }
+        @CustomType.Setter
         public Builder dataFormat(@Nullable String dataFormat) {
             this.dataFormat = dataFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder dataPageSize(@Nullable Integer dataPageSize) {
             this.dataPageSize = dataPageSize;
             return this;
         }
+        @CustomType.Setter
         public Builder datePartitionDelimiter(@Nullable String datePartitionDelimiter) {
             this.datePartitionDelimiter = datePartitionDelimiter;
             return this;
         }
+        @CustomType.Setter
         public Builder datePartitionEnabled(@Nullable Boolean datePartitionEnabled) {
             this.datePartitionEnabled = datePartitionEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder datePartitionSequence(@Nullable String datePartitionSequence) {
             this.datePartitionSequence = datePartitionSequence;
             return this;
         }
+        @CustomType.Setter
         public Builder dictPageSizeLimit(@Nullable Integer dictPageSizeLimit) {
             this.dictPageSizeLimit = dictPageSizeLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder enableStatistics(@Nullable Boolean enableStatistics) {
             this.enableStatistics = enableStatistics;
             return this;
         }
+        @CustomType.Setter
         public Builder encodingType(@Nullable String encodingType) {
             this.encodingType = encodingType;
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionMode(@Nullable String encryptionMode) {
             this.encryptionMode = encryptionMode;
             return this;
         }
+        @CustomType.Setter
         public Builder externalTableDefinition(@Nullable String externalTableDefinition) {
             this.externalTableDefinition = externalTableDefinition;
             return this;
         }
+        @CustomType.Setter
         public Builder ignoreHeadersRow(@Nullable Integer ignoreHeadersRow) {
             this.ignoreHeadersRow = ignoreHeadersRow;
             return this;
         }
+        @CustomType.Setter
         public Builder includeOpForFullLoad(@Nullable Boolean includeOpForFullLoad) {
             this.includeOpForFullLoad = includeOpForFullLoad;
             return this;
         }
+        @CustomType.Setter
         public Builder maxFileSize(@Nullable Integer maxFileSize) {
             this.maxFileSize = maxFileSize;
             return this;
         }
+        @CustomType.Setter
         public Builder parquetTimestampInMillisecond(@Nullable Boolean parquetTimestampInMillisecond) {
             this.parquetTimestampInMillisecond = parquetTimestampInMillisecond;
             return this;
         }
+        @CustomType.Setter
         public Builder parquetVersion(@Nullable String parquetVersion) {
             this.parquetVersion = parquetVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder preserveTransactions(@Nullable Boolean preserveTransactions) {
             this.preserveTransactions = preserveTransactions;
             return this;
         }
+        @CustomType.Setter
         public Builder rfc4180(@Nullable Boolean rfc4180) {
             this.rfc4180 = rfc4180;
             return this;
         }
+        @CustomType.Setter
         public Builder rowGroupLength(@Nullable Integer rowGroupLength) {
             this.rowGroupLength = rowGroupLength;
             return this;
         }
+        @CustomType.Setter
         public Builder serverSideEncryptionKmsKeyId(@Nullable String serverSideEncryptionKmsKeyId) {
             this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
             this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
+        @CustomType.Setter
         public Builder timestampColumnName(@Nullable String timestampColumnName) {
             this.timestampColumnName = timestampColumnName;
             return this;
         }
+        @CustomType.Setter
         public Builder useCsvNoSupValue(@Nullable Boolean useCsvNoSupValue) {
             this.useCsvNoSupValue = useCsvNoSupValue;
             return this;
-        }        public EndpointS3Settings build() {
-            return new EndpointS3Settings(addColumnName, bucketFolder, bucketName, cannedAclForObjects, cdcInsertsAndUpdates, cdcInsertsOnly, cdcMaxBatchInterval, cdcMinFileSize, cdcPath, compressionType, csvDelimiter, csvNoSupValue, csvNullValue, csvRowDelimiter, dataFormat, dataPageSize, datePartitionDelimiter, datePartitionEnabled, datePartitionSequence, dictPageSizeLimit, enableStatistics, encodingType, encryptionMode, externalTableDefinition, ignoreHeadersRow, includeOpForFullLoad, maxFileSize, parquetTimestampInMillisecond, parquetVersion, preserveTransactions, rfc4180, rowGroupLength, serverSideEncryptionKmsKeyId, serviceAccessRoleArn, timestampColumnName, useCsvNoSupValue);
+        }
+        public EndpointS3Settings build() {
+            final var o = new EndpointS3Settings();
+            o.addColumnName = addColumnName;
+            o.bucketFolder = bucketFolder;
+            o.bucketName = bucketName;
+            o.cannedAclForObjects = cannedAclForObjects;
+            o.cdcInsertsAndUpdates = cdcInsertsAndUpdates;
+            o.cdcInsertsOnly = cdcInsertsOnly;
+            o.cdcMaxBatchInterval = cdcMaxBatchInterval;
+            o.cdcMinFileSize = cdcMinFileSize;
+            o.cdcPath = cdcPath;
+            o.compressionType = compressionType;
+            o.csvDelimiter = csvDelimiter;
+            o.csvNoSupValue = csvNoSupValue;
+            o.csvNullValue = csvNullValue;
+            o.csvRowDelimiter = csvRowDelimiter;
+            o.dataFormat = dataFormat;
+            o.dataPageSize = dataPageSize;
+            o.datePartitionDelimiter = datePartitionDelimiter;
+            o.datePartitionEnabled = datePartitionEnabled;
+            o.datePartitionSequence = datePartitionSequence;
+            o.dictPageSizeLimit = dictPageSizeLimit;
+            o.enableStatistics = enableStatistics;
+            o.encodingType = encodingType;
+            o.encryptionMode = encryptionMode;
+            o.externalTableDefinition = externalTableDefinition;
+            o.ignoreHeadersRow = ignoreHeadersRow;
+            o.includeOpForFullLoad = includeOpForFullLoad;
+            o.maxFileSize = maxFileSize;
+            o.parquetTimestampInMillisecond = parquetTimestampInMillisecond;
+            o.parquetVersion = parquetVersion;
+            o.preserveTransactions = preserveTransactions;
+            o.rfc4180 = rfc4180;
+            o.rowGroupLength = rowGroupLength;
+            o.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
+            o.serviceAccessRoleArn = serviceAccessRoleArn;
+            o.timestampColumnName = timestampColumnName;
+            o.useCsvNoSupValue = useCsvNoSupValue;
+            return o;
         }
     }
 }

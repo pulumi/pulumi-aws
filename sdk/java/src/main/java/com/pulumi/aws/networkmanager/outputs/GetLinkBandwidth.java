@@ -13,21 +13,14 @@ public final class GetLinkBandwidth {
      * @return Download speed in Mbps.
      * 
      */
-    private final Integer downloadSpeed;
+    private Integer downloadSpeed;
     /**
      * @return Upload speed in Mbps.
      * 
      */
-    private final Integer uploadSpeed;
+    private Integer uploadSpeed;
 
-    @CustomType.Constructor
-    private GetLinkBandwidth(
-        @CustomType.Parameter("downloadSpeed") Integer downloadSpeed,
-        @CustomType.Parameter("uploadSpeed") Integer uploadSpeed) {
-        this.downloadSpeed = downloadSpeed;
-        this.uploadSpeed = uploadSpeed;
-    }
-
+    private GetLinkBandwidth() {}
     /**
      * @return Download speed in Mbps.
      * 
@@ -50,30 +43,32 @@ public final class GetLinkBandwidth {
     public static Builder builder(GetLinkBandwidth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer downloadSpeed;
         private Integer uploadSpeed;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinkBandwidth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.downloadSpeed = defaults.downloadSpeed;
     	      this.uploadSpeed = defaults.uploadSpeed;
         }
 
+        @CustomType.Setter
         public Builder downloadSpeed(Integer downloadSpeed) {
             this.downloadSpeed = Objects.requireNonNull(downloadSpeed);
             return this;
         }
+        @CustomType.Setter
         public Builder uploadSpeed(Integer uploadSpeed) {
             this.uploadSpeed = Objects.requireNonNull(uploadSpeed);
             return this;
-        }        public GetLinkBandwidth build() {
-            return new GetLinkBandwidth(downloadSpeed, uploadSpeed);
+        }
+        public GetLinkBandwidth build() {
+            final var o = new GetLinkBandwidth();
+            o.downloadSpeed = downloadSpeed;
+            o.uploadSpeed = uploadSpeed;
+            return o;
         }
     }
 }

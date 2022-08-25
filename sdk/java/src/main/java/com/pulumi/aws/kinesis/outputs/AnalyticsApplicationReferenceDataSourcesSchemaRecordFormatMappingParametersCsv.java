@@ -13,21 +13,14 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
      * @return The Column Delimiter.
      * 
      */
-    private final String recordColumnDelimiter;
+    private String recordColumnDelimiter;
     /**
      * @return The Row Delimiter.
      * 
      */
-    private final String recordRowDelimiter;
+    private String recordRowDelimiter;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv(
-        @CustomType.Parameter("recordColumnDelimiter") String recordColumnDelimiter,
-        @CustomType.Parameter("recordRowDelimiter") String recordRowDelimiter) {
-        this.recordColumnDelimiter = recordColumnDelimiter;
-        this.recordRowDelimiter = recordRowDelimiter;
-    }
-
+    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv() {}
     /**
      * @return The Column Delimiter.
      * 
@@ -50,30 +43,32 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
     public static Builder builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String recordColumnDelimiter;
         private String recordRowDelimiter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordColumnDelimiter = defaults.recordColumnDelimiter;
     	      this.recordRowDelimiter = defaults.recordRowDelimiter;
         }
 
+        @CustomType.Setter
         public Builder recordColumnDelimiter(String recordColumnDelimiter) {
             this.recordColumnDelimiter = Objects.requireNonNull(recordColumnDelimiter);
             return this;
         }
+        @CustomType.Setter
         public Builder recordRowDelimiter(String recordRowDelimiter) {
             this.recordRowDelimiter = Objects.requireNonNull(recordRowDelimiter);
             return this;
-        }        public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv build() {
-            return new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv(recordColumnDelimiter, recordRowDelimiter);
+        }
+        public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv build() {
+            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv();
+            o.recordColumnDelimiter = recordColumnDelimiter;
+            o.recordRowDelimiter = recordRowDelimiter;
+            return o;
         }
     }
 }

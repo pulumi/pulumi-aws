@@ -16,37 +16,22 @@ public final class GetAuthorizationTokenResult {
      * @return Temporary authorization token.
      * 
      */
-    private final String authorizationToken;
-    private final String domain;
-    private final String domainOwner;
-    private final @Nullable Integer durationSeconds;
+    private String authorizationToken;
+    private String domain;
+    private String domainOwner;
+    private @Nullable Integer durationSeconds;
     /**
      * @return The time in UTC RFC3339 format when the authorization token expires.
      * 
      */
-    private final String expiration;
+    private String expiration;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetAuthorizationTokenResult(
-        @CustomType.Parameter("authorizationToken") String authorizationToken,
-        @CustomType.Parameter("domain") String domain,
-        @CustomType.Parameter("domainOwner") String domainOwner,
-        @CustomType.Parameter("durationSeconds") @Nullable Integer durationSeconds,
-        @CustomType.Parameter("expiration") String expiration,
-        @CustomType.Parameter("id") String id) {
-        this.authorizationToken = authorizationToken;
-        this.domain = domain;
-        this.domainOwner = domainOwner;
-        this.durationSeconds = durationSeconds;
-        this.expiration = expiration;
-        this.id = id;
-    }
-
+    private GetAuthorizationTokenResult() {}
     /**
      * @return Temporary authorization token.
      * 
@@ -85,7 +70,7 @@ public final class GetAuthorizationTokenResult {
     public static Builder builder(GetAuthorizationTokenResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authorizationToken;
         private String domain;
@@ -93,11 +78,7 @@ public final class GetAuthorizationTokenResult {
         private @Nullable Integer durationSeconds;
         private String expiration;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAuthorizationTokenResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationToken = defaults.authorizationToken;
@@ -108,31 +89,45 @@ public final class GetAuthorizationTokenResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder authorizationToken(String authorizationToken) {
             this.authorizationToken = Objects.requireNonNull(authorizationToken);
             return this;
         }
+        @CustomType.Setter
         public Builder domain(String domain) {
             this.domain = Objects.requireNonNull(domain);
             return this;
         }
+        @CustomType.Setter
         public Builder domainOwner(String domainOwner) {
             this.domainOwner = Objects.requireNonNull(domainOwner);
             return this;
         }
+        @CustomType.Setter
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
             this.durationSeconds = durationSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder expiration(String expiration) {
             this.expiration = Objects.requireNonNull(expiration);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetAuthorizationTokenResult build() {
-            return new GetAuthorizationTokenResult(authorizationToken, domain, domainOwner, durationSeconds, expiration, id);
+        }
+        public GetAuthorizationTokenResult build() {
+            final var o = new GetAuthorizationTokenResult();
+            o.authorizationToken = authorizationToken;
+            o.domain = domain;
+            o.domainOwner = domainOwner;
+            o.durationSeconds = durationSeconds;
+            o.expiration = expiration;
+            o.id = id;
+            return o;
         }
     }
 }

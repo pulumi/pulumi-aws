@@ -17,28 +17,19 @@ public final class OrganizationConfigurationDatasources {
      * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
      * 
      */
-    private final @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes;
+    private @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes;
     /**
      * @return Enable Malware Protection automatically for new member accounts.
      * 
      */
-    private final @Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection;
+    private @Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection;
     /**
      * @return Enable S3 Protection automatically for new member accounts.
      * 
      */
-    private final @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs;
+    private @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs;
 
-    @CustomType.Constructor
-    private OrganizationConfigurationDatasources(
-        @CustomType.Parameter("kubernetes") @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes,
-        @CustomType.Parameter("malwareProtection") @Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection,
-        @CustomType.Parameter("s3Logs") @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs) {
-        this.kubernetes = kubernetes;
-        this.malwareProtection = malwareProtection;
-        this.s3Logs = s3Logs;
-    }
-
+    private OrganizationConfigurationDatasources() {}
     /**
      * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
      * 
@@ -68,16 +59,12 @@ public final class OrganizationConfigurationDatasources {
     public static Builder builder(OrganizationConfigurationDatasources defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes;
         private @Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection;
         private @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationConfigurationDatasources defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kubernetes = defaults.kubernetes;
@@ -85,19 +72,27 @@ public final class OrganizationConfigurationDatasources {
     	      this.s3Logs = defaults.s3Logs;
         }
 
+        @CustomType.Setter
         public Builder kubernetes(@Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes) {
             this.kubernetes = kubernetes;
             return this;
         }
+        @CustomType.Setter
         public Builder malwareProtection(@Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection) {
             this.malwareProtection = malwareProtection;
             return this;
         }
+        @CustomType.Setter
         public Builder s3Logs(@Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs) {
             this.s3Logs = s3Logs;
             return this;
-        }        public OrganizationConfigurationDatasources build() {
-            return new OrganizationConfigurationDatasources(kubernetes, malwareProtection, s3Logs);
+        }
+        public OrganizationConfigurationDatasources build() {
+            final var o = new OrganizationConfigurationDatasources();
+            o.kubernetes = kubernetes;
+            o.malwareProtection = malwareProtection;
+            o.s3Logs = s3Logs;
+            return o;
         }
     }
 }

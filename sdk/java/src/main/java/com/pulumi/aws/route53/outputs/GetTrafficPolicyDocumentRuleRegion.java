@@ -16,42 +16,29 @@ public final class GetTrafficPolicyDocumentRuleRegion {
      * @return References to an endpoint.
      * 
      */
-    private final @Nullable String endpointReference;
+    private @Nullable String endpointReference;
     /**
      * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
      * 
      */
-    private final @Nullable Boolean evaluateTargetHealth;
+    private @Nullable Boolean evaluateTargetHealth;
     /**
      * @return If you want to associate a health check with the endpoint or rule.
      * 
      */
-    private final @Nullable String healthCheck;
+    private @Nullable String healthCheck;
     /**
      * @return Region code for the AWS Region that you created the resource in.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
     /**
      * @return References to a rule.
      * 
      */
-    private final @Nullable String ruleReference;
+    private @Nullable String ruleReference;
 
-    @CustomType.Constructor
-    private GetTrafficPolicyDocumentRuleRegion(
-        @CustomType.Parameter("endpointReference") @Nullable String endpointReference,
-        @CustomType.Parameter("evaluateTargetHealth") @Nullable Boolean evaluateTargetHealth,
-        @CustomType.Parameter("healthCheck") @Nullable String healthCheck,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("ruleReference") @Nullable String ruleReference) {
-        this.endpointReference = endpointReference;
-        this.evaluateTargetHealth = evaluateTargetHealth;
-        this.healthCheck = healthCheck;
-        this.region = region;
-        this.ruleReference = ruleReference;
-    }
-
+    private GetTrafficPolicyDocumentRuleRegion() {}
     /**
      * @return References to an endpoint.
      * 
@@ -95,18 +82,14 @@ public final class GetTrafficPolicyDocumentRuleRegion {
     public static Builder builder(GetTrafficPolicyDocumentRuleRegion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String endpointReference;
         private @Nullable Boolean evaluateTargetHealth;
         private @Nullable String healthCheck;
         private @Nullable String region;
         private @Nullable String ruleReference;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficPolicyDocumentRuleRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointReference = defaults.endpointReference;
@@ -116,27 +99,39 @@ public final class GetTrafficPolicyDocumentRuleRegion {
     	      this.ruleReference = defaults.ruleReference;
         }
 
+        @CustomType.Setter
         public Builder endpointReference(@Nullable String endpointReference) {
             this.endpointReference = endpointReference;
             return this;
         }
+        @CustomType.Setter
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
             this.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
             this.healthCheck = healthCheck;
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleReference(@Nullable String ruleReference) {
             this.ruleReference = ruleReference;
             return this;
-        }        public GetTrafficPolicyDocumentRuleRegion build() {
-            return new GetTrafficPolicyDocumentRuleRegion(endpointReference, evaluateTargetHealth, healthCheck, region, ruleReference);
+        }
+        public GetTrafficPolicyDocumentRuleRegion build() {
+            final var o = new GetTrafficPolicyDocumentRuleRegion();
+            o.endpointReference = endpointReference;
+            o.evaluateTargetHealth = evaluateTargetHealth;
+            o.healthCheck = healthCheck;
+            o.region = region;
+            o.ruleReference = ruleReference;
+            return o;
         }
     }
 }

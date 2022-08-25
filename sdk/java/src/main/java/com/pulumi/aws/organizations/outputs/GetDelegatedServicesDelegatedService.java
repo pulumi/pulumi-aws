@@ -13,21 +13,14 @@ public final class GetDelegatedServicesDelegatedService {
      * @return The date that the account became a delegated administrator for this service.
      * 
      */
-    private final String delegationEnabledDate;
+    private String delegationEnabledDate;
     /**
      * @return The name of an AWS service that can request an operation for the specified service.
      * 
      */
-    private final String servicePrincipal;
+    private String servicePrincipal;
 
-    @CustomType.Constructor
-    private GetDelegatedServicesDelegatedService(
-        @CustomType.Parameter("delegationEnabledDate") String delegationEnabledDate,
-        @CustomType.Parameter("servicePrincipal") String servicePrincipal) {
-        this.delegationEnabledDate = delegationEnabledDate;
-        this.servicePrincipal = servicePrincipal;
-    }
-
+    private GetDelegatedServicesDelegatedService() {}
     /**
      * @return The date that the account became a delegated administrator for this service.
      * 
@@ -50,30 +43,32 @@ public final class GetDelegatedServicesDelegatedService {
     public static Builder builder(GetDelegatedServicesDelegatedService defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String delegationEnabledDate;
         private String servicePrincipal;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDelegatedServicesDelegatedService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.delegationEnabledDate = defaults.delegationEnabledDate;
     	      this.servicePrincipal = defaults.servicePrincipal;
         }
 
+        @CustomType.Setter
         public Builder delegationEnabledDate(String delegationEnabledDate) {
             this.delegationEnabledDate = Objects.requireNonNull(delegationEnabledDate);
             return this;
         }
+        @CustomType.Setter
         public Builder servicePrincipal(String servicePrincipal) {
             this.servicePrincipal = Objects.requireNonNull(servicePrincipal);
             return this;
-        }        public GetDelegatedServicesDelegatedService build() {
-            return new GetDelegatedServicesDelegatedService(delegationEnabledDate, servicePrincipal);
+        }
+        public GetDelegatedServicesDelegatedService build() {
+            final var o = new GetDelegatedServicesDelegatedService();
+            o.delegationEnabledDate = delegationEnabledDate;
+            o.servicePrincipal = servicePrincipal;
+            return o;
         }
     }
 }

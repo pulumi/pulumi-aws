@@ -15,17 +15,10 @@ public final class GetSecretResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final List<GetSecretSecret> secrets;
+    private String id;
+    private List<GetSecretSecret> secrets;
 
-    @CustomType.Constructor
-    private GetSecretResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("secrets") List<GetSecretSecret> secrets) {
-        this.id = id;
-        this.secrets = secrets;
-    }
-
+    private GetSecretResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -44,33 +37,35 @@ public final class GetSecretResult {
     public static Builder builder(GetSecretResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetSecretSecret> secrets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecretResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.secrets = defaults.secrets;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder secrets(List<GetSecretSecret> secrets) {
             this.secrets = Objects.requireNonNull(secrets);
             return this;
         }
         public Builder secrets(GetSecretSecret... secrets) {
             return secrets(List.of(secrets));
-        }        public GetSecretResult build() {
-            return new GetSecretResult(id, secrets);
+        }
+        public GetSecretResult build() {
+            final var o = new GetSecretResult();
+            o.id = id;
+            o.secrets = secrets;
+            return o;
         }
     }
 }

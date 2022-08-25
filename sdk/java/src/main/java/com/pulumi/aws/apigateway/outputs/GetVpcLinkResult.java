@@ -15,52 +15,35 @@ public final class GetVpcLinkResult {
      * @return The description of the VPC link.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Set to the ID of the found API Gateway VPC Link.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The status of the VPC link.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The status message of the VPC link.
      * 
      */
-    private final String statusMessage;
+    private String statusMessage;
     /**
      * @return Key-value map of resource tags
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      * 
      */
-    private final List<String> targetArns;
+    private List<String> targetArns;
 
-    @CustomType.Constructor
-    private GetVpcLinkResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("statusMessage") String statusMessage,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("targetArns") List<String> targetArns) {
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.status = status;
-        this.statusMessage = statusMessage;
-        this.tags = tags;
-        this.targetArns = targetArns;
-    }
-
+    private GetVpcLinkResult() {}
     /**
      * @return The description of the VPC link.
      * 
@@ -114,7 +97,7 @@ public final class GetVpcLinkResult {
     public static Builder builder(GetVpcLinkResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String id;
@@ -123,11 +106,7 @@ public final class GetVpcLinkResult {
         private String statusMessage;
         private Map<String,String> tags;
         private List<String> targetArns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcLinkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -139,38 +118,54 @@ public final class GetVpcLinkResult {
     	      this.targetArns = defaults.targetArns;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder statusMessage(String statusMessage) {
             this.statusMessage = Objects.requireNonNull(statusMessage);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder targetArns(List<String> targetArns) {
             this.targetArns = Objects.requireNonNull(targetArns);
             return this;
         }
         public Builder targetArns(String... targetArns) {
             return targetArns(List.of(targetArns));
-        }        public GetVpcLinkResult build() {
-            return new GetVpcLinkResult(description, id, name, status, statusMessage, tags, targetArns);
+        }
+        public GetVpcLinkResult build() {
+            final var o = new GetVpcLinkResult();
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.status = status;
+            o.statusMessage = statusMessage;
+            o.tags = tags;
+            o.targetArns = targetArns;
+            return o;
         }
     }
 }

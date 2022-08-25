@@ -19,28 +19,19 @@ public final class StageCanarySettings {
      * @return The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
      * 
      */
-    private final @Nullable Double percentTraffic;
+    private @Nullable Double percentTraffic;
     /**
      * @return A map of overridden stage `variables` (including new variables) for the canary deployment.
      * 
      */
-    private final @Nullable Map<String,Object> stageVariableOverrides;
+    private @Nullable Map<String,Object> stageVariableOverrides;
     /**
      * @return Whether the canary deployment uses the stage cache. Defaults to false.
      * 
      */
-    private final @Nullable Boolean useStageCache;
+    private @Nullable Boolean useStageCache;
 
-    @CustomType.Constructor
-    private StageCanarySettings(
-        @CustomType.Parameter("percentTraffic") @Nullable Double percentTraffic,
-        @CustomType.Parameter("stageVariableOverrides") @Nullable Map<String,Object> stageVariableOverrides,
-        @CustomType.Parameter("useStageCache") @Nullable Boolean useStageCache) {
-        this.percentTraffic = percentTraffic;
-        this.stageVariableOverrides = stageVariableOverrides;
-        this.useStageCache = useStageCache;
-    }
-
+    private StageCanarySettings() {}
     /**
      * @return The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
      * 
@@ -70,16 +61,12 @@ public final class StageCanarySettings {
     public static Builder builder(StageCanarySettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Double percentTraffic;
         private @Nullable Map<String,Object> stageVariableOverrides;
         private @Nullable Boolean useStageCache;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StageCanarySettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.percentTraffic = defaults.percentTraffic;
@@ -87,19 +74,27 @@ public final class StageCanarySettings {
     	      this.useStageCache = defaults.useStageCache;
         }
 
+        @CustomType.Setter
         public Builder percentTraffic(@Nullable Double percentTraffic) {
             this.percentTraffic = percentTraffic;
             return this;
         }
+        @CustomType.Setter
         public Builder stageVariableOverrides(@Nullable Map<String,Object> stageVariableOverrides) {
             this.stageVariableOverrides = stageVariableOverrides;
             return this;
         }
+        @CustomType.Setter
         public Builder useStageCache(@Nullable Boolean useStageCache) {
             this.useStageCache = useStageCache;
             return this;
-        }        public StageCanarySettings build() {
-            return new StageCanarySettings(percentTraffic, stageVariableOverrides, useStageCache);
+        }
+        public StageCanarySettings build() {
+            final var o = new StageCanarySettings();
+            o.percentTraffic = percentTraffic;
+            o.stageVariableOverrides = stageVariableOverrides;
+            o.useStageCache = useStageCache;
+            return o;
         }
     }
 }

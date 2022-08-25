@@ -16,28 +16,19 @@ public final class InstanceStorageConfigStorageConfigS3Config {
      * @return The S3 bucket name.
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return The S3 bucket prefix.
      * 
      */
-    private final String bucketPrefix;
+    private String bucketPrefix;
     /**
      * @return The encryption configuration. Documented below.
      * 
      */
-    private final @Nullable InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig encryptionConfig;
+    private @Nullable InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig encryptionConfig;
 
-    @CustomType.Constructor
-    private InstanceStorageConfigStorageConfigS3Config(
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("bucketPrefix") String bucketPrefix,
-        @CustomType.Parameter("encryptionConfig") @Nullable InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig encryptionConfig) {
-        this.bucketName = bucketName;
-        this.bucketPrefix = bucketPrefix;
-        this.encryptionConfig = encryptionConfig;
-    }
-
+    private InstanceStorageConfigStorageConfigS3Config() {}
     /**
      * @return The S3 bucket name.
      * 
@@ -67,16 +58,12 @@ public final class InstanceStorageConfigStorageConfigS3Config {
     public static Builder builder(InstanceStorageConfigStorageConfigS3Config defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketName;
         private String bucketPrefix;
         private @Nullable InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig encryptionConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceStorageConfigStorageConfigS3Config defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -84,19 +71,27 @@ public final class InstanceStorageConfigStorageConfigS3Config {
     	      this.encryptionConfig = defaults.encryptionConfig;
         }
 
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(String bucketPrefix) {
             this.bucketPrefix = Objects.requireNonNull(bucketPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionConfig(@Nullable InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig encryptionConfig) {
             this.encryptionConfig = encryptionConfig;
             return this;
-        }        public InstanceStorageConfigStorageConfigS3Config build() {
-            return new InstanceStorageConfigStorageConfigS3Config(bucketName, bucketPrefix, encryptionConfig);
+        }
+        public InstanceStorageConfigStorageConfigS3Config build() {
+            final var o = new InstanceStorageConfigStorageConfigS3Config();
+            o.bucketName = bucketName;
+            o.bucketPrefix = bucketPrefix;
+            o.encryptionConfig = encryptionConfig;
+            return o;
         }
     }
 }

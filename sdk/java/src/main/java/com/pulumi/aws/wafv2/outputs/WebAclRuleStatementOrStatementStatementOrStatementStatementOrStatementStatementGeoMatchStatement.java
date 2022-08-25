@@ -17,21 +17,14 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementOr
      * @return Array of two-character country codes, for example, [ &#34;US&#34;, &#34;CN&#34; ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
      * 
      */
-    private final List<String> countryCodes;
+    private List<String> countryCodes;
     /**
      * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for details.
      * 
      */
-    private final @Nullable WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig;
+    private @Nullable WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig;
 
-    @CustomType.Constructor
-    private WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatement(
-        @CustomType.Parameter("countryCodes") List<String> countryCodes,
-        @CustomType.Parameter("forwardedIpConfig") @Nullable WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig) {
-        this.countryCodes = countryCodes;
-        this.forwardedIpConfig = forwardedIpConfig;
-    }
-
+    private WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatement() {}
     /**
      * @return Array of two-character country codes, for example, [ &#34;US&#34;, &#34;CN&#34; ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
      * 
@@ -54,21 +47,18 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementOr
     public static Builder builder(WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> countryCodes;
         private @Nullable WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.countryCodes = defaults.countryCodes;
     	      this.forwardedIpConfig = defaults.forwardedIpConfig;
         }
 
+        @CustomType.Setter
         public Builder countryCodes(List<String> countryCodes) {
             this.countryCodes = Objects.requireNonNull(countryCodes);
             return this;
@@ -76,11 +66,16 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementOr
         public Builder countryCodes(String... countryCodes) {
             return countryCodes(List.of(countryCodes));
         }
+        @CustomType.Setter
         public Builder forwardedIpConfig(@Nullable WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig) {
             this.forwardedIpConfig = forwardedIpConfig;
             return this;
-        }        public WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatement build() {
-            return new WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatement(countryCodes, forwardedIpConfig);
+        }
+        public WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatement build() {
+            final var o = new WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatement();
+            o.countryCodes = countryCodes;
+            o.forwardedIpConfig = forwardedIpConfig;
+            return o;
         }
     }
 }

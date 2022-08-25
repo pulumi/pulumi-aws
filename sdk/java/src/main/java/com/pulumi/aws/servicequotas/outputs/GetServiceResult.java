@@ -13,24 +13,15 @@ public final class GetServiceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Code of the service.
      * 
      */
-    private final String serviceCode;
-    private final String serviceName;
+    private String serviceCode;
+    private String serviceName;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("serviceCode") String serviceCode,
-        @CustomType.Parameter("serviceName") String serviceName) {
-        this.id = id;
-        this.serviceCode = serviceCode;
-        this.serviceName = serviceName;
-    }
-
+    private GetServiceResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -56,16 +47,12 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String serviceCode;
         private String serviceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -73,19 +60,27 @@ public final class GetServiceResult {
     	      this.serviceName = defaults.serviceName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceCode(String serviceCode) {
             this.serviceCode = Objects.requireNonNull(serviceCode);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(id, serviceCode, serviceName);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.id = id;
+            o.serviceCode = serviceCode;
+            o.serviceName = serviceName;
+            return o;
         }
     }
 }

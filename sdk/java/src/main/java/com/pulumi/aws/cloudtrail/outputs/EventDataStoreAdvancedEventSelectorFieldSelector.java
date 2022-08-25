@@ -16,56 +16,39 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
      * @return A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
      * 
      */
-    private final @Nullable List<String> endsWiths;
+    private @Nullable List<String> endsWiths;
     /**
      * @return A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
      * 
      */
-    private final @Nullable List<String> equals;
+    private @Nullable List<String> equals;
     /**
      * @return Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
      * 
      */
-    private final @Nullable String field;
+    private @Nullable String field;
     /**
      * @return A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
      * 
      */
-    private final @Nullable List<String> notEndsWiths;
+    private @Nullable List<String> notEndsWiths;
     /**
      * @return A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
      * 
      */
-    private final @Nullable List<String> notEquals;
+    private @Nullable List<String> notEquals;
     /**
      * @return A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
      * 
      */
-    private final @Nullable List<String> notStartsWiths;
+    private @Nullable List<String> notStartsWiths;
     /**
      * @return A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
      * 
      */
-    private final @Nullable List<String> startsWiths;
+    private @Nullable List<String> startsWiths;
 
-    @CustomType.Constructor
-    private EventDataStoreAdvancedEventSelectorFieldSelector(
-        @CustomType.Parameter("endsWiths") @Nullable List<String> endsWiths,
-        @CustomType.Parameter("equals") @Nullable List<String> equals,
-        @CustomType.Parameter("field") @Nullable String field,
-        @CustomType.Parameter("notEndsWiths") @Nullable List<String> notEndsWiths,
-        @CustomType.Parameter("notEquals") @Nullable List<String> notEquals,
-        @CustomType.Parameter("notStartsWiths") @Nullable List<String> notStartsWiths,
-        @CustomType.Parameter("startsWiths") @Nullable List<String> startsWiths) {
-        this.endsWiths = endsWiths;
-        this.equals = equals;
-        this.field = field;
-        this.notEndsWiths = notEndsWiths;
-        this.notEquals = notEquals;
-        this.notStartsWiths = notStartsWiths;
-        this.startsWiths = startsWiths;
-    }
-
+    private EventDataStoreAdvancedEventSelectorFieldSelector() {}
     /**
      * @return A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
      * 
@@ -123,7 +106,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
     public static Builder builder(EventDataStoreAdvancedEventSelectorFieldSelector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> endsWiths;
         private @Nullable List<String> equals;
@@ -132,11 +115,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         private @Nullable List<String> notEquals;
         private @Nullable List<String> notStartsWiths;
         private @Nullable List<String> startsWiths;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventDataStoreAdvancedEventSelectorFieldSelector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endsWiths = defaults.endsWiths;
@@ -148,6 +127,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
     	      this.startsWiths = defaults.startsWiths;
         }
 
+        @CustomType.Setter
         public Builder endsWiths(@Nullable List<String> endsWiths) {
             this.endsWiths = endsWiths;
             return this;
@@ -155,6 +135,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         public Builder endsWiths(String... endsWiths) {
             return endsWiths(List.of(endsWiths));
         }
+        @CustomType.Setter("equals")
         public Builder equals_(@Nullable List<String> equals) {
             this.equals = equals;
             return this;
@@ -162,10 +143,12 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         public Builder equals_(String... equals) {
             return equals_(List.of(equals));
         }
+        @CustomType.Setter
         public Builder field(@Nullable String field) {
             this.field = field;
             return this;
         }
+        @CustomType.Setter
         public Builder notEndsWiths(@Nullable List<String> notEndsWiths) {
             this.notEndsWiths = notEndsWiths;
             return this;
@@ -173,6 +156,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         public Builder notEndsWiths(String... notEndsWiths) {
             return notEndsWiths(List.of(notEndsWiths));
         }
+        @CustomType.Setter
         public Builder notEquals(@Nullable List<String> notEquals) {
             this.notEquals = notEquals;
             return this;
@@ -180,6 +164,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         public Builder notEquals(String... notEquals) {
             return notEquals(List.of(notEquals));
         }
+        @CustomType.Setter
         public Builder notStartsWiths(@Nullable List<String> notStartsWiths) {
             this.notStartsWiths = notStartsWiths;
             return this;
@@ -187,14 +172,24 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         public Builder notStartsWiths(String... notStartsWiths) {
             return notStartsWiths(List.of(notStartsWiths));
         }
+        @CustomType.Setter
         public Builder startsWiths(@Nullable List<String> startsWiths) {
             this.startsWiths = startsWiths;
             return this;
         }
         public Builder startsWiths(String... startsWiths) {
             return startsWiths(List.of(startsWiths));
-        }        public EventDataStoreAdvancedEventSelectorFieldSelector build() {
-            return new EventDataStoreAdvancedEventSelectorFieldSelector(endsWiths, equals, field, notEndsWiths, notEquals, notStartsWiths, startsWiths);
+        }
+        public EventDataStoreAdvancedEventSelectorFieldSelector build() {
+            final var o = new EventDataStoreAdvancedEventSelectorFieldSelector();
+            o.endsWiths = endsWiths;
+            o.equals = equals;
+            o.field = field;
+            o.notEndsWiths = notEndsWiths;
+            o.notEquals = notEquals;
+            o.notStartsWiths = notStartsWiths;
+            o.startsWiths = startsWiths;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class MLTransformSchema {
      * @return The type of data in the column.
      * 
      */
-    private final @Nullable String dataType;
+    private @Nullable String dataType;
     /**
      * @return The name you assign to this ML Transform. It must be unique in your account.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private MLTransformSchema(
-        @CustomType.Parameter("dataType") @Nullable String dataType,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.dataType = dataType;
-        this.name = name;
-    }
-
+    private MLTransformSchema() {}
     /**
      * @return The type of data in the column.
      * 
@@ -52,30 +45,32 @@ public final class MLTransformSchema {
     public static Builder builder(MLTransformSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dataType;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MLTransformSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataType = defaults.dataType;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder dataType(@Nullable String dataType) {
             this.dataType = dataType;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public MLTransformSchema build() {
-            return new MLTransformSchema(dataType, name);
+        }
+        public MLTransformSchema build() {
+            final var o = new MLTransformSchema();
+            o.dataType = dataType;
+            o.name = name;
+            return o;
         }
     }
 }

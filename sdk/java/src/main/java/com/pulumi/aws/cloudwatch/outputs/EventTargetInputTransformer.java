@@ -18,21 +18,14 @@ public final class EventTargetInputTransformer {
      * * The keys can&#39;t start with &#34;AWS&#34;.
      * 
      */
-    private final @Nullable Map<String,String> inputPaths;
+    private @Nullable Map<String,String> inputPaths;
     /**
      * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `&#34;\&#34;Your string goes here.\\nA new line.\&#34;&#34;`
      * 
      */
-    private final String inputTemplate;
+    private String inputTemplate;
 
-    @CustomType.Constructor
-    private EventTargetInputTransformer(
-        @CustomType.Parameter("inputPaths") @Nullable Map<String,String> inputPaths,
-        @CustomType.Parameter("inputTemplate") String inputTemplate) {
-        this.inputPaths = inputPaths;
-        this.inputTemplate = inputTemplate;
-    }
-
+    private EventTargetInputTransformer() {}
     /**
      * @return Key value pairs specified in the form of JSONPath (for example, time = $.time)
      * * You can have as many as 100 key-value pairs.
@@ -58,30 +51,32 @@ public final class EventTargetInputTransformer {
     public static Builder builder(EventTargetInputTransformer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> inputPaths;
         private String inputTemplate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventTargetInputTransformer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inputPaths = defaults.inputPaths;
     	      this.inputTemplate = defaults.inputTemplate;
         }
 
+        @CustomType.Setter
         public Builder inputPaths(@Nullable Map<String,String> inputPaths) {
             this.inputPaths = inputPaths;
             return this;
         }
+        @CustomType.Setter
         public Builder inputTemplate(String inputTemplate) {
             this.inputTemplate = Objects.requireNonNull(inputTemplate);
             return this;
-        }        public EventTargetInputTransformer build() {
-            return new EventTargetInputTransformer(inputPaths, inputTemplate);
+        }
+        public EventTargetInputTransformer build() {
+            final var o = new EventTargetInputTransformer();
+            o.inputPaths = inputPaths;
+            o.inputTemplate = inputTemplate;
+            return o;
         }
     }
 }

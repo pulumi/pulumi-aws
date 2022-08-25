@@ -16,42 +16,29 @@ public final class GetIndexDocumentMetadataConfigurationUpdateRelevance {
      * @return Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
      * 
      */
-    private final String duration;
+    private String duration;
     /**
      * @return Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
      * 
      */
-    private final Boolean freshness;
+    private Boolean freshness;
     /**
      * @return The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
      * 
      */
-    private final Integer importance;
+    private Integer importance;
     /**
      * @return Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
      * 
      */
-    private final String rankOrder;
+    private String rankOrder;
     /**
      * @return A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
      * 
      */
-    private final Map<String,Integer> valuesImportanceMap;
+    private Map<String,Integer> valuesImportanceMap;
 
-    @CustomType.Constructor
-    private GetIndexDocumentMetadataConfigurationUpdateRelevance(
-        @CustomType.Parameter("duration") String duration,
-        @CustomType.Parameter("freshness") Boolean freshness,
-        @CustomType.Parameter("importance") Integer importance,
-        @CustomType.Parameter("rankOrder") String rankOrder,
-        @CustomType.Parameter("valuesImportanceMap") Map<String,Integer> valuesImportanceMap) {
-        this.duration = duration;
-        this.freshness = freshness;
-        this.importance = importance;
-        this.rankOrder = rankOrder;
-        this.valuesImportanceMap = valuesImportanceMap;
-    }
-
+    private GetIndexDocumentMetadataConfigurationUpdateRelevance() {}
     /**
      * @return Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
      * 
@@ -95,18 +82,14 @@ public final class GetIndexDocumentMetadataConfigurationUpdateRelevance {
     public static Builder builder(GetIndexDocumentMetadataConfigurationUpdateRelevance defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String duration;
         private Boolean freshness;
         private Integer importance;
         private String rankOrder;
         private Map<String,Integer> valuesImportanceMap;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIndexDocumentMetadataConfigurationUpdateRelevance defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
@@ -116,27 +99,39 @@ public final class GetIndexDocumentMetadataConfigurationUpdateRelevance {
     	      this.valuesImportanceMap = defaults.valuesImportanceMap;
         }
 
+        @CustomType.Setter
         public Builder duration(String duration) {
             this.duration = Objects.requireNonNull(duration);
             return this;
         }
+        @CustomType.Setter
         public Builder freshness(Boolean freshness) {
             this.freshness = Objects.requireNonNull(freshness);
             return this;
         }
+        @CustomType.Setter
         public Builder importance(Integer importance) {
             this.importance = Objects.requireNonNull(importance);
             return this;
         }
+        @CustomType.Setter
         public Builder rankOrder(String rankOrder) {
             this.rankOrder = Objects.requireNonNull(rankOrder);
             return this;
         }
+        @CustomType.Setter
         public Builder valuesImportanceMap(Map<String,Integer> valuesImportanceMap) {
             this.valuesImportanceMap = Objects.requireNonNull(valuesImportanceMap);
             return this;
-        }        public GetIndexDocumentMetadataConfigurationUpdateRelevance build() {
-            return new GetIndexDocumentMetadataConfigurationUpdateRelevance(duration, freshness, importance, rankOrder, valuesImportanceMap);
+        }
+        public GetIndexDocumentMetadataConfigurationUpdateRelevance build() {
+            final var o = new GetIndexDocumentMetadataConfigurationUpdateRelevance();
+            o.duration = duration;
+            o.freshness = freshness;
+            o.importance = importance;
+            o.rankOrder = rankOrder;
+            o.valuesImportanceMap = valuesImportanceMap;
+            return o;
         }
     }
 }

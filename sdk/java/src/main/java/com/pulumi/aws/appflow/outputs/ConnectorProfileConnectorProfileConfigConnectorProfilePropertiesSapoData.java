@@ -17,56 +17,39 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The location of the SAPOData resource.
      * 
      */
-    private final String applicationHostUrl;
+    private String applicationHostUrl;
     /**
      * @return The application path to catalog service.
      * 
      */
-    private final String applicationServicePath;
+    private String applicationServicePath;
     /**
      * @return The client number for the client creating the connection.
      * 
      */
-    private final String clientNumber;
+    private String clientNumber;
     /**
      * @return The logon language of SAPOData instance.
      * 
      */
-    private final @Nullable String logonLanguage;
+    private @Nullable String logonLanguage;
     /**
      * @return The SAPOData OAuth properties required for OAuth type authentication.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties oauthProperties;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties oauthProperties;
     /**
      * @return The port number of the SAPOData instance.
      * 
      */
-    private final Integer portNumber;
+    private Integer portNumber;
     /**
      * @return The Snowflake Private Link service name to be used for private data transfers.
      * 
      */
-    private final @Nullable String privateLinkServiceName;
+    private @Nullable String privateLinkServiceName;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData(
-        @CustomType.Parameter("applicationHostUrl") String applicationHostUrl,
-        @CustomType.Parameter("applicationServicePath") String applicationServicePath,
-        @CustomType.Parameter("clientNumber") String clientNumber,
-        @CustomType.Parameter("logonLanguage") @Nullable String logonLanguage,
-        @CustomType.Parameter("oauthProperties") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties oauthProperties,
-        @CustomType.Parameter("portNumber") Integer portNumber,
-        @CustomType.Parameter("privateLinkServiceName") @Nullable String privateLinkServiceName) {
-        this.applicationHostUrl = applicationHostUrl;
-        this.applicationServicePath = applicationServicePath;
-        this.clientNumber = clientNumber;
-        this.logonLanguage = logonLanguage;
-        this.oauthProperties = oauthProperties;
-        this.portNumber = portNumber;
-        this.privateLinkServiceName = privateLinkServiceName;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData() {}
     /**
      * @return The location of the SAPOData resource.
      * 
@@ -124,7 +107,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String applicationHostUrl;
         private String applicationServicePath;
@@ -133,11 +116,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties oauthProperties;
         private Integer portNumber;
         private @Nullable String privateLinkServiceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationHostUrl = defaults.applicationHostUrl;
@@ -149,35 +128,51 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     	      this.privateLinkServiceName = defaults.privateLinkServiceName;
         }
 
+        @CustomType.Setter
         public Builder applicationHostUrl(String applicationHostUrl) {
             this.applicationHostUrl = Objects.requireNonNull(applicationHostUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder applicationServicePath(String applicationServicePath) {
             this.applicationServicePath = Objects.requireNonNull(applicationServicePath);
             return this;
         }
+        @CustomType.Setter
         public Builder clientNumber(String clientNumber) {
             this.clientNumber = Objects.requireNonNull(clientNumber);
             return this;
         }
+        @CustomType.Setter
         public Builder logonLanguage(@Nullable String logonLanguage) {
             this.logonLanguage = logonLanguage;
             return this;
         }
+        @CustomType.Setter
         public Builder oauthProperties(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties oauthProperties) {
             this.oauthProperties = oauthProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder portNumber(Integer portNumber) {
             this.portNumber = Objects.requireNonNull(portNumber);
             return this;
         }
+        @CustomType.Setter
         public Builder privateLinkServiceName(@Nullable String privateLinkServiceName) {
             this.privateLinkServiceName = privateLinkServiceName;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData(applicationHostUrl, applicationServicePath, clientNumber, logonLanguage, oauthProperties, portNumber, privateLinkServiceName);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData();
+            o.applicationHostUrl = applicationHostUrl;
+            o.applicationServicePath = applicationServicePath;
+            o.clientNumber = clientNumber;
+            o.logonLanguage = logonLanguage;
+            o.oauthProperties = oauthProperties;
+            o.portNumber = portNumber;
+            o.privateLinkServiceName = privateLinkServiceName;
+            return o;
         }
     }
 }

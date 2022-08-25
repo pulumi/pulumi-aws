@@ -18,56 +18,39 @@ public final class ClusterCoreInstanceGroup {
      * @return String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
      * 
      */
-    private final @Nullable String autoscalingPolicy;
+    private @Nullable String autoscalingPolicy;
     /**
      * @return Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
      * 
      */
-    private final @Nullable String bidPrice;
+    private @Nullable String bidPrice;
     /**
      * @return Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
      * 
      */
-    private final @Nullable List<ClusterCoreInstanceGroupEbsConfig> ebsConfigs;
+    private @Nullable List<ClusterCoreInstanceGroupEbsConfig> ebsConfigs;
     /**
      * @return ID of the cluster.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource&#39;s `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
      * 
      */
-    private final @Nullable Integer instanceCount;
+    private @Nullable Integer instanceCount;
     /**
      * @return EC2 instance type for all instances in the instance group.
      * 
      */
-    private final String instanceType;
+    private String instanceType;
     /**
      * @return Name of the step.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private ClusterCoreInstanceGroup(
-        @CustomType.Parameter("autoscalingPolicy") @Nullable String autoscalingPolicy,
-        @CustomType.Parameter("bidPrice") @Nullable String bidPrice,
-        @CustomType.Parameter("ebsConfigs") @Nullable List<ClusterCoreInstanceGroupEbsConfig> ebsConfigs,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("instanceCount") @Nullable Integer instanceCount,
-        @CustomType.Parameter("instanceType") String instanceType,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.autoscalingPolicy = autoscalingPolicy;
-        this.bidPrice = bidPrice;
-        this.ebsConfigs = ebsConfigs;
-        this.id = id;
-        this.instanceCount = instanceCount;
-        this.instanceType = instanceType;
-        this.name = name;
-    }
-
+    private ClusterCoreInstanceGroup() {}
     /**
      * @return String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
      * 
@@ -125,7 +108,7 @@ public final class ClusterCoreInstanceGroup {
     public static Builder builder(ClusterCoreInstanceGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String autoscalingPolicy;
         private @Nullable String bidPrice;
@@ -134,11 +117,7 @@ public final class ClusterCoreInstanceGroup {
         private @Nullable Integer instanceCount;
         private String instanceType;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterCoreInstanceGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoscalingPolicy = defaults.autoscalingPolicy;
@@ -150,14 +129,17 @@ public final class ClusterCoreInstanceGroup {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder autoscalingPolicy(@Nullable String autoscalingPolicy) {
             this.autoscalingPolicy = autoscalingPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder bidPrice(@Nullable String bidPrice) {
             this.bidPrice = bidPrice;
             return this;
         }
+        @CustomType.Setter
         public Builder ebsConfigs(@Nullable List<ClusterCoreInstanceGroupEbsConfig> ebsConfigs) {
             this.ebsConfigs = ebsConfigs;
             return this;
@@ -165,23 +147,36 @@ public final class ClusterCoreInstanceGroup {
         public Builder ebsConfigs(ClusterCoreInstanceGroupEbsConfig... ebsConfigs) {
             return ebsConfigs(List.of(ebsConfigs));
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceCount(@Nullable Integer instanceCount) {
             this.instanceCount = instanceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceType(String instanceType) {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public ClusterCoreInstanceGroup build() {
-            return new ClusterCoreInstanceGroup(autoscalingPolicy, bidPrice, ebsConfigs, id, instanceCount, instanceType, name);
+        }
+        public ClusterCoreInstanceGroup build() {
+            final var o = new ClusterCoreInstanceGroup();
+            o.autoscalingPolicy = autoscalingPolicy;
+            o.bidPrice = bidPrice;
+            o.ebsConfigs = ebsConfigs;
+            o.id = id;
+            o.instanceCount = instanceCount;
+            o.instanceType = instanceType;
+            o.name = name;
+            return o;
         }
     }
 }

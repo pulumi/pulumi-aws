@@ -15,21 +15,14 @@ public final class TableEncryptionSpecification {
      * @return The Amazon Resource Name (ARN) of the customer managed KMS key.
      * 
      */
-    private final @Nullable String kmsKeyIdentifier;
+    private @Nullable String kmsKeyIdentifier;
     /**
      * @return The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private TableEncryptionSpecification(
-        @CustomType.Parameter("kmsKeyIdentifier") @Nullable String kmsKeyIdentifier,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.kmsKeyIdentifier = kmsKeyIdentifier;
-        this.type = type;
-    }
-
+    private TableEncryptionSpecification() {}
     /**
      * @return The Amazon Resource Name (ARN) of the customer managed KMS key.
      * 
@@ -52,30 +45,32 @@ public final class TableEncryptionSpecification {
     public static Builder builder(TableEncryptionSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyIdentifier;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableEncryptionSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyIdentifier(@Nullable String kmsKeyIdentifier) {
             this.kmsKeyIdentifier = kmsKeyIdentifier;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public TableEncryptionSpecification build() {
-            return new TableEncryptionSpecification(kmsKeyIdentifier, type);
+        }
+        public TableEncryptionSpecification build() {
+            final var o = new TableEncryptionSpecification();
+            o.kmsKeyIdentifier = kmsKeyIdentifier;
+            o.type = type;
+            return o;
         }
     }
 }

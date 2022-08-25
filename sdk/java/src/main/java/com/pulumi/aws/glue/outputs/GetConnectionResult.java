@@ -16,69 +16,46 @@ public final class GetConnectionResult {
      * @return The ARN of the Glue Connection.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The catalog ID of the Glue Connection.
      * 
      */
-    private final String catalogId;
-    private final Map<String,String> connectionProperties;
+    private String catalogId;
+    private Map<String,String> connectionProperties;
     /**
      * @return The type of Glue Connection.
      * 
      */
-    private final String connectionType;
+    private String connectionType;
     /**
      * @return Description of the connection.
      * 
      */
-    private final String description;
-    private final String id;
+    private String description;
+    private String id;
     /**
      * @return A list of criteria that can be used in selecting this connection.
      * 
      */
-    private final List<String> matchCriterias;
+    private List<String> matchCriterias;
     /**
      * @return The name of the Glue Connection.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of physical connection requirements, such as VPC and SecurityGroup.
      * 
      */
-    private final List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
+    private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
     /**
      * @return The tags assigned to the resource
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetConnectionResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("catalogId") String catalogId,
-        @CustomType.Parameter("connectionProperties") Map<String,String> connectionProperties,
-        @CustomType.Parameter("connectionType") String connectionType,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("matchCriterias") List<String> matchCriterias,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("physicalConnectionRequirements") List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.catalogId = catalogId;
-        this.connectionProperties = connectionProperties;
-        this.connectionType = connectionType;
-        this.description = description;
-        this.id = id;
-        this.matchCriterias = matchCriterias;
-        this.name = name;
-        this.physicalConnectionRequirements = physicalConnectionRequirements;
-        this.tags = tags;
-    }
-
+    private GetConnectionResult() {}
     /**
      * @return The ARN of the Glue Connection.
      * 
@@ -149,7 +126,7 @@ public final class GetConnectionResult {
     public static Builder builder(GetConnectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String catalogId;
@@ -161,11 +138,7 @@ public final class GetConnectionResult {
         private String name;
         private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -180,30 +153,37 @@ public final class GetConnectionResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder catalogId(String catalogId) {
             this.catalogId = Objects.requireNonNull(catalogId);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionProperties(Map<String,String> connectionProperties) {
             this.connectionProperties = Objects.requireNonNull(connectionProperties);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionType(String connectionType) {
             this.connectionType = Objects.requireNonNull(connectionType);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder matchCriterias(List<String> matchCriterias) {
             this.matchCriterias = Objects.requireNonNull(matchCriterias);
             return this;
@@ -211,10 +191,12 @@ public final class GetConnectionResult {
         public Builder matchCriterias(String... matchCriterias) {
             return matchCriterias(List.of(matchCriterias));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder physicalConnectionRequirements(List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements) {
             this.physicalConnectionRequirements = Objects.requireNonNull(physicalConnectionRequirements);
             return this;
@@ -222,11 +204,24 @@ public final class GetConnectionResult {
         public Builder physicalConnectionRequirements(GetConnectionPhysicalConnectionRequirement... physicalConnectionRequirements) {
             return physicalConnectionRequirements(List.of(physicalConnectionRequirements));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetConnectionResult build() {
-            return new GetConnectionResult(arn, catalogId, connectionProperties, connectionType, description, id, matchCriterias, name, physicalConnectionRequirements, tags);
+        }
+        public GetConnectionResult build() {
+            final var o = new GetConnectionResult();
+            o.arn = arn;
+            o.catalogId = catalogId;
+            o.connectionProperties = connectionProperties;
+            o.connectionType = connectionType;
+            o.description = description;
+            o.id = id;
+            o.matchCriterias = matchCriterias;
+            o.name = name;
+            o.physicalConnectionRequirements = physicalConnectionRequirements;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -15,34 +15,21 @@ public final class ReplicationConfigurationDestination {
      * @return The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
      * 
      */
-    private final @Nullable String availabilityZoneName;
-    private final @Nullable String fileSystemId;
+    private @Nullable String availabilityZoneName;
+    private @Nullable String fileSystemId;
     /**
      * @return The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return The region in which the replica should be created.
      * 
      */
-    private final @Nullable String region;
-    private final @Nullable String status;
+    private @Nullable String region;
+    private @Nullable String status;
 
-    @CustomType.Constructor
-    private ReplicationConfigurationDestination(
-        @CustomType.Parameter("availabilityZoneName") @Nullable String availabilityZoneName,
-        @CustomType.Parameter("fileSystemId") @Nullable String fileSystemId,
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("status") @Nullable String status) {
-        this.availabilityZoneName = availabilityZoneName;
-        this.fileSystemId = fileSystemId;
-        this.kmsKeyId = kmsKeyId;
-        this.region = region;
-        this.status = status;
-    }
-
+    private ReplicationConfigurationDestination() {}
     /**
      * @return The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
      * 
@@ -78,18 +65,14 @@ public final class ReplicationConfigurationDestination {
     public static Builder builder(ReplicationConfigurationDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String availabilityZoneName;
         private @Nullable String fileSystemId;
         private @Nullable String kmsKeyId;
         private @Nullable String region;
         private @Nullable String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicationConfigurationDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZoneName = defaults.availabilityZoneName;
@@ -99,27 +82,39 @@ public final class ReplicationConfigurationDestination {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder availabilityZoneName(@Nullable String availabilityZoneName) {
             this.availabilityZoneName = availabilityZoneName;
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemId(@Nullable String fileSystemId) {
             this.fileSystemId = fileSystemId;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
-        }        public ReplicationConfigurationDestination build() {
-            return new ReplicationConfigurationDestination(availabilityZoneName, fileSystemId, kmsKeyId, region, status);
+        }
+        public ReplicationConfigurationDestination build() {
+            final var o = new ReplicationConfigurationDestination();
+            o.availabilityZoneName = availabilityZoneName;
+            o.fileSystemId = fileSystemId;
+            o.kmsKeyId = kmsKeyId;
+            o.region = region;
+            o.status = status;
+            return o;
         }
     }
 }

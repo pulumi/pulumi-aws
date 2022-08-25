@@ -19,65 +19,42 @@ public final class GetOpenZfsSnapshotResult {
      * @return Amazon Resource Name of the snapshot.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The time that the resource was created.
      * 
      */
-    private final String creationTime;
-    private final @Nullable List<GetOpenZfsSnapshotFilter> filters;
+    private String creationTime;
+    private @Nullable List<GetOpenZfsSnapshotFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean mostRecent;
+    private String id;
+    private @Nullable Boolean mostRecent;
     /**
      * @return The name of the snapshot.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The ID of the snapshot.
      * 
      */
-    private final String snapshotId;
-    private final @Nullable List<String> snapshotIds;
+    private String snapshotId;
+    private @Nullable List<String> snapshotIds;
     /**
      * @return A list of Tag values, with a maximum of 50 elements.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The ID of the volume that the snapshot is of.
      * 
      */
-    private final String volumeId;
+    private String volumeId;
 
-    @CustomType.Constructor
-    private GetOpenZfsSnapshotResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("creationTime") String creationTime,
-        @CustomType.Parameter("filters") @Nullable List<GetOpenZfsSnapshotFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("mostRecent") @Nullable Boolean mostRecent,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("snapshotId") String snapshotId,
-        @CustomType.Parameter("snapshotIds") @Nullable List<String> snapshotIds,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("volumeId") String volumeId) {
-        this.arn = arn;
-        this.creationTime = creationTime;
-        this.filters = filters;
-        this.id = id;
-        this.mostRecent = mostRecent;
-        this.name = name;
-        this.snapshotId = snapshotId;
-        this.snapshotIds = snapshotIds;
-        this.tags = tags;
-        this.volumeId = volumeId;
-    }
-
+    private GetOpenZfsSnapshotResult() {}
     /**
      * @return Amazon Resource Name of the snapshot.
      * 
@@ -144,7 +121,7 @@ public final class GetOpenZfsSnapshotResult {
     public static Builder builder(GetOpenZfsSnapshotResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String creationTime;
@@ -156,11 +133,7 @@ public final class GetOpenZfsSnapshotResult {
         private @Nullable List<String> snapshotIds;
         private Map<String,String> tags;
         private String volumeId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOpenZfsSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -175,14 +148,17 @@ public final class GetOpenZfsSnapshotResult {
     	      this.volumeId = defaults.volumeId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder creationTime(String creationTime) {
             this.creationTime = Objects.requireNonNull(creationTime);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetOpenZfsSnapshotFilter> filters) {
             this.filters = filters;
             return this;
@@ -190,22 +166,27 @@ public final class GetOpenZfsSnapshotResult {
         public Builder filters(GetOpenZfsSnapshotFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             this.mostRecent = mostRecent;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotId(String snapshotId) {
             this.snapshotId = Objects.requireNonNull(snapshotId);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotIds(@Nullable List<String> snapshotIds) {
             this.snapshotIds = snapshotIds;
             return this;
@@ -213,15 +194,29 @@ public final class GetOpenZfsSnapshotResult {
         public Builder snapshotIds(String... snapshotIds) {
             return snapshotIds(List.of(snapshotIds));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeId(String volumeId) {
             this.volumeId = Objects.requireNonNull(volumeId);
             return this;
-        }        public GetOpenZfsSnapshotResult build() {
-            return new GetOpenZfsSnapshotResult(arn, creationTime, filters, id, mostRecent, name, snapshotId, snapshotIds, tags, volumeId);
+        }
+        public GetOpenZfsSnapshotResult build() {
+            final var o = new GetOpenZfsSnapshotResult();
+            o.arn = arn;
+            o.creationTime = creationTime;
+            o.filters = filters;
+            o.id = id;
+            o.mostRecent = mostRecent;
+            o.name = name;
+            o.snapshotId = snapshotId;
+            o.snapshotIds = snapshotIds;
+            o.tags = tags;
+            o.volumeId = volumeId;
+            return o;
         }
     }
 }

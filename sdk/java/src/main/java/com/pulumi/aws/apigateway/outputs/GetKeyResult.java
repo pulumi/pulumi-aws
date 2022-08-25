@@ -15,63 +15,44 @@ public final class GetKeyResult {
      * @return The date and time when the API Key was created.
      * 
      */
-    private final String createdDate;
+    private String createdDate;
     /**
      * @return The description of the API Key.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Specifies whether the API Key is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Set to the ID of the API Key.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The date and time when the API Key was last updated.
      * 
      */
-    private final String lastUpdatedDate;
+    private String lastUpdatedDate;
     /**
      * @return Set to the name of the API Key.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of tags for the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Set to the value of the API Key.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetKeyResult(
-        @CustomType.Parameter("createdDate") String createdDate,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastUpdatedDate") String lastUpdatedDate,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("value") String value) {
-        this.createdDate = createdDate;
-        this.description = description;
-        this.enabled = enabled;
-        this.id = id;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.name = name;
-        this.tags = tags;
-        this.value = value;
-    }
-
+    private GetKeyResult() {}
     /**
      * @return The date and time when the API Key was created.
      * 
@@ -136,7 +117,7 @@ public final class GetKeyResult {
     public static Builder builder(GetKeyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String createdDate;
         private String description;
@@ -146,11 +127,7 @@ public final class GetKeyResult {
         private String name;
         private Map<String,String> tags;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createdDate = defaults.createdDate;
@@ -163,39 +140,57 @@ public final class GetKeyResult {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
             this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetKeyResult build() {
-            return new GetKeyResult(createdDate, description, enabled, id, lastUpdatedDate, name, tags, value);
+        }
+        public GetKeyResult build() {
+            final var o = new GetKeyResult();
+            o.createdDate = createdDate;
+            o.description = description;
+            o.enabled = enabled;
+            o.id = id;
+            o.lastUpdatedDate = lastUpdatedDate;
+            o.name = name;
+            o.tags = tags;
+            o.value = value;
+            return o;
         }
     }
 }

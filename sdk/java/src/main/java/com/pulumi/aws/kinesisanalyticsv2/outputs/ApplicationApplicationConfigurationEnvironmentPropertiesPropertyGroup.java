@@ -14,21 +14,14 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
      * @return The key of the application execution property key-value map.
      * 
      */
-    private final String propertyGroupId;
+    private String propertyGroupId;
     /**
      * @return Application execution property key-value map.
      * 
      */
-    private final Map<String,String> propertyMap;
+    private Map<String,String> propertyMap;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup(
-        @CustomType.Parameter("propertyGroupId") String propertyGroupId,
-        @CustomType.Parameter("propertyMap") Map<String,String> propertyMap) {
-        this.propertyGroupId = propertyGroupId;
-        this.propertyMap = propertyMap;
-    }
-
+    private ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup() {}
     /**
      * @return The key of the application execution property key-value map.
      * 
@@ -51,30 +44,32 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
     public static Builder builder(ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String propertyGroupId;
         private Map<String,String> propertyMap;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.propertyGroupId = defaults.propertyGroupId;
     	      this.propertyMap = defaults.propertyMap;
         }
 
+        @CustomType.Setter
         public Builder propertyGroupId(String propertyGroupId) {
             this.propertyGroupId = Objects.requireNonNull(propertyGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder propertyMap(Map<String,String> propertyMap) {
             this.propertyMap = Objects.requireNonNull(propertyMap);
             return this;
-        }        public ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup build() {
-            return new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup(propertyGroupId, propertyMap);
+        }
+        public ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup build() {
+            final var o = new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup();
+            o.propertyGroupId = propertyGroupId;
+            o.propertyMap = propertyMap;
+            return o;
         }
     }
 }

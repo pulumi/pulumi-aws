@@ -19,35 +19,24 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTls {
      * @return The listener&#39;s TLS certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate certificate;
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate certificate;
     /**
      * @return Whether the policy is enforced. Default is `true`.
      * 
      */
-    private final @Nullable Boolean enforce;
+    private @Nullable Boolean enforce;
     /**
      * @return One or more ports that the policy is enforced for.
      * 
      */
-    private final @Nullable List<Integer> ports;
+    private @Nullable List<Integer> ports;
     /**
      * @return The listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private final VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation validation;
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation validation;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendDefaultsClientPolicyTls(
-        @CustomType.Parameter("certificate") @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate certificate,
-        @CustomType.Parameter("enforce") @Nullable Boolean enforce,
-        @CustomType.Parameter("ports") @Nullable List<Integer> ports,
-        @CustomType.Parameter("validation") VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation validation) {
-        this.certificate = certificate;
-        this.enforce = enforce;
-        this.ports = ports;
-        this.validation = validation;
-    }
-
+    private VirtualNodeSpecBackendDefaultsClientPolicyTls() {}
     /**
      * @return The listener&#39;s TLS certificate.
      * 
@@ -84,17 +73,13 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTls {
     public static Builder builder(VirtualNodeSpecBackendDefaultsClientPolicyTls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate certificate;
         private @Nullable Boolean enforce;
         private @Nullable List<Integer> ports;
         private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation validation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendDefaultsClientPolicyTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
@@ -103,14 +88,17 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTls {
     	      this.validation = defaults.validation;
         }
 
+        @CustomType.Setter
         public Builder certificate(@Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate certificate) {
             this.certificate = certificate;
             return this;
         }
+        @CustomType.Setter
         public Builder enforce(@Nullable Boolean enforce) {
             this.enforce = enforce;
             return this;
         }
+        @CustomType.Setter
         public Builder ports(@Nullable List<Integer> ports) {
             this.ports = ports;
             return this;
@@ -118,11 +106,18 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTls {
         public Builder ports(Integer... ports) {
             return ports(List.of(ports));
         }
+        @CustomType.Setter
         public Builder validation(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation validation) {
             this.validation = Objects.requireNonNull(validation);
             return this;
-        }        public VirtualNodeSpecBackendDefaultsClientPolicyTls build() {
-            return new VirtualNodeSpecBackendDefaultsClientPolicyTls(certificate, enforce, ports, validation);
+        }
+        public VirtualNodeSpecBackendDefaultsClientPolicyTls build() {
+            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTls();
+            o.certificate = certificate;
+            o.enforce = enforce;
+            o.ports = ports;
+            o.validation = validation;
+            return o;
         }
     }
 }

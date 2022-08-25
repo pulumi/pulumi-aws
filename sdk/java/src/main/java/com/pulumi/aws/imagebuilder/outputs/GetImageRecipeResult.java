@@ -14,105 +14,74 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageRecipeResult {
-    private final String arn;
+    private String arn;
     /**
      * @return Set of objects with block device mappings for the image recipe.
      * 
      */
-    private final List<GetImageRecipeBlockDeviceMapping> blockDeviceMappings;
+    private List<GetImageRecipeBlockDeviceMapping> blockDeviceMappings;
     /**
      * @return List of objects with components for the image recipe.
      * 
      */
-    private final List<GetImageRecipeComponent> components;
+    private List<GetImageRecipeComponent> components;
     /**
      * @return Date the image recipe was created.
      * 
      */
-    private final String dateCreated;
+    private String dateCreated;
     /**
      * @return Description of the image recipe.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Name of the image recipe.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Owner of the image recipe.
      * 
      */
-    private final String owner;
+    private String owner;
     /**
      * @return Base image of the image recipe.
      * 
      */
-    private final String parentImage;
+    private String parentImage;
     /**
      * @return Platform of the image recipe.
      * 
      */
-    private final String platform;
+    private String platform;
     /**
      * @return Key-value map of resource tags for the image recipe.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
      * 
      */
-    private final String userDataBase64;
+    private String userDataBase64;
     /**
      * @return Version of the image recipe.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return The working directory used during build and test workflows.
      * 
      */
-    private final String workingDirectory;
+    private String workingDirectory;
 
-    @CustomType.Constructor
-    private GetImageRecipeResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("blockDeviceMappings") List<GetImageRecipeBlockDeviceMapping> blockDeviceMappings,
-        @CustomType.Parameter("components") List<GetImageRecipeComponent> components,
-        @CustomType.Parameter("dateCreated") String dateCreated,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("parentImage") String parentImage,
-        @CustomType.Parameter("platform") String platform,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("userDataBase64") String userDataBase64,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("workingDirectory") String workingDirectory) {
-        this.arn = arn;
-        this.blockDeviceMappings = blockDeviceMappings;
-        this.components = components;
-        this.dateCreated = dateCreated;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.owner = owner;
-        this.parentImage = parentImage;
-        this.platform = platform;
-        this.tags = tags;
-        this.userDataBase64 = userDataBase64;
-        this.version = version;
-        this.workingDirectory = workingDirectory;
-    }
-
+    private GetImageRecipeResult() {}
     public String arn() {
         return this.arn;
     }
@@ -215,7 +184,7 @@ public final class GetImageRecipeResult {
     public static Builder builder(GetImageRecipeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetImageRecipeBlockDeviceMapping> blockDeviceMappings;
@@ -231,11 +200,7 @@ public final class GetImageRecipeResult {
         private String userDataBase64;
         private String version;
         private String workingDirectory;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImageRecipeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -254,10 +219,12 @@ public final class GetImageRecipeResult {
     	      this.workingDirectory = defaults.workingDirectory;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder blockDeviceMappings(List<GetImageRecipeBlockDeviceMapping> blockDeviceMappings) {
             this.blockDeviceMappings = Objects.requireNonNull(blockDeviceMappings);
             return this;
@@ -265,6 +232,7 @@ public final class GetImageRecipeResult {
         public Builder blockDeviceMappings(GetImageRecipeBlockDeviceMapping... blockDeviceMappings) {
             return blockDeviceMappings(List.of(blockDeviceMappings));
         }
+        @CustomType.Setter
         public Builder components(List<GetImageRecipeComponent> components) {
             this.components = Objects.requireNonNull(components);
             return this;
@@ -272,51 +240,78 @@ public final class GetImageRecipeResult {
         public Builder components(GetImageRecipeComponent... components) {
             return components(List.of(components));
         }
+        @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
             this.dateCreated = Objects.requireNonNull(dateCreated);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder parentImage(String parentImage) {
             this.parentImage = Objects.requireNonNull(parentImage);
             return this;
         }
+        @CustomType.Setter
         public Builder platform(String platform) {
             this.platform = Objects.requireNonNull(platform);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder userDataBase64(String userDataBase64) {
             this.userDataBase64 = Objects.requireNonNull(userDataBase64);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder workingDirectory(String workingDirectory) {
             this.workingDirectory = Objects.requireNonNull(workingDirectory);
             return this;
-        }        public GetImageRecipeResult build() {
-            return new GetImageRecipeResult(arn, blockDeviceMappings, components, dateCreated, description, id, name, owner, parentImage, platform, tags, userDataBase64, version, workingDirectory);
+        }
+        public GetImageRecipeResult build() {
+            final var o = new GetImageRecipeResult();
+            o.arn = arn;
+            o.blockDeviceMappings = blockDeviceMappings;
+            o.components = components;
+            o.dateCreated = dateCreated;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.owner = owner;
+            o.parentImage = parentImage;
+            o.platform = platform;
+            o.tags = tags;
+            o.userDataBase64 = userDataBase64;
+            o.version = version;
+            o.workingDirectory = workingDirectory;
+            return o;
         }
     }
 }

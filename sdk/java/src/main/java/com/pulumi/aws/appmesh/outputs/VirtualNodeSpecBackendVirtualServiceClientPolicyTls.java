@@ -19,35 +19,24 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
      * @return The listener&#39;s TLS certificate.
      * 
      */
-    private final @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate certificate;
+    private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate certificate;
     /**
      * @return Whether the policy is enforced. Default is `true`.
      * 
      */
-    private final @Nullable Boolean enforce;
+    private @Nullable Boolean enforce;
     /**
      * @return One or more ports that the policy is enforced for.
      * 
      */
-    private final @Nullable List<Integer> ports;
+    private @Nullable List<Integer> ports;
     /**
      * @return The listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private final VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation validation;
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation validation;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecBackendVirtualServiceClientPolicyTls(
-        @CustomType.Parameter("certificate") @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate certificate,
-        @CustomType.Parameter("enforce") @Nullable Boolean enforce,
-        @CustomType.Parameter("ports") @Nullable List<Integer> ports,
-        @CustomType.Parameter("validation") VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation validation) {
-        this.certificate = certificate;
-        this.enforce = enforce;
-        this.ports = ports;
-        this.validation = validation;
-    }
-
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyTls() {}
     /**
      * @return The listener&#39;s TLS certificate.
      * 
@@ -84,17 +73,13 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
     public static Builder builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate certificate;
         private @Nullable Boolean enforce;
         private @Nullable List<Integer> ports;
         private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation validation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecBackendVirtualServiceClientPolicyTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
@@ -103,14 +88,17 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
     	      this.validation = defaults.validation;
         }
 
+        @CustomType.Setter
         public Builder certificate(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate certificate) {
             this.certificate = certificate;
             return this;
         }
+        @CustomType.Setter
         public Builder enforce(@Nullable Boolean enforce) {
             this.enforce = enforce;
             return this;
         }
+        @CustomType.Setter
         public Builder ports(@Nullable List<Integer> ports) {
             this.ports = ports;
             return this;
@@ -118,11 +106,18 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
         public Builder ports(Integer... ports) {
             return ports(List.of(ports));
         }
+        @CustomType.Setter
         public Builder validation(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation validation) {
             this.validation = Objects.requireNonNull(validation);
             return this;
-        }        public VirtualNodeSpecBackendVirtualServiceClientPolicyTls build() {
-            return new VirtualNodeSpecBackendVirtualServiceClientPolicyTls(certificate, enforce, ports, validation);
+        }
+        public VirtualNodeSpecBackendVirtualServiceClientPolicyTls build() {
+            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTls();
+            o.certificate = certificate;
+            o.enforce = enforce;
+            o.ports = ports;
+            o.validation = validation;
+            return o;
         }
     }
 }

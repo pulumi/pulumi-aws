@@ -13,21 +13,14 @@ public final class GetInfrastructureConfigurationLoggingS3Log {
      * @return Name of the S3 Bucket for logging.
      * 
      */
-    private final String s3BucketName;
+    private String s3BucketName;
     /**
      * @return Key prefix for S3 Bucket logging.
      * 
      */
-    private final String s3KeyPrefix;
+    private String s3KeyPrefix;
 
-    @CustomType.Constructor
-    private GetInfrastructureConfigurationLoggingS3Log(
-        @CustomType.Parameter("s3BucketName") String s3BucketName,
-        @CustomType.Parameter("s3KeyPrefix") String s3KeyPrefix) {
-        this.s3BucketName = s3BucketName;
-        this.s3KeyPrefix = s3KeyPrefix;
-    }
-
+    private GetInfrastructureConfigurationLoggingS3Log() {}
     /**
      * @return Name of the S3 Bucket for logging.
      * 
@@ -50,30 +43,32 @@ public final class GetInfrastructureConfigurationLoggingS3Log {
     public static Builder builder(GetInfrastructureConfigurationLoggingS3Log defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String s3BucketName;
         private String s3KeyPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInfrastructureConfigurationLoggingS3Log defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3BucketName = defaults.s3BucketName;
     	      this.s3KeyPrefix = defaults.s3KeyPrefix;
         }
 
+        @CustomType.Setter
         public Builder s3BucketName(String s3BucketName) {
             this.s3BucketName = Objects.requireNonNull(s3BucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder s3KeyPrefix(String s3KeyPrefix) {
             this.s3KeyPrefix = Objects.requireNonNull(s3KeyPrefix);
             return this;
-        }        public GetInfrastructureConfigurationLoggingS3Log build() {
-            return new GetInfrastructureConfigurationLoggingS3Log(s3BucketName, s3KeyPrefix);
+        }
+        public GetInfrastructureConfigurationLoggingS3Log build() {
+            final var o = new GetInfrastructureConfigurationLoggingS3Log();
+            o.s3BucketName = s3BucketName;
+            o.s3KeyPrefix = s3KeyPrefix;
+            return o;
         }
     }
 }

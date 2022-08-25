@@ -14,21 +14,14 @@ public final class XssMatchSetXssMatchTuple {
      * @return Specifies where in a web request to look for cross-site scripting attacks.
      * 
      */
-    private final XssMatchSetXssMatchTupleFieldToMatch fieldToMatch;
+    private XssMatchSetXssMatchTupleFieldToMatch fieldToMatch;
     /**
      * @return Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
      * 
      */
-    private final String textTransformation;
+    private String textTransformation;
 
-    @CustomType.Constructor
-    private XssMatchSetXssMatchTuple(
-        @CustomType.Parameter("fieldToMatch") XssMatchSetXssMatchTupleFieldToMatch fieldToMatch,
-        @CustomType.Parameter("textTransformation") String textTransformation) {
-        this.fieldToMatch = fieldToMatch;
-        this.textTransformation = textTransformation;
-    }
-
+    private XssMatchSetXssMatchTuple() {}
     /**
      * @return Specifies where in a web request to look for cross-site scripting attacks.
      * 
@@ -51,30 +44,32 @@ public final class XssMatchSetXssMatchTuple {
     public static Builder builder(XssMatchSetXssMatchTuple defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private XssMatchSetXssMatchTupleFieldToMatch fieldToMatch;
         private String textTransformation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(XssMatchSetXssMatchTuple defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
     	      this.textTransformation = defaults.textTransformation;
         }
 
+        @CustomType.Setter
         public Builder fieldToMatch(XssMatchSetXssMatchTupleFieldToMatch fieldToMatch) {
             this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
             this.textTransformation = Objects.requireNonNull(textTransformation);
             return this;
-        }        public XssMatchSetXssMatchTuple build() {
-            return new XssMatchSetXssMatchTuple(fieldToMatch, textTransformation);
+        }
+        public XssMatchSetXssMatchTuple build() {
+            final var o = new XssMatchSetXssMatchTuple();
+            o.fieldToMatch = fieldToMatch;
+            o.textTransformation = textTransformation;
+            return o;
         }
     }
 }

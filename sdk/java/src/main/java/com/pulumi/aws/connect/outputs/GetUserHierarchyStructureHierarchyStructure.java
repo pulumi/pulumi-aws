@@ -18,42 +18,29 @@ public final class GetUserHierarchyStructureHierarchyStructure {
      * @return A block that defines the details of level five. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyStructureHierarchyStructureLevelFife> levelFives;
+    private List<GetUserHierarchyStructureHierarchyStructureLevelFife> levelFives;
     /**
      * @return A block that defines the details of level four. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyStructureHierarchyStructureLevelFour> levelFours;
+    private List<GetUserHierarchyStructureHierarchyStructureLevelFour> levelFours;
     /**
      * @return A block that defines the details of level one. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyStructureHierarchyStructureLevelOne> levelOnes;
+    private List<GetUserHierarchyStructureHierarchyStructureLevelOne> levelOnes;
     /**
      * @return A block that defines the details of level three. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyStructureHierarchyStructureLevelThree> levelThrees;
+    private List<GetUserHierarchyStructureHierarchyStructureLevelThree> levelThrees;
     /**
      * @return A block that defines the details of level two. The level block is documented below.
      * 
      */
-    private final List<GetUserHierarchyStructureHierarchyStructureLevelTwo> levelTwos;
+    private List<GetUserHierarchyStructureHierarchyStructureLevelTwo> levelTwos;
 
-    @CustomType.Constructor
-    private GetUserHierarchyStructureHierarchyStructure(
-        @CustomType.Parameter("levelFives") List<GetUserHierarchyStructureHierarchyStructureLevelFife> levelFives,
-        @CustomType.Parameter("levelFours") List<GetUserHierarchyStructureHierarchyStructureLevelFour> levelFours,
-        @CustomType.Parameter("levelOnes") List<GetUserHierarchyStructureHierarchyStructureLevelOne> levelOnes,
-        @CustomType.Parameter("levelThrees") List<GetUserHierarchyStructureHierarchyStructureLevelThree> levelThrees,
-        @CustomType.Parameter("levelTwos") List<GetUserHierarchyStructureHierarchyStructureLevelTwo> levelTwos) {
-        this.levelFives = levelFives;
-        this.levelFours = levelFours;
-        this.levelOnes = levelOnes;
-        this.levelThrees = levelThrees;
-        this.levelTwos = levelTwos;
-    }
-
+    private GetUserHierarchyStructureHierarchyStructure() {}
     /**
      * @return A block that defines the details of level five. The level block is documented below.
      * 
@@ -97,18 +84,14 @@ public final class GetUserHierarchyStructureHierarchyStructure {
     public static Builder builder(GetUserHierarchyStructureHierarchyStructure defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetUserHierarchyStructureHierarchyStructureLevelFife> levelFives;
         private List<GetUserHierarchyStructureHierarchyStructureLevelFour> levelFours;
         private List<GetUserHierarchyStructureHierarchyStructureLevelOne> levelOnes;
         private List<GetUserHierarchyStructureHierarchyStructureLevelThree> levelThrees;
         private List<GetUserHierarchyStructureHierarchyStructureLevelTwo> levelTwos;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserHierarchyStructureHierarchyStructure defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.levelFives = defaults.levelFives;
@@ -118,6 +101,7 @@ public final class GetUserHierarchyStructureHierarchyStructure {
     	      this.levelTwos = defaults.levelTwos;
         }
 
+        @CustomType.Setter
         public Builder levelFives(List<GetUserHierarchyStructureHierarchyStructureLevelFife> levelFives) {
             this.levelFives = Objects.requireNonNull(levelFives);
             return this;
@@ -125,6 +109,7 @@ public final class GetUserHierarchyStructureHierarchyStructure {
         public Builder levelFives(GetUserHierarchyStructureHierarchyStructureLevelFife... levelFives) {
             return levelFives(List.of(levelFives));
         }
+        @CustomType.Setter
         public Builder levelFours(List<GetUserHierarchyStructureHierarchyStructureLevelFour> levelFours) {
             this.levelFours = Objects.requireNonNull(levelFours);
             return this;
@@ -132,6 +117,7 @@ public final class GetUserHierarchyStructureHierarchyStructure {
         public Builder levelFours(GetUserHierarchyStructureHierarchyStructureLevelFour... levelFours) {
             return levelFours(List.of(levelFours));
         }
+        @CustomType.Setter
         public Builder levelOnes(List<GetUserHierarchyStructureHierarchyStructureLevelOne> levelOnes) {
             this.levelOnes = Objects.requireNonNull(levelOnes);
             return this;
@@ -139,6 +125,7 @@ public final class GetUserHierarchyStructureHierarchyStructure {
         public Builder levelOnes(GetUserHierarchyStructureHierarchyStructureLevelOne... levelOnes) {
             return levelOnes(List.of(levelOnes));
         }
+        @CustomType.Setter
         public Builder levelThrees(List<GetUserHierarchyStructureHierarchyStructureLevelThree> levelThrees) {
             this.levelThrees = Objects.requireNonNull(levelThrees);
             return this;
@@ -146,14 +133,22 @@ public final class GetUserHierarchyStructureHierarchyStructure {
         public Builder levelThrees(GetUserHierarchyStructureHierarchyStructureLevelThree... levelThrees) {
             return levelThrees(List.of(levelThrees));
         }
+        @CustomType.Setter
         public Builder levelTwos(List<GetUserHierarchyStructureHierarchyStructureLevelTwo> levelTwos) {
             this.levelTwos = Objects.requireNonNull(levelTwos);
             return this;
         }
         public Builder levelTwos(GetUserHierarchyStructureHierarchyStructureLevelTwo... levelTwos) {
             return levelTwos(List.of(levelTwos));
-        }        public GetUserHierarchyStructureHierarchyStructure build() {
-            return new GetUserHierarchyStructureHierarchyStructure(levelFives, levelFours, levelOnes, levelThrees, levelTwos);
+        }
+        public GetUserHierarchyStructureHierarchyStructure build() {
+            final var o = new GetUserHierarchyStructureHierarchyStructure();
+            o.levelFives = levelFives;
+            o.levelFours = levelFours;
+            o.levelOnes = levelOnes;
+            o.levelThrees = levelThrees;
+            o.levelTwos = levelTwos;
+            return o;
         }
     }
 }

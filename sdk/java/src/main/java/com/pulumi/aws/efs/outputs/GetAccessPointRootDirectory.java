@@ -15,21 +15,14 @@ public final class GetAccessPointRootDirectory {
      * @return Single element list containing information on the creation permissions of the directory
      * 
      */
-    private final List<GetAccessPointRootDirectoryCreationInfo> creationInfos;
+    private List<GetAccessPointRootDirectoryCreationInfo> creationInfos;
     /**
      * @return Path exposed as the root directory
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private GetAccessPointRootDirectory(
-        @CustomType.Parameter("creationInfos") List<GetAccessPointRootDirectoryCreationInfo> creationInfos,
-        @CustomType.Parameter("path") String path) {
-        this.creationInfos = creationInfos;
-        this.path = path;
-    }
-
+    private GetAccessPointRootDirectory() {}
     /**
      * @return Single element list containing information on the creation permissions of the directory
      * 
@@ -52,21 +45,18 @@ public final class GetAccessPointRootDirectory {
     public static Builder builder(GetAccessPointRootDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetAccessPointRootDirectoryCreationInfo> creationInfos;
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccessPointRootDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.creationInfos = defaults.creationInfos;
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder creationInfos(List<GetAccessPointRootDirectoryCreationInfo> creationInfos) {
             this.creationInfos = Objects.requireNonNull(creationInfos);
             return this;
@@ -74,11 +64,16 @@ public final class GetAccessPointRootDirectory {
         public Builder creationInfos(GetAccessPointRootDirectoryCreationInfo... creationInfos) {
             return creationInfos(List.of(creationInfos));
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public GetAccessPointRootDirectory build() {
-            return new GetAccessPointRootDirectory(creationInfos, path);
+        }
+        public GetAccessPointRootDirectory build() {
+            final var o = new GetAccessPointRootDirectory();
+            o.creationInfos = creationInfos;
+            o.path = path;
+            return o;
         }
     }
 }

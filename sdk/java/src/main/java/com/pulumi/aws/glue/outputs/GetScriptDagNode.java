@@ -18,35 +18,24 @@ public final class GetScriptDagNode {
      * @return Nested configuration an argument or property of a node. Defined below.
      * 
      */
-    private final List<GetScriptDagNodeArg> args;
+    private List<GetScriptDagNodeArg> args;
     /**
      * @return A node identifier that is unique within the node&#39;s graph.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The line number of the node.
      * 
      */
-    private final @Nullable Integer lineNumber;
+    private @Nullable Integer lineNumber;
     /**
      * @return The type of node this is.
      * 
      */
-    private final String nodeType;
+    private String nodeType;
 
-    @CustomType.Constructor
-    private GetScriptDagNode(
-        @CustomType.Parameter("args") List<GetScriptDagNodeArg> args,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lineNumber") @Nullable Integer lineNumber,
-        @CustomType.Parameter("nodeType") String nodeType) {
-        this.args = args;
-        this.id = id;
-        this.lineNumber = lineNumber;
-        this.nodeType = nodeType;
-    }
-
+    private GetScriptDagNode() {}
     /**
      * @return Nested configuration an argument or property of a node. Defined below.
      * 
@@ -83,17 +72,13 @@ public final class GetScriptDagNode {
     public static Builder builder(GetScriptDagNode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetScriptDagNodeArg> args;
         private String id;
         private @Nullable Integer lineNumber;
         private String nodeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScriptDagNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.args = defaults.args;
@@ -102,6 +87,7 @@ public final class GetScriptDagNode {
     	      this.nodeType = defaults.nodeType;
         }
 
+        @CustomType.Setter
         public Builder args(List<GetScriptDagNodeArg> args) {
             this.args = Objects.requireNonNull(args);
             return this;
@@ -109,19 +95,28 @@ public final class GetScriptDagNode {
         public Builder args(GetScriptDagNodeArg... args) {
             return args(List.of(args));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lineNumber(@Nullable Integer lineNumber) {
             this.lineNumber = lineNumber;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeType(String nodeType) {
             this.nodeType = Objects.requireNonNull(nodeType);
             return this;
-        }        public GetScriptDagNode build() {
-            return new GetScriptDagNode(args, id, lineNumber, nodeType);
+        }
+        public GetScriptDagNode build() {
+            final var o = new GetScriptDagNode();
+            o.args = args;
+            o.id = id;
+            o.lineNumber = lineNumber;
+            o.nodeType = nodeType;
+            return o;
         }
     }
 }

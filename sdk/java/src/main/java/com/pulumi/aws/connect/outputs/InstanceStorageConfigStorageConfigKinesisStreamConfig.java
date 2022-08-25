@@ -13,13 +13,9 @@ public final class InstanceStorageConfigStorageConfigKinesisStreamConfig {
      * @return The Amazon Resource Name (ARN) of the data stream.
      * 
      */
-    private final String streamArn;
+    private String streamArn;
 
-    @CustomType.Constructor
-    private InstanceStorageConfigStorageConfigKinesisStreamConfig(@CustomType.Parameter("streamArn") String streamArn) {
-        this.streamArn = streamArn;
-    }
-
+    private InstanceStorageConfigStorageConfigKinesisStreamConfig() {}
     /**
      * @return The Amazon Resource Name (ARN) of the data stream.
      * 
@@ -35,24 +31,24 @@ public final class InstanceStorageConfigStorageConfigKinesisStreamConfig {
     public static Builder builder(InstanceStorageConfigStorageConfigKinesisStreamConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String streamArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceStorageConfigStorageConfigKinesisStreamConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.streamArn = defaults.streamArn;
         }
 
+        @CustomType.Setter
         public Builder streamArn(String streamArn) {
             this.streamArn = Objects.requireNonNull(streamArn);
             return this;
-        }        public InstanceStorageConfigStorageConfigKinesisStreamConfig build() {
-            return new InstanceStorageConfigStorageConfigKinesisStreamConfig(streamArn);
+        }
+        public InstanceStorageConfigStorageConfigKinesisStreamConfig build() {
+            final var o = new InstanceStorageConfigStorageConfigKinesisStreamConfig();
+            o.streamArn = streamArn;
+            return o;
         }
     }
 }

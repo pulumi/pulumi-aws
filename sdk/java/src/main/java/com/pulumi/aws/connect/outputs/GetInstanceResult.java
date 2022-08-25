@@ -14,93 +14,62 @@ public final class GetInstanceResult {
      * @return The Amazon Resource Name (ARN) of the instance.
      * 
      */
-    private final String arn;
-    private final Boolean autoResolveBestVoicesEnabled;
+    private String arn;
+    private Boolean autoResolveBestVoicesEnabled;
     /**
      * @return Specifies Whether contact flow logs are enabled.
      * 
      */
-    private final Boolean contactFlowLogsEnabled;
+    private Boolean contactFlowLogsEnabled;
     /**
      * @return Specifies Whether contact lens is enabled.
      * 
      */
-    private final Boolean contactLensEnabled;
+    private Boolean contactLensEnabled;
     /**
      * @return Specifies When the instance was created.
      * 
      */
-    private final String createdTime;
+    private String createdTime;
     /**
      * @return Specifies Whether early media for outbound calls is enabled .
      * 
      */
-    private final Boolean earlyMediaEnabled;
+    private Boolean earlyMediaEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies The identity management type attached to the instance.
      * 
      */
-    private final String identityManagementType;
+    private String identityManagementType;
     /**
      * @return Specifies Whether inbound calls are enabled.
      * 
      */
-    private final Boolean inboundCallsEnabled;
-    private final String instanceAlias;
-    private final String instanceId;
+    private Boolean inboundCallsEnabled;
+    private String instanceAlias;
+    private String instanceId;
     /**
      * @return Specifies Whether outbound calls are enabled.
      * 
      */
-    private final Boolean outboundCallsEnabled;
+    private Boolean outboundCallsEnabled;
     /**
      * @return The service role of the instance.
      * 
      */
-    private final String serviceRole;
+    private String serviceRole;
     /**
      * @return Specifies The state of the instance.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetInstanceResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("autoResolveBestVoicesEnabled") Boolean autoResolveBestVoicesEnabled,
-        @CustomType.Parameter("contactFlowLogsEnabled") Boolean contactFlowLogsEnabled,
-        @CustomType.Parameter("contactLensEnabled") Boolean contactLensEnabled,
-        @CustomType.Parameter("createdTime") String createdTime,
-        @CustomType.Parameter("earlyMediaEnabled") Boolean earlyMediaEnabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identityManagementType") String identityManagementType,
-        @CustomType.Parameter("inboundCallsEnabled") Boolean inboundCallsEnabled,
-        @CustomType.Parameter("instanceAlias") String instanceAlias,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("outboundCallsEnabled") Boolean outboundCallsEnabled,
-        @CustomType.Parameter("serviceRole") String serviceRole,
-        @CustomType.Parameter("status") String status) {
-        this.arn = arn;
-        this.autoResolveBestVoicesEnabled = autoResolveBestVoicesEnabled;
-        this.contactFlowLogsEnabled = contactFlowLogsEnabled;
-        this.contactLensEnabled = contactLensEnabled;
-        this.createdTime = createdTime;
-        this.earlyMediaEnabled = earlyMediaEnabled;
-        this.id = id;
-        this.identityManagementType = identityManagementType;
-        this.inboundCallsEnabled = inboundCallsEnabled;
-        this.instanceAlias = instanceAlias;
-        this.instanceId = instanceId;
-        this.outboundCallsEnabled = outboundCallsEnabled;
-        this.serviceRole = serviceRole;
-        this.status = status;
-    }
-
+    private GetInstanceResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the instance.
      * 
@@ -195,7 +164,7 @@ public final class GetInstanceResult {
     public static Builder builder(GetInstanceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Boolean autoResolveBestVoicesEnabled;
@@ -211,11 +180,7 @@ public final class GetInstanceResult {
         private Boolean outboundCallsEnabled;
         private String serviceRole;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -234,63 +199,93 @@ public final class GetInstanceResult {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder autoResolveBestVoicesEnabled(Boolean autoResolveBestVoicesEnabled) {
             this.autoResolveBestVoicesEnabled = Objects.requireNonNull(autoResolveBestVoicesEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder contactFlowLogsEnabled(Boolean contactFlowLogsEnabled) {
             this.contactFlowLogsEnabled = Objects.requireNonNull(contactFlowLogsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder contactLensEnabled(Boolean contactLensEnabled) {
             this.contactLensEnabled = Objects.requireNonNull(contactLensEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder createdTime(String createdTime) {
             this.createdTime = Objects.requireNonNull(createdTime);
             return this;
         }
+        @CustomType.Setter
         public Builder earlyMediaEnabled(Boolean earlyMediaEnabled) {
             this.earlyMediaEnabled = Objects.requireNonNull(earlyMediaEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identityManagementType(String identityManagementType) {
             this.identityManagementType = Objects.requireNonNull(identityManagementType);
             return this;
         }
+        @CustomType.Setter
         public Builder inboundCallsEnabled(Boolean inboundCallsEnabled) {
             this.inboundCallsEnabled = Objects.requireNonNull(inboundCallsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceAlias(String instanceAlias) {
             this.instanceAlias = Objects.requireNonNull(instanceAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundCallsEnabled(Boolean outboundCallsEnabled) {
             this.outboundCallsEnabled = Objects.requireNonNull(outboundCallsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
             this.serviceRole = Objects.requireNonNull(serviceRole);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetInstanceResult build() {
-            return new GetInstanceResult(arn, autoResolveBestVoicesEnabled, contactFlowLogsEnabled, contactLensEnabled, createdTime, earlyMediaEnabled, id, identityManagementType, inboundCallsEnabled, instanceAlias, instanceId, outboundCallsEnabled, serviceRole, status);
+        }
+        public GetInstanceResult build() {
+            final var o = new GetInstanceResult();
+            o.arn = arn;
+            o.autoResolveBestVoicesEnabled = autoResolveBestVoicesEnabled;
+            o.contactFlowLogsEnabled = contactFlowLogsEnabled;
+            o.contactLensEnabled = contactLensEnabled;
+            o.createdTime = createdTime;
+            o.earlyMediaEnabled = earlyMediaEnabled;
+            o.id = id;
+            o.identityManagementType = identityManagementType;
+            o.inboundCallsEnabled = inboundCallsEnabled;
+            o.instanceAlias = instanceAlias;
+            o.instanceId = instanceId;
+            o.outboundCallsEnabled = outboundCallsEnabled;
+            o.serviceRole = serviceRole;
+            o.status = status;
+            return o;
         }
     }
 }

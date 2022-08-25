@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics {
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics() {
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics();
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics();
+            return o;
         }
     }
 }

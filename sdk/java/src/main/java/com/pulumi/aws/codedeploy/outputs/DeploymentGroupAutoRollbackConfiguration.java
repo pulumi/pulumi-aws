@@ -17,21 +17,14 @@ public final class DeploymentGroupAutoRollbackConfiguration {
      * @return Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
      * 
      */
-    private final @Nullable List<String> events;
+    private @Nullable List<String> events;
 
-    @CustomType.Constructor
-    private DeploymentGroupAutoRollbackConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("events") @Nullable List<String> events) {
-        this.enabled = enabled;
-        this.events = events;
-    }
-
+    private DeploymentGroupAutoRollbackConfiguration() {}
     /**
      * @return Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
      * 
@@ -54,33 +47,35 @@ public final class DeploymentGroupAutoRollbackConfiguration {
     public static Builder builder(DeploymentGroupAutoRollbackConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<String> events;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupAutoRollbackConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.events = defaults.events;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder events(@Nullable List<String> events) {
             this.events = events;
             return this;
         }
         public Builder events(String... events) {
             return events(List.of(events));
-        }        public DeploymentGroupAutoRollbackConfiguration build() {
-            return new DeploymentGroupAutoRollbackConfiguration(enabled, events);
+        }
+        public DeploymentGroupAutoRollbackConfiguration build() {
+            final var o = new DeploymentGroupAutoRollbackConfiguration();
+            o.enabled = enabled;
+            o.events = events;
+            return o;
         }
     }
 }

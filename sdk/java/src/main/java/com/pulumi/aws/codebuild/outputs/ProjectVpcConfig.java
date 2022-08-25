@@ -14,28 +14,19 @@ public final class ProjectVpcConfig {
      * @return Security group IDs to assign to running builds.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return Subnet IDs within which to run builds.
      * 
      */
-    private final List<String> subnets;
+    private List<String> subnets;
     /**
      * @return ID of the VPC within which to run builds.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private ProjectVpcConfig(
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnets") List<String> subnets,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnets = subnets;
-        this.vpcId = vpcId;
-    }
-
+    private ProjectVpcConfig() {}
     /**
      * @return Security group IDs to assign to running builds.
      * 
@@ -65,16 +56,12 @@ public final class ProjectVpcConfig {
     public static Builder builder(ProjectVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroupIds;
         private List<String> subnets;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
@@ -82,6 +69,7 @@ public final class ProjectVpcConfig {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -89,6 +77,7 @@ public final class ProjectVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
@@ -96,11 +85,17 @@ public final class ProjectVpcConfig {
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public ProjectVpcConfig build() {
-            return new ProjectVpcConfig(securityGroupIds, subnets, vpcId);
+        }
+        public ProjectVpcConfig build() {
+            final var o = new ProjectVpcConfig();
+            o.securityGroupIds = securityGroupIds;
+            o.subnets = subnets;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

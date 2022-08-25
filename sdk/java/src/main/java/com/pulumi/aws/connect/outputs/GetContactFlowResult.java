@@ -16,58 +16,37 @@ public final class GetContactFlowResult {
      * @return The Amazon Resource Name (ARN) of the Contact Flow.
      * 
      */
-    private final String arn;
-    private final String contactFlowId;
+    private String arn;
+    private String contactFlowId;
     /**
      * @return Specifies the logic of the Contact Flow.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return Specifies the description of the Contact Flow.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
-    private final String name;
+    private String id;
+    private String instanceId;
+    private String name;
     /**
      * @return A the map of tags to assign to the Contact Flow.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Specifies the type of Contact Flow.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private GetContactFlowResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("contactFlowId") String contactFlowId,
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.arn = arn;
-        this.contactFlowId = contactFlowId;
-        this.content = content;
-        this.description = description;
-        this.id = id;
-        this.instanceId = instanceId;
-        this.name = name;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private GetContactFlowResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Contact Flow.
      * 
@@ -127,7 +106,7 @@ public final class GetContactFlowResult {
     public static Builder builder(GetContactFlowResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String contactFlowId;
@@ -138,11 +117,7 @@ public final class GetContactFlowResult {
         private String name;
         private Map<String,String> tags;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetContactFlowResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -156,43 +131,63 @@ public final class GetContactFlowResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder contactFlowId(String contactFlowId) {
             this.contactFlowId = Objects.requireNonNull(contactFlowId);
             return this;
         }
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public GetContactFlowResult build() {
-            return new GetContactFlowResult(arn, contactFlowId, content, description, id, instanceId, name, tags, type);
+        }
+        public GetContactFlowResult build() {
+            final var o = new GetContactFlowResult();
+            o.arn = arn;
+            o.contactFlowId = contactFlowId;
+            o.content = content;
+            o.description = description;
+            o.id = id;
+            o.instanceId = instanceId;
+            o.name = name;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

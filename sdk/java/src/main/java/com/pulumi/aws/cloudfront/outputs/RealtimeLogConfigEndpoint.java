@@ -14,21 +14,14 @@ public final class RealtimeLogConfigEndpoint {
      * @return The Amazon Kinesis data stream configuration.
      * 
      */
-    private final RealtimeLogConfigEndpointKinesisStreamConfig kinesisStreamConfig;
+    private RealtimeLogConfigEndpointKinesisStreamConfig kinesisStreamConfig;
     /**
      * @return The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
      * 
      */
-    private final String streamType;
+    private String streamType;
 
-    @CustomType.Constructor
-    private RealtimeLogConfigEndpoint(
-        @CustomType.Parameter("kinesisStreamConfig") RealtimeLogConfigEndpointKinesisStreamConfig kinesisStreamConfig,
-        @CustomType.Parameter("streamType") String streamType) {
-        this.kinesisStreamConfig = kinesisStreamConfig;
-        this.streamType = streamType;
-    }
-
+    private RealtimeLogConfigEndpoint() {}
     /**
      * @return The Amazon Kinesis data stream configuration.
      * 
@@ -51,30 +44,32 @@ public final class RealtimeLogConfigEndpoint {
     public static Builder builder(RealtimeLogConfigEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RealtimeLogConfigEndpointKinesisStreamConfig kinesisStreamConfig;
         private String streamType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RealtimeLogConfigEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kinesisStreamConfig = defaults.kinesisStreamConfig;
     	      this.streamType = defaults.streamType;
         }
 
+        @CustomType.Setter
         public Builder kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfig kinesisStreamConfig) {
             this.kinesisStreamConfig = Objects.requireNonNull(kinesisStreamConfig);
             return this;
         }
+        @CustomType.Setter
         public Builder streamType(String streamType) {
             this.streamType = Objects.requireNonNull(streamType);
             return this;
-        }        public RealtimeLogConfigEndpoint build() {
-            return new RealtimeLogConfigEndpoint(kinesisStreamConfig, streamType);
+        }
+        public RealtimeLogConfigEndpoint build() {
+            final var o = new RealtimeLogConfigEndpoint();
+            o.kinesisStreamConfig = kinesisStreamConfig;
+            o.streamType = streamType;
+            return o;
         }
     }
 }

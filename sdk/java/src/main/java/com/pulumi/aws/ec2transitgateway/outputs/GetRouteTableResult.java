@@ -18,52 +18,35 @@ public final class GetRouteTableResult {
      * @return EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Boolean whether this is the default association route table for the EC2 Transit Gateway
      * 
      */
-    private final Boolean defaultAssociationRouteTable;
+    private Boolean defaultAssociationRouteTable;
     /**
      * @return Boolean whether this is the default propagation route table for the EC2 Transit Gateway
      * 
      */
-    private final Boolean defaultPropagationRouteTable;
-    private final @Nullable List<GetRouteTableFilter> filters;
+    private Boolean defaultPropagationRouteTable;
+    private @Nullable List<GetRouteTableFilter> filters;
     /**
      * @return EC2 Transit Gateway Route Table identifier
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Route Table
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return EC2 Transit Gateway identifier
      * 
      */
-    private final String transitGatewayId;
+    private String transitGatewayId;
 
-    @CustomType.Constructor
-    private GetRouteTableResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("defaultAssociationRouteTable") Boolean defaultAssociationRouteTable,
-        @CustomType.Parameter("defaultPropagationRouteTable") Boolean defaultPropagationRouteTable,
-        @CustomType.Parameter("filters") @Nullable List<GetRouteTableFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("transitGatewayId") String transitGatewayId) {
-        this.arn = arn;
-        this.defaultAssociationRouteTable = defaultAssociationRouteTable;
-        this.defaultPropagationRouteTable = defaultPropagationRouteTable;
-        this.filters = filters;
-        this.id = id;
-        this.tags = tags;
-        this.transitGatewayId = transitGatewayId;
-    }
-
+    private GetRouteTableResult() {}
     /**
      * @return EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      * 
@@ -117,7 +100,7 @@ public final class GetRouteTableResult {
     public static Builder builder(GetRouteTableResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Boolean defaultAssociationRouteTable;
@@ -126,11 +109,7 @@ public final class GetRouteTableResult {
         private String id;
         private Map<String,String> tags;
         private String transitGatewayId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRouteTableResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -142,18 +121,22 @@ public final class GetRouteTableResult {
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultAssociationRouteTable(Boolean defaultAssociationRouteTable) {
             this.defaultAssociationRouteTable = Objects.requireNonNull(defaultAssociationRouteTable);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultPropagationRouteTable(Boolean defaultPropagationRouteTable) {
             this.defaultPropagationRouteTable = Objects.requireNonNull(defaultPropagationRouteTable);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetRouteTableFilter> filters) {
             this.filters = filters;
             return this;
@@ -161,19 +144,31 @@ public final class GetRouteTableResult {
         public Builder filters(GetRouteTableFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
             this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
             return this;
-        }        public GetRouteTableResult build() {
-            return new GetRouteTableResult(arn, defaultAssociationRouteTable, defaultPropagationRouteTable, filters, id, tags, transitGatewayId);
+        }
+        public GetRouteTableResult build() {
+            final var o = new GetRouteTableResult();
+            o.arn = arn;
+            o.defaultAssociationRouteTable = defaultAssociationRouteTable;
+            o.defaultPropagationRouteTable = defaultPropagationRouteTable;
+            o.filters = filters;
+            o.id = id;
+            o.tags = tags;
+            o.transitGatewayId = transitGatewayId;
+            return o;
         }
     }
 }

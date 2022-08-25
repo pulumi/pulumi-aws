@@ -15,21 +15,14 @@ public final class ConnectorCapacityProvisionedCapacity {
      * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
      * 
      */
-    private final @Nullable Integer mcuCount;
+    private @Nullable Integer mcuCount;
     /**
      * @return The number of workers that are allocated to the connector.
      * 
      */
-    private final Integer workerCount;
+    private Integer workerCount;
 
-    @CustomType.Constructor
-    private ConnectorCapacityProvisionedCapacity(
-        @CustomType.Parameter("mcuCount") @Nullable Integer mcuCount,
-        @CustomType.Parameter("workerCount") Integer workerCount) {
-        this.mcuCount = mcuCount;
-        this.workerCount = workerCount;
-    }
-
+    private ConnectorCapacityProvisionedCapacity() {}
     /**
      * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
      * 
@@ -52,30 +45,32 @@ public final class ConnectorCapacityProvisionedCapacity {
     public static Builder builder(ConnectorCapacityProvisionedCapacity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer mcuCount;
         private Integer workerCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorCapacityProvisionedCapacity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mcuCount = defaults.mcuCount;
     	      this.workerCount = defaults.workerCount;
         }
 
+        @CustomType.Setter
         public Builder mcuCount(@Nullable Integer mcuCount) {
             this.mcuCount = mcuCount;
             return this;
         }
+        @CustomType.Setter
         public Builder workerCount(Integer workerCount) {
             this.workerCount = Objects.requireNonNull(workerCount);
             return this;
-        }        public ConnectorCapacityProvisionedCapacity build() {
-            return new ConnectorCapacityProvisionedCapacity(mcuCount, workerCount);
+        }
+        public ConnectorCapacityProvisionedCapacity build() {
+            final var o = new ConnectorCapacityProvisionedCapacity();
+            o.mcuCount = mcuCount;
+            o.workerCount = workerCount;
+            return o;
         }
     }
 }

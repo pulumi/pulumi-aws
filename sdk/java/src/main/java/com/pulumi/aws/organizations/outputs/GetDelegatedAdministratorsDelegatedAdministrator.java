@@ -13,63 +13,44 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
      * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The date when the account was made a delegated administrator.
      * 
      */
-    private final String delegationEnabledDate;
+    private String delegationEnabledDate;
     /**
      * @return The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return The unique identifier (ID) of the delegated administrator&#39;s account.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The method by which the delegated administrator&#39;s account joined the organization.
      * 
      */
-    private final String joinedMethod;
+    private String joinedMethod;
     /**
      * @return The date when the delegated administrator&#39;s account became a part of the organization.
      * 
      */
-    private final String joinedTimestamp;
+    private String joinedTimestamp;
     /**
      * @return The friendly name of the delegated administrator&#39;s account.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The status of the delegated administrator&#39;s account in the organization.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetDelegatedAdministratorsDelegatedAdministrator(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("delegationEnabledDate") String delegationEnabledDate,
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("joinedMethod") String joinedMethod,
-        @CustomType.Parameter("joinedTimestamp") String joinedTimestamp,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("status") String status) {
-        this.arn = arn;
-        this.delegationEnabledDate = delegationEnabledDate;
-        this.email = email;
-        this.id = id;
-        this.joinedMethod = joinedMethod;
-        this.joinedTimestamp = joinedTimestamp;
-        this.name = name;
-        this.status = status;
-    }
-
+    private GetDelegatedAdministratorsDelegatedAdministrator() {}
     /**
      * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
      * 
@@ -134,7 +115,7 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
     public static Builder builder(GetDelegatedAdministratorsDelegatedAdministrator defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String delegationEnabledDate;
@@ -144,11 +125,7 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
         private String joinedTimestamp;
         private String name;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDelegatedAdministratorsDelegatedAdministrator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -161,39 +138,57 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder delegationEnabledDate(String delegationEnabledDate) {
             this.delegationEnabledDate = Objects.requireNonNull(delegationEnabledDate);
             return this;
         }
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder joinedMethod(String joinedMethod) {
             this.joinedMethod = Objects.requireNonNull(joinedMethod);
             return this;
         }
+        @CustomType.Setter
         public Builder joinedTimestamp(String joinedTimestamp) {
             this.joinedTimestamp = Objects.requireNonNull(joinedTimestamp);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetDelegatedAdministratorsDelegatedAdministrator build() {
-            return new GetDelegatedAdministratorsDelegatedAdministrator(arn, delegationEnabledDate, email, id, joinedMethod, joinedTimestamp, name, status);
+        }
+        public GetDelegatedAdministratorsDelegatedAdministrator build() {
+            final var o = new GetDelegatedAdministratorsDelegatedAdministrator();
+            o.arn = arn;
+            o.delegationEnabledDate = delegationEnabledDate;
+            o.email = email;
+            o.id = id;
+            o.joinedMethod = joinedMethod;
+            o.joinedTimestamp = joinedTimestamp;
+            o.name = name;
+            o.status = status;
+            return o;
         }
     }
 }

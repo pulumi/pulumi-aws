@@ -13,36 +13,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetParameterResult {
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String type;
-    private final String value;
-    private final Integer version;
-    private final @Nullable Boolean withDecryption;
+    private String id;
+    private String name;
+    private String type;
+    private String value;
+    private Integer version;
+    private @Nullable Boolean withDecryption;
 
-    @CustomType.Constructor
-    private GetParameterResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value,
-        @CustomType.Parameter("version") Integer version,
-        @CustomType.Parameter("withDecryption") @Nullable Boolean withDecryption) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.value = value;
-        this.version = version;
-        this.withDecryption = withDecryption;
-    }
-
+    private GetParameterResult() {}
     public String arn() {
         return this.arn;
     }
@@ -76,7 +59,7 @@ public final class GetParameterResult {
     public static Builder builder(GetParameterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
@@ -85,11 +68,7 @@ public final class GetParameterResult {
         private String value;
         private Integer version;
         private @Nullable Boolean withDecryption;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetParameterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -101,35 +80,51 @@ public final class GetParameterResult {
     	      this.withDecryption = defaults.withDecryption;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
         }
+        @CustomType.Setter
         public Builder version(Integer version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder withDecryption(@Nullable Boolean withDecryption) {
             this.withDecryption = withDecryption;
             return this;
-        }        public GetParameterResult build() {
-            return new GetParameterResult(arn, id, name, type, value, version, withDecryption);
+        }
+        public GetParameterResult build() {
+            final var o = new GetParameterResult();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            o.type = type;
+            o.value = value;
+            o.version = version;
+            o.withDecryption = withDecryption;
+            return o;
         }
     }
 }

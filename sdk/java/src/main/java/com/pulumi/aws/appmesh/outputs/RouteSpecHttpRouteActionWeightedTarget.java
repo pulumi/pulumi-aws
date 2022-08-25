@@ -14,21 +14,14 @@ public final class RouteSpecHttpRouteActionWeightedTarget {
      * @return The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
      * 
      */
-    private final String virtualNode;
+    private String virtualNode;
     /**
      * @return The relative weight of the weighted target. An integer between 0 and 100.
      * 
      */
-    private final Integer weight;
+    private Integer weight;
 
-    @CustomType.Constructor
-    private RouteSpecHttpRouteActionWeightedTarget(
-        @CustomType.Parameter("virtualNode") String virtualNode,
-        @CustomType.Parameter("weight") Integer weight) {
-        this.virtualNode = virtualNode;
-        this.weight = weight;
-    }
-
+    private RouteSpecHttpRouteActionWeightedTarget() {}
     /**
      * @return The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
      * 
@@ -51,30 +44,32 @@ public final class RouteSpecHttpRouteActionWeightedTarget {
     public static Builder builder(RouteSpecHttpRouteActionWeightedTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String virtualNode;
         private Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecHttpRouteActionWeightedTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.virtualNode = defaults.virtualNode;
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder virtualNode(String virtualNode) {
             this.virtualNode = Objects.requireNonNull(virtualNode);
             return this;
         }
+        @CustomType.Setter
         public Builder weight(Integer weight) {
             this.weight = Objects.requireNonNull(weight);
             return this;
-        }        public RouteSpecHttpRouteActionWeightedTarget build() {
-            return new RouteSpecHttpRouteActionWeightedTarget(virtualNode, weight);
+        }
+        public RouteSpecHttpRouteActionWeightedTarget build() {
+            final var o = new RouteSpecHttpRouteActionWeightedTarget();
+            o.virtualNode = virtualNode;
+            o.weight = weight;
+            return o;
         }
     }
 }

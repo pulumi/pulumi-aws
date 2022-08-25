@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAcceleratorIpSet {
-    private final List<String> ipAddresses;
-    private final String ipFamily;
+    private List<String> ipAddresses;
+    private String ipFamily;
 
-    @CustomType.Constructor
-    private GetAcceleratorIpSet(
-        @CustomType.Parameter("ipAddresses") List<String> ipAddresses,
-        @CustomType.Parameter("ipFamily") String ipFamily) {
-        this.ipAddresses = ipAddresses;
-        this.ipFamily = ipFamily;
-    }
-
+    private GetAcceleratorIpSet() {}
     public List<String> ipAddresses() {
         return this.ipAddresses;
     }
@@ -35,21 +28,18 @@ public final class GetAcceleratorIpSet {
     public static Builder builder(GetAcceleratorIpSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> ipAddresses;
         private String ipFamily;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAcceleratorIpSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipAddresses = defaults.ipAddresses;
     	      this.ipFamily = defaults.ipFamily;
         }
 
+        @CustomType.Setter
         public Builder ipAddresses(List<String> ipAddresses) {
             this.ipAddresses = Objects.requireNonNull(ipAddresses);
             return this;
@@ -57,11 +47,16 @@ public final class GetAcceleratorIpSet {
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
+        @CustomType.Setter
         public Builder ipFamily(String ipFamily) {
             this.ipFamily = Objects.requireNonNull(ipFamily);
             return this;
-        }        public GetAcceleratorIpSet build() {
-            return new GetAcceleratorIpSet(ipAddresses, ipFamily);
+        }
+        public GetAcceleratorIpSet build() {
+            final var o = new GetAcceleratorIpSet();
+            o.ipAddresses = ipAddresses;
+            o.ipFamily = ipFamily;
+            return o;
         }
     }
 }

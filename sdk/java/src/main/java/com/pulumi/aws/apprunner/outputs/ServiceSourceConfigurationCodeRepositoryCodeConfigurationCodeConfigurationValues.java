@@ -16,42 +16,29 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
      * @return The command App Runner runs to build your application.
      * 
      */
-    private final @Nullable String buildCommand;
+    private @Nullable String buildCommand;
     /**
      * @return The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
-    private final @Nullable String port;
+    private @Nullable String port;
     /**
      * @return A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
      * 
      */
-    private final String runtime;
+    private String runtime;
     /**
      * @return Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
      * 
      */
-    private final @Nullable Map<String,String> runtimeEnvironmentVariables;
+    private @Nullable Map<String,String> runtimeEnvironmentVariables;
     /**
      * @return The command App Runner runs to start your application.
      * 
      */
-    private final @Nullable String startCommand;
+    private @Nullable String startCommand;
 
-    @CustomType.Constructor
-    private ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues(
-        @CustomType.Parameter("buildCommand") @Nullable String buildCommand,
-        @CustomType.Parameter("port") @Nullable String port,
-        @CustomType.Parameter("runtime") String runtime,
-        @CustomType.Parameter("runtimeEnvironmentVariables") @Nullable Map<String,String> runtimeEnvironmentVariables,
-        @CustomType.Parameter("startCommand") @Nullable String startCommand) {
-        this.buildCommand = buildCommand;
-        this.port = port;
-        this.runtime = runtime;
-        this.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
-        this.startCommand = startCommand;
-    }
-
+    private ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues() {}
     /**
      * @return The command App Runner runs to build your application.
      * 
@@ -95,18 +82,14 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
     public static Builder builder(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String buildCommand;
         private @Nullable String port;
         private String runtime;
         private @Nullable Map<String,String> runtimeEnvironmentVariables;
         private @Nullable String startCommand;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.buildCommand = defaults.buildCommand;
@@ -116,27 +99,39 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
     	      this.startCommand = defaults.startCommand;
         }
 
+        @CustomType.Setter
         public Builder buildCommand(@Nullable String buildCommand) {
             this.buildCommand = buildCommand;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable String port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder runtime(String runtime) {
             this.runtime = Objects.requireNonNull(runtime);
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeEnvironmentVariables(@Nullable Map<String,String> runtimeEnvironmentVariables) {
             this.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
             return this;
         }
+        @CustomType.Setter
         public Builder startCommand(@Nullable String startCommand) {
             this.startCommand = startCommand;
             return this;
-        }        public ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues build() {
-            return new ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues(buildCommand, port, runtime, runtimeEnvironmentVariables, startCommand);
+        }
+        public ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues build() {
+            final var o = new ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues();
+            o.buildCommand = buildCommand;
+            o.port = port;
+            o.runtime = runtime;
+            o.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
+            o.startCommand = startCommand;
+            return o;
         }
     }
 }

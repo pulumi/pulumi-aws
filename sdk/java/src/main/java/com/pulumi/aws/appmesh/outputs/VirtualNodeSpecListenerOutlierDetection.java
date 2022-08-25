@@ -15,36 +15,25 @@ public final class VirtualNodeSpecListenerOutlierDetection {
      * @return The base amount of time for which a host is ejected.
      * 
      */
-    private final VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration baseEjectionDuration;
+    private VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration baseEjectionDuration;
     /**
      * @return The time interval between ejection sweep analysis.
      * 
      */
-    private final VirtualNodeSpecListenerOutlierDetectionInterval interval;
+    private VirtualNodeSpecListenerOutlierDetectionInterval interval;
     /**
      * @return Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
      * Minimum value of `0`. Maximum value of `100`.
      * 
      */
-    private final Integer maxEjectionPercent;
+    private Integer maxEjectionPercent;
     /**
      * @return Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
      * 
      */
-    private final Integer maxServerErrors;
+    private Integer maxServerErrors;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecListenerOutlierDetection(
-        @CustomType.Parameter("baseEjectionDuration") VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration baseEjectionDuration,
-        @CustomType.Parameter("interval") VirtualNodeSpecListenerOutlierDetectionInterval interval,
-        @CustomType.Parameter("maxEjectionPercent") Integer maxEjectionPercent,
-        @CustomType.Parameter("maxServerErrors") Integer maxServerErrors) {
-        this.baseEjectionDuration = baseEjectionDuration;
-        this.interval = interval;
-        this.maxEjectionPercent = maxEjectionPercent;
-        this.maxServerErrors = maxServerErrors;
-    }
-
+    private VirtualNodeSpecListenerOutlierDetection() {}
     /**
      * @return The base amount of time for which a host is ejected.
      * 
@@ -82,17 +71,13 @@ public final class VirtualNodeSpecListenerOutlierDetection {
     public static Builder builder(VirtualNodeSpecListenerOutlierDetection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration baseEjectionDuration;
         private VirtualNodeSpecListenerOutlierDetectionInterval interval;
         private Integer maxEjectionPercent;
         private Integer maxServerErrors;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecListenerOutlierDetection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.baseEjectionDuration = defaults.baseEjectionDuration;
@@ -101,23 +86,33 @@ public final class VirtualNodeSpecListenerOutlierDetection {
     	      this.maxServerErrors = defaults.maxServerErrors;
         }
 
+        @CustomType.Setter
         public Builder baseEjectionDuration(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration baseEjectionDuration) {
             this.baseEjectionDuration = Objects.requireNonNull(baseEjectionDuration);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(VirtualNodeSpecListenerOutlierDetectionInterval interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
         }
+        @CustomType.Setter
         public Builder maxEjectionPercent(Integer maxEjectionPercent) {
             this.maxEjectionPercent = Objects.requireNonNull(maxEjectionPercent);
             return this;
         }
+        @CustomType.Setter
         public Builder maxServerErrors(Integer maxServerErrors) {
             this.maxServerErrors = Objects.requireNonNull(maxServerErrors);
             return this;
-        }        public VirtualNodeSpecListenerOutlierDetection build() {
-            return new VirtualNodeSpecListenerOutlierDetection(baseEjectionDuration, interval, maxEjectionPercent, maxServerErrors);
+        }
+        public VirtualNodeSpecListenerOutlierDetection build() {
+            final var o = new VirtualNodeSpecListenerOutlierDetection();
+            o.baseEjectionDuration = baseEjectionDuration;
+            o.interval = interval;
+            o.maxEjectionPercent = maxEjectionPercent;
+            o.maxServerErrors = maxServerErrors;
+            return o;
         }
     }
 }

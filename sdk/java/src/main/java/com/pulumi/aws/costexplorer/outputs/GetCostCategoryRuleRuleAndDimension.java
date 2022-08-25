@@ -14,28 +14,19 @@ public final class GetCostCategoryRuleRuleAndDimension {
      * @return Key for the tag.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
      * 
      */
-    private final List<String> matchOptions;
+    private List<String> matchOptions;
     /**
      * @return Parameter values.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetCostCategoryRuleRuleAndDimension(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("matchOptions") List<String> matchOptions,
-        @CustomType.Parameter("values") List<String> values) {
-        this.key = key;
-        this.matchOptions = matchOptions;
-        this.values = values;
-    }
-
+    private GetCostCategoryRuleRuleAndDimension() {}
     /**
      * @return Key for the tag.
      * 
@@ -65,16 +56,12 @@ public final class GetCostCategoryRuleRuleAndDimension {
     public static Builder builder(GetCostCategoryRuleRuleAndDimension defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private List<String> matchOptions;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCostCategoryRuleRuleAndDimension defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -82,10 +69,12 @@ public final class GetCostCategoryRuleRuleAndDimension {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder matchOptions(List<String> matchOptions) {
             this.matchOptions = Objects.requireNonNull(matchOptions);
             return this;
@@ -93,14 +82,20 @@ public final class GetCostCategoryRuleRuleAndDimension {
         public Builder matchOptions(String... matchOptions) {
             return matchOptions(List.of(matchOptions));
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetCostCategoryRuleRuleAndDimension build() {
-            return new GetCostCategoryRuleRuleAndDimension(key, matchOptions, values);
+        }
+        public GetCostCategoryRuleRuleAndDimension build() {
+            final var o = new GetCostCategoryRuleRuleAndDimension();
+            o.key = key;
+            o.matchOptions = matchOptions;
+            o.values = values;
+            return o;
         }
     }
 }

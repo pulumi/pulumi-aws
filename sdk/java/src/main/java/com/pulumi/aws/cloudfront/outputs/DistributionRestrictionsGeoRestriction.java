@@ -17,23 +17,16 @@ public final class DistributionRestrictionsGeoRestriction {
      * distribute your content (`blacklist`).
      * 
      */
-    private final @Nullable List<String> locations;
+    private @Nullable List<String> locations;
     /**
      * @return The method that you want to use to restrict
      * distribution of your content by country: `none`, `whitelist`, or
      * `blacklist`.
      * 
      */
-    private final String restrictionType;
+    private String restrictionType;
 
-    @CustomType.Constructor
-    private DistributionRestrictionsGeoRestriction(
-        @CustomType.Parameter("locations") @Nullable List<String> locations,
-        @CustomType.Parameter("restrictionType") String restrictionType) {
-        this.locations = locations;
-        this.restrictionType = restrictionType;
-    }
-
+    private DistributionRestrictionsGeoRestriction() {}
     /**
      * @return The [ISO 3166-1-alpha-2 codes][4] for which you
      * want CloudFront either to distribute your content (`whitelist`) or not
@@ -60,21 +53,18 @@ public final class DistributionRestrictionsGeoRestriction {
     public static Builder builder(DistributionRestrictionsGeoRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> locations;
         private String restrictionType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionRestrictionsGeoRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.locations = defaults.locations;
     	      this.restrictionType = defaults.restrictionType;
         }
 
+        @CustomType.Setter
         public Builder locations(@Nullable List<String> locations) {
             this.locations = locations;
             return this;
@@ -82,11 +72,16 @@ public final class DistributionRestrictionsGeoRestriction {
         public Builder locations(String... locations) {
             return locations(List.of(locations));
         }
+        @CustomType.Setter
         public Builder restrictionType(String restrictionType) {
             this.restrictionType = Objects.requireNonNull(restrictionType);
             return this;
-        }        public DistributionRestrictionsGeoRestriction build() {
-            return new DistributionRestrictionsGeoRestriction(locations, restrictionType);
+        }
+        public DistributionRestrictionsGeoRestriction build() {
+            final var o = new DistributionRestrictionsGeoRestriction();
+            o.locations = locations;
+            o.restrictionType = restrictionType;
+            return o;
         }
     }
 }

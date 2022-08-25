@@ -17,28 +17,19 @@ public final class BucketReplicationConfigRuleFilter {
      * @return A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
      * 
      */
-    private final @Nullable BucketReplicationConfigRuleFilterAnd and;
+    private @Nullable BucketReplicationConfigRuleFilterAnd and;
     /**
      * @return An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return A configuration block for specifying a tag key and value documented below.
      * 
      */
-    private final @Nullable BucketReplicationConfigRuleFilterTag tag;
+    private @Nullable BucketReplicationConfigRuleFilterTag tag;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleFilter(
-        @CustomType.Parameter("and") @Nullable BucketReplicationConfigRuleFilterAnd and,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("tag") @Nullable BucketReplicationConfigRuleFilterTag tag) {
-        this.and = and;
-        this.prefix = prefix;
-        this.tag = tag;
-    }
-
+    private BucketReplicationConfigRuleFilter() {}
     /**
      * @return A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
      * 
@@ -68,16 +59,12 @@ public final class BucketReplicationConfigRuleFilter {
     public static Builder builder(BucketReplicationConfigRuleFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketReplicationConfigRuleFilterAnd and;
         private @Nullable String prefix;
         private @Nullable BucketReplicationConfigRuleFilterTag tag;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.and = defaults.and;
@@ -85,19 +72,27 @@ public final class BucketReplicationConfigRuleFilter {
     	      this.tag = defaults.tag;
         }
 
+        @CustomType.Setter
         public Builder and(@Nullable BucketReplicationConfigRuleFilterAnd and) {
             this.and = and;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder tag(@Nullable BucketReplicationConfigRuleFilterTag tag) {
             this.tag = tag;
             return this;
-        }        public BucketReplicationConfigRuleFilter build() {
-            return new BucketReplicationConfigRuleFilter(and, prefix, tag);
+        }
+        public BucketReplicationConfigRuleFilter build() {
+            final var o = new BucketReplicationConfigRuleFilter();
+            o.and = and;
+            o.prefix = prefix;
+            o.tag = tag;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class EventDestinationSnsDestination {
      * @return The ARN of the SNS topic
      * 
      */
-    private final String topicArn;
+    private String topicArn;
 
-    @CustomType.Constructor
-    private EventDestinationSnsDestination(@CustomType.Parameter("topicArn") String topicArn) {
-        this.topicArn = topicArn;
-    }
-
+    private EventDestinationSnsDestination() {}
     /**
      * @return The ARN of the SNS topic
      * 
@@ -35,24 +31,24 @@ public final class EventDestinationSnsDestination {
     public static Builder builder(EventDestinationSnsDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String topicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventDestinationSnsDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.topicArn = defaults.topicArn;
         }
 
+        @CustomType.Setter
         public Builder topicArn(String topicArn) {
             this.topicArn = Objects.requireNonNull(topicArn);
             return this;
-        }        public EventDestinationSnsDestination build() {
-            return new EventDestinationSnsDestination(topicArn);
+        }
+        public EventDestinationSnsDestination build() {
+            final var o = new EventDestinationSnsDestination();
+            o.topicArn = topicArn;
+            return o;
         }
     }
 }

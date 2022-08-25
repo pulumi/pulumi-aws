@@ -16,21 +16,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplate {
      * @return Override the instance launch template specification in the Launch Template.
      * 
      */
-    private final GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification;
+    private GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification;
     /**
      * @return List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
      * 
      */
-    private final @Nullable List<GroupMixedInstancesPolicyLaunchTemplateOverride> overrides;
+    private @Nullable List<GroupMixedInstancesPolicyLaunchTemplateOverride> overrides;
 
-    @CustomType.Constructor
-    private GroupMixedInstancesPolicyLaunchTemplate(
-        @CustomType.Parameter("launchTemplateSpecification") GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification,
-        @CustomType.Parameter("overrides") @Nullable List<GroupMixedInstancesPolicyLaunchTemplateOverride> overrides) {
-        this.launchTemplateSpecification = launchTemplateSpecification;
-        this.overrides = overrides;
-    }
-
+    private GroupMixedInstancesPolicyLaunchTemplate() {}
     /**
      * @return Override the instance launch template specification in the Launch Template.
      * 
@@ -53,33 +46,35 @@ public final class GroupMixedInstancesPolicyLaunchTemplate {
     public static Builder builder(GroupMixedInstancesPolicyLaunchTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification;
         private @Nullable List<GroupMixedInstancesPolicyLaunchTemplateOverride> overrides;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupMixedInstancesPolicyLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.launchTemplateSpecification = defaults.launchTemplateSpecification;
     	      this.overrides = defaults.overrides;
         }
 
+        @CustomType.Setter
         public Builder launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification) {
             this.launchTemplateSpecification = Objects.requireNonNull(launchTemplateSpecification);
             return this;
         }
+        @CustomType.Setter
         public Builder overrides(@Nullable List<GroupMixedInstancesPolicyLaunchTemplateOverride> overrides) {
             this.overrides = overrides;
             return this;
         }
         public Builder overrides(GroupMixedInstancesPolicyLaunchTemplateOverride... overrides) {
             return overrides(List.of(overrides));
-        }        public GroupMixedInstancesPolicyLaunchTemplate build() {
-            return new GroupMixedInstancesPolicyLaunchTemplate(launchTemplateSpecification, overrides);
+        }
+        public GroupMixedInstancesPolicyLaunchTemplate build() {
+            final var o = new GroupMixedInstancesPolicyLaunchTemplate();
+            o.launchTemplateSpecification = launchTemplateSpecification;
+            o.overrides = overrides;
+            return o;
         }
     }
 }

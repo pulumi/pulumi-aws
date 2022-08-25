@@ -17,22 +17,15 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
      * See CSV Mapping Parameters below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv csv;
+    private @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv csv;
     /**
      * @return Mapping information when JSON is the record format on the streaming source.
      * See JSON Mapping Parameters below for more details.
      * 
      */
-    private final @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson json;
+    private @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson json;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationInputsSchemaRecordFormatMappingParameters(
-        @CustomType.Parameter("csv") @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv csv,
-        @CustomType.Parameter("json") @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson json) {
-        this.csv = csv;
-        this.json = json;
-    }
-
+    private AnalyticsApplicationInputsSchemaRecordFormatMappingParameters() {}
     /**
      * @return Mapping information when the record format uses delimiters.
      * See CSV Mapping Parameters below for more details.
@@ -57,30 +50,32 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
     public static Builder builder(AnalyticsApplicationInputsSchemaRecordFormatMappingParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv csv;
         private @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson json;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationInputsSchemaRecordFormatMappingParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.csv = defaults.csv;
     	      this.json = defaults.json;
         }
 
+        @CustomType.Setter
         public Builder csv(@Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv csv) {
             this.csv = csv;
             return this;
         }
+        @CustomType.Setter
         public Builder json(@Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson json) {
             this.json = json;
             return this;
-        }        public AnalyticsApplicationInputsSchemaRecordFormatMappingParameters build() {
-            return new AnalyticsApplicationInputsSchemaRecordFormatMappingParameters(csv, json);
+        }
+        public AnalyticsApplicationInputsSchemaRecordFormatMappingParameters build() {
+            final var o = new AnalyticsApplicationInputsSchemaRecordFormatMappingParameters();
+            o.csv = csv;
+            o.json = json;
+            return o;
         }
     }
 }

@@ -18,12 +18,12 @@ public final class IntentSlot {
      * @return A description of the bot. Must be less than or equal to 200 characters in length.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Directs Lex the order in which to elicit this slot value from the user.
      * For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
@@ -31,66 +31,45 @@ public final class IntentSlot {
      * values is arbitrary. Must be between 1 and 100.
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return The response card. Amazon Lex will substitute session attributes and
      * slot values into the response card. For more information, see
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
      * 
      */
-    private final @Nullable String responseCard;
+    private @Nullable String responseCard;
     /**
      * @return If you know a specific pattern with which users might respond to
      * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
      * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      * 
      */
-    private final @Nullable List<String> sampleUtterances;
+    private @Nullable List<String> sampleUtterances;
     /**
      * @return Specifies whether the slot is required or optional.
      * 
      */
-    private final String slotConstraint;
+    private String slotConstraint;
     /**
      * @return The type of the slot, either a custom slot type that you defined or one of
      * the built-in slot types. Must be less than or equal to 100 characters in length.
      * 
      */
-    private final String slotType;
+    private String slotType;
     /**
      * @return The version of the slot type. Must be less than or equal to 64 characters in length.
      * 
      */
-    private final @Nullable String slotTypeVersion;
+    private @Nullable String slotTypeVersion;
     /**
      * @return The prompt that Amazon Lex uses to elicit the slot value
      * from the user. Attributes are documented under prompt.
      * 
      */
-    private final @Nullable IntentSlotValueElicitationPrompt valueElicitationPrompt;
+    private @Nullable IntentSlotValueElicitationPrompt valueElicitationPrompt;
 
-    @CustomType.Constructor
-    private IntentSlot(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("responseCard") @Nullable String responseCard,
-        @CustomType.Parameter("sampleUtterances") @Nullable List<String> sampleUtterances,
-        @CustomType.Parameter("slotConstraint") String slotConstraint,
-        @CustomType.Parameter("slotType") String slotType,
-        @CustomType.Parameter("slotTypeVersion") @Nullable String slotTypeVersion,
-        @CustomType.Parameter("valueElicitationPrompt") @Nullable IntentSlotValueElicitationPrompt valueElicitationPrompt) {
-        this.description = description;
-        this.name = name;
-        this.priority = priority;
-        this.responseCard = responseCard;
-        this.sampleUtterances = sampleUtterances;
-        this.slotConstraint = slotConstraint;
-        this.slotType = slotType;
-        this.slotTypeVersion = slotTypeVersion;
-        this.valueElicitationPrompt = valueElicitationPrompt;
-    }
-
+    private IntentSlot() {}
     /**
      * @return A description of the bot. Must be less than or equal to 200 characters in length.
      * 
@@ -171,7 +150,7 @@ public final class IntentSlot {
     public static Builder builder(IntentSlot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String name;
@@ -182,11 +161,7 @@ public final class IntentSlot {
         private String slotType;
         private @Nullable String slotTypeVersion;
         private @Nullable IntentSlotValueElicitationPrompt valueElicitationPrompt;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntentSlot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -200,22 +175,27 @@ public final class IntentSlot {
     	      this.valueElicitationPrompt = defaults.valueElicitationPrompt;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder responseCard(@Nullable String responseCard) {
             this.responseCard = responseCard;
             return this;
         }
+        @CustomType.Setter
         public Builder sampleUtterances(@Nullable List<String> sampleUtterances) {
             this.sampleUtterances = sampleUtterances;
             return this;
@@ -223,23 +203,38 @@ public final class IntentSlot {
         public Builder sampleUtterances(String... sampleUtterances) {
             return sampleUtterances(List.of(sampleUtterances));
         }
+        @CustomType.Setter
         public Builder slotConstraint(String slotConstraint) {
             this.slotConstraint = Objects.requireNonNull(slotConstraint);
             return this;
         }
+        @CustomType.Setter
         public Builder slotType(String slotType) {
             this.slotType = Objects.requireNonNull(slotType);
             return this;
         }
+        @CustomType.Setter
         public Builder slotTypeVersion(@Nullable String slotTypeVersion) {
             this.slotTypeVersion = slotTypeVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder valueElicitationPrompt(@Nullable IntentSlotValueElicitationPrompt valueElicitationPrompt) {
             this.valueElicitationPrompt = valueElicitationPrompt;
             return this;
-        }        public IntentSlot build() {
-            return new IntentSlot(description, name, priority, responseCard, sampleUtterances, slotConstraint, slotType, slotTypeVersion, valueElicitationPrompt);
+        }
+        public IntentSlot build() {
+            final var o = new IntentSlot();
+            o.description = description;
+            o.name = name;
+            o.priority = priority;
+            o.responseCard = responseCard;
+            o.sampleUtterances = sampleUtterances;
+            o.slotConstraint = slotConstraint;
+            o.slotType = slotType;
+            o.slotTypeVersion = slotTypeVersion;
+            o.valueElicitationPrompt = valueElicitationPrompt;
+            return o;
         }
     }
 }

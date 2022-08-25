@@ -15,13 +15,9 @@ public final class ConnectorCapacityAutoscalingScaleOutPolicy {
      * @return The CPU utilization percentage threshold at which you want connector scale out to be triggered.
      * 
      */
-    private final @Nullable Integer cpuUtilizationPercentage;
+    private @Nullable Integer cpuUtilizationPercentage;
 
-    @CustomType.Constructor
-    private ConnectorCapacityAutoscalingScaleOutPolicy(@CustomType.Parameter("cpuUtilizationPercentage") @Nullable Integer cpuUtilizationPercentage) {
-        this.cpuUtilizationPercentage = cpuUtilizationPercentage;
-    }
-
+    private ConnectorCapacityAutoscalingScaleOutPolicy() {}
     /**
      * @return The CPU utilization percentage threshold at which you want connector scale out to be triggered.
      * 
@@ -37,24 +33,24 @@ public final class ConnectorCapacityAutoscalingScaleOutPolicy {
     public static Builder builder(ConnectorCapacityAutoscalingScaleOutPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer cpuUtilizationPercentage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorCapacityAutoscalingScaleOutPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cpuUtilizationPercentage = defaults.cpuUtilizationPercentage;
         }
 
+        @CustomType.Setter
         public Builder cpuUtilizationPercentage(@Nullable Integer cpuUtilizationPercentage) {
             this.cpuUtilizationPercentage = cpuUtilizationPercentage;
             return this;
-        }        public ConnectorCapacityAutoscalingScaleOutPolicy build() {
-            return new ConnectorCapacityAutoscalingScaleOutPolicy(cpuUtilizationPercentage);
+        }
+        public ConnectorCapacityAutoscalingScaleOutPolicy build() {
+            final var o = new ConnectorCapacityAutoscalingScaleOutPolicy();
+            o.cpuUtilizationPercentage = cpuUtilizationPercentage;
+            return o;
         }
     }
 }

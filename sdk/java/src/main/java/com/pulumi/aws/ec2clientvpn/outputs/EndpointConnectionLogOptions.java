@@ -16,28 +16,19 @@ public final class EndpointConnectionLogOptions {
      * @return The name of the CloudWatch Logs log group.
      * 
      */
-    private final @Nullable String cloudwatchLogGroup;
+    private @Nullable String cloudwatchLogGroup;
     /**
      * @return The name of the CloudWatch Logs log stream to which the connection data is published.
      * 
      */
-    private final @Nullable String cloudwatchLogStream;
+    private @Nullable String cloudwatchLogStream;
     /**
      * @return Indicates whether connection logging is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private EndpointConnectionLogOptions(
-        @CustomType.Parameter("cloudwatchLogGroup") @Nullable String cloudwatchLogGroup,
-        @CustomType.Parameter("cloudwatchLogStream") @Nullable String cloudwatchLogStream,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.cloudwatchLogGroup = cloudwatchLogGroup;
-        this.cloudwatchLogStream = cloudwatchLogStream;
-        this.enabled = enabled;
-    }
-
+    private EndpointConnectionLogOptions() {}
     /**
      * @return The name of the CloudWatch Logs log group.
      * 
@@ -67,16 +58,12 @@ public final class EndpointConnectionLogOptions {
     public static Builder builder(EndpointConnectionLogOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cloudwatchLogGroup;
         private @Nullable String cloudwatchLogStream;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointConnectionLogOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogGroup = defaults.cloudwatchLogGroup;
@@ -84,19 +71,27 @@ public final class EndpointConnectionLogOptions {
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLogGroup(@Nullable String cloudwatchLogGroup) {
             this.cloudwatchLogGroup = cloudwatchLogGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatchLogStream(@Nullable String cloudwatchLogStream) {
             this.cloudwatchLogStream = cloudwatchLogStream;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public EndpointConnectionLogOptions build() {
-            return new EndpointConnectionLogOptions(cloudwatchLogGroup, cloudwatchLogStream, enabled);
+        }
+        public EndpointConnectionLogOptions build() {
+            final var o = new EndpointConnectionLogOptions();
+            o.cloudwatchLogGroup = cloudwatchLogGroup;
+            o.cloudwatchLogStream = cloudwatchLogStream;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

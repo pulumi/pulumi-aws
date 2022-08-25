@@ -13,13 +13,9 @@ public final class ClusterOpenMonitoring {
      * @return Configuration block for Prometheus settings for open monitoring. See below.
      * 
      */
-    private final ClusterOpenMonitoringPrometheus prometheus;
+    private ClusterOpenMonitoringPrometheus prometheus;
 
-    @CustomType.Constructor
-    private ClusterOpenMonitoring(@CustomType.Parameter("prometheus") ClusterOpenMonitoringPrometheus prometheus) {
-        this.prometheus = prometheus;
-    }
-
+    private ClusterOpenMonitoring() {}
     /**
      * @return Configuration block for Prometheus settings for open monitoring. See below.
      * 
@@ -35,24 +31,24 @@ public final class ClusterOpenMonitoring {
     public static Builder builder(ClusterOpenMonitoring defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ClusterOpenMonitoringPrometheus prometheus;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterOpenMonitoring defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prometheus = defaults.prometheus;
         }
 
+        @CustomType.Setter
         public Builder prometheus(ClusterOpenMonitoringPrometheus prometheus) {
             this.prometheus = Objects.requireNonNull(prometheus);
             return this;
-        }        public ClusterOpenMonitoring build() {
-            return new ClusterOpenMonitoring(prometheus);
+        }
+        public ClusterOpenMonitoring build() {
+            final var o = new ClusterOpenMonitoring();
+            o.prometheus = prometheus;
+            return o;
         }
     }
 }

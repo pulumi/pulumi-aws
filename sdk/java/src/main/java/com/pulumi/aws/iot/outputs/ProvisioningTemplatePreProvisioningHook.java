@@ -15,17 +15,10 @@ public final class ProvisioningTemplatePreProvisioningHook {
      * @return The version of the payload that was sent to the target function. The only valid (and the default) payload version is `&#34;2020-04-01&#34;`.
      * 
      */
-    private final @Nullable String payloadVersion;
-    private final String targetArn;
+    private @Nullable String payloadVersion;
+    private String targetArn;
 
-    @CustomType.Constructor
-    private ProvisioningTemplatePreProvisioningHook(
-        @CustomType.Parameter("payloadVersion") @Nullable String payloadVersion,
-        @CustomType.Parameter("targetArn") String targetArn) {
-        this.payloadVersion = payloadVersion;
-        this.targetArn = targetArn;
-    }
-
+    private ProvisioningTemplatePreProvisioningHook() {}
     /**
      * @return The version of the payload that was sent to the target function. The only valid (and the default) payload version is `&#34;2020-04-01&#34;`.
      * 
@@ -44,30 +37,32 @@ public final class ProvisioningTemplatePreProvisioningHook {
     public static Builder builder(ProvisioningTemplatePreProvisioningHook defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String payloadVersion;
         private String targetArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProvisioningTemplatePreProvisioningHook defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.payloadVersion = defaults.payloadVersion;
     	      this.targetArn = defaults.targetArn;
         }
 
+        @CustomType.Setter
         public Builder payloadVersion(@Nullable String payloadVersion) {
             this.payloadVersion = payloadVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder targetArn(String targetArn) {
             this.targetArn = Objects.requireNonNull(targetArn);
             return this;
-        }        public ProvisioningTemplatePreProvisioningHook build() {
-            return new ProvisioningTemplatePreProvisioningHook(payloadVersion, targetArn);
+        }
+        public ProvisioningTemplatePreProvisioningHook build() {
+            final var o = new ProvisioningTemplatePreProvisioningHook();
+            o.payloadVersion = payloadVersion;
+            o.targetArn = targetArn;
+            return o;
         }
     }
 }

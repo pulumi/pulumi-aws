@@ -13,21 +13,14 @@ public final class TableSchemaDefinitionClusteringKey {
      * @return The name of the clustering key column.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The order modifier. Valid values: `ASC`, `DESC`.
      * 
      */
-    private final String orderBy;
+    private String orderBy;
 
-    @CustomType.Constructor
-    private TableSchemaDefinitionClusteringKey(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("orderBy") String orderBy) {
-        this.name = name;
-        this.orderBy = orderBy;
-    }
-
+    private TableSchemaDefinitionClusteringKey() {}
     /**
      * @return The name of the clustering key column.
      * 
@@ -50,30 +43,32 @@ public final class TableSchemaDefinitionClusteringKey {
     public static Builder builder(TableSchemaDefinitionClusteringKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String orderBy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableSchemaDefinitionClusteringKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.orderBy = defaults.orderBy;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder orderBy(String orderBy) {
             this.orderBy = Objects.requireNonNull(orderBy);
             return this;
-        }        public TableSchemaDefinitionClusteringKey build() {
-            return new TableSchemaDefinitionClusteringKey(name, orderBy);
+        }
+        public TableSchemaDefinitionClusteringKey build() {
+            final var o = new TableSchemaDefinitionClusteringKey();
+            o.name = name;
+            o.orderBy = orderBy;
+            return o;
         }
     }
 }

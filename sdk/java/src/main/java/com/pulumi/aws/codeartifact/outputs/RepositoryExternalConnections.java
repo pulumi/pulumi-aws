@@ -15,20 +15,11 @@ public final class RepositoryExternalConnections {
      * @return The name of the external connection associated with a repository.
      * 
      */
-    private final String externalConnectionName;
-    private final @Nullable String packageFormat;
-    private final @Nullable String status;
+    private String externalConnectionName;
+    private @Nullable String packageFormat;
+    private @Nullable String status;
 
-    @CustomType.Constructor
-    private RepositoryExternalConnections(
-        @CustomType.Parameter("externalConnectionName") String externalConnectionName,
-        @CustomType.Parameter("packageFormat") @Nullable String packageFormat,
-        @CustomType.Parameter("status") @Nullable String status) {
-        this.externalConnectionName = externalConnectionName;
-        this.packageFormat = packageFormat;
-        this.status = status;
-    }
-
+    private RepositoryExternalConnections() {}
     /**
      * @return The name of the external connection associated with a repository.
      * 
@@ -50,16 +41,12 @@ public final class RepositoryExternalConnections {
     public static Builder builder(RepositoryExternalConnections defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String externalConnectionName;
         private @Nullable String packageFormat;
         private @Nullable String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RepositoryExternalConnections defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.externalConnectionName = defaults.externalConnectionName;
@@ -67,19 +54,27 @@ public final class RepositoryExternalConnections {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder externalConnectionName(String externalConnectionName) {
             this.externalConnectionName = Objects.requireNonNull(externalConnectionName);
             return this;
         }
+        @CustomType.Setter
         public Builder packageFormat(@Nullable String packageFormat) {
             this.packageFormat = packageFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
-        }        public RepositoryExternalConnections build() {
-            return new RepositoryExternalConnections(externalConnectionName, packageFormat, status);
+        }
+        public RepositoryExternalConnections build() {
+            final var o = new RepositoryExternalConnections();
+            o.externalConnectionName = externalConnectionName;
+            o.packageFormat = packageFormat;
+            o.status = status;
+            return o;
         }
     }
 }

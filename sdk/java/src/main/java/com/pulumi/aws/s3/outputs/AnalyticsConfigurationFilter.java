@@ -16,21 +16,14 @@ public final class AnalyticsConfigurationFilter {
      * @return Object prefix for filtering.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return Set of object tags for filtering.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private AnalyticsConfigurationFilter(
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.prefix = prefix;
-        this.tags = tags;
-    }
-
+    private AnalyticsConfigurationFilter() {}
     /**
      * @return Object prefix for filtering.
      * 
@@ -53,30 +46,32 @@ public final class AnalyticsConfigurationFilter {
     public static Builder builder(AnalyticsConfigurationFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String prefix;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsConfigurationFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prefix = defaults.prefix;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public AnalyticsConfigurationFilter build() {
-            return new AnalyticsConfigurationFilter(prefix, tags);
+        }
+        public AnalyticsConfigurationFilter build() {
+            final var o = new AnalyticsConfigurationFilter();
+            o.prefix = prefix;
+            o.tags = tags;
+            return o;
         }
     }
 }

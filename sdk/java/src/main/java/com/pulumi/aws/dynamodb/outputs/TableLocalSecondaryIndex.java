@@ -15,35 +15,24 @@ public final class TableLocalSecondaryIndex {
      * @return Name of the index
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
-    private final @Nullable List<String> nonKeyAttributes;
+    private @Nullable List<String> nonKeyAttributes;
     /**
      * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
      * 
      */
-    private final String projectionType;
+    private String projectionType;
     /**
      * @return Name of the range key.
      * 
      */
-    private final String rangeKey;
+    private String rangeKey;
 
-    @CustomType.Constructor
-    private TableLocalSecondaryIndex(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nonKeyAttributes") @Nullable List<String> nonKeyAttributes,
-        @CustomType.Parameter("projectionType") String projectionType,
-        @CustomType.Parameter("rangeKey") String rangeKey) {
-        this.name = name;
-        this.nonKeyAttributes = nonKeyAttributes;
-        this.projectionType = projectionType;
-        this.rangeKey = rangeKey;
-    }
-
+    private TableLocalSecondaryIndex() {}
     /**
      * @return Name of the index
      * 
@@ -80,17 +69,13 @@ public final class TableLocalSecondaryIndex {
     public static Builder builder(TableLocalSecondaryIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable List<String> nonKeyAttributes;
         private String projectionType;
         private String rangeKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableLocalSecondaryIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -99,10 +84,12 @@ public final class TableLocalSecondaryIndex {
     	      this.rangeKey = defaults.rangeKey;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nonKeyAttributes(@Nullable List<String> nonKeyAttributes) {
             this.nonKeyAttributes = nonKeyAttributes;
             return this;
@@ -110,15 +97,23 @@ public final class TableLocalSecondaryIndex {
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
             return nonKeyAttributes(List.of(nonKeyAttributes));
         }
+        @CustomType.Setter
         public Builder projectionType(String projectionType) {
             this.projectionType = Objects.requireNonNull(projectionType);
             return this;
         }
+        @CustomType.Setter
         public Builder rangeKey(String rangeKey) {
             this.rangeKey = Objects.requireNonNull(rangeKey);
             return this;
-        }        public TableLocalSecondaryIndex build() {
-            return new TableLocalSecondaryIndex(name, nonKeyAttributes, projectionType, rangeKey);
+        }
+        public TableLocalSecondaryIndex build() {
+            final var o = new TableLocalSecondaryIndex();
+            o.name = name;
+            o.nonKeyAttributes = nonKeyAttributes;
+            o.projectionType = projectionType;
+            o.rangeKey = rangeKey;
+            return o;
         }
     }
 }

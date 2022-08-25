@@ -13,13 +13,9 @@ public final class VpcAttachmentOptions {
      * @return Indicates whether IPv6 is supported.
      * 
      */
-    private final Boolean ipv6Support;
+    private Boolean ipv6Support;
 
-    @CustomType.Constructor
-    private VpcAttachmentOptions(@CustomType.Parameter("ipv6Support") Boolean ipv6Support) {
-        this.ipv6Support = ipv6Support;
-    }
-
+    private VpcAttachmentOptions() {}
     /**
      * @return Indicates whether IPv6 is supported.
      * 
@@ -35,24 +31,24 @@ public final class VpcAttachmentOptions {
     public static Builder builder(VpcAttachmentOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean ipv6Support;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpcAttachmentOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipv6Support = defaults.ipv6Support;
         }
 
+        @CustomType.Setter
         public Builder ipv6Support(Boolean ipv6Support) {
             this.ipv6Support = Objects.requireNonNull(ipv6Support);
             return this;
-        }        public VpcAttachmentOptions build() {
-            return new VpcAttachmentOptions(ipv6Support);
+        }
+        public VpcAttachmentOptions build() {
+            final var o = new VpcAttachmentOptions();
+            o.ipv6Support = ipv6Support;
+            return o;
         }
     }
 }

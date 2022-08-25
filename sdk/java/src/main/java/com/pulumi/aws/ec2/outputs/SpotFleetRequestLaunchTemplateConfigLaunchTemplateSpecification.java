@@ -15,28 +15,19 @@ public final class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificati
      * @return The ID of the launch template. Conflicts with `name`.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the launch template. Conflicts with `id`.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource&#39;s attribute, e.g., `&#34;${aws_launch_template.foo.latest_version}&#34;`. It will use the default version if omitted.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.id = id;
-        this.name = name;
-        this.version = version;
-    }
-
+    private SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification() {}
     /**
      * @return The ID of the launch template. Conflicts with `name`.
      * 
@@ -66,16 +57,12 @@ public final class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificati
     public static Builder builder(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,19 +70,27 @@ public final class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificati
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification build() {
-            return new SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification(id, name, version);
+        }
+        public SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification build() {
+            final var o = new SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification();
+            o.id = id;
+            o.name = name;
+            o.version = version;
+            return o;
         }
     }
 }

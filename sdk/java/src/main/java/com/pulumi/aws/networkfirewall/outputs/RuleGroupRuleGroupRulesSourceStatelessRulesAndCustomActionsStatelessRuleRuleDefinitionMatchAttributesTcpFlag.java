@@ -16,22 +16,15 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
      * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
      * 
      */
-    private final List<String> flags;
+    private List<String> flags;
     /**
      * @return Set of flags to consider in the inspection. To inspect all flags, leave this empty.
      * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
      * 
      */
-    private final @Nullable List<String> masks;
+    private @Nullable List<String> masks;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag(
-        @CustomType.Parameter("flags") List<String> flags,
-        @CustomType.Parameter("masks") @Nullable List<String> masks) {
-        this.flags = flags;
-        this.masks = masks;
-    }
-
+    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag() {}
     /**
      * @return Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
      * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
@@ -56,21 +49,18 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
     public static Builder builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> flags;
         private @Nullable List<String> masks;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.flags = defaults.flags;
     	      this.masks = defaults.masks;
         }
 
+        @CustomType.Setter
         public Builder flags(List<String> flags) {
             this.flags = Objects.requireNonNull(flags);
             return this;
@@ -78,14 +68,19 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         public Builder flags(String... flags) {
             return flags(List.of(flags));
         }
+        @CustomType.Setter
         public Builder masks(@Nullable List<String> masks) {
             this.masks = masks;
             return this;
         }
         public Builder masks(String... masks) {
             return masks(List.of(masks));
-        }        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag build() {
-            return new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag(flags, masks);
+        }
+        public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag build() {
+            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag();
+            o.flags = flags;
+            o.masks = masks;
+            return o;
         }
     }
 }

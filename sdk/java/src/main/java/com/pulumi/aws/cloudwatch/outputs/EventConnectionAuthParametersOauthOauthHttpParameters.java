@@ -17,28 +17,19 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
      * @return Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
      */
-    private final @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersBody> bodies;
+    private @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersBody> bodies;
     /**
      * @return Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
      */
-    private final @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersHeader> headers;
+    private @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersHeader> headers;
     /**
      * @return Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
      */
-    private final @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersQueryString> queryStrings;
+    private @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersQueryString> queryStrings;
 
-    @CustomType.Constructor
-    private EventConnectionAuthParametersOauthOauthHttpParameters(
-        @CustomType.Parameter("bodies") @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersBody> bodies,
-        @CustomType.Parameter("headers") @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersHeader> headers,
-        @CustomType.Parameter("queryStrings") @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersQueryString> queryStrings) {
-        this.bodies = bodies;
-        this.headers = headers;
-        this.queryStrings = queryStrings;
-    }
-
+    private EventConnectionAuthParametersOauthOauthHttpParameters() {}
     /**
      * @return Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
@@ -68,16 +59,12 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
     public static Builder builder(EventConnectionAuthParametersOauthOauthHttpParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersBody> bodies;
         private @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersHeader> headers;
         private @Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersQueryString> queryStrings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventConnectionAuthParametersOauthOauthHttpParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bodies = defaults.bodies;
@@ -85,6 +72,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
     	      this.queryStrings = defaults.queryStrings;
         }
 
+        @CustomType.Setter
         public Builder bodies(@Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersBody> bodies) {
             this.bodies = bodies;
             return this;
@@ -92,6 +80,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
         public Builder bodies(EventConnectionAuthParametersOauthOauthHttpParametersBody... bodies) {
             return bodies(List.of(bodies));
         }
+        @CustomType.Setter
         public Builder headers(@Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersHeader> headers) {
             this.headers = headers;
             return this;
@@ -99,14 +88,20 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
         public Builder headers(EventConnectionAuthParametersOauthOauthHttpParametersHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder queryStrings(@Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersQueryString> queryStrings) {
             this.queryStrings = queryStrings;
             return this;
         }
         public Builder queryStrings(EventConnectionAuthParametersOauthOauthHttpParametersQueryString... queryStrings) {
             return queryStrings(List.of(queryStrings));
-        }        public EventConnectionAuthParametersOauthOauthHttpParameters build() {
-            return new EventConnectionAuthParametersOauthOauthHttpParameters(bodies, headers, queryStrings);
+        }
+        public EventConnectionAuthParametersOauthOauthHttpParameters build() {
+            final var o = new EventConnectionAuthParametersOauthOauthHttpParameters();
+            o.bodies = bodies;
+            o.headers = headers;
+            o.queryStrings = queryStrings;
+            return o;
         }
     }
 }

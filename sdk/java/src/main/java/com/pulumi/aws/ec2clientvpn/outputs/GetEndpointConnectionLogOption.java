@@ -10,20 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEndpointConnectionLogOption {
-    private final String cloudwatchLogGroup;
-    private final String cloudwatchLogStream;
-    private final Boolean enabled;
+    private String cloudwatchLogGroup;
+    private String cloudwatchLogStream;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetEndpointConnectionLogOption(
-        @CustomType.Parameter("cloudwatchLogGroup") String cloudwatchLogGroup,
-        @CustomType.Parameter("cloudwatchLogStream") String cloudwatchLogStream,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.cloudwatchLogGroup = cloudwatchLogGroup;
-        this.cloudwatchLogStream = cloudwatchLogStream;
-        this.enabled = enabled;
-    }
-
+    private GetEndpointConnectionLogOption() {}
     public String cloudwatchLogGroup() {
         return this.cloudwatchLogGroup;
     }
@@ -41,16 +32,12 @@ public final class GetEndpointConnectionLogOption {
     public static Builder builder(GetEndpointConnectionLogOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cloudwatchLogGroup;
         private String cloudwatchLogStream;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEndpointConnectionLogOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogGroup = defaults.cloudwatchLogGroup;
@@ -58,19 +45,27 @@ public final class GetEndpointConnectionLogOption {
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLogGroup(String cloudwatchLogGroup) {
             this.cloudwatchLogGroup = Objects.requireNonNull(cloudwatchLogGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatchLogStream(String cloudwatchLogStream) {
             this.cloudwatchLogStream = Objects.requireNonNull(cloudwatchLogStream);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetEndpointConnectionLogOption build() {
-            return new GetEndpointConnectionLogOption(cloudwatchLogGroup, cloudwatchLogStream, enabled);
+        }
+        public GetEndpointConnectionLogOption build() {
+            final var o = new GetEndpointConnectionLogOption();
+            o.cloudwatchLogGroup = cloudwatchLogGroup;
+            o.cloudwatchLogStream = cloudwatchLogStream;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

@@ -15,56 +15,39 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The name of the account.
      * 
      */
-    private final @Nullable String accountName;
+    private @Nullable String accountName;
     /**
      * @return The name of the Amazon S3 bucket associated with Snowflake.
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
      * 
      */
-    private final @Nullable String bucketPrefix;
+    private @Nullable String bucketPrefix;
     /**
      * @return The Snowflake Private Link service name to be used for private data transfers.
      * 
      */
-    private final @Nullable String privateLinkServiceName;
+    private @Nullable String privateLinkServiceName;
     /**
      * @return The AWS Region of the Snowflake account.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
     /**
      * @return The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
      * 
      */
-    private final String stage;
+    private String stage;
     /**
      * @return The name of the Snowflake warehouse.
      * 
      */
-    private final String warehouse;
+    private String warehouse;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
-        @CustomType.Parameter("accountName") @Nullable String accountName,
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("bucketPrefix") @Nullable String bucketPrefix,
-        @CustomType.Parameter("privateLinkServiceName") @Nullable String privateLinkServiceName,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("stage") String stage,
-        @CustomType.Parameter("warehouse") String warehouse) {
-        this.accountName = accountName;
-        this.bucketName = bucketName;
-        this.bucketPrefix = bucketPrefix;
-        this.privateLinkServiceName = privateLinkServiceName;
-        this.region = region;
-        this.stage = stage;
-        this.warehouse = warehouse;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake() {}
     /**
      * @return The name of the account.
      * 
@@ -122,7 +105,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accountName;
         private String bucketName;
@@ -131,11 +114,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         private @Nullable String region;
         private String stage;
         private String warehouse;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -147,35 +126,51 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     	      this.warehouse = defaults.warehouse;
         }
 
+        @CustomType.Setter
         public Builder accountName(@Nullable String accountName) {
             this.accountName = accountName;
             return this;
         }
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder privateLinkServiceName(@Nullable String privateLinkServiceName) {
             this.privateLinkServiceName = privateLinkServiceName;
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder stage(String stage) {
             this.stage = Objects.requireNonNull(stage);
             return this;
         }
+        @CustomType.Setter
         public Builder warehouse(String warehouse) {
             this.warehouse = Objects.requireNonNull(warehouse);
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(accountName, bucketName, bucketPrefix, privateLinkServiceName, region, stage, warehouse);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake();
+            o.accountName = accountName;
+            o.bucketName = bucketName;
+            o.bucketPrefix = bucketPrefix;
+            o.privateLinkServiceName = privateLinkServiceName;
+            o.region = region;
+            o.stage = stage;
+            o.warehouse = warehouse;
+            return o;
         }
     }
 }

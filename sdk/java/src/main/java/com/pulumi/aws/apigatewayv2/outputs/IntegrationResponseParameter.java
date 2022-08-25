@@ -15,21 +15,14 @@ public final class IntegrationResponseParameter {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      * 
      */
-    private final Map<String,String> mappings;
+    private Map<String,String> mappings;
     /**
      * @return The HTTP status code in the range 200-599.
      * 
      */
-    private final String statusCode;
+    private String statusCode;
 
-    @CustomType.Constructor
-    private IntegrationResponseParameter(
-        @CustomType.Parameter("mappings") Map<String,String> mappings,
-        @CustomType.Parameter("statusCode") String statusCode) {
-        this.mappings = mappings;
-        this.statusCode = statusCode;
-    }
-
+    private IntegrationResponseParameter() {}
     /**
      * @return A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
@@ -53,30 +46,32 @@ public final class IntegrationResponseParameter {
     public static Builder builder(IntegrationResponseParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> mappings;
         private String statusCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationResponseParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mappings = defaults.mappings;
     	      this.statusCode = defaults.statusCode;
         }
 
+        @CustomType.Setter
         public Builder mappings(Map<String,String> mappings) {
             this.mappings = Objects.requireNonNull(mappings);
             return this;
         }
+        @CustomType.Setter
         public Builder statusCode(String statusCode) {
             this.statusCode = Objects.requireNonNull(statusCode);
             return this;
-        }        public IntegrationResponseParameter build() {
-            return new IntegrationResponseParameter(mappings, statusCode);
+        }
+        public IntegrationResponseParameter build() {
+            final var o = new IntegrationResponseParameter();
+            o.mappings = mappings;
+            o.statusCode = statusCode;
+            return o;
         }
     }
 }

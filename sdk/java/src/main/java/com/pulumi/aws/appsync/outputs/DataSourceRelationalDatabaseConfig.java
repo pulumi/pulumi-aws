@@ -16,21 +16,14 @@ public final class DataSourceRelationalDatabaseConfig {
      * @return The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
      * 
      */
-    private final @Nullable DataSourceRelationalDatabaseConfigHttpEndpointConfig httpEndpointConfig;
+    private @Nullable DataSourceRelationalDatabaseConfigHttpEndpointConfig httpEndpointConfig;
     /**
      * @return Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
      * 
      */
-    private final @Nullable String sourceType;
+    private @Nullable String sourceType;
 
-    @CustomType.Constructor
-    private DataSourceRelationalDatabaseConfig(
-        @CustomType.Parameter("httpEndpointConfig") @Nullable DataSourceRelationalDatabaseConfigHttpEndpointConfig httpEndpointConfig,
-        @CustomType.Parameter("sourceType") @Nullable String sourceType) {
-        this.httpEndpointConfig = httpEndpointConfig;
-        this.sourceType = sourceType;
-    }
-
+    private DataSourceRelationalDatabaseConfig() {}
     /**
      * @return The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
      * 
@@ -53,30 +46,32 @@ public final class DataSourceRelationalDatabaseConfig {
     public static Builder builder(DataSourceRelationalDatabaseConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceRelationalDatabaseConfigHttpEndpointConfig httpEndpointConfig;
         private @Nullable String sourceType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceRelationalDatabaseConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpEndpointConfig = defaults.httpEndpointConfig;
     	      this.sourceType = defaults.sourceType;
         }
 
+        @CustomType.Setter
         public Builder httpEndpointConfig(@Nullable DataSourceRelationalDatabaseConfigHttpEndpointConfig httpEndpointConfig) {
             this.httpEndpointConfig = httpEndpointConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceType(@Nullable String sourceType) {
             this.sourceType = sourceType;
             return this;
-        }        public DataSourceRelationalDatabaseConfig build() {
-            return new DataSourceRelationalDatabaseConfig(httpEndpointConfig, sourceType);
+        }
+        public DataSourceRelationalDatabaseConfig build() {
+            final var o = new DataSourceRelationalDatabaseConfig();
+            o.httpEndpointConfig = httpEndpointConfig;
+            o.sourceType = sourceType;
+            return o;
         }
     }
 }

@@ -21,70 +21,49 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
      * @return A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
      * 
      */
-    private final @Nullable DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration authenticationConfiguration;
+    private @Nullable DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration authenticationConfiguration;
     /**
      * @return Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
      * 
      */
-    private final @Nullable Integer crawlDepth;
+    private @Nullable Integer crawlDepth;
     /**
      * @return The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
      * 
      */
-    private final @Nullable Double maxContentSizePerPageInMegaBytes;
+    private @Nullable Double maxContentSizePerPageInMegaBytes;
     /**
      * @return The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
      * 
      */
-    private final @Nullable Integer maxLinksPerPage;
+    private @Nullable Integer maxLinksPerPage;
     /**
      * @return The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
      * 
      */
-    private final @Nullable Integer maxUrlsPerMinuteCrawlRate;
+    private @Nullable Integer maxUrlsPerMinuteCrawlRate;
     /**
      * @return Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
      * 
      */
-    private final @Nullable DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration proxyConfiguration;
+    private @Nullable DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration proxyConfiguration;
     /**
      * @return A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
      * 
      */
-    private final @Nullable List<String> urlExclusionPatterns;
+    private @Nullable List<String> urlExclusionPatterns;
     /**
      * @return A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
      * 
      */
-    private final @Nullable List<String> urlInclusionPatterns;
+    private @Nullable List<String> urlInclusionPatterns;
     /**
      * @return A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
      * 
      */
-    private final DataSourceConfigurationWebCrawlerConfigurationUrls urls;
+    private DataSourceConfigurationWebCrawlerConfigurationUrls urls;
 
-    @CustomType.Constructor
-    private DataSourceConfigurationWebCrawlerConfiguration(
-        @CustomType.Parameter("authenticationConfiguration") @Nullable DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration authenticationConfiguration,
-        @CustomType.Parameter("crawlDepth") @Nullable Integer crawlDepth,
-        @CustomType.Parameter("maxContentSizePerPageInMegaBytes") @Nullable Double maxContentSizePerPageInMegaBytes,
-        @CustomType.Parameter("maxLinksPerPage") @Nullable Integer maxLinksPerPage,
-        @CustomType.Parameter("maxUrlsPerMinuteCrawlRate") @Nullable Integer maxUrlsPerMinuteCrawlRate,
-        @CustomType.Parameter("proxyConfiguration") @Nullable DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration proxyConfiguration,
-        @CustomType.Parameter("urlExclusionPatterns") @Nullable List<String> urlExclusionPatterns,
-        @CustomType.Parameter("urlInclusionPatterns") @Nullable List<String> urlInclusionPatterns,
-        @CustomType.Parameter("urls") DataSourceConfigurationWebCrawlerConfigurationUrls urls) {
-        this.authenticationConfiguration = authenticationConfiguration;
-        this.crawlDepth = crawlDepth;
-        this.maxContentSizePerPageInMegaBytes = maxContentSizePerPageInMegaBytes;
-        this.maxLinksPerPage = maxLinksPerPage;
-        this.maxUrlsPerMinuteCrawlRate = maxUrlsPerMinuteCrawlRate;
-        this.proxyConfiguration = proxyConfiguration;
-        this.urlExclusionPatterns = urlExclusionPatterns;
-        this.urlInclusionPatterns = urlInclusionPatterns;
-        this.urls = urls;
-    }
-
+    private DataSourceConfigurationWebCrawlerConfiguration() {}
     /**
      * @return A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
      * 
@@ -156,7 +135,7 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
     public static Builder builder(DataSourceConfigurationWebCrawlerConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration authenticationConfiguration;
         private @Nullable Integer crawlDepth;
@@ -167,11 +146,7 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
         private @Nullable List<String> urlExclusionPatterns;
         private @Nullable List<String> urlInclusionPatterns;
         private DataSourceConfigurationWebCrawlerConfigurationUrls urls;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceConfigurationWebCrawlerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationConfiguration = defaults.authenticationConfiguration;
@@ -185,30 +160,37 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
     	      this.urls = defaults.urls;
         }
 
+        @CustomType.Setter
         public Builder authenticationConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration authenticationConfiguration) {
             this.authenticationConfiguration = authenticationConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder crawlDepth(@Nullable Integer crawlDepth) {
             this.crawlDepth = crawlDepth;
             return this;
         }
+        @CustomType.Setter
         public Builder maxContentSizePerPageInMegaBytes(@Nullable Double maxContentSizePerPageInMegaBytes) {
             this.maxContentSizePerPageInMegaBytes = maxContentSizePerPageInMegaBytes;
             return this;
         }
+        @CustomType.Setter
         public Builder maxLinksPerPage(@Nullable Integer maxLinksPerPage) {
             this.maxLinksPerPage = maxLinksPerPage;
             return this;
         }
+        @CustomType.Setter
         public Builder maxUrlsPerMinuteCrawlRate(@Nullable Integer maxUrlsPerMinuteCrawlRate) {
             this.maxUrlsPerMinuteCrawlRate = maxUrlsPerMinuteCrawlRate;
             return this;
         }
+        @CustomType.Setter
         public Builder proxyConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration proxyConfiguration) {
             this.proxyConfiguration = proxyConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder urlExclusionPatterns(@Nullable List<String> urlExclusionPatterns) {
             this.urlExclusionPatterns = urlExclusionPatterns;
             return this;
@@ -216,6 +198,7 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
         public Builder urlExclusionPatterns(String... urlExclusionPatterns) {
             return urlExclusionPatterns(List.of(urlExclusionPatterns));
         }
+        @CustomType.Setter
         public Builder urlInclusionPatterns(@Nullable List<String> urlInclusionPatterns) {
             this.urlInclusionPatterns = urlInclusionPatterns;
             return this;
@@ -223,11 +206,23 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
         public Builder urlInclusionPatterns(String... urlInclusionPatterns) {
             return urlInclusionPatterns(List.of(urlInclusionPatterns));
         }
+        @CustomType.Setter
         public Builder urls(DataSourceConfigurationWebCrawlerConfigurationUrls urls) {
             this.urls = Objects.requireNonNull(urls);
             return this;
-        }        public DataSourceConfigurationWebCrawlerConfiguration build() {
-            return new DataSourceConfigurationWebCrawlerConfiguration(authenticationConfiguration, crawlDepth, maxContentSizePerPageInMegaBytes, maxLinksPerPage, maxUrlsPerMinuteCrawlRate, proxyConfiguration, urlExclusionPatterns, urlInclusionPatterns, urls);
+        }
+        public DataSourceConfigurationWebCrawlerConfiguration build() {
+            final var o = new DataSourceConfigurationWebCrawlerConfiguration();
+            o.authenticationConfiguration = authenticationConfiguration;
+            o.crawlDepth = crawlDepth;
+            o.maxContentSizePerPageInMegaBytes = maxContentSizePerPageInMegaBytes;
+            o.maxLinksPerPage = maxLinksPerPage;
+            o.maxUrlsPerMinuteCrawlRate = maxUrlsPerMinuteCrawlRate;
+            o.proxyConfiguration = proxyConfiguration;
+            o.urlExclusionPatterns = urlExclusionPatterns;
+            o.urlInclusionPatterns = urlInclusionPatterns;
+            o.urls = urls;
+            return o;
         }
     }
 }

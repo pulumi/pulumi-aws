@@ -16,35 +16,24 @@ public final class DomainAssociationSubDomain {
      * @return The branch name setting for the subdomain.
      * 
      */
-    private final String branchName;
+    private String branchName;
     /**
      * @return The DNS record for the subdomain.
      * 
      */
-    private final @Nullable String dnsRecord;
+    private @Nullable String dnsRecord;
     /**
      * @return The prefix setting for the subdomain.
      * 
      */
-    private final String prefix;
+    private String prefix;
     /**
      * @return The verified status of the subdomain.
      * 
      */
-    private final @Nullable Boolean verified;
+    private @Nullable Boolean verified;
 
-    @CustomType.Constructor
-    private DomainAssociationSubDomain(
-        @CustomType.Parameter("branchName") String branchName,
-        @CustomType.Parameter("dnsRecord") @Nullable String dnsRecord,
-        @CustomType.Parameter("prefix") String prefix,
-        @CustomType.Parameter("verified") @Nullable Boolean verified) {
-        this.branchName = branchName;
-        this.dnsRecord = dnsRecord;
-        this.prefix = prefix;
-        this.verified = verified;
-    }
-
+    private DomainAssociationSubDomain() {}
     /**
      * @return The branch name setting for the subdomain.
      * 
@@ -81,17 +70,13 @@ public final class DomainAssociationSubDomain {
     public static Builder builder(DomainAssociationSubDomain defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String branchName;
         private @Nullable String dnsRecord;
         private String prefix;
         private @Nullable Boolean verified;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainAssociationSubDomain defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.branchName = defaults.branchName;
@@ -100,23 +85,33 @@ public final class DomainAssociationSubDomain {
     	      this.verified = defaults.verified;
         }
 
+        @CustomType.Setter
         public Builder branchName(String branchName) {
             this.branchName = Objects.requireNonNull(branchName);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsRecord(@Nullable String dnsRecord) {
             this.dnsRecord = dnsRecord;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(String prefix) {
             this.prefix = Objects.requireNonNull(prefix);
             return this;
         }
+        @CustomType.Setter
         public Builder verified(@Nullable Boolean verified) {
             this.verified = verified;
             return this;
-        }        public DomainAssociationSubDomain build() {
-            return new DomainAssociationSubDomain(branchName, dnsRecord, prefix, verified);
+        }
+        public DomainAssociationSubDomain build() {
+            final var o = new DomainAssociationSubDomain();
+            o.branchName = branchName;
+            o.dnsRecord = dnsRecord;
+            o.prefix = prefix;
+            o.verified = verified;
+            return o;
         }
     }
 }

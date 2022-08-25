@@ -15,35 +15,24 @@ public final class IndexDocumentMetadataConfigurationUpdateSearch {
      * @return Determines whether the field is returned in the query response. The default is `true`.
      * 
      */
-    private final @Nullable Boolean displayable;
+    private @Nullable Boolean displayable;
     /**
      * @return Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
      * 
      */
-    private final @Nullable Boolean facetable;
+    private @Nullable Boolean facetable;
     /**
      * @return Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
      * 
      */
-    private final @Nullable Boolean searchable;
+    private @Nullable Boolean searchable;
     /**
      * @return Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
      * 
      */
-    private final @Nullable Boolean sortable;
+    private @Nullable Boolean sortable;
 
-    @CustomType.Constructor
-    private IndexDocumentMetadataConfigurationUpdateSearch(
-        @CustomType.Parameter("displayable") @Nullable Boolean displayable,
-        @CustomType.Parameter("facetable") @Nullable Boolean facetable,
-        @CustomType.Parameter("searchable") @Nullable Boolean searchable,
-        @CustomType.Parameter("sortable") @Nullable Boolean sortable) {
-        this.displayable = displayable;
-        this.facetable = facetable;
-        this.searchable = searchable;
-        this.sortable = sortable;
-    }
-
+    private IndexDocumentMetadataConfigurationUpdateSearch() {}
     /**
      * @return Determines whether the field is returned in the query response. The default is `true`.
      * 
@@ -80,17 +69,13 @@ public final class IndexDocumentMetadataConfigurationUpdateSearch {
     public static Builder builder(IndexDocumentMetadataConfigurationUpdateSearch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean displayable;
         private @Nullable Boolean facetable;
         private @Nullable Boolean searchable;
         private @Nullable Boolean sortable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexDocumentMetadataConfigurationUpdateSearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayable = defaults.displayable;
@@ -99,23 +84,33 @@ public final class IndexDocumentMetadataConfigurationUpdateSearch {
     	      this.sortable = defaults.sortable;
         }
 
+        @CustomType.Setter
         public Builder displayable(@Nullable Boolean displayable) {
             this.displayable = displayable;
             return this;
         }
+        @CustomType.Setter
         public Builder facetable(@Nullable Boolean facetable) {
             this.facetable = facetable;
             return this;
         }
+        @CustomType.Setter
         public Builder searchable(@Nullable Boolean searchable) {
             this.searchable = searchable;
             return this;
         }
+        @CustomType.Setter
         public Builder sortable(@Nullable Boolean sortable) {
             this.sortable = sortable;
             return this;
-        }        public IndexDocumentMetadataConfigurationUpdateSearch build() {
-            return new IndexDocumentMetadataConfigurationUpdateSearch(displayable, facetable, searchable, sortable);
+        }
+        public IndexDocumentMetadataConfigurationUpdateSearch build() {
+            final var o = new IndexDocumentMetadataConfigurationUpdateSearch();
+            o.displayable = displayable;
+            o.facetable = facetable;
+            o.searchable = searchable;
+            o.sortable = sortable;
+            return o;
         }
     }
 }

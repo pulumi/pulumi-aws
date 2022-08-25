@@ -12,27 +12,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterNode {
-    private final @Nullable String address;
-    private final @Nullable String availabilityZone;
-    private final @Nullable String id;
+    private @Nullable String address;
+    private @Nullable String availabilityZone;
+    private @Nullable String id;
     /**
      * @return The port used by the configuration endpoint
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
 
-    @CustomType.Constructor
-    private ClusterNode(
-        @CustomType.Parameter("address") @Nullable String address,
-        @CustomType.Parameter("availabilityZone") @Nullable String availabilityZone,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("port") @Nullable Integer port) {
-        this.address = address;
-        this.availabilityZone = availabilityZone;
-        this.id = id;
-        this.port = port;
-    }
-
+    private ClusterNode() {}
     public Optional<String> address() {
         return Optional.ofNullable(this.address);
     }
@@ -57,17 +46,13 @@ public final class ClusterNode {
     public static Builder builder(ClusterNode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String address;
         private @Nullable String availabilityZone;
         private @Nullable String id;
         private @Nullable Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -76,23 +61,33 @@ public final class ClusterNode {
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder address(@Nullable String address) {
             this.address = address;
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
             this.availabilityZone = availabilityZone;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
-        }        public ClusterNode build() {
-            return new ClusterNode(address, availabilityZone, id, port);
+        }
+        public ClusterNode build() {
+            final var o = new ClusterNode();
+            o.address = address;
+            o.availabilityZone = availabilityZone;
+            o.id = id;
+            o.port = port;
+            return o;
         }
     }
 }

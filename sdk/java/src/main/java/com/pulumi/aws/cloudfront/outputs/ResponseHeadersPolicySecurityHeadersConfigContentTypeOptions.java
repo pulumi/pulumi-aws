@@ -13,13 +13,9 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions 
      * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private final Boolean override;
+    private Boolean override;
 
-    @CustomType.Constructor
-    private ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(@CustomType.Parameter("override") Boolean override) {
-        this.override = override;
-    }
-
+    private ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions() {}
     /**
      * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
@@ -35,24 +31,24 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions 
     public static Builder builder(ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean override;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.override = defaults.override;
         }
 
+        @CustomType.Setter
         public Builder override(Boolean override) {
             this.override = Objects.requireNonNull(override);
             return this;
-        }        public ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions build() {
-            return new ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(override);
+        }
+        public ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions build() {
+            final var o = new ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions();
+            o.override = override;
+            return o;
         }
     }
 }

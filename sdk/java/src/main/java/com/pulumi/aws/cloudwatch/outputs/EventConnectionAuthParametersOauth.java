@@ -17,35 +17,24 @@ public final class EventConnectionAuthParametersOauth {
      * @return The URL to the authorization endpoint.
      * 
      */
-    private final String authorizationEndpoint;
+    private String authorizationEndpoint;
     /**
      * @return Contains the client parameters for OAuth authorization. Contains the following two parameters.
      * 
      */
-    private final @Nullable EventConnectionAuthParametersOauthClientParameters clientParameters;
+    private @Nullable EventConnectionAuthParametersOauthClientParameters clientParameters;
     /**
      * @return A password for the authorization. Created and stored in AWS Secrets Manager.
      * 
      */
-    private final String httpMethod;
+    private String httpMethod;
     /**
      * @return OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
-    private final EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters;
+    private EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters;
 
-    @CustomType.Constructor
-    private EventConnectionAuthParametersOauth(
-        @CustomType.Parameter("authorizationEndpoint") String authorizationEndpoint,
-        @CustomType.Parameter("clientParameters") @Nullable EventConnectionAuthParametersOauthClientParameters clientParameters,
-        @CustomType.Parameter("httpMethod") String httpMethod,
-        @CustomType.Parameter("oauthHttpParameters") EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters) {
-        this.authorizationEndpoint = authorizationEndpoint;
-        this.clientParameters = clientParameters;
-        this.httpMethod = httpMethod;
-        this.oauthHttpParameters = oauthHttpParameters;
-    }
-
+    private EventConnectionAuthParametersOauth() {}
     /**
      * @return The URL to the authorization endpoint.
      * 
@@ -82,17 +71,13 @@ public final class EventConnectionAuthParametersOauth {
     public static Builder builder(EventConnectionAuthParametersOauth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authorizationEndpoint;
         private @Nullable EventConnectionAuthParametersOauthClientParameters clientParameters;
         private String httpMethod;
         private EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventConnectionAuthParametersOauth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationEndpoint = defaults.authorizationEndpoint;
@@ -101,23 +86,33 @@ public final class EventConnectionAuthParametersOauth {
     	      this.oauthHttpParameters = defaults.oauthHttpParameters;
         }
 
+        @CustomType.Setter
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             this.authorizationEndpoint = Objects.requireNonNull(authorizationEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder clientParameters(@Nullable EventConnectionAuthParametersOauthClientParameters clientParameters) {
             this.clientParameters = clientParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder httpMethod(String httpMethod) {
             this.httpMethod = Objects.requireNonNull(httpMethod);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthHttpParameters(EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters) {
             this.oauthHttpParameters = Objects.requireNonNull(oauthHttpParameters);
             return this;
-        }        public EventConnectionAuthParametersOauth build() {
-            return new EventConnectionAuthParametersOauth(authorizationEndpoint, clientParameters, httpMethod, oauthHttpParameters);
+        }
+        public EventConnectionAuthParametersOauth build() {
+            final var o = new EventConnectionAuthParametersOauth();
+            o.authorizationEndpoint = authorizationEndpoint;
+            o.clientParameters = clientParameters;
+            o.httpMethod = httpMethod;
+            o.oauthHttpParameters = oauthHttpParameters;
+            return o;
         }
     }
 }

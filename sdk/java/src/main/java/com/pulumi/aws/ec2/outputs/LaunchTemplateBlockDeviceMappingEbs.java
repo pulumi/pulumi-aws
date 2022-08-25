@@ -16,67 +16,48 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
      * @return Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
      * 
      */
-    private final @Nullable String deleteOnTermination;
+    private @Nullable String deleteOnTermination;
     /**
      * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
      * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
      * 
      */
-    private final @Nullable String encrypted;
+    private @Nullable String encrypted;
     /**
      * @return The amount of provisioned
      * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
      * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
      * 
      */
-    private final @Nullable Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
      * `encrypted` must be set to `true` when this is set.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return The Snapshot ID to mount.
      * 
      */
-    private final @Nullable String snapshotId;
+    private @Nullable String snapshotId;
     /**
      * @return The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
      * 
      */
-    private final @Nullable Integer throughput;
+    private @Nullable Integer throughput;
     /**
      * @return The size of the volume in gigabytes.
      * 
      */
-    private final @Nullable Integer volumeSize;
+    private @Nullable Integer volumeSize;
     /**
      * @return The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      * 
      */
-    private final @Nullable String volumeType;
+    private @Nullable String volumeType;
 
-    @CustomType.Constructor
-    private LaunchTemplateBlockDeviceMappingEbs(
-        @CustomType.Parameter("deleteOnTermination") @Nullable String deleteOnTermination,
-        @CustomType.Parameter("encrypted") @Nullable String encrypted,
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("snapshotId") @Nullable String snapshotId,
-        @CustomType.Parameter("throughput") @Nullable Integer throughput,
-        @CustomType.Parameter("volumeSize") @Nullable Integer volumeSize,
-        @CustomType.Parameter("volumeType") @Nullable String volumeType) {
-        this.deleteOnTermination = deleteOnTermination;
-        this.encrypted = encrypted;
-        this.iops = iops;
-        this.kmsKeyId = kmsKeyId;
-        this.snapshotId = snapshotId;
-        this.throughput = throughput;
-        this.volumeSize = volumeSize;
-        this.volumeType = volumeType;
-    }
-
+    private LaunchTemplateBlockDeviceMappingEbs() {}
     /**
      * @return Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
      * 
@@ -145,7 +126,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
     public static Builder builder(LaunchTemplateBlockDeviceMappingEbs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deleteOnTermination;
         private @Nullable String encrypted;
@@ -155,11 +136,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
         private @Nullable Integer throughput;
         private @Nullable Integer volumeSize;
         private @Nullable String volumeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateBlockDeviceMappingEbs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOnTermination = defaults.deleteOnTermination;
@@ -172,39 +149,57 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
     	      this.volumeType = defaults.volumeType;
         }
 
+        @CustomType.Setter
         public Builder deleteOnTermination(@Nullable String deleteOnTermination) {
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(@Nullable String encrypted) {
             this.encrypted = encrypted;
             return this;
         }
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotId(@Nullable String snapshotId) {
             this.snapshotId = snapshotId;
             return this;
         }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
             this.throughput = throughput;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
             this.volumeSize = volumeSize;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
             this.volumeType = volumeType;
             return this;
-        }        public LaunchTemplateBlockDeviceMappingEbs build() {
-            return new LaunchTemplateBlockDeviceMappingEbs(deleteOnTermination, encrypted, iops, kmsKeyId, snapshotId, throughput, volumeSize, volumeType);
+        }
+        public LaunchTemplateBlockDeviceMappingEbs build() {
+            final var o = new LaunchTemplateBlockDeviceMappingEbs();
+            o.deleteOnTermination = deleteOnTermination;
+            o.encrypted = encrypted;
+            o.iops = iops;
+            o.kmsKeyId = kmsKeyId;
+            o.snapshotId = snapshotId;
+            o.throughput = throughput;
+            o.volumeSize = volumeSize;
+            o.volumeType = volumeType;
+            return o;
         }
     }
 }

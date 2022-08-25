@@ -16,28 +16,19 @@ public final class ClusterConfigurationExecuteCommandConfiguration {
      * @return The AWS Key Management Service key ID to encrypt the data between the local client and the container.
      * 
      */
-    private final @Nullable String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
      * 
      */
-    private final @Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration;
+    private @Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration;
     /**
      * @return The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
      * 
      */
-    private final @Nullable String logging;
+    private @Nullable String logging;
 
-    @CustomType.Constructor
-    private ClusterConfigurationExecuteCommandConfiguration(
-        @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
-        @CustomType.Parameter("logConfiguration") @Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration,
-        @CustomType.Parameter("logging") @Nullable String logging) {
-        this.kmsKeyId = kmsKeyId;
-        this.logConfiguration = logConfiguration;
-        this.logging = logging;
-    }
-
+    private ClusterConfigurationExecuteCommandConfiguration() {}
     /**
      * @return The AWS Key Management Service key ID to encrypt the data between the local client and the container.
      * 
@@ -67,16 +58,12 @@ public final class ClusterConfigurationExecuteCommandConfiguration {
     public static Builder builder(ClusterConfigurationExecuteCommandConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyId;
         private @Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration;
         private @Nullable String logging;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterConfigurationExecuteCommandConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
@@ -84,19 +71,27 @@ public final class ClusterConfigurationExecuteCommandConfiguration {
     	      this.logging = defaults.logging;
         }
 
+        @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder logConfiguration(@Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration) {
             this.logConfiguration = logConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder logging(@Nullable String logging) {
             this.logging = logging;
             return this;
-        }        public ClusterConfigurationExecuteCommandConfiguration build() {
-            return new ClusterConfigurationExecuteCommandConfiguration(kmsKeyId, logConfiguration, logging);
+        }
+        public ClusterConfigurationExecuteCommandConfiguration build() {
+            final var o = new ClusterConfigurationExecuteCommandConfiguration();
+            o.kmsKeyId = kmsKeyId;
+            o.logConfiguration = logConfiguration;
+            o.logging = logging;
+            return o;
         }
     }
 }

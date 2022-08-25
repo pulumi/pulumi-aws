@@ -12,21 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OntapVolumeTieringPolicy {
-    private final @Nullable Integer coolingPeriod;
+    private @Nullable Integer coolingPeriod;
     /**
      * @return Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private OntapVolumeTieringPolicy(
-        @CustomType.Parameter("coolingPeriod") @Nullable Integer coolingPeriod,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.coolingPeriod = coolingPeriod;
-        this.name = name;
-    }
-
+    private OntapVolumeTieringPolicy() {}
     public Optional<Integer> coolingPeriod() {
         return Optional.ofNullable(this.coolingPeriod);
     }
@@ -45,30 +38,32 @@ public final class OntapVolumeTieringPolicy {
     public static Builder builder(OntapVolumeTieringPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer coolingPeriod;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OntapVolumeTieringPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.coolingPeriod = defaults.coolingPeriod;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder coolingPeriod(@Nullable Integer coolingPeriod) {
             this.coolingPeriod = coolingPeriod;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public OntapVolumeTieringPolicy build() {
-            return new OntapVolumeTieringPolicy(coolingPeriod, name);
+        }
+        public OntapVolumeTieringPolicy build() {
+            final var o = new OntapVolumeTieringPolicy();
+            o.coolingPeriod = coolingPeriod;
+            o.name = name;
+            return o;
         }
     }
 }

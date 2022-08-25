@@ -15,13 +15,9 @@ public final class ApplicationAutoStartConfiguration {
      * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private ApplicationAutoStartConfiguration(@CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private ApplicationAutoStartConfiguration() {}
     /**
      * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
      * 
@@ -37,24 +33,24 @@ public final class ApplicationAutoStartConfiguration {
     public static Builder builder(ApplicationAutoStartConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationAutoStartConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public ApplicationAutoStartConfiguration build() {
-            return new ApplicationAutoStartConfiguration(enabled);
+        }
+        public ApplicationAutoStartConfiguration build() {
+            final var o = new ApplicationAutoStartConfiguration();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

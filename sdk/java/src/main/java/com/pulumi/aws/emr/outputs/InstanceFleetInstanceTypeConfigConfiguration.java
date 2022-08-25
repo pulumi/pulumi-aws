@@ -17,21 +17,14 @@ public final class InstanceFleetInstanceTypeConfigConfiguration {
      * @return The classification within a configuration.
      * 
      */
-    private final @Nullable String classification;
+    private @Nullable String classification;
     /**
      * @return A map of properties specified within a configuration classification
      * 
      */
-    private final @Nullable Map<String,Object> properties;
+    private @Nullable Map<String,Object> properties;
 
-    @CustomType.Constructor
-    private InstanceFleetInstanceTypeConfigConfiguration(
-        @CustomType.Parameter("classification") @Nullable String classification,
-        @CustomType.Parameter("properties") @Nullable Map<String,Object> properties) {
-        this.classification = classification;
-        this.properties = properties;
-    }
-
+    private InstanceFleetInstanceTypeConfigConfiguration() {}
     /**
      * @return The classification within a configuration.
      * 
@@ -54,30 +47,32 @@ public final class InstanceFleetInstanceTypeConfigConfiguration {
     public static Builder builder(InstanceFleetInstanceTypeConfigConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String classification;
         private @Nullable Map<String,Object> properties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceFleetInstanceTypeConfigConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.classification = defaults.classification;
     	      this.properties = defaults.properties;
         }
 
+        @CustomType.Setter
         public Builder classification(@Nullable String classification) {
             this.classification = classification;
             return this;
         }
+        @CustomType.Setter
         public Builder properties(@Nullable Map<String,Object> properties) {
             this.properties = properties;
             return this;
-        }        public InstanceFleetInstanceTypeConfigConfiguration build() {
-            return new InstanceFleetInstanceTypeConfigConfiguration(classification, properties);
+        }
+        public InstanceFleetInstanceTypeConfigConfiguration build() {
+            final var o = new InstanceFleetInstanceTypeConfigConfiguration();
+            o.classification = classification;
+            o.properties = properties;
+            return o;
         }
     }
 }

@@ -13,31 +13,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInterfacesResult {
-    private final @Nullable List<GetNetworkInterfacesFilter> filters;
+    private @Nullable List<GetNetworkInterfacesFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A list of all the network interface ids found.
      * 
      */
-    private final List<String> ids;
-    private final Map<String,String> tags;
+    private List<String> ids;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetNetworkInterfacesResult(
-        @CustomType.Parameter("filters") @Nullable List<GetNetworkInterfacesFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.filters = filters;
-        this.id = id;
-        this.ids = ids;
-        this.tags = tags;
-    }
-
+    private GetNetworkInterfacesResult() {}
     public List<GetNetworkInterfacesFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -66,17 +55,13 @@ public final class GetNetworkInterfacesResult {
     public static Builder builder(GetNetworkInterfacesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetNetworkInterfacesFilter> filters;
         private String id;
         private List<String> ids;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkInterfacesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -85,6 +70,7 @@ public final class GetNetworkInterfacesResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetNetworkInterfacesFilter> filters) {
             this.filters = filters;
             return this;
@@ -92,10 +78,12 @@ public final class GetNetworkInterfacesResult {
         public Builder filters(GetNetworkInterfacesFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -103,11 +91,18 @@ public final class GetNetworkInterfacesResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetNetworkInterfacesResult build() {
-            return new GetNetworkInterfacesResult(filters, id, ids, tags);
+        }
+        public GetNetworkInterfacesResult build() {
+            final var o = new GetNetworkInterfacesResult();
+            o.filters = filters;
+            o.id = id;
+            o.ids = ids;
+            o.tags = tags;
+            return o;
         }
     }
 }

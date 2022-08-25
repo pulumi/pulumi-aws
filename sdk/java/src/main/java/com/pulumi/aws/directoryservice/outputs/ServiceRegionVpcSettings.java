@@ -14,21 +14,14 @@ public final class ServiceRegionVpcSettings {
      * @return The identifiers of the subnets for the directory servers.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return The identifier of the VPC in which to create the directory.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private ServiceRegionVpcSettings(
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private ServiceRegionVpcSettings() {}
     /**
      * @return The identifiers of the subnets for the directory servers.
      * 
@@ -51,21 +44,18 @@ public final class ServiceRegionVpcSettings {
     public static Builder builder(ServiceRegionVpcSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> subnetIds;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceRegionVpcSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subnetIds = defaults.subnetIds;
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -73,11 +63,16 @@ public final class ServiceRegionVpcSettings {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public ServiceRegionVpcSettings build() {
-            return new ServiceRegionVpcSettings(subnetIds, vpcId);
+        }
+        public ServiceRegionVpcSettings build() {
+            final var o = new ServiceRegionVpcSettings();
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

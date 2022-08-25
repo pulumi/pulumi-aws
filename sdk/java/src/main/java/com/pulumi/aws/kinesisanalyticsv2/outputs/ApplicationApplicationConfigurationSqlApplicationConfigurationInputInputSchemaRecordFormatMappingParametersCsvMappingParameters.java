@@ -13,21 +13,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
      * 
      */
-    private final String recordColumnDelimiter;
+    private String recordColumnDelimiter;
     /**
      * @return The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
      * 
      */
-    private final String recordRowDelimiter;
+    private String recordRowDelimiter;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters(
-        @CustomType.Parameter("recordColumnDelimiter") String recordColumnDelimiter,
-        @CustomType.Parameter("recordRowDelimiter") String recordRowDelimiter) {
-        this.recordColumnDelimiter = recordColumnDelimiter;
-        this.recordRowDelimiter = recordRowDelimiter;
-    }
-
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters() {}
     /**
      * @return The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
      * 
@@ -50,30 +43,32 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static Builder builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String recordColumnDelimiter;
         private String recordRowDelimiter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recordColumnDelimiter = defaults.recordColumnDelimiter;
     	      this.recordRowDelimiter = defaults.recordRowDelimiter;
         }
 
+        @CustomType.Setter
         public Builder recordColumnDelimiter(String recordColumnDelimiter) {
             this.recordColumnDelimiter = Objects.requireNonNull(recordColumnDelimiter);
             return this;
         }
+        @CustomType.Setter
         public Builder recordRowDelimiter(String recordRowDelimiter) {
             this.recordRowDelimiter = Objects.requireNonNull(recordRowDelimiter);
             return this;
-        }        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters build() {
-            return new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters(recordColumnDelimiter, recordRowDelimiter);
+        }
+        public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters build() {
+            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters();
+            o.recordColumnDelimiter = recordColumnDelimiter;
+            o.recordRowDelimiter = recordRowDelimiter;
+            return o;
         }
     }
 }

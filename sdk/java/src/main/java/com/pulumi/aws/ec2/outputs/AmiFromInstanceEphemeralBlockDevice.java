@@ -15,22 +15,15 @@ public final class AmiFromInstanceEphemeralBlockDevice {
      * @return The path at which the device is exposed to created instances.
      * 
      */
-    private final @Nullable String deviceName;
+    private @Nullable String deviceName;
     /**
      * @return A name for the ephemeral device, of the form &#34;ephemeralN&#34; where
      * *N* is a volume number starting from zero.
      * 
      */
-    private final @Nullable String virtualName;
+    private @Nullable String virtualName;
 
-    @CustomType.Constructor
-    private AmiFromInstanceEphemeralBlockDevice(
-        @CustomType.Parameter("deviceName") @Nullable String deviceName,
-        @CustomType.Parameter("virtualName") @Nullable String virtualName) {
-        this.deviceName = deviceName;
-        this.virtualName = virtualName;
-    }
-
+    private AmiFromInstanceEphemeralBlockDevice() {}
     /**
      * @return The path at which the device is exposed to created instances.
      * 
@@ -54,30 +47,32 @@ public final class AmiFromInstanceEphemeralBlockDevice {
     public static Builder builder(AmiFromInstanceEphemeralBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deviceName;
         private @Nullable String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AmiFromInstanceEphemeralBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
             this.deviceName = deviceName;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
             this.virtualName = virtualName;
             return this;
-        }        public AmiFromInstanceEphemeralBlockDevice build() {
-            return new AmiFromInstanceEphemeralBlockDevice(deviceName, virtualName);
+        }
+        public AmiFromInstanceEphemeralBlockDevice build() {
+            final var o = new AmiFromInstanceEphemeralBlockDevice();
+            o.deviceName = deviceName;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

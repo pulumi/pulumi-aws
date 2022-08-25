@@ -15,28 +15,19 @@ public final class DeploymentGroupEc2TagFilter {
      * @return The key of the tag filter.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return The value of the tag filter.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private DeploymentGroupEc2TagFilter(
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.key = key;
-        this.type = type;
-        this.value = value;
-    }
-
+    private DeploymentGroupEc2TagFilter() {}
     /**
      * @return The key of the tag filter.
      * 
@@ -66,16 +57,12 @@ public final class DeploymentGroupEc2TagFilter {
     public static Builder builder(DeploymentGroupEc2TagFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String key;
         private @Nullable String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupEc2TagFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -83,19 +70,27 @@ public final class DeploymentGroupEc2TagFilter {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public DeploymentGroupEc2TagFilter build() {
-            return new DeploymentGroupEc2TagFilter(key, type, value);
+        }
+        public DeploymentGroupEc2TagFilter build() {
+            final var o = new DeploymentGroupEc2TagFilter();
+            o.key = key;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

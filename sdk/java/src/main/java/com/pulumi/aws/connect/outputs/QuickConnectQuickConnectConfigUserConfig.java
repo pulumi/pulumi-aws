@@ -13,21 +13,14 @@ public final class QuickConnectQuickConnectConfigUserConfig {
      * @return Specifies the identifier of the contact flow.
      * 
      */
-    private final String contactFlowId;
+    private String contactFlowId;
     /**
      * @return Specifies the identifier for the user.
      * 
      */
-    private final String userId;
+    private String userId;
 
-    @CustomType.Constructor
-    private QuickConnectQuickConnectConfigUserConfig(
-        @CustomType.Parameter("contactFlowId") String contactFlowId,
-        @CustomType.Parameter("userId") String userId) {
-        this.contactFlowId = contactFlowId;
-        this.userId = userId;
-    }
-
+    private QuickConnectQuickConnectConfigUserConfig() {}
     /**
      * @return Specifies the identifier of the contact flow.
      * 
@@ -50,30 +43,32 @@ public final class QuickConnectQuickConnectConfigUserConfig {
     public static Builder builder(QuickConnectQuickConnectConfigUserConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contactFlowId;
         private String userId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(QuickConnectQuickConnectConfigUserConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contactFlowId = defaults.contactFlowId;
     	      this.userId = defaults.userId;
         }
 
+        @CustomType.Setter
         public Builder contactFlowId(String contactFlowId) {
             this.contactFlowId = Objects.requireNonNull(contactFlowId);
             return this;
         }
+        @CustomType.Setter
         public Builder userId(String userId) {
             this.userId = Objects.requireNonNull(userId);
             return this;
-        }        public QuickConnectQuickConnectConfigUserConfig build() {
-            return new QuickConnectQuickConnectConfigUserConfig(contactFlowId, userId);
+        }
+        public QuickConnectQuickConnectConfigUserConfig build() {
+            final var o = new QuickConnectQuickConnectConfigUserConfig();
+            o.contactFlowId = contactFlowId;
+            o.userId = userId;
+            return o;
         }
     }
 }

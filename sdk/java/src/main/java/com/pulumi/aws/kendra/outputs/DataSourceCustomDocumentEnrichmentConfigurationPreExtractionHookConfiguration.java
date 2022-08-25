@@ -16,28 +16,19 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
      * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
      * 
      */
-    private final @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition invocationCondition;
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition invocationCondition;
     /**
      * @return The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
      * 
      */
-    private final String lambdaArn;
+    private String lambdaArn;
     /**
      * @return Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
      * 
      */
-    private final String s3Bucket;
+    private String s3Bucket;
 
-    @CustomType.Constructor
-    private DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration(
-        @CustomType.Parameter("invocationCondition") @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition invocationCondition,
-        @CustomType.Parameter("lambdaArn") String lambdaArn,
-        @CustomType.Parameter("s3Bucket") String s3Bucket) {
-        this.invocationCondition = invocationCondition;
-        this.lambdaArn = lambdaArn;
-        this.s3Bucket = s3Bucket;
-    }
-
+    private DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration() {}
     /**
      * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
      * 
@@ -67,16 +58,12 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
     public static Builder builder(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition invocationCondition;
         private String lambdaArn;
         private String s3Bucket;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.invocationCondition = defaults.invocationCondition;
@@ -84,19 +71,27 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
     	      this.s3Bucket = defaults.s3Bucket;
         }
 
+        @CustomType.Setter
         public Builder invocationCondition(@Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition invocationCondition) {
             this.invocationCondition = invocationCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaArn(String lambdaArn) {
             this.lambdaArn = Objects.requireNonNull(lambdaArn);
             return this;
         }
+        @CustomType.Setter
         public Builder s3Bucket(String s3Bucket) {
             this.s3Bucket = Objects.requireNonNull(s3Bucket);
             return this;
-        }        public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration build() {
-            return new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration(invocationCondition, lambdaArn, s3Bucket);
+        }
+        public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration build() {
+            final var o = new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration();
+            o.invocationCondition = invocationCondition;
+            o.lambdaArn = lambdaArn;
+            o.s3Bucket = s3Bucket;
+            return o;
         }
     }
 }

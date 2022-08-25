@@ -18,42 +18,29 @@ public final class BucketLifecycleConfigurationRule {
      * @return Configuration block containing settings for abort incomplete multipart upload.
      * 
      */
-    private final @Nullable BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload;
+    private @Nullable BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload;
     /**
      * @return Configuration block containing settings for expiration of objects.
      * 
      */
-    private final @Nullable BucketLifecycleConfigurationRuleExpiration expiration;
+    private @Nullable BucketLifecycleConfigurationRuleExpiration expiration;
     /**
      * @return Configuration block containing settings for filtering.
      * 
      */
-    private final @Nullable BucketLifecycleConfigurationRuleFilter filter;
+    private @Nullable BucketLifecycleConfigurationRuleFilter filter;
     /**
      * @return Unique identifier for the rule.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationRule(
-        @CustomType.Parameter("abortIncompleteMultipartUpload") @Nullable BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload,
-        @CustomType.Parameter("expiration") @Nullable BucketLifecycleConfigurationRuleExpiration expiration,
-        @CustomType.Parameter("filter") @Nullable BucketLifecycleConfigurationRuleFilter filter,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("status") @Nullable String status) {
-        this.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
-        this.expiration = expiration;
-        this.filter = filter;
-        this.id = id;
-        this.status = status;
-    }
-
+    private BucketLifecycleConfigurationRule() {}
     /**
      * @return Configuration block containing settings for abort incomplete multipart upload.
      * 
@@ -97,18 +84,14 @@ public final class BucketLifecycleConfigurationRule {
     public static Builder builder(BucketLifecycleConfigurationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload;
         private @Nullable BucketLifecycleConfigurationRuleExpiration expiration;
         private @Nullable BucketLifecycleConfigurationRuleFilter filter;
         private String id;
         private @Nullable String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.abortIncompleteMultipartUpload = defaults.abortIncompleteMultipartUpload;
@@ -118,27 +101,39 @@ public final class BucketLifecycleConfigurationRule {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder abortIncompleteMultipartUpload(@Nullable BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload) {
             this.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
             return this;
         }
+        @CustomType.Setter
         public Builder expiration(@Nullable BucketLifecycleConfigurationRuleExpiration expiration) {
             this.expiration = expiration;
             return this;
         }
+        @CustomType.Setter
         public Builder filter(@Nullable BucketLifecycleConfigurationRuleFilter filter) {
             this.filter = filter;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
-        }        public BucketLifecycleConfigurationRule build() {
-            return new BucketLifecycleConfigurationRule(abortIncompleteMultipartUpload, expiration, filter, id, status);
+        }
+        public BucketLifecycleConfigurationRule build() {
+            final var o = new BucketLifecycleConfigurationRule();
+            o.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
+            o.expiration = expiration;
+            o.filter = filter;
+            o.id = id;
+            o.status = status;
+            return o;
         }
     }
 }

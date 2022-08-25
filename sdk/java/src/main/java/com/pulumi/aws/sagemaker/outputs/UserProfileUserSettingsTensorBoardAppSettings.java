@@ -13,13 +13,9 @@ public final class UserProfileUserSettingsTensorBoardAppSettings {
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    private final UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
+    private UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
 
-    @CustomType.Constructor
-    private UserProfileUserSettingsTensorBoardAppSettings(@CustomType.Parameter("defaultResourceSpec") UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec) {
-        this.defaultResourceSpec = defaultResourceSpec;
-    }
-
+    private UserProfileUserSettingsTensorBoardAppSettings() {}
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
@@ -35,24 +31,24 @@ public final class UserProfileUserSettingsTensorBoardAppSettings {
     public static Builder builder(UserProfileUserSettingsTensorBoardAppSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserProfileUserSettingsTensorBoardAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultResourceSpec = defaults.defaultResourceSpec;
         }
 
+        @CustomType.Setter
         public Builder defaultResourceSpec(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec) {
             this.defaultResourceSpec = Objects.requireNonNull(defaultResourceSpec);
             return this;
-        }        public UserProfileUserSettingsTensorBoardAppSettings build() {
-            return new UserProfileUserSettingsTensorBoardAppSettings(defaultResourceSpec);
+        }
+        public UserProfileUserSettingsTensorBoardAppSettings build() {
+            final var o = new UserProfileUserSettingsTensorBoardAppSettings();
+            o.defaultResourceSpec = defaultResourceSpec;
+            return o;
         }
     }
 }

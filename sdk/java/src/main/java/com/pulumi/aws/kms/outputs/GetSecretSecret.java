@@ -12,23 +12,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecretSecret {
-    private final @Nullable Map<String,String> context;
-    private final @Nullable List<String> grantTokens;
-    private final String name;
-    private final String payload;
+    private @Nullable Map<String,String> context;
+    private @Nullable List<String> grantTokens;
+    private String name;
+    private String payload;
 
-    @CustomType.Constructor
-    private GetSecretSecret(
-        @CustomType.Parameter("context") @Nullable Map<String,String> context,
-        @CustomType.Parameter("grantTokens") @Nullable List<String> grantTokens,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("payload") String payload) {
-        this.context = context;
-        this.grantTokens = grantTokens;
-        this.name = name;
-        this.payload = payload;
-    }
-
+    private GetSecretSecret() {}
     public Map<String,String> context() {
         return this.context == null ? Map.of() : this.context;
     }
@@ -49,17 +38,13 @@ public final class GetSecretSecret {
     public static Builder builder(GetSecretSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> context;
         private @Nullable List<String> grantTokens;
         private String name;
         private String payload;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecretSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.context = defaults.context;
@@ -68,10 +53,12 @@ public final class GetSecretSecret {
     	      this.payload = defaults.payload;
         }
 
+        @CustomType.Setter
         public Builder context(@Nullable Map<String,String> context) {
             this.context = context;
             return this;
         }
+        @CustomType.Setter
         public Builder grantTokens(@Nullable List<String> grantTokens) {
             this.grantTokens = grantTokens;
             return this;
@@ -79,15 +66,23 @@ public final class GetSecretSecret {
         public Builder grantTokens(String... grantTokens) {
             return grantTokens(List.of(grantTokens));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder payload(String payload) {
             this.payload = Objects.requireNonNull(payload);
             return this;
-        }        public GetSecretSecret build() {
-            return new GetSecretSecret(context, grantTokens, name, payload);
+        }
+        public GetSecretSecret build() {
+            final var o = new GetSecretSecret();
+            o.context = context;
+            o.grantTokens = grantTokens;
+            o.name = name;
+            o.payload = payload;
+            return o;
         }
     }
 }

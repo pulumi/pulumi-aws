@@ -14,21 +14,14 @@ public final class CatalogTableStorageDescriptorSortColumn {
      * @return Name of the column.
      * 
      */
-    private final String column;
+    private String column;
     /**
      * @return Whether the column is sorted in ascending (`1`) or descending order (`0`).
      * 
      */
-    private final Integer sortOrder;
+    private Integer sortOrder;
 
-    @CustomType.Constructor
-    private CatalogTableStorageDescriptorSortColumn(
-        @CustomType.Parameter("column") String column,
-        @CustomType.Parameter("sortOrder") Integer sortOrder) {
-        this.column = column;
-        this.sortOrder = sortOrder;
-    }
-
+    private CatalogTableStorageDescriptorSortColumn() {}
     /**
      * @return Name of the column.
      * 
@@ -51,30 +44,32 @@ public final class CatalogTableStorageDescriptorSortColumn {
     public static Builder builder(CatalogTableStorageDescriptorSortColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String column;
         private Integer sortOrder;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogTableStorageDescriptorSortColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.column = defaults.column;
     	      this.sortOrder = defaults.sortOrder;
         }
 
+        @CustomType.Setter
         public Builder column(String column) {
             this.column = Objects.requireNonNull(column);
             return this;
         }
+        @CustomType.Setter
         public Builder sortOrder(Integer sortOrder) {
             this.sortOrder = Objects.requireNonNull(sortOrder);
             return this;
-        }        public CatalogTableStorageDescriptorSortColumn build() {
-            return new CatalogTableStorageDescriptorSortColumn(column, sortOrder);
+        }
+        public CatalogTableStorageDescriptorSortColumn build() {
+            final var o = new CatalogTableStorageDescriptorSortColumn();
+            o.column = column;
+            o.sortOrder = sortOrder;
+            return o;
         }
     }
 }

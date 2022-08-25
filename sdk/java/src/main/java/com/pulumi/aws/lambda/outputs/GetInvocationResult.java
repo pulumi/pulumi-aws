@@ -11,34 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInvocationResult {
-    private final String functionName;
+    private String functionName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String input;
-    private final @Nullable String qualifier;
+    private String id;
+    private String input;
+    private @Nullable String qualifier;
     /**
      * @return String result of the lambda function invocation.
      * 
      */
-    private final String result;
+    private String result;
 
-    @CustomType.Constructor
-    private GetInvocationResult(
-        @CustomType.Parameter("functionName") String functionName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("input") String input,
-        @CustomType.Parameter("qualifier") @Nullable String qualifier,
-        @CustomType.Parameter("result") String result) {
-        this.functionName = functionName;
-        this.id = id;
-        this.input = input;
-        this.qualifier = qualifier;
-        this.result = result;
-    }
-
+    private GetInvocationResult() {}
     public String functionName() {
         return this.functionName;
     }
@@ -70,18 +57,14 @@ public final class GetInvocationResult {
     public static Builder builder(GetInvocationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String functionName;
         private String id;
         private String input;
         private @Nullable String qualifier;
         private String result;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInvocationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functionName = defaults.functionName;
@@ -91,27 +74,39 @@ public final class GetInvocationResult {
     	      this.result = defaults.result;
         }
 
+        @CustomType.Setter
         public Builder functionName(String functionName) {
             this.functionName = Objects.requireNonNull(functionName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder input(String input) {
             this.input = Objects.requireNonNull(input);
             return this;
         }
+        @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
             this.qualifier = qualifier;
             return this;
         }
+        @CustomType.Setter
         public Builder result(String result) {
             this.result = Objects.requireNonNull(result);
             return this;
-        }        public GetInvocationResult build() {
-            return new GetInvocationResult(functionName, id, input, qualifier, result);
+        }
+        public GetInvocationResult build() {
+            final var o = new GetInvocationResult();
+            o.functionName = functionName;
+            o.id = id;
+            o.input = input;
+            o.qualifier = qualifier;
+            o.result = result;
+            return o;
         }
     }
 }

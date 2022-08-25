@@ -14,21 +14,14 @@ public final class GatewayRouteSpecHttp2Route {
      * @return The action to take if a match is determined.
      * 
      */
-    private final GatewayRouteSpecHttp2RouteAction action;
+    private GatewayRouteSpecHttp2RouteAction action;
     /**
      * @return The criteria for determining a request match.
      * 
      */
-    private final GatewayRouteSpecHttp2RouteMatch match;
+    private GatewayRouteSpecHttp2RouteMatch match;
 
-    @CustomType.Constructor
-    private GatewayRouteSpecHttp2Route(
-        @CustomType.Parameter("action") GatewayRouteSpecHttp2RouteAction action,
-        @CustomType.Parameter("match") GatewayRouteSpecHttp2RouteMatch match) {
-        this.action = action;
-        this.match = match;
-    }
-
+    private GatewayRouteSpecHttp2Route() {}
     /**
      * @return The action to take if a match is determined.
      * 
@@ -51,30 +44,32 @@ public final class GatewayRouteSpecHttp2Route {
     public static Builder builder(GatewayRouteSpecHttp2Route defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GatewayRouteSpecHttp2RouteAction action;
         private GatewayRouteSpecHttp2RouteMatch match;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayRouteSpecHttp2Route defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.match = defaults.match;
         }
 
+        @CustomType.Setter
         public Builder action(GatewayRouteSpecHttp2RouteAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder match(GatewayRouteSpecHttp2RouteMatch match) {
             this.match = Objects.requireNonNull(match);
             return this;
-        }        public GatewayRouteSpecHttp2Route build() {
-            return new GatewayRouteSpecHttp2Route(action, match);
+        }
+        public GatewayRouteSpecHttp2Route build() {
+            final var o = new GatewayRouteSpecHttp2Route();
+            o.action = action;
+            o.match = match;
+            return o;
         }
     }
 }

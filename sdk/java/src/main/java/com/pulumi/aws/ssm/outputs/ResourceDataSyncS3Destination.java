@@ -15,42 +15,29 @@ public final class ResourceDataSyncS3Destination {
      * @return Name of S3 bucket where the aggregated data is stored.
      * 
      */
-    private final String bucketName;
+    private String bucketName;
     /**
      * @return ARN of an encryption key for a destination in Amazon S3.
      * 
      */
-    private final @Nullable String kmsKeyArn;
+    private @Nullable String kmsKeyArn;
     /**
      * @return Prefix for the bucket.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return Region with the bucket targeted by the Resource Data Sync.
      * 
      */
-    private final String region;
+    private String region;
     /**
      * @return A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
      * 
      */
-    private final @Nullable String syncFormat;
+    private @Nullable String syncFormat;
 
-    @CustomType.Constructor
-    private ResourceDataSyncS3Destination(
-        @CustomType.Parameter("bucketName") String bucketName,
-        @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("syncFormat") @Nullable String syncFormat) {
-        this.bucketName = bucketName;
-        this.kmsKeyArn = kmsKeyArn;
-        this.prefix = prefix;
-        this.region = region;
-        this.syncFormat = syncFormat;
-    }
-
+    private ResourceDataSyncS3Destination() {}
     /**
      * @return Name of S3 bucket where the aggregated data is stored.
      * 
@@ -94,18 +81,14 @@ public final class ResourceDataSyncS3Destination {
     public static Builder builder(ResourceDataSyncS3Destination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bucketName;
         private @Nullable String kmsKeyArn;
         private @Nullable String prefix;
         private String region;
         private @Nullable String syncFormat;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceDataSyncS3Destination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
@@ -115,27 +98,39 @@ public final class ResourceDataSyncS3Destination {
     	      this.syncFormat = defaults.syncFormat;
         }
 
+        @CustomType.Setter
         public Builder bucketName(String bucketName) {
             this.bucketName = Objects.requireNonNull(bucketName);
             return this;
         }
+        @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder syncFormat(@Nullable String syncFormat) {
             this.syncFormat = syncFormat;
             return this;
-        }        public ResourceDataSyncS3Destination build() {
-            return new ResourceDataSyncS3Destination(bucketName, kmsKeyArn, prefix, region, syncFormat);
+        }
+        public ResourceDataSyncS3Destination build() {
+            final var o = new ResourceDataSyncS3Destination();
+            o.bucketName = bucketName;
+            o.kmsKeyArn = kmsKeyArn;
+            o.prefix = prefix;
+            o.region = region;
+            o.syncFormat = syncFormat;
+            return o;
         }
     }
 }

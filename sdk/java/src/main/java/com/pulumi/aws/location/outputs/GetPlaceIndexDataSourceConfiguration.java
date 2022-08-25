@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPlaceIndexDataSourceConfiguration {
-    private final String intendedUse;
+    private String intendedUse;
 
-    @CustomType.Constructor
-    private GetPlaceIndexDataSourceConfiguration(@CustomType.Parameter("intendedUse") String intendedUse) {
-        this.intendedUse = intendedUse;
-    }
-
+    private GetPlaceIndexDataSourceConfiguration() {}
     public String intendedUse() {
         return this.intendedUse;
     }
@@ -27,24 +23,24 @@ public final class GetPlaceIndexDataSourceConfiguration {
     public static Builder builder(GetPlaceIndexDataSourceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String intendedUse;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPlaceIndexDataSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.intendedUse = defaults.intendedUse;
         }
 
+        @CustomType.Setter
         public Builder intendedUse(String intendedUse) {
             this.intendedUse = Objects.requireNonNull(intendedUse);
             return this;
-        }        public GetPlaceIndexDataSourceConfiguration build() {
-            return new GetPlaceIndexDataSourceConfiguration(intendedUse);
+        }
+        public GetPlaceIndexDataSourceConfiguration build() {
+            final var o = new GetPlaceIndexDataSourceConfiguration();
+            o.intendedUse = intendedUse;
+            return o;
         }
     }
 }

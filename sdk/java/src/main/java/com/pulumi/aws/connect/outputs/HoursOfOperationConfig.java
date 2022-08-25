@@ -15,28 +15,19 @@ public final class HoursOfOperationConfig {
      * @return Specifies the day that the hours of operation applies to.
      * 
      */
-    private final String day;
+    private String day;
     /**
      * @return A end time block specifies the time that your contact center closes. The `end_time` is documented below.
      * 
      */
-    private final HoursOfOperationConfigEndTime endTime;
+    private HoursOfOperationConfigEndTime endTime;
     /**
      * @return A start time block specifies the time that your contact center opens. The `start_time` is documented below.
      * 
      */
-    private final HoursOfOperationConfigStartTime startTime;
+    private HoursOfOperationConfigStartTime startTime;
 
-    @CustomType.Constructor
-    private HoursOfOperationConfig(
-        @CustomType.Parameter("day") String day,
-        @CustomType.Parameter("endTime") HoursOfOperationConfigEndTime endTime,
-        @CustomType.Parameter("startTime") HoursOfOperationConfigStartTime startTime) {
-        this.day = day;
-        this.endTime = endTime;
-        this.startTime = startTime;
-    }
-
+    private HoursOfOperationConfig() {}
     /**
      * @return Specifies the day that the hours of operation applies to.
      * 
@@ -66,16 +57,12 @@ public final class HoursOfOperationConfig {
     public static Builder builder(HoursOfOperationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String day;
         private HoursOfOperationConfigEndTime endTime;
         private HoursOfOperationConfigStartTime startTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HoursOfOperationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.day = defaults.day;
@@ -83,19 +70,27 @@ public final class HoursOfOperationConfig {
     	      this.startTime = defaults.startTime;
         }
 
+        @CustomType.Setter
         public Builder day(String day) {
             this.day = Objects.requireNonNull(day);
             return this;
         }
+        @CustomType.Setter
         public Builder endTime(HoursOfOperationConfigEndTime endTime) {
             this.endTime = Objects.requireNonNull(endTime);
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(HoursOfOperationConfigStartTime startTime) {
             this.startTime = Objects.requireNonNull(startTime);
             return this;
-        }        public HoursOfOperationConfig build() {
-            return new HoursOfOperationConfig(day, endTime, startTime);
+        }
+        public HoursOfOperationConfig build() {
+            final var o = new HoursOfOperationConfig();
+            o.day = day;
+            o.endTime = endTime;
+            o.startTime = startTime;
+            return o;
         }
     }
 }

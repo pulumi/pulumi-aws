@@ -13,13 +13,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
      * @return The object specified in the Veeva flow source.
      * 
      */
-    private final String object;
+    private String object;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesServiceNow(@CustomType.Parameter("object") String object) {
-        this.object = object;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesServiceNow() {}
     /**
      * @return The object specified in the Veeva flow source.
      * 
@@ -35,24 +31,24 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesServiceNow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String object;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesServiceNow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
         public Builder object(String object) {
             this.object = Objects.requireNonNull(object);
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesServiceNow build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesServiceNow(object);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesServiceNow build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesServiceNow();
+            o.object = object;
+            return o;
         }
     }
 }

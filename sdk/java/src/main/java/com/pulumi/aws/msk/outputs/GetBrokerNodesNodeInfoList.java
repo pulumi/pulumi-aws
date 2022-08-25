@@ -15,49 +15,34 @@ public final class GetBrokerNodesNodeInfoList {
      * @return The attached elastic network interface of the broker
      * 
      */
-    private final String attachedEniId;
+    private String attachedEniId;
     /**
      * @return The ID of the broker
      * 
      */
-    private final Double brokerId;
+    private Double brokerId;
     /**
      * @return The client subnet to which this broker node belongs
      * 
      */
-    private final String clientSubnet;
+    private String clientSubnet;
     /**
      * @return The client virtual private cloud (VPC) IP address
      * 
      */
-    private final String clientVpcIpAddress;
+    private String clientVpcIpAddress;
     /**
      * @return Set of endpoints for accessing the broker. This does not include ports
      * 
      */
-    private final List<String> endpoints;
+    private List<String> endpoints;
     /**
      * @return The Amazon Resource Name (ARN) of the node
      * 
      */
-    private final String nodeArn;
+    private String nodeArn;
 
-    @CustomType.Constructor
-    private GetBrokerNodesNodeInfoList(
-        @CustomType.Parameter("attachedEniId") String attachedEniId,
-        @CustomType.Parameter("brokerId") Double brokerId,
-        @CustomType.Parameter("clientSubnet") String clientSubnet,
-        @CustomType.Parameter("clientVpcIpAddress") String clientVpcIpAddress,
-        @CustomType.Parameter("endpoints") List<String> endpoints,
-        @CustomType.Parameter("nodeArn") String nodeArn) {
-        this.attachedEniId = attachedEniId;
-        this.brokerId = brokerId;
-        this.clientSubnet = clientSubnet;
-        this.clientVpcIpAddress = clientVpcIpAddress;
-        this.endpoints = endpoints;
-        this.nodeArn = nodeArn;
-    }
-
+    private GetBrokerNodesNodeInfoList() {}
     /**
      * @return The attached elastic network interface of the broker
      * 
@@ -108,7 +93,7 @@ public final class GetBrokerNodesNodeInfoList {
     public static Builder builder(GetBrokerNodesNodeInfoList defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String attachedEniId;
         private Double brokerId;
@@ -116,11 +101,7 @@ public final class GetBrokerNodesNodeInfoList {
         private String clientVpcIpAddress;
         private List<String> endpoints;
         private String nodeArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrokerNodesNodeInfoList defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attachedEniId = defaults.attachedEniId;
@@ -131,22 +112,27 @@ public final class GetBrokerNodesNodeInfoList {
     	      this.nodeArn = defaults.nodeArn;
         }
 
+        @CustomType.Setter
         public Builder attachedEniId(String attachedEniId) {
             this.attachedEniId = Objects.requireNonNull(attachedEniId);
             return this;
         }
+        @CustomType.Setter
         public Builder brokerId(Double brokerId) {
             this.brokerId = Objects.requireNonNull(brokerId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSubnet(String clientSubnet) {
             this.clientSubnet = Objects.requireNonNull(clientSubnet);
             return this;
         }
+        @CustomType.Setter
         public Builder clientVpcIpAddress(String clientVpcIpAddress) {
             this.clientVpcIpAddress = Objects.requireNonNull(clientVpcIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder endpoints(List<String> endpoints) {
             this.endpoints = Objects.requireNonNull(endpoints);
             return this;
@@ -154,11 +140,20 @@ public final class GetBrokerNodesNodeInfoList {
         public Builder endpoints(String... endpoints) {
             return endpoints(List.of(endpoints));
         }
+        @CustomType.Setter
         public Builder nodeArn(String nodeArn) {
             this.nodeArn = Objects.requireNonNull(nodeArn);
             return this;
-        }        public GetBrokerNodesNodeInfoList build() {
-            return new GetBrokerNodesNodeInfoList(attachedEniId, brokerId, clientSubnet, clientVpcIpAddress, endpoints, nodeArn);
+        }
+        public GetBrokerNodesNodeInfoList build() {
+            final var o = new GetBrokerNodesNodeInfoList();
+            o.attachedEniId = attachedEniId;
+            o.brokerId = brokerId;
+            o.clientSubnet = clientSubnet;
+            o.clientVpcIpAddress = clientVpcIpAddress;
+            o.endpoints = endpoints;
+            o.nodeArn = nodeArn;
+            return o;
         }
     }
 }

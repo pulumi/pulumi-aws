@@ -15,42 +15,29 @@ public final class EndpointAuthenticationOption {
      * @return The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
      * 
      */
-    private final @Nullable String activeDirectoryId;
+    private @Nullable String activeDirectoryId;
     /**
      * @return The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
      * 
      */
-    private final @Nullable String rootCertificateChainArn;
+    private @Nullable String rootCertificateChainArn;
     /**
      * @return The ARN of the IAM SAML identity provider if type is `federated-authentication`.
      * 
      */
-    private final @Nullable String samlProviderArn;
+    private @Nullable String samlProviderArn;
     /**
      * @return The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
      * 
      */
-    private final @Nullable String selfServiceSamlProviderArn;
+    private @Nullable String selfServiceSamlProviderArn;
     /**
      * @return The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private EndpointAuthenticationOption(
-        @CustomType.Parameter("activeDirectoryId") @Nullable String activeDirectoryId,
-        @CustomType.Parameter("rootCertificateChainArn") @Nullable String rootCertificateChainArn,
-        @CustomType.Parameter("samlProviderArn") @Nullable String samlProviderArn,
-        @CustomType.Parameter("selfServiceSamlProviderArn") @Nullable String selfServiceSamlProviderArn,
-        @CustomType.Parameter("type") String type) {
-        this.activeDirectoryId = activeDirectoryId;
-        this.rootCertificateChainArn = rootCertificateChainArn;
-        this.samlProviderArn = samlProviderArn;
-        this.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
-        this.type = type;
-    }
-
+    private EndpointAuthenticationOption() {}
     /**
      * @return The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
      * 
@@ -94,18 +81,14 @@ public final class EndpointAuthenticationOption {
     public static Builder builder(EndpointAuthenticationOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String activeDirectoryId;
         private @Nullable String rootCertificateChainArn;
         private @Nullable String samlProviderArn;
         private @Nullable String selfServiceSamlProviderArn;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointAuthenticationOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectoryId = defaults.activeDirectoryId;
@@ -115,27 +98,39 @@ public final class EndpointAuthenticationOption {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder activeDirectoryId(@Nullable String activeDirectoryId) {
             this.activeDirectoryId = activeDirectoryId;
             return this;
         }
+        @CustomType.Setter
         public Builder rootCertificateChainArn(@Nullable String rootCertificateChainArn) {
             this.rootCertificateChainArn = rootCertificateChainArn;
             return this;
         }
+        @CustomType.Setter
         public Builder samlProviderArn(@Nullable String samlProviderArn) {
             this.samlProviderArn = samlProviderArn;
             return this;
         }
+        @CustomType.Setter
         public Builder selfServiceSamlProviderArn(@Nullable String selfServiceSamlProviderArn) {
             this.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public EndpointAuthenticationOption build() {
-            return new EndpointAuthenticationOption(activeDirectoryId, rootCertificateChainArn, samlProviderArn, selfServiceSamlProviderArn, type);
+        }
+        public EndpointAuthenticationOption build() {
+            final var o = new EndpointAuthenticationOption();
+            o.activeDirectoryId = activeDirectoryId;
+            o.rootCertificateChainArn = rootCertificateChainArn;
+            o.samlProviderArn = samlProviderArn;
+            o.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
+            o.type = type;
+            return o;
         }
     }
 }

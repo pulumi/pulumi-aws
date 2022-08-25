@@ -15,49 +15,34 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * @return The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
      * 
      */
-    private final @Nullable String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return Specifies the name of the AWS Glue database that contains the schema for the output data.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return If you don&#39;t specify an AWS Region, the default is the current region.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
     /**
      * @return The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return Specifies the AWS Glue table that contains the column information that constitutes your data schema.
      * 
      */
-    private final String tableName;
+    private String tableName;
     /**
      * @return Specifies the table version for the output data schema. Defaults to `LATEST`.
      * 
      */
-    private final @Nullable String versionId;
+    private @Nullable String versionId;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration(
-        @CustomType.Parameter("catalogId") @Nullable String catalogId,
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("region") @Nullable String region,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("tableName") String tableName,
-        @CustomType.Parameter("versionId") @Nullable String versionId) {
-        this.catalogId = catalogId;
-        this.databaseName = databaseName;
-        this.region = region;
-        this.roleArn = roleArn;
-        this.tableName = tableName;
-        this.versionId = versionId;
-    }
-
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration() {}
     /**
      * @return The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
      * 
@@ -108,7 +93,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     public static Builder builder(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String catalogId;
         private String databaseName;
@@ -116,11 +101,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         private String roleArn;
         private String tableName;
         private @Nullable String versionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -131,31 +112,45 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     	      this.versionId = defaults.versionId;
         }
 
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
         }
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             this.tableName = Objects.requireNonNull(tableName);
             return this;
         }
+        @CustomType.Setter
         public Builder versionId(@Nullable String versionId) {
             this.versionId = versionId;
             return this;
-        }        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration build() {
-            return new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration(catalogId, databaseName, region, roleArn, tableName, versionId);
+        }
+        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration build() {
+            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration();
+            o.catalogId = catalogId;
+            o.databaseName = databaseName;
+            o.region = region;
+            o.roleArn = roleArn;
+            o.tableName = tableName;
+            o.versionId = versionId;
+            return o;
         }
     }
 }

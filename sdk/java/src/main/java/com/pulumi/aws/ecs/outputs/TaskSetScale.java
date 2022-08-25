@@ -16,21 +16,14 @@ public final class TaskSetScale {
      * @return The unit of measure for the scale value. Default: `PERCENT`.
      * 
      */
-    private final @Nullable String unit;
+    private @Nullable String unit;
     /**
      * @return The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
      * 
      */
-    private final @Nullable Double value;
+    private @Nullable Double value;
 
-    @CustomType.Constructor
-    private TaskSetScale(
-        @CustomType.Parameter("unit") @Nullable String unit,
-        @CustomType.Parameter("value") @Nullable Double value) {
-        this.unit = unit;
-        this.value = value;
-    }
-
+    private TaskSetScale() {}
     /**
      * @return The unit of measure for the scale value. Default: `PERCENT`.
      * 
@@ -53,30 +46,32 @@ public final class TaskSetScale {
     public static Builder builder(TaskSetScale defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String unit;
         private @Nullable Double value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskSetScale defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.unit = defaults.unit;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder unit(@Nullable String unit) {
             this.unit = unit;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable Double value) {
             this.value = value;
             return this;
-        }        public TaskSetScale build() {
-            return new TaskSetScale(unit, value);
+        }
+        public TaskSetScale build() {
+            final var o = new TaskSetScale();
+            o.unit = unit;
+            o.value = value;
+            return o;
         }
     }
 }

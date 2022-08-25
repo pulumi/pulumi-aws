@@ -21,134 +21,95 @@ public final class GetIndexResult {
      * @return The Amazon Resource Name (ARN) of the Index.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return A block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
      * 
      */
-    private final List<GetIndexCapacityUnit> capacityUnits;
+    private List<GetIndexCapacityUnit> capacityUnits;
     /**
      * @return The Unix datetime that the index was created.
      * 
      */
-    private final String createdAt;
+    private String createdAt;
     /**
      * @return The description of the Index.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
      * 
      */
-    private final List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
+    private List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
     /**
      * @return The Amazon Kendra edition for the index.
      * 
      */
-    private final String edition;
+    private String edition;
     /**
      * @return When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    private final String errorMessage;
+    private String errorMessage;
     /**
      * @return The identifier of the Index.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
      * 
      */
-    private final List<GetIndexIndexStatistic> indexStatistics;
+    private List<GetIndexIndexStatistic> indexStatistics;
     /**
      * @return The name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
     /**
      * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
      * 
      */
-    private final List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
+    private List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
     /**
      * @return The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Metadata that helps organize the Indices you create.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Unix datetime that the index was last updated.
      * 
      */
-    private final String updatedAt;
+    private String updatedAt;
     /**
      * @return The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
      * html#Kendra-CreateIndex-request-UserContextPolicy).
      * 
      */
-    private final String userContextPolicy;
+    private String userContextPolicy;
     /**
      * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
      * 
      */
-    private final List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations;
+    private List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations;
     /**
      * @return A block that specifies the user token configuration. Documented below.
      * 
      */
-    private final List<GetIndexUserTokenConfiguration> userTokenConfigurations;
+    private List<GetIndexUserTokenConfiguration> userTokenConfigurations;
 
-    @CustomType.Constructor
-    private GetIndexResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("capacityUnits") List<GetIndexCapacityUnit> capacityUnits,
-        @CustomType.Parameter("createdAt") String createdAt,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("documentMetadataConfigurationUpdates") List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates,
-        @CustomType.Parameter("edition") String edition,
-        @CustomType.Parameter("errorMessage") String errorMessage,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("indexStatistics") List<GetIndexIndexStatistic> indexStatistics,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("roleArn") String roleArn,
-        @CustomType.Parameter("serverSideEncryptionConfigurations") List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("updatedAt") String updatedAt,
-        @CustomType.Parameter("userContextPolicy") String userContextPolicy,
-        @CustomType.Parameter("userGroupResolutionConfigurations") List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations,
-        @CustomType.Parameter("userTokenConfigurations") List<GetIndexUserTokenConfiguration> userTokenConfigurations) {
-        this.arn = arn;
-        this.capacityUnits = capacityUnits;
-        this.createdAt = createdAt;
-        this.description = description;
-        this.documentMetadataConfigurationUpdates = documentMetadataConfigurationUpdates;
-        this.edition = edition;
-        this.errorMessage = errorMessage;
-        this.id = id;
-        this.indexStatistics = indexStatistics;
-        this.name = name;
-        this.roleArn = roleArn;
-        this.serverSideEncryptionConfigurations = serverSideEncryptionConfigurations;
-        this.status = status;
-        this.tags = tags;
-        this.updatedAt = updatedAt;
-        this.userContextPolicy = userContextPolicy;
-        this.userGroupResolutionConfigurations = userGroupResolutionConfigurations;
-        this.userTokenConfigurations = userTokenConfigurations;
-    }
-
+    private GetIndexResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the Index.
      * 
@@ -284,7 +245,7 @@ public final class GetIndexResult {
     public static Builder builder(GetIndexResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetIndexCapacityUnit> capacityUnits;
@@ -304,11 +265,7 @@ public final class GetIndexResult {
         private String userContextPolicy;
         private List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations;
         private List<GetIndexUserTokenConfiguration> userTokenConfigurations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIndexResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -331,10 +288,12 @@ public final class GetIndexResult {
     	      this.userTokenConfigurations = defaults.userTokenConfigurations;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder capacityUnits(List<GetIndexCapacityUnit> capacityUnits) {
             this.capacityUnits = Objects.requireNonNull(capacityUnits);
             return this;
@@ -342,14 +301,17 @@ public final class GetIndexResult {
         public Builder capacityUnits(GetIndexCapacityUnit... capacityUnits) {
             return capacityUnits(List.of(capacityUnits));
         }
+        @CustomType.Setter
         public Builder createdAt(String createdAt) {
             this.createdAt = Objects.requireNonNull(createdAt);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder documentMetadataConfigurationUpdates(List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates) {
             this.documentMetadataConfigurationUpdates = Objects.requireNonNull(documentMetadataConfigurationUpdates);
             return this;
@@ -357,18 +319,22 @@ public final class GetIndexResult {
         public Builder documentMetadataConfigurationUpdates(GetIndexDocumentMetadataConfigurationUpdate... documentMetadataConfigurationUpdates) {
             return documentMetadataConfigurationUpdates(List.of(documentMetadataConfigurationUpdates));
         }
+        @CustomType.Setter
         public Builder edition(String edition) {
             this.edition = Objects.requireNonNull(edition);
             return this;
         }
+        @CustomType.Setter
         public Builder errorMessage(String errorMessage) {
             this.errorMessage = Objects.requireNonNull(errorMessage);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder indexStatistics(List<GetIndexIndexStatistic> indexStatistics) {
             this.indexStatistics = Objects.requireNonNull(indexStatistics);
             return this;
@@ -376,14 +342,17 @@ public final class GetIndexResult {
         public Builder indexStatistics(GetIndexIndexStatistic... indexStatistics) {
             return indexStatistics(List.of(indexStatistics));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder serverSideEncryptionConfigurations(List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations) {
             this.serverSideEncryptionConfigurations = Objects.requireNonNull(serverSideEncryptionConfigurations);
             return this;
@@ -391,22 +360,27 @@ public final class GetIndexResult {
         public Builder serverSideEncryptionConfigurations(GetIndexServerSideEncryptionConfiguration... serverSideEncryptionConfigurations) {
             return serverSideEncryptionConfigurations(List.of(serverSideEncryptionConfigurations));
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
             this.updatedAt = Objects.requireNonNull(updatedAt);
             return this;
         }
+        @CustomType.Setter
         public Builder userContextPolicy(String userContextPolicy) {
             this.userContextPolicy = Objects.requireNonNull(userContextPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder userGroupResolutionConfigurations(List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations) {
             this.userGroupResolutionConfigurations = Objects.requireNonNull(userGroupResolutionConfigurations);
             return this;
@@ -414,14 +388,35 @@ public final class GetIndexResult {
         public Builder userGroupResolutionConfigurations(GetIndexUserGroupResolutionConfiguration... userGroupResolutionConfigurations) {
             return userGroupResolutionConfigurations(List.of(userGroupResolutionConfigurations));
         }
+        @CustomType.Setter
         public Builder userTokenConfigurations(List<GetIndexUserTokenConfiguration> userTokenConfigurations) {
             this.userTokenConfigurations = Objects.requireNonNull(userTokenConfigurations);
             return this;
         }
         public Builder userTokenConfigurations(GetIndexUserTokenConfiguration... userTokenConfigurations) {
             return userTokenConfigurations(List.of(userTokenConfigurations));
-        }        public GetIndexResult build() {
-            return new GetIndexResult(arn, capacityUnits, createdAt, description, documentMetadataConfigurationUpdates, edition, errorMessage, id, indexStatistics, name, roleArn, serverSideEncryptionConfigurations, status, tags, updatedAt, userContextPolicy, userGroupResolutionConfigurations, userTokenConfigurations);
+        }
+        public GetIndexResult build() {
+            final var o = new GetIndexResult();
+            o.arn = arn;
+            o.capacityUnits = capacityUnits;
+            o.createdAt = createdAt;
+            o.description = description;
+            o.documentMetadataConfigurationUpdates = documentMetadataConfigurationUpdates;
+            o.edition = edition;
+            o.errorMessage = errorMessage;
+            o.id = id;
+            o.indexStatistics = indexStatistics;
+            o.name = name;
+            o.roleArn = roleArn;
+            o.serverSideEncryptionConfigurations = serverSideEncryptionConfigurations;
+            o.status = status;
+            o.tags = tags;
+            o.updatedAt = updatedAt;
+            o.userContextPolicy = userContextPolicy;
+            o.userGroupResolutionConfigurations = userGroupResolutionConfigurations;
+            o.userTokenConfigurations = userTokenConfigurations;
+            return o;
         }
     }
 }

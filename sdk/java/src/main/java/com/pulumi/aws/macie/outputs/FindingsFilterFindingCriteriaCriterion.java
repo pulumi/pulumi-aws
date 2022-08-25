@@ -16,63 +16,44 @@ public final class FindingsFilterFindingCriteriaCriterion {
      * @return The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
      * 
      */
-    private final @Nullable List<String> eqExactMatches;
+    private @Nullable List<String> eqExactMatches;
     /**
      * @return The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
      * 
      */
-    private final @Nullable List<String> eqs;
+    private @Nullable List<String> eqs;
     /**
      * @return The name of the field to be evaluated.
      * 
      */
-    private final String field;
+    private String field;
     /**
      * @return The value for the property is greater than the specified value.
      * 
      */
-    private final @Nullable String gt;
+    private @Nullable String gt;
     /**
      * @return The value for the property is greater than or equal to the specified value.
      * 
      */
-    private final @Nullable String gte;
+    private @Nullable String gte;
     /**
      * @return The value for the property is less than the specified value.
      * 
      */
-    private final @Nullable String lt;
+    private @Nullable String lt;
     /**
      * @return The value for the property is less than or equal to the specified value.
      * 
      */
-    private final @Nullable String lte;
+    private @Nullable String lte;
     /**
      * @return The value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
      * 
      */
-    private final @Nullable List<String> neqs;
+    private @Nullable List<String> neqs;
 
-    @CustomType.Constructor
-    private FindingsFilterFindingCriteriaCriterion(
-        @CustomType.Parameter("eqExactMatches") @Nullable List<String> eqExactMatches,
-        @CustomType.Parameter("eqs") @Nullable List<String> eqs,
-        @CustomType.Parameter("field") String field,
-        @CustomType.Parameter("gt") @Nullable String gt,
-        @CustomType.Parameter("gte") @Nullable String gte,
-        @CustomType.Parameter("lt") @Nullable String lt,
-        @CustomType.Parameter("lte") @Nullable String lte,
-        @CustomType.Parameter("neqs") @Nullable List<String> neqs) {
-        this.eqExactMatches = eqExactMatches;
-        this.eqs = eqs;
-        this.field = field;
-        this.gt = gt;
-        this.gte = gte;
-        this.lt = lt;
-        this.lte = lte;
-        this.neqs = neqs;
-    }
-
+    private FindingsFilterFindingCriteriaCriterion() {}
     /**
      * @return The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
      * 
@@ -137,7 +118,7 @@ public final class FindingsFilterFindingCriteriaCriterion {
     public static Builder builder(FindingsFilterFindingCriteriaCriterion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> eqExactMatches;
         private @Nullable List<String> eqs;
@@ -147,11 +128,7 @@ public final class FindingsFilterFindingCriteriaCriterion {
         private @Nullable String lt;
         private @Nullable String lte;
         private @Nullable List<String> neqs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FindingsFilterFindingCriteriaCriterion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eqExactMatches = defaults.eqExactMatches;
@@ -164,6 +141,7 @@ public final class FindingsFilterFindingCriteriaCriterion {
     	      this.neqs = defaults.neqs;
         }
 
+        @CustomType.Setter
         public Builder eqExactMatches(@Nullable List<String> eqExactMatches) {
             this.eqExactMatches = eqExactMatches;
             return this;
@@ -171,6 +149,7 @@ public final class FindingsFilterFindingCriteriaCriterion {
         public Builder eqExactMatches(String... eqExactMatches) {
             return eqExactMatches(List.of(eqExactMatches));
         }
+        @CustomType.Setter
         public Builder eqs(@Nullable List<String> eqs) {
             this.eqs = eqs;
             return this;
@@ -178,34 +157,50 @@ public final class FindingsFilterFindingCriteriaCriterion {
         public Builder eqs(String... eqs) {
             return eqs(List.of(eqs));
         }
+        @CustomType.Setter
         public Builder field(String field) {
             this.field = Objects.requireNonNull(field);
             return this;
         }
+        @CustomType.Setter
         public Builder gt(@Nullable String gt) {
             this.gt = gt;
             return this;
         }
+        @CustomType.Setter
         public Builder gte(@Nullable String gte) {
             this.gte = gte;
             return this;
         }
+        @CustomType.Setter
         public Builder lt(@Nullable String lt) {
             this.lt = lt;
             return this;
         }
+        @CustomType.Setter
         public Builder lte(@Nullable String lte) {
             this.lte = lte;
             return this;
         }
+        @CustomType.Setter
         public Builder neqs(@Nullable List<String> neqs) {
             this.neqs = neqs;
             return this;
         }
         public Builder neqs(String... neqs) {
             return neqs(List.of(neqs));
-        }        public FindingsFilterFindingCriteriaCriterion build() {
-            return new FindingsFilterFindingCriteriaCriterion(eqExactMatches, eqs, field, gt, gte, lt, lte, neqs);
+        }
+        public FindingsFilterFindingCriteriaCriterion build() {
+            final var o = new FindingsFilterFindingCriteriaCriterion();
+            o.eqExactMatches = eqExactMatches;
+            o.eqs = eqs;
+            o.field = field;
+            o.gt = gt;
+            o.gte = gte;
+            o.lt = lt;
+            o.lte = lte;
+            o.neqs = neqs;
+            return o;
         }
     }
 }

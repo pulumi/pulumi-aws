@@ -14,21 +14,14 @@ public final class BudgetActionDefinitionScpActionDefinition {
      * @return The policy ID attached.
      * 
      */
-    private final String policyId;
+    private String policyId;
     /**
      * @return A list of target IDs.
      * 
      */
-    private final List<String> targetIds;
+    private List<String> targetIds;
 
-    @CustomType.Constructor
-    private BudgetActionDefinitionScpActionDefinition(
-        @CustomType.Parameter("policyId") String policyId,
-        @CustomType.Parameter("targetIds") List<String> targetIds) {
-        this.policyId = policyId;
-        this.targetIds = targetIds;
-    }
-
+    private BudgetActionDefinitionScpActionDefinition() {}
     /**
      * @return The policy ID attached.
      * 
@@ -51,33 +44,35 @@ public final class BudgetActionDefinitionScpActionDefinition {
     public static Builder builder(BudgetActionDefinitionScpActionDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String policyId;
         private List<String> targetIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetActionDefinitionScpActionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.policyId = defaults.policyId;
     	      this.targetIds = defaults.targetIds;
         }
 
+        @CustomType.Setter
         public Builder policyId(String policyId) {
             this.policyId = Objects.requireNonNull(policyId);
             return this;
         }
+        @CustomType.Setter
         public Builder targetIds(List<String> targetIds) {
             this.targetIds = Objects.requireNonNull(targetIds);
             return this;
         }
         public Builder targetIds(String... targetIds) {
             return targetIds(List.of(targetIds));
-        }        public BudgetActionDefinitionScpActionDefinition build() {
-            return new BudgetActionDefinitionScpActionDefinition(policyId, targetIds);
+        }
+        public BudgetActionDefinitionScpActionDefinition build() {
+            final var o = new BudgetActionDefinitionScpActionDefinition();
+            o.policyId = policyId;
+            o.targetIds = targetIds;
+            return o;
         }
     }
 }

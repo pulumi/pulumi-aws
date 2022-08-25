@@ -15,13 +15,9 @@ public final class WorkteamNotificationConfiguration {
      * @return The ARN for the SNS topic to which notifications should be published.
      * 
      */
-    private final @Nullable String notificationTopicArn;
+    private @Nullable String notificationTopicArn;
 
-    @CustomType.Constructor
-    private WorkteamNotificationConfiguration(@CustomType.Parameter("notificationTopicArn") @Nullable String notificationTopicArn) {
-        this.notificationTopicArn = notificationTopicArn;
-    }
-
+    private WorkteamNotificationConfiguration() {}
     /**
      * @return The ARN for the SNS topic to which notifications should be published.
      * 
@@ -37,24 +33,24 @@ public final class WorkteamNotificationConfiguration {
     public static Builder builder(WorkteamNotificationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String notificationTopicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkteamNotificationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.notificationTopicArn = defaults.notificationTopicArn;
         }
 
+        @CustomType.Setter
         public Builder notificationTopicArn(@Nullable String notificationTopicArn) {
             this.notificationTopicArn = notificationTopicArn;
             return this;
-        }        public WorkteamNotificationConfiguration build() {
-            return new WorkteamNotificationConfiguration(notificationTopicArn);
+        }
+        public WorkteamNotificationConfiguration build() {
+            final var o = new WorkteamNotificationConfiguration();
+            o.notificationTopicArn = notificationTopicArn;
+            return o;
         }
     }
 }

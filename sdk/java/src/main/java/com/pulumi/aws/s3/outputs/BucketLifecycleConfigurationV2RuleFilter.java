@@ -17,42 +17,29 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
      * @return Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
      * 
      */
-    private final @Nullable BucketLifecycleConfigurationV2RuleFilterAnd and;
+    private @Nullable BucketLifecycleConfigurationV2RuleFilterAnd and;
     /**
      * @return Minimum object size (in bytes) to which the rule applies.
      * 
      */
-    private final @Nullable String objectSizeGreaterThan;
+    private @Nullable String objectSizeGreaterThan;
     /**
      * @return Maximum object size (in bytes) to which the rule applies.
      * 
      */
-    private final @Nullable String objectSizeLessThan;
+    private @Nullable String objectSizeLessThan;
     /**
      * @return Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if not specified.
      * 
      */
-    private final @Nullable String prefix;
+    private @Nullable String prefix;
     /**
      * @return A configuration block for specifying a tag key and value documented below.
      * 
      */
-    private final @Nullable BucketLifecycleConfigurationV2RuleFilterTag tag;
+    private @Nullable BucketLifecycleConfigurationV2RuleFilterTag tag;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationV2RuleFilter(
-        @CustomType.Parameter("and") @Nullable BucketLifecycleConfigurationV2RuleFilterAnd and,
-        @CustomType.Parameter("objectSizeGreaterThan") @Nullable String objectSizeGreaterThan,
-        @CustomType.Parameter("objectSizeLessThan") @Nullable String objectSizeLessThan,
-        @CustomType.Parameter("prefix") @Nullable String prefix,
-        @CustomType.Parameter("tag") @Nullable BucketLifecycleConfigurationV2RuleFilterTag tag) {
-        this.and = and;
-        this.objectSizeGreaterThan = objectSizeGreaterThan;
-        this.objectSizeLessThan = objectSizeLessThan;
-        this.prefix = prefix;
-        this.tag = tag;
-    }
-
+    private BucketLifecycleConfigurationV2RuleFilter() {}
     /**
      * @return Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
      * 
@@ -96,18 +83,14 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
     public static Builder builder(BucketLifecycleConfigurationV2RuleFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketLifecycleConfigurationV2RuleFilterAnd and;
         private @Nullable String objectSizeGreaterThan;
         private @Nullable String objectSizeLessThan;
         private @Nullable String prefix;
         private @Nullable BucketLifecycleConfigurationV2RuleFilterTag tag;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.and = defaults.and;
@@ -117,27 +100,39 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
     	      this.tag = defaults.tag;
         }
 
+        @CustomType.Setter
         public Builder and(@Nullable BucketLifecycleConfigurationV2RuleFilterAnd and) {
             this.and = and;
             return this;
         }
+        @CustomType.Setter
         public Builder objectSizeGreaterThan(@Nullable String objectSizeGreaterThan) {
             this.objectSizeGreaterThan = objectSizeGreaterThan;
             return this;
         }
+        @CustomType.Setter
         public Builder objectSizeLessThan(@Nullable String objectSizeLessThan) {
             this.objectSizeLessThan = objectSizeLessThan;
             return this;
         }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
         public Builder tag(@Nullable BucketLifecycleConfigurationV2RuleFilterTag tag) {
             this.tag = tag;
             return this;
-        }        public BucketLifecycleConfigurationV2RuleFilter build() {
-            return new BucketLifecycleConfigurationV2RuleFilter(and, objectSizeGreaterThan, objectSizeLessThan, prefix, tag);
+        }
+        public BucketLifecycleConfigurationV2RuleFilter build() {
+            final var o = new BucketLifecycleConfigurationV2RuleFilter();
+            o.and = and;
+            o.objectSizeGreaterThan = objectSizeGreaterThan;
+            o.objectSizeLessThan = objectSizeLessThan;
+            o.prefix = prefix;
+            o.tag = tag;
+            return o;
         }
     }
 }

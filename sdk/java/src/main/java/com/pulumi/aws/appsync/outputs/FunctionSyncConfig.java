@@ -16,28 +16,19 @@ public final class FunctionSyncConfig {
      * @return The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
      * 
      */
-    private final @Nullable String conflictDetection;
+    private @Nullable String conflictDetection;
     /**
      * @return The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
      * 
      */
-    private final @Nullable String conflictHandler;
+    private @Nullable String conflictHandler;
     /**
      * @return The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
      * 
      */
-    private final @Nullable FunctionSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig;
+    private @Nullable FunctionSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig;
 
-    @CustomType.Constructor
-    private FunctionSyncConfig(
-        @CustomType.Parameter("conflictDetection") @Nullable String conflictDetection,
-        @CustomType.Parameter("conflictHandler") @Nullable String conflictHandler,
-        @CustomType.Parameter("lambdaConflictHandlerConfig") @Nullable FunctionSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig) {
-        this.conflictDetection = conflictDetection;
-        this.conflictHandler = conflictHandler;
-        this.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
-    }
-
+    private FunctionSyncConfig() {}
     /**
      * @return The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
      * 
@@ -67,16 +58,12 @@ public final class FunctionSyncConfig {
     public static Builder builder(FunctionSyncConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String conflictDetection;
         private @Nullable String conflictHandler;
         private @Nullable FunctionSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionSyncConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conflictDetection = defaults.conflictDetection;
@@ -84,19 +71,27 @@ public final class FunctionSyncConfig {
     	      this.lambdaConflictHandlerConfig = defaults.lambdaConflictHandlerConfig;
         }
 
+        @CustomType.Setter
         public Builder conflictDetection(@Nullable String conflictDetection) {
             this.conflictDetection = conflictDetection;
             return this;
         }
+        @CustomType.Setter
         public Builder conflictHandler(@Nullable String conflictHandler) {
             this.conflictHandler = conflictHandler;
             return this;
         }
+        @CustomType.Setter
         public Builder lambdaConflictHandlerConfig(@Nullable FunctionSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig) {
             this.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
             return this;
-        }        public FunctionSyncConfig build() {
-            return new FunctionSyncConfig(conflictDetection, conflictHandler, lambdaConflictHandlerConfig);
+        }
+        public FunctionSyncConfig build() {
+            final var o = new FunctionSyncConfig();
+            o.conflictDetection = conflictDetection;
+            o.conflictHandler = conflictHandler;
+            o.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
+            return o;
         }
     }
 }

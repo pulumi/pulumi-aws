@@ -16,21 +16,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * @return The location of the Salesforce resource.
      * 
      */
-    private final @Nullable String instanceUrl;
+    private @Nullable String instanceUrl;
     /**
      * @return Indicates whether the connector profile applies to a sandbox or production environment.
      * 
      */
-    private final @Nullable Boolean isSandboxEnvironment;
+    private @Nullable Boolean isSandboxEnvironment;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce(
-        @CustomType.Parameter("instanceUrl") @Nullable String instanceUrl,
-        @CustomType.Parameter("isSandboxEnvironment") @Nullable Boolean isSandboxEnvironment) {
-        this.instanceUrl = instanceUrl;
-        this.isSandboxEnvironment = isSandboxEnvironment;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce() {}
     /**
      * @return The location of the Salesforce resource.
      * 
@@ -53,30 +46,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String instanceUrl;
         private @Nullable Boolean isSandboxEnvironment;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceUrl = defaults.instanceUrl;
     	      this.isSandboxEnvironment = defaults.isSandboxEnvironment;
         }
 
+        @CustomType.Setter
         public Builder instanceUrl(@Nullable String instanceUrl) {
             this.instanceUrl = instanceUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder isSandboxEnvironment(@Nullable Boolean isSandboxEnvironment) {
             this.isSandboxEnvironment = isSandboxEnvironment;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce(instanceUrl, isSandboxEnvironment);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce();
+            o.instanceUrl = instanceUrl;
+            o.isSandboxEnvironment = isSandboxEnvironment;
+            return o;
         }
     }
 }

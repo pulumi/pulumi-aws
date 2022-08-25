@@ -16,28 +16,19 @@ public final class CrawlerMongodbTarget {
      * @return The name of the connection to use to connect to the Delta table target.
      * 
      */
-    private final String connectionName;
+    private String connectionName;
     /**
      * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
      * 
      */
-    private final @Nullable Boolean scanAll;
+    private @Nullable Boolean scanAll;
 
-    @CustomType.Constructor
-    private CrawlerMongodbTarget(
-        @CustomType.Parameter("connectionName") String connectionName,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("scanAll") @Nullable Boolean scanAll) {
-        this.connectionName = connectionName;
-        this.path = path;
-        this.scanAll = scanAll;
-    }
-
+    private CrawlerMongodbTarget() {}
     /**
      * @return The name of the connection to use to connect to the Delta table target.
      * 
@@ -67,16 +58,12 @@ public final class CrawlerMongodbTarget {
     public static Builder builder(CrawlerMongodbTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String connectionName;
         private String path;
         private @Nullable Boolean scanAll;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CrawlerMongodbTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionName = defaults.connectionName;
@@ -84,19 +71,27 @@ public final class CrawlerMongodbTarget {
     	      this.scanAll = defaults.scanAll;
         }
 
+        @CustomType.Setter
         public Builder connectionName(String connectionName) {
             this.connectionName = Objects.requireNonNull(connectionName);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder scanAll(@Nullable Boolean scanAll) {
             this.scanAll = scanAll;
             return this;
-        }        public CrawlerMongodbTarget build() {
-            return new CrawlerMongodbTarget(connectionName, path, scanAll);
+        }
+        public CrawlerMongodbTarget build() {
+            final var o = new CrawlerMongodbTarget();
+            o.connectionName = connectionName;
+            o.path = path;
+            o.scanAll = scanAll;
+            return o;
         }
     }
 }

@@ -25,7 +25,7 @@ public final class WebAclLoggingConfigurationRedactedField {
      * 
      */
     @Deprecated /* Not supported by WAFv2 API */
-    private final @Nullable WebAclLoggingConfigurationRedactedFieldAllQueryArguments allQueryArguments;
+    private @Nullable WebAclLoggingConfigurationRedactedFieldAllQueryArguments allQueryArguments;
     /**
      * @return Redact the request body, which immediately follows the request headers.
      * 
@@ -34,22 +34,22 @@ public final class WebAclLoggingConfigurationRedactedField {
      * 
      */
     @Deprecated /* Not supported by WAFv2 API */
-    private final @Nullable WebAclLoggingConfigurationRedactedFieldBody body;
+    private @Nullable WebAclLoggingConfigurationRedactedFieldBody body;
     /**
      * @return Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private final @Nullable WebAclLoggingConfigurationRedactedFieldMethod method;
+    private @Nullable WebAclLoggingConfigurationRedactedFieldMethod method;
     /**
      * @return Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private final @Nullable WebAclLoggingConfigurationRedactedFieldQueryString queryString;
+    private @Nullable WebAclLoggingConfigurationRedactedFieldQueryString queryString;
     /**
      * @return Redact a single header. See Single Header below for details.
      * 
      */
-    private final @Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader;
+    private @Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader;
     /**
      * @return Redact a single query argument. See Single Query Argument below for details.
      * 
@@ -58,31 +58,14 @@ public final class WebAclLoggingConfigurationRedactedField {
      * 
      */
     @Deprecated /* Not supported by WAFv2 API */
-    private final @Nullable WebAclLoggingConfigurationRedactedFieldSingleQueryArgument singleQueryArgument;
+    private @Nullable WebAclLoggingConfigurationRedactedFieldSingleQueryArgument singleQueryArgument;
     /**
      * @return Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
-    private final @Nullable WebAclLoggingConfigurationRedactedFieldUriPath uriPath;
+    private @Nullable WebAclLoggingConfigurationRedactedFieldUriPath uriPath;
 
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationRedactedField(
-        @CustomType.Parameter("allQueryArguments") @Nullable WebAclLoggingConfigurationRedactedFieldAllQueryArguments allQueryArguments,
-        @CustomType.Parameter("body") @Nullable WebAclLoggingConfigurationRedactedFieldBody body,
-        @CustomType.Parameter("method") @Nullable WebAclLoggingConfigurationRedactedFieldMethod method,
-        @CustomType.Parameter("queryString") @Nullable WebAclLoggingConfigurationRedactedFieldQueryString queryString,
-        @CustomType.Parameter("singleHeader") @Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader,
-        @CustomType.Parameter("singleQueryArgument") @Nullable WebAclLoggingConfigurationRedactedFieldSingleQueryArgument singleQueryArgument,
-        @CustomType.Parameter("uriPath") @Nullable WebAclLoggingConfigurationRedactedFieldUriPath uriPath) {
-        this.allQueryArguments = allQueryArguments;
-        this.body = body;
-        this.method = method;
-        this.queryString = queryString;
-        this.singleHeader = singleHeader;
-        this.singleQueryArgument = singleQueryArgument;
-        this.uriPath = uriPath;
-    }
-
+    private WebAclLoggingConfigurationRedactedField() {}
     /**
      * @return Redact all query arguments.
      * 
@@ -152,7 +135,7 @@ public final class WebAclLoggingConfigurationRedactedField {
     public static Builder builder(WebAclLoggingConfigurationRedactedField defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclLoggingConfigurationRedactedFieldAllQueryArguments allQueryArguments;
         private @Nullable WebAclLoggingConfigurationRedactedFieldBody body;
@@ -161,11 +144,7 @@ public final class WebAclLoggingConfigurationRedactedField {
         private @Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader;
         private @Nullable WebAclLoggingConfigurationRedactedFieldSingleQueryArgument singleQueryArgument;
         private @Nullable WebAclLoggingConfigurationRedactedFieldUriPath uriPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationRedactedField defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allQueryArguments = defaults.allQueryArguments;
@@ -177,35 +156,51 @@ public final class WebAclLoggingConfigurationRedactedField {
     	      this.uriPath = defaults.uriPath;
         }
 
+        @CustomType.Setter
         public Builder allQueryArguments(@Nullable WebAclLoggingConfigurationRedactedFieldAllQueryArguments allQueryArguments) {
             this.allQueryArguments = allQueryArguments;
             return this;
         }
+        @CustomType.Setter
         public Builder body(@Nullable WebAclLoggingConfigurationRedactedFieldBody body) {
             this.body = body;
             return this;
         }
+        @CustomType.Setter
         public Builder method(@Nullable WebAclLoggingConfigurationRedactedFieldMethod method) {
             this.method = method;
             return this;
         }
+        @CustomType.Setter
         public Builder queryString(@Nullable WebAclLoggingConfigurationRedactedFieldQueryString queryString) {
             this.queryString = queryString;
             return this;
         }
+        @CustomType.Setter
         public Builder singleHeader(@Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader) {
             this.singleHeader = singleHeader;
             return this;
         }
+        @CustomType.Setter
         public Builder singleQueryArgument(@Nullable WebAclLoggingConfigurationRedactedFieldSingleQueryArgument singleQueryArgument) {
             this.singleQueryArgument = singleQueryArgument;
             return this;
         }
+        @CustomType.Setter
         public Builder uriPath(@Nullable WebAclLoggingConfigurationRedactedFieldUriPath uriPath) {
             this.uriPath = uriPath;
             return this;
-        }        public WebAclLoggingConfigurationRedactedField build() {
-            return new WebAclLoggingConfigurationRedactedField(allQueryArguments, body, method, queryString, singleHeader, singleQueryArgument, uriPath);
+        }
+        public WebAclLoggingConfigurationRedactedField build() {
+            final var o = new WebAclLoggingConfigurationRedactedField();
+            o.allQueryArguments = allQueryArguments;
+            o.body = body;
+            o.method = method;
+            o.queryString = queryString;
+            o.singleHeader = singleHeader;
+            o.singleQueryArgument = singleQueryArgument;
+            o.uriPath = uriPath;
+            return o;
         }
     }
 }

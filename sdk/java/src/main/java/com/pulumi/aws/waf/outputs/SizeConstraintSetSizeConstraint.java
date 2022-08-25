@@ -17,18 +17,18 @@ public final class SizeConstraintSetSizeConstraint {
      * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
      * 
      */
-    private final String comparisonOperator;
+    private String comparisonOperator;
     /**
      * @return Specifies where in a web request to look for the size constraint.
      * 
      */
-    private final SizeConstraintSetSizeConstraintFieldToMatch fieldToMatch;
+    private SizeConstraintSetSizeConstraintFieldToMatch fieldToMatch;
     /**
      * @return The size in bytes that you want to compare against the size of the specified `field_to_match`.
      * Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
      * 
      */
-    private final Integer size;
+    private Integer size;
     /**
      * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
      * If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
@@ -38,20 +38,9 @@ public final class SizeConstraintSetSizeConstraint {
      * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
      * 
      */
-    private final String textTransformation;
+    private String textTransformation;
 
-    @CustomType.Constructor
-    private SizeConstraintSetSizeConstraint(
-        @CustomType.Parameter("comparisonOperator") String comparisonOperator,
-        @CustomType.Parameter("fieldToMatch") SizeConstraintSetSizeConstraintFieldToMatch fieldToMatch,
-        @CustomType.Parameter("size") Integer size,
-        @CustomType.Parameter("textTransformation") String textTransformation) {
-        this.comparisonOperator = comparisonOperator;
-        this.fieldToMatch = fieldToMatch;
-        this.size = size;
-        this.textTransformation = textTransformation;
-    }
-
+    private SizeConstraintSetSizeConstraint() {}
     /**
      * @return The type of comparison you want to perform.
      * e.g., `EQ`, `NE`, `LT`, `GT`.
@@ -96,17 +85,13 @@ public final class SizeConstraintSetSizeConstraint {
     public static Builder builder(SizeConstraintSetSizeConstraint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comparisonOperator;
         private SizeConstraintSetSizeConstraintFieldToMatch fieldToMatch;
         private Integer size;
         private String textTransformation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SizeConstraintSetSizeConstraint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparisonOperator = defaults.comparisonOperator;
@@ -115,23 +100,33 @@ public final class SizeConstraintSetSizeConstraint {
     	      this.textTransformation = defaults.textTransformation;
         }
 
+        @CustomType.Setter
         public Builder comparisonOperator(String comparisonOperator) {
             this.comparisonOperator = Objects.requireNonNull(comparisonOperator);
             return this;
         }
+        @CustomType.Setter
         public Builder fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatch fieldToMatch) {
             this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
             return this;
         }
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
             this.textTransformation = Objects.requireNonNull(textTransformation);
             return this;
-        }        public SizeConstraintSetSizeConstraint build() {
-            return new SizeConstraintSetSizeConstraint(comparisonOperator, fieldToMatch, size, textTransformation);
+        }
+        public SizeConstraintSetSizeConstraint build() {
+            final var o = new SizeConstraintSetSizeConstraint();
+            o.comparisonOperator = comparisonOperator;
+            o.fieldToMatch = fieldToMatch;
+            o.size = size;
+            o.textTransformation = textTransformation;
+            return o;
         }
     }
 }

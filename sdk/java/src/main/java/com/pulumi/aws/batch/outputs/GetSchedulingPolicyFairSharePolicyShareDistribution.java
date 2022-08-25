@@ -14,21 +14,14 @@ public final class GetSchedulingPolicyFairSharePolicyShareDistribution {
      * @return A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    private final String shareIdentifier;
+    private String shareIdentifier;
     /**
      * @return The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    private final Double weightFactor;
+    private Double weightFactor;
 
-    @CustomType.Constructor
-    private GetSchedulingPolicyFairSharePolicyShareDistribution(
-        @CustomType.Parameter("shareIdentifier") String shareIdentifier,
-        @CustomType.Parameter("weightFactor") Double weightFactor) {
-        this.shareIdentifier = shareIdentifier;
-        this.weightFactor = weightFactor;
-    }
-
+    private GetSchedulingPolicyFairSharePolicyShareDistribution() {}
     /**
      * @return A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
@@ -51,30 +44,32 @@ public final class GetSchedulingPolicyFairSharePolicyShareDistribution {
     public static Builder builder(GetSchedulingPolicyFairSharePolicyShareDistribution defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String shareIdentifier;
         private Double weightFactor;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSchedulingPolicyFairSharePolicyShareDistribution defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.shareIdentifier = defaults.shareIdentifier;
     	      this.weightFactor = defaults.weightFactor;
         }
 
+        @CustomType.Setter
         public Builder shareIdentifier(String shareIdentifier) {
             this.shareIdentifier = Objects.requireNonNull(shareIdentifier);
             return this;
         }
+        @CustomType.Setter
         public Builder weightFactor(Double weightFactor) {
             this.weightFactor = Objects.requireNonNull(weightFactor);
             return this;
-        }        public GetSchedulingPolicyFairSharePolicyShareDistribution build() {
-            return new GetSchedulingPolicyFairSharePolicyShareDistribution(shareIdentifier, weightFactor);
+        }
+        public GetSchedulingPolicyFairSharePolicyShareDistribution build() {
+            final var o = new GetSchedulingPolicyFairSharePolicyShareDistribution();
+            o.shareIdentifier = shareIdentifier;
+            o.weightFactor = weightFactor;
+            return o;
         }
     }
 }

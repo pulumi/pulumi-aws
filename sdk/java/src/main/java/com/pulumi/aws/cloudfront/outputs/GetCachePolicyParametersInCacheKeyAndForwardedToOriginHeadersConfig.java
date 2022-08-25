@@ -15,21 +15,14 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeaders
      * @return Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
      * 
      */
-    private final String headerBehavior;
+    private String headerBehavior;
     /**
      * @return Object that contains a list of header names. See Items for more information.
      * 
      */
-    private final List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers;
+    private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers;
 
-    @CustomType.Constructor
-    private GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(
-        @CustomType.Parameter("headerBehavior") String headerBehavior,
-        @CustomType.Parameter("headers") List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers) {
-        this.headerBehavior = headerBehavior;
-        this.headers = headers;
-    }
-
+    private GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig() {}
     /**
      * @return Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
      * 
@@ -52,33 +45,35 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeaders
     public static Builder builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String headerBehavior;
         private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headerBehavior = defaults.headerBehavior;
     	      this.headers = defaults.headers;
         }
 
+        @CustomType.Setter
         public Builder headerBehavior(String headerBehavior) {
             this.headerBehavior = Objects.requireNonNull(headerBehavior);
             return this;
         }
+        @CustomType.Setter
         public Builder headers(List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers) {
             this.headers = Objects.requireNonNull(headers);
             return this;
         }
         public Builder headers(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader... headers) {
             return headers(List.of(headers));
-        }        public GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig build() {
-            return new GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(headerBehavior, headers);
+        }
+        public GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig build() {
+            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig();
+            o.headerBehavior = headerBehavior;
+            o.headers = headers;
+            return o;
         }
     }
 }

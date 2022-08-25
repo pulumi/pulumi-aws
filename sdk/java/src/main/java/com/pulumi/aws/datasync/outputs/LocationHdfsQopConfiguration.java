@@ -15,21 +15,14 @@ public final class LocationHdfsQopConfiguration {
      * @return The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
      * 
      */
-    private final @Nullable String dataTransferProtection;
+    private @Nullable String dataTransferProtection;
     /**
      * @return The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
      * 
      */
-    private final @Nullable String rpcProtection;
+    private @Nullable String rpcProtection;
 
-    @CustomType.Constructor
-    private LocationHdfsQopConfiguration(
-        @CustomType.Parameter("dataTransferProtection") @Nullable String dataTransferProtection,
-        @CustomType.Parameter("rpcProtection") @Nullable String rpcProtection) {
-        this.dataTransferProtection = dataTransferProtection;
-        this.rpcProtection = rpcProtection;
-    }
-
+    private LocationHdfsQopConfiguration() {}
     /**
      * @return The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
      * 
@@ -52,30 +45,32 @@ public final class LocationHdfsQopConfiguration {
     public static Builder builder(LocationHdfsQopConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dataTransferProtection;
         private @Nullable String rpcProtection;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LocationHdfsQopConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataTransferProtection = defaults.dataTransferProtection;
     	      this.rpcProtection = defaults.rpcProtection;
         }
 
+        @CustomType.Setter
         public Builder dataTransferProtection(@Nullable String dataTransferProtection) {
             this.dataTransferProtection = dataTransferProtection;
             return this;
         }
+        @CustomType.Setter
         public Builder rpcProtection(@Nullable String rpcProtection) {
             this.rpcProtection = rpcProtection;
             return this;
-        }        public LocationHdfsQopConfiguration build() {
-            return new LocationHdfsQopConfiguration(dataTransferProtection, rpcProtection);
+        }
+        public LocationHdfsQopConfiguration build() {
+            final var o = new LocationHdfsQopConfiguration();
+            o.dataTransferProtection = dataTransferProtection;
+            o.rpcProtection = rpcProtection;
+            return o;
         }
     }
 }

@@ -12,20 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BrokerInstance {
-    private final @Nullable String consoleUrl;
-    private final @Nullable List<String> endpoints;
-    private final @Nullable String ipAddress;
+    private @Nullable String consoleUrl;
+    private @Nullable List<String> endpoints;
+    private @Nullable String ipAddress;
 
-    @CustomType.Constructor
-    private BrokerInstance(
-        @CustomType.Parameter("consoleUrl") @Nullable String consoleUrl,
-        @CustomType.Parameter("endpoints") @Nullable List<String> endpoints,
-        @CustomType.Parameter("ipAddress") @Nullable String ipAddress) {
-        this.consoleUrl = consoleUrl;
-        this.endpoints = endpoints;
-        this.ipAddress = ipAddress;
-    }
-
+    private BrokerInstance() {}
     public Optional<String> consoleUrl() {
         return Optional.ofNullable(this.consoleUrl);
     }
@@ -43,16 +34,12 @@ public final class BrokerInstance {
     public static Builder builder(BrokerInstance defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String consoleUrl;
         private @Nullable List<String> endpoints;
         private @Nullable String ipAddress;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BrokerInstance defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consoleUrl = defaults.consoleUrl;
@@ -60,10 +47,12 @@ public final class BrokerInstance {
     	      this.ipAddress = defaults.ipAddress;
         }
 
+        @CustomType.Setter
         public Builder consoleUrl(@Nullable String consoleUrl) {
             this.consoleUrl = consoleUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder endpoints(@Nullable List<String> endpoints) {
             this.endpoints = endpoints;
             return this;
@@ -71,11 +60,17 @@ public final class BrokerInstance {
         public Builder endpoints(String... endpoints) {
             return endpoints(List.of(endpoints));
         }
+        @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
             this.ipAddress = ipAddress;
             return this;
-        }        public BrokerInstance build() {
-            return new BrokerInstance(consoleUrl, endpoints, ipAddress);
+        }
+        public BrokerInstance build() {
+            final var o = new BrokerInstance();
+            o.consoleUrl = consoleUrl;
+            o.endpoints = endpoints;
+            o.ipAddress = ipAddress;
+            return o;
         }
     }
 }

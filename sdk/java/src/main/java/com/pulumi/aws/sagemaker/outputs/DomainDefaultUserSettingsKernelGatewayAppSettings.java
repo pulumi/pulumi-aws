@@ -18,28 +18,19 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
      * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
      * 
      */
-    private final @Nullable List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages;
+    private @Nullable List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages;
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    private final @Nullable DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
+    private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
      * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
      */
-    private final @Nullable List<String> lifecycleConfigArns;
+    private @Nullable List<String> lifecycleConfigArns;
 
-    @CustomType.Constructor
-    private DomainDefaultUserSettingsKernelGatewayAppSettings(
-        @CustomType.Parameter("customImages") @Nullable List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages,
-        @CustomType.Parameter("defaultResourceSpec") @Nullable DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec,
-        @CustomType.Parameter("lifecycleConfigArns") @Nullable List<String> lifecycleConfigArns) {
-        this.customImages = customImages;
-        this.defaultResourceSpec = defaultResourceSpec;
-        this.lifecycleConfigArns = lifecycleConfigArns;
-    }
-
+    private DomainDefaultUserSettingsKernelGatewayAppSettings() {}
     /**
      * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
      * 
@@ -69,16 +60,12 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
     public static Builder builder(DomainDefaultUserSettingsKernelGatewayAppSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages;
         private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
         private @Nullable List<String> lifecycleConfigArns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainDefaultUserSettingsKernelGatewayAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customImages = defaults.customImages;
@@ -86,6 +73,7 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
     	      this.lifecycleConfigArns = defaults.lifecycleConfigArns;
         }
 
+        @CustomType.Setter
         public Builder customImages(@Nullable List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages) {
             this.customImages = customImages;
             return this;
@@ -93,18 +81,25 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
         public Builder customImages(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage... customImages) {
             return customImages(List.of(customImages));
         }
+        @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec) {
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
+        @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
         public Builder lifecycleConfigArns(String... lifecycleConfigArns) {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
-        }        public DomainDefaultUserSettingsKernelGatewayAppSettings build() {
-            return new DomainDefaultUserSettingsKernelGatewayAppSettings(customImages, defaultResourceSpec, lifecycleConfigArns);
+        }
+        public DomainDefaultUserSettingsKernelGatewayAppSettings build() {
+            final var o = new DomainDefaultUserSettingsKernelGatewayAppSettings();
+            o.customImages = customImages;
+            o.defaultResourceSpec = defaultResourceSpec;
+            o.lifecycleConfigArns = lifecycleConfigArns;
+            return o;
         }
     }
 }

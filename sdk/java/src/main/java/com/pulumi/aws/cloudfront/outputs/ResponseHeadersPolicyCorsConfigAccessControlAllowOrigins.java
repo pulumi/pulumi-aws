@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins {
-    private final @Nullable List<String> items;
+    private @Nullable List<String> items;
 
-    @CustomType.Constructor
-    private ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins(@CustomType.Parameter("items") @Nullable List<String> items) {
-        this.items = items;
-    }
-
+    private ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins() {}
     public List<String> items() {
         return this.items == null ? List.of() : this.items;
     }
@@ -29,27 +25,27 @@ public final class ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins {
     public static Builder builder(ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
             this.items = items;
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins build() {
-            return new ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins(items);
+        }
+        public ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins build() {
+            final var o = new ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins();
+            o.items = items;
+            return o;
         }
     }
 }

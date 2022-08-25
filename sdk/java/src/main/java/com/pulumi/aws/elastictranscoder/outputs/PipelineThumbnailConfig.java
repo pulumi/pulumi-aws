@@ -15,21 +15,14 @@ public final class PipelineThumbnailConfig {
      * @return The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
      * 
      */
-    private final @Nullable String bucket;
+    private @Nullable String bucket;
     /**
      * @return The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
      * 
      */
-    private final @Nullable String storageClass;
+    private @Nullable String storageClass;
 
-    @CustomType.Constructor
-    private PipelineThumbnailConfig(
-        @CustomType.Parameter("bucket") @Nullable String bucket,
-        @CustomType.Parameter("storageClass") @Nullable String storageClass) {
-        this.bucket = bucket;
-        this.storageClass = storageClass;
-    }
-
+    private PipelineThumbnailConfig() {}
     /**
      * @return The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
      * 
@@ -52,30 +45,32 @@ public final class PipelineThumbnailConfig {
     public static Builder builder(PipelineThumbnailConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bucket;
         private @Nullable String storageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineThumbnailConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.storageClass = defaults.storageClass;
         }
 
+        @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
             this.bucket = bucket;
             return this;
         }
+        @CustomType.Setter
         public Builder storageClass(@Nullable String storageClass) {
             this.storageClass = storageClass;
             return this;
-        }        public PipelineThumbnailConfig build() {
-            return new PipelineThumbnailConfig(bucket, storageClass);
+        }
+        public PipelineThumbnailConfig build() {
+            final var o = new PipelineThumbnailConfig();
+            o.bucket = bucket;
+            o.storageClass = storageClass;
+            return o;
         }
     }
 }

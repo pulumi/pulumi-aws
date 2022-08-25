@@ -16,35 +16,24 @@ public final class ReceiptRuleLambdaAction {
      * @return The ARN of the Lambda function to invoke
      * 
      */
-    private final String functionArn;
+    private String functionArn;
     /**
      * @return `Event` or `RequestResponse`
      * 
      */
-    private final @Nullable String invocationType;
+    private @Nullable String invocationType;
     /**
      * @return The position of the action in the receipt rule
      * 
      */
-    private final Integer position;
+    private Integer position;
     /**
      * @return The ARN of an SNS topic to notify
      * 
      */
-    private final @Nullable String topicArn;
+    private @Nullable String topicArn;
 
-    @CustomType.Constructor
-    private ReceiptRuleLambdaAction(
-        @CustomType.Parameter("functionArn") String functionArn,
-        @CustomType.Parameter("invocationType") @Nullable String invocationType,
-        @CustomType.Parameter("position") Integer position,
-        @CustomType.Parameter("topicArn") @Nullable String topicArn) {
-        this.functionArn = functionArn;
-        this.invocationType = invocationType;
-        this.position = position;
-        this.topicArn = topicArn;
-    }
-
+    private ReceiptRuleLambdaAction() {}
     /**
      * @return The ARN of the Lambda function to invoke
      * 
@@ -81,17 +70,13 @@ public final class ReceiptRuleLambdaAction {
     public static Builder builder(ReceiptRuleLambdaAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String functionArn;
         private @Nullable String invocationType;
         private Integer position;
         private @Nullable String topicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReceiptRuleLambdaAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functionArn = defaults.functionArn;
@@ -100,23 +85,33 @@ public final class ReceiptRuleLambdaAction {
     	      this.topicArn = defaults.topicArn;
         }
 
+        @CustomType.Setter
         public Builder functionArn(String functionArn) {
             this.functionArn = Objects.requireNonNull(functionArn);
             return this;
         }
+        @CustomType.Setter
         public Builder invocationType(@Nullable String invocationType) {
             this.invocationType = invocationType;
             return this;
         }
+        @CustomType.Setter
         public Builder position(Integer position) {
             this.position = Objects.requireNonNull(position);
             return this;
         }
+        @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
             this.topicArn = topicArn;
             return this;
-        }        public ReceiptRuleLambdaAction build() {
-            return new ReceiptRuleLambdaAction(functionArn, invocationType, position, topicArn);
+        }
+        public ReceiptRuleLambdaAction build() {
+            final var o = new ReceiptRuleLambdaAction();
+            o.functionArn = functionArn;
+            o.invocationType = invocationType;
+            o.position = position;
+            o.topicArn = topicArn;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
      * @return The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
      * 
      */
-    private final @Nullable String imageIdOverride;
+    private @Nullable String imageIdOverride;
     /**
      * @return The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
      * 
      */
-    private final @Nullable String imageType;
+    private @Nullable String imageType;
 
-    @CustomType.Constructor
-    private ComputeEnvironmentComputeResourcesEc2Configuration(
-        @CustomType.Parameter("imageIdOverride") @Nullable String imageIdOverride,
-        @CustomType.Parameter("imageType") @Nullable String imageType) {
-        this.imageIdOverride = imageIdOverride;
-        this.imageType = imageType;
-    }
-
+    private ComputeEnvironmentComputeResourcesEc2Configuration() {}
     /**
      * @return The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
      * 
@@ -52,30 +45,32 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
     public static Builder builder(ComputeEnvironmentComputeResourcesEc2Configuration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String imageIdOverride;
         private @Nullable String imageType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ComputeEnvironmentComputeResourcesEc2Configuration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.imageIdOverride = defaults.imageIdOverride;
     	      this.imageType = defaults.imageType;
         }
 
+        @CustomType.Setter
         public Builder imageIdOverride(@Nullable String imageIdOverride) {
             this.imageIdOverride = imageIdOverride;
             return this;
         }
+        @CustomType.Setter
         public Builder imageType(@Nullable String imageType) {
             this.imageType = imageType;
             return this;
-        }        public ComputeEnvironmentComputeResourcesEc2Configuration build() {
-            return new ComputeEnvironmentComputeResourcesEc2Configuration(imageIdOverride, imageType);
+        }
+        public ComputeEnvironmentComputeResourcesEc2Configuration build() {
+            final var o = new ComputeEnvironmentComputeResourcesEc2Configuration();
+            o.imageIdOverride = imageIdOverride;
+            o.imageType = imageType;
+            return o;
         }
     }
 }

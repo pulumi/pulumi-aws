@@ -14,41 +14,26 @@ public final class GetSelectionResult {
      * @return The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
-    private final String iamRoleArn;
+    private String iamRoleArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The display name of a resource selection document.
      * 
      */
-    private final String name;
-    private final String planId;
+    private String name;
+    private String planId;
     /**
      * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
      * 
      */
-    private final List<String> resources;
-    private final String selectionId;
+    private List<String> resources;
+    private String selectionId;
 
-    @CustomType.Constructor
-    private GetSelectionResult(
-        @CustomType.Parameter("iamRoleArn") String iamRoleArn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("planId") String planId,
-        @CustomType.Parameter("resources") List<String> resources,
-        @CustomType.Parameter("selectionId") String selectionId) {
-        this.iamRoleArn = iamRoleArn;
-        this.id = id;
-        this.name = name;
-        this.planId = planId;
-        this.resources = resources;
-        this.selectionId = selectionId;
-    }
-
+    private GetSelectionResult() {}
     /**
      * @return The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
@@ -91,7 +76,7 @@ public final class GetSelectionResult {
     public static Builder builder(GetSelectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String iamRoleArn;
         private String id;
@@ -99,11 +84,7 @@ public final class GetSelectionResult {
         private String planId;
         private List<String> resources;
         private String selectionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSelectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.iamRoleArn = defaults.iamRoleArn;
@@ -114,22 +95,27 @@ public final class GetSelectionResult {
     	      this.selectionId = defaults.selectionId;
         }
 
+        @CustomType.Setter
         public Builder iamRoleArn(String iamRoleArn) {
             this.iamRoleArn = Objects.requireNonNull(iamRoleArn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder planId(String planId) {
             this.planId = Objects.requireNonNull(planId);
             return this;
         }
+        @CustomType.Setter
         public Builder resources(List<String> resources) {
             this.resources = Objects.requireNonNull(resources);
             return this;
@@ -137,11 +123,20 @@ public final class GetSelectionResult {
         public Builder resources(String... resources) {
             return resources(List.of(resources));
         }
+        @CustomType.Setter
         public Builder selectionId(String selectionId) {
             this.selectionId = Objects.requireNonNull(selectionId);
             return this;
-        }        public GetSelectionResult build() {
-            return new GetSelectionResult(iamRoleArn, id, name, planId, resources, selectionId);
+        }
+        public GetSelectionResult build() {
+            final var o = new GetSelectionResult();
+            o.iamRoleArn = iamRoleArn;
+            o.id = id;
+            o.name = name;
+            o.planId = planId;
+            o.resources = resources;
+            o.selectionId = selectionId;
+            return o;
         }
     }
 }

@@ -10,27 +10,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceTypeGpus {
-    private final Integer count;
-    private final String manufacturer;
+    private Integer count;
+    private String manufacturer;
     /**
      * @return Size of the instance memory, in MiB.
      * 
      */
-    private final Integer memorySize;
-    private final String name;
+    private Integer memorySize;
+    private String name;
 
-    @CustomType.Constructor
-    private GetInstanceTypeGpus(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("manufacturer") String manufacturer,
-        @CustomType.Parameter("memorySize") Integer memorySize,
-        @CustomType.Parameter("name") String name) {
-        this.count = count;
-        this.manufacturer = manufacturer;
-        this.memorySize = memorySize;
-        this.name = name;
-    }
-
+    private GetInstanceTypeGpus() {}
     public Integer count() {
         return this.count;
     }
@@ -55,17 +44,13 @@ public final class GetInstanceTypeGpus {
     public static Builder builder(GetInstanceTypeGpus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private String manufacturer;
         private Integer memorySize;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypeGpus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -74,23 +59,33 @@ public final class GetInstanceTypeGpus {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder manufacturer(String manufacturer) {
             this.manufacturer = Objects.requireNonNull(manufacturer);
             return this;
         }
+        @CustomType.Setter
         public Builder memorySize(Integer memorySize) {
             this.memorySize = Objects.requireNonNull(memorySize);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetInstanceTypeGpus build() {
-            return new GetInstanceTypeGpus(count, manufacturer, memorySize, name);
+        }
+        public GetInstanceTypeGpus build() {
+            final var o = new GetInstanceTypeGpus();
+            o.count = count;
+            o.manufacturer = manufacturer;
+            o.memorySize = memorySize;
+            o.name = name;
+            return o;
         }
     }
 }

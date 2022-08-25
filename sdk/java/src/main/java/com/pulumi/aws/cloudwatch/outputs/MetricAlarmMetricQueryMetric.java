@@ -17,52 +17,37 @@ public final class MetricAlarmMetricQueryMetric {
      * @return The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    private final @Nullable Map<String,String> dimensions;
+    private @Nullable Map<String,String> dimensions;
     /**
      * @return The name for this metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    private final @Nullable String namespace;
+    private @Nullable String namespace;
     /**
      * @return The period in seconds over which the specified `stat` is applied.
      * 
      */
-    private final Integer period;
+    private Integer period;
     /**
      * @return The statistic to apply to this metric.
      * See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
      * 
      */
-    private final String stat;
+    private String stat;
     /**
      * @return The unit for this metric.
      * 
      */
-    private final @Nullable String unit;
+    private @Nullable String unit;
 
-    @CustomType.Constructor
-    private MetricAlarmMetricQueryMetric(
-        @CustomType.Parameter("dimensions") @Nullable Map<String,String> dimensions,
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("namespace") @Nullable String namespace,
-        @CustomType.Parameter("period") Integer period,
-        @CustomType.Parameter("stat") String stat,
-        @CustomType.Parameter("unit") @Nullable String unit) {
-        this.dimensions = dimensions;
-        this.metricName = metricName;
-        this.namespace = namespace;
-        this.period = period;
-        this.stat = stat;
-        this.unit = unit;
-    }
-
+    private MetricAlarmMetricQueryMetric() {}
     /**
      * @return The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
@@ -116,7 +101,7 @@ public final class MetricAlarmMetricQueryMetric {
     public static Builder builder(MetricAlarmMetricQueryMetric defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> dimensions;
         private String metricName;
@@ -124,11 +109,7 @@ public final class MetricAlarmMetricQueryMetric {
         private Integer period;
         private String stat;
         private @Nullable String unit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MetricAlarmMetricQueryMetric defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
@@ -139,31 +120,45 @@ public final class MetricAlarmMetricQueryMetric {
     	      this.unit = defaults.unit;
         }
 
+        @CustomType.Setter
         public Builder dimensions(@Nullable Map<String,String> dimensions) {
             this.dimensions = dimensions;
             return this;
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
             this.namespace = namespace;
             return this;
         }
+        @CustomType.Setter
         public Builder period(Integer period) {
             this.period = Objects.requireNonNull(period);
             return this;
         }
+        @CustomType.Setter
         public Builder stat(String stat) {
             this.stat = Objects.requireNonNull(stat);
             return this;
         }
+        @CustomType.Setter
         public Builder unit(@Nullable String unit) {
             this.unit = unit;
             return this;
-        }        public MetricAlarmMetricQueryMetric build() {
-            return new MetricAlarmMetricQueryMetric(dimensions, metricName, namespace, period, stat, unit);
+        }
+        public MetricAlarmMetricQueryMetric build() {
+            final var o = new MetricAlarmMetricQueryMetric();
+            o.dimensions = dimensions;
+            o.metricName = metricName;
+            o.namespace = namespace;
+            o.period = period;
+            o.stat = stat;
+            o.unit = unit;
+            return o;
         }
     }
 }

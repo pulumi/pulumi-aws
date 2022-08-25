@@ -17,30 +17,21 @@ public final class DeploymentGroupAlarmConfiguration {
      * @return A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
      * 
      */
-    private final @Nullable List<String> alarms;
+    private @Nullable List<String> alarms;
     /**
      * @return Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
      * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
      * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
      * 
      */
-    private final @Nullable Boolean ignorePollAlarmFailure;
+    private @Nullable Boolean ignorePollAlarmFailure;
 
-    @CustomType.Constructor
-    private DeploymentGroupAlarmConfiguration(
-        @CustomType.Parameter("alarms") @Nullable List<String> alarms,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("ignorePollAlarmFailure") @Nullable Boolean ignorePollAlarmFailure) {
-        this.alarms = alarms;
-        this.enabled = enabled;
-        this.ignorePollAlarmFailure = ignorePollAlarmFailure;
-    }
-
+    private DeploymentGroupAlarmConfiguration() {}
     /**
      * @return A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
      * 
@@ -72,16 +63,12 @@ public final class DeploymentGroupAlarmConfiguration {
     public static Builder builder(DeploymentGroupAlarmConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> alarms;
         private @Nullable Boolean enabled;
         private @Nullable Boolean ignorePollAlarmFailure;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupAlarmConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alarms = defaults.alarms;
@@ -89,6 +76,7 @@ public final class DeploymentGroupAlarmConfiguration {
     	      this.ignorePollAlarmFailure = defaults.ignorePollAlarmFailure;
         }
 
+        @CustomType.Setter
         public Builder alarms(@Nullable List<String> alarms) {
             this.alarms = alarms;
             return this;
@@ -96,15 +84,22 @@ public final class DeploymentGroupAlarmConfiguration {
         public Builder alarms(String... alarms) {
             return alarms(List.of(alarms));
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ignorePollAlarmFailure(@Nullable Boolean ignorePollAlarmFailure) {
             this.ignorePollAlarmFailure = ignorePollAlarmFailure;
             return this;
-        }        public DeploymentGroupAlarmConfiguration build() {
-            return new DeploymentGroupAlarmConfiguration(alarms, enabled, ignorePollAlarmFailure);
+        }
+        public DeploymentGroupAlarmConfiguration build() {
+            final var o = new DeploymentGroupAlarmConfiguration();
+            o.alarms = alarms;
+            o.enabled = enabled;
+            o.ignorePollAlarmFailure = ignorePollAlarmFailure;
+            return o;
         }
     }
 }

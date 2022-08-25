@@ -16,21 +16,14 @@ public final class RuleGroupRuleStatementOrStatementStatementAndStatementStateme
      * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See IPSet Forwarded IP Config below for more details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig;
+    private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("ipSetForwardedIpConfig") @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig) {
-        this.arn = arn;
-        this.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
-    }
-
+    private RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement() {}
     /**
      * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
      * 
@@ -53,30 +46,32 @@ public final class RuleGroupRuleStatementOrStatementStatementAndStatementStateme
     public static Builder builder(RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.ipSetForwardedIpConfig = defaults.ipSetForwardedIpConfig;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder ipSetForwardedIpConfig(@Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig) {
             this.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
             return this;
-        }        public RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement build() {
-            return new RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement(arn, ipSetForwardedIpConfig);
+        }
+        public RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement build() {
+            final var o = new RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement();
+            o.arn = arn;
+            o.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
+            return o;
         }
     }
 }

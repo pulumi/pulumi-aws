@@ -13,21 +13,14 @@ public final class WorkforceCognitoConfig {
      * @return The OIDC IdP client ID used to configure your private workforce.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The id for your Amazon Cognito user pool.
      * 
      */
-    private final String userPool;
+    private String userPool;
 
-    @CustomType.Constructor
-    private WorkforceCognitoConfig(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("userPool") String userPool) {
-        this.clientId = clientId;
-        this.userPool = userPool;
-    }
-
+    private WorkforceCognitoConfig() {}
     /**
      * @return The OIDC IdP client ID used to configure your private workforce.
      * 
@@ -50,30 +43,32 @@ public final class WorkforceCognitoConfig {
     public static Builder builder(WorkforceCognitoConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String userPool;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkforceCognitoConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
     	      this.userPool = defaults.userPool;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder userPool(String userPool) {
             this.userPool = Objects.requireNonNull(userPool);
             return this;
-        }        public WorkforceCognitoConfig build() {
-            return new WorkforceCognitoConfig(clientId, userPool);
+        }
+        public WorkforceCognitoConfig build() {
+            final var o = new WorkforceCognitoConfig();
+            o.clientId = clientId;
+            o.userPool = userPool;
+            return o;
         }
     }
 }

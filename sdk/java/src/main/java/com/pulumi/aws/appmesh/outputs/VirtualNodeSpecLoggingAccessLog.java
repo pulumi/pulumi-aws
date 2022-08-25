@@ -15,13 +15,9 @@ public final class VirtualNodeSpecLoggingAccessLog {
      * @return The file object to send virtual node access logs to.
      * 
      */
-    private final @Nullable VirtualNodeSpecLoggingAccessLogFile file;
+    private @Nullable VirtualNodeSpecLoggingAccessLogFile file;
 
-    @CustomType.Constructor
-    private VirtualNodeSpecLoggingAccessLog(@CustomType.Parameter("file") @Nullable VirtualNodeSpecLoggingAccessLogFile file) {
-        this.file = file;
-    }
-
+    private VirtualNodeSpecLoggingAccessLog() {}
     /**
      * @return The file object to send virtual node access logs to.
      * 
@@ -37,24 +33,24 @@ public final class VirtualNodeSpecLoggingAccessLog {
     public static Builder builder(VirtualNodeSpecLoggingAccessLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecLoggingAccessLogFile file;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNodeSpecLoggingAccessLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.file = defaults.file;
         }
 
+        @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecLoggingAccessLogFile file) {
             this.file = file;
             return this;
-        }        public VirtualNodeSpecLoggingAccessLog build() {
-            return new VirtualNodeSpecLoggingAccessLog(file);
+        }
+        public VirtualNodeSpecLoggingAccessLog build() {
+            final var o = new VirtualNodeSpecLoggingAccessLog();
+            o.file = file;
+            return o;
         }
     }
 }

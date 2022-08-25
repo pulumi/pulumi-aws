@@ -16,77 +16,54 @@ public final class DomainIndexField {
      * @return The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
      * 
      */
-    private final @Nullable String analysisScheme;
+    private @Nullable String analysisScheme;
     /**
      * @return The default value for the field. This value is used when no value is specified for the field in the document data.
      * 
      */
-    private final @Nullable String defaultValue;
+    private @Nullable String defaultValue;
     /**
      * @return You can get facet information by enabling this.
      * 
      */
-    private final @Nullable Boolean facet;
+    private @Nullable Boolean facet;
     /**
      * @return You can highlight information.
      * 
      */
-    private final @Nullable Boolean highlight;
+    private @Nullable Boolean highlight;
     /**
      * @return A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return You can enable returning the value of all searchable fields.
      * 
      */
-    private final @Nullable Boolean return_;
+    private @Nullable Boolean return_;
     /**
      * @return You can set whether this index should be searchable or not.
      * 
      */
-    private final @Nullable Boolean search;
+    private @Nullable Boolean search;
     /**
      * @return You can enable the property to be sortable.
      * 
      */
-    private final @Nullable Boolean sort;
+    private @Nullable Boolean sort;
     /**
      * @return A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
      * 
      */
-    private final @Nullable String sourceFields;
+    private @Nullable String sourceFields;
     /**
      * @return The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private DomainIndexField(
-        @CustomType.Parameter("analysisScheme") @Nullable String analysisScheme,
-        @CustomType.Parameter("defaultValue") @Nullable String defaultValue,
-        @CustomType.Parameter("facet") @Nullable Boolean facet,
-        @CustomType.Parameter("highlight") @Nullable Boolean highlight,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("return") @Nullable Boolean return_,
-        @CustomType.Parameter("search") @Nullable Boolean search,
-        @CustomType.Parameter("sort") @Nullable Boolean sort,
-        @CustomType.Parameter("sourceFields") @Nullable String sourceFields,
-        @CustomType.Parameter("type") String type) {
-        this.analysisScheme = analysisScheme;
-        this.defaultValue = defaultValue;
-        this.facet = facet;
-        this.highlight = highlight;
-        this.name = name;
-        this.return_ = return_;
-        this.search = search;
-        this.sort = sort;
-        this.sourceFields = sourceFields;
-        this.type = type;
-    }
-
+    private DomainIndexField() {}
     /**
      * @return The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
      * 
@@ -165,7 +142,7 @@ public final class DomainIndexField {
     public static Builder builder(DomainIndexField defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String analysisScheme;
         private @Nullable String defaultValue;
@@ -177,11 +154,7 @@ public final class DomainIndexField {
         private @Nullable Boolean sort;
         private @Nullable String sourceFields;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainIndexField defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.analysisScheme = defaults.analysisScheme;
@@ -196,47 +169,69 @@ public final class DomainIndexField {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder analysisScheme(@Nullable String analysisScheme) {
             this.analysisScheme = analysisScheme;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
             this.defaultValue = defaultValue;
             return this;
         }
+        @CustomType.Setter
         public Builder facet(@Nullable Boolean facet) {
             this.facet = facet;
             return this;
         }
+        @CustomType.Setter
         public Builder highlight(@Nullable Boolean highlight) {
             this.highlight = highlight;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter("return")
         public Builder return_(@Nullable Boolean return_) {
             this.return_ = return_;
             return this;
         }
+        @CustomType.Setter
         public Builder search(@Nullable Boolean search) {
             this.search = search;
             return this;
         }
+        @CustomType.Setter
         public Builder sort(@Nullable Boolean sort) {
             this.sort = sort;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceFields(@Nullable String sourceFields) {
             this.sourceFields = sourceFields;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public DomainIndexField build() {
-            return new DomainIndexField(analysisScheme, defaultValue, facet, highlight, name, return_, search, sort, sourceFields, type);
+        }
+        public DomainIndexField build() {
+            final var o = new DomainIndexField();
+            o.analysisScheme = analysisScheme;
+            o.defaultValue = defaultValue;
+            o.facet = facet;
+            o.highlight = highlight;
+            o.name = name;
+            o.return_ = return_;
+            o.search = search;
+            o.sort = sort;
+            o.sourceFields = sourceFields;
+            o.type = type;
+            return o;
         }
     }
 }

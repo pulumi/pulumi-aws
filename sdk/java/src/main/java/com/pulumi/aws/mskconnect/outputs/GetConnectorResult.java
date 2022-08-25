@@ -13,38 +13,25 @@ public final class GetConnectorResult {
      * @return The Amazon Resource Name (ARN) of the connector.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return A summary description of the connector.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The current version of the connector.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private GetConnectorResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("version") String version) {
-        this.arn = arn;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.version = version;
-    }
-
+    private GetConnectorResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the connector.
      * 
@@ -84,18 +71,14 @@ public final class GetConnectorResult {
     public static Builder builder(GetConnectorResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String description;
         private String id;
         private String name;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConnectorResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -105,27 +88,39 @@ public final class GetConnectorResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetConnectorResult build() {
-            return new GetConnectorResult(arn, description, id, name, version);
+        }
+        public GetConnectorResult build() {
+            final var o = new GetConnectorResult();
+            o.arn = arn;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.version = version;
+            return o;
         }
     }
 }

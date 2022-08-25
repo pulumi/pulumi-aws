@@ -14,21 +14,14 @@ public final class ExperimentTemplateTargetFilter {
      * @return Attribute path for the filter.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return Set of attribute values for the filter.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private ExperimentTemplateTargetFilter(
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("values") List<String> values) {
-        this.path = path;
-        this.values = values;
-    }
-
+    private ExperimentTemplateTargetFilter() {}
     /**
      * @return Attribute path for the filter.
      * 
@@ -51,33 +44,35 @@ public final class ExperimentTemplateTargetFilter {
     public static Builder builder(ExperimentTemplateTargetFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String path;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExperimentTemplateTargetFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public ExperimentTemplateTargetFilter build() {
-            return new ExperimentTemplateTargetFilter(path, values);
+        }
+        public ExperimentTemplateTargetFilter build() {
+            final var o = new ExperimentTemplateTargetFilter();
+            o.path = path;
+            o.values = values;
+            return o;
         }
     }
 }

@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOriginRequestPolicyCookiesConfigCookie {
-    private final List<String> items;
+    private List<String> items;
 
-    @CustomType.Constructor
-    private GetOriginRequestPolicyCookiesConfigCookie(@CustomType.Parameter("items") List<String> items) {
-        this.items = items;
-    }
-
+    private GetOriginRequestPolicyCookiesConfigCookie() {}
     public List<String> items() {
         return this.items;
     }
@@ -28,27 +24,27 @@ public final class GetOriginRequestPolicyCookiesConfigCookie {
     public static Builder builder(GetOriginRequestPolicyCookiesConfigCookie defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> items;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOriginRequestPolicyCookiesConfigCookie defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
         }
 
+        @CustomType.Setter
         public Builder items(List<String> items) {
             this.items = Objects.requireNonNull(items);
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
-        }        public GetOriginRequestPolicyCookiesConfigCookie build() {
-            return new GetOriginRequestPolicyCookiesConfigCookie(items);
+        }
+        public GetOriginRequestPolicyCookiesConfigCookie build() {
+            final var o = new GetOriginRequestPolicyCookiesConfigCookie();
+            o.items = items;
+            return o;
         }
     }
 }

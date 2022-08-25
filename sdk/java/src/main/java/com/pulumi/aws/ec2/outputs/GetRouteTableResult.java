@@ -19,72 +19,47 @@ public final class GetRouteTableResult {
      * @return ARN of the route table.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return List of associations with attributes detailed below.
      * 
      */
-    private final List<GetRouteTableAssociation> associations;
-    private final @Nullable List<GetRouteTableFilter> filters;
+    private List<GetRouteTableAssociation> associations;
+    private @Nullable List<GetRouteTableFilter> filters;
     /**
      * @return Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
      * 
      */
-    private final String gatewayId;
+    private String gatewayId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return ID of the AWS account that owns the route table.
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return Route Table ID.
      * 
      */
-    private final String routeTableId;
+    private String routeTableId;
     /**
      * @return List of routes with attributes detailed below.
      * 
      */
-    private final List<GetRouteTableRoute> routes;
+    private List<GetRouteTableRoute> routes;
     /**
      * @return Subnet ID. Only set when associated with a subnet.
      * 
      */
-    private final String subnetId;
-    private final Map<String,String> tags;
-    private final String vpcId;
+    private String subnetId;
+    private Map<String,String> tags;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetRouteTableResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("associations") List<GetRouteTableAssociation> associations,
-        @CustomType.Parameter("filters") @Nullable List<GetRouteTableFilter> filters,
-        @CustomType.Parameter("gatewayId") String gatewayId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("routeTableId") String routeTableId,
-        @CustomType.Parameter("routes") List<GetRouteTableRoute> routes,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.arn = arn;
-        this.associations = associations;
-        this.filters = filters;
-        this.gatewayId = gatewayId;
-        this.id = id;
-        this.ownerId = ownerId;
-        this.routeTableId = routeTableId;
-        this.routes = routes;
-        this.subnetId = subnetId;
-        this.tags = tags;
-        this.vpcId = vpcId;
-    }
-
+    private GetRouteTableResult() {}
     /**
      * @return ARN of the route table.
      * 
@@ -158,7 +133,7 @@ public final class GetRouteTableResult {
     public static Builder builder(GetRouteTableResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<GetRouteTableAssociation> associations;
@@ -171,11 +146,7 @@ public final class GetRouteTableResult {
         private String subnetId;
         private Map<String,String> tags;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRouteTableResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -191,10 +162,12 @@ public final class GetRouteTableResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder associations(List<GetRouteTableAssociation> associations) {
             this.associations = Objects.requireNonNull(associations);
             return this;
@@ -202,6 +175,7 @@ public final class GetRouteTableResult {
         public Builder associations(GetRouteTableAssociation... associations) {
             return associations(List.of(associations));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetRouteTableFilter> filters) {
             this.filters = filters;
             return this;
@@ -209,22 +183,27 @@ public final class GetRouteTableResult {
         public Builder filters(GetRouteTableFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder gatewayId(String gatewayId) {
             this.gatewayId = Objects.requireNonNull(gatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder routeTableId(String routeTableId) {
             this.routeTableId = Objects.requireNonNull(routeTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder routes(List<GetRouteTableRoute> routes) {
             this.routes = Objects.requireNonNull(routes);
             return this;
@@ -232,19 +211,35 @@ public final class GetRouteTableResult {
         public Builder routes(GetRouteTableRoute... routes) {
             return routes(List.of(routes));
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetRouteTableResult build() {
-            return new GetRouteTableResult(arn, associations, filters, gatewayId, id, ownerId, routeTableId, routes, subnetId, tags, vpcId);
+        }
+        public GetRouteTableResult build() {
+            final var o = new GetRouteTableResult();
+            o.arn = arn;
+            o.associations = associations;
+            o.filters = filters;
+            o.gatewayId = gatewayId;
+            o.id = id;
+            o.ownerId = ownerId;
+            o.routeTableId = routeTableId;
+            o.routes = routes;
+            o.subnetId = subnetId;
+            o.tags = tags;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

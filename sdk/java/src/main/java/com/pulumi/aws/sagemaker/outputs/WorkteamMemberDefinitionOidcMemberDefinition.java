@@ -14,13 +14,9 @@ public final class WorkteamMemberDefinitionOidcMemberDefinition {
      * @return A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
      * 
      */
-    private final List<String> groups;
+    private List<String> groups;
 
-    @CustomType.Constructor
-    private WorkteamMemberDefinitionOidcMemberDefinition(@CustomType.Parameter("groups") List<String> groups) {
-        this.groups = groups;
-    }
-
+    private WorkteamMemberDefinitionOidcMemberDefinition() {}
     /**
      * @return A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
      * 
@@ -36,27 +32,27 @@ public final class WorkteamMemberDefinitionOidcMemberDefinition {
     public static Builder builder(WorkteamMemberDefinitionOidcMemberDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> groups;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkteamMemberDefinitionOidcMemberDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groups = defaults.groups;
         }
 
+        @CustomType.Setter
         public Builder groups(List<String> groups) {
             this.groups = Objects.requireNonNull(groups);
             return this;
         }
         public Builder groups(String... groups) {
             return groups(List.of(groups));
-        }        public WorkteamMemberDefinitionOidcMemberDefinition build() {
-            return new WorkteamMemberDefinitionOidcMemberDefinition(groups);
+        }
+        public WorkteamMemberDefinitionOidcMemberDefinition build() {
+            final var o = new WorkteamMemberDefinitionOidcMemberDefinition();
+            o.groups = groups;
+            return o;
         }
     }
 }

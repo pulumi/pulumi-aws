@@ -11,20 +11,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SigningJobRevocationRecord {
-    private final @Nullable String reason;
-    private final @Nullable String revokedAt;
-    private final @Nullable String revokedBy;
+    private @Nullable String reason;
+    private @Nullable String revokedAt;
+    private @Nullable String revokedBy;
 
-    @CustomType.Constructor
-    private SigningJobRevocationRecord(
-        @CustomType.Parameter("reason") @Nullable String reason,
-        @CustomType.Parameter("revokedAt") @Nullable String revokedAt,
-        @CustomType.Parameter("revokedBy") @Nullable String revokedBy) {
-        this.reason = reason;
-        this.revokedAt = revokedAt;
-        this.revokedBy = revokedBy;
-    }
-
+    private SigningJobRevocationRecord() {}
     public Optional<String> reason() {
         return Optional.ofNullable(this.reason);
     }
@@ -42,16 +33,12 @@ public final class SigningJobRevocationRecord {
     public static Builder builder(SigningJobRevocationRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String reason;
         private @Nullable String revokedAt;
         private @Nullable String revokedBy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SigningJobRevocationRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.reason = defaults.reason;
@@ -59,19 +46,27 @@ public final class SigningJobRevocationRecord {
     	      this.revokedBy = defaults.revokedBy;
         }
 
+        @CustomType.Setter
         public Builder reason(@Nullable String reason) {
             this.reason = reason;
             return this;
         }
+        @CustomType.Setter
         public Builder revokedAt(@Nullable String revokedAt) {
             this.revokedAt = revokedAt;
             return this;
         }
+        @CustomType.Setter
         public Builder revokedBy(@Nullable String revokedBy) {
             this.revokedBy = revokedBy;
             return this;
-        }        public SigningJobRevocationRecord build() {
-            return new SigningJobRevocationRecord(reason, revokedAt, revokedBy);
+        }
+        public SigningJobRevocationRecord build() {
+            final var o = new SigningJobRevocationRecord();
+            o.reason = reason;
+            o.revokedAt = revokedAt;
+            o.revokedBy = revokedBy;
+            return o;
         }
     }
 }

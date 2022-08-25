@@ -14,13 +14,9 @@ public final class ListenerRuleConditionPathPattern {
      * @return List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private ListenerRuleConditionPathPattern(@CustomType.Parameter("values") List<String> values) {
-        this.values = values;
-    }
-
+    private ListenerRuleConditionPathPattern() {}
     /**
      * @return List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
      * 
@@ -36,27 +32,27 @@ public final class ListenerRuleConditionPathPattern {
     public static Builder builder(ListenerRuleConditionPathPattern defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerRuleConditionPathPattern defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public ListenerRuleConditionPathPattern build() {
-            return new ListenerRuleConditionPathPattern(values);
+        }
+        public ListenerRuleConditionPathPattern build() {
+            final var o = new ListenerRuleConditionPathPattern();
+            o.values = values;
+            return o;
         }
     }
 }

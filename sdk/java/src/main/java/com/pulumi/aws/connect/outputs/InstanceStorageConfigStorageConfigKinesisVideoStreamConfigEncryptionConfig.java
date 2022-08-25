@@ -13,21 +13,14 @@ public final class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEnc
      * @return The type of encryption. Valid Values: `KMS`.
      * 
      */
-    private final String encryptionType;
+    private String encryptionType;
     /**
      * @return The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
      * 
      */
-    private final String keyId;
+    private String keyId;
 
-    @CustomType.Constructor
-    private InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig(
-        @CustomType.Parameter("encryptionType") String encryptionType,
-        @CustomType.Parameter("keyId") String keyId) {
-        this.encryptionType = encryptionType;
-        this.keyId = keyId;
-    }
-
+    private InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig() {}
     /**
      * @return The type of encryption. Valid Values: `KMS`.
      * 
@@ -50,30 +43,32 @@ public final class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEnc
     public static Builder builder(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String encryptionType;
         private String keyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionType = defaults.encryptionType;
     	      this.keyId = defaults.keyId;
         }
 
+        @CustomType.Setter
         public Builder encryptionType(String encryptionType) {
             this.encryptionType = Objects.requireNonNull(encryptionType);
             return this;
         }
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
-        }        public InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig build() {
-            return new InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig(encryptionType, keyId);
+        }
+        public InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig build() {
+            final var o = new InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig();
+            o.encryptionType = encryptionType;
+            o.keyId = keyId;
+            return o;
         }
     }
 }

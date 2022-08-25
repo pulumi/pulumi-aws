@@ -17,84 +17,59 @@ public final class GetOrganizationResult {
      * @return List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
      * 
      */
-    private final List<GetOrganizationAccount> accounts;
+    private List<GetOrganizationAccount> accounts;
     /**
      * @return ARN of the root
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      * 
      */
-    private final List<String> awsServiceAccessPrincipals;
+    private List<String> awsServiceAccessPrincipals;
     /**
      * @return A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      * 
      */
-    private final List<String> enabledPolicyTypes;
+    private List<String> enabledPolicyTypes;
     /**
      * @return The FeatureSet of the organization.
      * 
      */
-    private final String featureSet;
+    private String featureSet;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
      * 
      */
-    private final String masterAccountArn;
+    private String masterAccountArn;
     /**
      * @return The email address that is associated with the AWS account that is designated as the master account for the organization.
      * 
      */
-    private final String masterAccountEmail;
+    private String masterAccountEmail;
     /**
      * @return The unique identifier (ID) of the master account of an organization.
      * 
      */
-    private final String masterAccountId;
+    private String masterAccountId;
     /**
      * @return List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
-    private final List<GetOrganizationNonMasterAccount> nonMasterAccounts;
+    private List<GetOrganizationNonMasterAccount> nonMasterAccounts;
     /**
      * @return List of organization roots. All elements have these attributes:
      * 
      */
-    private final List<GetOrganizationRoot> roots;
+    private List<GetOrganizationRoot> roots;
 
-    @CustomType.Constructor
-    private GetOrganizationResult(
-        @CustomType.Parameter("accounts") List<GetOrganizationAccount> accounts,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("awsServiceAccessPrincipals") List<String> awsServiceAccessPrincipals,
-        @CustomType.Parameter("enabledPolicyTypes") List<String> enabledPolicyTypes,
-        @CustomType.Parameter("featureSet") String featureSet,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("masterAccountArn") String masterAccountArn,
-        @CustomType.Parameter("masterAccountEmail") String masterAccountEmail,
-        @CustomType.Parameter("masterAccountId") String masterAccountId,
-        @CustomType.Parameter("nonMasterAccounts") List<GetOrganizationNonMasterAccount> nonMasterAccounts,
-        @CustomType.Parameter("roots") List<GetOrganizationRoot> roots) {
-        this.accounts = accounts;
-        this.arn = arn;
-        this.awsServiceAccessPrincipals = awsServiceAccessPrincipals;
-        this.enabledPolicyTypes = enabledPolicyTypes;
-        this.featureSet = featureSet;
-        this.id = id;
-        this.masterAccountArn = masterAccountArn;
-        this.masterAccountEmail = masterAccountEmail;
-        this.masterAccountId = masterAccountId;
-        this.nonMasterAccounts = nonMasterAccounts;
-        this.roots = roots;
-    }
-
+    private GetOrganizationResult() {}
     /**
      * @return List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
      * 
@@ -180,7 +155,7 @@ public final class GetOrganizationResult {
     public static Builder builder(GetOrganizationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetOrganizationAccount> accounts;
         private String arn;
@@ -193,11 +168,7 @@ public final class GetOrganizationResult {
         private String masterAccountId;
         private List<GetOrganizationNonMasterAccount> nonMasterAccounts;
         private List<GetOrganizationRoot> roots;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrganizationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accounts = defaults.accounts;
@@ -213,6 +184,7 @@ public final class GetOrganizationResult {
     	      this.roots = defaults.roots;
         }
 
+        @CustomType.Setter
         public Builder accounts(List<GetOrganizationAccount> accounts) {
             this.accounts = Objects.requireNonNull(accounts);
             return this;
@@ -220,10 +192,12 @@ public final class GetOrganizationResult {
         public Builder accounts(GetOrganizationAccount... accounts) {
             return accounts(List.of(accounts));
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder awsServiceAccessPrincipals(List<String> awsServiceAccessPrincipals) {
             this.awsServiceAccessPrincipals = Objects.requireNonNull(awsServiceAccessPrincipals);
             return this;
@@ -231,6 +205,7 @@ public final class GetOrganizationResult {
         public Builder awsServiceAccessPrincipals(String... awsServiceAccessPrincipals) {
             return awsServiceAccessPrincipals(List.of(awsServiceAccessPrincipals));
         }
+        @CustomType.Setter
         public Builder enabledPolicyTypes(List<String> enabledPolicyTypes) {
             this.enabledPolicyTypes = Objects.requireNonNull(enabledPolicyTypes);
             return this;
@@ -238,26 +213,32 @@ public final class GetOrganizationResult {
         public Builder enabledPolicyTypes(String... enabledPolicyTypes) {
             return enabledPolicyTypes(List.of(enabledPolicyTypes));
         }
+        @CustomType.Setter
         public Builder featureSet(String featureSet) {
             this.featureSet = Objects.requireNonNull(featureSet);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder masterAccountArn(String masterAccountArn) {
             this.masterAccountArn = Objects.requireNonNull(masterAccountArn);
             return this;
         }
+        @CustomType.Setter
         public Builder masterAccountEmail(String masterAccountEmail) {
             this.masterAccountEmail = Objects.requireNonNull(masterAccountEmail);
             return this;
         }
+        @CustomType.Setter
         public Builder masterAccountId(String masterAccountId) {
             this.masterAccountId = Objects.requireNonNull(masterAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder nonMasterAccounts(List<GetOrganizationNonMasterAccount> nonMasterAccounts) {
             this.nonMasterAccounts = Objects.requireNonNull(nonMasterAccounts);
             return this;
@@ -265,14 +246,28 @@ public final class GetOrganizationResult {
         public Builder nonMasterAccounts(GetOrganizationNonMasterAccount... nonMasterAccounts) {
             return nonMasterAccounts(List.of(nonMasterAccounts));
         }
+        @CustomType.Setter
         public Builder roots(List<GetOrganizationRoot> roots) {
             this.roots = Objects.requireNonNull(roots);
             return this;
         }
         public Builder roots(GetOrganizationRoot... roots) {
             return roots(List.of(roots));
-        }        public GetOrganizationResult build() {
-            return new GetOrganizationResult(accounts, arn, awsServiceAccessPrincipals, enabledPolicyTypes, featureSet, id, masterAccountArn, masterAccountEmail, masterAccountId, nonMasterAccounts, roots);
+        }
+        public GetOrganizationResult build() {
+            final var o = new GetOrganizationResult();
+            o.accounts = accounts;
+            o.arn = arn;
+            o.awsServiceAccessPrincipals = awsServiceAccessPrincipals;
+            o.enabledPolicyTypes = enabledPolicyTypes;
+            o.featureSet = featureSet;
+            o.id = id;
+            o.masterAccountArn = masterAccountArn;
+            o.masterAccountEmail = masterAccountEmail;
+            o.masterAccountId = masterAccountId;
+            o.nonMasterAccounts = nonMasterAccounts;
+            o.roots = roots;
+            return o;
         }
     }
 }

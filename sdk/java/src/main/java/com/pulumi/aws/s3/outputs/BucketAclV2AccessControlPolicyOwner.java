@@ -15,21 +15,14 @@ public final class BucketAclV2AccessControlPolicyOwner {
      * @return The display name of the owner.
      * 
      */
-    private final @Nullable String displayName;
+    private @Nullable String displayName;
     /**
      * @return The ID of the owner.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private BucketAclV2AccessControlPolicyOwner(
-        @CustomType.Parameter("displayName") @Nullable String displayName,
-        @CustomType.Parameter("id") String id) {
-        this.displayName = displayName;
-        this.id = id;
-    }
-
+    private BucketAclV2AccessControlPolicyOwner() {}
     /**
      * @return The display name of the owner.
      * 
@@ -52,30 +45,32 @@ public final class BucketAclV2AccessControlPolicyOwner {
     public static Builder builder(BucketAclV2AccessControlPolicyOwner defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String displayName;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketAclV2AccessControlPolicyOwner defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
             this.displayName = displayName;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public BucketAclV2AccessControlPolicyOwner build() {
-            return new BucketAclV2AccessControlPolicyOwner(displayName, id);
+        }
+        public BucketAclV2AccessControlPolicyOwner build() {
+            final var o = new BucketAclV2AccessControlPolicyOwner();
+            o.displayName = displayName;
+            o.id = id;
+            return o;
         }
     }
 }

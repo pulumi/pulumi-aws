@@ -18,35 +18,24 @@ public final class PolicyTargetTrackingConfiguration {
      * @return A customized metric. Conflicts with `predefined_metric_specification`.
      * 
      */
-    private final @Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification customizedMetricSpecification;
+    private @Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification customizedMetricSpecification;
     /**
      * @return Indicates whether scale in by the target tracking policy is disabled.
      * 
      */
-    private final @Nullable Boolean disableScaleIn;
+    private @Nullable Boolean disableScaleIn;
     /**
      * @return A predefined metric. Conflicts with `customized_metric_specification`.
      * 
      */
-    private final @Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification predefinedMetricSpecification;
+    private @Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification predefinedMetricSpecification;
     /**
      * @return The target value for the metric.
      * 
      */
-    private final Double targetValue;
+    private Double targetValue;
 
-    @CustomType.Constructor
-    private PolicyTargetTrackingConfiguration(
-        @CustomType.Parameter("customizedMetricSpecification") @Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification customizedMetricSpecification,
-        @CustomType.Parameter("disableScaleIn") @Nullable Boolean disableScaleIn,
-        @CustomType.Parameter("predefinedMetricSpecification") @Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification predefinedMetricSpecification,
-        @CustomType.Parameter("targetValue") Double targetValue) {
-        this.customizedMetricSpecification = customizedMetricSpecification;
-        this.disableScaleIn = disableScaleIn;
-        this.predefinedMetricSpecification = predefinedMetricSpecification;
-        this.targetValue = targetValue;
-    }
-
+    private PolicyTargetTrackingConfiguration() {}
     /**
      * @return A customized metric. Conflicts with `predefined_metric_specification`.
      * 
@@ -83,17 +72,13 @@ public final class PolicyTargetTrackingConfiguration {
     public static Builder builder(PolicyTargetTrackingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification customizedMetricSpecification;
         private @Nullable Boolean disableScaleIn;
         private @Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification predefinedMetricSpecification;
         private Double targetValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyTargetTrackingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customizedMetricSpecification = defaults.customizedMetricSpecification;
@@ -102,23 +87,33 @@ public final class PolicyTargetTrackingConfiguration {
     	      this.targetValue = defaults.targetValue;
         }
 
+        @CustomType.Setter
         public Builder customizedMetricSpecification(@Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification customizedMetricSpecification) {
             this.customizedMetricSpecification = customizedMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder disableScaleIn(@Nullable Boolean disableScaleIn) {
             this.disableScaleIn = disableScaleIn;
             return this;
         }
+        @CustomType.Setter
         public Builder predefinedMetricSpecification(@Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification predefinedMetricSpecification) {
             this.predefinedMetricSpecification = predefinedMetricSpecification;
             return this;
         }
+        @CustomType.Setter
         public Builder targetValue(Double targetValue) {
             this.targetValue = Objects.requireNonNull(targetValue);
             return this;
-        }        public PolicyTargetTrackingConfiguration build() {
-            return new PolicyTargetTrackingConfiguration(customizedMetricSpecification, disableScaleIn, predefinedMetricSpecification, targetValue);
+        }
+        public PolicyTargetTrackingConfiguration build() {
+            final var o = new PolicyTargetTrackingConfiguration();
+            o.customizedMetricSpecification = customizedMetricSpecification;
+            o.disableScaleIn = disableScaleIn;
+            o.predefinedMetricSpecification = predefinedMetricSpecification;
+            o.targetValue = targetValue;
+            return o;
         }
     }
 }

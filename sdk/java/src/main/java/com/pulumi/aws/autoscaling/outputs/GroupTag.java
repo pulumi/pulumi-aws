@@ -14,29 +14,20 @@ public final class GroupTag {
      * @return Key
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Enables propagation of the tag to
      * Amazon EC2 instances launched via this ASG
      * 
      */
-    private final Boolean propagateAtLaunch;
+    private Boolean propagateAtLaunch;
     /**
      * @return Value
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GroupTag(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("propagateAtLaunch") Boolean propagateAtLaunch,
-        @CustomType.Parameter("value") String value) {
-        this.key = key;
-        this.propagateAtLaunch = propagateAtLaunch;
-        this.value = value;
-    }
-
+    private GroupTag() {}
     /**
      * @return Key
      * 
@@ -67,16 +58,12 @@ public final class GroupTag {
     public static Builder builder(GroupTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private Boolean propagateAtLaunch;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -84,19 +71,27 @@ public final class GroupTag {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder propagateAtLaunch(Boolean propagateAtLaunch) {
             this.propagateAtLaunch = Objects.requireNonNull(propagateAtLaunch);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GroupTag build() {
-            return new GroupTag(key, propagateAtLaunch, value);
+        }
+        public GroupTag build() {
+            final var o = new GroupTag();
+            o.key = key;
+            o.propagateAtLaunch = propagateAtLaunch;
+            o.value = value;
+            return o;
         }
     }
 }

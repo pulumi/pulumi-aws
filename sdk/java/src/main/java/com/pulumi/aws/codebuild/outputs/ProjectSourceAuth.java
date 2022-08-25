@@ -19,7 +19,7 @@ public final class ProjectSourceAuth {
      * 
      */
     @Deprecated /* Use the aws_codebuild_source_credential resource instead */
-    private final @Nullable String resource;
+    private @Nullable String resource;
     /**
      * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
@@ -28,16 +28,9 @@ public final class ProjectSourceAuth {
      * 
      */
     @Deprecated /* Use the aws_codebuild_source_credential resource instead */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ProjectSourceAuth(
-        @CustomType.Parameter("resource") @Nullable String resource,
-        @CustomType.Parameter("type") String type) {
-        this.resource = resource;
-        this.type = type;
-    }
-
+    private ProjectSourceAuth() {}
     /**
      * @return Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
      * 
@@ -68,30 +61,32 @@ public final class ProjectSourceAuth {
     public static Builder builder(ProjectSourceAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String resource;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProjectSourceAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resource = defaults.resource;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder resource(@Nullable String resource) {
             this.resource = resource;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ProjectSourceAuth build() {
-            return new ProjectSourceAuth(resource, type);
+        }
+        public ProjectSourceAuth build() {
+            final var o = new ProjectSourceAuth();
+            o.resource = resource;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class CertificateAuthorityRevocationConfigurationOcspConfiguration 
      * @return Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
      * 
      */
-    private final @Nullable String ocspCustomCname;
+    private @Nullable String ocspCustomCname;
 
-    @CustomType.Constructor
-    private CertificateAuthorityRevocationConfigurationOcspConfiguration(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("ocspCustomCname") @Nullable String ocspCustomCname) {
-        this.enabled = enabled;
-        this.ocspCustomCname = ocspCustomCname;
-    }
-
+    private CertificateAuthorityRevocationConfigurationOcspConfiguration() {}
     /**
      * @return Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
@@ -53,30 +46,32 @@ public final class CertificateAuthorityRevocationConfigurationOcspConfiguration 
     public static Builder builder(CertificateAuthorityRevocationConfigurationOcspConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable String ocspCustomCname;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateAuthorityRevocationConfigurationOcspConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.ocspCustomCname = defaults.ocspCustomCname;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder ocspCustomCname(@Nullable String ocspCustomCname) {
             this.ocspCustomCname = ocspCustomCname;
             return this;
-        }        public CertificateAuthorityRevocationConfigurationOcspConfiguration build() {
-            return new CertificateAuthorityRevocationConfigurationOcspConfiguration(enabled, ocspCustomCname);
+        }
+        public CertificateAuthorityRevocationConfigurationOcspConfiguration build() {
+            final var o = new CertificateAuthorityRevocationConfigurationOcspConfiguration();
+            o.enabled = enabled;
+            o.ocspCustomCname = ocspCustomCname;
+            return o;
         }
     }
 }

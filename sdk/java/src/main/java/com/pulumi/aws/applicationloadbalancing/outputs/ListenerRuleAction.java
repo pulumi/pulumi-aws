@@ -21,59 +21,40 @@ public final class ListenerRuleAction {
      * @return Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
      * 
      */
-    private final @Nullable ListenerRuleActionAuthenticateCognito authenticateCognito;
+    private @Nullable ListenerRuleActionAuthenticateCognito authenticateCognito;
     /**
      * @return Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
      * 
      */
-    private final @Nullable ListenerRuleActionAuthenticateOidc authenticateOidc;
+    private @Nullable ListenerRuleActionAuthenticateOidc authenticateOidc;
     /**
      * @return Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
      * 
      */
-    private final @Nullable ListenerRuleActionFixedResponse fixedResponse;
+    private @Nullable ListenerRuleActionFixedResponse fixedResponse;
     /**
      * @return Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
      * 
      */
-    private final @Nullable ListenerRuleActionForward forward;
-    private final @Nullable Integer order;
+    private @Nullable ListenerRuleActionForward forward;
+    private @Nullable Integer order;
     /**
      * @return Information for creating a redirect action. Required if `type` is `redirect`.
      * 
      */
-    private final @Nullable ListenerRuleActionRedirect redirect;
+    private @Nullable ListenerRuleActionRedirect redirect;
     /**
      * @return The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
      * 
      */
-    private final @Nullable String targetGroupArn;
+    private @Nullable String targetGroupArn;
     /**
      * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ListenerRuleAction(
-        @CustomType.Parameter("authenticateCognito") @Nullable ListenerRuleActionAuthenticateCognito authenticateCognito,
-        @CustomType.Parameter("authenticateOidc") @Nullable ListenerRuleActionAuthenticateOidc authenticateOidc,
-        @CustomType.Parameter("fixedResponse") @Nullable ListenerRuleActionFixedResponse fixedResponse,
-        @CustomType.Parameter("forward") @Nullable ListenerRuleActionForward forward,
-        @CustomType.Parameter("order") @Nullable Integer order,
-        @CustomType.Parameter("redirect") @Nullable ListenerRuleActionRedirect redirect,
-        @CustomType.Parameter("targetGroupArn") @Nullable String targetGroupArn,
-        @CustomType.Parameter("type") String type) {
-        this.authenticateCognito = authenticateCognito;
-        this.authenticateOidc = authenticateOidc;
-        this.fixedResponse = fixedResponse;
-        this.forward = forward;
-        this.order = order;
-        this.redirect = redirect;
-        this.targetGroupArn = targetGroupArn;
-        this.type = type;
-    }
-
+    private ListenerRuleAction() {}
     /**
      * @return Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
      * 
@@ -134,7 +115,7 @@ public final class ListenerRuleAction {
     public static Builder builder(ListenerRuleAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ListenerRuleActionAuthenticateCognito authenticateCognito;
         private @Nullable ListenerRuleActionAuthenticateOidc authenticateOidc;
@@ -144,11 +125,7 @@ public final class ListenerRuleAction {
         private @Nullable ListenerRuleActionRedirect redirect;
         private @Nullable String targetGroupArn;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ListenerRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticateCognito = defaults.authenticateCognito;
@@ -161,39 +138,57 @@ public final class ListenerRuleAction {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder authenticateCognito(@Nullable ListenerRuleActionAuthenticateCognito authenticateCognito) {
             this.authenticateCognito = authenticateCognito;
             return this;
         }
+        @CustomType.Setter
         public Builder authenticateOidc(@Nullable ListenerRuleActionAuthenticateOidc authenticateOidc) {
             this.authenticateOidc = authenticateOidc;
             return this;
         }
+        @CustomType.Setter
         public Builder fixedResponse(@Nullable ListenerRuleActionFixedResponse fixedResponse) {
             this.fixedResponse = fixedResponse;
             return this;
         }
+        @CustomType.Setter
         public Builder forward(@Nullable ListenerRuleActionForward forward) {
             this.forward = forward;
             return this;
         }
+        @CustomType.Setter
         public Builder order(@Nullable Integer order) {
             this.order = order;
             return this;
         }
+        @CustomType.Setter
         public Builder redirect(@Nullable ListenerRuleActionRedirect redirect) {
             this.redirect = redirect;
             return this;
         }
+        @CustomType.Setter
         public Builder targetGroupArn(@Nullable String targetGroupArn) {
             this.targetGroupArn = targetGroupArn;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ListenerRuleAction build() {
-            return new ListenerRuleAction(authenticateCognito, authenticateOidc, fixedResponse, forward, order, redirect, targetGroupArn, type);
+        }
+        public ListenerRuleAction build() {
+            final var o = new ListenerRuleAction();
+            o.authenticateCognito = authenticateCognito;
+            o.authenticateOidc = authenticateOidc;
+            o.fixedResponse = fixedResponse;
+            o.forward = forward;
+            o.order = order;
+            o.redirect = redirect;
+            o.targetGroupArn = targetGroupArn;
+            o.type = type;
+            return o;
         }
     }
 }

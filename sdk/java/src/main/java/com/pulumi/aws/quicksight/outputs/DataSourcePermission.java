@@ -14,21 +14,14 @@ public final class DataSourcePermission {
      * @return Set of IAM actions to grant or revoke permissions on. Max of 16 items.
      * 
      */
-    private final List<String> actions;
+    private List<String> actions;
     /**
      * @return The Amazon Resource Name (ARN) of the principal.
      * 
      */
-    private final String principal;
+    private String principal;
 
-    @CustomType.Constructor
-    private DataSourcePermission(
-        @CustomType.Parameter("actions") List<String> actions,
-        @CustomType.Parameter("principal") String principal) {
-        this.actions = actions;
-        this.principal = principal;
-    }
-
+    private DataSourcePermission() {}
     /**
      * @return Set of IAM actions to grant or revoke permissions on. Max of 16 items.
      * 
@@ -51,21 +44,18 @@ public final class DataSourcePermission {
     public static Builder builder(DataSourcePermission defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> actions;
         private String principal;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourcePermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.principal = defaults.principal;
         }
 
+        @CustomType.Setter
         public Builder actions(List<String> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -73,11 +63,16 @@ public final class DataSourcePermission {
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder principal(String principal) {
             this.principal = Objects.requireNonNull(principal);
             return this;
-        }        public DataSourcePermission build() {
-            return new DataSourcePermission(actions, principal);
+        }
+        public DataSourcePermission build() {
+            final var o = new DataSourcePermission();
+            o.actions = actions;
+            o.principal = principal;
+            return o;
         }
     }
 }

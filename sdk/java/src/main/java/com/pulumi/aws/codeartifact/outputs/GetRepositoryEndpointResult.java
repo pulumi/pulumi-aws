@@ -9,37 +9,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryEndpointResult {
-    private final String domain;
-    private final String domainOwner;
-    private final String format;
+    private String domain;
+    private String domainOwner;
+    private String format;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String repository;
+    private String id;
+    private String repository;
     /**
      * @return The URL of the returned endpoint.
      * 
      */
-    private final String repositoryEndpoint;
+    private String repositoryEndpoint;
 
-    @CustomType.Constructor
-    private GetRepositoryEndpointResult(
-        @CustomType.Parameter("domain") String domain,
-        @CustomType.Parameter("domainOwner") String domainOwner,
-        @CustomType.Parameter("format") String format,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("repository") String repository,
-        @CustomType.Parameter("repositoryEndpoint") String repositoryEndpoint) {
-        this.domain = domain;
-        this.domainOwner = domainOwner;
-        this.format = format;
-        this.id = id;
-        this.repository = repository;
-        this.repositoryEndpoint = repositoryEndpoint;
-    }
-
+    private GetRepositoryEndpointResult() {}
     public String domain() {
         return this.domain;
     }
@@ -74,7 +59,7 @@ public final class GetRepositoryEndpointResult {
     public static Builder builder(GetRepositoryEndpointResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domain;
         private String domainOwner;
@@ -82,11 +67,7 @@ public final class GetRepositoryEndpointResult {
         private String id;
         private String repository;
         private String repositoryEndpoint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domain = defaults.domain;
@@ -97,31 +78,45 @@ public final class GetRepositoryEndpointResult {
     	      this.repositoryEndpoint = defaults.repositoryEndpoint;
         }
 
+        @CustomType.Setter
         public Builder domain(String domain) {
             this.domain = Objects.requireNonNull(domain);
             return this;
         }
+        @CustomType.Setter
         public Builder domainOwner(String domainOwner) {
             this.domainOwner = Objects.requireNonNull(domainOwner);
             return this;
         }
+        @CustomType.Setter
         public Builder format(String format) {
             this.format = Objects.requireNonNull(format);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryEndpoint(String repositoryEndpoint) {
             this.repositoryEndpoint = Objects.requireNonNull(repositoryEndpoint);
             return this;
-        }        public GetRepositoryEndpointResult build() {
-            return new GetRepositoryEndpointResult(domain, domainOwner, format, id, repository, repositoryEndpoint);
+        }
+        public GetRepositoryEndpointResult build() {
+            final var o = new GetRepositoryEndpointResult();
+            o.domain = domain;
+            o.domainOwner = domainOwner;
+            o.format = format;
+            o.id = id;
+            o.repository = repository;
+            o.repositoryEndpoint = repositoryEndpoint;
+            return o;
         }
     }
 }

@@ -17,35 +17,24 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
      * @return The Availability Zones in which to enable fast snapshot restore.
      * 
      */
-    private final List<String> availabilityZones;
+    private List<String> availabilityZones;
     /**
      * @return How many snapshots to keep. Must be an integer between `1` and `1000`.
      * 
      */
-    private final @Nullable Integer count;
+    private @Nullable Integer count;
     /**
      * @return The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
     /**
      * @return The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
      * 
      */
-    private final @Nullable String intervalUnit;
+    private @Nullable String intervalUnit;
 
-    @CustomType.Constructor
-    private LifecyclePolicyPolicyDetailsScheduleFastRestoreRule(
-        @CustomType.Parameter("availabilityZones") List<String> availabilityZones,
-        @CustomType.Parameter("count") @Nullable Integer count,
-        @CustomType.Parameter("interval") @Nullable Integer interval,
-        @CustomType.Parameter("intervalUnit") @Nullable String intervalUnit) {
-        this.availabilityZones = availabilityZones;
-        this.count = count;
-        this.interval = interval;
-        this.intervalUnit = intervalUnit;
-    }
-
+    private LifecyclePolicyPolicyDetailsScheduleFastRestoreRule() {}
     /**
      * @return The Availability Zones in which to enable fast snapshot restore.
      * 
@@ -82,17 +71,13 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
     public static Builder builder(LifecyclePolicyPolicyDetailsScheduleFastRestoreRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> availabilityZones;
         private @Nullable Integer count;
         private @Nullable Integer interval;
         private @Nullable String intervalUnit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsScheduleFastRestoreRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZones = defaults.availabilityZones;
@@ -101,6 +86,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
     	      this.intervalUnit = defaults.intervalUnit;
         }
 
+        @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
             this.availabilityZones = Objects.requireNonNull(availabilityZones);
             return this;
@@ -108,19 +94,28 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder count(@Nullable Integer count) {
             this.count = count;
             return this;
         }
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
         }
+        @CustomType.Setter
         public Builder intervalUnit(@Nullable String intervalUnit) {
             this.intervalUnit = intervalUnit;
             return this;
-        }        public LifecyclePolicyPolicyDetailsScheduleFastRestoreRule build() {
-            return new LifecyclePolicyPolicyDetailsScheduleFastRestoreRule(availabilityZones, count, interval, intervalUnit);
+        }
+        public LifecyclePolicyPolicyDetailsScheduleFastRestoreRule build() {
+            final var o = new LifecyclePolicyPolicyDetailsScheduleFastRestoreRule();
+            o.availabilityZones = availabilityZones;
+            o.count = count;
+            o.interval = interval;
+            o.intervalUnit = intervalUnit;
+            return o;
         }
     }
 }

@@ -18,24 +18,15 @@ public final class EnvironmentLastUpdated {
      * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
-    private final @Nullable String createdAt;
-    private final @Nullable List<EnvironmentLastUpdatedError> errors;
+    private @Nullable String createdAt;
+    private @Nullable List<EnvironmentLastUpdatedError> errors;
     /**
      * @return The status of the Amazon MWAA Environment
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
 
-    @CustomType.Constructor
-    private EnvironmentLastUpdated(
-        @CustomType.Parameter("createdAt") @Nullable String createdAt,
-        @CustomType.Parameter("errors") @Nullable List<EnvironmentLastUpdatedError> errors,
-        @CustomType.Parameter("status") @Nullable String status) {
-        this.createdAt = createdAt;
-        this.errors = errors;
-        this.status = status;
-    }
-
+    private EnvironmentLastUpdated() {}
     /**
      * @return The Created At date of the MWAA Environment
      * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
@@ -62,16 +53,12 @@ public final class EnvironmentLastUpdated {
     public static Builder builder(EnvironmentLastUpdated defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String createdAt;
         private @Nullable List<EnvironmentLastUpdatedError> errors;
         private @Nullable String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EnvironmentLastUpdated defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createdAt = defaults.createdAt;
@@ -79,10 +66,12 @@ public final class EnvironmentLastUpdated {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder createdAt(@Nullable String createdAt) {
             this.createdAt = createdAt;
             return this;
         }
+        @CustomType.Setter
         public Builder errors(@Nullable List<EnvironmentLastUpdatedError> errors) {
             this.errors = errors;
             return this;
@@ -90,11 +79,17 @@ public final class EnvironmentLastUpdated {
         public Builder errors(EnvironmentLastUpdatedError... errors) {
             return errors(List.of(errors));
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
-        }        public EnvironmentLastUpdated build() {
-            return new EnvironmentLastUpdated(createdAt, errors, status);
+        }
+        public EnvironmentLastUpdated build() {
+            final var o = new EnvironmentLastUpdated();
+            o.createdAt = createdAt;
+            o.errors = errors;
+            o.status = status;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class TrailInsightSelector {
      * @return Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
      * 
      */
-    private final String insightType;
+    private String insightType;
 
-    @CustomType.Constructor
-    private TrailInsightSelector(@CustomType.Parameter("insightType") String insightType) {
-        this.insightType = insightType;
-    }
-
+    private TrailInsightSelector() {}
     /**
      * @return Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
      * 
@@ -35,24 +31,24 @@ public final class TrailInsightSelector {
     public static Builder builder(TrailInsightSelector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String insightType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrailInsightSelector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.insightType = defaults.insightType;
         }
 
+        @CustomType.Setter
         public Builder insightType(String insightType) {
             this.insightType = Objects.requireNonNull(insightType);
             return this;
-        }        public TrailInsightSelector build() {
-            return new TrailInsightSelector(insightType);
+        }
+        public TrailInsightSelector build() {
+            final var o = new TrailInsightSelector();
+            o.insightType = insightType;
+            return o;
         }
     }
 }

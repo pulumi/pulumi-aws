@@ -13,21 +13,14 @@ public final class TopicRuleErrorActionTimestreamTimestamp {
      * @return The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
      * 
      */
-    private final String unit;
+    private String unit;
     /**
      * @return The value of the HTTP header.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private TopicRuleErrorActionTimestreamTimestamp(
-        @CustomType.Parameter("unit") String unit,
-        @CustomType.Parameter("value") String value) {
-        this.unit = unit;
-        this.value = value;
-    }
-
+    private TopicRuleErrorActionTimestreamTimestamp() {}
     /**
      * @return The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
      * 
@@ -50,30 +43,32 @@ public final class TopicRuleErrorActionTimestreamTimestamp {
     public static Builder builder(TopicRuleErrorActionTimestreamTimestamp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String unit;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleErrorActionTimestreamTimestamp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.unit = defaults.unit;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder unit(String unit) {
             this.unit = Objects.requireNonNull(unit);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public TopicRuleErrorActionTimestreamTimestamp build() {
-            return new TopicRuleErrorActionTimestreamTimestamp(unit, value);
+        }
+        public TopicRuleErrorActionTimestreamTimestamp build() {
+            final var o = new TopicRuleErrorActionTimestreamTimestamp();
+            o.unit = unit;
+            o.value = value;
+            return o;
         }
     }
 }

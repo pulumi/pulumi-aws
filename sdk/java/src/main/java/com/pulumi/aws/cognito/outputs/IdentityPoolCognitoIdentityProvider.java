@@ -16,28 +16,19 @@ public final class IdentityPoolCognitoIdentityProvider {
      * @return The client ID for the Amazon Cognito Identity User Pool.
      * 
      */
-    private final @Nullable String clientId;
+    private @Nullable String clientId;
     /**
      * @return The provider name for an Amazon Cognito Identity User Pool.
      * 
      */
-    private final @Nullable String providerName;
+    private @Nullable String providerName;
     /**
      * @return Whether server-side token validation is enabled for the identity provider’s token or not.
      * 
      */
-    private final @Nullable Boolean serverSideTokenCheck;
+    private @Nullable Boolean serverSideTokenCheck;
 
-    @CustomType.Constructor
-    private IdentityPoolCognitoIdentityProvider(
-        @CustomType.Parameter("clientId") @Nullable String clientId,
-        @CustomType.Parameter("providerName") @Nullable String providerName,
-        @CustomType.Parameter("serverSideTokenCheck") @Nullable Boolean serverSideTokenCheck) {
-        this.clientId = clientId;
-        this.providerName = providerName;
-        this.serverSideTokenCheck = serverSideTokenCheck;
-    }
-
+    private IdentityPoolCognitoIdentityProvider() {}
     /**
      * @return The client ID for the Amazon Cognito Identity User Pool.
      * 
@@ -67,16 +58,12 @@ public final class IdentityPoolCognitoIdentityProvider {
     public static Builder builder(IdentityPoolCognitoIdentityProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clientId;
         private @Nullable String providerName;
         private @Nullable Boolean serverSideTokenCheck;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IdentityPoolCognitoIdentityProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -84,19 +71,27 @@ public final class IdentityPoolCognitoIdentityProvider {
     	      this.serverSideTokenCheck = defaults.serverSideTokenCheck;
         }
 
+        @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
             this.clientId = clientId;
             return this;
         }
+        @CustomType.Setter
         public Builder providerName(@Nullable String providerName) {
             this.providerName = providerName;
             return this;
         }
+        @CustomType.Setter
         public Builder serverSideTokenCheck(@Nullable Boolean serverSideTokenCheck) {
             this.serverSideTokenCheck = serverSideTokenCheck;
             return this;
-        }        public IdentityPoolCognitoIdentityProvider build() {
-            return new IdentityPoolCognitoIdentityProvider(clientId, providerName, serverSideTokenCheck);
+        }
+        public IdentityPoolCognitoIdentityProvider build() {
+            final var o = new IdentityPoolCognitoIdentityProvider();
+            o.clientId = clientId;
+            o.providerName = providerName;
+            o.serverSideTokenCheck = serverSideTokenCheck;
+            return o;
         }
     }
 }

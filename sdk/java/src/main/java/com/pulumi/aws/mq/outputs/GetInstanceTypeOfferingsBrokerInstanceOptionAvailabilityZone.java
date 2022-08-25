@@ -13,13 +13,9 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone 
      * @return The name of the Availability Zone.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone() {}
     /**
      * @return The name of the Availability Zone.
      * 
@@ -35,24 +31,24 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone 
     public static Builder builder(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone build() {
-            return new GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone(name);
+        }
+        public GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone build() {
+            final var o = new GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone();
+            o.name = name;
+            return o;
         }
     }
 }

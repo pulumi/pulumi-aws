@@ -16,49 +16,34 @@ public final class GetApiCorsConfiguration {
      * @return Whether credentials are included in the CORS request.
      * 
      */
-    private final Boolean allowCredentials;
+    private Boolean allowCredentials;
     /**
      * @return The set of allowed HTTP headers.
      * 
      */
-    private final List<String> allowHeaders;
+    private List<String> allowHeaders;
     /**
      * @return The set of allowed HTTP methods.
      * 
      */
-    private final List<String> allowMethods;
+    private List<String> allowMethods;
     /**
      * @return The set of allowed origins.
      * 
      */
-    private final List<String> allowOrigins;
+    private List<String> allowOrigins;
     /**
      * @return The set of exposed HTTP headers.
      * 
      */
-    private final List<String> exposeHeaders;
+    private List<String> exposeHeaders;
     /**
      * @return The number of seconds that the browser should cache preflight request results.
      * 
      */
-    private final Integer maxAge;
+    private Integer maxAge;
 
-    @CustomType.Constructor
-    private GetApiCorsConfiguration(
-        @CustomType.Parameter("allowCredentials") Boolean allowCredentials,
-        @CustomType.Parameter("allowHeaders") List<String> allowHeaders,
-        @CustomType.Parameter("allowMethods") List<String> allowMethods,
-        @CustomType.Parameter("allowOrigins") List<String> allowOrigins,
-        @CustomType.Parameter("exposeHeaders") List<String> exposeHeaders,
-        @CustomType.Parameter("maxAge") Integer maxAge) {
-        this.allowCredentials = allowCredentials;
-        this.allowHeaders = allowHeaders;
-        this.allowMethods = allowMethods;
-        this.allowOrigins = allowOrigins;
-        this.exposeHeaders = exposeHeaders;
-        this.maxAge = maxAge;
-    }
-
+    private GetApiCorsConfiguration() {}
     /**
      * @return Whether credentials are included in the CORS request.
      * 
@@ -109,7 +94,7 @@ public final class GetApiCorsConfiguration {
     public static Builder builder(GetApiCorsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean allowCredentials;
         private List<String> allowHeaders;
@@ -117,11 +102,7 @@ public final class GetApiCorsConfiguration {
         private List<String> allowOrigins;
         private List<String> exposeHeaders;
         private Integer maxAge;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApiCorsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowCredentials = defaults.allowCredentials;
@@ -132,10 +113,12 @@ public final class GetApiCorsConfiguration {
     	      this.maxAge = defaults.maxAge;
         }
 
+        @CustomType.Setter
         public Builder allowCredentials(Boolean allowCredentials) {
             this.allowCredentials = Objects.requireNonNull(allowCredentials);
             return this;
         }
+        @CustomType.Setter
         public Builder allowHeaders(List<String> allowHeaders) {
             this.allowHeaders = Objects.requireNonNull(allowHeaders);
             return this;
@@ -143,6 +126,7 @@ public final class GetApiCorsConfiguration {
         public Builder allowHeaders(String... allowHeaders) {
             return allowHeaders(List.of(allowHeaders));
         }
+        @CustomType.Setter
         public Builder allowMethods(List<String> allowMethods) {
             this.allowMethods = Objects.requireNonNull(allowMethods);
             return this;
@@ -150,6 +134,7 @@ public final class GetApiCorsConfiguration {
         public Builder allowMethods(String... allowMethods) {
             return allowMethods(List.of(allowMethods));
         }
+        @CustomType.Setter
         public Builder allowOrigins(List<String> allowOrigins) {
             this.allowOrigins = Objects.requireNonNull(allowOrigins);
             return this;
@@ -157,6 +142,7 @@ public final class GetApiCorsConfiguration {
         public Builder allowOrigins(String... allowOrigins) {
             return allowOrigins(List.of(allowOrigins));
         }
+        @CustomType.Setter
         public Builder exposeHeaders(List<String> exposeHeaders) {
             this.exposeHeaders = Objects.requireNonNull(exposeHeaders);
             return this;
@@ -164,11 +150,20 @@ public final class GetApiCorsConfiguration {
         public Builder exposeHeaders(String... exposeHeaders) {
             return exposeHeaders(List.of(exposeHeaders));
         }
+        @CustomType.Setter
         public Builder maxAge(Integer maxAge) {
             this.maxAge = Objects.requireNonNull(maxAge);
             return this;
-        }        public GetApiCorsConfiguration build() {
-            return new GetApiCorsConfiguration(allowCredentials, allowHeaders, allowMethods, allowOrigins, exposeHeaders, maxAge);
+        }
+        public GetApiCorsConfiguration build() {
+            final var o = new GetApiCorsConfiguration();
+            o.allowCredentials = allowCredentials;
+            o.allowHeaders = allowHeaders;
+            o.allowMethods = allowMethods;
+            o.allowOrigins = allowOrigins;
+            o.exposeHeaders = exposeHeaders;
+            o.maxAge = maxAge;
+            return o;
         }
     }
 }

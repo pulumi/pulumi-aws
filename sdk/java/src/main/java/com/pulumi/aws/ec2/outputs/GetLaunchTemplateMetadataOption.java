@@ -10,26 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateMetadataOption {
-    private final String httpEndpoint;
-    private final String httpProtocolIpv6;
-    private final Integer httpPutResponseHopLimit;
-    private final String httpTokens;
-    private final String instanceMetadataTags;
+    private String httpEndpoint;
+    private String httpProtocolIpv6;
+    private Integer httpPutResponseHopLimit;
+    private String httpTokens;
+    private String instanceMetadataTags;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateMetadataOption(
-        @CustomType.Parameter("httpEndpoint") String httpEndpoint,
-        @CustomType.Parameter("httpProtocolIpv6") String httpProtocolIpv6,
-        @CustomType.Parameter("httpPutResponseHopLimit") Integer httpPutResponseHopLimit,
-        @CustomType.Parameter("httpTokens") String httpTokens,
-        @CustomType.Parameter("instanceMetadataTags") String instanceMetadataTags) {
-        this.httpEndpoint = httpEndpoint;
-        this.httpProtocolIpv6 = httpProtocolIpv6;
-        this.httpPutResponseHopLimit = httpPutResponseHopLimit;
-        this.httpTokens = httpTokens;
-        this.instanceMetadataTags = instanceMetadataTags;
-    }
-
+    private GetLaunchTemplateMetadataOption() {}
     public String httpEndpoint() {
         return this.httpEndpoint;
     }
@@ -53,18 +40,14 @@ public final class GetLaunchTemplateMetadataOption {
     public static Builder builder(GetLaunchTemplateMetadataOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String httpEndpoint;
         private String httpProtocolIpv6;
         private Integer httpPutResponseHopLimit;
         private String httpTokens;
         private String instanceMetadataTags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateMetadataOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpEndpoint = defaults.httpEndpoint;
@@ -74,27 +57,39 @@ public final class GetLaunchTemplateMetadataOption {
     	      this.instanceMetadataTags = defaults.instanceMetadataTags;
         }
 
+        @CustomType.Setter
         public Builder httpEndpoint(String httpEndpoint) {
             this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder httpProtocolIpv6(String httpProtocolIpv6) {
             this.httpProtocolIpv6 = Objects.requireNonNull(httpProtocolIpv6);
             return this;
         }
+        @CustomType.Setter
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
             this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder httpTokens(String httpTokens) {
             this.httpTokens = Objects.requireNonNull(httpTokens);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceMetadataTags(String instanceMetadataTags) {
             this.instanceMetadataTags = Objects.requireNonNull(instanceMetadataTags);
             return this;
-        }        public GetLaunchTemplateMetadataOption build() {
-            return new GetLaunchTemplateMetadataOption(httpEndpoint, httpProtocolIpv6, httpPutResponseHopLimit, httpTokens, instanceMetadataTags);
+        }
+        public GetLaunchTemplateMetadataOption build() {
+            final var o = new GetLaunchTemplateMetadataOption();
+            o.httpEndpoint = httpEndpoint;
+            o.httpProtocolIpv6 = httpProtocolIpv6;
+            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            o.httpTokens = httpTokens;
+            o.instanceMetadataTags = instanceMetadataTags;
+            return o;
         }
     }
 }

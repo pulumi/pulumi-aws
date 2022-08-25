@@ -13,13 +13,9 @@ public final class RuleGroupRuleGroupStatefulRuleOptions {
      * @return Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
      */
-    private final String ruleOrder;
+    private String ruleOrder;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupStatefulRuleOptions(@CustomType.Parameter("ruleOrder") String ruleOrder) {
-        this.ruleOrder = ruleOrder;
-    }
-
+    private RuleGroupRuleGroupStatefulRuleOptions() {}
     /**
      * @return Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
@@ -35,24 +31,24 @@ public final class RuleGroupRuleGroupStatefulRuleOptions {
     public static Builder builder(RuleGroupRuleGroupStatefulRuleOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ruleOrder;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupStatefulRuleOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ruleOrder = defaults.ruleOrder;
         }
 
+        @CustomType.Setter
         public Builder ruleOrder(String ruleOrder) {
             this.ruleOrder = Objects.requireNonNull(ruleOrder);
             return this;
-        }        public RuleGroupRuleGroupStatefulRuleOptions build() {
-            return new RuleGroupRuleGroupStatefulRuleOptions(ruleOrder);
+        }
+        public RuleGroupRuleGroupStatefulRuleOptions build() {
+            final var o = new RuleGroupRuleGroupStatefulRuleOptions();
+            o.ruleOrder = ruleOrder;
+            return o;
         }
     }
 }

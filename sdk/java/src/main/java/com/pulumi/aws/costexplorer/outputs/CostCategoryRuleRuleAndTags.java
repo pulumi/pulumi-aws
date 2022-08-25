@@ -16,28 +16,19 @@ public final class CostCategoryRuleRuleAndTags {
      * @return Key for the tag.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
      * 
      */
-    private final @Nullable List<String> matchOptions;
+    private @Nullable List<String> matchOptions;
     /**
      * @return Parameter values.
      * 
      */
-    private final @Nullable List<String> values;
+    private @Nullable List<String> values;
 
-    @CustomType.Constructor
-    private CostCategoryRuleRuleAndTags(
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("matchOptions") @Nullable List<String> matchOptions,
-        @CustomType.Parameter("values") @Nullable List<String> values) {
-        this.key = key;
-        this.matchOptions = matchOptions;
-        this.values = values;
-    }
-
+    private CostCategoryRuleRuleAndTags() {}
     /**
      * @return Key for the tag.
      * 
@@ -67,16 +58,12 @@ public final class CostCategoryRuleRuleAndTags {
     public static Builder builder(CostCategoryRuleRuleAndTags defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String key;
         private @Nullable List<String> matchOptions;
         private @Nullable List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CostCategoryRuleRuleAndTags defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
@@ -84,10 +71,12 @@ public final class CostCategoryRuleRuleAndTags {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder matchOptions(@Nullable List<String> matchOptions) {
             this.matchOptions = matchOptions;
             return this;
@@ -95,14 +84,20 @@ public final class CostCategoryRuleRuleAndTags {
         public Builder matchOptions(String... matchOptions) {
             return matchOptions(List.of(matchOptions));
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public CostCategoryRuleRuleAndTags build() {
-            return new CostCategoryRuleRuleAndTags(key, matchOptions, values);
+        }
+        public CostCategoryRuleRuleAndTags build() {
+            final var o = new CostCategoryRuleRuleAndTags();
+            o.key = key;
+            o.matchOptions = matchOptions;
+            o.values = values;
+            return o;
         }
     }
 }

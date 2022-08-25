@@ -13,34 +13,21 @@ public final class GetResourceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Set to the ID of the parent Resource.
      * 
      */
-    private final String parentId;
-    private final String path;
+    private String parentId;
+    private String path;
     /**
      * @return Set to the path relative to the parent Resource.
      * 
      */
-    private final String pathPart;
-    private final String restApiId;
+    private String pathPart;
+    private String restApiId;
 
-    @CustomType.Constructor
-    private GetResourceResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("parentId") String parentId,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("pathPart") String pathPart,
-        @CustomType.Parameter("restApiId") String restApiId) {
-        this.id = id;
-        this.parentId = parentId;
-        this.path = path;
-        this.pathPart = pathPart;
-        this.restApiId = restApiId;
-    }
-
+    private GetResourceResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -76,18 +63,14 @@ public final class GetResourceResult {
     public static Builder builder(GetResourceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String parentId;
         private String path;
         private String pathPart;
         private String restApiId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -97,27 +80,39 @@ public final class GetResourceResult {
     	      this.restApiId = defaults.restApiId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder parentId(String parentId) {
             this.parentId = Objects.requireNonNull(parentId);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder pathPart(String pathPart) {
             this.pathPart = Objects.requireNonNull(pathPart);
             return this;
         }
+        @CustomType.Setter
         public Builder restApiId(String restApiId) {
             this.restApiId = Objects.requireNonNull(restApiId);
             return this;
-        }        public GetResourceResult build() {
-            return new GetResourceResult(id, parentId, path, pathPart, restApiId);
+        }
+        public GetResourceResult build() {
+            final var o = new GetResourceResult();
+            o.id = id;
+            o.parentId = parentId;
+            o.path = path;
+            o.pathPart = pathPart;
+            o.restApiId = restApiId;
+            return o;
         }
     }
 }

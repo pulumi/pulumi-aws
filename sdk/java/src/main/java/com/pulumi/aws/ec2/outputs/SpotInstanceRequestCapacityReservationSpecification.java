@@ -16,21 +16,14 @@ public final class SpotInstanceRequestCapacityReservationSpecification {
      * @return Indicates the instance&#39;s Capacity Reservation preferences. Can be `&#34;open&#34;` or `&#34;none&#34;`. (Default: `&#34;open&#34;`).
      * 
      */
-    private final @Nullable String capacityReservationPreference;
+    private @Nullable String capacityReservationPreference;
     /**
      * @return Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
      * 
      */
-    private final @Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget;
+    private @Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget;
 
-    @CustomType.Constructor
-    private SpotInstanceRequestCapacityReservationSpecification(
-        @CustomType.Parameter("capacityReservationPreference") @Nullable String capacityReservationPreference,
-        @CustomType.Parameter("capacityReservationTarget") @Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget) {
-        this.capacityReservationPreference = capacityReservationPreference;
-        this.capacityReservationTarget = capacityReservationTarget;
-    }
-
+    private SpotInstanceRequestCapacityReservationSpecification() {}
     /**
      * @return Indicates the instance&#39;s Capacity Reservation preferences. Can be `&#34;open&#34;` or `&#34;none&#34;`. (Default: `&#34;open&#34;`).
      * 
@@ -53,30 +46,32 @@ public final class SpotInstanceRequestCapacityReservationSpecification {
     public static Builder builder(SpotInstanceRequestCapacityReservationSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String capacityReservationPreference;
         private @Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotInstanceRequestCapacityReservationSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityReservationPreference = defaults.capacityReservationPreference;
     	      this.capacityReservationTarget = defaults.capacityReservationTarget;
         }
 
+        @CustomType.Setter
         public Builder capacityReservationPreference(@Nullable String capacityReservationPreference) {
             this.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
+        @CustomType.Setter
         public Builder capacityReservationTarget(@Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget) {
             this.capacityReservationTarget = capacityReservationTarget;
             return this;
-        }        public SpotInstanceRequestCapacityReservationSpecification build() {
-            return new SpotInstanceRequestCapacityReservationSpecification(capacityReservationPreference, capacityReservationTarget);
+        }
+        public SpotInstanceRequestCapacityReservationSpecification build() {
+            final var o = new SpotInstanceRequestCapacityReservationSpecification();
+            o.capacityReservationPreference = capacityReservationPreference;
+            o.capacityReservationTarget = capacityReservationTarget;
+            return o;
         }
     }
 }

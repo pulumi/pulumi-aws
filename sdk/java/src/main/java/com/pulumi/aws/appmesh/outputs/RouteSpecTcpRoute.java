@@ -16,21 +16,14 @@ public final class RouteSpecTcpRoute {
      * @return The action to take if a match is determined.
      * 
      */
-    private final RouteSpecTcpRouteAction action;
+    private RouteSpecTcpRouteAction action;
     /**
      * @return The types of timeouts.
      * 
      */
-    private final @Nullable RouteSpecTcpRouteTimeout timeout;
+    private @Nullable RouteSpecTcpRouteTimeout timeout;
 
-    @CustomType.Constructor
-    private RouteSpecTcpRoute(
-        @CustomType.Parameter("action") RouteSpecTcpRouteAction action,
-        @CustomType.Parameter("timeout") @Nullable RouteSpecTcpRouteTimeout timeout) {
-        this.action = action;
-        this.timeout = timeout;
-    }
-
+    private RouteSpecTcpRoute() {}
     /**
      * @return The action to take if a match is determined.
      * 
@@ -53,30 +46,32 @@ public final class RouteSpecTcpRoute {
     public static Builder builder(RouteSpecTcpRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RouteSpecTcpRouteAction action;
         private @Nullable RouteSpecTcpRouteTimeout timeout;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecTcpRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.timeout = defaults.timeout;
         }
 
+        @CustomType.Setter
         public Builder action(RouteSpecTcpRouteAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable RouteSpecTcpRouteTimeout timeout) {
             this.timeout = timeout;
             return this;
-        }        public RouteSpecTcpRoute build() {
-            return new RouteSpecTcpRoute(action, timeout);
+        }
+        public RouteSpecTcpRoute build() {
+            final var o = new RouteSpecTcpRoute();
+            o.action = action;
+            o.timeout = timeout;
+            return o;
         }
     }
 }

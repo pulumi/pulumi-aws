@@ -16,31 +16,20 @@ public final class ResourceLfTagsTable {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private final @Nullable String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return Name of the table resource.
      * 
      */
-    private final @Nullable String name;
-    private final @Nullable Boolean wildcard;
+    private @Nullable String name;
+    private @Nullable Boolean wildcard;
 
-    @CustomType.Constructor
-    private ResourceLfTagsTable(
-        @CustomType.Parameter("catalogId") @Nullable String catalogId,
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("wildcard") @Nullable Boolean wildcard) {
-        this.catalogId = catalogId;
-        this.databaseName = databaseName;
-        this.name = name;
-        this.wildcard = wildcard;
-    }
-
+    private ResourceLfTagsTable() {}
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
@@ -73,17 +62,13 @@ public final class ResourceLfTagsTable {
     public static Builder builder(ResourceLfTagsTable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String catalogId;
         private String databaseName;
         private @Nullable String name;
         private @Nullable Boolean wildcard;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceLfTagsTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -92,23 +77,33 @@ public final class ResourceLfTagsTable {
     	      this.wildcard = defaults.wildcard;
         }
 
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
         }
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder wildcard(@Nullable Boolean wildcard) {
             this.wildcard = wildcard;
             return this;
-        }        public ResourceLfTagsTable build() {
-            return new ResourceLfTagsTable(catalogId, databaseName, name, wildcard);
+        }
+        public ResourceLfTagsTable build() {
+            final var o = new ResourceLfTagsTable();
+            o.catalogId = catalogId;
+            o.databaseName = databaseName;
+            o.name = name;
+            o.wildcard = wildcard;
+            return o;
         }
     }
 }

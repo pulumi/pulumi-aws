@@ -13,13 +13,9 @@ public final class GetClusterCertificateAuthority {
      * @return The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
      * 
      */
-    private final String data;
+    private String data;
 
-    @CustomType.Constructor
-    private GetClusterCertificateAuthority(@CustomType.Parameter("data") String data) {
-        this.data = data;
-    }
-
+    private GetClusterCertificateAuthority() {}
     /**
      * @return The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
      * 
@@ -35,24 +31,24 @@ public final class GetClusterCertificateAuthority {
     public static Builder builder(GetClusterCertificateAuthority defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String data;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterCertificateAuthority defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.data = defaults.data;
         }
 
+        @CustomType.Setter
         public Builder data(String data) {
             this.data = Objects.requireNonNull(data);
             return this;
-        }        public GetClusterCertificateAuthority build() {
-            return new GetClusterCertificateAuthority(data);
+        }
+        public GetClusterCertificateAuthority build() {
+            final var o = new GetClusterCertificateAuthority();
+            o.data = data;
+            return o;
         }
     }
 }

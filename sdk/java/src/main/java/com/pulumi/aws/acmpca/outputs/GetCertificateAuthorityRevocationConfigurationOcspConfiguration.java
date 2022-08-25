@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateAuthorityRevocationConfigurationOcspConfiguration {
-    private final Boolean enabled;
-    private final String ocspCustomCname;
+    private Boolean enabled;
+    private String ocspCustomCname;
 
-    @CustomType.Constructor
-    private GetCertificateAuthorityRevocationConfigurationOcspConfiguration(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("ocspCustomCname") String ocspCustomCname) {
-        this.enabled = enabled;
-        this.ocspCustomCname = ocspCustomCname;
-    }
-
+    private GetCertificateAuthorityRevocationConfigurationOcspConfiguration() {}
     public Boolean enabled() {
         return this.enabled;
     }
@@ -35,30 +28,32 @@ public final class GetCertificateAuthorityRevocationConfigurationOcspConfigurati
     public static Builder builder(GetCertificateAuthorityRevocationConfigurationOcspConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String ocspCustomCname;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateAuthorityRevocationConfigurationOcspConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.ocspCustomCname = defaults.ocspCustomCname;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder ocspCustomCname(String ocspCustomCname) {
             this.ocspCustomCname = Objects.requireNonNull(ocspCustomCname);
             return this;
-        }        public GetCertificateAuthorityRevocationConfigurationOcspConfiguration build() {
-            return new GetCertificateAuthorityRevocationConfigurationOcspConfiguration(enabled, ocspCustomCname);
+        }
+        public GetCertificateAuthorityRevocationConfigurationOcspConfiguration build() {
+            final var o = new GetCertificateAuthorityRevocationConfigurationOcspConfiguration();
+            o.enabled = enabled;
+            o.ocspCustomCname = ocspCustomCname;
+            return o;
         }
     }
 }

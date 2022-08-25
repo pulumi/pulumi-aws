@@ -14,13 +14,9 @@ public final class GetImageOutputResource {
      * @return Set of objects with each Amazon Machine Image (AMI) created.
      * 
      */
-    private final List<GetImageOutputResourceAmi> amis;
+    private List<GetImageOutputResourceAmi> amis;
 
-    @CustomType.Constructor
-    private GetImageOutputResource(@CustomType.Parameter("amis") List<GetImageOutputResourceAmi> amis) {
-        this.amis = amis;
-    }
-
+    private GetImageOutputResource() {}
     /**
      * @return Set of objects with each Amazon Machine Image (AMI) created.
      * 
@@ -36,27 +32,27 @@ public final class GetImageOutputResource {
     public static Builder builder(GetImageOutputResource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetImageOutputResourceAmi> amis;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImageOutputResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amis = defaults.amis;
         }
 
+        @CustomType.Setter
         public Builder amis(List<GetImageOutputResourceAmi> amis) {
             this.amis = Objects.requireNonNull(amis);
             return this;
         }
         public Builder amis(GetImageOutputResourceAmi... amis) {
             return amis(List.of(amis));
-        }        public GetImageOutputResource build() {
-            return new GetImageOutputResource(amis);
+        }
+        public GetImageOutputResource build() {
+            final var o = new GetImageOutputResource();
+            o.amis = amis;
+            return o;
         }
     }
 }

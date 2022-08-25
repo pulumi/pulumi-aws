@@ -14,45 +14,30 @@ public final class GetPlanResult {
      * @return The ARN of the backup plan.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The display name of a backup plan.
      * 
      */
-    private final String name;
-    private final String planId;
+    private String name;
+    private String planId;
     /**
      * @return Metadata that you can assign to help organize the plans you create.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private GetPlanResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("planId") String planId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("version") String version) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-        this.planId = planId;
-        this.tags = tags;
-        this.version = version;
-    }
-
+    private GetPlanResult() {}
     /**
      * @return The ARN of the backup plan.
      * 
@@ -99,7 +84,7 @@ public final class GetPlanResult {
     public static Builder builder(GetPlanResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
@@ -107,11 +92,7 @@ public final class GetPlanResult {
         private String planId;
         private Map<String,String> tags;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPlanResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -122,31 +103,45 @@ public final class GetPlanResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder planId(String planId) {
             this.planId = Objects.requireNonNull(planId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetPlanResult build() {
-            return new GetPlanResult(arn, id, name, planId, tags, version);
+        }
+        public GetPlanResult build() {
+            final var o = new GetPlanResult();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            o.planId = planId;
+            o.tags = tags;
+            o.version = version;
+            return o;
         }
     }
 }

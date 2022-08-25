@@ -25,84 +25,59 @@ public final class RuleGroupRuleStatementNotStatementStatement {
      * @return A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementAndStatement andStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementAndStatement andStatement;
     /**
      * @return A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementByteMatchStatement byteMatchStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementByteMatchStatement byteMatchStatement;
     /**
      * @return A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementGeoMatchStatement geoMatchStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementGeoMatchStatement geoMatchStatement;
     /**
      * @return A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatement ipSetReferenceStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatement ipSetReferenceStatement;
     /**
      * @return A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementLabelMatchStatement labelMatchStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementLabelMatchStatement labelMatchStatement;
     /**
      * @return A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementNotStatement notStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatement notStatement;
     /**
      * @return A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementOrStatement orStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementOrStatement orStatement;
     /**
      * @return A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
     /**
      * @return A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement sizeConstraintStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement sizeConstraintStatement;
     /**
      * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementSqliMatchStatement sqliMatchStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementSqliMatchStatement sqliMatchStatement;
     /**
      * @return A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
      * 
      */
-    private final @Nullable RuleGroupRuleStatementNotStatementStatementXssMatchStatement xssMatchStatement;
+    private @Nullable RuleGroupRuleStatementNotStatementStatementXssMatchStatement xssMatchStatement;
 
-    @CustomType.Constructor
-    private RuleGroupRuleStatementNotStatementStatement(
-        @CustomType.Parameter("andStatement") @Nullable RuleGroupRuleStatementNotStatementStatementAndStatement andStatement,
-        @CustomType.Parameter("byteMatchStatement") @Nullable RuleGroupRuleStatementNotStatementStatementByteMatchStatement byteMatchStatement,
-        @CustomType.Parameter("geoMatchStatement") @Nullable RuleGroupRuleStatementNotStatementStatementGeoMatchStatement geoMatchStatement,
-        @CustomType.Parameter("ipSetReferenceStatement") @Nullable RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatement ipSetReferenceStatement,
-        @CustomType.Parameter("labelMatchStatement") @Nullable RuleGroupRuleStatementNotStatementStatementLabelMatchStatement labelMatchStatement,
-        @CustomType.Parameter("notStatement") @Nullable RuleGroupRuleStatementNotStatementStatementNotStatement notStatement,
-        @CustomType.Parameter("orStatement") @Nullable RuleGroupRuleStatementNotStatementStatementOrStatement orStatement,
-        @CustomType.Parameter("regexPatternSetReferenceStatement") @Nullable RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement,
-        @CustomType.Parameter("sizeConstraintStatement") @Nullable RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement sizeConstraintStatement,
-        @CustomType.Parameter("sqliMatchStatement") @Nullable RuleGroupRuleStatementNotStatementStatementSqliMatchStatement sqliMatchStatement,
-        @CustomType.Parameter("xssMatchStatement") @Nullable RuleGroupRuleStatementNotStatementStatementXssMatchStatement xssMatchStatement) {
-        this.andStatement = andStatement;
-        this.byteMatchStatement = byteMatchStatement;
-        this.geoMatchStatement = geoMatchStatement;
-        this.ipSetReferenceStatement = ipSetReferenceStatement;
-        this.labelMatchStatement = labelMatchStatement;
-        this.notStatement = notStatement;
-        this.orStatement = orStatement;
-        this.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
-        this.sizeConstraintStatement = sizeConstraintStatement;
-        this.sqliMatchStatement = sqliMatchStatement;
-        this.xssMatchStatement = xssMatchStatement;
-    }
-
+    private RuleGroupRuleStatementNotStatementStatement() {}
     /**
      * @return A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
      * 
@@ -188,7 +163,7 @@ public final class RuleGroupRuleStatementNotStatementStatement {
     public static Builder builder(RuleGroupRuleStatementNotStatementStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementNotStatementStatementAndStatement andStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementByteMatchStatement byteMatchStatement;
@@ -201,11 +176,7 @@ public final class RuleGroupRuleStatementNotStatementStatement {
         private @Nullable RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement sizeConstraintStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementSqliMatchStatement sqliMatchStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementXssMatchStatement xssMatchStatement;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleStatementNotStatementStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.andStatement = defaults.andStatement;
@@ -221,51 +192,75 @@ public final class RuleGroupRuleStatementNotStatementStatement {
     	      this.xssMatchStatement = defaults.xssMatchStatement;
         }
 
+        @CustomType.Setter
         public Builder andStatement(@Nullable RuleGroupRuleStatementNotStatementStatementAndStatement andStatement) {
             this.andStatement = andStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder byteMatchStatement(@Nullable RuleGroupRuleStatementNotStatementStatementByteMatchStatement byteMatchStatement) {
             this.byteMatchStatement = byteMatchStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder geoMatchStatement(@Nullable RuleGroupRuleStatementNotStatementStatementGeoMatchStatement geoMatchStatement) {
             this.geoMatchStatement = geoMatchStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder ipSetReferenceStatement(@Nullable RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatement ipSetReferenceStatement) {
             this.ipSetReferenceStatement = ipSetReferenceStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder labelMatchStatement(@Nullable RuleGroupRuleStatementNotStatementStatementLabelMatchStatement labelMatchStatement) {
             this.labelMatchStatement = labelMatchStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder notStatement(@Nullable RuleGroupRuleStatementNotStatementStatementNotStatement notStatement) {
             this.notStatement = notStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder orStatement(@Nullable RuleGroupRuleStatementNotStatementStatementOrStatement orStatement) {
             this.orStatement = orStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder regexPatternSetReferenceStatement(@Nullable RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement) {
             this.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder sizeConstraintStatement(@Nullable RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement sizeConstraintStatement) {
             this.sizeConstraintStatement = sizeConstraintStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder sqliMatchStatement(@Nullable RuleGroupRuleStatementNotStatementStatementSqliMatchStatement sqliMatchStatement) {
             this.sqliMatchStatement = sqliMatchStatement;
             return this;
         }
+        @CustomType.Setter
         public Builder xssMatchStatement(@Nullable RuleGroupRuleStatementNotStatementStatementXssMatchStatement xssMatchStatement) {
             this.xssMatchStatement = xssMatchStatement;
             return this;
-        }        public RuleGroupRuleStatementNotStatementStatement build() {
-            return new RuleGroupRuleStatementNotStatementStatement(andStatement, byteMatchStatement, geoMatchStatement, ipSetReferenceStatement, labelMatchStatement, notStatement, orStatement, regexPatternSetReferenceStatement, sizeConstraintStatement, sqliMatchStatement, xssMatchStatement);
+        }
+        public RuleGroupRuleStatementNotStatementStatement build() {
+            final var o = new RuleGroupRuleStatementNotStatementStatement();
+            o.andStatement = andStatement;
+            o.byteMatchStatement = byteMatchStatement;
+            o.geoMatchStatement = geoMatchStatement;
+            o.ipSetReferenceStatement = ipSetReferenceStatement;
+            o.labelMatchStatement = labelMatchStatement;
+            o.notStatement = notStatement;
+            o.orStatement = orStatement;
+            o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
+            o.sizeConstraintStatement = sizeConstraintStatement;
+            o.sqliMatchStatement = sqliMatchStatement;
+            o.xssMatchStatement = xssMatchStatement;
+            return o;
         }
     }
 }

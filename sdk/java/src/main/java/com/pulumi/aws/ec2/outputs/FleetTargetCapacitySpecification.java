@@ -16,35 +16,24 @@ public final class FleetTargetCapacitySpecification {
      * @return Default target capacity type. Valid values: `on-demand`, `spot`.
      * 
      */
-    private final String defaultTargetCapacityType;
+    private String defaultTargetCapacityType;
     /**
      * @return The number of On-Demand units to request.
      * 
      */
-    private final @Nullable Integer onDemandTargetCapacity;
+    private @Nullable Integer onDemandTargetCapacity;
     /**
      * @return The number of Spot units to request.
      * 
      */
-    private final @Nullable Integer spotTargetCapacity;
+    private @Nullable Integer spotTargetCapacity;
     /**
      * @return The number of units to request, filled using `default_target_capacity_type`.
      * 
      */
-    private final Integer totalTargetCapacity;
+    private Integer totalTargetCapacity;
 
-    @CustomType.Constructor
-    private FleetTargetCapacitySpecification(
-        @CustomType.Parameter("defaultTargetCapacityType") String defaultTargetCapacityType,
-        @CustomType.Parameter("onDemandTargetCapacity") @Nullable Integer onDemandTargetCapacity,
-        @CustomType.Parameter("spotTargetCapacity") @Nullable Integer spotTargetCapacity,
-        @CustomType.Parameter("totalTargetCapacity") Integer totalTargetCapacity) {
-        this.defaultTargetCapacityType = defaultTargetCapacityType;
-        this.onDemandTargetCapacity = onDemandTargetCapacity;
-        this.spotTargetCapacity = spotTargetCapacity;
-        this.totalTargetCapacity = totalTargetCapacity;
-    }
-
+    private FleetTargetCapacitySpecification() {}
     /**
      * @return Default target capacity type. Valid values: `on-demand`, `spot`.
      * 
@@ -81,17 +70,13 @@ public final class FleetTargetCapacitySpecification {
     public static Builder builder(FleetTargetCapacitySpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String defaultTargetCapacityType;
         private @Nullable Integer onDemandTargetCapacity;
         private @Nullable Integer spotTargetCapacity;
         private Integer totalTargetCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetTargetCapacitySpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultTargetCapacityType = defaults.defaultTargetCapacityType;
@@ -100,23 +85,33 @@ public final class FleetTargetCapacitySpecification {
     	      this.totalTargetCapacity = defaults.totalTargetCapacity;
         }
 
+        @CustomType.Setter
         public Builder defaultTargetCapacityType(String defaultTargetCapacityType) {
             this.defaultTargetCapacityType = Objects.requireNonNull(defaultTargetCapacityType);
             return this;
         }
+        @CustomType.Setter
         public Builder onDemandTargetCapacity(@Nullable Integer onDemandTargetCapacity) {
             this.onDemandTargetCapacity = onDemandTargetCapacity;
             return this;
         }
+        @CustomType.Setter
         public Builder spotTargetCapacity(@Nullable Integer spotTargetCapacity) {
             this.spotTargetCapacity = spotTargetCapacity;
             return this;
         }
+        @CustomType.Setter
         public Builder totalTargetCapacity(Integer totalTargetCapacity) {
             this.totalTargetCapacity = Objects.requireNonNull(totalTargetCapacity);
             return this;
-        }        public FleetTargetCapacitySpecification build() {
-            return new FleetTargetCapacitySpecification(defaultTargetCapacityType, onDemandTargetCapacity, spotTargetCapacity, totalTargetCapacity);
+        }
+        public FleetTargetCapacitySpecification build() {
+            final var o = new FleetTargetCapacitySpecification();
+            o.defaultTargetCapacityType = defaultTargetCapacityType;
+            o.onDemandTargetCapacity = onDemandTargetCapacity;
+            o.spotTargetCapacity = spotTargetCapacity;
+            o.totalTargetCapacity = totalTargetCapacity;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomLayerCloudwatchConfiguration {
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return A block the specifies how an opsworks logs look like. See Log Streams.
      * 
      */
-    private final @Nullable List<CustomLayerCloudwatchConfigurationLogStream> logStreams;
+    private @Nullable List<CustomLayerCloudwatchConfigurationLogStream> logStreams;
 
-    @CustomType.Constructor
-    private CustomLayerCloudwatchConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("logStreams") @Nullable List<CustomLayerCloudwatchConfigurationLogStream> logStreams) {
-        this.enabled = enabled;
-        this.logStreams = logStreams;
-    }
-
+    private CustomLayerCloudwatchConfiguration() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -46,33 +39,35 @@ public final class CustomLayerCloudwatchConfiguration {
     public static Builder builder(CustomLayerCloudwatchConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<CustomLayerCloudwatchConfigurationLogStream> logStreams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CustomLayerCloudwatchConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.logStreams = defaults.logStreams;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder logStreams(@Nullable List<CustomLayerCloudwatchConfigurationLogStream> logStreams) {
             this.logStreams = logStreams;
             return this;
         }
         public Builder logStreams(CustomLayerCloudwatchConfigurationLogStream... logStreams) {
             return logStreams(List.of(logStreams));
-        }        public CustomLayerCloudwatchConfiguration build() {
-            return new CustomLayerCloudwatchConfiguration(enabled, logStreams);
+        }
+        public CustomLayerCloudwatchConfiguration build() {
+            final var o = new CustomLayerCloudwatchConfiguration();
+            o.enabled = enabled;
+            o.logStreams = logStreams;
+            return o;
         }
     }
 }

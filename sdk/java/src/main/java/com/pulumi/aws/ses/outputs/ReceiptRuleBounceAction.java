@@ -16,49 +16,34 @@ public final class ReceiptRuleBounceAction {
      * @return The message to send
      * 
      */
-    private final String message;
+    private String message;
     /**
      * @return The position of the action in the receipt rule
      * 
      */
-    private final Integer position;
+    private Integer position;
     /**
      * @return The email address of the sender
      * 
      */
-    private final String sender;
+    private String sender;
     /**
      * @return The RFC 5321 SMTP reply code
      * 
      */
-    private final String smtpReplyCode;
+    private String smtpReplyCode;
     /**
      * @return The RFC 3463 SMTP enhanced status code
      * 
      */
-    private final @Nullable String statusCode;
+    private @Nullable String statusCode;
     /**
      * @return The ARN of an SNS topic to notify
      * 
      */
-    private final @Nullable String topicArn;
+    private @Nullable String topicArn;
 
-    @CustomType.Constructor
-    private ReceiptRuleBounceAction(
-        @CustomType.Parameter("message") String message,
-        @CustomType.Parameter("position") Integer position,
-        @CustomType.Parameter("sender") String sender,
-        @CustomType.Parameter("smtpReplyCode") String smtpReplyCode,
-        @CustomType.Parameter("statusCode") @Nullable String statusCode,
-        @CustomType.Parameter("topicArn") @Nullable String topicArn) {
-        this.message = message;
-        this.position = position;
-        this.sender = sender;
-        this.smtpReplyCode = smtpReplyCode;
-        this.statusCode = statusCode;
-        this.topicArn = topicArn;
-    }
-
+    private ReceiptRuleBounceAction() {}
     /**
      * @return The message to send
      * 
@@ -109,7 +94,7 @@ public final class ReceiptRuleBounceAction {
     public static Builder builder(ReceiptRuleBounceAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String message;
         private Integer position;
@@ -117,11 +102,7 @@ public final class ReceiptRuleBounceAction {
         private String smtpReplyCode;
         private @Nullable String statusCode;
         private @Nullable String topicArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReceiptRuleBounceAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.message = defaults.message;
@@ -132,31 +113,45 @@ public final class ReceiptRuleBounceAction {
     	      this.topicArn = defaults.topicArn;
         }
 
+        @CustomType.Setter
         public Builder message(String message) {
             this.message = Objects.requireNonNull(message);
             return this;
         }
+        @CustomType.Setter
         public Builder position(Integer position) {
             this.position = Objects.requireNonNull(position);
             return this;
         }
+        @CustomType.Setter
         public Builder sender(String sender) {
             this.sender = Objects.requireNonNull(sender);
             return this;
         }
+        @CustomType.Setter
         public Builder smtpReplyCode(String smtpReplyCode) {
             this.smtpReplyCode = Objects.requireNonNull(smtpReplyCode);
             return this;
         }
+        @CustomType.Setter
         public Builder statusCode(@Nullable String statusCode) {
             this.statusCode = statusCode;
             return this;
         }
+        @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
             this.topicArn = topicArn;
             return this;
-        }        public ReceiptRuleBounceAction build() {
-            return new ReceiptRuleBounceAction(message, position, sender, smtpReplyCode, statusCode, topicArn);
+        }
+        public ReceiptRuleBounceAction build() {
+            final var o = new ReceiptRuleBounceAction();
+            o.message = message;
+            o.position = position;
+            o.sender = sender;
+            o.smtpReplyCode = smtpReplyCode;
+            o.statusCode = statusCode;
+            o.topicArn = topicArn;
+            return o;
         }
     }
 }

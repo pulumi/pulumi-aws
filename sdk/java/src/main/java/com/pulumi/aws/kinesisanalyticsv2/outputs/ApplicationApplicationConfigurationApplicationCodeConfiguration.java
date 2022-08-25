@@ -16,21 +16,14 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
      * @return The location and type of the application code.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent codeContent;
+    private @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent codeContent;
     /**
      * @return Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
      * 
      */
-    private final String codeContentType;
+    private String codeContentType;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationApplicationCodeConfiguration(
-        @CustomType.Parameter("codeContent") @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent codeContent,
-        @CustomType.Parameter("codeContentType") String codeContentType) {
-        this.codeContent = codeContent;
-        this.codeContentType = codeContentType;
-    }
-
+    private ApplicationApplicationConfigurationApplicationCodeConfiguration() {}
     /**
      * @return The location and type of the application code.
      * 
@@ -53,30 +46,32 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     public static Builder builder(ApplicationApplicationConfigurationApplicationCodeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent codeContent;
         private String codeContentType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationApplicationCodeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.codeContent = defaults.codeContent;
     	      this.codeContentType = defaults.codeContentType;
         }
 
+        @CustomType.Setter
         public Builder codeContent(@Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent codeContent) {
             this.codeContent = codeContent;
             return this;
         }
+        @CustomType.Setter
         public Builder codeContentType(String codeContentType) {
             this.codeContentType = Objects.requireNonNull(codeContentType);
             return this;
-        }        public ApplicationApplicationConfigurationApplicationCodeConfiguration build() {
-            return new ApplicationApplicationConfigurationApplicationCodeConfiguration(codeContent, codeContentType);
+        }
+        public ApplicationApplicationConfigurationApplicationCodeConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationApplicationCodeConfiguration();
+            o.codeContent = codeContent;
+            o.codeContentType = codeContentType;
+            return o;
         }
     }
 }

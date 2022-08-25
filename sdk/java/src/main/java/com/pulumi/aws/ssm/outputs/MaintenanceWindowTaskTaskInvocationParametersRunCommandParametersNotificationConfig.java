@@ -16,28 +16,19 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
      * @return An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
      * 
      */
-    private final @Nullable String notificationArn;
+    private @Nullable String notificationArn;
     /**
      * @return The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
      * 
      */
-    private final @Nullable List<String> notificationEvents;
+    private @Nullable List<String> notificationEvents;
     /**
      * @return When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
      * 
      */
-    private final @Nullable String notificationType;
+    private @Nullable String notificationType;
 
-    @CustomType.Constructor
-    private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig(
-        @CustomType.Parameter("notificationArn") @Nullable String notificationArn,
-        @CustomType.Parameter("notificationEvents") @Nullable List<String> notificationEvents,
-        @CustomType.Parameter("notificationType") @Nullable String notificationType) {
-        this.notificationArn = notificationArn;
-        this.notificationEvents = notificationEvents;
-        this.notificationType = notificationType;
-    }
-
+    private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig() {}
     /**
      * @return An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
      * 
@@ -67,16 +58,12 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
     public static Builder builder(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String notificationArn;
         private @Nullable List<String> notificationEvents;
         private @Nullable String notificationType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.notificationArn = defaults.notificationArn;
@@ -84,10 +71,12 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
     	      this.notificationType = defaults.notificationType;
         }
 
+        @CustomType.Setter
         public Builder notificationArn(@Nullable String notificationArn) {
             this.notificationArn = notificationArn;
             return this;
         }
+        @CustomType.Setter
         public Builder notificationEvents(@Nullable List<String> notificationEvents) {
             this.notificationEvents = notificationEvents;
             return this;
@@ -95,11 +84,17 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
         public Builder notificationEvents(String... notificationEvents) {
             return notificationEvents(List.of(notificationEvents));
         }
+        @CustomType.Setter
         public Builder notificationType(@Nullable String notificationType) {
             this.notificationType = notificationType;
             return this;
-        }        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig build() {
-            return new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig(notificationArn, notificationEvents, notificationType);
+        }
+        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig build() {
+            final var o = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig();
+            o.notificationArn = notificationArn;
+            o.notificationEvents = notificationEvents;
+            o.notificationType = notificationType;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class HostVpcConfiguration {
      * @return he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
      * 
      */
-    private final @Nullable String tlsCertificate;
+    private @Nullable String tlsCertificate;
     /**
      * @return The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private HostVpcConfiguration(
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("tlsCertificate") @Nullable String tlsCertificate,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.tlsCertificate = tlsCertificate;
-        this.vpcId = vpcId;
-    }
-
+    private HostVpcConfiguration() {}
     /**
      * @return he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
      * 
@@ -81,17 +70,13 @@ public final class HostVpcConfiguration {
     public static Builder builder(HostVpcConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private @Nullable String tlsCertificate;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HostVpcConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
@@ -100,6 +85,7 @@ public final class HostVpcConfiguration {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -107,6 +93,7 @@ public final class HostVpcConfiguration {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -114,15 +101,23 @@ public final class HostVpcConfiguration {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder tlsCertificate(@Nullable String tlsCertificate) {
             this.tlsCertificate = tlsCertificate;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public HostVpcConfiguration build() {
-            return new HostVpcConfiguration(securityGroupIds, subnetIds, tlsCertificate, vpcId);
+        }
+        public HostVpcConfiguration build() {
+            final var o = new HostVpcConfiguration();
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.tlsCertificate = tlsCertificate;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

@@ -9,20 +9,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSigningJobRevocationRecord {
-    private final String reason;
-    private final String revokedAt;
-    private final String revokedBy;
+    private String reason;
+    private String revokedAt;
+    private String revokedBy;
 
-    @CustomType.Constructor
-    private GetSigningJobRevocationRecord(
-        @CustomType.Parameter("reason") String reason,
-        @CustomType.Parameter("revokedAt") String revokedAt,
-        @CustomType.Parameter("revokedBy") String revokedBy) {
-        this.reason = reason;
-        this.revokedAt = revokedAt;
-        this.revokedBy = revokedBy;
-    }
-
+    private GetSigningJobRevocationRecord() {}
     public String reason() {
         return this.reason;
     }
@@ -40,16 +31,12 @@ public final class GetSigningJobRevocationRecord {
     public static Builder builder(GetSigningJobRevocationRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String reason;
         private String revokedAt;
         private String revokedBy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSigningJobRevocationRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.reason = defaults.reason;
@@ -57,19 +44,27 @@ public final class GetSigningJobRevocationRecord {
     	      this.revokedBy = defaults.revokedBy;
         }
 
+        @CustomType.Setter
         public Builder reason(String reason) {
             this.reason = Objects.requireNonNull(reason);
             return this;
         }
+        @CustomType.Setter
         public Builder revokedAt(String revokedAt) {
             this.revokedAt = Objects.requireNonNull(revokedAt);
             return this;
         }
+        @CustomType.Setter
         public Builder revokedBy(String revokedBy) {
             this.revokedBy = Objects.requireNonNull(revokedBy);
             return this;
-        }        public GetSigningJobRevocationRecord build() {
-            return new GetSigningJobRevocationRecord(reason, revokedAt, revokedBy);
+        }
+        public GetSigningJobRevocationRecord build() {
+            final var o = new GetSigningJobRevocationRecord();
+            o.reason = reason;
+            o.revokedAt = revokedAt;
+            o.revokedBy = revokedBy;
+            return o;
         }
     }
 }

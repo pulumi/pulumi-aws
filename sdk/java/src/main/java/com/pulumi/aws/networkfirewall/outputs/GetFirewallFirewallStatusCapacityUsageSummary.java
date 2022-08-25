@@ -14,13 +14,9 @@ public final class GetFirewallFirewallStatusCapacityUsageSummary {
      * @return Capacity usage of CIDR blocks used by IP set references in a firewall.
      * 
      */
-    private final List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs;
+    private List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs;
 
-    @CustomType.Constructor
-    private GetFirewallFirewallStatusCapacityUsageSummary(@CustomType.Parameter("cidrs") List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs) {
-        this.cidrs = cidrs;
-    }
-
+    private GetFirewallFirewallStatusCapacityUsageSummary() {}
     /**
      * @return Capacity usage of CIDR blocks used by IP set references in a firewall.
      * 
@@ -36,27 +32,27 @@ public final class GetFirewallFirewallStatusCapacityUsageSummary {
     public static Builder builder(GetFirewallFirewallStatusCapacityUsageSummary defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallFirewallStatusCapacityUsageSummary defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidrs = defaults.cidrs;
         }
 
+        @CustomType.Setter
         public Builder cidrs(List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs) {
             this.cidrs = Objects.requireNonNull(cidrs);
             return this;
         }
         public Builder cidrs(GetFirewallFirewallStatusCapacityUsageSummaryCidr... cidrs) {
             return cidrs(List.of(cidrs));
-        }        public GetFirewallFirewallStatusCapacityUsageSummary build() {
-            return new GetFirewallFirewallStatusCapacityUsageSummary(cidrs);
+        }
+        public GetFirewallFirewallStatusCapacityUsageSummary build() {
+            final var o = new GetFirewallFirewallStatusCapacityUsageSummary();
+            o.cidrs = cidrs;
+            return o;
         }
     }
 }

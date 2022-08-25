@@ -13,21 +13,14 @@ public final class GetGroupFilter {
      * @return The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
      * 
      */
-    private final String attributePath;
+    private String attributePath;
     /**
      * @return The value for an attribute.
      * 
      */
-    private final String attributeValue;
+    private String attributeValue;
 
-    @CustomType.Constructor
-    private GetGroupFilter(
-        @CustomType.Parameter("attributePath") String attributePath,
-        @CustomType.Parameter("attributeValue") String attributeValue) {
-        this.attributePath = attributePath;
-        this.attributeValue = attributeValue;
-    }
-
+    private GetGroupFilter() {}
     /**
      * @return The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
      * 
@@ -50,30 +43,32 @@ public final class GetGroupFilter {
     public static Builder builder(GetGroupFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String attributePath;
         private String attributeValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attributePath = defaults.attributePath;
     	      this.attributeValue = defaults.attributeValue;
         }
 
+        @CustomType.Setter
         public Builder attributePath(String attributePath) {
             this.attributePath = Objects.requireNonNull(attributePath);
             return this;
         }
+        @CustomType.Setter
         public Builder attributeValue(String attributeValue) {
             this.attributeValue = Objects.requireNonNull(attributeValue);
             return this;
-        }        public GetGroupFilter build() {
-            return new GetGroupFilter(attributePath, attributeValue);
+        }
+        public GetGroupFilter build() {
+            final var o = new GetGroupFilter();
+            o.attributePath = attributePath;
+            o.attributeValue = attributeValue;
+            return o;
         }
     }
 }

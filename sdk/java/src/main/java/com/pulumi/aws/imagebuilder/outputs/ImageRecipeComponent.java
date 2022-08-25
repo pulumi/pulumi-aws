@@ -16,21 +16,14 @@ public final class ImageRecipeComponent {
      * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
      * 
      */
-    private final String componentArn;
+    private String componentArn;
     /**
      * @return Configuration block(s) for parameters to configure the component. Detailed below.
      * 
      */
-    private final @Nullable List<ImageRecipeComponentParameter> parameters;
+    private @Nullable List<ImageRecipeComponentParameter> parameters;
 
-    @CustomType.Constructor
-    private ImageRecipeComponent(
-        @CustomType.Parameter("componentArn") String componentArn,
-        @CustomType.Parameter("parameters") @Nullable List<ImageRecipeComponentParameter> parameters) {
-        this.componentArn = componentArn;
-        this.parameters = parameters;
-    }
-
+    private ImageRecipeComponent() {}
     /**
      * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
      * 
@@ -53,33 +46,35 @@ public final class ImageRecipeComponent {
     public static Builder builder(ImageRecipeComponent defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String componentArn;
         private @Nullable List<ImageRecipeComponentParameter> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ImageRecipeComponent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.componentArn = defaults.componentArn;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder componentArn(String componentArn) {
             this.componentArn = Objects.requireNonNull(componentArn);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<ImageRecipeComponentParameter> parameters) {
             this.parameters = parameters;
             return this;
         }
         public Builder parameters(ImageRecipeComponentParameter... parameters) {
             return parameters(List.of(parameters));
-        }        public ImageRecipeComponent build() {
-            return new ImageRecipeComponent(componentArn, parameters);
+        }
+        public ImageRecipeComponent build() {
+            final var o = new ImageRecipeComponent();
+            o.componentArn = componentArn;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

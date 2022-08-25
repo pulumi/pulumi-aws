@@ -13,28 +13,19 @@ public final class GetEmailIdentityResult {
      * @return The ARN of the email identity.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The email identity.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetEmailIdentityResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("id") String id) {
-        this.arn = arn;
-        this.email = email;
-        this.id = id;
-    }
-
+    private GetEmailIdentityResult() {}
     /**
      * @return The ARN of the email identity.
      * 
@@ -64,16 +55,12 @@ public final class GetEmailIdentityResult {
     public static Builder builder(GetEmailIdentityResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String email;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEmailIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -81,19 +68,27 @@ public final class GetEmailIdentityResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetEmailIdentityResult build() {
-            return new GetEmailIdentityResult(arn, email, id);
+        }
+        public GetEmailIdentityResult build() {
+            final var o = new GetEmailIdentityResult();
+            o.arn = arn;
+            o.email = email;
+            o.id = id;
+            return o;
         }
     }
 }

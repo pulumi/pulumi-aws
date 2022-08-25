@@ -16,36 +16,19 @@ public final class GetResolverRulesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String nameRegex;
-    private final @Nullable String ownerId;
-    private final @Nullable String resolverEndpointId;
+    private String id;
+    private @Nullable String nameRegex;
+    private @Nullable String ownerId;
+    private @Nullable String resolverEndpointId;
     /**
      * @return The IDs of the matched resolver rules.
      * 
      */
-    private final List<String> resolverRuleIds;
-    private final @Nullable String ruleType;
-    private final @Nullable String shareStatus;
+    private List<String> resolverRuleIds;
+    private @Nullable String ruleType;
+    private @Nullable String shareStatus;
 
-    @CustomType.Constructor
-    private GetResolverRulesResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("nameRegex") @Nullable String nameRegex,
-        @CustomType.Parameter("ownerId") @Nullable String ownerId,
-        @CustomType.Parameter("resolverEndpointId") @Nullable String resolverEndpointId,
-        @CustomType.Parameter("resolverRuleIds") List<String> resolverRuleIds,
-        @CustomType.Parameter("ruleType") @Nullable String ruleType,
-        @CustomType.Parameter("shareStatus") @Nullable String shareStatus) {
-        this.id = id;
-        this.nameRegex = nameRegex;
-        this.ownerId = ownerId;
-        this.resolverEndpointId = resolverEndpointId;
-        this.resolverRuleIds = resolverRuleIds;
-        this.ruleType = ruleType;
-        this.shareStatus = shareStatus;
-    }
-
+    private GetResolverRulesResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -83,7 +66,7 @@ public final class GetResolverRulesResult {
     public static Builder builder(GetResolverRulesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String nameRegex;
@@ -92,11 +75,7 @@ public final class GetResolverRulesResult {
         private List<String> resolverRuleIds;
         private @Nullable String ruleType;
         private @Nullable String shareStatus;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResolverRulesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -108,22 +87,27 @@ public final class GetResolverRulesResult {
     	      this.shareStatus = defaults.shareStatus;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
             this.nameRegex = nameRegex;
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(@Nullable String ownerId) {
             this.ownerId = ownerId;
             return this;
         }
+        @CustomType.Setter
         public Builder resolverEndpointId(@Nullable String resolverEndpointId) {
             this.resolverEndpointId = resolverEndpointId;
             return this;
         }
+        @CustomType.Setter
         public Builder resolverRuleIds(List<String> resolverRuleIds) {
             this.resolverRuleIds = Objects.requireNonNull(resolverRuleIds);
             return this;
@@ -131,15 +115,26 @@ public final class GetResolverRulesResult {
         public Builder resolverRuleIds(String... resolverRuleIds) {
             return resolverRuleIds(List.of(resolverRuleIds));
         }
+        @CustomType.Setter
         public Builder ruleType(@Nullable String ruleType) {
             this.ruleType = ruleType;
             return this;
         }
+        @CustomType.Setter
         public Builder shareStatus(@Nullable String shareStatus) {
             this.shareStatus = shareStatus;
             return this;
-        }        public GetResolverRulesResult build() {
-            return new GetResolverRulesResult(id, nameRegex, ownerId, resolverEndpointId, resolverRuleIds, ruleType, shareStatus);
+        }
+        public GetResolverRulesResult build() {
+            final var o = new GetResolverRulesResult();
+            o.id = id;
+            o.nameRegex = nameRegex;
+            o.ownerId = ownerId;
+            o.resolverEndpointId = resolverEndpointId;
+            o.resolverRuleIds = resolverRuleIds;
+            o.ruleType = ruleType;
+            o.shareStatus = shareStatus;
+            return o;
         }
     }
 }

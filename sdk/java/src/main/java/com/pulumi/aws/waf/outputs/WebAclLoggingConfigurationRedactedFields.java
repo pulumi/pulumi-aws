@@ -14,13 +14,9 @@ public final class WebAclLoggingConfigurationRedactedFields {
      * @return Set of configuration blocks for fields to redact. Detailed below.
      * 
      */
-    private final List<WebAclLoggingConfigurationRedactedFieldsFieldToMatch> fieldToMatches;
+    private List<WebAclLoggingConfigurationRedactedFieldsFieldToMatch> fieldToMatches;
 
-    @CustomType.Constructor
-    private WebAclLoggingConfigurationRedactedFields(@CustomType.Parameter("fieldToMatches") List<WebAclLoggingConfigurationRedactedFieldsFieldToMatch> fieldToMatches) {
-        this.fieldToMatches = fieldToMatches;
-    }
-
+    private WebAclLoggingConfigurationRedactedFields() {}
     /**
      * @return Set of configuration blocks for fields to redact. Detailed below.
      * 
@@ -36,27 +32,27 @@ public final class WebAclLoggingConfigurationRedactedFields {
     public static Builder builder(WebAclLoggingConfigurationRedactedFields defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WebAclLoggingConfigurationRedactedFieldsFieldToMatch> fieldToMatches;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclLoggingConfigurationRedactedFields defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatches = defaults.fieldToMatches;
         }
 
+        @CustomType.Setter
         public Builder fieldToMatches(List<WebAclLoggingConfigurationRedactedFieldsFieldToMatch> fieldToMatches) {
             this.fieldToMatches = Objects.requireNonNull(fieldToMatches);
             return this;
         }
         public Builder fieldToMatches(WebAclLoggingConfigurationRedactedFieldsFieldToMatch... fieldToMatches) {
             return fieldToMatches(List.of(fieldToMatches));
-        }        public WebAclLoggingConfigurationRedactedFields build() {
-            return new WebAclLoggingConfigurationRedactedFields(fieldToMatches);
+        }
+        public WebAclLoggingConfigurationRedactedFields build() {
+            final var o = new WebAclLoggingConfigurationRedactedFields();
+            o.fieldToMatches = fieldToMatches;
+            return o;
         }
     }
 }

@@ -18,35 +18,24 @@ public final class RouteSpecGrpcRoute {
      * @return The action to take if a match is determined.
      * 
      */
-    private final RouteSpecGrpcRouteAction action;
+    private RouteSpecGrpcRouteAction action;
     /**
      * @return The criteria for determining an gRPC request match.
      * 
      */
-    private final @Nullable RouteSpecGrpcRouteMatch match;
+    private @Nullable RouteSpecGrpcRouteMatch match;
     /**
      * @return The retry policy.
      * 
      */
-    private final @Nullable RouteSpecGrpcRouteRetryPolicy retryPolicy;
+    private @Nullable RouteSpecGrpcRouteRetryPolicy retryPolicy;
     /**
      * @return The types of timeouts.
      * 
      */
-    private final @Nullable RouteSpecGrpcRouteTimeout timeout;
+    private @Nullable RouteSpecGrpcRouteTimeout timeout;
 
-    @CustomType.Constructor
-    private RouteSpecGrpcRoute(
-        @CustomType.Parameter("action") RouteSpecGrpcRouteAction action,
-        @CustomType.Parameter("match") @Nullable RouteSpecGrpcRouteMatch match,
-        @CustomType.Parameter("retryPolicy") @Nullable RouteSpecGrpcRouteRetryPolicy retryPolicy,
-        @CustomType.Parameter("timeout") @Nullable RouteSpecGrpcRouteTimeout timeout) {
-        this.action = action;
-        this.match = match;
-        this.retryPolicy = retryPolicy;
-        this.timeout = timeout;
-    }
-
+    private RouteSpecGrpcRoute() {}
     /**
      * @return The action to take if a match is determined.
      * 
@@ -83,17 +72,13 @@ public final class RouteSpecGrpcRoute {
     public static Builder builder(RouteSpecGrpcRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private RouteSpecGrpcRouteAction action;
         private @Nullable RouteSpecGrpcRouteMatch match;
         private @Nullable RouteSpecGrpcRouteRetryPolicy retryPolicy;
         private @Nullable RouteSpecGrpcRouteTimeout timeout;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteSpecGrpcRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -102,23 +87,33 @@ public final class RouteSpecGrpcRoute {
     	      this.timeout = defaults.timeout;
         }
 
+        @CustomType.Setter
         public Builder action(RouteSpecGrpcRouteAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder match(@Nullable RouteSpecGrpcRouteMatch match) {
             this.match = match;
             return this;
         }
+        @CustomType.Setter
         public Builder retryPolicy(@Nullable RouteSpecGrpcRouteRetryPolicy retryPolicy) {
             this.retryPolicy = retryPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable RouteSpecGrpcRouteTimeout timeout) {
             this.timeout = timeout;
             return this;
-        }        public RouteSpecGrpcRoute build() {
-            return new RouteSpecGrpcRoute(action, match, retryPolicy, timeout);
+        }
+        public RouteSpecGrpcRoute build() {
+            final var o = new RouteSpecGrpcRoute();
+            o.action = action;
+            o.match = match;
+            o.retryPolicy = retryPolicy;
+            o.timeout = timeout;
+            return o;
         }
     }
 }

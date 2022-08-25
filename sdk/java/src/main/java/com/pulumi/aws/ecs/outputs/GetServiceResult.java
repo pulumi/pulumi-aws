@@ -15,62 +15,41 @@ public final class GetServiceResult {
      * @return The ARN of the ECS Service
      * 
      */
-    private final String arn;
-    private final String clusterArn;
+    private String arn;
+    private String clusterArn;
     /**
      * @return The number of tasks for the ECS Service
      * 
      */
-    private final Integer desiredCount;
+    private Integer desiredCount;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The launch type for the ECS Service
      * 
      */
-    private final String launchType;
+    private String launchType;
     /**
      * @return The scheduling strategy for the ECS Service
      * 
      */
-    private final String schedulingStrategy;
-    private final String serviceName;
+    private String schedulingStrategy;
+    private String serviceName;
     /**
      * @return Resource tags.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The family for the latest ACTIVE revision
      * 
      */
-    private final String taskDefinition;
+    private String taskDefinition;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("clusterArn") String clusterArn,
-        @CustomType.Parameter("desiredCount") Integer desiredCount,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("launchType") String launchType,
-        @CustomType.Parameter("schedulingStrategy") String schedulingStrategy,
-        @CustomType.Parameter("serviceName") String serviceName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("taskDefinition") String taskDefinition) {
-        this.arn = arn;
-        this.clusterArn = clusterArn;
-        this.desiredCount = desiredCount;
-        this.id = id;
-        this.launchType = launchType;
-        this.schedulingStrategy = schedulingStrategy;
-        this.serviceName = serviceName;
-        this.tags = tags;
-        this.taskDefinition = taskDefinition;
-    }
-
+    private GetServiceResult() {}
     /**
      * @return The ARN of the ECS Service
      * 
@@ -134,7 +113,7 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String clusterArn;
@@ -145,11 +124,7 @@ public final class GetServiceResult {
         private String serviceName;
         private Map<String,String> tags;
         private String taskDefinition;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -163,43 +138,63 @@ public final class GetServiceResult {
     	      this.taskDefinition = defaults.taskDefinition;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterArn(String clusterArn) {
             this.clusterArn = Objects.requireNonNull(clusterArn);
             return this;
         }
+        @CustomType.Setter
         public Builder desiredCount(Integer desiredCount) {
             this.desiredCount = Objects.requireNonNull(desiredCount);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder launchType(String launchType) {
             this.launchType = Objects.requireNonNull(launchType);
             return this;
         }
+        @CustomType.Setter
         public Builder schedulingStrategy(String schedulingStrategy) {
             this.schedulingStrategy = Objects.requireNonNull(schedulingStrategy);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder taskDefinition(String taskDefinition) {
             this.taskDefinition = Objects.requireNonNull(taskDefinition);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(arn, clusterArn, desiredCount, id, launchType, schedulingStrategy, serviceName, tags, taskDefinition);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.arn = arn;
+            o.clusterArn = clusterArn;
+            o.desiredCount = desiredCount;
+            o.id = id;
+            o.launchType = launchType;
+            o.schedulingStrategy = schedulingStrategy;
+            o.serviceName = serviceName;
+            o.tags = tags;
+            o.taskDefinition = taskDefinition;
+            return o;
         }
     }
 }

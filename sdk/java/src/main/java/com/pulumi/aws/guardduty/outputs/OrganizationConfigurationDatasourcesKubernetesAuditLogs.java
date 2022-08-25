@@ -14,13 +14,9 @@ public final class OrganizationConfigurationDatasourcesKubernetesAuditLogs {
      * Defaults to `true`.
      * 
      */
-    private final Boolean enable;
+    private Boolean enable;
 
-    @CustomType.Constructor
-    private OrganizationConfigurationDatasourcesKubernetesAuditLogs(@CustomType.Parameter("enable") Boolean enable) {
-        this.enable = enable;
-    }
-
+    private OrganizationConfigurationDatasourcesKubernetesAuditLogs() {}
     /**
      * @return If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
      * Defaults to `true`.
@@ -37,24 +33,24 @@ public final class OrganizationConfigurationDatasourcesKubernetesAuditLogs {
     public static Builder builder(OrganizationConfigurationDatasourcesKubernetesAuditLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrganizationConfigurationDatasourcesKubernetesAuditLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enable = defaults.enable;
         }
 
+        @CustomType.Setter
         public Builder enable(Boolean enable) {
             this.enable = Objects.requireNonNull(enable);
             return this;
-        }        public OrganizationConfigurationDatasourcesKubernetesAuditLogs build() {
-            return new OrganizationConfigurationDatasourcesKubernetesAuditLogs(enable);
+        }
+        public OrganizationConfigurationDatasourcesKubernetesAuditLogs build() {
+            final var o = new OrganizationConfigurationDatasourcesKubernetesAuditLogs();
+            o.enable = enable;
+            return o;
         }
     }
 }

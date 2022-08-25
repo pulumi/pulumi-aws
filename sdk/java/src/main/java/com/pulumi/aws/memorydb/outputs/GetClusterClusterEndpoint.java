@@ -14,21 +14,14 @@ public final class GetClusterClusterEndpoint {
      * @return DNS hostname of the node.
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return Port number that this node is listening on.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private GetClusterClusterEndpoint(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("port") Integer port) {
-        this.address = address;
-        this.port = port;
-    }
-
+    private GetClusterClusterEndpoint() {}
     /**
      * @return DNS hostname of the node.
      * 
@@ -51,30 +44,32 @@ public final class GetClusterClusterEndpoint {
     public static Builder builder(GetClusterClusterEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterClusterEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public GetClusterClusterEndpoint build() {
-            return new GetClusterClusterEndpoint(address, port);
+        }
+        public GetClusterClusterEndpoint build() {
+            final var o = new GetClusterClusterEndpoint();
+            o.address = address;
+            o.port = port;
+            return o;
         }
     }
 }

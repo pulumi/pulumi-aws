@@ -16,21 +16,14 @@ public final class ClusterLoggingInfoBrokerLogsFirehose {
      * @return Name of the Kinesis Data Firehose delivery stream to deliver logs to.
      * 
      */
-    private final @Nullable String deliveryStream;
+    private @Nullable String deliveryStream;
     /**
      * @return Controls whether provisioned throughput is enabled or not. Default value: `false`.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private ClusterLoggingInfoBrokerLogsFirehose(
-        @CustomType.Parameter("deliveryStream") @Nullable String deliveryStream,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.deliveryStream = deliveryStream;
-        this.enabled = enabled;
-    }
-
+    private ClusterLoggingInfoBrokerLogsFirehose() {}
     /**
      * @return Name of the Kinesis Data Firehose delivery stream to deliver logs to.
      * 
@@ -53,30 +46,32 @@ public final class ClusterLoggingInfoBrokerLogsFirehose {
     public static Builder builder(ClusterLoggingInfoBrokerLogsFirehose defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String deliveryStream;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterLoggingInfoBrokerLogsFirehose defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deliveryStream = defaults.deliveryStream;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder deliveryStream(@Nullable String deliveryStream) {
             this.deliveryStream = deliveryStream;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public ClusterLoggingInfoBrokerLogsFirehose build() {
-            return new ClusterLoggingInfoBrokerLogsFirehose(deliveryStream, enabled);
+        }
+        public ClusterLoggingInfoBrokerLogsFirehose build() {
+            final var o = new ClusterLoggingInfoBrokerLogsFirehose();
+            o.deliveryStream = deliveryStream;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

@@ -14,69 +14,46 @@ public final class GetConnectionResult {
      * @return The ARN of the connection.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The ID of the second device in the connection.
      * 
      */
-    private final String connectedDeviceId;
+    private String connectedDeviceId;
     /**
      * @return The ID of the link for the second device.
      * 
      */
-    private final String connectedLinkId;
-    private final String connectionId;
+    private String connectedLinkId;
+    private String connectionId;
     /**
      * @return A description of the connection.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The ID of the first device in the connection.
      * 
      */
-    private final String deviceId;
-    private final String globalNetworkId;
+    private String deviceId;
+    private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ID of the link for the first device.
      * 
      */
-    private final String linkId;
+    private String linkId;
     /**
      * @return Key-value tags for the connection.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetConnectionResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("connectedDeviceId") String connectedDeviceId,
-        @CustomType.Parameter("connectedLinkId") String connectedLinkId,
-        @CustomType.Parameter("connectionId") String connectionId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("deviceId") String deviceId,
-        @CustomType.Parameter("globalNetworkId") String globalNetworkId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("linkId") String linkId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.connectedDeviceId = connectedDeviceId;
-        this.connectedLinkId = connectedLinkId;
-        this.connectionId = connectionId;
-        this.description = description;
-        this.deviceId = deviceId;
-        this.globalNetworkId = globalNetworkId;
-        this.id = id;
-        this.linkId = linkId;
-        this.tags = tags;
-    }
-
+    private GetConnectionResult() {}
     /**
      * @return The ARN of the connection.
      * 
@@ -147,7 +124,7 @@ public final class GetConnectionResult {
     public static Builder builder(GetConnectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String connectedDeviceId;
@@ -159,11 +136,7 @@ public final class GetConnectionResult {
         private String id;
         private String linkId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -178,47 +151,69 @@ public final class GetConnectionResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder connectedDeviceId(String connectedDeviceId) {
             this.connectedDeviceId = Objects.requireNonNull(connectedDeviceId);
             return this;
         }
+        @CustomType.Setter
         public Builder connectedLinkId(String connectedLinkId) {
             this.connectedLinkId = Objects.requireNonNull(connectedLinkId);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionId(String connectionId) {
             this.connectionId = Objects.requireNonNull(connectionId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceId(String deviceId) {
             this.deviceId = Objects.requireNonNull(deviceId);
             return this;
         }
+        @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
             this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder linkId(String linkId) {
             this.linkId = Objects.requireNonNull(linkId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetConnectionResult build() {
-            return new GetConnectionResult(arn, connectedDeviceId, connectedLinkId, connectionId, description, deviceId, globalNetworkId, id, linkId, tags);
+        }
+        public GetConnectionResult build() {
+            final var o = new GetConnectionResult();
+            o.arn = arn;
+            o.connectedDeviceId = connectedDeviceId;
+            o.connectedLinkId = connectedLinkId;
+            o.connectionId = connectionId;
+            o.description = description;
+            o.deviceId = deviceId;
+            o.globalNetworkId = globalNetworkId;
+            o.id = id;
+            o.linkId = linkId;
+            o.tags = tags;
+            return o;
         }
     }
 }

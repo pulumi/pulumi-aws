@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class InstanceEphemeralBlockDevice {
-    private final String deviceName;
-    private final String virtualName;
+    private String deviceName;
+    private String virtualName;
 
-    @CustomType.Constructor
-    private InstanceEphemeralBlockDevice(
-        @CustomType.Parameter("deviceName") String deviceName,
-        @CustomType.Parameter("virtualName") String virtualName) {
-        this.deviceName = deviceName;
-        this.virtualName = virtualName;
-    }
-
+    private InstanceEphemeralBlockDevice() {}
     public String deviceName() {
         return this.deviceName;
     }
@@ -34,30 +27,32 @@ public final class InstanceEphemeralBlockDevice {
     public static Builder builder(InstanceEphemeralBlockDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deviceName;
         private String virtualName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InstanceEphemeralBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deviceName = defaults.deviceName;
     	      this.virtualName = defaults.virtualName;
         }
 
+        @CustomType.Setter
         public Builder deviceName(String deviceName) {
             this.deviceName = Objects.requireNonNull(deviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualName(String virtualName) {
             this.virtualName = Objects.requireNonNull(virtualName);
             return this;
-        }        public InstanceEphemeralBlockDevice build() {
-            return new InstanceEphemeralBlockDevice(deviceName, virtualName);
+        }
+        public InstanceEphemeralBlockDevice build() {
+            final var o = new InstanceEphemeralBlockDevice();
+            o.deviceName = deviceName;
+            o.virtualName = virtualName;
+            return o;
         }
     }
 }

@@ -16,70 +16,49 @@ public final class ClusterEc2Attributes {
      * @return String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
      * 
      */
-    private final @Nullable String additionalMasterSecurityGroups;
+    private @Nullable String additionalMasterSecurityGroups;
     /**
      * @return String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
      * 
      */
-    private final @Nullable String additionalSlaveSecurityGroups;
+    private @Nullable String additionalSlaveSecurityGroups;
     /**
      * @return Identifier of the Amazon EC2 EMR-Managed security group for the master node.
      * 
      */
-    private final @Nullable String emrManagedMasterSecurityGroup;
+    private @Nullable String emrManagedMasterSecurityGroup;
     /**
      * @return Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
      * 
      */
-    private final @Nullable String emrManagedSlaveSecurityGroup;
+    private @Nullable String emrManagedSlaveSecurityGroup;
     /**
      * @return Instance Profile for EC2 instances of the cluster assume this role.
      * 
      */
-    private final String instanceProfile;
+    private String instanceProfile;
     /**
      * @return Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
      * 
      */
-    private final @Nullable String keyName;
+    private @Nullable String keyName;
     /**
      * @return Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
      * 
      */
-    private final @Nullable String serviceAccessSecurityGroup;
+    private @Nullable String serviceAccessSecurityGroup;
     /**
      * @return VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
      * 
      */
-    private final @Nullable List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
 
-    @CustomType.Constructor
-    private ClusterEc2Attributes(
-        @CustomType.Parameter("additionalMasterSecurityGroups") @Nullable String additionalMasterSecurityGroups,
-        @CustomType.Parameter("additionalSlaveSecurityGroups") @Nullable String additionalSlaveSecurityGroups,
-        @CustomType.Parameter("emrManagedMasterSecurityGroup") @Nullable String emrManagedMasterSecurityGroup,
-        @CustomType.Parameter("emrManagedSlaveSecurityGroup") @Nullable String emrManagedSlaveSecurityGroup,
-        @CustomType.Parameter("instanceProfile") String instanceProfile,
-        @CustomType.Parameter("keyName") @Nullable String keyName,
-        @CustomType.Parameter("serviceAccessSecurityGroup") @Nullable String serviceAccessSecurityGroup,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId,
-        @CustomType.Parameter("subnetIds") @Nullable List<String> subnetIds) {
-        this.additionalMasterSecurityGroups = additionalMasterSecurityGroups;
-        this.additionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
-        this.emrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
-        this.emrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
-        this.instanceProfile = instanceProfile;
-        this.keyName = keyName;
-        this.serviceAccessSecurityGroup = serviceAccessSecurityGroup;
-        this.subnetId = subnetId;
-        this.subnetIds = subnetIds;
-    }
-
+    private ClusterEc2Attributes() {}
     /**
      * @return String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
      * 
@@ -151,7 +130,7 @@ public final class ClusterEc2Attributes {
     public static Builder builder(ClusterEc2Attributes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String additionalMasterSecurityGroups;
         private @Nullable String additionalSlaveSecurityGroups;
@@ -162,11 +141,7 @@ public final class ClusterEc2Attributes {
         private @Nullable String serviceAccessSecurityGroup;
         private @Nullable String subnetId;
         private @Nullable List<String> subnetIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterEc2Attributes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalMasterSecurityGroups = defaults.additionalMasterSecurityGroups;
@@ -180,46 +155,66 @@ public final class ClusterEc2Attributes {
     	      this.subnetIds = defaults.subnetIds;
         }
 
+        @CustomType.Setter
         public Builder additionalMasterSecurityGroups(@Nullable String additionalMasterSecurityGroups) {
             this.additionalMasterSecurityGroups = additionalMasterSecurityGroups;
             return this;
         }
+        @CustomType.Setter
         public Builder additionalSlaveSecurityGroups(@Nullable String additionalSlaveSecurityGroups) {
             this.additionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
             return this;
         }
+        @CustomType.Setter
         public Builder emrManagedMasterSecurityGroup(@Nullable String emrManagedMasterSecurityGroup) {
             this.emrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder emrManagedSlaveSecurityGroup(@Nullable String emrManagedSlaveSecurityGroup) {
             this.emrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceProfile(String instanceProfile) {
             this.instanceProfile = Objects.requireNonNull(instanceProfile);
             return this;
         }
+        @CustomType.Setter
         public Builder keyName(@Nullable String keyName) {
             this.keyName = keyName;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceAccessSecurityGroup(@Nullable String serviceAccessSecurityGroup) {
             this.serviceAccessSecurityGroup = serviceAccessSecurityGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
             this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
-        }        public ClusterEc2Attributes build() {
-            return new ClusterEc2Attributes(additionalMasterSecurityGroups, additionalSlaveSecurityGroups, emrManagedMasterSecurityGroup, emrManagedSlaveSecurityGroup, instanceProfile, keyName, serviceAccessSecurityGroup, subnetId, subnetIds);
+        }
+        public ClusterEc2Attributes build() {
+            final var o = new ClusterEc2Attributes();
+            o.additionalMasterSecurityGroups = additionalMasterSecurityGroups;
+            o.additionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
+            o.emrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
+            o.emrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
+            o.instanceProfile = instanceProfile;
+            o.keyName = keyName;
+            o.serviceAccessSecurityGroup = serviceAccessSecurityGroup;
+            o.subnetId = subnetId;
+            o.subnetIds = subnetIds;
+            return o;
         }
     }
 }

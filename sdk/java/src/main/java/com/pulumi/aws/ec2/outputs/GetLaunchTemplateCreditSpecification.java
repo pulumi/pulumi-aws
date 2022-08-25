@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateCreditSpecification {
-    private final String cpuCredits;
+    private String cpuCredits;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateCreditSpecification(@CustomType.Parameter("cpuCredits") String cpuCredits) {
-        this.cpuCredits = cpuCredits;
-    }
-
+    private GetLaunchTemplateCreditSpecification() {}
     public String cpuCredits() {
         return this.cpuCredits;
     }
@@ -27,24 +23,24 @@ public final class GetLaunchTemplateCreditSpecification {
     public static Builder builder(GetLaunchTemplateCreditSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cpuCredits;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateCreditSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cpuCredits = defaults.cpuCredits;
         }
 
+        @CustomType.Setter
         public Builder cpuCredits(String cpuCredits) {
             this.cpuCredits = Objects.requireNonNull(cpuCredits);
             return this;
-        }        public GetLaunchTemplateCreditSpecification build() {
-            return new GetLaunchTemplateCreditSpecification(cpuCredits);
+        }
+        public GetLaunchTemplateCreditSpecification build() {
+            final var o = new GetLaunchTemplateCreditSpecification();
+            o.cpuCredits = cpuCredits;
+            return o;
         }
     }
 }

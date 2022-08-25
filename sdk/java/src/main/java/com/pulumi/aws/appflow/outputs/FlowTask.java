@@ -18,42 +18,29 @@ public final class FlowTask {
      * @return The operation to be performed on the provided source fields. See Connector Operator for details.
      * 
      */
-    private final @Nullable List<FlowTaskConnectorOperator> connectorOperators;
+    private @Nullable List<FlowTaskConnectorOperator> connectorOperators;
     /**
      * @return A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
      * 
      */
-    private final @Nullable String destinationField;
+    private @Nullable String destinationField;
     /**
      * @return The source fields to which a particular task is applied.
      * 
      */
-    private final List<String> sourceFields;
+    private List<String> sourceFields;
     /**
      * @return A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
      * 
      */
-    private final @Nullable Map<String,String> taskProperties;
+    private @Nullable Map<String,String> taskProperties;
     /**
      * @return Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
      * 
      */
-    private final String taskType;
+    private String taskType;
 
-    @CustomType.Constructor
-    private FlowTask(
-        @CustomType.Parameter("connectorOperators") @Nullable List<FlowTaskConnectorOperator> connectorOperators,
-        @CustomType.Parameter("destinationField") @Nullable String destinationField,
-        @CustomType.Parameter("sourceFields") List<String> sourceFields,
-        @CustomType.Parameter("taskProperties") @Nullable Map<String,String> taskProperties,
-        @CustomType.Parameter("taskType") String taskType) {
-        this.connectorOperators = connectorOperators;
-        this.destinationField = destinationField;
-        this.sourceFields = sourceFields;
-        this.taskProperties = taskProperties;
-        this.taskType = taskType;
-    }
-
+    private FlowTask() {}
     /**
      * @return The operation to be performed on the provided source fields. See Connector Operator for details.
      * 
@@ -97,18 +84,14 @@ public final class FlowTask {
     public static Builder builder(FlowTask defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FlowTaskConnectorOperator> connectorOperators;
         private @Nullable String destinationField;
         private List<String> sourceFields;
         private @Nullable Map<String,String> taskProperties;
         private String taskType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowTask defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectorOperators = defaults.connectorOperators;
@@ -118,6 +101,7 @@ public final class FlowTask {
     	      this.taskType = defaults.taskType;
         }
 
+        @CustomType.Setter
         public Builder connectorOperators(@Nullable List<FlowTaskConnectorOperator> connectorOperators) {
             this.connectorOperators = connectorOperators;
             return this;
@@ -125,10 +109,12 @@ public final class FlowTask {
         public Builder connectorOperators(FlowTaskConnectorOperator... connectorOperators) {
             return connectorOperators(List.of(connectorOperators));
         }
+        @CustomType.Setter
         public Builder destinationField(@Nullable String destinationField) {
             this.destinationField = destinationField;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceFields(List<String> sourceFields) {
             this.sourceFields = Objects.requireNonNull(sourceFields);
             return this;
@@ -136,15 +122,24 @@ public final class FlowTask {
         public Builder sourceFields(String... sourceFields) {
             return sourceFields(List.of(sourceFields));
         }
+        @CustomType.Setter
         public Builder taskProperties(@Nullable Map<String,String> taskProperties) {
             this.taskProperties = taskProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder taskType(String taskType) {
             this.taskType = Objects.requireNonNull(taskType);
             return this;
-        }        public FlowTask build() {
-            return new FlowTask(connectorOperators, destinationField, sourceFields, taskProperties, taskType);
+        }
+        public FlowTask build() {
+            final var o = new FlowTask();
+            o.connectorOperators = connectorOperators;
+            o.destinationField = destinationField;
+            o.sourceFields = sourceFields;
+            o.taskProperties = taskProperties;
+            o.taskType = taskType;
+            return o;
         }
     }
 }

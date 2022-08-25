@@ -16,31 +16,20 @@ public final class GetFirewallFirewallStatus {
      * @return Aggregated count of all resources used by reference sets in a firewall.
      * 
      */
-    private final List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries;
+    private List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries;
     /**
      * @return Summary of sync states for all availability zones in which the firewall is configured.
      * 
      */
-    private final String configurationSyncStateSummary;
-    private final String status;
+    private String configurationSyncStateSummary;
+    private String status;
     /**
      * @return Set of subnets configured for use by the firewall.
      * 
      */
-    private final List<GetFirewallFirewallStatusSyncState> syncStates;
+    private List<GetFirewallFirewallStatusSyncState> syncStates;
 
-    @CustomType.Constructor
-    private GetFirewallFirewallStatus(
-        @CustomType.Parameter("capacityUsageSummaries") List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries,
-        @CustomType.Parameter("configurationSyncStateSummary") String configurationSyncStateSummary,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("syncStates") List<GetFirewallFirewallStatusSyncState> syncStates) {
-        this.capacityUsageSummaries = capacityUsageSummaries;
-        this.configurationSyncStateSummary = configurationSyncStateSummary;
-        this.status = status;
-        this.syncStates = syncStates;
-    }
-
+    private GetFirewallFirewallStatus() {}
     /**
      * @return Aggregated count of all resources used by reference sets in a firewall.
      * 
@@ -73,17 +62,13 @@ public final class GetFirewallFirewallStatus {
     public static Builder builder(GetFirewallFirewallStatus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries;
         private String configurationSyncStateSummary;
         private String status;
         private List<GetFirewallFirewallStatusSyncState> syncStates;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallFirewallStatus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityUsageSummaries = defaults.capacityUsageSummaries;
@@ -92,6 +77,7 @@ public final class GetFirewallFirewallStatus {
     	      this.syncStates = defaults.syncStates;
         }
 
+        @CustomType.Setter
         public Builder capacityUsageSummaries(List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries) {
             this.capacityUsageSummaries = Objects.requireNonNull(capacityUsageSummaries);
             return this;
@@ -99,22 +85,31 @@ public final class GetFirewallFirewallStatus {
         public Builder capacityUsageSummaries(GetFirewallFirewallStatusCapacityUsageSummary... capacityUsageSummaries) {
             return capacityUsageSummaries(List.of(capacityUsageSummaries));
         }
+        @CustomType.Setter
         public Builder configurationSyncStateSummary(String configurationSyncStateSummary) {
             this.configurationSyncStateSummary = Objects.requireNonNull(configurationSyncStateSummary);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder syncStates(List<GetFirewallFirewallStatusSyncState> syncStates) {
             this.syncStates = Objects.requireNonNull(syncStates);
             return this;
         }
         public Builder syncStates(GetFirewallFirewallStatusSyncState... syncStates) {
             return syncStates(List.of(syncStates));
-        }        public GetFirewallFirewallStatus build() {
-            return new GetFirewallFirewallStatus(capacityUsageSummaries, configurationSyncStateSummary, status, syncStates);
+        }
+        public GetFirewallFirewallStatus build() {
+            final var o = new GetFirewallFirewallStatus();
+            o.capacityUsageSummaries = capacityUsageSummaries;
+            o.configurationSyncStateSummary = configurationSyncStateSummary;
+            o.status = status;
+            o.syncStates = syncStates;
+            return o;
         }
     }
 }

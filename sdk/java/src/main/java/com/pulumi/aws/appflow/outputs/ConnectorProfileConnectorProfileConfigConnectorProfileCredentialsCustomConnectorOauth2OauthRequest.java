@@ -15,21 +15,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The code provided by the connector when it has been authenticated via the connected app.
      * 
      */
-    private final @Nullable String authCode;
+    private @Nullable String authCode;
     /**
      * @return The URL to which the authentication server redirects the browser after authorization has been granted.
      * 
      */
-    private final @Nullable String redirectUri;
+    private @Nullable String redirectUri;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest(
-        @CustomType.Parameter("authCode") @Nullable String authCode,
-        @CustomType.Parameter("redirectUri") @Nullable String redirectUri) {
-        this.authCode = authCode;
-        this.redirectUri = redirectUri;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest() {}
     /**
      * @return The code provided by the connector when it has been authenticated via the connected app.
      * 
@@ -52,30 +45,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String authCode;
         private @Nullable String redirectUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authCode = defaults.authCode;
     	      this.redirectUri = defaults.redirectUri;
         }
 
+        @CustomType.Setter
         public Builder authCode(@Nullable String authCode) {
             this.authCode = authCode;
             return this;
         }
+        @CustomType.Setter
         public Builder redirectUri(@Nullable String redirectUri) {
             this.redirectUri = redirectUri;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest(authCode, redirectUri);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest();
+            o.authCode = authCode;
+            o.redirectUri = redirectUri;
+            return o;
         }
     }
 }

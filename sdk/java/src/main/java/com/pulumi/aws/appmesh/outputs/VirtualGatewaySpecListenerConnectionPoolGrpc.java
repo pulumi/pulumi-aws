@@ -13,13 +13,9 @@ public final class VirtualGatewaySpecListenerConnectionPoolGrpc {
      * @return Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
      * 
      */
-    private final Integer maxRequests;
+    private Integer maxRequests;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecListenerConnectionPoolGrpc(@CustomType.Parameter("maxRequests") Integer maxRequests) {
-        this.maxRequests = maxRequests;
-    }
-
+    private VirtualGatewaySpecListenerConnectionPoolGrpc() {}
     /**
      * @return Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
      * 
@@ -35,24 +31,24 @@ public final class VirtualGatewaySpecListenerConnectionPoolGrpc {
     public static Builder builder(VirtualGatewaySpecListenerConnectionPoolGrpc defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxRequests;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecListenerConnectionPoolGrpc defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxRequests = defaults.maxRequests;
         }
 
+        @CustomType.Setter
         public Builder maxRequests(Integer maxRequests) {
             this.maxRequests = Objects.requireNonNull(maxRequests);
             return this;
-        }        public VirtualGatewaySpecListenerConnectionPoolGrpc build() {
-            return new VirtualGatewaySpecListenerConnectionPoolGrpc(maxRequests);
+        }
+        public VirtualGatewaySpecListenerConnectionPoolGrpc build() {
+            final var o = new VirtualGatewaySpecListenerConnectionPoolGrpc();
+            o.maxRequests = maxRequests;
+            return o;
         }
     }
 }

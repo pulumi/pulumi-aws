@@ -18,35 +18,24 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
      * @return List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `&#34;64512-65534&#34;`. No other ASN ranges can be used.
      * 
      */
-    private final List<String> asnRanges;
+    private List<String> asnRanges;
     /**
      * @return A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
      * 
      */
-    private final List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations;
+    private List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations;
     /**
      * @return The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
      * 
      */
-    private final @Nullable List<String> insideCidrBlocks;
+    private @Nullable List<String> insideCidrBlocks;
     /**
      * @return Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
      * 
      */
-    private final @Nullable Boolean vpnEcmpSupport;
+    private @Nullable Boolean vpnEcmpSupport;
 
-    @CustomType.Constructor
-    private GetCoreNetworkPolicyDocumentCoreNetworkConfiguration(
-        @CustomType.Parameter("asnRanges") List<String> asnRanges,
-        @CustomType.Parameter("edgeLocations") List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations,
-        @CustomType.Parameter("insideCidrBlocks") @Nullable List<String> insideCidrBlocks,
-        @CustomType.Parameter("vpnEcmpSupport") @Nullable Boolean vpnEcmpSupport) {
-        this.asnRanges = asnRanges;
-        this.edgeLocations = edgeLocations;
-        this.insideCidrBlocks = insideCidrBlocks;
-        this.vpnEcmpSupport = vpnEcmpSupport;
-    }
-
+    private GetCoreNetworkPolicyDocumentCoreNetworkConfiguration() {}
     /**
      * @return List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `&#34;64512-65534&#34;`. No other ASN ranges can be used.
      * 
@@ -83,17 +72,13 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
     public static Builder builder(GetCoreNetworkPolicyDocumentCoreNetworkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> asnRanges;
         private List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations;
         private @Nullable List<String> insideCidrBlocks;
         private @Nullable Boolean vpnEcmpSupport;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentCoreNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asnRanges = defaults.asnRanges;
@@ -102,6 +87,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
     	      this.vpnEcmpSupport = defaults.vpnEcmpSupport;
         }
 
+        @CustomType.Setter
         public Builder asnRanges(List<String> asnRanges) {
             this.asnRanges = Objects.requireNonNull(asnRanges);
             return this;
@@ -109,6 +95,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
         public Builder asnRanges(String... asnRanges) {
             return asnRanges(List.of(asnRanges));
         }
+        @CustomType.Setter
         public Builder edgeLocations(List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations) {
             this.edgeLocations = Objects.requireNonNull(edgeLocations);
             return this;
@@ -116,6 +103,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
         public Builder edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation... edgeLocations) {
             return edgeLocations(List.of(edgeLocations));
         }
+        @CustomType.Setter
         public Builder insideCidrBlocks(@Nullable List<String> insideCidrBlocks) {
             this.insideCidrBlocks = insideCidrBlocks;
             return this;
@@ -123,11 +111,18 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }
+        @CustomType.Setter
         public Builder vpnEcmpSupport(@Nullable Boolean vpnEcmpSupport) {
             this.vpnEcmpSupport = vpnEcmpSupport;
             return this;
-        }        public GetCoreNetworkPolicyDocumentCoreNetworkConfiguration build() {
-            return new GetCoreNetworkPolicyDocumentCoreNetworkConfiguration(asnRanges, edgeLocations, insideCidrBlocks, vpnEcmpSupport);
+        }
+        public GetCoreNetworkPolicyDocumentCoreNetworkConfiguration build() {
+            final var o = new GetCoreNetworkPolicyDocumentCoreNetworkConfiguration();
+            o.asnRanges = asnRanges;
+            o.edgeLocations = edgeLocations;
+            o.insideCidrBlocks = insideCidrBlocks;
+            o.vpnEcmpSupport = vpnEcmpSupport;
+            return o;
         }
     }
 }

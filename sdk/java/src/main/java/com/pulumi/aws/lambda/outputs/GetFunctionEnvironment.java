@@ -10,13 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionEnvironment {
-    private final Map<String,String> variables;
+    private Map<String,String> variables;
 
-    @CustomType.Constructor
-    private GetFunctionEnvironment(@CustomType.Parameter("variables") Map<String,String> variables) {
-        this.variables = variables;
-    }
-
+    private GetFunctionEnvironment() {}
     public Map<String,String> variables() {
         return this.variables;
     }
@@ -28,24 +24,24 @@ public final class GetFunctionEnvironment {
     public static Builder builder(GetFunctionEnvironment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> variables;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.variables = defaults.variables;
         }
 
+        @CustomType.Setter
         public Builder variables(Map<String,String> variables) {
             this.variables = Objects.requireNonNull(variables);
             return this;
-        }        public GetFunctionEnvironment build() {
-            return new GetFunctionEnvironment(variables);
+        }
+        public GetFunctionEnvironment build() {
+            final var o = new GetFunctionEnvironment();
+            o.variables = variables;
+            return o;
         }
     }
 }

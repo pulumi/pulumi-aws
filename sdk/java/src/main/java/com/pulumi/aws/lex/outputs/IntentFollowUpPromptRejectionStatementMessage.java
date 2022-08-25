@@ -16,29 +16,20 @@ public final class IntentFollowUpPromptRejectionStatementMessage {
      * @return The text of the message. Must be less than or equal to 1000 characters in length.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return The content type of the message string.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return Identifies the message group that the message belongs to. When a group
      * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
      * 
      */
-    private final @Nullable Integer groupNumber;
+    private @Nullable Integer groupNumber;
 
-    @CustomType.Constructor
-    private IntentFollowUpPromptRejectionStatementMessage(
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("groupNumber") @Nullable Integer groupNumber) {
-        this.content = content;
-        this.contentType = contentType;
-        this.groupNumber = groupNumber;
-    }
-
+    private IntentFollowUpPromptRejectionStatementMessage() {}
     /**
      * @return The text of the message. Must be less than or equal to 1000 characters in length.
      * 
@@ -69,16 +60,12 @@ public final class IntentFollowUpPromptRejectionStatementMessage {
     public static Builder builder(IntentFollowUpPromptRejectionStatementMessage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String content;
         private String contentType;
         private @Nullable Integer groupNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntentFollowUpPromptRejectionStatementMessage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
@@ -86,19 +73,27 @@ public final class IntentFollowUpPromptRejectionStatementMessage {
     	      this.groupNumber = defaults.groupNumber;
         }
 
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder groupNumber(@Nullable Integer groupNumber) {
             this.groupNumber = groupNumber;
             return this;
-        }        public IntentFollowUpPromptRejectionStatementMessage build() {
-            return new IntentFollowUpPromptRejectionStatementMessage(content, contentType, groupNumber);
+        }
+        public IntentFollowUpPromptRejectionStatementMessage build() {
+            final var o = new IntentFollowUpPromptRejectionStatementMessage();
+            o.content = content;
+            o.contentType = contentType;
+            o.groupNumber = groupNumber;
+            return o;
         }
     }
 }

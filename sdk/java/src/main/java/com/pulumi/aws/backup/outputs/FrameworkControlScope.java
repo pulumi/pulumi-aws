@@ -16,28 +16,19 @@ public final class FrameworkControlScope {
      * @return The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
      * 
      */
-    private final @Nullable List<String> complianceResourceIds;
+    private @Nullable List<String> complianceResourceIds;
     /**
      * @return Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
      * 
      */
-    private final @Nullable List<String> complianceResourceTypes;
+    private @Nullable List<String> complianceResourceTypes;
     /**
      * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private FrameworkControlScope(
-        @CustomType.Parameter("complianceResourceIds") @Nullable List<String> complianceResourceIds,
-        @CustomType.Parameter("complianceResourceTypes") @Nullable List<String> complianceResourceTypes,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.complianceResourceIds = complianceResourceIds;
-        this.complianceResourceTypes = complianceResourceTypes;
-        this.tags = tags;
-    }
-
+    private FrameworkControlScope() {}
     /**
      * @return The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
      * 
@@ -67,16 +58,12 @@ public final class FrameworkControlScope {
     public static Builder builder(FrameworkControlScope defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> complianceResourceIds;
         private @Nullable List<String> complianceResourceTypes;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrameworkControlScope defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.complianceResourceIds = defaults.complianceResourceIds;
@@ -84,6 +71,7 @@ public final class FrameworkControlScope {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder complianceResourceIds(@Nullable List<String> complianceResourceIds) {
             this.complianceResourceIds = complianceResourceIds;
             return this;
@@ -91,6 +79,7 @@ public final class FrameworkControlScope {
         public Builder complianceResourceIds(String... complianceResourceIds) {
             return complianceResourceIds(List.of(complianceResourceIds));
         }
+        @CustomType.Setter
         public Builder complianceResourceTypes(@Nullable List<String> complianceResourceTypes) {
             this.complianceResourceTypes = complianceResourceTypes;
             return this;
@@ -98,11 +87,17 @@ public final class FrameworkControlScope {
         public Builder complianceResourceTypes(String... complianceResourceTypes) {
             return complianceResourceTypes(List.of(complianceResourceTypes));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public FrameworkControlScope build() {
-            return new FrameworkControlScope(complianceResourceIds, complianceResourceTypes, tags);
+        }
+        public FrameworkControlScope build() {
+            final var o = new FrameworkControlScope();
+            o.complianceResourceIds = complianceResourceIds;
+            o.complianceResourceTypes = complianceResourceTypes;
+            o.tags = tags;
+            return o;
         }
     }
 }

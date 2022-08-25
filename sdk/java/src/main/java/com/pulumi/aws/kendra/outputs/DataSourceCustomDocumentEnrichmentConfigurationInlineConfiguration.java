@@ -17,28 +17,19 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
      * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
      * 
      */
-    private final @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition;
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition;
     /**
      * @return `TRUE` to delete content if the condition used for the target attribute is met.
      * 
      */
-    private final @Nullable Boolean documentContentDeletion;
+    private @Nullable Boolean documentContentDeletion;
     /**
      * @return Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
      * 
      */
-    private final @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget target;
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget target;
 
-    @CustomType.Constructor
-    private DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration(
-        @CustomType.Parameter("condition") @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition,
-        @CustomType.Parameter("documentContentDeletion") @Nullable Boolean documentContentDeletion,
-        @CustomType.Parameter("target") @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget target) {
-        this.condition = condition;
-        this.documentContentDeletion = documentContentDeletion;
-        this.target = target;
-    }
-
+    private DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration() {}
     /**
      * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
      * 
@@ -68,16 +59,12 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     public static Builder builder(DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition;
         private @Nullable Boolean documentContentDeletion;
         private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.condition = defaults.condition;
@@ -85,19 +72,27 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder condition(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition) {
             this.condition = condition;
             return this;
         }
+        @CustomType.Setter
         public Builder documentContentDeletion(@Nullable Boolean documentContentDeletion) {
             this.documentContentDeletion = documentContentDeletion;
             return this;
         }
+        @CustomType.Setter
         public Builder target(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget target) {
             this.target = target;
             return this;
-        }        public DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration build() {
-            return new DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration(condition, documentContentDeletion, target);
+        }
+        public DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration build() {
+            final var o = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration();
+            o.condition = condition;
+            o.documentContentDeletion = documentContentDeletion;
+            o.target = target;
+            return o;
         }
     }
 }

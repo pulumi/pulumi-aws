@@ -16,21 +16,14 @@ public final class DataRepositoryAssociationS3 {
      * @return Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
      * 
      */
-    private final @Nullable DataRepositoryAssociationS3AutoExportPolicy autoExportPolicy;
+    private @Nullable DataRepositoryAssociationS3AutoExportPolicy autoExportPolicy;
     /**
      * @return Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
      * 
      */
-    private final @Nullable DataRepositoryAssociationS3AutoImportPolicy autoImportPolicy;
+    private @Nullable DataRepositoryAssociationS3AutoImportPolicy autoImportPolicy;
 
-    @CustomType.Constructor
-    private DataRepositoryAssociationS3(
-        @CustomType.Parameter("autoExportPolicy") @Nullable DataRepositoryAssociationS3AutoExportPolicy autoExportPolicy,
-        @CustomType.Parameter("autoImportPolicy") @Nullable DataRepositoryAssociationS3AutoImportPolicy autoImportPolicy) {
-        this.autoExportPolicy = autoExportPolicy;
-        this.autoImportPolicy = autoImportPolicy;
-    }
-
+    private DataRepositoryAssociationS3() {}
     /**
      * @return Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
      * 
@@ -53,30 +46,32 @@ public final class DataRepositoryAssociationS3 {
     public static Builder builder(DataRepositoryAssociationS3 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataRepositoryAssociationS3AutoExportPolicy autoExportPolicy;
         private @Nullable DataRepositoryAssociationS3AutoImportPolicy autoImportPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataRepositoryAssociationS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoExportPolicy = defaults.autoExportPolicy;
     	      this.autoImportPolicy = defaults.autoImportPolicy;
         }
 
+        @CustomType.Setter
         public Builder autoExportPolicy(@Nullable DataRepositoryAssociationS3AutoExportPolicy autoExportPolicy) {
             this.autoExportPolicy = autoExportPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder autoImportPolicy(@Nullable DataRepositoryAssociationS3AutoImportPolicy autoImportPolicy) {
             this.autoImportPolicy = autoImportPolicy;
             return this;
-        }        public DataRepositoryAssociationS3 build() {
-            return new DataRepositoryAssociationS3(autoExportPolicy, autoImportPolicy);
+        }
+        public DataRepositoryAssociationS3 build() {
+            final var o = new DataRepositoryAssociationS3();
+            o.autoExportPolicy = autoExportPolicy;
+            o.autoImportPolicy = autoImportPolicy;
+            return o;
         }
     }
 }

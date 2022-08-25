@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAmiProductCode {
-    private final String productCodeId;
-    private final String productCodeType;
+    private String productCodeId;
+    private String productCodeType;
 
-    @CustomType.Constructor
-    private GetAmiProductCode(
-        @CustomType.Parameter("productCodeId") String productCodeId,
-        @CustomType.Parameter("productCodeType") String productCodeType) {
-        this.productCodeId = productCodeId;
-        this.productCodeType = productCodeType;
-    }
-
+    private GetAmiProductCode() {}
     public String productCodeId() {
         return this.productCodeId;
     }
@@ -34,30 +27,32 @@ public final class GetAmiProductCode {
     public static Builder builder(GetAmiProductCode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String productCodeId;
         private String productCodeType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAmiProductCode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.productCodeId = defaults.productCodeId;
     	      this.productCodeType = defaults.productCodeType;
         }
 
+        @CustomType.Setter
         public Builder productCodeId(String productCodeId) {
             this.productCodeId = Objects.requireNonNull(productCodeId);
             return this;
         }
+        @CustomType.Setter
         public Builder productCodeType(String productCodeType) {
             this.productCodeType = Objects.requireNonNull(productCodeType);
             return this;
-        }        public GetAmiProductCode build() {
-            return new GetAmiProductCode(productCodeId, productCodeType);
+        }
+        public GetAmiProductCode build() {
+            final var o = new GetAmiProductCode();
+            o.productCodeId = productCodeId;
+            o.productCodeType = productCodeType;
+            return o;
         }
     }
 }

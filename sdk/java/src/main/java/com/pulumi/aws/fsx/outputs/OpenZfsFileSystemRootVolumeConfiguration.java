@@ -20,49 +20,34 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
      * @return - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      * 
      */
-    private final @Nullable Boolean copyTagsToSnapshots;
+    private @Nullable Boolean copyTagsToSnapshots;
     /**
      * @return - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
-    private final @Nullable String dataCompressionType;
+    private @Nullable String dataCompressionType;
     /**
      * @return - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
      * 
      */
-    private final @Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports;
+    private @Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports;
     /**
      * @return - specifies whether the volume is read-only. Default is false.
      * 
      */
-    private final @Nullable Boolean readOnly;
+    private @Nullable Boolean readOnly;
     /**
      * @return - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      * 
      */
-    private final @Nullable Integer recordSizeKib;
+    private @Nullable Integer recordSizeKib;
     /**
      * @return - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
-    private final @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas;
+    private @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas;
 
-    @CustomType.Constructor
-    private OpenZfsFileSystemRootVolumeConfiguration(
-        @CustomType.Parameter("copyTagsToSnapshots") @Nullable Boolean copyTagsToSnapshots,
-        @CustomType.Parameter("dataCompressionType") @Nullable String dataCompressionType,
-        @CustomType.Parameter("nfsExports") @Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports,
-        @CustomType.Parameter("readOnly") @Nullable Boolean readOnly,
-        @CustomType.Parameter("recordSizeKib") @Nullable Integer recordSizeKib,
-        @CustomType.Parameter("userAndGroupQuotas") @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas) {
-        this.copyTagsToSnapshots = copyTagsToSnapshots;
-        this.dataCompressionType = dataCompressionType;
-        this.nfsExports = nfsExports;
-        this.readOnly = readOnly;
-        this.recordSizeKib = recordSizeKib;
-        this.userAndGroupQuotas = userAndGroupQuotas;
-    }
-
+    private OpenZfsFileSystemRootVolumeConfiguration() {}
     /**
      * @return - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      * 
@@ -113,7 +98,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
     public static Builder builder(OpenZfsFileSystemRootVolumeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean copyTagsToSnapshots;
         private @Nullable String dataCompressionType;
@@ -121,11 +106,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
         private @Nullable Boolean readOnly;
         private @Nullable Integer recordSizeKib;
         private @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OpenZfsFileSystemRootVolumeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.copyTagsToSnapshots = defaults.copyTagsToSnapshots;
@@ -136,34 +117,48 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
     	      this.userAndGroupQuotas = defaults.userAndGroupQuotas;
         }
 
+        @CustomType.Setter
         public Builder copyTagsToSnapshots(@Nullable Boolean copyTagsToSnapshots) {
             this.copyTagsToSnapshots = copyTagsToSnapshots;
             return this;
         }
+        @CustomType.Setter
         public Builder dataCompressionType(@Nullable String dataCompressionType) {
             this.dataCompressionType = dataCompressionType;
             return this;
         }
+        @CustomType.Setter
         public Builder nfsExports(@Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports) {
             this.nfsExports = nfsExports;
             return this;
         }
+        @CustomType.Setter
         public Builder readOnly(@Nullable Boolean readOnly) {
             this.readOnly = readOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder recordSizeKib(@Nullable Integer recordSizeKib) {
             this.recordSizeKib = recordSizeKib;
             return this;
         }
+        @CustomType.Setter
         public Builder userAndGroupQuotas(@Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas) {
             this.userAndGroupQuotas = userAndGroupQuotas;
             return this;
         }
         public Builder userAndGroupQuotas(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota... userAndGroupQuotas) {
             return userAndGroupQuotas(List.of(userAndGroupQuotas));
-        }        public OpenZfsFileSystemRootVolumeConfiguration build() {
-            return new OpenZfsFileSystemRootVolumeConfiguration(copyTagsToSnapshots, dataCompressionType, nfsExports, readOnly, recordSizeKib, userAndGroupQuotas);
+        }
+        public OpenZfsFileSystemRootVolumeConfiguration build() {
+            final var o = new OpenZfsFileSystemRootVolumeConfiguration();
+            o.copyTagsToSnapshots = copyTagsToSnapshots;
+            o.dataCompressionType = dataCompressionType;
+            o.nfsExports = nfsExports;
+            o.readOnly = readOnly;
+            o.recordSizeKib = recordSizeKib;
+            o.userAndGroupQuotas = userAndGroupQuotas;
+            return o;
         }
     }
 }

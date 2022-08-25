@@ -13,21 +13,14 @@ public final class CertificateValidationOption {
      * @return A fully qualified domain name (FQDN) in the certificate.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
      * 
      */
-    private final String validationDomain;
+    private String validationDomain;
 
-    @CustomType.Constructor
-    private CertificateValidationOption(
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("validationDomain") String validationDomain) {
-        this.domainName = domainName;
-        this.validationDomain = validationDomain;
-    }
-
+    private CertificateValidationOption() {}
     /**
      * @return A fully qualified domain name (FQDN) in the certificate.
      * 
@@ -50,30 +43,32 @@ public final class CertificateValidationOption {
     public static Builder builder(CertificateValidationOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domainName;
         private String validationDomain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateValidationOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainName = defaults.domainName;
     	      this.validationDomain = defaults.validationDomain;
         }
 
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder validationDomain(String validationDomain) {
             this.validationDomain = Objects.requireNonNull(validationDomain);
             return this;
-        }        public CertificateValidationOption build() {
-            return new CertificateValidationOption(domainName, validationDomain);
+        }
+        public CertificateValidationOption build() {
+            final var o = new CertificateValidationOption();
+            o.domainName = domainName;
+            o.validationDomain = validationDomain;
+            return o;
         }
     }
 }

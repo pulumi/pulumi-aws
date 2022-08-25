@@ -14,21 +14,14 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
      * @return The parameter name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The array of strings.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.values = values;
-    }
-
+    private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter() {}
     /**
      * @return The parameter name.
      * 
@@ -51,33 +44,35 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
     public static Builder builder(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter build() {
-            return new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter(name, values);
+        }
+        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter build() {
+            final var o = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter();
+            o.name = name;
+            o.values = values;
+            return o;
         }
     }
 }

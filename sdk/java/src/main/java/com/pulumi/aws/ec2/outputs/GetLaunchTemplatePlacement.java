@@ -10,35 +10,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplatePlacement {
-    private final String affinity;
-    private final String availabilityZone;
-    private final String groupName;
-    private final String hostId;
-    private final String hostResourceGroupArn;
-    private final Integer partitionNumber;
-    private final String spreadDomain;
-    private final String tenancy;
+    private String affinity;
+    private String availabilityZone;
+    private String groupName;
+    private String hostId;
+    private String hostResourceGroupArn;
+    private Integer partitionNumber;
+    private String spreadDomain;
+    private String tenancy;
 
-    @CustomType.Constructor
-    private GetLaunchTemplatePlacement(
-        @CustomType.Parameter("affinity") String affinity,
-        @CustomType.Parameter("availabilityZone") String availabilityZone,
-        @CustomType.Parameter("groupName") String groupName,
-        @CustomType.Parameter("hostId") String hostId,
-        @CustomType.Parameter("hostResourceGroupArn") String hostResourceGroupArn,
-        @CustomType.Parameter("partitionNumber") Integer partitionNumber,
-        @CustomType.Parameter("spreadDomain") String spreadDomain,
-        @CustomType.Parameter("tenancy") String tenancy) {
-        this.affinity = affinity;
-        this.availabilityZone = availabilityZone;
-        this.groupName = groupName;
-        this.hostId = hostId;
-        this.hostResourceGroupArn = hostResourceGroupArn;
-        this.partitionNumber = partitionNumber;
-        this.spreadDomain = spreadDomain;
-        this.tenancy = tenancy;
-    }
-
+    private GetLaunchTemplatePlacement() {}
     public String affinity() {
         return this.affinity;
     }
@@ -71,7 +52,7 @@ public final class GetLaunchTemplatePlacement {
     public static Builder builder(GetLaunchTemplatePlacement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String affinity;
         private String availabilityZone;
@@ -81,11 +62,7 @@ public final class GetLaunchTemplatePlacement {
         private Integer partitionNumber;
         private String spreadDomain;
         private String tenancy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplatePlacement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.affinity = defaults.affinity;
@@ -98,39 +75,57 @@ public final class GetLaunchTemplatePlacement {
     	      this.tenancy = defaults.tenancy;
         }
 
+        @CustomType.Setter
         public Builder affinity(String affinity) {
             this.affinity = Objects.requireNonNull(affinity);
             return this;
         }
+        @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
             this.availabilityZone = Objects.requireNonNull(availabilityZone);
             return this;
         }
+        @CustomType.Setter
         public Builder groupName(String groupName) {
             this.groupName = Objects.requireNonNull(groupName);
             return this;
         }
+        @CustomType.Setter
         public Builder hostId(String hostId) {
             this.hostId = Objects.requireNonNull(hostId);
             return this;
         }
+        @CustomType.Setter
         public Builder hostResourceGroupArn(String hostResourceGroupArn) {
             this.hostResourceGroupArn = Objects.requireNonNull(hostResourceGroupArn);
             return this;
         }
+        @CustomType.Setter
         public Builder partitionNumber(Integer partitionNumber) {
             this.partitionNumber = Objects.requireNonNull(partitionNumber);
             return this;
         }
+        @CustomType.Setter
         public Builder spreadDomain(String spreadDomain) {
             this.spreadDomain = Objects.requireNonNull(spreadDomain);
             return this;
         }
+        @CustomType.Setter
         public Builder tenancy(String tenancy) {
             this.tenancy = Objects.requireNonNull(tenancy);
             return this;
-        }        public GetLaunchTemplatePlacement build() {
-            return new GetLaunchTemplatePlacement(affinity, availabilityZone, groupName, hostId, hostResourceGroupArn, partitionNumber, spreadDomain, tenancy);
+        }
+        public GetLaunchTemplatePlacement build() {
+            final var o = new GetLaunchTemplatePlacement();
+            o.affinity = affinity;
+            o.availabilityZone = availabilityZone;
+            o.groupName = groupName;
+            o.hostId = hostId;
+            o.hostResourceGroupArn = hostResourceGroupArn;
+            o.partitionNumber = partitionNumber;
+            o.spreadDomain = spreadDomain;
+            o.tenancy = tenancy;
+            return o;
         }
     }
 }

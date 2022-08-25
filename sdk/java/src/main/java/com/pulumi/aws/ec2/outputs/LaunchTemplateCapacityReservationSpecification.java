@@ -16,21 +16,14 @@ public final class LaunchTemplateCapacityReservationSpecification {
      * @return Indicates the instance&#39;s Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
      * 
      */
-    private final @Nullable String capacityReservationPreference;
+    private @Nullable String capacityReservationPreference;
     /**
      * @return Used to target a specific Capacity Reservation:
      * 
      */
-    private final @Nullable LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget;
+    private @Nullable LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget;
 
-    @CustomType.Constructor
-    private LaunchTemplateCapacityReservationSpecification(
-        @CustomType.Parameter("capacityReservationPreference") @Nullable String capacityReservationPreference,
-        @CustomType.Parameter("capacityReservationTarget") @Nullable LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget) {
-        this.capacityReservationPreference = capacityReservationPreference;
-        this.capacityReservationTarget = capacityReservationTarget;
-    }
-
+    private LaunchTemplateCapacityReservationSpecification() {}
     /**
      * @return Indicates the instance&#39;s Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
      * 
@@ -53,30 +46,32 @@ public final class LaunchTemplateCapacityReservationSpecification {
     public static Builder builder(LaunchTemplateCapacityReservationSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String capacityReservationPreference;
         private @Nullable LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateCapacityReservationSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityReservationPreference = defaults.capacityReservationPreference;
     	      this.capacityReservationTarget = defaults.capacityReservationTarget;
         }
 
+        @CustomType.Setter
         public Builder capacityReservationPreference(@Nullable String capacityReservationPreference) {
             this.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
+        @CustomType.Setter
         public Builder capacityReservationTarget(@Nullable LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget) {
             this.capacityReservationTarget = capacityReservationTarget;
             return this;
-        }        public LaunchTemplateCapacityReservationSpecification build() {
-            return new LaunchTemplateCapacityReservationSpecification(capacityReservationPreference, capacityReservationTarget);
+        }
+        public LaunchTemplateCapacityReservationSpecification build() {
+            final var o = new LaunchTemplateCapacityReservationSpecification();
+            o.capacityReservationPreference = capacityReservationPreference;
+            o.capacityReservationTarget = capacityReservationTarget;
+            return o;
         }
     }
 }

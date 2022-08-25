@@ -20,122 +20,77 @@ public final class GetVpcEndpointResult {
      * @return The Amazon Resource Name (ARN) of the VPC endpoint.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    private final List<String> cidrBlocks;
+    private List<String> cidrBlocks;
     /**
      * @return The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      * 
      */
-    private final List<GetVpcEndpointDnsEntry> dnsEntries;
-    private final List<GetVpcEndpointDnsOption> dnsOptions;
-    private final @Nullable List<GetVpcEndpointFilter> filters;
-    private final String id;
-    private final String ipAddressType;
+    private List<GetVpcEndpointDnsEntry> dnsEntries;
+    private List<GetVpcEndpointDnsOption> dnsOptions;
+    private @Nullable List<GetVpcEndpointFilter> filters;
+    private String id;
+    private String ipAddressType;
     /**
      * @return One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      * 
      */
-    private final List<String> networkInterfaceIds;
+    private List<String> networkInterfaceIds;
     /**
      * @return The ID of the AWS account that owns the VPC endpoint.
      * 
      */
-    private final String ownerId;
+    private String ownerId;
     /**
      * @return The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      * 
      */
-    private final String policy;
+    private String policy;
     /**
      * @return The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    private final String prefixListId;
+    private String prefixListId;
     /**
      * @return Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
      * 
      */
-    private final Boolean privateDnsEnabled;
+    private Boolean privateDnsEnabled;
     /**
      * @return Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      * 
      */
-    private final Boolean requesterManaged;
+    private Boolean requesterManaged;
     /**
      * @return One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      * 
      */
-    private final List<String> routeTableIds;
+    private List<String> routeTableIds;
     /**
      * @return One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
      * 
      */
-    private final List<String> securityGroupIds;
-    private final String serviceName;
-    private final String state;
+    private List<String> securityGroupIds;
+    private String serviceName;
+    private String state;
     /**
      * @return One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
      * 
      */
-    private final List<String> subnetIds;
-    private final Map<String,String> tags;
+    private List<String> subnetIds;
+    private Map<String,String> tags;
     /**
      * @return The VPC Endpoint type, `Gateway` or `Interface`.
      * 
      */
-    private final String vpcEndpointType;
-    private final String vpcId;
+    private String vpcEndpointType;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetVpcEndpointResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("cidrBlocks") List<String> cidrBlocks,
-        @CustomType.Parameter("dnsEntries") List<GetVpcEndpointDnsEntry> dnsEntries,
-        @CustomType.Parameter("dnsOptions") List<GetVpcEndpointDnsOption> dnsOptions,
-        @CustomType.Parameter("filters") @Nullable List<GetVpcEndpointFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddressType") String ipAddressType,
-        @CustomType.Parameter("networkInterfaceIds") List<String> networkInterfaceIds,
-        @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("policy") String policy,
-        @CustomType.Parameter("prefixListId") String prefixListId,
-        @CustomType.Parameter("privateDnsEnabled") Boolean privateDnsEnabled,
-        @CustomType.Parameter("requesterManaged") Boolean requesterManaged,
-        @CustomType.Parameter("routeTableIds") List<String> routeTableIds,
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("serviceName") String serviceName,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcEndpointType") String vpcEndpointType,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.arn = arn;
-        this.cidrBlocks = cidrBlocks;
-        this.dnsEntries = dnsEntries;
-        this.dnsOptions = dnsOptions;
-        this.filters = filters;
-        this.id = id;
-        this.ipAddressType = ipAddressType;
-        this.networkInterfaceIds = networkInterfaceIds;
-        this.ownerId = ownerId;
-        this.policy = policy;
-        this.prefixListId = prefixListId;
-        this.privateDnsEnabled = privateDnsEnabled;
-        this.requesterManaged = requesterManaged;
-        this.routeTableIds = routeTableIds;
-        this.securityGroupIds = securityGroupIds;
-        this.serviceName = serviceName;
-        this.state = state;
-        this.subnetIds = subnetIds;
-        this.tags = tags;
-        this.vpcEndpointType = vpcEndpointType;
-        this.vpcId = vpcId;
-    }
-
+    private GetVpcEndpointResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the VPC endpoint.
      * 
@@ -259,7 +214,7 @@ public final class GetVpcEndpointResult {
     public static Builder builder(GetVpcEndpointResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private List<String> cidrBlocks;
@@ -282,11 +237,7 @@ public final class GetVpcEndpointResult {
         private Map<String,String> tags;
         private String vpcEndpointType;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -312,10 +263,12 @@ public final class GetVpcEndpointResult {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder cidrBlocks(List<String> cidrBlocks) {
             this.cidrBlocks = Objects.requireNonNull(cidrBlocks);
             return this;
@@ -323,6 +276,7 @@ public final class GetVpcEndpointResult {
         public Builder cidrBlocks(String... cidrBlocks) {
             return cidrBlocks(List.of(cidrBlocks));
         }
+        @CustomType.Setter
         public Builder dnsEntries(List<GetVpcEndpointDnsEntry> dnsEntries) {
             this.dnsEntries = Objects.requireNonNull(dnsEntries);
             return this;
@@ -330,6 +284,7 @@ public final class GetVpcEndpointResult {
         public Builder dnsEntries(GetVpcEndpointDnsEntry... dnsEntries) {
             return dnsEntries(List.of(dnsEntries));
         }
+        @CustomType.Setter
         public Builder dnsOptions(List<GetVpcEndpointDnsOption> dnsOptions) {
             this.dnsOptions = Objects.requireNonNull(dnsOptions);
             return this;
@@ -337,6 +292,7 @@ public final class GetVpcEndpointResult {
         public Builder dnsOptions(GetVpcEndpointDnsOption... dnsOptions) {
             return dnsOptions(List.of(dnsOptions));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcEndpointFilter> filters) {
             this.filters = filters;
             return this;
@@ -344,14 +300,17 @@ public final class GetVpcEndpointResult {
         public Builder filters(GetVpcEndpointFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddressType(String ipAddressType) {
             this.ipAddressType = Objects.requireNonNull(ipAddressType);
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceIds(List<String> networkInterfaceIds) {
             this.networkInterfaceIds = Objects.requireNonNull(networkInterfaceIds);
             return this;
@@ -359,26 +318,32 @@ public final class GetVpcEndpointResult {
         public Builder networkInterfaceIds(String... networkInterfaceIds) {
             return networkInterfaceIds(List.of(networkInterfaceIds));
         }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
+        @CustomType.Setter
         public Builder policy(String policy) {
             this.policy = Objects.requireNonNull(policy);
             return this;
         }
+        @CustomType.Setter
         public Builder prefixListId(String prefixListId) {
             this.prefixListId = Objects.requireNonNull(prefixListId);
             return this;
         }
+        @CustomType.Setter
         public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
             this.privateDnsEnabled = Objects.requireNonNull(privateDnsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder requesterManaged(Boolean requesterManaged) {
             this.requesterManaged = Objects.requireNonNull(requesterManaged);
             return this;
         }
+        @CustomType.Setter
         public Builder routeTableIds(List<String> routeTableIds) {
             this.routeTableIds = Objects.requireNonNull(routeTableIds);
             return this;
@@ -386,6 +351,7 @@ public final class GetVpcEndpointResult {
         public Builder routeTableIds(String... routeTableIds) {
             return routeTableIds(List.of(routeTableIds));
         }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -393,14 +359,17 @@ public final class GetVpcEndpointResult {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -408,19 +377,45 @@ public final class GetVpcEndpointResult {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcEndpointType(String vpcEndpointType) {
             this.vpcEndpointType = Objects.requireNonNull(vpcEndpointType);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetVpcEndpointResult build() {
-            return new GetVpcEndpointResult(arn, cidrBlocks, dnsEntries, dnsOptions, filters, id, ipAddressType, networkInterfaceIds, ownerId, policy, prefixListId, privateDnsEnabled, requesterManaged, routeTableIds, securityGroupIds, serviceName, state, subnetIds, tags, vpcEndpointType, vpcId);
+        }
+        public GetVpcEndpointResult build() {
+            final var o = new GetVpcEndpointResult();
+            o.arn = arn;
+            o.cidrBlocks = cidrBlocks;
+            o.dnsEntries = dnsEntries;
+            o.dnsOptions = dnsOptions;
+            o.filters = filters;
+            o.id = id;
+            o.ipAddressType = ipAddressType;
+            o.networkInterfaceIds = networkInterfaceIds;
+            o.ownerId = ownerId;
+            o.policy = policy;
+            o.prefixListId = prefixListId;
+            o.privateDnsEnabled = privateDnsEnabled;
+            o.requesterManaged = requesterManaged;
+            o.routeTableIds = routeTableIds;
+            o.securityGroupIds = securityGroupIds;
+            o.serviceName = serviceName;
+            o.state = state;
+            o.subnetIds = subnetIds;
+            o.tags = tags;
+            o.vpcEndpointType = vpcEndpointType;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

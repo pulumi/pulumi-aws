@@ -21,56 +21,39 @@ public final class ApplicationApplicationConfiguration {
      * @return The code location and type parameters for the application.
      * 
      */
-    private final ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration;
+    private ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration;
     /**
      * @return Describes whether snapshots are enabled for a Flink-based application.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationApplicationSnapshotConfiguration applicationSnapshotConfiguration;
+    private @Nullable ApplicationApplicationConfigurationApplicationSnapshotConfiguration applicationSnapshotConfiguration;
     /**
      * @return Describes execution properties for a Flink-based application.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationEnvironmentProperties environmentProperties;
+    private @Nullable ApplicationApplicationConfigurationEnvironmentProperties environmentProperties;
     /**
      * @return The configuration of a Flink-based application.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationFlinkApplicationConfiguration flinkApplicationConfiguration;
+    private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfiguration flinkApplicationConfiguration;
     /**
      * @return Describes the starting properties for a Flink-based application.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationRunConfiguration runConfiguration;
+    private @Nullable ApplicationApplicationConfigurationRunConfiguration runConfiguration;
     /**
      * @return The configuration of a SQL-based application.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationSqlApplicationConfiguration sqlApplicationConfiguration;
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfiguration sqlApplicationConfiguration;
     /**
      * @return The VPC configuration of a Flink-based application.
      * 
      */
-    private final @Nullable ApplicationApplicationConfigurationVpcConfiguration vpcConfiguration;
+    private @Nullable ApplicationApplicationConfigurationVpcConfiguration vpcConfiguration;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfiguration(
-        @CustomType.Parameter("applicationCodeConfiguration") ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration,
-        @CustomType.Parameter("applicationSnapshotConfiguration") @Nullable ApplicationApplicationConfigurationApplicationSnapshotConfiguration applicationSnapshotConfiguration,
-        @CustomType.Parameter("environmentProperties") @Nullable ApplicationApplicationConfigurationEnvironmentProperties environmentProperties,
-        @CustomType.Parameter("flinkApplicationConfiguration") @Nullable ApplicationApplicationConfigurationFlinkApplicationConfiguration flinkApplicationConfiguration,
-        @CustomType.Parameter("runConfiguration") @Nullable ApplicationApplicationConfigurationRunConfiguration runConfiguration,
-        @CustomType.Parameter("sqlApplicationConfiguration") @Nullable ApplicationApplicationConfigurationSqlApplicationConfiguration sqlApplicationConfiguration,
-        @CustomType.Parameter("vpcConfiguration") @Nullable ApplicationApplicationConfigurationVpcConfiguration vpcConfiguration) {
-        this.applicationCodeConfiguration = applicationCodeConfiguration;
-        this.applicationSnapshotConfiguration = applicationSnapshotConfiguration;
-        this.environmentProperties = environmentProperties;
-        this.flinkApplicationConfiguration = flinkApplicationConfiguration;
-        this.runConfiguration = runConfiguration;
-        this.sqlApplicationConfiguration = sqlApplicationConfiguration;
-        this.vpcConfiguration = vpcConfiguration;
-    }
-
+    private ApplicationApplicationConfiguration() {}
     /**
      * @return The code location and type parameters for the application.
      * 
@@ -128,7 +111,7 @@ public final class ApplicationApplicationConfiguration {
     public static Builder builder(ApplicationApplicationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration;
         private @Nullable ApplicationApplicationConfigurationApplicationSnapshotConfiguration applicationSnapshotConfiguration;
@@ -137,11 +120,7 @@ public final class ApplicationApplicationConfiguration {
         private @Nullable ApplicationApplicationConfigurationRunConfiguration runConfiguration;
         private @Nullable ApplicationApplicationConfigurationSqlApplicationConfiguration sqlApplicationConfiguration;
         private @Nullable ApplicationApplicationConfigurationVpcConfiguration vpcConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationCodeConfiguration = defaults.applicationCodeConfiguration;
@@ -153,35 +132,51 @@ public final class ApplicationApplicationConfiguration {
     	      this.vpcConfiguration = defaults.vpcConfiguration;
         }
 
+        @CustomType.Setter
         public Builder applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration) {
             this.applicationCodeConfiguration = Objects.requireNonNull(applicationCodeConfiguration);
             return this;
         }
+        @CustomType.Setter
         public Builder applicationSnapshotConfiguration(@Nullable ApplicationApplicationConfigurationApplicationSnapshotConfiguration applicationSnapshotConfiguration) {
             this.applicationSnapshotConfiguration = applicationSnapshotConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder environmentProperties(@Nullable ApplicationApplicationConfigurationEnvironmentProperties environmentProperties) {
             this.environmentProperties = environmentProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder flinkApplicationConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfiguration flinkApplicationConfiguration) {
             this.flinkApplicationConfiguration = flinkApplicationConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder runConfiguration(@Nullable ApplicationApplicationConfigurationRunConfiguration runConfiguration) {
             this.runConfiguration = runConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder sqlApplicationConfiguration(@Nullable ApplicationApplicationConfigurationSqlApplicationConfiguration sqlApplicationConfiguration) {
             this.sqlApplicationConfiguration = sqlApplicationConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcConfiguration(@Nullable ApplicationApplicationConfigurationVpcConfiguration vpcConfiguration) {
             this.vpcConfiguration = vpcConfiguration;
             return this;
-        }        public ApplicationApplicationConfiguration build() {
-            return new ApplicationApplicationConfiguration(applicationCodeConfiguration, applicationSnapshotConfiguration, environmentProperties, flinkApplicationConfiguration, runConfiguration, sqlApplicationConfiguration, vpcConfiguration);
+        }
+        public ApplicationApplicationConfiguration build() {
+            final var o = new ApplicationApplicationConfiguration();
+            o.applicationCodeConfiguration = applicationCodeConfiguration;
+            o.applicationSnapshotConfiguration = applicationSnapshotConfiguration;
+            o.environmentProperties = environmentProperties;
+            o.flinkApplicationConfiguration = flinkApplicationConfiguration;
+            o.runConfiguration = runConfiguration;
+            o.sqlApplicationConfiguration = sqlApplicationConfiguration;
+            o.vpcConfiguration = vpcConfiguration;
+            return o;
         }
     }
 }

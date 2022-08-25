@@ -10,20 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceTypeInstanceDisk {
-    private final Integer count;
-    private final Integer size;
-    private final String type;
+    private Integer count;
+    private Integer size;
+    private String type;
 
-    @CustomType.Constructor
-    private GetInstanceTypeInstanceDisk(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("size") Integer size,
-        @CustomType.Parameter("type") String type) {
-        this.count = count;
-        this.size = size;
-        this.type = type;
-    }
-
+    private GetInstanceTypeInstanceDisk() {}
     public Integer count() {
         return this.count;
     }
@@ -41,16 +32,12 @@ public final class GetInstanceTypeInstanceDisk {
     public static Builder builder(GetInstanceTypeInstanceDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private Integer size;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceTypeInstanceDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -58,19 +45,27 @@ public final class GetInstanceTypeInstanceDisk {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetInstanceTypeInstanceDisk build() {
-            return new GetInstanceTypeInstanceDisk(count, size, type);
+        }
+        public GetInstanceTypeInstanceDisk build() {
+            final var o = new GetInstanceTypeInstanceDisk();
+            o.count = count;
+            o.size = size;
+            o.type = type;
+            return o;
         }
     }
 }

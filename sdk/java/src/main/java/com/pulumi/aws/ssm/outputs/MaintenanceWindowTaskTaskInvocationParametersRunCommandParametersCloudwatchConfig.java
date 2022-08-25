@@ -16,21 +16,14 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
      * @return The name of the CloudWatch log group where you want to send command output. If you don&#39;t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
      * 
      */
-    private final @Nullable String cloudwatchLogGroupName;
+    private @Nullable String cloudwatchLogGroupName;
     /**
      * @return Enables Systems Manager to send command output to CloudWatch Logs.
      * 
      */
-    private final @Nullable Boolean cloudwatchOutputEnabled;
+    private @Nullable Boolean cloudwatchOutputEnabled;
 
-    @CustomType.Constructor
-    private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig(
-        @CustomType.Parameter("cloudwatchLogGroupName") @Nullable String cloudwatchLogGroupName,
-        @CustomType.Parameter("cloudwatchOutputEnabled") @Nullable Boolean cloudwatchOutputEnabled) {
-        this.cloudwatchLogGroupName = cloudwatchLogGroupName;
-        this.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
-    }
-
+    private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig() {}
     /**
      * @return The name of the CloudWatch log group where you want to send command output. If you don&#39;t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
      * 
@@ -53,30 +46,32 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
     public static Builder builder(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cloudwatchLogGroupName;
         private @Nullable Boolean cloudwatchOutputEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogGroupName = defaults.cloudwatchLogGroupName;
     	      this.cloudwatchOutputEnabled = defaults.cloudwatchOutputEnabled;
         }
 
+        @CustomType.Setter
         public Builder cloudwatchLogGroupName(@Nullable String cloudwatchLogGroupName) {
             this.cloudwatchLogGroupName = cloudwatchLogGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder cloudwatchOutputEnabled(@Nullable Boolean cloudwatchOutputEnabled) {
             this.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
             return this;
-        }        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig build() {
-            return new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig(cloudwatchLogGroupName, cloudwatchOutputEnabled);
+        }
+        public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig build() {
+            final var o = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig();
+            o.cloudwatchLogGroupName = cloudwatchLogGroupName;
+            o.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
+            return o;
         }
     }
 }

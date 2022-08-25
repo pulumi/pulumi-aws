@@ -15,13 +15,9 @@ public final class NotebookInstanceInstanceMetadataServiceConfiguration {
      * @return Indicates the minimum IMDS version that the notebook instance supports. When passed &#34;1&#34; is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
      * 
      */
-    private final @Nullable String minimumInstanceMetadataServiceVersion;
+    private @Nullable String minimumInstanceMetadataServiceVersion;
 
-    @CustomType.Constructor
-    private NotebookInstanceInstanceMetadataServiceConfiguration(@CustomType.Parameter("minimumInstanceMetadataServiceVersion") @Nullable String minimumInstanceMetadataServiceVersion) {
-        this.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
-    }
-
+    private NotebookInstanceInstanceMetadataServiceConfiguration() {}
     /**
      * @return Indicates the minimum IMDS version that the notebook instance supports. When passed &#34;1&#34; is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
      * 
@@ -37,24 +33,24 @@ public final class NotebookInstanceInstanceMetadataServiceConfiguration {
     public static Builder builder(NotebookInstanceInstanceMetadataServiceConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String minimumInstanceMetadataServiceVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotebookInstanceInstanceMetadataServiceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.minimumInstanceMetadataServiceVersion = defaults.minimumInstanceMetadataServiceVersion;
         }
 
+        @CustomType.Setter
         public Builder minimumInstanceMetadataServiceVersion(@Nullable String minimumInstanceMetadataServiceVersion) {
             this.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
             return this;
-        }        public NotebookInstanceInstanceMetadataServiceConfiguration build() {
-            return new NotebookInstanceInstanceMetadataServiceConfiguration(minimumInstanceMetadataServiceVersion);
+        }
+        public NotebookInstanceInstanceMetadataServiceConfiguration build() {
+            final var o = new NotebookInstanceInstanceMetadataServiceConfiguration();
+            o.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
+            return o;
         }
     }
 }

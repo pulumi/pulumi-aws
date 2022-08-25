@@ -15,13 +15,9 @@ public final class FleetSpotOptionsMaintenanceStrategies {
      * @return Nested argument containing the capacity rebalance for your fleet request. Defined below.
      * 
      */
-    private final @Nullable FleetSpotOptionsMaintenanceStrategiesCapacityRebalance capacityRebalance;
+    private @Nullable FleetSpotOptionsMaintenanceStrategiesCapacityRebalance capacityRebalance;
 
-    @CustomType.Constructor
-    private FleetSpotOptionsMaintenanceStrategies(@CustomType.Parameter("capacityRebalance") @Nullable FleetSpotOptionsMaintenanceStrategiesCapacityRebalance capacityRebalance) {
-        this.capacityRebalance = capacityRebalance;
-    }
-
+    private FleetSpotOptionsMaintenanceStrategies() {}
     /**
      * @return Nested argument containing the capacity rebalance for your fleet request. Defined below.
      * 
@@ -37,24 +33,24 @@ public final class FleetSpotOptionsMaintenanceStrategies {
     public static Builder builder(FleetSpotOptionsMaintenanceStrategies defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FleetSpotOptionsMaintenanceStrategiesCapacityRebalance capacityRebalance;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetSpotOptionsMaintenanceStrategies defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityRebalance = defaults.capacityRebalance;
         }
 
+        @CustomType.Setter
         public Builder capacityRebalance(@Nullable FleetSpotOptionsMaintenanceStrategiesCapacityRebalance capacityRebalance) {
             this.capacityRebalance = capacityRebalance;
             return this;
-        }        public FleetSpotOptionsMaintenanceStrategies build() {
-            return new FleetSpotOptionsMaintenanceStrategies(capacityRebalance);
+        }
+        public FleetSpotOptionsMaintenanceStrategies build() {
+            final var o = new FleetSpotOptionsMaintenanceStrategies();
+            o.capacityRebalance = capacityRebalance;
+            return o;
         }
     }
 }

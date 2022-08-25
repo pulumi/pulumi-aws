@@ -15,13 +15,9 @@ public final class ConnectorKafkaClusterEncryptionInTransit {
      * @return The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
      * 
      */
-    private final @Nullable String encryptionType;
+    private @Nullable String encryptionType;
 
-    @CustomType.Constructor
-    private ConnectorKafkaClusterEncryptionInTransit(@CustomType.Parameter("encryptionType") @Nullable String encryptionType) {
-        this.encryptionType = encryptionType;
-    }
-
+    private ConnectorKafkaClusterEncryptionInTransit() {}
     /**
      * @return The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
      * 
@@ -37,24 +33,24 @@ public final class ConnectorKafkaClusterEncryptionInTransit {
     public static Builder builder(ConnectorKafkaClusterEncryptionInTransit defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String encryptionType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorKafkaClusterEncryptionInTransit defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionType = defaults.encryptionType;
         }
 
+        @CustomType.Setter
         public Builder encryptionType(@Nullable String encryptionType) {
             this.encryptionType = encryptionType;
             return this;
-        }        public ConnectorKafkaClusterEncryptionInTransit build() {
-            return new ConnectorKafkaClusterEncryptionInTransit(encryptionType);
+        }
+        public ConnectorKafkaClusterEncryptionInTransit build() {
+            final var o = new ConnectorKafkaClusterEncryptionInTransit();
+            o.encryptionType = encryptionType;
+            return o;
         }
     }
 }

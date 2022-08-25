@@ -14,98 +14,69 @@ public final class GetSnapshotClusterConfiguration {
      * @return Description for the cluster.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Version number of the Redis engine used by the cluster.
      * 
      */
-    private final String engineVersion;
+    private String engineVersion;
     /**
      * @return The weekly time range during which maintenance on the cluster is performed.
      * 
      */
-    private final String maintenanceWindow;
+    private String maintenanceWindow;
     /**
      * @return Name of the snapshot.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Compute and memory capacity of the nodes in the cluster.
      * 
      */
-    private final String nodeType;
+    private String nodeType;
     /**
      * @return Number of shards in the cluster.
      * 
      */
-    private final Integer numShards;
+    private Integer numShards;
     /**
      * @return Name of the parameter group associated with the cluster.
      * 
      */
-    private final String parameterGroupName;
+    private String parameterGroupName;
     /**
      * @return Port number on which the cluster accepts connections.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return Number of days for which MemoryDB retains automatic snapshots before deleting them.
      * 
      */
-    private final Integer snapshotRetentionLimit;
+    private Integer snapshotRetentionLimit;
     /**
      * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
      * 
      */
-    private final String snapshotWindow;
+    private String snapshotWindow;
     /**
      * @return Name of the subnet group used by the cluster.
      * 
      */
-    private final String subnetGroupName;
+    private String subnetGroupName;
     /**
      * @return ARN of the SNS topic to which cluster notifications are sent.
      * 
      */
-    private final String topicArn;
+    private String topicArn;
     /**
      * @return The VPC in which the cluster exists.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetSnapshotClusterConfiguration(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("engineVersion") String engineVersion,
-        @CustomType.Parameter("maintenanceWindow") String maintenanceWindow,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeType") String nodeType,
-        @CustomType.Parameter("numShards") Integer numShards,
-        @CustomType.Parameter("parameterGroupName") String parameterGroupName,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("snapshotRetentionLimit") Integer snapshotRetentionLimit,
-        @CustomType.Parameter("snapshotWindow") String snapshotWindow,
-        @CustomType.Parameter("subnetGroupName") String subnetGroupName,
-        @CustomType.Parameter("topicArn") String topicArn,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.description = description;
-        this.engineVersion = engineVersion;
-        this.maintenanceWindow = maintenanceWindow;
-        this.name = name;
-        this.nodeType = nodeType;
-        this.numShards = numShards;
-        this.parameterGroupName = parameterGroupName;
-        this.port = port;
-        this.snapshotRetentionLimit = snapshotRetentionLimit;
-        this.snapshotWindow = snapshotWindow;
-        this.subnetGroupName = subnetGroupName;
-        this.topicArn = topicArn;
-        this.vpcId = vpcId;
-    }
-
+    private GetSnapshotClusterConfiguration() {}
     /**
      * @return Description for the cluster.
      * 
@@ -205,7 +176,7 @@ public final class GetSnapshotClusterConfiguration {
     public static Builder builder(GetSnapshotClusterConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String engineVersion;
@@ -220,11 +191,7 @@ public final class GetSnapshotClusterConfiguration {
         private String subnetGroupName;
         private String topicArn;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotClusterConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -242,59 +209,87 @@ public final class GetSnapshotClusterConfiguration {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder engineVersion(String engineVersion) {
             this.engineVersion = Objects.requireNonNull(engineVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder maintenanceWindow(String maintenanceWindow) {
             this.maintenanceWindow = Objects.requireNonNull(maintenanceWindow);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeType(String nodeType) {
             this.nodeType = Objects.requireNonNull(nodeType);
             return this;
         }
+        @CustomType.Setter
         public Builder numShards(Integer numShards) {
             this.numShards = Objects.requireNonNull(numShards);
             return this;
         }
+        @CustomType.Setter
         public Builder parameterGroupName(String parameterGroupName) {
             this.parameterGroupName = Objects.requireNonNull(parameterGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotRetentionLimit(Integer snapshotRetentionLimit) {
             this.snapshotRetentionLimit = Objects.requireNonNull(snapshotRetentionLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotWindow(String snapshotWindow) {
             this.snapshotWindow = Objects.requireNonNull(snapshotWindow);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetGroupName(String subnetGroupName) {
             this.subnetGroupName = Objects.requireNonNull(subnetGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder topicArn(String topicArn) {
             this.topicArn = Objects.requireNonNull(topicArn);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetSnapshotClusterConfiguration build() {
-            return new GetSnapshotClusterConfiguration(description, engineVersion, maintenanceWindow, name, nodeType, numShards, parameterGroupName, port, snapshotRetentionLimit, snapshotWindow, subnetGroupName, topicArn, vpcId);
+        }
+        public GetSnapshotClusterConfiguration build() {
+            final var o = new GetSnapshotClusterConfiguration();
+            o.description = description;
+            o.engineVersion = engineVersion;
+            o.maintenanceWindow = maintenanceWindow;
+            o.name = name;
+            o.nodeType = nodeType;
+            o.numShards = numShards;
+            o.parameterGroupName = parameterGroupName;
+            o.port = port;
+            o.snapshotRetentionLimit = snapshotRetentionLimit;
+            o.snapshotWindow = snapshotWindow;
+            o.subnetGroupName = subnetGroupName;
+            o.topicArn = topicArn;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

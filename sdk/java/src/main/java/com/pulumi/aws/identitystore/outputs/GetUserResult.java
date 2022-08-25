@@ -11,34 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserResult {
-    private final List<GetUserFilter> filters;
+    private List<GetUserFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String identityStoreId;
-    private final String userId;
+    private String id;
+    private String identityStoreId;
+    private String userId;
     /**
      * @return The user&#39;s user name value.
      * 
      */
-    private final String userName;
+    private String userName;
 
-    @CustomType.Constructor
-    private GetUserResult(
-        @CustomType.Parameter("filters") List<GetUserFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identityStoreId") String identityStoreId,
-        @CustomType.Parameter("userId") String userId,
-        @CustomType.Parameter("userName") String userName) {
-        this.filters = filters;
-        this.id = id;
-        this.identityStoreId = identityStoreId;
-        this.userId = userId;
-        this.userName = userName;
-    }
-
+    private GetUserResult() {}
     public List<GetUserFilter> filters() {
         return this.filters;
     }
@@ -70,18 +57,14 @@ public final class GetUserResult {
     public static Builder builder(GetUserResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetUserFilter> filters;
         private String id;
         private String identityStoreId;
         private String userId;
         private String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -91,6 +74,7 @@ public final class GetUserResult {
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder filters(List<GetUserFilter> filters) {
             this.filters = Objects.requireNonNull(filters);
             return this;
@@ -98,23 +82,34 @@ public final class GetUserResult {
         public Builder filters(GetUserFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identityStoreId(String identityStoreId) {
             this.identityStoreId = Objects.requireNonNull(identityStoreId);
             return this;
         }
+        @CustomType.Setter
         public Builder userId(String userId) {
             this.userId = Objects.requireNonNull(userId);
             return this;
         }
+        @CustomType.Setter
         public Builder userName(String userName) {
             this.userName = Objects.requireNonNull(userName);
             return this;
-        }        public GetUserResult build() {
-            return new GetUserResult(filters, id, identityStoreId, userId, userName);
+        }
+        public GetUserResult build() {
+            final var o = new GetUserResult();
+            o.filters = filters;
+            o.id = id;
+            o.identityStoreId = identityStoreId;
+            o.userId = userId;
+            o.userName = userName;
+            return o;
         }
     }
 }

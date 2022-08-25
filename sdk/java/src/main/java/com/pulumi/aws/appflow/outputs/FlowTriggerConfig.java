@@ -16,21 +16,14 @@ public final class FlowTriggerConfig {
      * @return Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
      * 
      */
-    private final @Nullable FlowTriggerConfigTriggerProperties triggerProperties;
+    private @Nullable FlowTriggerConfigTriggerProperties triggerProperties;
     /**
      * @return Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
      * 
      */
-    private final String triggerType;
+    private String triggerType;
 
-    @CustomType.Constructor
-    private FlowTriggerConfig(
-        @CustomType.Parameter("triggerProperties") @Nullable FlowTriggerConfigTriggerProperties triggerProperties,
-        @CustomType.Parameter("triggerType") String triggerType) {
-        this.triggerProperties = triggerProperties;
-        this.triggerType = triggerType;
-    }
-
+    private FlowTriggerConfig() {}
     /**
      * @return Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
      * 
@@ -53,30 +46,32 @@ public final class FlowTriggerConfig {
     public static Builder builder(FlowTriggerConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowTriggerConfigTriggerProperties triggerProperties;
         private String triggerType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowTriggerConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.triggerProperties = defaults.triggerProperties;
     	      this.triggerType = defaults.triggerType;
         }
 
+        @CustomType.Setter
         public Builder triggerProperties(@Nullable FlowTriggerConfigTriggerProperties triggerProperties) {
             this.triggerProperties = triggerProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder triggerType(String triggerType) {
             this.triggerType = Objects.requireNonNull(triggerType);
             return this;
-        }        public FlowTriggerConfig build() {
-            return new FlowTriggerConfig(triggerProperties, triggerType);
+        }
+        public FlowTriggerConfig build() {
+            final var o = new FlowTriggerConfig();
+            o.triggerProperties = triggerProperties;
+            o.triggerType = triggerType;
+            return o;
         }
     }
 }

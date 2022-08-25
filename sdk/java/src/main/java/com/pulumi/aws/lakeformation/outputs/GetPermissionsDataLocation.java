@@ -13,21 +13,14 @@ public final class GetPermissionsDataLocation {
      * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private final String catalogId;
+    private String catalogId;
 
-    @CustomType.Constructor
-    private GetPermissionsDataLocation(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("catalogId") String catalogId) {
-        this.arn = arn;
-        this.catalogId = catalogId;
-    }
-
+    private GetPermissionsDataLocation() {}
     /**
      * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
      * 
@@ -50,30 +43,32 @@ public final class GetPermissionsDataLocation {
     public static Builder builder(GetPermissionsDataLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String catalogId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPermissionsDataLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.catalogId = defaults.catalogId;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder catalogId(String catalogId) {
             this.catalogId = Objects.requireNonNull(catalogId);
             return this;
-        }        public GetPermissionsDataLocation build() {
-            return new GetPermissionsDataLocation(arn, catalogId);
+        }
+        public GetPermissionsDataLocation build() {
+            final var o = new GetPermissionsDataLocation();
+            o.arn = arn;
+            o.catalogId = catalogId;
+            return o;
         }
     }
 }

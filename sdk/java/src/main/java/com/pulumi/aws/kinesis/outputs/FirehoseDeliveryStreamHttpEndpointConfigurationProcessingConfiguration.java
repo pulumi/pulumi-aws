@@ -17,21 +17,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
      * @return Enables or disables data processing.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Array of data processors. More details are given below
      * 
      */
-    private final @Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor> processors;
+    private @Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor> processors;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("processors") @Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor> processors) {
-        this.enabled = enabled;
-        this.processors = processors;
-    }
-
+    private FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration() {}
     /**
      * @return Enables or disables data processing.
      * 
@@ -54,33 +47,35 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
     public static Builder builder(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor> processors;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.processors = defaults.processors;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder processors(@Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor> processors) {
             this.processors = processors;
             return this;
         }
         public Builder processors(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor... processors) {
             return processors(List.of(processors));
-        }        public FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration build() {
-            return new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration(enabled, processors);
+        }
+        public FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration build() {
+            final var o = new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration();
+            o.enabled = enabled;
+            o.processors = processors;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * @return Maximum.
      * 
      */
-    private final @Nullable Integer max;
+    private @Nullable Integer max;
     /**
      * @return Minimum.
      * 
      */
-    private final @Nullable Integer min;
+    private @Nullable Integer min;
 
-    @CustomType.Constructor
-    private SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(
-        @CustomType.Parameter("max") @Nullable Integer max,
-        @CustomType.Parameter("min") @Nullable Integer min) {
-        this.max = max;
-        this.min = min;
-    }
-
+    private SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib() {}
     /**
      * @return Maximum.
      * 
@@ -52,30 +45,32 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
     public static Builder builder(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer max;
         private @Nullable Integer min;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.max = defaults.max;
     	      this.min = defaults.min;
         }
 
+        @CustomType.Setter
         public Builder max(@Nullable Integer max) {
             this.max = max;
             return this;
         }
+        @CustomType.Setter
         public Builder min(@Nullable Integer min) {
             this.min = min;
             return this;
-        }        public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib build() {
-            return new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(max, min);
+        }
+        public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib build() {
+            final var o = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib();
+            o.max = max;
+            o.min = min;
+            return o;
         }
     }
 }

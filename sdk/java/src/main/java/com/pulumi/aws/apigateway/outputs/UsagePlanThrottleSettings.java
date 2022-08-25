@@ -16,21 +16,14 @@ public final class UsagePlanThrottleSettings {
      * @return The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
      * 
      */
-    private final @Nullable Integer burstLimit;
+    private @Nullable Integer burstLimit;
     /**
      * @return The API request steady-state rate limit.
      * 
      */
-    private final @Nullable Double rateLimit;
+    private @Nullable Double rateLimit;
 
-    @CustomType.Constructor
-    private UsagePlanThrottleSettings(
-        @CustomType.Parameter("burstLimit") @Nullable Integer burstLimit,
-        @CustomType.Parameter("rateLimit") @Nullable Double rateLimit) {
-        this.burstLimit = burstLimit;
-        this.rateLimit = rateLimit;
-    }
-
+    private UsagePlanThrottleSettings() {}
     /**
      * @return The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
      * 
@@ -53,30 +46,32 @@ public final class UsagePlanThrottleSettings {
     public static Builder builder(UsagePlanThrottleSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer burstLimit;
         private @Nullable Double rateLimit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UsagePlanThrottleSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.burstLimit = defaults.burstLimit;
     	      this.rateLimit = defaults.rateLimit;
         }
 
+        @CustomType.Setter
         public Builder burstLimit(@Nullable Integer burstLimit) {
             this.burstLimit = burstLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder rateLimit(@Nullable Double rateLimit) {
             this.rateLimit = rateLimit;
             return this;
-        }        public UsagePlanThrottleSettings build() {
-            return new UsagePlanThrottleSettings(burstLimit, rateLimit);
+        }
+        public UsagePlanThrottleSettings build() {
+            final var o = new UsagePlanThrottleSettings();
+            o.burstLimit = burstLimit;
+            o.rateLimit = rateLimit;
+            return o;
         }
     }
 }

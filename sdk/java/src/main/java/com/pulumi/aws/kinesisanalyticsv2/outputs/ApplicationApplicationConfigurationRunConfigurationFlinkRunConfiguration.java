@@ -15,13 +15,9 @@ public final class ApplicationApplicationConfigurationRunConfigurationFlinkRunCo
      * @return When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
      * 
      */
-    private final @Nullable Boolean allowNonRestoredState;
+    private @Nullable Boolean allowNonRestoredState;
 
-    @CustomType.Constructor
-    private ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration(@CustomType.Parameter("allowNonRestoredState") @Nullable Boolean allowNonRestoredState) {
-        this.allowNonRestoredState = allowNonRestoredState;
-    }
-
+    private ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration() {}
     /**
      * @return When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
      * 
@@ -37,24 +33,24 @@ public final class ApplicationApplicationConfigurationRunConfigurationFlinkRunCo
     public static Builder builder(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowNonRestoredState;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowNonRestoredState = defaults.allowNonRestoredState;
         }
 
+        @CustomType.Setter
         public Builder allowNonRestoredState(@Nullable Boolean allowNonRestoredState) {
             this.allowNonRestoredState = allowNonRestoredState;
             return this;
-        }        public ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration build() {
-            return new ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration(allowNonRestoredState);
+        }
+        public ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration build() {
+            final var o = new ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration();
+            o.allowNonRestoredState = allowNonRestoredState;
+            return o;
         }
     }
 }

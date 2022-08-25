@@ -15,13 +15,9 @@ public final class VirtualGatewaySpecLogging {
      * @return The access log configuration for a virtual gateway.
      * 
      */
-    private final @Nullable VirtualGatewaySpecLoggingAccessLog accessLog;
+    private @Nullable VirtualGatewaySpecLoggingAccessLog accessLog;
 
-    @CustomType.Constructor
-    private VirtualGatewaySpecLogging(@CustomType.Parameter("accessLog") @Nullable VirtualGatewaySpecLoggingAccessLog accessLog) {
-        this.accessLog = accessLog;
-    }
-
+    private VirtualGatewaySpecLogging() {}
     /**
      * @return The access log configuration for a virtual gateway.
      * 
@@ -37,24 +33,24 @@ public final class VirtualGatewaySpecLogging {
     public static Builder builder(VirtualGatewaySpecLogging defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecLoggingAccessLog accessLog;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualGatewaySpecLogging defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessLog = defaults.accessLog;
         }
 
+        @CustomType.Setter
         public Builder accessLog(@Nullable VirtualGatewaySpecLoggingAccessLog accessLog) {
             this.accessLog = accessLog;
             return this;
-        }        public VirtualGatewaySpecLogging build() {
-            return new VirtualGatewaySpecLogging(accessLog);
+        }
+        public VirtualGatewaySpecLogging build() {
+            final var o = new VirtualGatewaySpecLogging();
+            o.accessLog = accessLog;
+            return o;
         }
     }
 }

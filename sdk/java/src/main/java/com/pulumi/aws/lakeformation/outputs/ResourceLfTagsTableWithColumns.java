@@ -17,41 +17,26 @@ public final class ResourceLfTagsTableWithColumns {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private final @Nullable String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return Set of column names for the table.
      * 
      */
-    private final @Nullable List<String> columnNames;
+    private @Nullable List<String> columnNames;
     /**
      * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
      * 
      */
-    private final String databaseName;
-    private final @Nullable List<String> excludedColumnNames;
+    private String databaseName;
+    private @Nullable List<String> excludedColumnNames;
     /**
      * @return Name of the table resource.
      * 
      */
-    private final String name;
-    private final @Nullable Boolean wildcard;
+    private String name;
+    private @Nullable Boolean wildcard;
 
-    @CustomType.Constructor
-    private ResourceLfTagsTableWithColumns(
-        @CustomType.Parameter("catalogId") @Nullable String catalogId,
-        @CustomType.Parameter("columnNames") @Nullable List<String> columnNames,
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("excludedColumnNames") @Nullable List<String> excludedColumnNames,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("wildcard") @Nullable Boolean wildcard) {
-        this.catalogId = catalogId;
-        this.columnNames = columnNames;
-        this.databaseName = databaseName;
-        this.excludedColumnNames = excludedColumnNames;
-        this.name = name;
-        this.wildcard = wildcard;
-    }
-
+    private ResourceLfTagsTableWithColumns() {}
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
@@ -94,7 +79,7 @@ public final class ResourceLfTagsTableWithColumns {
     public static Builder builder(ResourceLfTagsTableWithColumns defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String catalogId;
         private @Nullable List<String> columnNames;
@@ -102,11 +87,7 @@ public final class ResourceLfTagsTableWithColumns {
         private @Nullable List<String> excludedColumnNames;
         private String name;
         private @Nullable Boolean wildcard;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceLfTagsTableWithColumns defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -117,10 +98,12 @@ public final class ResourceLfTagsTableWithColumns {
     	      this.wildcard = defaults.wildcard;
         }
 
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
         }
+        @CustomType.Setter
         public Builder columnNames(@Nullable List<String> columnNames) {
             this.columnNames = columnNames;
             return this;
@@ -128,10 +111,12 @@ public final class ResourceLfTagsTableWithColumns {
         public Builder columnNames(String... columnNames) {
             return columnNames(List.of(columnNames));
         }
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder excludedColumnNames(@Nullable List<String> excludedColumnNames) {
             this.excludedColumnNames = excludedColumnNames;
             return this;
@@ -139,15 +124,25 @@ public final class ResourceLfTagsTableWithColumns {
         public Builder excludedColumnNames(String... excludedColumnNames) {
             return excludedColumnNames(List.of(excludedColumnNames));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder wildcard(@Nullable Boolean wildcard) {
             this.wildcard = wildcard;
             return this;
-        }        public ResourceLfTagsTableWithColumns build() {
-            return new ResourceLfTagsTableWithColumns(catalogId, columnNames, databaseName, excludedColumnNames, name, wildcard);
+        }
+        public ResourceLfTagsTableWithColumns build() {
+            final var o = new ResourceLfTagsTableWithColumns();
+            o.catalogId = catalogId;
+            o.columnNames = columnNames;
+            o.databaseName = databaseName;
+            o.excludedColumnNames = excludedColumnNames;
+            o.name = name;
+            o.wildcard = wildcard;
+            return o;
         }
     }
 }

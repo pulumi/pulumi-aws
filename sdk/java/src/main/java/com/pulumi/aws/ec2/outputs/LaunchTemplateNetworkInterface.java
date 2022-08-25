@@ -17,140 +17,99 @@ public final class LaunchTemplateNetworkInterface {
      * @return Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
      * 
      */
-    private final @Nullable String associateCarrierIpAddress;
+    private @Nullable String associateCarrierIpAddress;
     /**
      * @return Associate a public ip address with the network interface.  Boolean value.
      * 
      */
-    private final @Nullable String associatePublicIpAddress;
+    private @Nullable String associatePublicIpAddress;
     /**
      * @return Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
      * 
      */
-    private final @Nullable String deleteOnTermination;
+    private @Nullable String deleteOnTermination;
     /**
      * @return Description of the network interface.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The integer index of the network interface attachment.
      * 
      */
-    private final @Nullable Integer deviceIndex;
+    private @Nullable Integer deviceIndex;
     /**
      * @return The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
      * 
      */
-    private final @Nullable String interfaceType;
+    private @Nullable String interfaceType;
     /**
      * @return The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
      * 
      */
-    private final @Nullable Integer ipv4AddressCount;
+    private @Nullable Integer ipv4AddressCount;
     /**
      * @return One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
      * 
      */
-    private final @Nullable List<String> ipv4Addresses;
+    private @Nullable List<String> ipv4Addresses;
     /**
      * @return The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
      * 
      */
-    private final @Nullable Integer ipv4PrefixCount;
+    private @Nullable Integer ipv4PrefixCount;
     /**
      * @return One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
      * 
      */
-    private final @Nullable List<String> ipv4Prefixes;
+    private @Nullable List<String> ipv4Prefixes;
     /**
      * @return The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
      * 
      */
-    private final @Nullable Integer ipv6AddressCount;
+    private @Nullable Integer ipv6AddressCount;
     /**
      * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
      * 
      */
-    private final @Nullable List<String> ipv6Addresses;
+    private @Nullable List<String> ipv6Addresses;
     /**
      * @return The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
      * 
      */
-    private final @Nullable Integer ipv6PrefixCount;
+    private @Nullable Integer ipv6PrefixCount;
     /**
      * @return One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
      * 
      */
-    private final @Nullable List<String> ipv6Prefixes;
+    private @Nullable List<String> ipv6Prefixes;
     /**
      * @return The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
      * 
      */
-    private final @Nullable Integer networkCardIndex;
+    private @Nullable Integer networkCardIndex;
     /**
      * @return The ID of the network interface to attach.
      * 
      */
-    private final @Nullable String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
     /**
      * @return The primary private IPv4 address.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return A list of security group IDs to associate.
      * 
      */
-    private final @Nullable List<String> securityGroups;
+    private @Nullable List<String> securityGroups;
     /**
      * @return The VPC Subnet ID to associate.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
 
-    @CustomType.Constructor
-    private LaunchTemplateNetworkInterface(
-        @CustomType.Parameter("associateCarrierIpAddress") @Nullable String associateCarrierIpAddress,
-        @CustomType.Parameter("associatePublicIpAddress") @Nullable String associatePublicIpAddress,
-        @CustomType.Parameter("deleteOnTermination") @Nullable String deleteOnTermination,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("deviceIndex") @Nullable Integer deviceIndex,
-        @CustomType.Parameter("interfaceType") @Nullable String interfaceType,
-        @CustomType.Parameter("ipv4AddressCount") @Nullable Integer ipv4AddressCount,
-        @CustomType.Parameter("ipv4Addresses") @Nullable List<String> ipv4Addresses,
-        @CustomType.Parameter("ipv4PrefixCount") @Nullable Integer ipv4PrefixCount,
-        @CustomType.Parameter("ipv4Prefixes") @Nullable List<String> ipv4Prefixes,
-        @CustomType.Parameter("ipv6AddressCount") @Nullable Integer ipv6AddressCount,
-        @CustomType.Parameter("ipv6Addresses") @Nullable List<String> ipv6Addresses,
-        @CustomType.Parameter("ipv6PrefixCount") @Nullable Integer ipv6PrefixCount,
-        @CustomType.Parameter("ipv6Prefixes") @Nullable List<String> ipv6Prefixes,
-        @CustomType.Parameter("networkCardIndex") @Nullable Integer networkCardIndex,
-        @CustomType.Parameter("networkInterfaceId") @Nullable String networkInterfaceId,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("securityGroups") @Nullable List<String> securityGroups,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId) {
-        this.associateCarrierIpAddress = associateCarrierIpAddress;
-        this.associatePublicIpAddress = associatePublicIpAddress;
-        this.deleteOnTermination = deleteOnTermination;
-        this.description = description;
-        this.deviceIndex = deviceIndex;
-        this.interfaceType = interfaceType;
-        this.ipv4AddressCount = ipv4AddressCount;
-        this.ipv4Addresses = ipv4Addresses;
-        this.ipv4PrefixCount = ipv4PrefixCount;
-        this.ipv4Prefixes = ipv4Prefixes;
-        this.ipv6AddressCount = ipv6AddressCount;
-        this.ipv6Addresses = ipv6Addresses;
-        this.ipv6PrefixCount = ipv6PrefixCount;
-        this.ipv6Prefixes = ipv6Prefixes;
-        this.networkCardIndex = networkCardIndex;
-        this.networkInterfaceId = networkInterfaceId;
-        this.privateIpAddress = privateIpAddress;
-        this.securityGroups = securityGroups;
-        this.subnetId = subnetId;
-    }
-
+    private LaunchTemplateNetworkInterface() {}
     /**
      * @return Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
      * 
@@ -292,7 +251,7 @@ public final class LaunchTemplateNetworkInterface {
     public static Builder builder(LaunchTemplateNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String associateCarrierIpAddress;
         private @Nullable String associatePublicIpAddress;
@@ -313,11 +272,7 @@ public final class LaunchTemplateNetworkInterface {
         private @Nullable String privateIpAddress;
         private @Nullable List<String> securityGroups;
         private @Nullable String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LaunchTemplateNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associateCarrierIpAddress = defaults.associateCarrierIpAddress;
@@ -341,34 +296,42 @@ public final class LaunchTemplateNetworkInterface {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder associateCarrierIpAddress(@Nullable String associateCarrierIpAddress) {
             this.associateCarrierIpAddress = associateCarrierIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder associatePublicIpAddress(@Nullable String associatePublicIpAddress) {
             this.associatePublicIpAddress = associatePublicIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder deleteOnTermination(@Nullable String deleteOnTermination) {
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder deviceIndex(@Nullable Integer deviceIndex) {
             this.deviceIndex = deviceIndex;
             return this;
         }
+        @CustomType.Setter
         public Builder interfaceType(@Nullable String interfaceType) {
             this.interfaceType = interfaceType;
             return this;
         }
+        @CustomType.Setter
         public Builder ipv4AddressCount(@Nullable Integer ipv4AddressCount) {
             this.ipv4AddressCount = ipv4AddressCount;
             return this;
         }
+        @CustomType.Setter
         public Builder ipv4Addresses(@Nullable List<String> ipv4Addresses) {
             this.ipv4Addresses = ipv4Addresses;
             return this;
@@ -376,10 +339,12 @@ public final class LaunchTemplateNetworkInterface {
         public Builder ipv4Addresses(String... ipv4Addresses) {
             return ipv4Addresses(List.of(ipv4Addresses));
         }
+        @CustomType.Setter
         public Builder ipv4PrefixCount(@Nullable Integer ipv4PrefixCount) {
             this.ipv4PrefixCount = ipv4PrefixCount;
             return this;
         }
+        @CustomType.Setter
         public Builder ipv4Prefixes(@Nullable List<String> ipv4Prefixes) {
             this.ipv4Prefixes = ipv4Prefixes;
             return this;
@@ -387,10 +352,12 @@ public final class LaunchTemplateNetworkInterface {
         public Builder ipv4Prefixes(String... ipv4Prefixes) {
             return ipv4Prefixes(List.of(ipv4Prefixes));
         }
+        @CustomType.Setter
         public Builder ipv6AddressCount(@Nullable Integer ipv6AddressCount) {
             this.ipv6AddressCount = ipv6AddressCount;
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6Addresses(@Nullable List<String> ipv6Addresses) {
             this.ipv6Addresses = ipv6Addresses;
             return this;
@@ -398,10 +365,12 @@ public final class LaunchTemplateNetworkInterface {
         public Builder ipv6Addresses(String... ipv6Addresses) {
             return ipv6Addresses(List.of(ipv6Addresses));
         }
+        @CustomType.Setter
         public Builder ipv6PrefixCount(@Nullable Integer ipv6PrefixCount) {
             this.ipv6PrefixCount = ipv6PrefixCount;
             return this;
         }
+        @CustomType.Setter
         public Builder ipv6Prefixes(@Nullable List<String> ipv6Prefixes) {
             this.ipv6Prefixes = ipv6Prefixes;
             return this;
@@ -409,18 +378,22 @@ public final class LaunchTemplateNetworkInterface {
         public Builder ipv6Prefixes(String... ipv6Prefixes) {
             return ipv6Prefixes(List.of(ipv6Prefixes));
         }
+        @CustomType.Setter
         public Builder networkCardIndex(@Nullable Integer networkCardIndex) {
             this.networkCardIndex = networkCardIndex;
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
             this.securityGroups = securityGroups;
             return this;
@@ -428,11 +401,33 @@ public final class LaunchTemplateNetworkInterface {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
-        }        public LaunchTemplateNetworkInterface build() {
-            return new LaunchTemplateNetworkInterface(associateCarrierIpAddress, associatePublicIpAddress, deleteOnTermination, description, deviceIndex, interfaceType, ipv4AddressCount, ipv4Addresses, ipv4PrefixCount, ipv4Prefixes, ipv6AddressCount, ipv6Addresses, ipv6PrefixCount, ipv6Prefixes, networkCardIndex, networkInterfaceId, privateIpAddress, securityGroups, subnetId);
+        }
+        public LaunchTemplateNetworkInterface build() {
+            final var o = new LaunchTemplateNetworkInterface();
+            o.associateCarrierIpAddress = associateCarrierIpAddress;
+            o.associatePublicIpAddress = associatePublicIpAddress;
+            o.deleteOnTermination = deleteOnTermination;
+            o.description = description;
+            o.deviceIndex = deviceIndex;
+            o.interfaceType = interfaceType;
+            o.ipv4AddressCount = ipv4AddressCount;
+            o.ipv4Addresses = ipv4Addresses;
+            o.ipv4PrefixCount = ipv4PrefixCount;
+            o.ipv4Prefixes = ipv4Prefixes;
+            o.ipv6AddressCount = ipv6AddressCount;
+            o.ipv6Addresses = ipv6Addresses;
+            o.ipv6PrefixCount = ipv6PrefixCount;
+            o.ipv6Prefixes = ipv6Prefixes;
+            o.networkCardIndex = networkCardIndex;
+            o.networkInterfaceId = networkInterfaceId;
+            o.privateIpAddress = privateIpAddress;
+            o.securityGroups = securityGroups;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

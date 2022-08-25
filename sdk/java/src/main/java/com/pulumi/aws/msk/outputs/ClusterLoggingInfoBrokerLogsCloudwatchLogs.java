@@ -16,21 +16,14 @@ public final class ClusterLoggingInfoBrokerLogsCloudwatchLogs {
      * @return Controls whether provisioned throughput is enabled or not. Default value: `false`.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Name of the Cloudwatch Log Group to deliver logs to.
      * 
      */
-    private final @Nullable String logGroup;
+    private @Nullable String logGroup;
 
-    @CustomType.Constructor
-    private ClusterLoggingInfoBrokerLogsCloudwatchLogs(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("logGroup") @Nullable String logGroup) {
-        this.enabled = enabled;
-        this.logGroup = logGroup;
-    }
-
+    private ClusterLoggingInfoBrokerLogsCloudwatchLogs() {}
     /**
      * @return Controls whether provisioned throughput is enabled or not. Default value: `false`.
      * 
@@ -53,30 +46,32 @@ public final class ClusterLoggingInfoBrokerLogsCloudwatchLogs {
     public static Builder builder(ClusterLoggingInfoBrokerLogsCloudwatchLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable String logGroup;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterLoggingInfoBrokerLogsCloudwatchLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.logGroup = defaults.logGroup;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder logGroup(@Nullable String logGroup) {
             this.logGroup = logGroup;
             return this;
-        }        public ClusterLoggingInfoBrokerLogsCloudwatchLogs build() {
-            return new ClusterLoggingInfoBrokerLogsCloudwatchLogs(enabled, logGroup);
+        }
+        public ClusterLoggingInfoBrokerLogsCloudwatchLogs build() {
+            final var o = new ClusterLoggingInfoBrokerLogsCloudwatchLogs();
+            o.enabled = enabled;
+            o.logGroup = logGroup;
+            return o;
         }
     }
 }

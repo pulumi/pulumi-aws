@@ -11,17 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateCapacityReservationSpecification {
-    private final String capacityReservationPreference;
-    private final List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets;
+    private String capacityReservationPreference;
+    private List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets;
 
-    @CustomType.Constructor
-    private GetLaunchTemplateCapacityReservationSpecification(
-        @CustomType.Parameter("capacityReservationPreference") String capacityReservationPreference,
-        @CustomType.Parameter("capacityReservationTargets") List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets) {
-        this.capacityReservationPreference = capacityReservationPreference;
-        this.capacityReservationTargets = capacityReservationTargets;
-    }
-
+    private GetLaunchTemplateCapacityReservationSpecification() {}
     public String capacityReservationPreference() {
         return this.capacityReservationPreference;
     }
@@ -36,33 +29,35 @@ public final class GetLaunchTemplateCapacityReservationSpecification {
     public static Builder builder(GetLaunchTemplateCapacityReservationSpecification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String capacityReservationPreference;
         private List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchTemplateCapacityReservationSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityReservationPreference = defaults.capacityReservationPreference;
     	      this.capacityReservationTargets = defaults.capacityReservationTargets;
         }
 
+        @CustomType.Setter
         public Builder capacityReservationPreference(String capacityReservationPreference) {
             this.capacityReservationPreference = Objects.requireNonNull(capacityReservationPreference);
             return this;
         }
+        @CustomType.Setter
         public Builder capacityReservationTargets(List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets) {
             this.capacityReservationTargets = Objects.requireNonNull(capacityReservationTargets);
             return this;
         }
         public Builder capacityReservationTargets(GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget... capacityReservationTargets) {
             return capacityReservationTargets(List.of(capacityReservationTargets));
-        }        public GetLaunchTemplateCapacityReservationSpecification build() {
-            return new GetLaunchTemplateCapacityReservationSpecification(capacityReservationPreference, capacityReservationTargets);
+        }
+        public GetLaunchTemplateCapacityReservationSpecification build() {
+            final var o = new GetLaunchTemplateCapacityReservationSpecification();
+            o.capacityReservationPreference = capacityReservationPreference;
+            o.capacityReservationTargets = capacityReservationTargets;
+            return o;
         }
     }
 }

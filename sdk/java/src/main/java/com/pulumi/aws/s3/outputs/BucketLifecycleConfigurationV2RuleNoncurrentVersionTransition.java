@@ -16,28 +16,19 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
      * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
-    private final @Nullable String newerNoncurrentVersions;
+    private @Nullable String newerNoncurrentVersions;
     /**
      * @return The number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
-    private final @Nullable Integer noncurrentDays;
+    private @Nullable Integer noncurrentDays;
     /**
      * @return The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
      * 
      */
-    private final String storageClass;
+    private String storageClass;
 
-    @CustomType.Constructor
-    private BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(
-        @CustomType.Parameter("newerNoncurrentVersions") @Nullable String newerNoncurrentVersions,
-        @CustomType.Parameter("noncurrentDays") @Nullable Integer noncurrentDays,
-        @CustomType.Parameter("storageClass") String storageClass) {
-        this.newerNoncurrentVersions = newerNoncurrentVersions;
-        this.noncurrentDays = noncurrentDays;
-        this.storageClass = storageClass;
-    }
-
+    private BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition() {}
     /**
      * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
@@ -67,16 +58,12 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
     public static Builder builder(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String newerNoncurrentVersions;
         private @Nullable Integer noncurrentDays;
         private String storageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.newerNoncurrentVersions = defaults.newerNoncurrentVersions;
@@ -84,19 +71,27 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
     	      this.storageClass = defaults.storageClass;
         }
 
+        @CustomType.Setter
         public Builder newerNoncurrentVersions(@Nullable String newerNoncurrentVersions) {
             this.newerNoncurrentVersions = newerNoncurrentVersions;
             return this;
         }
+        @CustomType.Setter
         public Builder noncurrentDays(@Nullable Integer noncurrentDays) {
             this.noncurrentDays = noncurrentDays;
             return this;
         }
+        @CustomType.Setter
         public Builder storageClass(String storageClass) {
             this.storageClass = Objects.requireNonNull(storageClass);
             return this;
-        }        public BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition build() {
-            return new BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(newerNoncurrentVersions, noncurrentDays, storageClass);
+        }
+        public BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition build() {
+            final var o = new BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition();
+            o.newerNoncurrentVersions = newerNoncurrentVersions;
+            o.noncurrentDays = noncurrentDays;
+            o.storageClass = storageClass;
+            return o;
         }
     }
 }

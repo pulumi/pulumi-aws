@@ -17,41 +17,26 @@ public final class GetSecurityGroupsResult {
      * @return ARNs of the matched security groups.
      * 
      */
-    private final List<String> arns;
-    private final @Nullable List<GetSecurityGroupsFilter> filters;
+    private List<String> arns;
+    private @Nullable List<GetSecurityGroupsFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return IDs of the matches security groups.
      * 
      */
-    private final List<String> ids;
-    private final Map<String,String> tags;
+    private List<String> ids;
+    private Map<String,String> tags;
     /**
      * @return The VPC IDs of the matched security groups. The data source&#39;s tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
      * 
      */
-    private final List<String> vpcIds;
+    private List<String> vpcIds;
 
-    @CustomType.Constructor
-    private GetSecurityGroupsResult(
-        @CustomType.Parameter("arns") List<String> arns,
-        @CustomType.Parameter("filters") @Nullable List<GetSecurityGroupsFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vpcIds") List<String> vpcIds) {
-        this.arns = arns;
-        this.filters = filters;
-        this.id = id;
-        this.ids = ids;
-        this.tags = tags;
-        this.vpcIds = vpcIds;
-    }
-
+    private GetSecurityGroupsResult() {}
     /**
      * @return ARNs of the matched security groups.
      * 
@@ -94,7 +79,7 @@ public final class GetSecurityGroupsResult {
     public static Builder builder(GetSecurityGroupsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> arns;
         private @Nullable List<GetSecurityGroupsFilter> filters;
@@ -102,11 +87,7 @@ public final class GetSecurityGroupsResult {
         private List<String> ids;
         private Map<String,String> tags;
         private List<String> vpcIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecurityGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
@@ -117,6 +98,7 @@ public final class GetSecurityGroupsResult {
     	      this.vpcIds = defaults.vpcIds;
         }
 
+        @CustomType.Setter
         public Builder arns(List<String> arns) {
             this.arns = Objects.requireNonNull(arns);
             return this;
@@ -124,6 +106,7 @@ public final class GetSecurityGroupsResult {
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetSecurityGroupsFilter> filters) {
             this.filters = filters;
             return this;
@@ -131,10 +114,12 @@ public final class GetSecurityGroupsResult {
         public Builder filters(GetSecurityGroupsFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -142,18 +127,28 @@ public final class GetSecurityGroupsResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcIds(List<String> vpcIds) {
             this.vpcIds = Objects.requireNonNull(vpcIds);
             return this;
         }
         public Builder vpcIds(String... vpcIds) {
             return vpcIds(List.of(vpcIds));
-        }        public GetSecurityGroupsResult build() {
-            return new GetSecurityGroupsResult(arns, filters, id, ids, tags, vpcIds);
+        }
+        public GetSecurityGroupsResult build() {
+            final var o = new GetSecurityGroupsResult();
+            o.arns = arns;
+            o.filters = filters;
+            o.id = id;
+            o.ids = ids;
+            o.tags = tags;
+            o.vpcIds = vpcIds;
+            return o;
         }
     }
 }

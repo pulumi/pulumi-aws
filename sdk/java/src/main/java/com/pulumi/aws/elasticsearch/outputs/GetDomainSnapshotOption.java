@@ -13,13 +13,9 @@ public final class GetDomainSnapshotOption {
      * @return Hour during which the service takes an automated daily snapshot of the indices in the domain.
      * 
      */
-    private final Integer automatedSnapshotStartHour;
+    private Integer automatedSnapshotStartHour;
 
-    @CustomType.Constructor
-    private GetDomainSnapshotOption(@CustomType.Parameter("automatedSnapshotStartHour") Integer automatedSnapshotStartHour) {
-        this.automatedSnapshotStartHour = automatedSnapshotStartHour;
-    }
-
+    private GetDomainSnapshotOption() {}
     /**
      * @return Hour during which the service takes an automated daily snapshot of the indices in the domain.
      * 
@@ -35,24 +31,24 @@ public final class GetDomainSnapshotOption {
     public static Builder builder(GetDomainSnapshotOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer automatedSnapshotStartHour;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainSnapshotOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automatedSnapshotStartHour = defaults.automatedSnapshotStartHour;
         }
 
+        @CustomType.Setter
         public Builder automatedSnapshotStartHour(Integer automatedSnapshotStartHour) {
             this.automatedSnapshotStartHour = Objects.requireNonNull(automatedSnapshotStartHour);
             return this;
-        }        public GetDomainSnapshotOption build() {
-            return new GetDomainSnapshotOption(automatedSnapshotStartHour);
+        }
+        public GetDomainSnapshotOption build() {
+            final var o = new GetDomainSnapshotOption();
+            o.automatedSnapshotStartHour = automatedSnapshotStartHour;
+            return o;
         }
     }
 }

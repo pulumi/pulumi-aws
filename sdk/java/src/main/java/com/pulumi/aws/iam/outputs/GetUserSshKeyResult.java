@@ -9,48 +9,31 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserSshKeyResult {
-    private final String encoding;
+    private String encoding;
     /**
      * @return The MD5 message digest of the SSH public key.
      * 
      */
-    private final String fingerprint;
+    private String fingerprint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The SSH public key.
      * 
      */
-    private final String publicKey;
-    private final String sshPublicKeyId;
+    private String publicKey;
+    private String sshPublicKeyId;
     /**
      * @return The status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
      * 
      */
-    private final String status;
-    private final String username;
+    private String status;
+    private String username;
 
-    @CustomType.Constructor
-    private GetUserSshKeyResult(
-        @CustomType.Parameter("encoding") String encoding,
-        @CustomType.Parameter("fingerprint") String fingerprint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("publicKey") String publicKey,
-        @CustomType.Parameter("sshPublicKeyId") String sshPublicKeyId,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("username") String username) {
-        this.encoding = encoding;
-        this.fingerprint = fingerprint;
-        this.id = id;
-        this.publicKey = publicKey;
-        this.sshPublicKeyId = sshPublicKeyId;
-        this.status = status;
-        this.username = username;
-    }
-
+    private GetUserSshKeyResult() {}
     public String encoding() {
         return this.encoding;
     }
@@ -96,7 +79,7 @@ public final class GetUserSshKeyResult {
     public static Builder builder(GetUserSshKeyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String encoding;
         private String fingerprint;
@@ -105,11 +88,7 @@ public final class GetUserSshKeyResult {
         private String sshPublicKeyId;
         private String status;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserSshKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encoding = defaults.encoding;
@@ -121,35 +100,51 @@ public final class GetUserSshKeyResult {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder encoding(String encoding) {
             this.encoding = Objects.requireNonNull(encoding);
             return this;
         }
+        @CustomType.Setter
         public Builder fingerprint(String fingerprint) {
             this.fingerprint = Objects.requireNonNull(fingerprint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder publicKey(String publicKey) {
             this.publicKey = Objects.requireNonNull(publicKey);
             return this;
         }
+        @CustomType.Setter
         public Builder sshPublicKeyId(String sshPublicKeyId) {
             this.sshPublicKeyId = Objects.requireNonNull(sshPublicKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetUserSshKeyResult build() {
-            return new GetUserSshKeyResult(encoding, fingerprint, id, publicKey, sshPublicKeyId, status, username);
+        }
+        public GetUserSshKeyResult build() {
+            final var o = new GetUserSshKeyResult();
+            o.encoding = encoding;
+            o.fingerprint = fingerprint;
+            o.id = id;
+            o.publicKey = publicKey;
+            o.sshPublicKeyId = sshPublicKeyId;
+            o.status = status;
+            o.username = username;
+            return o;
         }
     }
 }

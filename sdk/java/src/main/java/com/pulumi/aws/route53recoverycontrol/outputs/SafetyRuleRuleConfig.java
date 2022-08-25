@@ -15,28 +15,19 @@ public final class SafetyRuleRuleConfig {
      * @return Logical negation of the rule.
      * 
      */
-    private final Boolean inverted;
+    private Boolean inverted;
     /**
      * @return Number of controls that must be set when you specify an `ATLEAST` type rule.
      * 
      */
-    private final Integer threshold;
+    private Integer threshold;
     /**
      * @return Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private SafetyRuleRuleConfig(
-        @CustomType.Parameter("inverted") Boolean inverted,
-        @CustomType.Parameter("threshold") Integer threshold,
-        @CustomType.Parameter("type") String type) {
-        this.inverted = inverted;
-        this.threshold = threshold;
-        this.type = type;
-    }
-
+    private SafetyRuleRuleConfig() {}
     /**
      * @return Logical negation of the rule.
      * 
@@ -66,16 +57,12 @@ public final class SafetyRuleRuleConfig {
     public static Builder builder(SafetyRuleRuleConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean inverted;
         private Integer threshold;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SafetyRuleRuleConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inverted = defaults.inverted;
@@ -83,19 +70,27 @@ public final class SafetyRuleRuleConfig {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder inverted(Boolean inverted) {
             this.inverted = Objects.requireNonNull(inverted);
             return this;
         }
+        @CustomType.Setter
         public Builder threshold(Integer threshold) {
             this.threshold = Objects.requireNonNull(threshold);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public SafetyRuleRuleConfig build() {
-            return new SafetyRuleRuleConfig(inverted, threshold, type);
+        }
+        public SafetyRuleRuleConfig build() {
+            final var o = new SafetyRuleRuleConfig();
+            o.inverted = inverted;
+            o.threshold = threshold;
+            o.type = type;
+            return o;
         }
     }
 }

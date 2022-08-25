@@ -13,13 +13,9 @@ public final class BackupPolicyBackupPolicy {
      * @return A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private BackupPolicyBackupPolicy(@CustomType.Parameter("status") String status) {
-        this.status = status;
-    }
-
+    private BackupPolicyBackupPolicy() {}
     /**
      * @return A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
      * 
@@ -35,24 +31,24 @@ public final class BackupPolicyBackupPolicy {
     public static Builder builder(BackupPolicyBackupPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackupPolicyBackupPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public BackupPolicyBackupPolicy build() {
-            return new BackupPolicyBackupPolicy(status);
+        }
+        public BackupPolicyBackupPolicy build() {
+            final var o = new BackupPolicyBackupPolicy();
+            o.status = status;
+            return o;
         }
     }
 }

@@ -17,35 +17,24 @@ public final class IdentityPoolRoleAttachmentRoleMapping {
      * @return Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
      * 
      */
-    private final @Nullable String ambiguousRoleResolution;
+    private @Nullable String ambiguousRoleResolution;
     /**
      * @return A string identifying the identity provider, for example, &#34;graph.facebook.com&#34; or &#34;cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id&#34;. Depends on `cognito_identity_providers` set on `aws.cognito.IdentityPool` resource or a `aws.cognito.IdentityProvider` resource.
      * 
      */
-    private final String identityProvider;
+    private String identityProvider;
     /**
      * @return The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
      * 
      */
-    private final @Nullable List<IdentityPoolRoleAttachmentRoleMappingMappingRule> mappingRules;
+    private @Nullable List<IdentityPoolRoleAttachmentRoleMappingMappingRule> mappingRules;
     /**
      * @return The role mapping type.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private IdentityPoolRoleAttachmentRoleMapping(
-        @CustomType.Parameter("ambiguousRoleResolution") @Nullable String ambiguousRoleResolution,
-        @CustomType.Parameter("identityProvider") String identityProvider,
-        @CustomType.Parameter("mappingRules") @Nullable List<IdentityPoolRoleAttachmentRoleMappingMappingRule> mappingRules,
-        @CustomType.Parameter("type") String type) {
-        this.ambiguousRoleResolution = ambiguousRoleResolution;
-        this.identityProvider = identityProvider;
-        this.mappingRules = mappingRules;
-        this.type = type;
-    }
-
+    private IdentityPoolRoleAttachmentRoleMapping() {}
     /**
      * @return Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
      * 
@@ -82,17 +71,13 @@ public final class IdentityPoolRoleAttachmentRoleMapping {
     public static Builder builder(IdentityPoolRoleAttachmentRoleMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String ambiguousRoleResolution;
         private String identityProvider;
         private @Nullable List<IdentityPoolRoleAttachmentRoleMappingMappingRule> mappingRules;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IdentityPoolRoleAttachmentRoleMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ambiguousRoleResolution = defaults.ambiguousRoleResolution;
@@ -101,14 +86,17 @@ public final class IdentityPoolRoleAttachmentRoleMapping {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder ambiguousRoleResolution(@Nullable String ambiguousRoleResolution) {
             this.ambiguousRoleResolution = ambiguousRoleResolution;
             return this;
         }
+        @CustomType.Setter
         public Builder identityProvider(String identityProvider) {
             this.identityProvider = Objects.requireNonNull(identityProvider);
             return this;
         }
+        @CustomType.Setter
         public Builder mappingRules(@Nullable List<IdentityPoolRoleAttachmentRoleMappingMappingRule> mappingRules) {
             this.mappingRules = mappingRules;
             return this;
@@ -116,11 +104,18 @@ public final class IdentityPoolRoleAttachmentRoleMapping {
         public Builder mappingRules(IdentityPoolRoleAttachmentRoleMappingMappingRule... mappingRules) {
             return mappingRules(List.of(mappingRules));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public IdentityPoolRoleAttachmentRoleMapping build() {
-            return new IdentityPoolRoleAttachmentRoleMapping(ambiguousRoleResolution, identityProvider, mappingRules, type);
+        }
+        public IdentityPoolRoleAttachmentRoleMapping build() {
+            final var o = new IdentityPoolRoleAttachmentRoleMapping();
+            o.ambiguousRoleResolution = ambiguousRoleResolution;
+            o.identityProvider = identityProvider;
+            o.mappingRules = mappingRules;
+            o.type = type;
+            return o;
         }
     }
 }

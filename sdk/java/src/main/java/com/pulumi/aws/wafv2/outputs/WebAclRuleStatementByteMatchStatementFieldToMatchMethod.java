@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementByteMatchStatementFieldToMatchMethod {
-    @CustomType.Constructor
-    private WebAclRuleStatementByteMatchStatementFieldToMatchMethod() {
-    }
-
+    private WebAclRuleStatementByteMatchStatementFieldToMatchMethod() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchMethod {
     public static Builder builder(WebAclRuleStatementByteMatchStatementFieldToMatchMethod defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebAclRuleStatementByteMatchStatementFieldToMatchMethod defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public WebAclRuleStatementByteMatchStatementFieldToMatchMethod build() {
-            return new WebAclRuleStatementByteMatchStatementFieldToMatchMethod();
+            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchMethod();
+            return o;
         }
     }
 }

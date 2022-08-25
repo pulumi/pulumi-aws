@@ -16,24 +16,15 @@ public final class FunctionVpcConfig {
      * @return List of security group IDs associated with the Lambda function.
      * 
      */
-    private final List<String> securityGroupIds;
+    private List<String> securityGroupIds;
     /**
      * @return List of subnet IDs associated with the Lambda function.
      * 
      */
-    private final List<String> subnetIds;
-    private final @Nullable String vpcId;
+    private List<String> subnetIds;
+    private @Nullable String vpcId;
 
-    @CustomType.Constructor
-    private FunctionVpcConfig(
-        @CustomType.Parameter("securityGroupIds") List<String> securityGroupIds,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") @Nullable String vpcId) {
-        this.securityGroupIds = securityGroupIds;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private FunctionVpcConfig() {}
     /**
      * @return List of security group IDs associated with the Lambda function.
      * 
@@ -59,16 +50,12 @@ public final class FunctionVpcConfig {
     public static Builder builder(FunctionVpcConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private @Nullable String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
@@ -76,6 +63,7 @@ public final class FunctionVpcConfig {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
             return this;
@@ -83,6 +71,7 @@ public final class FunctionVpcConfig {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -90,11 +79,17 @@ public final class FunctionVpcConfig {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
             this.vpcId = vpcId;
             return this;
-        }        public FunctionVpcConfig build() {
-            return new FunctionVpcConfig(securityGroupIds, subnetIds, vpcId);
+        }
+        public FunctionVpcConfig build() {
+            final var o = new FunctionVpcConfig();
+            o.securityGroupIds = securityGroupIds;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

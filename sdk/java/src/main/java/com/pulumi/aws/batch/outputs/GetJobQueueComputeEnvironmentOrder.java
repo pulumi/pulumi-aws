@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobQueueComputeEnvironmentOrder {
-    private final String computeEnvironment;
-    private final Integer order;
+    private String computeEnvironment;
+    private Integer order;
 
-    @CustomType.Constructor
-    private GetJobQueueComputeEnvironmentOrder(
-        @CustomType.Parameter("computeEnvironment") String computeEnvironment,
-        @CustomType.Parameter("order") Integer order) {
-        this.computeEnvironment = computeEnvironment;
-        this.order = order;
-    }
-
+    private GetJobQueueComputeEnvironmentOrder() {}
     public String computeEnvironment() {
         return this.computeEnvironment;
     }
@@ -35,30 +28,32 @@ public final class GetJobQueueComputeEnvironmentOrder {
     public static Builder builder(GetJobQueueComputeEnvironmentOrder defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String computeEnvironment;
         private Integer order;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetJobQueueComputeEnvironmentOrder defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.computeEnvironment = defaults.computeEnvironment;
     	      this.order = defaults.order;
         }
 
+        @CustomType.Setter
         public Builder computeEnvironment(String computeEnvironment) {
             this.computeEnvironment = Objects.requireNonNull(computeEnvironment);
             return this;
         }
+        @CustomType.Setter
         public Builder order(Integer order) {
             this.order = Objects.requireNonNull(order);
             return this;
-        }        public GetJobQueueComputeEnvironmentOrder build() {
-            return new GetJobQueueComputeEnvironmentOrder(computeEnvironment, order);
+        }
+        public GetJobQueueComputeEnvironmentOrder build() {
+            final var o = new GetJobQueueComputeEnvironmentOrder();
+            o.computeEnvironment = computeEnvironment;
+            o.order = order;
+            return o;
         }
     }
 }

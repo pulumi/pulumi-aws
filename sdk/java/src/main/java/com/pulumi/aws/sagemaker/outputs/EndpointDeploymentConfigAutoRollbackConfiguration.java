@@ -15,13 +15,9 @@ public final class EndpointDeploymentConfigAutoRollbackConfiguration {
      * @return List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
      * 
      */
-    private final @Nullable List<EndpointDeploymentConfigAutoRollbackConfigurationAlarm> alarms;
+    private @Nullable List<EndpointDeploymentConfigAutoRollbackConfigurationAlarm> alarms;
 
-    @CustomType.Constructor
-    private EndpointDeploymentConfigAutoRollbackConfiguration(@CustomType.Parameter("alarms") @Nullable List<EndpointDeploymentConfigAutoRollbackConfigurationAlarm> alarms) {
-        this.alarms = alarms;
-    }
-
+    private EndpointDeploymentConfigAutoRollbackConfiguration() {}
     /**
      * @return List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
      * 
@@ -37,27 +33,27 @@ public final class EndpointDeploymentConfigAutoRollbackConfiguration {
     public static Builder builder(EndpointDeploymentConfigAutoRollbackConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<EndpointDeploymentConfigAutoRollbackConfigurationAlarm> alarms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeploymentConfigAutoRollbackConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alarms = defaults.alarms;
         }
 
+        @CustomType.Setter
         public Builder alarms(@Nullable List<EndpointDeploymentConfigAutoRollbackConfigurationAlarm> alarms) {
             this.alarms = alarms;
             return this;
         }
         public Builder alarms(EndpointDeploymentConfigAutoRollbackConfigurationAlarm... alarms) {
             return alarms(List.of(alarms));
-        }        public EndpointDeploymentConfigAutoRollbackConfiguration build() {
-            return new EndpointDeploymentConfigAutoRollbackConfiguration(alarms);
+        }
+        public EndpointDeploymentConfigAutoRollbackConfiguration build() {
+            final var o = new EndpointDeploymentConfigAutoRollbackConfiguration();
+            o.alarms = alarms;
+            return o;
         }
     }
 }

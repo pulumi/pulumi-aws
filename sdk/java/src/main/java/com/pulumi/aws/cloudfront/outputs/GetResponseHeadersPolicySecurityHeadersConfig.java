@@ -19,49 +19,34 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
      * @return The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
      * 
      */
-    private final List<GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy> contentSecurityPolicies;
+    private List<GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy> contentSecurityPolicies;
     /**
      * @return A setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
      * 
      */
-    private final List<GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption> contentTypeOptions;
+    private List<GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption> contentTypeOptions;
     /**
      * @return A setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
      * 
      */
-    private final List<GetResponseHeadersPolicySecurityHeadersConfigFrameOption> frameOptions;
+    private List<GetResponseHeadersPolicySecurityHeadersConfigFrameOption> frameOptions;
     /**
      * @return The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
      * 
      */
-    private final List<GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> referrerPolicies;
+    private List<GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> referrerPolicies;
     /**
      * @return Settings that determine whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value. See Strict Transport Security for more information.
      * 
      */
-    private final List<GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity> strictTransportSecurities;
+    private List<GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity> strictTransportSecurities;
     /**
      * @return Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
      * 
      */
-    private final List<GetResponseHeadersPolicySecurityHeadersConfigXssProtection> xssProtections;
+    private List<GetResponseHeadersPolicySecurityHeadersConfigXssProtection> xssProtections;
 
-    @CustomType.Constructor
-    private GetResponseHeadersPolicySecurityHeadersConfig(
-        @CustomType.Parameter("contentSecurityPolicies") List<GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy> contentSecurityPolicies,
-        @CustomType.Parameter("contentTypeOptions") List<GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption> contentTypeOptions,
-        @CustomType.Parameter("frameOptions") List<GetResponseHeadersPolicySecurityHeadersConfigFrameOption> frameOptions,
-        @CustomType.Parameter("referrerPolicies") List<GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> referrerPolicies,
-        @CustomType.Parameter("strictTransportSecurities") List<GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity> strictTransportSecurities,
-        @CustomType.Parameter("xssProtections") List<GetResponseHeadersPolicySecurityHeadersConfigXssProtection> xssProtections) {
-        this.contentSecurityPolicies = contentSecurityPolicies;
-        this.contentTypeOptions = contentTypeOptions;
-        this.frameOptions = frameOptions;
-        this.referrerPolicies = referrerPolicies;
-        this.strictTransportSecurities = strictTransportSecurities;
-        this.xssProtections = xssProtections;
-    }
-
+    private GetResponseHeadersPolicySecurityHeadersConfig() {}
     /**
      * @return The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
      * 
@@ -112,7 +97,7 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
     public static Builder builder(GetResponseHeadersPolicySecurityHeadersConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy> contentSecurityPolicies;
         private List<GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption> contentTypeOptions;
@@ -120,11 +105,7 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         private List<GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> referrerPolicies;
         private List<GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity> strictTransportSecurities;
         private List<GetResponseHeadersPolicySecurityHeadersConfigXssProtection> xssProtections;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentSecurityPolicies = defaults.contentSecurityPolicies;
@@ -135,6 +116,7 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
     	      this.xssProtections = defaults.xssProtections;
         }
 
+        @CustomType.Setter
         public Builder contentSecurityPolicies(List<GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy> contentSecurityPolicies) {
             this.contentSecurityPolicies = Objects.requireNonNull(contentSecurityPolicies);
             return this;
@@ -142,6 +124,7 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         public Builder contentSecurityPolicies(GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy... contentSecurityPolicies) {
             return contentSecurityPolicies(List.of(contentSecurityPolicies));
         }
+        @CustomType.Setter
         public Builder contentTypeOptions(List<GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption> contentTypeOptions) {
             this.contentTypeOptions = Objects.requireNonNull(contentTypeOptions);
             return this;
@@ -149,6 +132,7 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         public Builder contentTypeOptions(GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption... contentTypeOptions) {
             return contentTypeOptions(List.of(contentTypeOptions));
         }
+        @CustomType.Setter
         public Builder frameOptions(List<GetResponseHeadersPolicySecurityHeadersConfigFrameOption> frameOptions) {
             this.frameOptions = Objects.requireNonNull(frameOptions);
             return this;
@@ -156,6 +140,7 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         public Builder frameOptions(GetResponseHeadersPolicySecurityHeadersConfigFrameOption... frameOptions) {
             return frameOptions(List.of(frameOptions));
         }
+        @CustomType.Setter
         public Builder referrerPolicies(List<GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> referrerPolicies) {
             this.referrerPolicies = Objects.requireNonNull(referrerPolicies);
             return this;
@@ -163,6 +148,7 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         public Builder referrerPolicies(GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy... referrerPolicies) {
             return referrerPolicies(List.of(referrerPolicies));
         }
+        @CustomType.Setter
         public Builder strictTransportSecurities(List<GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity> strictTransportSecurities) {
             this.strictTransportSecurities = Objects.requireNonNull(strictTransportSecurities);
             return this;
@@ -170,14 +156,23 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         public Builder strictTransportSecurities(GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity... strictTransportSecurities) {
             return strictTransportSecurities(List.of(strictTransportSecurities));
         }
+        @CustomType.Setter
         public Builder xssProtections(List<GetResponseHeadersPolicySecurityHeadersConfigXssProtection> xssProtections) {
             this.xssProtections = Objects.requireNonNull(xssProtections);
             return this;
         }
         public Builder xssProtections(GetResponseHeadersPolicySecurityHeadersConfigXssProtection... xssProtections) {
             return xssProtections(List.of(xssProtections));
-        }        public GetResponseHeadersPolicySecurityHeadersConfig build() {
-            return new GetResponseHeadersPolicySecurityHeadersConfig(contentSecurityPolicies, contentTypeOptions, frameOptions, referrerPolicies, strictTransportSecurities, xssProtections);
+        }
+        public GetResponseHeadersPolicySecurityHeadersConfig build() {
+            final var o = new GetResponseHeadersPolicySecurityHeadersConfig();
+            o.contentSecurityPolicies = contentSecurityPolicies;
+            o.contentTypeOptions = contentTypeOptions;
+            o.frameOptions = frameOptions;
+            o.referrerPolicies = referrerPolicies;
+            o.strictTransportSecurities = strictTransportSecurities;
+            o.xssProtections = xssProtections;
+            return o;
         }
     }
 }

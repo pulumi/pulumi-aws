@@ -16,21 +16,14 @@ public final class TopicRuleDynamodbv2 {
      * @return Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
      * 
      */
-    private final @Nullable TopicRuleDynamodbv2PutItem putItem;
+    private @Nullable TopicRuleDynamodbv2PutItem putItem;
     /**
      * @return The IAM role ARN that allows access to the CloudWatch alarm.
      * 
      */
-    private final String roleArn;
+    private String roleArn;
 
-    @CustomType.Constructor
-    private TopicRuleDynamodbv2(
-        @CustomType.Parameter("putItem") @Nullable TopicRuleDynamodbv2PutItem putItem,
-        @CustomType.Parameter("roleArn") String roleArn) {
-        this.putItem = putItem;
-        this.roleArn = roleArn;
-    }
-
+    private TopicRuleDynamodbv2() {}
     /**
      * @return Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
      * 
@@ -53,30 +46,32 @@ public final class TopicRuleDynamodbv2 {
     public static Builder builder(TopicRuleDynamodbv2 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable TopicRuleDynamodbv2PutItem putItem;
         private String roleArn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicRuleDynamodbv2 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.putItem = defaults.putItem;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
         public Builder putItem(@Nullable TopicRuleDynamodbv2PutItem putItem) {
             this.putItem = putItem;
             return this;
         }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             this.roleArn = Objects.requireNonNull(roleArn);
             return this;
-        }        public TopicRuleDynamodbv2 build() {
-            return new TopicRuleDynamodbv2(putItem, roleArn);
+        }
+        public TopicRuleDynamodbv2 build() {
+            final var o = new TopicRuleDynamodbv2();
+            o.putItem = putItem;
+            o.roleArn = roleArn;
+            return o;
         }
     }
 }

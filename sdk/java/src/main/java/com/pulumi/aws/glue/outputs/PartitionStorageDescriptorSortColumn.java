@@ -14,21 +14,14 @@ public final class PartitionStorageDescriptorSortColumn {
      * @return The name of the column.
      * 
      */
-    private final String column;
+    private String column;
     /**
      * @return Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
      * 
      */
-    private final Integer sortOrder;
+    private Integer sortOrder;
 
-    @CustomType.Constructor
-    private PartitionStorageDescriptorSortColumn(
-        @CustomType.Parameter("column") String column,
-        @CustomType.Parameter("sortOrder") Integer sortOrder) {
-        this.column = column;
-        this.sortOrder = sortOrder;
-    }
-
+    private PartitionStorageDescriptorSortColumn() {}
     /**
      * @return The name of the column.
      * 
@@ -51,30 +44,32 @@ public final class PartitionStorageDescriptorSortColumn {
     public static Builder builder(PartitionStorageDescriptorSortColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String column;
         private Integer sortOrder;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PartitionStorageDescriptorSortColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.column = defaults.column;
     	      this.sortOrder = defaults.sortOrder;
         }
 
+        @CustomType.Setter
         public Builder column(String column) {
             this.column = Objects.requireNonNull(column);
             return this;
         }
+        @CustomType.Setter
         public Builder sortOrder(Integer sortOrder) {
             this.sortOrder = Objects.requireNonNull(sortOrder);
             return this;
-        }        public PartitionStorageDescriptorSortColumn build() {
-            return new PartitionStorageDescriptorSortColumn(column, sortOrder);
+        }
+        public PartitionStorageDescriptorSortColumn build() {
+            final var o = new PartitionStorageDescriptorSortColumn();
+            o.column = column;
+            o.sortOrder = sortOrder;
+            return o;
         }
     }
 }

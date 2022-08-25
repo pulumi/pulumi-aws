@@ -15,21 +15,14 @@ public final class TaskDefinitionRuntimePlatform {
      * @return Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
      * 
      */
-    private final @Nullable String cpuArchitecture;
+    private @Nullable String cpuArchitecture;
     /**
      * @return If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
      * 
      */
-    private final @Nullable String operatingSystemFamily;
+    private @Nullable String operatingSystemFamily;
 
-    @CustomType.Constructor
-    private TaskDefinitionRuntimePlatform(
-        @CustomType.Parameter("cpuArchitecture") @Nullable String cpuArchitecture,
-        @CustomType.Parameter("operatingSystemFamily") @Nullable String operatingSystemFamily) {
-        this.cpuArchitecture = cpuArchitecture;
-        this.operatingSystemFamily = operatingSystemFamily;
-    }
-
+    private TaskDefinitionRuntimePlatform() {}
     /**
      * @return Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
      * 
@@ -52,30 +45,32 @@ public final class TaskDefinitionRuntimePlatform {
     public static Builder builder(TaskDefinitionRuntimePlatform defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cpuArchitecture;
         private @Nullable String operatingSystemFamily;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TaskDefinitionRuntimePlatform defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cpuArchitecture = defaults.cpuArchitecture;
     	      this.operatingSystemFamily = defaults.operatingSystemFamily;
         }
 
+        @CustomType.Setter
         public Builder cpuArchitecture(@Nullable String cpuArchitecture) {
             this.cpuArchitecture = cpuArchitecture;
             return this;
         }
+        @CustomType.Setter
         public Builder operatingSystemFamily(@Nullable String operatingSystemFamily) {
             this.operatingSystemFamily = operatingSystemFamily;
             return this;
-        }        public TaskDefinitionRuntimePlatform build() {
-            return new TaskDefinitionRuntimePlatform(cpuArchitecture, operatingSystemFamily);
+        }
+        public TaskDefinitionRuntimePlatform build() {
+            final var o = new TaskDefinitionRuntimePlatform();
+            o.cpuArchitecture = cpuArchitecture;
+            o.operatingSystemFamily = operatingSystemFamily;
+            return o;
         }
     }
 }

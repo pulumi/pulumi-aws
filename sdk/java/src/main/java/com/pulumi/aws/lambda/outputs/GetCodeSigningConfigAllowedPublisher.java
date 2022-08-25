@@ -14,13 +14,9 @@ public final class GetCodeSigningConfigAllowedPublisher {
      * @return The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
      * 
      */
-    private final List<String> signingProfileVersionArns;
+    private List<String> signingProfileVersionArns;
 
-    @CustomType.Constructor
-    private GetCodeSigningConfigAllowedPublisher(@CustomType.Parameter("signingProfileVersionArns") List<String> signingProfileVersionArns) {
-        this.signingProfileVersionArns = signingProfileVersionArns;
-    }
-
+    private GetCodeSigningConfigAllowedPublisher() {}
     /**
      * @return The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
      * 
@@ -36,27 +32,27 @@ public final class GetCodeSigningConfigAllowedPublisher {
     public static Builder builder(GetCodeSigningConfigAllowedPublisher defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> signingProfileVersionArns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCodeSigningConfigAllowedPublisher defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.signingProfileVersionArns = defaults.signingProfileVersionArns;
         }
 
+        @CustomType.Setter
         public Builder signingProfileVersionArns(List<String> signingProfileVersionArns) {
             this.signingProfileVersionArns = Objects.requireNonNull(signingProfileVersionArns);
             return this;
         }
         public Builder signingProfileVersionArns(String... signingProfileVersionArns) {
             return signingProfileVersionArns(List.of(signingProfileVersionArns));
-        }        public GetCodeSigningConfigAllowedPublisher build() {
-            return new GetCodeSigningConfigAllowedPublisher(signingProfileVersionArns);
+        }
+        public GetCodeSigningConfigAllowedPublisher build() {
+            final var o = new GetCodeSigningConfigAllowedPublisher();
+            o.signingProfileVersionArns = signingProfileVersionArns;
+            return o;
         }
     }
 }

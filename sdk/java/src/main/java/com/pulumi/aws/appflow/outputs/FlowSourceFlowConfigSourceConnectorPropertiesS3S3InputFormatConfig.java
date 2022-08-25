@@ -15,13 +15,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatC
      * @return The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
      * 
      */
-    private final @Nullable String s3InputFileType;
+    private @Nullable String s3InputFileType;
 
-    @CustomType.Constructor
-    private FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig(@CustomType.Parameter("s3InputFileType") @Nullable String s3InputFileType) {
-        this.s3InputFileType = s3InputFileType;
-    }
-
+    private FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig() {}
     /**
      * @return The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
      * 
@@ -37,24 +33,24 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatC
     public static Builder builder(FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String s3InputFileType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3InputFileType = defaults.s3InputFileType;
         }
 
+        @CustomType.Setter
         public Builder s3InputFileType(@Nullable String s3InputFileType) {
             this.s3InputFileType = s3InputFileType;
             return this;
-        }        public FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig build() {
-            return new FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig(s3InputFileType);
+        }
+        public FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig build() {
+            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig();
+            o.s3InputFileType = s3InputFileType;
+            return o;
         }
     }
 }

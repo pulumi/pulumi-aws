@@ -15,40 +15,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTagsResult {
-    private final @Nullable GetTagsFilter filter;
+    private @Nullable GetTagsFilter filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String searchString;
-    private final @Nullable List<GetTagsSortBy> sortBies;
-    private final @Nullable String tagKey;
+    private String id;
+    private @Nullable String searchString;
+    private @Nullable List<GetTagsSortBy> sortBies;
+    private @Nullable String tagKey;
     /**
      * @return Tags that match your request.
      * 
      */
-    private final List<String> tags;
-    private final GetTagsTimePeriod timePeriod;
+    private List<String> tags;
+    private GetTagsTimePeriod timePeriod;
 
-    @CustomType.Constructor
-    private GetTagsResult(
-        @CustomType.Parameter("filter") @Nullable GetTagsFilter filter,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("searchString") @Nullable String searchString,
-        @CustomType.Parameter("sortBies") @Nullable List<GetTagsSortBy> sortBies,
-        @CustomType.Parameter("tagKey") @Nullable String tagKey,
-        @CustomType.Parameter("tags") List<String> tags,
-        @CustomType.Parameter("timePeriod") GetTagsTimePeriod timePeriod) {
-        this.filter = filter;
-        this.id = id;
-        this.searchString = searchString;
-        this.sortBies = sortBies;
-        this.tagKey = tagKey;
-        this.tags = tags;
-        this.timePeriod = timePeriod;
-    }
-
+    private GetTagsResult() {}
     public Optional<GetTagsFilter> filter() {
         return Optional.ofNullable(this.filter);
     }
@@ -86,7 +69,7 @@ public final class GetTagsResult {
     public static Builder builder(GetTagsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable GetTagsFilter filter;
         private String id;
@@ -95,11 +78,7 @@ public final class GetTagsResult {
         private @Nullable String tagKey;
         private List<String> tags;
         private GetTagsTimePeriod timePeriod;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTagsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filter = defaults.filter;
@@ -111,18 +90,22 @@ public final class GetTagsResult {
     	      this.timePeriod = defaults.timePeriod;
         }
 
+        @CustomType.Setter
         public Builder filter(@Nullable GetTagsFilter filter) {
             this.filter = filter;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder searchString(@Nullable String searchString) {
             this.searchString = searchString;
             return this;
         }
+        @CustomType.Setter
         public Builder sortBies(@Nullable List<GetTagsSortBy> sortBies) {
             this.sortBies = sortBies;
             return this;
@@ -130,10 +113,12 @@ public final class GetTagsResult {
         public Builder sortBies(GetTagsSortBy... sortBies) {
             return sortBies(List.of(sortBies));
         }
+        @CustomType.Setter
         public Builder tagKey(@Nullable String tagKey) {
             this.tagKey = tagKey;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(List<String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -141,11 +126,21 @@ public final class GetTagsResult {
         public Builder tags(String... tags) {
             return tags(List.of(tags));
         }
+        @CustomType.Setter
         public Builder timePeriod(GetTagsTimePeriod timePeriod) {
             this.timePeriod = Objects.requireNonNull(timePeriod);
             return this;
-        }        public GetTagsResult build() {
-            return new GetTagsResult(filter, id, searchString, sortBies, tagKey, tags, timePeriod);
+        }
+        public GetTagsResult build() {
+            final var o = new GetTagsResult();
+            o.filter = filter;
+            o.id = id;
+            o.searchString = searchString;
+            o.sortBies = sortBies;
+            o.tagKey = tagKey;
+            o.tags = tags;
+            o.timePeriod = timePeriod;
+            return o;
         }
     }
 }

@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEndpointClientLoginBannerOption {
-    private final String bannerText;
-    private final Boolean enabled;
+    private String bannerText;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetEndpointClientLoginBannerOption(
-        @CustomType.Parameter("bannerText") String bannerText,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.bannerText = bannerText;
-        this.enabled = enabled;
-    }
-
+    private GetEndpointClientLoginBannerOption() {}
     public String bannerText() {
         return this.bannerText;
     }
@@ -35,30 +28,32 @@ public final class GetEndpointClientLoginBannerOption {
     public static Builder builder(GetEndpointClientLoginBannerOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bannerText;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEndpointClientLoginBannerOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bannerText = defaults.bannerText;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder bannerText(String bannerText) {
             this.bannerText = Objects.requireNonNull(bannerText);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetEndpointClientLoginBannerOption build() {
-            return new GetEndpointClientLoginBannerOption(bannerText, enabled);
+        }
+        public GetEndpointClientLoginBannerOption build() {
+            final var o = new GetEndpointClientLoginBannerOption();
+            o.bannerText = bannerText;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

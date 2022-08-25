@@ -10,23 +10,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDelegationSetResult {
-    private final String arn;
-    private final String callerReference;
-    private final String id;
-    private final List<String> nameServers;
+    private String arn;
+    private String callerReference;
+    private String id;
+    private List<String> nameServers;
 
-    @CustomType.Constructor
-    private GetDelegationSetResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("callerReference") String callerReference,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("nameServers") List<String> nameServers) {
-        this.arn = arn;
-        this.callerReference = callerReference;
-        this.id = id;
-        this.nameServers = nameServers;
-    }
-
+    private GetDelegationSetResult() {}
     public String arn() {
         return this.arn;
     }
@@ -47,17 +36,13 @@ public final class GetDelegationSetResult {
     public static Builder builder(GetDelegationSetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String callerReference;
         private String id;
         private List<String> nameServers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDelegationSetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -66,26 +51,36 @@ public final class GetDelegationSetResult {
     	      this.nameServers = defaults.nameServers;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder callerReference(String callerReference) {
             this.callerReference = Objects.requireNonNull(callerReference);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder nameServers(List<String> nameServers) {
             this.nameServers = Objects.requireNonNull(nameServers);
             return this;
         }
         public Builder nameServers(String... nameServers) {
             return nameServers(List.of(nameServers));
-        }        public GetDelegationSetResult build() {
-            return new GetDelegationSetResult(arn, callerReference, id, nameServers);
+        }
+        public GetDelegationSetResult build() {
+            final var o = new GetDelegationSetResult();
+            o.arn = arn;
+            o.callerReference = callerReference;
+            o.id = id;
+            o.nameServers = nameServers;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class DataSourceElasticsearchConfig {
      * @return HTTP URL.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
 
-    @CustomType.Constructor
-    private DataSourceElasticsearchConfig(
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("region") @Nullable String region) {
-        this.endpoint = endpoint;
-        this.region = region;
-    }
-
+    private DataSourceElasticsearchConfig() {}
     /**
      * @return HTTP URL.
      * 
@@ -52,30 +45,32 @@ public final class DataSourceElasticsearchConfig {
     public static Builder builder(DataSourceElasticsearchConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpoint;
         private @Nullable String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataSourceElasticsearchConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
-        }        public DataSourceElasticsearchConfig build() {
-            return new DataSourceElasticsearchConfig(endpoint, region);
+        }
+        public DataSourceElasticsearchConfig build() {
+            final var o = new DataSourceElasticsearchConfig();
+            o.endpoint = endpoint;
+            o.region = region;
+            return o;
         }
     }
 }

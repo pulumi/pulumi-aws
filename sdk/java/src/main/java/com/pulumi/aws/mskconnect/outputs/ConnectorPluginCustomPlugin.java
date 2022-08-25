@@ -14,21 +14,14 @@ public final class ConnectorPluginCustomPlugin {
      * @return The Amazon Resource Name (ARN) of the worker configuration.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The revision of the worker configuration.
      * 
      */
-    private final Integer revision;
+    private Integer revision;
 
-    @CustomType.Constructor
-    private ConnectorPluginCustomPlugin(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("revision") Integer revision) {
-        this.arn = arn;
-        this.revision = revision;
-    }
-
+    private ConnectorPluginCustomPlugin() {}
     /**
      * @return The Amazon Resource Name (ARN) of the worker configuration.
      * 
@@ -51,30 +44,32 @@ public final class ConnectorPluginCustomPlugin {
     public static Builder builder(ConnectorPluginCustomPlugin defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private Integer revision;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorPluginCustomPlugin defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.revision = defaults.revision;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder revision(Integer revision) {
             this.revision = Objects.requireNonNull(revision);
             return this;
-        }        public ConnectorPluginCustomPlugin build() {
-            return new ConnectorPluginCustomPlugin(arn, revision);
+        }
+        public ConnectorPluginCustomPlugin build() {
+            final var o = new ConnectorPluginCustomPlugin();
+            o.arn = arn;
+            o.revision = revision;
+            return o;
         }
     }
 }

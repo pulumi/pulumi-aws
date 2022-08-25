@@ -19,57 +19,40 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
      * @return Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
-    private final @Nullable List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations;
+    private @Nullable List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations;
     /**
      * @return The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
-    private final @Nullable String accountId;
+    private @Nullable String accountId;
     /**
      * @return The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      * 
      */
-    private final String bucket;
+    private String bucket;
     /**
      * @return Enables replication metrics (required for S3 RTC) (documented below).
      * 
      */
-    private final @Nullable List<BucketV2ReplicationConfigurationRuleDestinationMetric> metrics;
+    private @Nullable List<BucketV2ReplicationConfigurationRuleDestinationMetric> metrics;
     /**
      * @return Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
      * `sse_kms_encrypted_objects` source selection criteria.
      * 
      */
-    private final @Nullable String replicaKmsKeyId;
+    private @Nullable String replicaKmsKeyId;
     /**
      * @return Enables S3 Replication Time Control (S3 RTC) (documented below).
      * 
      */
-    private final @Nullable List<BucketV2ReplicationConfigurationRuleDestinationReplicationTime> replicationTimes;
+    private @Nullable List<BucketV2ReplicationConfigurationRuleDestinationReplicationTime> replicationTimes;
     /**
      * @return The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
      * 
      */
-    private final @Nullable String storageClass;
+    private @Nullable String storageClass;
 
-    @CustomType.Constructor
-    private BucketV2ReplicationConfigurationRuleDestination(
-        @CustomType.Parameter("accessControlTranslations") @Nullable List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations,
-        @CustomType.Parameter("accountId") @Nullable String accountId,
-        @CustomType.Parameter("bucket") String bucket,
-        @CustomType.Parameter("metrics") @Nullable List<BucketV2ReplicationConfigurationRuleDestinationMetric> metrics,
-        @CustomType.Parameter("replicaKmsKeyId") @Nullable String replicaKmsKeyId,
-        @CustomType.Parameter("replicationTimes") @Nullable List<BucketV2ReplicationConfigurationRuleDestinationReplicationTime> replicationTimes,
-        @CustomType.Parameter("storageClass") @Nullable String storageClass) {
-        this.accessControlTranslations = accessControlTranslations;
-        this.accountId = accountId;
-        this.bucket = bucket;
-        this.metrics = metrics;
-        this.replicaKmsKeyId = replicaKmsKeyId;
-        this.replicationTimes = replicationTimes;
-        this.storageClass = storageClass;
-    }
-
+    private BucketV2ReplicationConfigurationRuleDestination() {}
     /**
      * @return Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
      * 
@@ -128,7 +111,7 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
     public static Builder builder(BucketV2ReplicationConfigurationRuleDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations;
         private @Nullable String accountId;
@@ -137,11 +120,7 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
         private @Nullable String replicaKmsKeyId;
         private @Nullable List<BucketV2ReplicationConfigurationRuleDestinationReplicationTime> replicationTimes;
         private @Nullable String storageClass;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketV2ReplicationConfigurationRuleDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessControlTranslations = defaults.accessControlTranslations;
@@ -153,6 +132,7 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
     	      this.storageClass = defaults.storageClass;
         }
 
+        @CustomType.Setter
         public Builder accessControlTranslations(@Nullable List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations) {
             this.accessControlTranslations = accessControlTranslations;
             return this;
@@ -160,14 +140,17 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
         public Builder accessControlTranslations(BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation... accessControlTranslations) {
             return accessControlTranslations(List.of(accessControlTranslations));
         }
+        @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
             this.accountId = accountId;
             return this;
         }
+        @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
         public Builder metrics(@Nullable List<BucketV2ReplicationConfigurationRuleDestinationMetric> metrics) {
             this.metrics = metrics;
             return this;
@@ -175,10 +158,12 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
         public Builder metrics(BucketV2ReplicationConfigurationRuleDestinationMetric... metrics) {
             return metrics(List.of(metrics));
         }
+        @CustomType.Setter
         public Builder replicaKmsKeyId(@Nullable String replicaKmsKeyId) {
             this.replicaKmsKeyId = replicaKmsKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder replicationTimes(@Nullable List<BucketV2ReplicationConfigurationRuleDestinationReplicationTime> replicationTimes) {
             this.replicationTimes = replicationTimes;
             return this;
@@ -186,11 +171,21 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
         public Builder replicationTimes(BucketV2ReplicationConfigurationRuleDestinationReplicationTime... replicationTimes) {
             return replicationTimes(List.of(replicationTimes));
         }
+        @CustomType.Setter
         public Builder storageClass(@Nullable String storageClass) {
             this.storageClass = storageClass;
             return this;
-        }        public BucketV2ReplicationConfigurationRuleDestination build() {
-            return new BucketV2ReplicationConfigurationRuleDestination(accessControlTranslations, accountId, bucket, metrics, replicaKmsKeyId, replicationTimes, storageClass);
+        }
+        public BucketV2ReplicationConfigurationRuleDestination build() {
+            final var o = new BucketV2ReplicationConfigurationRuleDestination();
+            o.accessControlTranslations = accessControlTranslations;
+            o.accountId = accountId;
+            o.bucket = bucket;
+            o.metrics = metrics;
+            o.replicaKmsKeyId = replicaKmsKeyId;
+            o.replicationTimes = replicationTimes;
+            o.storageClass = storageClass;
+            return o;
         }
     }
 }

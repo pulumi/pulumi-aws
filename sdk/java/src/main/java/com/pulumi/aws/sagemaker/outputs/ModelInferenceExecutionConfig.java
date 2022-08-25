@@ -13,13 +13,9 @@ public final class ModelInferenceExecutionConfig {
      * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
      * 
      */
-    private final String mode;
+    private String mode;
 
-    @CustomType.Constructor
-    private ModelInferenceExecutionConfig(@CustomType.Parameter("mode") String mode) {
-        this.mode = mode;
-    }
-
+    private ModelInferenceExecutionConfig() {}
     /**
      * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
      * 
@@ -35,24 +31,24 @@ public final class ModelInferenceExecutionConfig {
     public static Builder builder(ModelInferenceExecutionConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ModelInferenceExecutionConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
-        }        public ModelInferenceExecutionConfig build() {
-            return new ModelInferenceExecutionConfig(mode);
+        }
+        public ModelInferenceExecutionConfig build() {
+            final var o = new ModelInferenceExecutionConfig();
+            o.mode = mode;
+            return o;
         }
     }
 }

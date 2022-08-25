@@ -14,28 +14,19 @@ public final class ReceiptRuleAddHeaderAction {
      * @return The name of the header to add
      * 
      */
-    private final String headerName;
+    private String headerName;
     /**
      * @return The value of the header to add
      * 
      */
-    private final String headerValue;
+    private String headerValue;
     /**
      * @return The position of the action in the receipt rule
      * 
      */
-    private final Integer position;
+    private Integer position;
 
-    @CustomType.Constructor
-    private ReceiptRuleAddHeaderAction(
-        @CustomType.Parameter("headerName") String headerName,
-        @CustomType.Parameter("headerValue") String headerValue,
-        @CustomType.Parameter("position") Integer position) {
-        this.headerName = headerName;
-        this.headerValue = headerValue;
-        this.position = position;
-    }
-
+    private ReceiptRuleAddHeaderAction() {}
     /**
      * @return The name of the header to add
      * 
@@ -65,16 +56,12 @@ public final class ReceiptRuleAddHeaderAction {
     public static Builder builder(ReceiptRuleAddHeaderAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String headerName;
         private String headerValue;
         private Integer position;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReceiptRuleAddHeaderAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headerName = defaults.headerName;
@@ -82,19 +69,27 @@ public final class ReceiptRuleAddHeaderAction {
     	      this.position = defaults.position;
         }
 
+        @CustomType.Setter
         public Builder headerName(String headerName) {
             this.headerName = Objects.requireNonNull(headerName);
             return this;
         }
+        @CustomType.Setter
         public Builder headerValue(String headerValue) {
             this.headerValue = Objects.requireNonNull(headerValue);
             return this;
         }
+        @CustomType.Setter
         public Builder position(Integer position) {
             this.position = Objects.requireNonNull(position);
             return this;
-        }        public ReceiptRuleAddHeaderAction build() {
-            return new ReceiptRuleAddHeaderAction(headerName, headerValue, position);
+        }
+        public ReceiptRuleAddHeaderAction build() {
+            final var o = new ReceiptRuleAddHeaderAction();
+            o.headerName = headerName;
+            o.headerValue = headerValue;
+            o.position = position;
+            return o;
         }
     }
 }

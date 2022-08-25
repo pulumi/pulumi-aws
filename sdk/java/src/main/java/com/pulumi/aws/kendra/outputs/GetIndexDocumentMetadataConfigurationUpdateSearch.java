@@ -13,35 +13,24 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
      * @return Determines whether the field is returned in the query response. The default is `true`.
      * 
      */
-    private final Boolean displayable;
+    private Boolean displayable;
     /**
      * @return Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
      * 
      */
-    private final Boolean facetable;
+    private Boolean facetable;
     /**
      * @return Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
      * 
      */
-    private final Boolean searchable;
+    private Boolean searchable;
     /**
      * @return Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
      * 
      */
-    private final Boolean sortable;
+    private Boolean sortable;
 
-    @CustomType.Constructor
-    private GetIndexDocumentMetadataConfigurationUpdateSearch(
-        @CustomType.Parameter("displayable") Boolean displayable,
-        @CustomType.Parameter("facetable") Boolean facetable,
-        @CustomType.Parameter("searchable") Boolean searchable,
-        @CustomType.Parameter("sortable") Boolean sortable) {
-        this.displayable = displayable;
-        this.facetable = facetable;
-        this.searchable = searchable;
-        this.sortable = sortable;
-    }
-
+    private GetIndexDocumentMetadataConfigurationUpdateSearch() {}
     /**
      * @return Determines whether the field is returned in the query response. The default is `true`.
      * 
@@ -78,17 +67,13 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
     public static Builder builder(GetIndexDocumentMetadataConfigurationUpdateSearch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean displayable;
         private Boolean facetable;
         private Boolean searchable;
         private Boolean sortable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIndexDocumentMetadataConfigurationUpdateSearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayable = defaults.displayable;
@@ -97,23 +82,33 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
     	      this.sortable = defaults.sortable;
         }
 
+        @CustomType.Setter
         public Builder displayable(Boolean displayable) {
             this.displayable = Objects.requireNonNull(displayable);
             return this;
         }
+        @CustomType.Setter
         public Builder facetable(Boolean facetable) {
             this.facetable = Objects.requireNonNull(facetable);
             return this;
         }
+        @CustomType.Setter
         public Builder searchable(Boolean searchable) {
             this.searchable = Objects.requireNonNull(searchable);
             return this;
         }
+        @CustomType.Setter
         public Builder sortable(Boolean sortable) {
             this.sortable = Objects.requireNonNull(sortable);
             return this;
-        }        public GetIndexDocumentMetadataConfigurationUpdateSearch build() {
-            return new GetIndexDocumentMetadataConfigurationUpdateSearch(displayable, facetable, searchable, sortable);
+        }
+        public GetIndexDocumentMetadataConfigurationUpdateSearch build() {
+            final var o = new GetIndexDocumentMetadataConfigurationUpdateSearch();
+            o.displayable = displayable;
+            o.facetable = facetable;
+            o.searchable = searchable;
+            o.sortable = sortable;
+            return o;
         }
     }
 }

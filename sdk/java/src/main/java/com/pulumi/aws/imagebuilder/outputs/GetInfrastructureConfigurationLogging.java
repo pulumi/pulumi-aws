@@ -14,13 +14,9 @@ public final class GetInfrastructureConfigurationLogging {
      * @return Nested list of S3 logs settings.
      * 
      */
-    private final List<GetInfrastructureConfigurationLoggingS3Log> s3Logs;
+    private List<GetInfrastructureConfigurationLoggingS3Log> s3Logs;
 
-    @CustomType.Constructor
-    private GetInfrastructureConfigurationLogging(@CustomType.Parameter("s3Logs") List<GetInfrastructureConfigurationLoggingS3Log> s3Logs) {
-        this.s3Logs = s3Logs;
-    }
-
+    private GetInfrastructureConfigurationLogging() {}
     /**
      * @return Nested list of S3 logs settings.
      * 
@@ -36,27 +32,27 @@ public final class GetInfrastructureConfigurationLogging {
     public static Builder builder(GetInfrastructureConfigurationLogging defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetInfrastructureConfigurationLoggingS3Log> s3Logs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInfrastructureConfigurationLogging defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Logs = defaults.s3Logs;
         }
 
+        @CustomType.Setter
         public Builder s3Logs(List<GetInfrastructureConfigurationLoggingS3Log> s3Logs) {
             this.s3Logs = Objects.requireNonNull(s3Logs);
             return this;
         }
         public Builder s3Logs(GetInfrastructureConfigurationLoggingS3Log... s3Logs) {
             return s3Logs(List.of(s3Logs));
-        }        public GetInfrastructureConfigurationLogging build() {
-            return new GetInfrastructureConfigurationLogging(s3Logs);
+        }
+        public GetInfrastructureConfigurationLogging build() {
+            final var o = new GetInfrastructureConfigurationLogging();
+            o.s3Logs = s3Logs;
+            return o;
         }
     }
 }

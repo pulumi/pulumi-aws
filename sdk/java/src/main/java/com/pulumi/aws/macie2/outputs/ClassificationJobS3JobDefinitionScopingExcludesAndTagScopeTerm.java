@@ -17,35 +17,24 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
      * @return The operator to use in the condition.
      * 
      */
-    private final @Nullable String comparator;
+    private @Nullable String comparator;
     /**
      * @return The tag key to use in the condition. The only valid value is `TAG`.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return The tag keys or tag key and value pairs to use in the condition.
      * 
      */
-    private final @Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> tagValues;
+    private @Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> tagValues;
     /**
      * @return The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
      * 
      */
-    private final @Nullable String target;
+    private @Nullable String target;
 
-    @CustomType.Constructor
-    private ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm(
-        @CustomType.Parameter("comparator") @Nullable String comparator,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("tagValues") @Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> tagValues,
-        @CustomType.Parameter("target") @Nullable String target) {
-        this.comparator = comparator;
-        this.key = key;
-        this.tagValues = tagValues;
-        this.target = target;
-    }
-
+    private ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm() {}
     /**
      * @return The operator to use in the condition.
      * 
@@ -82,17 +71,13 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
     public static Builder builder(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String comparator;
         private @Nullable String key;
         private @Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> tagValues;
         private @Nullable String target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparator = defaults.comparator;
@@ -101,14 +86,17 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder comparator(@Nullable String comparator) {
             this.comparator = comparator;
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder tagValues(@Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> tagValues) {
             this.tagValues = tagValues;
             return this;
@@ -116,11 +104,18 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
         public Builder tagValues(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue... tagValues) {
             return tagValues(List.of(tagValues));
         }
+        @CustomType.Setter
         public Builder target(@Nullable String target) {
             this.target = target;
             return this;
-        }        public ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm build() {
-            return new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm(comparator, key, tagValues, target);
+        }
+        public ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm build() {
+            final var o = new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm();
+            o.comparator = comparator;
+            o.key = key;
+            o.tagValues = tagValues;
+            o.target = target;
+            return o;
         }
     }
 }

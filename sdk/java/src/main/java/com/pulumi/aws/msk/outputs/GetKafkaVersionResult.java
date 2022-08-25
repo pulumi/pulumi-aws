@@ -15,27 +15,16 @@ public final class GetKafkaVersionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable List<String> preferredVersions;
+    private String id;
+    private @Nullable List<String> preferredVersions;
     /**
      * @return Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
      * 
      */
-    private final String status;
-    private final String version;
+    private String status;
+    private String version;
 
-    @CustomType.Constructor
-    private GetKafkaVersionResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("preferredVersions") @Nullable List<String> preferredVersions,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("version") String version) {
-        this.id = id;
-        this.preferredVersions = preferredVersions;
-        this.status = status;
-        this.version = version;
-    }
-
+    private GetKafkaVersionResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -64,17 +53,13 @@ public final class GetKafkaVersionResult {
     public static Builder builder(GetKafkaVersionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable List<String> preferredVersions;
         private String status;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKafkaVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,10 +68,12 @@ public final class GetKafkaVersionResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder preferredVersions(@Nullable List<String> preferredVersions) {
             this.preferredVersions = preferredVersions;
             return this;
@@ -94,15 +81,23 @@ public final class GetKafkaVersionResult {
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetKafkaVersionResult build() {
-            return new GetKafkaVersionResult(id, preferredVersions, status, version);
+        }
+        public GetKafkaVersionResult build() {
+            final var o = new GetKafkaVersionResult();
+            o.id = id;
+            o.preferredVersions = preferredVersions;
+            o.status = status;
+            o.version = version;
+            return o;
         }
     }
 }

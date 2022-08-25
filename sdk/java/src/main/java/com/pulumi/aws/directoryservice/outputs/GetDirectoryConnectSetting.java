@@ -10,49 +10,34 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDirectoryConnectSetting {
-    private final List<String> availabilityZones;
+    private List<String> availabilityZones;
     /**
      * @return The IP addresses of the AD Connector servers.
      * 
      */
-    private final List<String> connectIps;
+    private List<String> connectIps;
     /**
      * @return The DNS IP addresses of the domain to connect to.
      * 
      */
-    private final List<String> customerDnsIps;
+    private List<String> customerDnsIps;
     /**
      * @return The username corresponding to the password provided.
      * 
      */
-    private final String customerUsername;
+    private String customerUsername;
     /**
      * @return The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
      * 
      */
-    private final List<String> subnetIds;
+    private List<String> subnetIds;
     /**
      * @return The ID of the VPC that the connector is in.
      * 
      */
-    private final String vpcId;
+    private String vpcId;
 
-    @CustomType.Constructor
-    private GetDirectoryConnectSetting(
-        @CustomType.Parameter("availabilityZones") List<String> availabilityZones,
-        @CustomType.Parameter("connectIps") List<String> connectIps,
-        @CustomType.Parameter("customerDnsIps") List<String> customerDnsIps,
-        @CustomType.Parameter("customerUsername") String customerUsername,
-        @CustomType.Parameter("subnetIds") List<String> subnetIds,
-        @CustomType.Parameter("vpcId") String vpcId) {
-        this.availabilityZones = availabilityZones;
-        this.connectIps = connectIps;
-        this.customerDnsIps = customerDnsIps;
-        this.customerUsername = customerUsername;
-        this.subnetIds = subnetIds;
-        this.vpcId = vpcId;
-    }
-
+    private GetDirectoryConnectSetting() {}
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
@@ -99,7 +84,7 @@ public final class GetDirectoryConnectSetting {
     public static Builder builder(GetDirectoryConnectSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> availabilityZones;
         private List<String> connectIps;
@@ -107,11 +92,7 @@ public final class GetDirectoryConnectSetting {
         private String customerUsername;
         private List<String> subnetIds;
         private String vpcId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDirectoryConnectSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZones = defaults.availabilityZones;
@@ -122,6 +103,7 @@ public final class GetDirectoryConnectSetting {
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
             this.availabilityZones = Objects.requireNonNull(availabilityZones);
             return this;
@@ -129,6 +111,7 @@ public final class GetDirectoryConnectSetting {
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
+        @CustomType.Setter
         public Builder connectIps(List<String> connectIps) {
             this.connectIps = Objects.requireNonNull(connectIps);
             return this;
@@ -136,6 +119,7 @@ public final class GetDirectoryConnectSetting {
         public Builder connectIps(String... connectIps) {
             return connectIps(List.of(connectIps));
         }
+        @CustomType.Setter
         public Builder customerDnsIps(List<String> customerDnsIps) {
             this.customerDnsIps = Objects.requireNonNull(customerDnsIps);
             return this;
@@ -143,10 +127,12 @@ public final class GetDirectoryConnectSetting {
         public Builder customerDnsIps(String... customerDnsIps) {
             return customerDnsIps(List.of(customerDnsIps));
         }
+        @CustomType.Setter
         public Builder customerUsername(String customerUsername) {
             this.customerUsername = Objects.requireNonNull(customerUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             this.subnetIds = Objects.requireNonNull(subnetIds);
             return this;
@@ -154,11 +140,20 @@ public final class GetDirectoryConnectSetting {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
-        }        public GetDirectoryConnectSetting build() {
-            return new GetDirectoryConnectSetting(availabilityZones, connectIps, customerDnsIps, customerUsername, subnetIds, vpcId);
+        }
+        public GetDirectoryConnectSetting build() {
+            final var o = new GetDirectoryConnectSetting();
+            o.availabilityZones = availabilityZones;
+            o.connectIps = connectIps;
+            o.customerDnsIps = customerDnsIps;
+            o.customerUsername = customerUsername;
+            o.subnetIds = subnetIds;
+            o.vpcId = vpcId;
+            return o;
         }
     }
 }

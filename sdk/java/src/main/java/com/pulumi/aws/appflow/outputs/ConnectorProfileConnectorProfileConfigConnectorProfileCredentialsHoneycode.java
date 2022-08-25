@@ -16,28 +16,19 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * @return The credentials used to access protected Zendesk resources.
      * 
      */
-    private final @Nullable String accessToken;
+    private @Nullable String accessToken;
     /**
      * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
-    private final @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest oauthRequest;
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest oauthRequest;
     /**
      * @return The refresh token used to refresh expired access token.
      * 
      */
-    private final @Nullable String refreshToken;
+    private @Nullable String refreshToken;
 
-    @CustomType.Constructor
-    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode(
-        @CustomType.Parameter("accessToken") @Nullable String accessToken,
-        @CustomType.Parameter("oauthRequest") @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest oauthRequest,
-        @CustomType.Parameter("refreshToken") @Nullable String refreshToken) {
-        this.accessToken = accessToken;
-        this.oauthRequest = oauthRequest;
-        this.refreshToken = refreshToken;
-    }
-
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode() {}
     /**
      * @return The credentials used to access protected Zendesk resources.
      * 
@@ -67,16 +58,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static Builder builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessToken;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest oauthRequest;
         private @Nullable String refreshToken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
@@ -84,19 +71,27 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     	      this.refreshToken = defaults.refreshToken;
         }
 
+        @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
             this.accessToken = accessToken;
             return this;
         }
+        @CustomType.Setter
         public Builder oauthRequest(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest oauthRequest) {
             this.oauthRequest = oauthRequest;
             return this;
         }
+        @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
             this.refreshToken = refreshToken;
             return this;
-        }        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode build() {
-            return new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode(accessToken, oauthRequest, refreshToken);
+        }
+        public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode build() {
+            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode();
+            o.accessToken = accessToken;
+            o.oauthRequest = oauthRequest;
+            o.refreshToken = refreshToken;
+            return o;
         }
     }
 }

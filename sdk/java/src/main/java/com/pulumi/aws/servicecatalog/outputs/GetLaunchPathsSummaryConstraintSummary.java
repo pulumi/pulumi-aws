@@ -13,21 +13,14 @@ public final class GetLaunchPathsSummaryConstraintSummary {
      * @return Description of the constraint.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetLaunchPathsSummaryConstraintSummary(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("type") String type) {
-        this.description = description;
-        this.type = type;
-    }
-
+    private GetLaunchPathsSummaryConstraintSummary() {}
     /**
      * @return Description of the constraint.
      * 
@@ -50,30 +43,32 @@ public final class GetLaunchPathsSummaryConstraintSummary {
     public static Builder builder(GetLaunchPathsSummaryConstraintSummary defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLaunchPathsSummaryConstraintSummary defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetLaunchPathsSummaryConstraintSummary build() {
-            return new GetLaunchPathsSummaryConstraintSummary(description, type);
+        }
+        public GetLaunchPathsSummaryConstraintSummary build() {
+            final var o = new GetLaunchPathsSummaryConstraintSummary();
+            o.description = description;
+            o.type = type;
+            return o;
         }
     }
 }

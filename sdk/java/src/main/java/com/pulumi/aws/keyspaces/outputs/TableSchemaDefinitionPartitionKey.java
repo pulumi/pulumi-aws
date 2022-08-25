@@ -13,13 +13,9 @@ public final class TableSchemaDefinitionPartitionKey {
      * @return The name of the partition key column.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private TableSchemaDefinitionPartitionKey(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private TableSchemaDefinitionPartitionKey() {}
     /**
      * @return The name of the partition key column.
      * 
@@ -35,24 +31,24 @@ public final class TableSchemaDefinitionPartitionKey {
     public static Builder builder(TableSchemaDefinitionPartitionKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableSchemaDefinitionPartitionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public TableSchemaDefinitionPartitionKey build() {
-            return new TableSchemaDefinitionPartitionKey(name);
+        }
+        public TableSchemaDefinitionPartitionKey build() {
+            final var o = new TableSchemaDefinitionPartitionKey();
+            o.name = name;
+            return o;
         }
     }
 }

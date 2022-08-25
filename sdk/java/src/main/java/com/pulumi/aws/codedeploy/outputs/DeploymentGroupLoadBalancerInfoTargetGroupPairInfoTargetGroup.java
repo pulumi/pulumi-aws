@@ -13,13 +13,9 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup
      * @return Name of the target group.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup() {}
     /**
      * @return Name of the target group.
      * 
@@ -35,24 +31,24 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup
     public static Builder builder(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup build() {
-            return new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup(name);
+        }
+        public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup build() {
+            final var o = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup();
+            o.name = name;
+            return o;
         }
     }
 }

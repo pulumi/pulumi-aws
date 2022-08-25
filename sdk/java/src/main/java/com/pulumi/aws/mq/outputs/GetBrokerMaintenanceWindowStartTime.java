@@ -9,20 +9,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerMaintenanceWindowStartTime {
-    private final String dayOfWeek;
-    private final String timeOfDay;
-    private final String timeZone;
+    private String dayOfWeek;
+    private String timeOfDay;
+    private String timeZone;
 
-    @CustomType.Constructor
-    private GetBrokerMaintenanceWindowStartTime(
-        @CustomType.Parameter("dayOfWeek") String dayOfWeek,
-        @CustomType.Parameter("timeOfDay") String timeOfDay,
-        @CustomType.Parameter("timeZone") String timeZone) {
-        this.dayOfWeek = dayOfWeek;
-        this.timeOfDay = timeOfDay;
-        this.timeZone = timeZone;
-    }
-
+    private GetBrokerMaintenanceWindowStartTime() {}
     public String dayOfWeek() {
         return this.dayOfWeek;
     }
@@ -40,16 +31,12 @@ public final class GetBrokerMaintenanceWindowStartTime {
     public static Builder builder(GetBrokerMaintenanceWindowStartTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dayOfWeek;
         private String timeOfDay;
         private String timeZone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrokerMaintenanceWindowStartTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dayOfWeek = defaults.dayOfWeek;
@@ -57,19 +44,27 @@ public final class GetBrokerMaintenanceWindowStartTime {
     	      this.timeZone = defaults.timeZone;
         }
 
+        @CustomType.Setter
         public Builder dayOfWeek(String dayOfWeek) {
             this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
             return this;
         }
+        @CustomType.Setter
         public Builder timeOfDay(String timeOfDay) {
             this.timeOfDay = Objects.requireNonNull(timeOfDay);
             return this;
         }
+        @CustomType.Setter
         public Builder timeZone(String timeZone) {
             this.timeZone = Objects.requireNonNull(timeZone);
             return this;
-        }        public GetBrokerMaintenanceWindowStartTime build() {
-            return new GetBrokerMaintenanceWindowStartTime(dayOfWeek, timeOfDay, timeZone);
+        }
+        public GetBrokerMaintenanceWindowStartTime build() {
+            final var o = new GetBrokerMaintenanceWindowStartTime();
+            o.dayOfWeek = dayOfWeek;
+            o.timeOfDay = timeOfDay;
+            o.timeZone = timeZone;
+            return o;
         }
     }
 }

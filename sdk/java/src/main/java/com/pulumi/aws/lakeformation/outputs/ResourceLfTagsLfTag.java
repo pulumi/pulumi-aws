@@ -15,28 +15,19 @@ public final class ResourceLfTagsLfTag {
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private final @Nullable String catalogId;
+    private @Nullable String catalogId;
     /**
      * @return Key name for an existing LF-tag.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Value from the possible values for the LF-tag.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ResourceLfTagsLfTag(
-        @CustomType.Parameter("catalogId") @Nullable String catalogId,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") String value) {
-        this.catalogId = catalogId;
-        this.key = key;
-        this.value = value;
-    }
-
+    private ResourceLfTagsLfTag() {}
     /**
      * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
@@ -66,16 +57,12 @@ public final class ResourceLfTagsLfTag {
     public static Builder builder(ResourceLfTagsLfTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String catalogId;
         private String key;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceLfTagsLfTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
@@ -83,19 +70,27 @@ public final class ResourceLfTagsLfTag {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
             this.catalogId = catalogId;
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ResourceLfTagsLfTag build() {
-            return new ResourceLfTagsLfTag(catalogId, key, value);
+        }
+        public ResourceLfTagsLfTag build() {
+            final var o = new ResourceLfTagsLfTag();
+            o.catalogId = catalogId;
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

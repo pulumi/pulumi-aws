@@ -16,21 +16,14 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisione
      * @return Controls whether provisioned throughput is enabled or not. Default value: `false`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
      * 
      */
-    private final @Nullable Integer volumeThroughput;
+    private @Nullable Integer volumeThroughput;
 
-    @CustomType.Constructor
-    private ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("volumeThroughput") @Nullable Integer volumeThroughput) {
-        this.enabled = enabled;
-        this.volumeThroughput = volumeThroughput;
-    }
-
+    private ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput() {}
     /**
      * @return Controls whether provisioned throughput is enabled or not. Default value: `false`.
      * 
@@ -53,30 +46,32 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisione
     public static Builder builder(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Integer volumeThroughput;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.volumeThroughput = defaults.volumeThroughput;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder volumeThroughput(@Nullable Integer volumeThroughput) {
             this.volumeThroughput = volumeThroughput;
             return this;
-        }        public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput build() {
-            return new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput(enabled, volumeThroughput);
+        }
+        public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput build() {
+            final var o = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput();
+            o.enabled = enabled;
+            o.volumeThroughput = volumeThroughput;
+            return o;
         }
     }
 }

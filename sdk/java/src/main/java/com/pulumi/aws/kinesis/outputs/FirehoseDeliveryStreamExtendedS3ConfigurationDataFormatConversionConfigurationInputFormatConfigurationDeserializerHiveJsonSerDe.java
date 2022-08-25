@@ -15,13 +15,9 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * @return A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime&#39;s DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don&#39;t specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
      * 
      */
-    private final @Nullable List<String> timestampFormats;
+    private @Nullable List<String> timestampFormats;
 
-    @CustomType.Constructor
-    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe(@CustomType.Parameter("timestampFormats") @Nullable List<String> timestampFormats) {
-        this.timestampFormats = timestampFormats;
-    }
-
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe() {}
     /**
      * @return A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime&#39;s DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don&#39;t specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
      * 
@@ -37,27 +33,27 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     public static Builder builder(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> timestampFormats;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.timestampFormats = defaults.timestampFormats;
         }
 
+        @CustomType.Setter
         public Builder timestampFormats(@Nullable List<String> timestampFormats) {
             this.timestampFormats = timestampFormats;
             return this;
         }
         public Builder timestampFormats(String... timestampFormats) {
             return timestampFormats(List.of(timestampFormats));
-        }        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe build() {
-            return new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe(timestampFormats);
+        }
+        public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe build() {
+            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe();
+            o.timestampFormats = timestampFormats;
+            return o;
         }
     }
 }

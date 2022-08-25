@@ -17,28 +17,19 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
      * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
      * 
      */
-    private final @Nullable List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImage> customImages;
+    private @Nullable List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImage> customImages;
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    private final UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
+    private UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
      * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
      */
-    private final @Nullable List<String> lifecycleConfigArns;
+    private @Nullable List<String> lifecycleConfigArns;
 
-    @CustomType.Constructor
-    private UserProfileUserSettingsKernelGatewayAppSettings(
-        @CustomType.Parameter("customImages") @Nullable List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImage> customImages,
-        @CustomType.Parameter("defaultResourceSpec") UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec,
-        @CustomType.Parameter("lifecycleConfigArns") @Nullable List<String> lifecycleConfigArns) {
-        this.customImages = customImages;
-        this.defaultResourceSpec = defaultResourceSpec;
-        this.lifecycleConfigArns = lifecycleConfigArns;
-    }
-
+    private UserProfileUserSettingsKernelGatewayAppSettings() {}
     /**
      * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
      * 
@@ -68,16 +59,12 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
     public static Builder builder(UserProfileUserSettingsKernelGatewayAppSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImage> customImages;
         private UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
         private @Nullable List<String> lifecycleConfigArns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserProfileUserSettingsKernelGatewayAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customImages = defaults.customImages;
@@ -85,6 +72,7 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
     	      this.lifecycleConfigArns = defaults.lifecycleConfigArns;
         }
 
+        @CustomType.Setter
         public Builder customImages(@Nullable List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImage> customImages) {
             this.customImages = customImages;
             return this;
@@ -92,18 +80,25 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
         public Builder customImages(UserProfileUserSettingsKernelGatewayAppSettingsCustomImage... customImages) {
             return customImages(List.of(customImages));
         }
+        @CustomType.Setter
         public Builder defaultResourceSpec(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec) {
             this.defaultResourceSpec = Objects.requireNonNull(defaultResourceSpec);
             return this;
         }
+        @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
         public Builder lifecycleConfigArns(String... lifecycleConfigArns) {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
-        }        public UserProfileUserSettingsKernelGatewayAppSettings build() {
-            return new UserProfileUserSettingsKernelGatewayAppSettings(customImages, defaultResourceSpec, lifecycleConfigArns);
+        }
+        public UserProfileUserSettingsKernelGatewayAppSettings build() {
+            final var o = new UserProfileUserSettingsKernelGatewayAppSettings();
+            o.customImages = customImages;
+            o.defaultResourceSpec = defaultResourceSpec;
+            o.lifecycleConfigArns = lifecycleConfigArns;
+            return o;
         }
     }
 }

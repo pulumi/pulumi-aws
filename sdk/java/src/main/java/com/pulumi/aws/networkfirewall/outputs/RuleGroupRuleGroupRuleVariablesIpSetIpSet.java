@@ -14,13 +14,9 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetIpSet {
      * @return Set of IP addresses and address ranges, in CIDR notation.
      * 
      */
-    private final List<String> definitions;
+    private List<String> definitions;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRuleVariablesIpSetIpSet(@CustomType.Parameter("definitions") List<String> definitions) {
-        this.definitions = definitions;
-    }
-
+    private RuleGroupRuleGroupRuleVariablesIpSetIpSet() {}
     /**
      * @return Set of IP addresses and address ranges, in CIDR notation.
      * 
@@ -36,27 +32,27 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetIpSet {
     public static Builder builder(RuleGroupRuleGroupRuleVariablesIpSetIpSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> definitions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRuleVariablesIpSetIpSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.definitions = defaults.definitions;
         }
 
+        @CustomType.Setter
         public Builder definitions(List<String> definitions) {
             this.definitions = Objects.requireNonNull(definitions);
             return this;
         }
         public Builder definitions(String... definitions) {
             return definitions(List.of(definitions));
-        }        public RuleGroupRuleGroupRuleVariablesIpSetIpSet build() {
-            return new RuleGroupRuleGroupRuleVariablesIpSetIpSet(definitions);
+        }
+        public RuleGroupRuleGroupRuleVariablesIpSetIpSet build() {
+            final var o = new RuleGroupRuleGroupRuleVariablesIpSetIpSet();
+            o.definitions = definitions;
+            return o;
         }
     }
 }

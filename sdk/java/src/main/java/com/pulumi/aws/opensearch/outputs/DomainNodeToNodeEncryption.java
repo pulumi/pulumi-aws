@@ -13,13 +13,9 @@ public final class DomainNodeToNodeEncryption {
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private DomainNodeToNodeEncryption(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private DomainNodeToNodeEncryption() {}
     /**
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
@@ -35,24 +31,24 @@ public final class DomainNodeToNodeEncryption {
     public static Builder builder(DomainNodeToNodeEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainNodeToNodeEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public DomainNodeToNodeEncryption build() {
-            return new DomainNodeToNodeEncryption(enabled);
+        }
+        public DomainNodeToNodeEncryption build() {
+            final var o = new DomainNodeToNodeEncryption();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

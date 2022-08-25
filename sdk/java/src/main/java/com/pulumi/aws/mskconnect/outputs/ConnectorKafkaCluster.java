@@ -13,13 +13,9 @@ public final class ConnectorKafkaCluster {
      * @return The Apache Kafka cluster to which the connector is connected.
      * 
      */
-    private final ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster;
+    private ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster;
 
-    @CustomType.Constructor
-    private ConnectorKafkaCluster(@CustomType.Parameter("apacheKafkaCluster") ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster) {
-        this.apacheKafkaCluster = apacheKafkaCluster;
-    }
-
+    private ConnectorKafkaCluster() {}
     /**
      * @return The Apache Kafka cluster to which the connector is connected.
      * 
@@ -35,24 +31,24 @@ public final class ConnectorKafkaCluster {
     public static Builder builder(ConnectorKafkaCluster defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectorKafkaCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apacheKafkaCluster = defaults.apacheKafkaCluster;
         }
 
+        @CustomType.Setter
         public Builder apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster) {
             this.apacheKafkaCluster = Objects.requireNonNull(apacheKafkaCluster);
             return this;
-        }        public ConnectorKafkaCluster build() {
-            return new ConnectorKafkaCluster(apacheKafkaCluster);
+        }
+        public ConnectorKafkaCluster build() {
+            final var o = new ConnectorKafkaCluster();
+            o.apacheKafkaCluster = apacheKafkaCluster;
+            return o;
         }
     }
 }

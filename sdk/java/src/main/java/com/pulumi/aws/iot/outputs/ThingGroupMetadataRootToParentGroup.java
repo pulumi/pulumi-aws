@@ -11,17 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ThingGroupMetadataRootToParentGroup {
-    private final @Nullable String groupArn;
-    private final @Nullable String groupName;
+    private @Nullable String groupArn;
+    private @Nullable String groupName;
 
-    @CustomType.Constructor
-    private ThingGroupMetadataRootToParentGroup(
-        @CustomType.Parameter("groupArn") @Nullable String groupArn,
-        @CustomType.Parameter("groupName") @Nullable String groupName) {
-        this.groupArn = groupArn;
-        this.groupName = groupName;
-    }
-
+    private ThingGroupMetadataRootToParentGroup() {}
     public Optional<String> groupArn() {
         return Optional.ofNullable(this.groupArn);
     }
@@ -36,30 +29,32 @@ public final class ThingGroupMetadataRootToParentGroup {
     public static Builder builder(ThingGroupMetadataRootToParentGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String groupArn;
         private @Nullable String groupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ThingGroupMetadataRootToParentGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groupArn = defaults.groupArn;
     	      this.groupName = defaults.groupName;
         }
 
+        @CustomType.Setter
         public Builder groupArn(@Nullable String groupArn) {
             this.groupArn = groupArn;
             return this;
         }
+        @CustomType.Setter
         public Builder groupName(@Nullable String groupName) {
             this.groupName = groupName;
             return this;
-        }        public ThingGroupMetadataRootToParentGroup build() {
-            return new ThingGroupMetadataRootToParentGroup(groupArn, groupName);
+        }
+        public ThingGroupMetadataRootToParentGroup build() {
+            final var o = new ThingGroupMetadataRootToParentGroup();
+            o.groupArn = groupArn;
+            o.groupName = groupName;
+            return o;
         }
     }
 }

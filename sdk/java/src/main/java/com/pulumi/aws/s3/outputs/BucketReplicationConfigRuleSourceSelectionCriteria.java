@@ -16,21 +16,14 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteria {
      * @return A configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn&#39;t replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
      * 
      */
-    private final @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications replicaModifications;
+    private @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications replicaModifications;
     /**
      * @return A configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
      * 
      */
-    private final @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
+    private @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
 
-    @CustomType.Constructor
-    private BucketReplicationConfigRuleSourceSelectionCriteria(
-        @CustomType.Parameter("replicaModifications") @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications replicaModifications,
-        @CustomType.Parameter("sseKmsEncryptedObjects") @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects) {
-        this.replicaModifications = replicaModifications;
-        this.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
-    }
-
+    private BucketReplicationConfigRuleSourceSelectionCriteria() {}
     /**
      * @return A configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn&#39;t replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
      * 
@@ -53,30 +46,32 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteria {
     public static Builder builder(BucketReplicationConfigRuleSourceSelectionCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications replicaModifications;
         private @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BucketReplicationConfigRuleSourceSelectionCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.replicaModifications = defaults.replicaModifications;
     	      this.sseKmsEncryptedObjects = defaults.sseKmsEncryptedObjects;
         }
 
+        @CustomType.Setter
         public Builder replicaModifications(@Nullable BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications replicaModifications) {
             this.replicaModifications = replicaModifications;
             return this;
         }
+        @CustomType.Setter
         public Builder sseKmsEncryptedObjects(@Nullable BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects) {
             this.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
             return this;
-        }        public BucketReplicationConfigRuleSourceSelectionCriteria build() {
-            return new BucketReplicationConfigRuleSourceSelectionCriteria(replicaModifications, sseKmsEncryptedObjects);
+        }
+        public BucketReplicationConfigRuleSourceSelectionCriteria build() {
+            final var o = new BucketReplicationConfigRuleSourceSelectionCriteria();
+            o.replicaModifications = replicaModifications;
+            o.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
+            return o;
         }
     }
 }

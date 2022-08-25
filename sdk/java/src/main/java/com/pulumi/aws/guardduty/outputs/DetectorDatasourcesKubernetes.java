@@ -14,13 +14,9 @@ public final class DetectorDatasourcesKubernetes {
      * See Kubernetes Audit Logs below for more details.
      * 
      */
-    private final DetectorDatasourcesKubernetesAuditLogs auditLogs;
+    private DetectorDatasourcesKubernetesAuditLogs auditLogs;
 
-    @CustomType.Constructor
-    private DetectorDatasourcesKubernetes(@CustomType.Parameter("auditLogs") DetectorDatasourcesKubernetesAuditLogs auditLogs) {
-        this.auditLogs = auditLogs;
-    }
-
+    private DetectorDatasourcesKubernetes() {}
     /**
      * @return Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
      * See Kubernetes Audit Logs below for more details.
@@ -37,24 +33,24 @@ public final class DetectorDatasourcesKubernetes {
     public static Builder builder(DetectorDatasourcesKubernetes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private DetectorDatasourcesKubernetesAuditLogs auditLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DetectorDatasourcesKubernetes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auditLogs = defaults.auditLogs;
         }
 
+        @CustomType.Setter
         public Builder auditLogs(DetectorDatasourcesKubernetesAuditLogs auditLogs) {
             this.auditLogs = Objects.requireNonNull(auditLogs);
             return this;
-        }        public DetectorDatasourcesKubernetes build() {
-            return new DetectorDatasourcesKubernetes(auditLogs);
+        }
+        public DetectorDatasourcesKubernetes build() {
+            final var o = new DetectorDatasourcesKubernetes();
+            o.auditLogs = auditLogs;
+            return o;
         }
     }
 }

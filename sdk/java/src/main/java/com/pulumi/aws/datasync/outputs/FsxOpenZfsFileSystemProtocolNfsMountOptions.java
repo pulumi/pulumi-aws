@@ -15,13 +15,9 @@ public final class FsxOpenZfsFileSystemProtocolNfsMountOptions {
      * @return The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private FsxOpenZfsFileSystemProtocolNfsMountOptions(@CustomType.Parameter("version") @Nullable String version) {
-        this.version = version;
-    }
-
+    private FsxOpenZfsFileSystemProtocolNfsMountOptions() {}
     /**
      * @return The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
      * 
@@ -37,24 +33,24 @@ public final class FsxOpenZfsFileSystemProtocolNfsMountOptions {
     public static Builder builder(FsxOpenZfsFileSystemProtocolNfsMountOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FsxOpenZfsFileSystemProtocolNfsMountOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public FsxOpenZfsFileSystemProtocolNfsMountOptions build() {
-            return new FsxOpenZfsFileSystemProtocolNfsMountOptions(version);
+        }
+        public FsxOpenZfsFileSystemProtocolNfsMountOptions build() {
+            final var o = new FsxOpenZfsFileSystemProtocolNfsMountOptions();
+            o.version = version;
+            return o;
         }
     }
 }

@@ -24,98 +24,69 @@ public final class CatalogTableStorageDescriptor {
      * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
-    private final @Nullable List<String> bucketColumns;
+    private @Nullable List<String> bucketColumns;
     /**
      * @return Configuration block for columns in the table. See `columns` below.
      * 
      */
-    private final @Nullable List<CatalogTableStorageDescriptorColumn> columns;
+    private @Nullable List<CatalogTableStorageDescriptorColumn> columns;
     /**
      * @return Whether the data in the table is compressed.
      * 
      */
-    private final @Nullable Boolean compressed;
+    private @Nullable Boolean compressed;
     /**
      * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
-    private final @Nullable String inputFormat;
+    private @Nullable String inputFormat;
     /**
      * @return Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return Must be specified if the table contains any dimension columns.
      * 
      */
-    private final @Nullable Integer numberOfBuckets;
+    private @Nullable Integer numberOfBuckets;
     /**
      * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
-    private final @Nullable String outputFormat;
+    private @Nullable String outputFormat;
     /**
      * @return Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
      * 
      */
-    private final @Nullable CatalogTableStorageDescriptorSchemaReference schemaReference;
+    private @Nullable CatalogTableStorageDescriptorSchemaReference schemaReference;
     /**
      * @return Configuration block for serialization and deserialization (&#34;SerDe&#34;) information. See `ser_de_info` below.
      * 
      */
-    private final @Nullable CatalogTableStorageDescriptorSerDeInfo serDeInfo;
+    private @Nullable CatalogTableStorageDescriptorSerDeInfo serDeInfo;
     /**
      * @return Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
      * 
      */
-    private final @Nullable CatalogTableStorageDescriptorSkewedInfo skewedInfo;
+    private @Nullable CatalogTableStorageDescriptorSkewedInfo skewedInfo;
     /**
      * @return Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
      * 
      */
-    private final @Nullable List<CatalogTableStorageDescriptorSortColumn> sortColumns;
+    private @Nullable List<CatalogTableStorageDescriptorSortColumn> sortColumns;
     /**
      * @return Whether the table data is stored in subdirectories.
      * 
      */
-    private final @Nullable Boolean storedAsSubDirectories;
+    private @Nullable Boolean storedAsSubDirectories;
 
-    @CustomType.Constructor
-    private CatalogTableStorageDescriptor(
-        @CustomType.Parameter("bucketColumns") @Nullable List<String> bucketColumns,
-        @CustomType.Parameter("columns") @Nullable List<CatalogTableStorageDescriptorColumn> columns,
-        @CustomType.Parameter("compressed") @Nullable Boolean compressed,
-        @CustomType.Parameter("inputFormat") @Nullable String inputFormat,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("numberOfBuckets") @Nullable Integer numberOfBuckets,
-        @CustomType.Parameter("outputFormat") @Nullable String outputFormat,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters,
-        @CustomType.Parameter("schemaReference") @Nullable CatalogTableStorageDescriptorSchemaReference schemaReference,
-        @CustomType.Parameter("serDeInfo") @Nullable CatalogTableStorageDescriptorSerDeInfo serDeInfo,
-        @CustomType.Parameter("skewedInfo") @Nullable CatalogTableStorageDescriptorSkewedInfo skewedInfo,
-        @CustomType.Parameter("sortColumns") @Nullable List<CatalogTableStorageDescriptorSortColumn> sortColumns,
-        @CustomType.Parameter("storedAsSubDirectories") @Nullable Boolean storedAsSubDirectories) {
-        this.bucketColumns = bucketColumns;
-        this.columns = columns;
-        this.compressed = compressed;
-        this.inputFormat = inputFormat;
-        this.location = location;
-        this.numberOfBuckets = numberOfBuckets;
-        this.outputFormat = outputFormat;
-        this.parameters = parameters;
-        this.schemaReference = schemaReference;
-        this.serDeInfo = serDeInfo;
-        this.skewedInfo = skewedInfo;
-        this.sortColumns = sortColumns;
-        this.storedAsSubDirectories = storedAsSubDirectories;
-    }
-
+    private CatalogTableStorageDescriptor() {}
     /**
      * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
@@ -215,7 +186,7 @@ public final class CatalogTableStorageDescriptor {
     public static Builder builder(CatalogTableStorageDescriptor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> bucketColumns;
         private @Nullable List<CatalogTableStorageDescriptorColumn> columns;
@@ -230,11 +201,7 @@ public final class CatalogTableStorageDescriptor {
         private @Nullable CatalogTableStorageDescriptorSkewedInfo skewedInfo;
         private @Nullable List<CatalogTableStorageDescriptorSortColumn> sortColumns;
         private @Nullable Boolean storedAsSubDirectories;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CatalogTableStorageDescriptor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketColumns = defaults.bucketColumns;
@@ -252,6 +219,7 @@ public final class CatalogTableStorageDescriptor {
     	      this.storedAsSubDirectories = defaults.storedAsSubDirectories;
         }
 
+        @CustomType.Setter
         public Builder bucketColumns(@Nullable List<String> bucketColumns) {
             this.bucketColumns = bucketColumns;
             return this;
@@ -259,6 +227,7 @@ public final class CatalogTableStorageDescriptor {
         public Builder bucketColumns(String... bucketColumns) {
             return bucketColumns(List.of(bucketColumns));
         }
+        @CustomType.Setter
         public Builder columns(@Nullable List<CatalogTableStorageDescriptorColumn> columns) {
             this.columns = columns;
             return this;
@@ -266,42 +235,52 @@ public final class CatalogTableStorageDescriptor {
         public Builder columns(CatalogTableStorageDescriptorColumn... columns) {
             return columns(List.of(columns));
         }
+        @CustomType.Setter
         public Builder compressed(@Nullable Boolean compressed) {
             this.compressed = compressed;
             return this;
         }
+        @CustomType.Setter
         public Builder inputFormat(@Nullable String inputFormat) {
             this.inputFormat = inputFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder numberOfBuckets(@Nullable Integer numberOfBuckets) {
             this.numberOfBuckets = numberOfBuckets;
             return this;
         }
+        @CustomType.Setter
         public Builder outputFormat(@Nullable String outputFormat) {
             this.outputFormat = outputFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder schemaReference(@Nullable CatalogTableStorageDescriptorSchemaReference schemaReference) {
             this.schemaReference = schemaReference;
             return this;
         }
+        @CustomType.Setter
         public Builder serDeInfo(@Nullable CatalogTableStorageDescriptorSerDeInfo serDeInfo) {
             this.serDeInfo = serDeInfo;
             return this;
         }
+        @CustomType.Setter
         public Builder skewedInfo(@Nullable CatalogTableStorageDescriptorSkewedInfo skewedInfo) {
             this.skewedInfo = skewedInfo;
             return this;
         }
+        @CustomType.Setter
         public Builder sortColumns(@Nullable List<CatalogTableStorageDescriptorSortColumn> sortColumns) {
             this.sortColumns = sortColumns;
             return this;
@@ -309,11 +288,27 @@ public final class CatalogTableStorageDescriptor {
         public Builder sortColumns(CatalogTableStorageDescriptorSortColumn... sortColumns) {
             return sortColumns(List.of(sortColumns));
         }
+        @CustomType.Setter
         public Builder storedAsSubDirectories(@Nullable Boolean storedAsSubDirectories) {
             this.storedAsSubDirectories = storedAsSubDirectories;
             return this;
-        }        public CatalogTableStorageDescriptor build() {
-            return new CatalogTableStorageDescriptor(bucketColumns, columns, compressed, inputFormat, location, numberOfBuckets, outputFormat, parameters, schemaReference, serDeInfo, skewedInfo, sortColumns, storedAsSubDirectories);
+        }
+        public CatalogTableStorageDescriptor build() {
+            final var o = new CatalogTableStorageDescriptor();
+            o.bucketColumns = bucketColumns;
+            o.columns = columns;
+            o.compressed = compressed;
+            o.inputFormat = inputFormat;
+            o.location = location;
+            o.numberOfBuckets = numberOfBuckets;
+            o.outputFormat = outputFormat;
+            o.parameters = parameters;
+            o.schemaReference = schemaReference;
+            o.serDeInfo = serDeInfo;
+            o.skewedInfo = skewedInfo;
+            o.sortColumns = sortColumns;
+            o.storedAsSubDirectories = storedAsSubDirectories;
+            return o;
         }
     }
 }

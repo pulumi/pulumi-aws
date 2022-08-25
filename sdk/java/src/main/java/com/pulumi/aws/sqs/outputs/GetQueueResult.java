@@ -14,38 +14,25 @@ public final class GetQueueResult {
      * @return The Amazon Resource Name (ARN) of the queue.
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return A map of tags for the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The URL of the queue.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private GetQueueResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("url") String url) {
-        this.arn = arn;
-        this.id = id;
-        this.name = name;
-        this.tags = tags;
-        this.url = url;
-    }
-
+    private GetQueueResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the queue.
      * 
@@ -85,18 +72,14 @@ public final class GetQueueResult {
     public static Builder builder(GetQueueResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String id;
         private String name;
         private Map<String,String> tags;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetQueueResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -106,27 +89,39 @@ public final class GetQueueResult {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public GetQueueResult build() {
-            return new GetQueueResult(arn, id, name, tags, url);
+        }
+        public GetQueueResult build() {
+            final var o = new GetQueueResult();
+            o.arn = arn;
+            o.id = id;
+            o.name = name;
+            o.tags = tags;
+            o.url = url;
+            return o;
         }
     }
 }

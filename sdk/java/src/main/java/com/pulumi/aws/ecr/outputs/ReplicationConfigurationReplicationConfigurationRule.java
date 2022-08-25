@@ -16,21 +16,14 @@ public final class ReplicationConfigurationReplicationConfigurationRule {
      * @return the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
      * 
      */
-    private final List<ReplicationConfigurationReplicationConfigurationRuleDestination> destinations;
+    private List<ReplicationConfigurationReplicationConfigurationRuleDestination> destinations;
     /**
      * @return filters for a replication rule. See Repository Filter.
      * 
      */
-    private final @Nullable List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter> repositoryFilters;
+    private @Nullable List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter> repositoryFilters;
 
-    @CustomType.Constructor
-    private ReplicationConfigurationReplicationConfigurationRule(
-        @CustomType.Parameter("destinations") List<ReplicationConfigurationReplicationConfigurationRuleDestination> destinations,
-        @CustomType.Parameter("repositoryFilters") @Nullable List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter> repositoryFilters) {
-        this.destinations = destinations;
-        this.repositoryFilters = repositoryFilters;
-    }
-
+    private ReplicationConfigurationReplicationConfigurationRule() {}
     /**
      * @return the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
      * 
@@ -53,21 +46,18 @@ public final class ReplicationConfigurationReplicationConfigurationRule {
     public static Builder builder(ReplicationConfigurationReplicationConfigurationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ReplicationConfigurationReplicationConfigurationRuleDestination> destinations;
         private @Nullable List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter> repositoryFilters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicationConfigurationReplicationConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinations = defaults.destinations;
     	      this.repositoryFilters = defaults.repositoryFilters;
         }
 
+        @CustomType.Setter
         public Builder destinations(List<ReplicationConfigurationReplicationConfigurationRuleDestination> destinations) {
             this.destinations = Objects.requireNonNull(destinations);
             return this;
@@ -75,14 +65,19 @@ public final class ReplicationConfigurationReplicationConfigurationRule {
         public Builder destinations(ReplicationConfigurationReplicationConfigurationRuleDestination... destinations) {
             return destinations(List.of(destinations));
         }
+        @CustomType.Setter
         public Builder repositoryFilters(@Nullable List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter> repositoryFilters) {
             this.repositoryFilters = repositoryFilters;
             return this;
         }
         public Builder repositoryFilters(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter... repositoryFilters) {
             return repositoryFilters(List.of(repositoryFilters));
-        }        public ReplicationConfigurationReplicationConfigurationRule build() {
-            return new ReplicationConfigurationReplicationConfigurationRule(destinations, repositoryFilters);
+        }
+        public ReplicationConfigurationReplicationConfigurationRule build() {
+            final var o = new ReplicationConfigurationReplicationConfigurationRule();
+            o.destinations = destinations;
+            o.repositoryFilters = repositoryFilters;
+            return o;
         }
     }
 }

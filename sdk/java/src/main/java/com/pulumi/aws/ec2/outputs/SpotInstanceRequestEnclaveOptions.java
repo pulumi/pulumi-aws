@@ -15,13 +15,9 @@ public final class SpotInstanceRequestEnclaveOptions {
      * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private SpotInstanceRequestEnclaveOptions(@CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private SpotInstanceRequestEnclaveOptions() {}
     /**
      * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
      * 
@@ -37,24 +33,24 @@ public final class SpotInstanceRequestEnclaveOptions {
     public static Builder builder(SpotInstanceRequestEnclaveOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpotInstanceRequestEnclaveOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public SpotInstanceRequestEnclaveOptions build() {
-            return new SpotInstanceRequestEnclaveOptions(enabled);
+        }
+        public SpotInstanceRequestEnclaveOptions build() {
+            final var o = new SpotInstanceRequestEnclaveOptions();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

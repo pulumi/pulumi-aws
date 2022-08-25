@@ -13,13 +13,9 @@ public final class TableTtl {
      * @return Valid values: `ENABLED`.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private TableTtl(@CustomType.Parameter("status") String status) {
-        this.status = status;
-    }
-
+    private TableTtl() {}
     /**
      * @return Valid values: `ENABLED`.
      * 
@@ -35,24 +31,24 @@ public final class TableTtl {
     public static Builder builder(TableTtl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableTtl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public TableTtl build() {
-            return new TableTtl(status);
+        }
+        public TableTtl build() {
+            final var o = new TableTtl();
+            o.status = status;
+            return o;
         }
     }
 }

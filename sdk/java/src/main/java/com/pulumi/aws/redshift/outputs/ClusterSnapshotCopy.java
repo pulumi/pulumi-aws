@@ -16,28 +16,19 @@ public final class ClusterSnapshotCopy {
      * @return The destination region that you want to copy snapshots to.
      * 
      */
-    private final String destinationRegion;
+    private String destinationRegion;
     /**
      * @return The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
      * 
      */
-    private final @Nullable String grantName;
+    private @Nullable String grantName;
     /**
      * @return The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
      * 
      */
-    private final @Nullable Integer retentionPeriod;
+    private @Nullable Integer retentionPeriod;
 
-    @CustomType.Constructor
-    private ClusterSnapshotCopy(
-        @CustomType.Parameter("destinationRegion") String destinationRegion,
-        @CustomType.Parameter("grantName") @Nullable String grantName,
-        @CustomType.Parameter("retentionPeriod") @Nullable Integer retentionPeriod) {
-        this.destinationRegion = destinationRegion;
-        this.grantName = grantName;
-        this.retentionPeriod = retentionPeriod;
-    }
-
+    private ClusterSnapshotCopy() {}
     /**
      * @return The destination region that you want to copy snapshots to.
      * 
@@ -67,16 +58,12 @@ public final class ClusterSnapshotCopy {
     public static Builder builder(ClusterSnapshotCopy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destinationRegion;
         private @Nullable String grantName;
         private @Nullable Integer retentionPeriod;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterSnapshotCopy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationRegion = defaults.destinationRegion;
@@ -84,19 +71,27 @@ public final class ClusterSnapshotCopy {
     	      this.retentionPeriod = defaults.retentionPeriod;
         }
 
+        @CustomType.Setter
         public Builder destinationRegion(String destinationRegion) {
             this.destinationRegion = Objects.requireNonNull(destinationRegion);
             return this;
         }
+        @CustomType.Setter
         public Builder grantName(@Nullable String grantName) {
             this.grantName = grantName;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPeriod(@Nullable Integer retentionPeriod) {
             this.retentionPeriod = retentionPeriod;
             return this;
-        }        public ClusterSnapshotCopy build() {
-            return new ClusterSnapshotCopy(destinationRegion, grantName, retentionPeriod);
+        }
+        public ClusterSnapshotCopy build() {
+            final var o = new ClusterSnapshotCopy();
+            o.destinationRegion = destinationRegion;
+            o.grantName = grantName;
+            o.retentionPeriod = retentionPeriod;
+            return o;
         }
     }
 }

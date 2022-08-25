@@ -16,21 +16,14 @@ public final class FleetLaunchTemplateConfig {
      * @return Nested argument containing EC2 Launch Template to use. Defined below.
      * 
      */
-    private final FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification;
+    private FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification;
     /**
      * @return Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
      * 
      */
-    private final @Nullable List<FleetLaunchTemplateConfigOverride> overrides;
+    private @Nullable List<FleetLaunchTemplateConfigOverride> overrides;
 
-    @CustomType.Constructor
-    private FleetLaunchTemplateConfig(
-        @CustomType.Parameter("launchTemplateSpecification") FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification,
-        @CustomType.Parameter("overrides") @Nullable List<FleetLaunchTemplateConfigOverride> overrides) {
-        this.launchTemplateSpecification = launchTemplateSpecification;
-        this.overrides = overrides;
-    }
-
+    private FleetLaunchTemplateConfig() {}
     /**
      * @return Nested argument containing EC2 Launch Template to use. Defined below.
      * 
@@ -53,33 +46,35 @@ public final class FleetLaunchTemplateConfig {
     public static Builder builder(FleetLaunchTemplateConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification;
         private @Nullable List<FleetLaunchTemplateConfigOverride> overrides;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FleetLaunchTemplateConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.launchTemplateSpecification = defaults.launchTemplateSpecification;
     	      this.overrides = defaults.overrides;
         }
 
+        @CustomType.Setter
         public Builder launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification) {
             this.launchTemplateSpecification = Objects.requireNonNull(launchTemplateSpecification);
             return this;
         }
+        @CustomType.Setter
         public Builder overrides(@Nullable List<FleetLaunchTemplateConfigOverride> overrides) {
             this.overrides = overrides;
             return this;
         }
         public Builder overrides(FleetLaunchTemplateConfigOverride... overrides) {
             return overrides(List.of(overrides));
-        }        public FleetLaunchTemplateConfig build() {
-            return new FleetLaunchTemplateConfig(launchTemplateSpecification, overrides);
+        }
+        public FleetLaunchTemplateConfig build() {
+            final var o = new FleetLaunchTemplateConfig();
+            o.launchTemplateSpecification = launchTemplateSpecification;
+            o.overrides = overrides;
+            return o;
         }
     }
 }

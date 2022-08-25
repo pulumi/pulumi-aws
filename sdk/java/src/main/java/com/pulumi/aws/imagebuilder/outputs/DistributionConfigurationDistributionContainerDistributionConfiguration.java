@@ -17,28 +17,19 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
      * @return Set of tags that are attached to the container distribution configuration.
      * 
      */
-    private final @Nullable List<String> containerTags;
+    private @Nullable List<String> containerTags;
     /**
      * @return Description of the container distribution configuration.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Configuration block with the destination repository for the container distribution configuration.
      * 
      */
-    private final DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository targetRepository;
+    private DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository targetRepository;
 
-    @CustomType.Constructor
-    private DistributionConfigurationDistributionContainerDistributionConfiguration(
-        @CustomType.Parameter("containerTags") @Nullable List<String> containerTags,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("targetRepository") DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository targetRepository) {
-        this.containerTags = containerTags;
-        this.description = description;
-        this.targetRepository = targetRepository;
-    }
-
+    private DistributionConfigurationDistributionContainerDistributionConfiguration() {}
     /**
      * @return Set of tags that are attached to the container distribution configuration.
      * 
@@ -68,16 +59,12 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
     public static Builder builder(DistributionConfigurationDistributionContainerDistributionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> containerTags;
         private @Nullable String description;
         private DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository targetRepository;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DistributionConfigurationDistributionContainerDistributionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerTags = defaults.containerTags;
@@ -85,6 +72,7 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
     	      this.targetRepository = defaults.targetRepository;
         }
 
+        @CustomType.Setter
         public Builder containerTags(@Nullable List<String> containerTags) {
             this.containerTags = containerTags;
             return this;
@@ -92,15 +80,22 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
         public Builder containerTags(String... containerTags) {
             return containerTags(List.of(containerTags));
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder targetRepository(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository targetRepository) {
             this.targetRepository = Objects.requireNonNull(targetRepository);
             return this;
-        }        public DistributionConfigurationDistributionContainerDistributionConfiguration build() {
-            return new DistributionConfigurationDistributionContainerDistributionConfiguration(containerTags, description, targetRepository);
+        }
+        public DistributionConfigurationDistributionContainerDistributionConfiguration build() {
+            final var o = new DistributionConfigurationDistributionContainerDistributionConfiguration();
+            o.containerTags = containerTags;
+            o.description = description;
+            o.targetRepository = targetRepository;
+            return o;
         }
     }
 }

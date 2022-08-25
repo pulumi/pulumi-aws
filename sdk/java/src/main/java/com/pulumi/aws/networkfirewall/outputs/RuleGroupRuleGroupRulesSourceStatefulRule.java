@@ -16,28 +16,19 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRule {
      * @return Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
      * 
      */
-    private final RuleGroupRuleGroupRulesSourceStatefulRuleHeader header;
+    private RuleGroupRuleGroupRulesSourceStatefulRuleHeader header;
     /**
      * @return Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
      * 
      */
-    private final List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> ruleOptions;
+    private List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> ruleOptions;
 
-    @CustomType.Constructor
-    private RuleGroupRuleGroupRulesSourceStatefulRule(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("header") RuleGroupRuleGroupRulesSourceStatefulRuleHeader header,
-        @CustomType.Parameter("ruleOptions") List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> ruleOptions) {
-        this.action = action;
-        this.header = header;
-        this.ruleOptions = ruleOptions;
-    }
-
+    private RuleGroupRuleGroupRulesSourceStatefulRule() {}
     /**
      * @return Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
      * 
@@ -67,16 +58,12 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRule {
     public static Builder builder(RuleGroupRuleGroupRulesSourceStatefulRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private RuleGroupRuleGroupRulesSourceStatefulRuleHeader header;
         private List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> ruleOptions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleGroupRuleGroupRulesSourceStatefulRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -84,22 +71,30 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRule {
     	      this.ruleOptions = defaults.ruleOptions;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder header(RuleGroupRuleGroupRulesSourceStatefulRuleHeader header) {
             this.header = Objects.requireNonNull(header);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleOptions(List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> ruleOptions) {
             this.ruleOptions = Objects.requireNonNull(ruleOptions);
             return this;
         }
         public Builder ruleOptions(RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption... ruleOptions) {
             return ruleOptions(List.of(ruleOptions));
-        }        public RuleGroupRuleGroupRulesSourceStatefulRule build() {
-            return new RuleGroupRuleGroupRulesSourceStatefulRule(action, header, ruleOptions);
+        }
+        public RuleGroupRuleGroupRulesSourceStatefulRule build() {
+            final var o = new RuleGroupRuleGroupRulesSourceStatefulRule();
+            o.action = action;
+            o.header = header;
+            o.ruleOptions = ruleOptions;
+            return o;
         }
     }
 }

@@ -13,45 +13,30 @@ public final class GetRepositoryResult {
      * @return The ARN of the repository
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return The URL to use for cloning the repository over HTTPS.
      * 
      */
-    private final String cloneUrlHttp;
+    private String cloneUrlHttp;
     /**
      * @return The URL to use for cloning the repository over SSH.
      * 
      */
-    private final String cloneUrlSsh;
+    private String cloneUrlSsh;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ID of the repository
      * 
      */
-    private final String repositoryId;
-    private final String repositoryName;
+    private String repositoryId;
+    private String repositoryName;
 
-    @CustomType.Constructor
-    private GetRepositoryResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("cloneUrlHttp") String cloneUrlHttp,
-        @CustomType.Parameter("cloneUrlSsh") String cloneUrlSsh,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("repositoryId") String repositoryId,
-        @CustomType.Parameter("repositoryName") String repositoryName) {
-        this.arn = arn;
-        this.cloneUrlHttp = cloneUrlHttp;
-        this.cloneUrlSsh = cloneUrlSsh;
-        this.id = id;
-        this.repositoryId = repositoryId;
-        this.repositoryName = repositoryName;
-    }
-
+    private GetRepositoryResult() {}
     /**
      * @return The ARN of the repository
      * 
@@ -98,7 +83,7 @@ public final class GetRepositoryResult {
     public static Builder builder(GetRepositoryResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String cloneUrlHttp;
@@ -106,11 +91,7 @@ public final class GetRepositoryResult {
         private String id;
         private String repositoryId;
         private String repositoryName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRepositoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -121,31 +102,45 @@ public final class GetRepositoryResult {
     	      this.repositoryName = defaults.repositoryName;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder cloneUrlHttp(String cloneUrlHttp) {
             this.cloneUrlHttp = Objects.requireNonNull(cloneUrlHttp);
             return this;
         }
+        @CustomType.Setter
         public Builder cloneUrlSsh(String cloneUrlSsh) {
             this.cloneUrlSsh = Objects.requireNonNull(cloneUrlSsh);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryId(String repositoryId) {
             this.repositoryId = Objects.requireNonNull(repositoryId);
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
             this.repositoryName = Objects.requireNonNull(repositoryName);
             return this;
-        }        public GetRepositoryResult build() {
-            return new GetRepositoryResult(arn, cloneUrlHttp, cloneUrlSsh, id, repositoryId, repositoryName);
+        }
+        public GetRepositoryResult build() {
+            final var o = new GetRepositoryResult();
+            o.arn = arn;
+            o.cloneUrlHttp = cloneUrlHttp;
+            o.cloneUrlSsh = cloneUrlSsh;
+            o.id = id;
+            o.repositoryId = repositoryId;
+            o.repositoryName = repositoryName;
+            return o;
         }
     }
 }

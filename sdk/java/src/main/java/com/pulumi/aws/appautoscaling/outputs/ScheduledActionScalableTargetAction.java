@@ -15,21 +15,14 @@ public final class ScheduledActionScalableTargetAction {
      * @return The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
      * 
      */
-    private final @Nullable Integer maxCapacity;
+    private @Nullable Integer maxCapacity;
     /**
      * @return The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
      * 
      */
-    private final @Nullable Integer minCapacity;
+    private @Nullable Integer minCapacity;
 
-    @CustomType.Constructor
-    private ScheduledActionScalableTargetAction(
-        @CustomType.Parameter("maxCapacity") @Nullable Integer maxCapacity,
-        @CustomType.Parameter("minCapacity") @Nullable Integer minCapacity) {
-        this.maxCapacity = maxCapacity;
-        this.minCapacity = minCapacity;
-    }
-
+    private ScheduledActionScalableTargetAction() {}
     /**
      * @return The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
      * 
@@ -52,30 +45,32 @@ public final class ScheduledActionScalableTargetAction {
     public static Builder builder(ScheduledActionScalableTargetAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxCapacity;
         private @Nullable Integer minCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduledActionScalableTargetAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxCapacity = defaults.maxCapacity;
     	      this.minCapacity = defaults.minCapacity;
         }
 
+        @CustomType.Setter
         public Builder maxCapacity(@Nullable Integer maxCapacity) {
             this.maxCapacity = maxCapacity;
             return this;
         }
+        @CustomType.Setter
         public Builder minCapacity(@Nullable Integer minCapacity) {
             this.minCapacity = minCapacity;
             return this;
-        }        public ScheduledActionScalableTargetAction build() {
-            return new ScheduledActionScalableTargetAction(maxCapacity, minCapacity);
+        }
+        public ScheduledActionScalableTargetAction build() {
+            final var o = new ScheduledActionScalableTargetAction();
+            o.maxCapacity = maxCapacity;
+            o.minCapacity = minCapacity;
+            return o;
         }
     }
 }

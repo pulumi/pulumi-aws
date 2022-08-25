@@ -18,35 +18,24 @@ public final class IndexDocumentMetadataConfigurationUpdate {
      * @return Specifies the name of the Index.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
      * 
      */
-    private final @Nullable List<IndexDocumentMetadataConfigurationUpdateRelevance> relevances;
+    private @Nullable List<IndexDocumentMetadataConfigurationUpdateRelevance> relevances;
     /**
      * @return A block that provides information about how the field is used during a search. Documented below.
      * 
      */
-    private final @Nullable List<IndexDocumentMetadataConfigurationUpdateSearch> searches;
+    private @Nullable List<IndexDocumentMetadataConfigurationUpdateSearch> searches;
     /**
      * @return The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private IndexDocumentMetadataConfigurationUpdate(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("relevances") @Nullable List<IndexDocumentMetadataConfigurationUpdateRelevance> relevances,
-        @CustomType.Parameter("searches") @Nullable List<IndexDocumentMetadataConfigurationUpdateSearch> searches,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.name = name;
-        this.relevances = relevances;
-        this.searches = searches;
-        this.type = type;
-    }
-
+    private IndexDocumentMetadataConfigurationUpdate() {}
     /**
      * @return Specifies the name of the Index.
      * 
@@ -83,17 +72,13 @@ public final class IndexDocumentMetadataConfigurationUpdate {
     public static Builder builder(IndexDocumentMetadataConfigurationUpdate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable List<IndexDocumentMetadataConfigurationUpdateRelevance> relevances;
         private @Nullable List<IndexDocumentMetadataConfigurationUpdateSearch> searches;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IndexDocumentMetadataConfigurationUpdate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -102,10 +87,12 @@ public final class IndexDocumentMetadataConfigurationUpdate {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder relevances(@Nullable List<IndexDocumentMetadataConfigurationUpdateRelevance> relevances) {
             this.relevances = relevances;
             return this;
@@ -113,6 +100,7 @@ public final class IndexDocumentMetadataConfigurationUpdate {
         public Builder relevances(IndexDocumentMetadataConfigurationUpdateRelevance... relevances) {
             return relevances(List.of(relevances));
         }
+        @CustomType.Setter
         public Builder searches(@Nullable List<IndexDocumentMetadataConfigurationUpdateSearch> searches) {
             this.searches = searches;
             return this;
@@ -120,11 +108,18 @@ public final class IndexDocumentMetadataConfigurationUpdate {
         public Builder searches(IndexDocumentMetadataConfigurationUpdateSearch... searches) {
             return searches(List.of(searches));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public IndexDocumentMetadataConfigurationUpdate build() {
-            return new IndexDocumentMetadataConfigurationUpdate(name, relevances, searches, type);
+        }
+        public IndexDocumentMetadataConfigurationUpdate build() {
+            final var o = new IndexDocumentMetadataConfigurationUpdate();
+            o.name = name;
+            o.relevances = relevances;
+            o.searches = searches;
+            o.type = type;
+            return o;
         }
     }
 }

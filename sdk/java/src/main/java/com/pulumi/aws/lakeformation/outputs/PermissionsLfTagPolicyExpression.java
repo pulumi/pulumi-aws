@@ -14,21 +14,14 @@ public final class PermissionsLfTagPolicyExpression {
      * @return The key-name of an LF-Tag.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return A list of possible values of an LF-Tag.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private PermissionsLfTagPolicyExpression(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("values") List<String> values) {
-        this.key = key;
-        this.values = values;
-    }
-
+    private PermissionsLfTagPolicyExpression() {}
     /**
      * @return The key-name of an LF-Tag.
      * 
@@ -51,33 +44,35 @@ public final class PermissionsLfTagPolicyExpression {
     public static Builder builder(PermissionsLfTagPolicyExpression defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PermissionsLfTagPolicyExpression defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public PermissionsLfTagPolicyExpression build() {
-            return new PermissionsLfTagPolicyExpression(key, values);
+        }
+        public PermissionsLfTagPolicyExpression build() {
+            final var o = new PermissionsLfTagPolicyExpression();
+            o.key = key;
+            o.values = values;
+            return o;
         }
     }
 }

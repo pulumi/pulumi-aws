@@ -20,127 +20,84 @@ public final class GetVpcIamPoolResult {
      * @return The IP protocol assigned to this pool.
      * 
      */
-    private final String addressFamily;
+    private String addressFamily;
     /**
      * @return A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
      * 
      */
-    private final Integer allocationDefaultNetmaskLength;
+    private Integer allocationDefaultNetmaskLength;
     /**
      * @return The maximum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
-    private final Integer allocationMaxNetmaskLength;
+    private Integer allocationMaxNetmaskLength;
     /**
      * @return The minimum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
-    private final Integer allocationMinNetmaskLength;
+    private Integer allocationMinNetmaskLength;
     /**
      * @return Tags that are required to create resources in using this pool.
      * 
      */
-    private final Map<String,String> allocationResourceTags;
+    private Map<String,String> allocationResourceTags;
     /**
      * @return Amazon Resource Name (ARN) of the pool
      * 
      */
-    private final String arn;
+    private String arn;
     /**
      * @return If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
      * 
      */
-    private final Boolean autoImport;
+    private Boolean autoImport;
     /**
      * @return Limits which service in AWS that the pool can be used in. &#34;ec2&#34;, for example, allows users to use space for Elastic IP addresses and VPCs.
      * 
      */
-    private final String awsService;
+    private String awsService;
     /**
      * @return A description for the IPAM pool.
      * 
      */
-    private final String description;
-    private final @Nullable List<GetVpcIamPoolFilter> filters;
+    private String description;
+    private @Nullable List<GetVpcIamPoolFilter> filters;
     /**
      * @return The ID of the IPAM pool.
      * 
      */
-    private final @Nullable String id;
-    private final @Nullable String ipamPoolId;
+    private @Nullable String id;
+    private @Nullable String ipamPoolId;
     /**
      * @return The ID of the scope the pool belongs to.
      * 
      */
-    private final String ipamScopeId;
-    private final String ipamScopeType;
+    private String ipamScopeId;
+    private String ipamScopeType;
     /**
      * @return Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region.
      * 
      */
-    private final String locale;
-    private final Integer poolDepth;
+    private String locale;
+    private Integer poolDepth;
     /**
      * @return Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
      * 
      */
-    private final Boolean publiclyAdvertisable;
+    private Boolean publiclyAdvertisable;
     /**
      * @return The ID of the source IPAM pool.
      * 
      */
-    private final String sourceIpamPoolId;
-    private final String state;
+    private String sourceIpamPoolId;
+    private String state;
     /**
      * @return A map of tags to assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetVpcIamPoolResult(
-        @CustomType.Parameter("addressFamily") String addressFamily,
-        @CustomType.Parameter("allocationDefaultNetmaskLength") Integer allocationDefaultNetmaskLength,
-        @CustomType.Parameter("allocationMaxNetmaskLength") Integer allocationMaxNetmaskLength,
-        @CustomType.Parameter("allocationMinNetmaskLength") Integer allocationMinNetmaskLength,
-        @CustomType.Parameter("allocationResourceTags") Map<String,String> allocationResourceTags,
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("autoImport") Boolean autoImport,
-        @CustomType.Parameter("awsService") String awsService,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("filters") @Nullable List<GetVpcIamPoolFilter> filters,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("ipamPoolId") @Nullable String ipamPoolId,
-        @CustomType.Parameter("ipamScopeId") String ipamScopeId,
-        @CustomType.Parameter("ipamScopeType") String ipamScopeType,
-        @CustomType.Parameter("locale") String locale,
-        @CustomType.Parameter("poolDepth") Integer poolDepth,
-        @CustomType.Parameter("publiclyAdvertisable") Boolean publiclyAdvertisable,
-        @CustomType.Parameter("sourceIpamPoolId") String sourceIpamPoolId,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.addressFamily = addressFamily;
-        this.allocationDefaultNetmaskLength = allocationDefaultNetmaskLength;
-        this.allocationMaxNetmaskLength = allocationMaxNetmaskLength;
-        this.allocationMinNetmaskLength = allocationMinNetmaskLength;
-        this.allocationResourceTags = allocationResourceTags;
-        this.arn = arn;
-        this.autoImport = autoImport;
-        this.awsService = awsService;
-        this.description = description;
-        this.filters = filters;
-        this.id = id;
-        this.ipamPoolId = ipamPoolId;
-        this.ipamScopeId = ipamScopeId;
-        this.ipamScopeType = ipamScopeType;
-        this.locale = locale;
-        this.poolDepth = poolDepth;
-        this.publiclyAdvertisable = publiclyAdvertisable;
-        this.sourceIpamPoolId = sourceIpamPoolId;
-        this.state = state;
-        this.tags = tags;
-    }
-
+    private GetVpcIamPoolResult() {}
     /**
      * @return The IP protocol assigned to this pool.
      * 
@@ -269,7 +226,7 @@ public final class GetVpcIamPoolResult {
     public static Builder builder(GetVpcIamPoolResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addressFamily;
         private Integer allocationDefaultNetmaskLength;
@@ -291,11 +248,7 @@ public final class GetVpcIamPoolResult {
         private String sourceIpamPoolId;
         private String state;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpcIamPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressFamily = defaults.addressFamily;
@@ -320,42 +273,52 @@ public final class GetVpcIamPoolResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder addressFamily(String addressFamily) {
             this.addressFamily = Objects.requireNonNull(addressFamily);
             return this;
         }
+        @CustomType.Setter
         public Builder allocationDefaultNetmaskLength(Integer allocationDefaultNetmaskLength) {
             this.allocationDefaultNetmaskLength = Objects.requireNonNull(allocationDefaultNetmaskLength);
             return this;
         }
+        @CustomType.Setter
         public Builder allocationMaxNetmaskLength(Integer allocationMaxNetmaskLength) {
             this.allocationMaxNetmaskLength = Objects.requireNonNull(allocationMaxNetmaskLength);
             return this;
         }
+        @CustomType.Setter
         public Builder allocationMinNetmaskLength(Integer allocationMinNetmaskLength) {
             this.allocationMinNetmaskLength = Objects.requireNonNull(allocationMinNetmaskLength);
             return this;
         }
+        @CustomType.Setter
         public Builder allocationResourceTags(Map<String,String> allocationResourceTags) {
             this.allocationResourceTags = Objects.requireNonNull(allocationResourceTags);
             return this;
         }
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder autoImport(Boolean autoImport) {
             this.autoImport = Objects.requireNonNull(autoImport);
             return this;
         }
+        @CustomType.Setter
         public Builder awsService(String awsService) {
             this.awsService = Objects.requireNonNull(awsService);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcIamPoolFilter> filters) {
             this.filters = filters;
             return this;
@@ -363,47 +326,79 @@ public final class GetVpcIamPoolResult {
         public Builder filters(GetVpcIamPoolFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder ipamPoolId(@Nullable String ipamPoolId) {
             this.ipamPoolId = ipamPoolId;
             return this;
         }
+        @CustomType.Setter
         public Builder ipamScopeId(String ipamScopeId) {
             this.ipamScopeId = Objects.requireNonNull(ipamScopeId);
             return this;
         }
+        @CustomType.Setter
         public Builder ipamScopeType(String ipamScopeType) {
             this.ipamScopeType = Objects.requireNonNull(ipamScopeType);
             return this;
         }
+        @CustomType.Setter
         public Builder locale(String locale) {
             this.locale = Objects.requireNonNull(locale);
             return this;
         }
+        @CustomType.Setter
         public Builder poolDepth(Integer poolDepth) {
             this.poolDepth = Objects.requireNonNull(poolDepth);
             return this;
         }
+        @CustomType.Setter
         public Builder publiclyAdvertisable(Boolean publiclyAdvertisable) {
             this.publiclyAdvertisable = Objects.requireNonNull(publiclyAdvertisable);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceIpamPoolId(String sourceIpamPoolId) {
             this.sourceIpamPoolId = Objects.requireNonNull(sourceIpamPoolId);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetVpcIamPoolResult build() {
-            return new GetVpcIamPoolResult(addressFamily, allocationDefaultNetmaskLength, allocationMaxNetmaskLength, allocationMinNetmaskLength, allocationResourceTags, arn, autoImport, awsService, description, filters, id, ipamPoolId, ipamScopeId, ipamScopeType, locale, poolDepth, publiclyAdvertisable, sourceIpamPoolId, state, tags);
+        }
+        public GetVpcIamPoolResult build() {
+            final var o = new GetVpcIamPoolResult();
+            o.addressFamily = addressFamily;
+            o.allocationDefaultNetmaskLength = allocationDefaultNetmaskLength;
+            o.allocationMaxNetmaskLength = allocationMaxNetmaskLength;
+            o.allocationMinNetmaskLength = allocationMinNetmaskLength;
+            o.allocationResourceTags = allocationResourceTags;
+            o.arn = arn;
+            o.autoImport = autoImport;
+            o.awsService = awsService;
+            o.description = description;
+            o.filters = filters;
+            o.id = id;
+            o.ipamPoolId = ipamPoolId;
+            o.ipamScopeId = ipamScopeId;
+            o.ipamScopeType = ipamScopeType;
+            o.locale = locale;
+            o.poolDepth = poolDepth;
+            o.publiclyAdvertisable = publiclyAdvertisable;
+            o.sourceIpamPoolId = sourceIpamPoolId;
+            o.state = state;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class AccessPointRootDirectory {
      * @return POSIX IDs and permissions to apply to the access point&#39;s Root Directory. See Creation Info below.
      * 
      */
-    private final @Nullable AccessPointRootDirectoryCreationInfo creationInfo;
+    private @Nullable AccessPointRootDirectoryCreationInfo creationInfo;
     /**
      * @return Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
 
-    @CustomType.Constructor
-    private AccessPointRootDirectory(
-        @CustomType.Parameter("creationInfo") @Nullable AccessPointRootDirectoryCreationInfo creationInfo,
-        @CustomType.Parameter("path") @Nullable String path) {
-        this.creationInfo = creationInfo;
-        this.path = path;
-    }
-
+    private AccessPointRootDirectory() {}
     /**
      * @return POSIX IDs and permissions to apply to the access point&#39;s Root Directory. See Creation Info below.
      * 
@@ -53,30 +46,32 @@ public final class AccessPointRootDirectory {
     public static Builder builder(AccessPointRootDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AccessPointRootDirectoryCreationInfo creationInfo;
         private @Nullable String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccessPointRootDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.creationInfo = defaults.creationInfo;
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder creationInfo(@Nullable AccessPointRootDirectoryCreationInfo creationInfo) {
             this.creationInfo = creationInfo;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
-        }        public AccessPointRootDirectory build() {
-            return new AccessPointRootDirectory(creationInfo, path);
+        }
+        public AccessPointRootDirectory build() {
+            final var o = new AccessPointRootDirectory();
+            o.creationInfo = creationInfo;
+            o.path = path;
+            return o;
         }
     }
 }

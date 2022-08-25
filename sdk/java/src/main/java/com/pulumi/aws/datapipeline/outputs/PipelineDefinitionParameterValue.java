@@ -13,21 +13,14 @@ public final class PipelineDefinitionParameterValue {
      * @return ID of the parameter value.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    private final String stringValue;
+    private String stringValue;
 
-    @CustomType.Constructor
-    private PipelineDefinitionParameterValue(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("stringValue") String stringValue) {
-        this.id = id;
-        this.stringValue = stringValue;
-    }
-
+    private PipelineDefinitionParameterValue() {}
     /**
      * @return ID of the parameter value.
      * 
@@ -50,30 +43,32 @@ public final class PipelineDefinitionParameterValue {
     public static Builder builder(PipelineDefinitionParameterValue defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String stringValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PipelineDefinitionParameterValue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.stringValue = defaults.stringValue;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder stringValue(String stringValue) {
             this.stringValue = Objects.requireNonNull(stringValue);
             return this;
-        }        public PipelineDefinitionParameterValue build() {
-            return new PipelineDefinitionParameterValue(id, stringValue);
+        }
+        public PipelineDefinitionParameterValue build() {
+            final var o = new PipelineDefinitionParameterValue();
+            o.id = id;
+            o.stringValue = stringValue;
+            return o;
         }
     }
 }

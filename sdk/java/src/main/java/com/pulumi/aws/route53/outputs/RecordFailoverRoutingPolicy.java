@@ -13,13 +13,9 @@ public final class RecordFailoverRoutingPolicy {
      * @return `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private RecordFailoverRoutingPolicy(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private RecordFailoverRoutingPolicy() {}
     /**
      * @return `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
      * 
@@ -35,24 +31,24 @@ public final class RecordFailoverRoutingPolicy {
     public static Builder builder(RecordFailoverRoutingPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RecordFailoverRoutingPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public RecordFailoverRoutingPolicy build() {
-            return new RecordFailoverRoutingPolicy(type);
+        }
+        public RecordFailoverRoutingPolicy build() {
+            final var o = new RecordFailoverRoutingPolicy();
+            o.type = type;
+            return o;
         }
     }
 }

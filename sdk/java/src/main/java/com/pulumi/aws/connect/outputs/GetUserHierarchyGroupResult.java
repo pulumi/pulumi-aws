@@ -16,55 +16,36 @@ public final class GetUserHierarchyGroupResult {
      * @return The Amazon Resource Name (ARN) of the hierarchy group.
      * 
      */
-    private final String arn;
-    private final String hierarchyGroupId;
+    private String arn;
+    private String hierarchyGroupId;
     /**
      * @return A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
-    private final List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths;
+    private List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String instanceId;
+    private String id;
+    private String instanceId;
     /**
      * @return The identifier of the level in the hierarchy group.
      * 
      */
-    private final String levelId;
+    private String levelId;
     /**
      * @return The name of the hierarchy group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of tags to assign to the hierarchy group.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetUserHierarchyGroupResult(
-        @CustomType.Parameter("arn") String arn,
-        @CustomType.Parameter("hierarchyGroupId") String hierarchyGroupId,
-        @CustomType.Parameter("hierarchyPaths") List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("levelId") String levelId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.arn = arn;
-        this.hierarchyGroupId = hierarchyGroupId;
-        this.hierarchyPaths = hierarchyPaths;
-        this.id = id;
-        this.instanceId = instanceId;
-        this.levelId = levelId;
-        this.name = name;
-        this.tags = tags;
-    }
-
+    private GetUserHierarchyGroupResult() {}
     /**
      * @return The Amazon Resource Name (ARN) of the hierarchy group.
      * 
@@ -121,7 +102,7 @@ public final class GetUserHierarchyGroupResult {
     public static Builder builder(GetUserHierarchyGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String arn;
         private String hierarchyGroupId;
@@ -131,11 +112,7 @@ public final class GetUserHierarchyGroupResult {
         private String levelId;
         private String name;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserHierarchyGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
@@ -148,14 +125,17 @@ public final class GetUserHierarchyGroupResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
             return this;
         }
+        @CustomType.Setter
         public Builder hierarchyGroupId(String hierarchyGroupId) {
             this.hierarchyGroupId = Objects.requireNonNull(hierarchyGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder hierarchyPaths(List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths) {
             this.hierarchyPaths = Objects.requireNonNull(hierarchyPaths);
             return this;
@@ -163,27 +143,42 @@ public final class GetUserHierarchyGroupResult {
         public Builder hierarchyPaths(GetUserHierarchyGroupHierarchyPath... hierarchyPaths) {
             return hierarchyPaths(List.of(hierarchyPaths));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder levelId(String levelId) {
             this.levelId = Objects.requireNonNull(levelId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetUserHierarchyGroupResult build() {
-            return new GetUserHierarchyGroupResult(arn, hierarchyGroupId, hierarchyPaths, id, instanceId, levelId, name, tags);
+        }
+        public GetUserHierarchyGroupResult build() {
+            final var o = new GetUserHierarchyGroupResult();
+            o.arn = arn;
+            o.hierarchyGroupId = hierarchyGroupId;
+            o.hierarchyPaths = hierarchyPaths;
+            o.id = id;
+            o.instanceId = instanceId;
+            o.levelId = levelId;
+            o.name = name;
+            o.tags = tags;
+            return o;
         }
     }
 }

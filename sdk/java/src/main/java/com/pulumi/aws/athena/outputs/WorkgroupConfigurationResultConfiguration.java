@@ -17,35 +17,24 @@ public final class WorkgroupConfigurationResultConfiguration {
      * @return Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
-    private final @Nullable WorkgroupConfigurationResultConfigurationAclConfiguration aclConfiguration;
+    private @Nullable WorkgroupConfigurationResultConfigurationAclConfiguration aclConfiguration;
     /**
      * @return Configuration block with encryption settings. See Encryption Configuration below.
      * 
      */
-    private final @Nullable WorkgroupConfigurationResultConfigurationEncryptionConfiguration encryptionConfiguration;
+    private @Nullable WorkgroupConfigurationResultConfigurationEncryptionConfiguration encryptionConfiguration;
     /**
      * @return The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
-    private final @Nullable String expectedBucketOwner;
+    private @Nullable String expectedBucketOwner;
     /**
      * @return The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
      * 
      */
-    private final @Nullable String outputLocation;
+    private @Nullable String outputLocation;
 
-    @CustomType.Constructor
-    private WorkgroupConfigurationResultConfiguration(
-        @CustomType.Parameter("aclConfiguration") @Nullable WorkgroupConfigurationResultConfigurationAclConfiguration aclConfiguration,
-        @CustomType.Parameter("encryptionConfiguration") @Nullable WorkgroupConfigurationResultConfigurationEncryptionConfiguration encryptionConfiguration,
-        @CustomType.Parameter("expectedBucketOwner") @Nullable String expectedBucketOwner,
-        @CustomType.Parameter("outputLocation") @Nullable String outputLocation) {
-        this.aclConfiguration = aclConfiguration;
-        this.encryptionConfiguration = encryptionConfiguration;
-        this.expectedBucketOwner = expectedBucketOwner;
-        this.outputLocation = outputLocation;
-    }
-
+    private WorkgroupConfigurationResultConfiguration() {}
     /**
      * @return Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
@@ -82,17 +71,13 @@ public final class WorkgroupConfigurationResultConfiguration {
     public static Builder builder(WorkgroupConfigurationResultConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WorkgroupConfigurationResultConfigurationAclConfiguration aclConfiguration;
         private @Nullable WorkgroupConfigurationResultConfigurationEncryptionConfiguration encryptionConfiguration;
         private @Nullable String expectedBucketOwner;
         private @Nullable String outputLocation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkgroupConfigurationResultConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aclConfiguration = defaults.aclConfiguration;
@@ -101,23 +86,33 @@ public final class WorkgroupConfigurationResultConfiguration {
     	      this.outputLocation = defaults.outputLocation;
         }
 
+        @CustomType.Setter
         public Builder aclConfiguration(@Nullable WorkgroupConfigurationResultConfigurationAclConfiguration aclConfiguration) {
             this.aclConfiguration = aclConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionConfiguration(@Nullable WorkgroupConfigurationResultConfigurationEncryptionConfiguration encryptionConfiguration) {
             this.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder expectedBucketOwner(@Nullable String expectedBucketOwner) {
             this.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
+        @CustomType.Setter
         public Builder outputLocation(@Nullable String outputLocation) {
             this.outputLocation = outputLocation;
             return this;
-        }        public WorkgroupConfigurationResultConfiguration build() {
-            return new WorkgroupConfigurationResultConfiguration(aclConfiguration, encryptionConfiguration, expectedBucketOwner, outputLocation);
+        }
+        public WorkgroupConfigurationResultConfiguration build() {
+            final var o = new WorkgroupConfigurationResultConfiguration();
+            o.aclConfiguration = aclConfiguration;
+            o.encryptionConfiguration = encryptionConfiguration;
+            o.expectedBucketOwner = expectedBucketOwner;
+            o.outputLocation = outputLocation;
+            return o;
         }
     }
 }

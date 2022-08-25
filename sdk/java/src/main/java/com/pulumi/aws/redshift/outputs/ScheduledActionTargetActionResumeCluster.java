@@ -13,13 +13,9 @@ public final class ScheduledActionTargetActionResumeCluster {
      * @return The identifier of the cluster to be resumed.
      * 
      */
-    private final String clusterIdentifier;
+    private String clusterIdentifier;
 
-    @CustomType.Constructor
-    private ScheduledActionTargetActionResumeCluster(@CustomType.Parameter("clusterIdentifier") String clusterIdentifier) {
-        this.clusterIdentifier = clusterIdentifier;
-    }
-
+    private ScheduledActionTargetActionResumeCluster() {}
     /**
      * @return The identifier of the cluster to be resumed.
      * 
@@ -35,24 +31,24 @@ public final class ScheduledActionTargetActionResumeCluster {
     public static Builder builder(ScheduledActionTargetActionResumeCluster defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clusterIdentifier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduledActionTargetActionResumeCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterIdentifier = defaults.clusterIdentifier;
         }
 
+        @CustomType.Setter
         public Builder clusterIdentifier(String clusterIdentifier) {
             this.clusterIdentifier = Objects.requireNonNull(clusterIdentifier);
             return this;
-        }        public ScheduledActionTargetActionResumeCluster build() {
-            return new ScheduledActionTargetActionResumeCluster(clusterIdentifier);
+        }
+        public ScheduledActionTargetActionResumeCluster build() {
+            final var o = new ScheduledActionTargetActionResumeCluster();
+            o.clusterIdentifier = clusterIdentifier;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class AnalyticsApplicationInputsParallelism {
      * @return The Count of streams.
      * 
      */
-    private final @Nullable Integer count;
+    private @Nullable Integer count;
 
-    @CustomType.Constructor
-    private AnalyticsApplicationInputsParallelism(@CustomType.Parameter("count") @Nullable Integer count) {
-        this.count = count;
-    }
-
+    private AnalyticsApplicationInputsParallelism() {}
     /**
      * @return The Count of streams.
      * 
@@ -37,24 +33,24 @@ public final class AnalyticsApplicationInputsParallelism {
     public static Builder builder(AnalyticsApplicationInputsParallelism defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer count;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsApplicationInputsParallelism defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
         }
 
+        @CustomType.Setter
         public Builder count(@Nullable Integer count) {
             this.count = count;
             return this;
-        }        public AnalyticsApplicationInputsParallelism build() {
-            return new AnalyticsApplicationInputsParallelism(count);
+        }
+        public AnalyticsApplicationInputsParallelism build() {
+            final var o = new AnalyticsApplicationInputsParallelism();
+            o.count = count;
+            return o;
         }
     }
 }

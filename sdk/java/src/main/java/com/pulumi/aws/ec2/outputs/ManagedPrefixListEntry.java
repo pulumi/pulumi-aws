@@ -15,21 +15,14 @@ public final class ManagedPrefixListEntry {
      * @return CIDR block of this entry.
      * 
      */
-    private final String cidr;
+    private String cidr;
     /**
      * @return Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
 
-    @CustomType.Constructor
-    private ManagedPrefixListEntry(
-        @CustomType.Parameter("cidr") String cidr,
-        @CustomType.Parameter("description") @Nullable String description) {
-        this.cidr = cidr;
-        this.description = description;
-    }
-
+    private ManagedPrefixListEntry() {}
     /**
      * @return CIDR block of this entry.
      * 
@@ -52,30 +45,32 @@ public final class ManagedPrefixListEntry {
     public static Builder builder(ManagedPrefixListEntry defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cidr;
         private @Nullable String description;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedPrefixListEntry defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidr = defaults.cidr;
     	      this.description = defaults.description;
         }
 
+        @CustomType.Setter
         public Builder cidr(String cidr) {
             this.cidr = Objects.requireNonNull(cidr);
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
-        }        public ManagedPrefixListEntry build() {
-            return new ManagedPrefixListEntry(cidr, description);
+        }
+        public ManagedPrefixListEntry build() {
+            final var o = new ManagedPrefixListEntry();
+            o.cidr = cidr;
+            o.description = description;
+            return o;
         }
     }
 }

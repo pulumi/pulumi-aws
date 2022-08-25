@@ -13,13 +13,9 @@ public final class GetDomainClusterConfigZoneAwarenessConfig {
      * @return Number of availability zones used.
      * 
      */
-    private final Integer availabilityZoneCount;
+    private Integer availabilityZoneCount;
 
-    @CustomType.Constructor
-    private GetDomainClusterConfigZoneAwarenessConfig(@CustomType.Parameter("availabilityZoneCount") Integer availabilityZoneCount) {
-        this.availabilityZoneCount = availabilityZoneCount;
-    }
-
+    private GetDomainClusterConfigZoneAwarenessConfig() {}
     /**
      * @return Number of availability zones used.
      * 
@@ -35,24 +31,24 @@ public final class GetDomainClusterConfigZoneAwarenessConfig {
     public static Builder builder(GetDomainClusterConfigZoneAwarenessConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer availabilityZoneCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainClusterConfigZoneAwarenessConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZoneCount = defaults.availabilityZoneCount;
         }
 
+        @CustomType.Setter
         public Builder availabilityZoneCount(Integer availabilityZoneCount) {
             this.availabilityZoneCount = Objects.requireNonNull(availabilityZoneCount);
             return this;
-        }        public GetDomainClusterConfigZoneAwarenessConfig build() {
-            return new GetDomainClusterConfigZoneAwarenessConfig(availabilityZoneCount);
+        }
+        public GetDomainClusterConfigZoneAwarenessConfig build() {
+            final var o = new GetDomainClusterConfigZoneAwarenessConfig();
+            o.availabilityZoneCount = availabilityZoneCount;
+            return o;
         }
     }
 }

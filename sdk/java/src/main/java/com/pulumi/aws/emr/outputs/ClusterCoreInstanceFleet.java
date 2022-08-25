@@ -19,55 +19,36 @@ public final class ClusterCoreInstanceFleet {
      * @return ID of the cluster.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Configuration block for instance fleet.
      * 
      */
-    private final @Nullable List<ClusterCoreInstanceFleetInstanceTypeConfig> instanceTypeConfigs;
+    private @Nullable List<ClusterCoreInstanceFleetInstanceTypeConfig> instanceTypeConfigs;
     /**
      * @return Configuration block for launch specification.
      * 
      */
-    private final @Nullable ClusterCoreInstanceFleetLaunchSpecifications launchSpecifications;
+    private @Nullable ClusterCoreInstanceFleetLaunchSpecifications launchSpecifications;
     /**
      * @return Name of the step.
      * 
      */
-    private final @Nullable String name;
-    private final @Nullable Integer provisionedOnDemandCapacity;
-    private final @Nullable Integer provisionedSpotCapacity;
+    private @Nullable String name;
+    private @Nullable Integer provisionedOnDemandCapacity;
+    private @Nullable Integer provisionedSpotCapacity;
     /**
      * @return Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
-    private final @Nullable Integer targetOnDemandCapacity;
+    private @Nullable Integer targetOnDemandCapacity;
     /**
      * @return Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      * 
      */
-    private final @Nullable Integer targetSpotCapacity;
+    private @Nullable Integer targetSpotCapacity;
 
-    @CustomType.Constructor
-    private ClusterCoreInstanceFleet(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("instanceTypeConfigs") @Nullable List<ClusterCoreInstanceFleetInstanceTypeConfig> instanceTypeConfigs,
-        @CustomType.Parameter("launchSpecifications") @Nullable ClusterCoreInstanceFleetLaunchSpecifications launchSpecifications,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("provisionedOnDemandCapacity") @Nullable Integer provisionedOnDemandCapacity,
-        @CustomType.Parameter("provisionedSpotCapacity") @Nullable Integer provisionedSpotCapacity,
-        @CustomType.Parameter("targetOnDemandCapacity") @Nullable Integer targetOnDemandCapacity,
-        @CustomType.Parameter("targetSpotCapacity") @Nullable Integer targetSpotCapacity) {
-        this.id = id;
-        this.instanceTypeConfigs = instanceTypeConfigs;
-        this.launchSpecifications = launchSpecifications;
-        this.name = name;
-        this.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
-        this.provisionedSpotCapacity = provisionedSpotCapacity;
-        this.targetOnDemandCapacity = targetOnDemandCapacity;
-        this.targetSpotCapacity = targetSpotCapacity;
-    }
-
+    private ClusterCoreInstanceFleet() {}
     /**
      * @return ID of the cluster.
      * 
@@ -124,7 +105,7 @@ public final class ClusterCoreInstanceFleet {
     public static Builder builder(ClusterCoreInstanceFleet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable List<ClusterCoreInstanceFleetInstanceTypeConfig> instanceTypeConfigs;
@@ -134,11 +115,7 @@ public final class ClusterCoreInstanceFleet {
         private @Nullable Integer provisionedSpotCapacity;
         private @Nullable Integer targetOnDemandCapacity;
         private @Nullable Integer targetSpotCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterCoreInstanceFleet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -151,10 +128,12 @@ public final class ClusterCoreInstanceFleet {
     	      this.targetSpotCapacity = defaults.targetSpotCapacity;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder instanceTypeConfigs(@Nullable List<ClusterCoreInstanceFleetInstanceTypeConfig> instanceTypeConfigs) {
             this.instanceTypeConfigs = instanceTypeConfigs;
             return this;
@@ -162,31 +141,47 @@ public final class ClusterCoreInstanceFleet {
         public Builder instanceTypeConfigs(ClusterCoreInstanceFleetInstanceTypeConfig... instanceTypeConfigs) {
             return instanceTypeConfigs(List.of(instanceTypeConfigs));
         }
+        @CustomType.Setter
         public Builder launchSpecifications(@Nullable ClusterCoreInstanceFleetLaunchSpecifications launchSpecifications) {
             this.launchSpecifications = launchSpecifications;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder provisionedOnDemandCapacity(@Nullable Integer provisionedOnDemandCapacity) {
             this.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
             return this;
         }
+        @CustomType.Setter
         public Builder provisionedSpotCapacity(@Nullable Integer provisionedSpotCapacity) {
             this.provisionedSpotCapacity = provisionedSpotCapacity;
             return this;
         }
+        @CustomType.Setter
         public Builder targetOnDemandCapacity(@Nullable Integer targetOnDemandCapacity) {
             this.targetOnDemandCapacity = targetOnDemandCapacity;
             return this;
         }
+        @CustomType.Setter
         public Builder targetSpotCapacity(@Nullable Integer targetSpotCapacity) {
             this.targetSpotCapacity = targetSpotCapacity;
             return this;
-        }        public ClusterCoreInstanceFleet build() {
-            return new ClusterCoreInstanceFleet(id, instanceTypeConfigs, launchSpecifications, name, provisionedOnDemandCapacity, provisionedSpotCapacity, targetOnDemandCapacity, targetSpotCapacity);
+        }
+        public ClusterCoreInstanceFleet build() {
+            final var o = new ClusterCoreInstanceFleet();
+            o.id = id;
+            o.instanceTypeConfigs = instanceTypeConfigs;
+            o.launchSpecifications = launchSpecifications;
+            o.name = name;
+            o.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
+            o.provisionedSpotCapacity = provisionedSpotCapacity;
+            o.targetOnDemandCapacity = targetOnDemandCapacity;
+            o.targetSpotCapacity = targetSpotCapacity;
+            return o;
         }
     }
 }
