@@ -37,6 +37,7 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// ### Weighted routing policy
+    /// 
     /// Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
     /// 
     /// ```csharp
@@ -89,6 +90,7 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// ### Alias record
+    /// 
     /// See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
     /// to understand differences between alias and non-alias records.
     /// 
@@ -189,7 +191,7 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// An alias block. Conflicts with `ttl` &amp; `records`.
-        /// Alias record documented below.
+        /// Documented below.
         /// </summary>
         [Output("aliases")]
         public Output<ImmutableArray<Outputs.RecordAlias>> Aliases { get; private set; } = null!;
@@ -326,7 +328,7 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// An alias block. Conflicts with `ttl` &amp; `records`.
-        /// Alias record documented below.
+        /// Documented below.
         /// </summary>
         public InputList<Inputs.RecordAliasArgs> Aliases
         {
@@ -451,7 +453,7 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// An alias block. Conflicts with `ttl` &amp; `records`.
-        /// Alias record documented below.
+        /// Documented below.
         /// </summary>
         public InputList<Inputs.RecordAliasGetArgs> Aliases
         {

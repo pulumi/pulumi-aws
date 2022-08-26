@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IndexIndexStatistic {
     /**
-     * @return A block that specifies the number of question and answer topics in the index. Documented below.
+     * @return A block that specifies the number of question and answer topics in the index. Detailed below.
      * 
      */
     private @Nullable List<IndexIndexStatisticFaqStatistic> faqStatistics;
     /**
-     * @return A block that specifies the number of text documents indexed.
+     * @return A block that specifies the number of text documents indexed. Detailed below.
      * 
      */
     private @Nullable List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
 
     private IndexIndexStatistic() {}
     /**
-     * @return A block that specifies the number of question and answer topics in the index. Documented below.
+     * @return A block that specifies the number of question and answer topics in the index. Detailed below.
      * 
      */
     public List<IndexIndexStatisticFaqStatistic> faqStatistics() {
         return this.faqStatistics == null ? List.of() : this.faqStatistics;
     }
     /**
-     * @return A block that specifies the number of text documents indexed.
+     * @return A block that specifies the number of text documents indexed. Detailed below.
      * 
      */
     public List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics() {

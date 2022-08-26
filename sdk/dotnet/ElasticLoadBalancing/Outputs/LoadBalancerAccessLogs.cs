@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The publishing interval in minutes. Default: 60 minutes.
+        /// The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
         /// </summary>
         public readonly int? Interval;
 

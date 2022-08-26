@@ -121,7 +121,11 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// Provides the VPC ID of the subnet group.
+        /// The network type of the DB subnet group.
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedNetworkTypes;
+        /// <summary>
+        /// Provides the VPC ID of the DB subnet group.
         /// </summary>
         public readonly string VpcId;
 
@@ -139,6 +143,8 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> subnetIds,
 
+            ImmutableArray<string> supportedNetworkTypes,
+
             string vpcId)
         {
             Arn = arn;
@@ -147,6 +153,7 @@ namespace Pulumi.Aws.Rds
             Name = name;
             Status = status;
             SubnetIds = subnetIds;
+            SupportedNetworkTypes = supportedNetworkTypes;
             VpcId = vpcId;
         }
     }

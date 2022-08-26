@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
+        /// The network type of the db subnet group.
+        /// </summary>
+        [Output("supportedNetworkTypes")]
+        public Output<ImmutableArray<string>> SupportedNetworkTypes { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -221,6 +227,18 @@ namespace Pulumi.Aws.Rds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
+        }
+
+        [Input("supportedNetworkTypes")]
+        private InputList<string>? _supportedNetworkTypes;
+
+        /// <summary>
+        /// The network type of the db subnet group.
+        /// </summary>
+        public InputList<string> SupportedNetworkTypes
+        {
+            get => _supportedNetworkTypes ?? (_supportedNetworkTypes = new InputList<string>());
+            set => _supportedNetworkTypes = value;
         }
 
         [Input("tags")]

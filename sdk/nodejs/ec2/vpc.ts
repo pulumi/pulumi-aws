@@ -127,11 +127,15 @@ export class Vpc extends pulumi.CustomResource {
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
+     *
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
      */
     public readonly enableClassiclink!: pulumi.Output<boolean>;
     /**
      * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
      * Only valid in regions and accounts that support EC2 Classic.
+     *
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
      */
     public readonly enableClassiclinkDnsSupport!: pulumi.Output<boolean>;
     /**
@@ -293,11 +297,15 @@ export interface VpcState {
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
+     *
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
      */
     enableClassiclink?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
      * Only valid in regions and accounts that support EC2 Classic.
+     *
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
      */
     enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     /**
@@ -376,11 +384,15 @@ export interface VpcArgs {
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
+     *
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
      */
     enableClassiclink?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
      * Only valid in regions and accounts that support EC2 Classic.
+     *
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
      */
     enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     /**

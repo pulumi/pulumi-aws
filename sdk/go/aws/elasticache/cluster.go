@@ -230,6 +230,8 @@ type Cluster struct {
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrOutput `pulumi:"snapshotArns"`
@@ -332,6 +334,8 @@ type clusterState struct {
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns *string `pulumi:"snapshotArns"`
@@ -406,6 +410,8 @@ type ClusterState struct {
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds pulumi.StringArrayInput
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames pulumi.StringArrayInput
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrInput
@@ -474,6 +480,8 @@ type clusterArgs struct {
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns *string `pulumi:"snapshotArns"`
@@ -538,6 +546,8 @@ type ClusterArgs struct {
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds pulumi.StringArrayInput
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames pulumi.StringArrayInput
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrInput
@@ -766,6 +776,8 @@ func (o ClusterOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 }
 
 // List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+//
+// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 func (o ClusterOutput) SecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }

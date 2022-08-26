@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         private InputList<Inputs.IndexIndexStatisticFaqStatisticArgs>? _faqStatistics;
 
         /// <summary>
-        /// A block that specifies the number of question and answer topics in the index. Documented below.
+        /// A block that specifies the number of question and answer topics in the index. Detailed below.
         /// </summary>
         public InputList<Inputs.IndexIndexStatisticFaqStatisticArgs> FaqStatistics
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         private InputList<Inputs.IndexIndexStatisticTextDocumentStatisticArgs>? _textDocumentStatistics;
 
         /// <summary>
-        /// A block that specifies the number of text documents indexed.
+        /// A block that specifies the number of text documents indexed. Detailed below.
         /// </summary>
         public InputList<Inputs.IndexIndexStatisticTextDocumentStatisticArgs> TextDocumentStatistics
         {

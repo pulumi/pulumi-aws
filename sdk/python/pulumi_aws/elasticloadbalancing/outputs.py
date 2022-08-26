@@ -48,7 +48,7 @@ class LoadBalancerAccessLogs(dict):
         :param str bucket: The S3 bucket name to store the logs in.
         :param str bucket_prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
         :param bool enabled: Boolean to enable / disable `access_logs`. Default is `true`
-        :param int interval: The publishing interval in minutes. Default: 60 minutes.
+        :param int interval: The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
         """
         pulumi.set(__self__, "bucket", bucket)
         if bucket_prefix is not None:
@@ -86,7 +86,7 @@ class LoadBalancerAccessLogs(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        The publishing interval in minutes. Default: 60 minutes.
+        The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
         """
         return pulumi.get(self, "interval")
 

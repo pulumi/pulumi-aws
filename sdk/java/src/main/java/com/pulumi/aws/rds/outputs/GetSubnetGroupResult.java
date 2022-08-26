@@ -37,7 +37,12 @@ public final class GetSubnetGroupResult {
      */
     private List<String> subnetIds;
     /**
-     * @return Provides the VPC ID of the subnet group.
+     * @return The network type of the DB subnet group.
+     * 
+     */
+    private List<String> supportedNetworkTypes;
+    /**
+     * @return Provides the VPC ID of the DB subnet group.
      * 
      */
     private String vpcId;
@@ -82,7 +87,14 @@ public final class GetSubnetGroupResult {
         return this.subnetIds;
     }
     /**
-     * @return Provides the VPC ID of the subnet group.
+     * @return The network type of the DB subnet group.
+     * 
+     */
+    public List<String> supportedNetworkTypes() {
+        return this.supportedNetworkTypes;
+    }
+    /**
+     * @return Provides the VPC ID of the DB subnet group.
      * 
      */
     public String vpcId() {
@@ -104,6 +116,7 @@ public final class GetSubnetGroupResult {
         private String name;
         private String status;
         private List<String> subnetIds;
+        private List<String> supportedNetworkTypes;
         private String vpcId;
         public Builder() {}
         public Builder(GetSubnetGroupResult defaults) {
@@ -114,6 +127,7 @@ public final class GetSubnetGroupResult {
     	      this.name = defaults.name;
     	      this.status = defaults.status;
     	      this.subnetIds = defaults.subnetIds;
+    	      this.supportedNetworkTypes = defaults.supportedNetworkTypes;
     	      this.vpcId = defaults.vpcId;
         }
 
@@ -151,6 +165,14 @@ public final class GetSubnetGroupResult {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
+        public Builder supportedNetworkTypes(List<String> supportedNetworkTypes) {
+            this.supportedNetworkTypes = Objects.requireNonNull(supportedNetworkTypes);
+            return this;
+        }
+        public Builder supportedNetworkTypes(String... supportedNetworkTypes) {
+            return supportedNetworkTypes(List.of(supportedNetworkTypes));
+        }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
@@ -163,6 +185,7 @@ public final class GetSubnetGroupResult {
             o.name = name;
             o.status = status;
             o.subnetIds = subnetIds;
+            o.supportedNetworkTypes = supportedNetworkTypes;
             o.vpcId = vpcId;
             return o;
         }

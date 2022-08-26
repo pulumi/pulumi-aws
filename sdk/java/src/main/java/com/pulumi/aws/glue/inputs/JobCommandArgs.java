@@ -31,14 +31,14 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+     * The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
      * 
      */
     @Import(name="pythonVersion")
     private @Nullable Output<String> pythonVersion;
 
     /**
-     * @return The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
      * 
      */
     public Optional<Output<String>> pythonVersion() {
@@ -108,7 +108,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
          * 
          * @return builder
          * 

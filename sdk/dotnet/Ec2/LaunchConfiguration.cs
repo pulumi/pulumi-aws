@@ -579,6 +579,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         /// </summary>
+        [Obsolete(@"With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> VpcClassicLinkSecurityGroups
         {
             get => _vpcClassicLinkSecurityGroups ?? (_vpcClassicLinkSecurityGroups = new InputList<string>());
@@ -745,6 +746,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         /// </summary>
+        [Obsolete(@"With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> VpcClassicLinkSecurityGroups
         {
             get => _vpcClassicLinkSecurityGroups ?? (_vpcClassicLinkSecurityGroups = new InputList<string>());

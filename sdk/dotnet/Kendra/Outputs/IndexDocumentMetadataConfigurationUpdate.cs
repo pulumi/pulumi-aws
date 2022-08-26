@@ -14,35 +14,35 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class IndexDocumentMetadataConfigurationUpdate
     {
         /// <summary>
-        /// Specifies the name of the Index.
+        /// The name of the index field. Minimum length of 1. Maximum length of 30.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
-        /// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+        /// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
         /// </summary>
-        public readonly ImmutableArray<Outputs.IndexDocumentMetadataConfigurationUpdateRelevance> Relevances;
+        public readonly Outputs.IndexDocumentMetadataConfigurationUpdateRelevance? Relevance;
         /// <summary>
-        /// A block that provides information about how the field is used during a search. Documented below.
+        /// A block that provides information about how the field is used during a search. Documented below. Detailed below
         /// </summary>
-        public readonly ImmutableArray<Outputs.IndexDocumentMetadataConfigurationUpdateSearch> Searches;
+        public readonly Outputs.IndexDocumentMetadataConfigurationUpdateSearch? Search;
         /// <summary>
         /// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private IndexDocumentMetadataConfigurationUpdate(
-            string? name,
+            string name,
 
-            ImmutableArray<Outputs.IndexDocumentMetadataConfigurationUpdateRelevance> relevances,
+            Outputs.IndexDocumentMetadataConfigurationUpdateRelevance? relevance,
 
-            ImmutableArray<Outputs.IndexDocumentMetadataConfigurationUpdateSearch> searches,
+            Outputs.IndexDocumentMetadataConfigurationUpdateSearch? search,
 
-            string? type)
+            string type)
         {
             Name = name;
-            Relevances = relevances;
-            Searches = searches;
+            Relevance = relevance;
+            Search = search;
             Type = type;
         }
     }

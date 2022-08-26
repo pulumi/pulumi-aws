@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ### Weighted routing policy
+ *
  * Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
  *
  * ```typescript
@@ -54,6 +55,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ### Alias record
+ *
  * See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
  * to understand differences between alias and non-alias records.
  *
@@ -152,7 +154,7 @@ export class Record extends pulumi.CustomResource {
 
     /**
      * An alias block. Conflicts with `ttl` & `records`.
-     * Alias record documented below.
+     * Documented below.
      */
     public readonly aliases!: pulumi.Output<outputs.route53.RecordAlias[] | undefined>;
     /**
@@ -275,7 +277,7 @@ export class Record extends pulumi.CustomResource {
 export interface RecordState {
     /**
      * An alias block. Conflicts with `ttl` & `records`.
-     * Alias record documented below.
+     * Documented below.
      */
     aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
     /**
@@ -339,7 +341,7 @@ export interface RecordState {
 export interface RecordArgs {
     /**
      * An alias block. Conflicts with `ttl` & `records`.
-     * Alias record documented below.
+     * Documented below.
      */
     aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
     /**

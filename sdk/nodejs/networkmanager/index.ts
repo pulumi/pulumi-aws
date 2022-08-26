@@ -25,7 +25,9 @@ export * from "./link";
 export * from "./linkAssociation";
 export * from "./site";
 export * from "./transitGatewayConnectPeerAssociation";
+export * from "./transitGatewayPeering";
 export * from "./transitGatewayRegistration";
+export * from "./transitGatewayRouteTableAttachment";
 export * from "./vpcAttachment";
 
 // Import resources to register:
@@ -38,7 +40,9 @@ import { Link } from "./link";
 import { LinkAssociation } from "./linkAssociation";
 import { Site } from "./site";
 import { TransitGatewayConnectPeerAssociation } from "./transitGatewayConnectPeerAssociation";
+import { TransitGatewayPeering } from "./transitGatewayPeering";
 import { TransitGatewayRegistration } from "./transitGatewayRegistration";
+import { TransitGatewayRouteTableAttachment } from "./transitGatewayRouteTableAttachment";
 import { VpcAttachment } from "./vpcAttachment";
 
 const _module = {
@@ -63,8 +67,12 @@ const _module = {
                 return new Site(name, <any>undefined, { urn })
             case "aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation":
                 return new TransitGatewayConnectPeerAssociation(name, <any>undefined, { urn })
+            case "aws:networkmanager/transitGatewayPeering:TransitGatewayPeering":
+                return new TransitGatewayPeering(name, <any>undefined, { urn })
             case "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration":
                 return new TransitGatewayRegistration(name, <any>undefined, { urn })
+            case "aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment":
+                return new TransitGatewayRouteTableAttachment(name, <any>undefined, { urn })
             case "aws:networkmanager/vpcAttachment:VpcAttachment":
                 return new VpcAttachment(name, <any>undefined, { urn })
             default:
@@ -81,5 +89,7 @@ pulumi.runtime.registerResourceModule("aws", "networkmanager/link", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/linkAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/site", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayConnectPeerAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayPeering", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayRegistration", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayRouteTableAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/vpcAttachment", _module)

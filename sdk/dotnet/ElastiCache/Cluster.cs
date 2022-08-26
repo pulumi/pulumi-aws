@@ -520,6 +520,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         /// </summary>
+        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> SecurityGroupNames
         {
             get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());
@@ -754,6 +755,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         /// </summary>
+        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> SecurityGroupNames
         {
             get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());

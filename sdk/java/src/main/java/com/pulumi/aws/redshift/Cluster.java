@@ -243,7 +243,11 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * A list of security groups to be associated with this cluster.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
     @Export(name="clusterSecurityGroups", type=List.class, parameters={String.class})
     private Output<List<String>> clusterSecurityGroups;
 

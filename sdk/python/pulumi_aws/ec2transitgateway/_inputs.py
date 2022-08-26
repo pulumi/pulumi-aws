@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'GetAttachmentFilterArgs',
     'GetConnectFilterArgs',
     'GetConnectPeerFilterArgs',
     'GetDirectConnectGatewayAttachmentFilterArgs',
@@ -21,6 +22,43 @@ __all__ = [
     'GetVpcAttachmentsFilterArgs',
     'GetVpnAttachmentFilterArgs',
 ]
+
+@pulumi.input_type
+class GetAttachmentFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
 
 @pulumi.input_type
 class GetConnectFilterArgs:

@@ -35,7 +35,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// NetworkManager VpcAttachment can be imported using the `attachment_id`, e.g.,
+    /// `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8

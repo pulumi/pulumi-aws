@@ -11,6 +11,7 @@ from .get_map import *
 from .get_place_index import *
 from .get_route_calculator import *
 from .get_tracker import *
+from .get_tracker_association import *
 from .map import *
 from .place_index import *
 from .route_calculation import *

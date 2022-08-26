@@ -21,7 +21,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -106,6 +106,9 @@ class GetInstanceResult:
         if multi_az and not isinstance(multi_az, bool):
             raise TypeError("Expected argument 'multi_az' to be a bool")
         pulumi.set(__self__, "multi_az", multi_az)
+        if network_type and not isinstance(network_type, str):
+            raise TypeError("Expected argument 'network_type' to be a str")
+        pulumi.set(__self__, "network_type", network_type)
         if option_group_memberships and not isinstance(option_group_memberships, list):
             raise TypeError("Expected argument 'option_group_memberships' to be a list")
         pulumi.set(__self__, "option_group_memberships", option_group_memberships)
@@ -365,6 +368,14 @@ class GetInstanceResult:
         return pulumi.get(self, "multi_az")
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> str:
+        """
+        The network type of the DB instance.
+        """
+        return pulumi.get(self, "network_type")
+
+    @property
     @pulumi.getter(name="optionGroupMemberships")
     def option_group_memberships(self) -> Sequence[str]:
         """
@@ -492,6 +503,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
             multi_az=self.multi_az,
+            network_type=self.network_type,
             option_group_memberships=self.option_group_memberships,
             port=self.port,
             preferred_backup_window=self.preferred_backup_window,
@@ -559,6 +571,7 @@ def get_instance(db_instance_identifier: Optional[str] = None,
         monitoring_interval=__ret__.monitoring_interval,
         monitoring_role_arn=__ret__.monitoring_role_arn,
         multi_az=__ret__.multi_az,
+        network_type=__ret__.network_type,
         option_group_memberships=__ret__.option_group_memberships,
         port=__ret__.port,
         preferred_backup_window=__ret__.preferred_backup_window,

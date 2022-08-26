@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./connect";
 export * from "./connectPeer";
+export * from "./getAttachment";
 export * from "./getConnect";
 export * from "./getConnectPeer";
 export * from "./getDirectConnectGatewayAttachment";
@@ -23,6 +24,8 @@ export * from "./multicastGroupMember";
 export * from "./multicastGroupSource";
 export * from "./peeringAttachment";
 export * from "./peeringAttachmentAccepter";
+export * from "./policyTable";
+export * from "./policyTableAssociation";
 export * from "./prefixListReference";
 export * from "./route";
 export * from "./routeTable";
@@ -41,6 +44,8 @@ import { MulticastGroupMember } from "./multicastGroupMember";
 import { MulticastGroupSource } from "./multicastGroupSource";
 import { PeeringAttachment } from "./peeringAttachment";
 import { PeeringAttachmentAccepter } from "./peeringAttachmentAccepter";
+import { PolicyTable } from "./policyTable";
+import { PolicyTableAssociation } from "./policyTableAssociation";
 import { PrefixListReference } from "./prefixListReference";
 import { Route } from "./route";
 import { RouteTable } from "./routeTable";
@@ -70,6 +75,10 @@ const _module = {
                 return new PeeringAttachment(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter":
                 return new PeeringAttachmentAccepter(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/policyTable:PolicyTable":
+                return new PolicyTable(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation":
+                return new PolicyTableAssociation(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/prefixListReference:PrefixListReference":
                 return new PrefixListReference(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/route:Route":
@@ -99,6 +108,8 @@ pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastGroupMe
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastGroupSource", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/peeringAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/peeringAttachmentAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/policyTable", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/policyTableAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/prefixListReference", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/route", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/routeTable", _module)

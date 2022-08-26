@@ -386,6 +386,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> NcharCharacterSetName { get; private set; } = null!;
 
         /// <summary>
+        /// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the DB option group to associate.
         /// </summary>
         [Output("optionGroupName")]
@@ -876,6 +882,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NcharCharacterSetName { get; set; }
 
         /// <summary>
+        /// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// Name of the DB option group to associate.
         /// </summary>
         [Input("optionGroupName")]
@@ -968,6 +980,7 @@ namespace Pulumi.Aws.Rds
         /// associate. Only used for [DB Instances on the _EC2-Classic_
         /// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
         /// </summary>
+        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> SecurityGroupNames
         {
             get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());
@@ -1362,6 +1375,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NcharCharacterSetName { get; set; }
 
         /// <summary>
+        /// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// Name of the DB option group to associate.
         /// </summary>
         [Input("optionGroupName")]
@@ -1468,6 +1487,7 @@ namespace Pulumi.Aws.Rds
         /// associate. Only used for [DB Instances on the _EC2-Classic_
         /// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
         /// </summary>
+        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> SecurityGroupNames
         {
             get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());

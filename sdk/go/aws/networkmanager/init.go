@@ -39,8 +39,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Site{}
 	case "aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation":
 		r = &TransitGatewayConnectPeerAssociation{}
+	case "aws:networkmanager/transitGatewayPeering:TransitGatewayPeering":
+		r = &TransitGatewayPeering{}
 	case "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration":
 		r = &TransitGatewayRegistration{}
+	case "aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment":
+		r = &TransitGatewayRouteTableAttachment{}
 	case "aws:networkmanager/vpcAttachment:VpcAttachment":
 		r = &VpcAttachment{}
 	default:
@@ -103,7 +107,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"networkmanager/transitGatewayPeering",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"networkmanager/transitGatewayRegistration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkmanager/transitGatewayRouteTableAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

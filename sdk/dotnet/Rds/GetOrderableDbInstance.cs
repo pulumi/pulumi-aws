@@ -449,6 +449,10 @@ namespace Pulumi.Aws.Rds
         /// A list of the supported DB engine modes.
         /// </summary>
         public readonly ImmutableArray<string> SupportedEngineModes;
+        /// <summary>
+        /// The network types supported by the DB instance (`IPV4` or `DUAL`).
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedNetworkTypes;
         public readonly bool SupportsEnhancedMonitoring;
         public readonly bool SupportsGlobalDatabases;
         public readonly bool SupportsIamDatabaseAuthentication;
@@ -501,6 +505,8 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> supportedEngineModes,
 
+            ImmutableArray<string> supportedNetworkTypes,
+
             bool supportsEnhancedMonitoring,
 
             bool supportsGlobalDatabases,
@@ -539,6 +545,7 @@ namespace Pulumi.Aws.Rds
             ReadReplicaCapable = readReplicaCapable;
             StorageType = storageType;
             SupportedEngineModes = supportedEngineModes;
+            SupportedNetworkTypes = supportedNetworkTypes;
             SupportsEnhancedMonitoring = supportsEnhancedMonitoring;
             SupportsGlobalDatabases = supportsGlobalDatabases;
             SupportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;

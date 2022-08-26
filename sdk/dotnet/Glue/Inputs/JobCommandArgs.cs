@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+        /// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
         /// </summary>
         [Input("pythonVersion")]
         public Input<string>? PythonVersion { get; set; }

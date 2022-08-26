@@ -150,6 +150,11 @@ public final class GetInstanceResult {
      */
     private Boolean multiAz;
     /**
+     * @return The network type of the DB instance.
+     * 
+     */
+    private String networkType;
+    /**
      * @return Provides the list of option group memberships for this DB instance.
      * 
      */
@@ -400,6 +405,13 @@ public final class GetInstanceResult {
         return this.multiAz;
     }
     /**
+     * @return The network type of the DB instance.
+     * 
+     */
+    public String networkType() {
+        return this.networkType;
+    }
+    /**
      * @return Provides the list of option group memberships for this DB instance.
      * 
      */
@@ -517,6 +529,7 @@ public final class GetInstanceResult {
         private Integer monitoringInterval;
         private String monitoringRoleArn;
         private Boolean multiAz;
+        private String networkType;
         private List<String> optionGroupMemberships;
         private Integer port;
         private String preferredBackupWindow;
@@ -560,6 +573,7 @@ public final class GetInstanceResult {
     	      this.monitoringInterval = defaults.monitoringInterval;
     	      this.monitoringRoleArn = defaults.monitoringRoleArn;
     	      this.multiAz = defaults.multiAz;
+    	      this.networkType = defaults.networkType;
     	      this.optionGroupMemberships = defaults.optionGroupMemberships;
     	      this.port = defaults.port;
     	      this.preferredBackupWindow = defaults.preferredBackupWindow;
@@ -724,6 +738,11 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder networkType(String networkType) {
+            this.networkType = Objects.requireNonNull(networkType);
+            return this;
+        }
+        @CustomType.Setter
         public Builder optionGroupMemberships(List<String> optionGroupMemberships) {
             this.optionGroupMemberships = Objects.requireNonNull(optionGroupMemberships);
             return this;
@@ -819,6 +838,7 @@ public final class GetInstanceResult {
             o.monitoringInterval = monitoringInterval;
             o.monitoringRoleArn = monitoringRoleArn;
             o.multiAz = multiAz;
+            o.networkType = networkType;
             o.optionGroupMemberships = optionGroupMemberships;
             o.port = port;
             o.preferredBackupWindow = preferredBackupWindow;

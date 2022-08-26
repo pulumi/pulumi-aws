@@ -81,6 +81,10 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
+     * The network type of the db subnet group.
+     */
+    public /*out*/ readonly supportedNetworkTypes!: pulumi.Output<string[]>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -107,6 +111,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["supportedNetworkTypes"] = state ? state.supportedNetworkTypes : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -120,6 +125,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["supportedNetworkTypes"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -151,6 +157,10 @@ export interface SubnetGroupState {
      * A list of VPC subnet IDs.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The network type of the db subnet group.
+     */
+    supportedNetworkTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -431,6 +431,7 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// A list of security groups to be associated with this cluster.
         /// </summary>
+        [Obsolete(@"With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> ClusterSecurityGroups
         {
             get => _clusterSecurityGroups ?? (_clusterSecurityGroups = new InputList<string>());
@@ -729,6 +730,7 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// A list of security groups to be associated with this cluster.
         /// </summary>
+        [Obsolete(@"With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> ClusterSecurityGroups
         {
             get => _clusterSecurityGroups ?? (_clusterSecurityGroups = new InputList<string>());

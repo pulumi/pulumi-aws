@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// Redshift Servreless Namespaces can be imported using the `namespace_name`, e.g.,
+// Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
 //
 // ```sh
 //
@@ -58,7 +58,7 @@ type Namespace struct {
 	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the first database created in the namespace.
-	DbName pulumi.StringPtrOutput `pulumi:"dbName"`
+	DbName pulumi.StringOutput `pulumi:"dbName"`
 	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 	DefaultIamRoleArn pulumi.StringPtrOutput `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
@@ -304,8 +304,8 @@ func (o NamespaceOutput) Arn() pulumi.StringOutput {
 }
 
 // The name of the first database created in the namespace.
-func (o NamespaceOutput) DbName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.DbName }).(pulumi.StringPtrOutput)
+func (o NamespaceOutput) DbName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DbName }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.

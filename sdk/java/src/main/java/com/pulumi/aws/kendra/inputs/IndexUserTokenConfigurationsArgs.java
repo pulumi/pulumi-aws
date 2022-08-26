@@ -17,14 +17,14 @@ public final class IndexUserTokenConfigurationsArgs extends com.pulumi.resources
     public static final IndexUserTokenConfigurationsArgs Empty = new IndexUserTokenConfigurationsArgs();
 
     /**
-     * A block that specifies the information about the JSON token type configuration.
+     * A block that specifies the information about the JSON token type configuration. Detailed below.
      * 
      */
     @Import(name="jsonTokenTypeConfiguration")
     private @Nullable Output<IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs> jsonTokenTypeConfiguration;
 
     /**
-     * @return A block that specifies the information about the JSON token type configuration.
+     * @return A block that specifies the information about the JSON token type configuration. Detailed below.
      * 
      */
     public Optional<Output<IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs>> jsonTokenTypeConfiguration() {
@@ -32,14 +32,14 @@ public final class IndexUserTokenConfigurationsArgs extends com.pulumi.resources
     }
 
     /**
-     * A block that specifies the information about the JWT token type configuration.
+     * A block that specifies the information about the JWT token type configuration. Detailed below.
      * 
      */
     @Import(name="jwtTokenTypeConfiguration")
     private @Nullable Output<IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs> jwtTokenTypeConfiguration;
 
     /**
-     * @return A block that specifies the information about the JWT token type configuration.
+     * @return A block that specifies the information about the JWT token type configuration. Detailed below.
      * 
      */
     public Optional<Output<IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs>> jwtTokenTypeConfiguration() {
@@ -72,7 +72,7 @@ public final class IndexUserTokenConfigurationsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param jsonTokenTypeConfiguration A block that specifies the information about the JSON token type configuration.
+         * @param jsonTokenTypeConfiguration A block that specifies the information about the JSON token type configuration. Detailed below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class IndexUserTokenConfigurationsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param jsonTokenTypeConfiguration A block that specifies the information about the JSON token type configuration.
+         * @param jsonTokenTypeConfiguration A block that specifies the information about the JSON token type configuration. Detailed below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class IndexUserTokenConfigurationsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param jwtTokenTypeConfiguration A block that specifies the information about the JWT token type configuration.
+         * @param jwtTokenTypeConfiguration A block that specifies the information about the JWT token type configuration. Detailed below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class IndexUserTokenConfigurationsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param jwtTokenTypeConfiguration A block that specifies the information about the JWT token type configuration.
+         * @param jwtTokenTypeConfiguration A block that specifies the information about the JWT token type configuration. Detailed below.
          * 
          * @return builder
          * 

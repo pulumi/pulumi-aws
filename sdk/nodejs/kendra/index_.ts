@@ -52,6 +52,460 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### With Document Metadata Configuration Updates
+ * ### Specifying the predefined elements
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.Index("example", {
+ *     roleArn: aws_iam_role["this"].arn,
+ *     documentMetadataConfigurationUpdates: [
+ *         {
+ *             name: "_authors",
+ *             type: "STRING_LIST_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *             },
+ *         },
+ *         {
+ *             name: "_category",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_created_at",
+ *             type: "DATE_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 freshness: false,
+ *                 importance: 1,
+ *                 duration: "25920000s",
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *         {
+ *             name: "_data_source_id",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_document_title",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: true,
+ *                 facetable: false,
+ *                 searchable: true,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 2,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_excerpt_page_number",
+ *             type: "LONG_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 2,
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *         {
+ *             name: "_faq_id",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_file_type",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_language_code",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_last_updated_at",
+ *             type: "DATE_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 freshness: false,
+ *                 importance: 1,
+ *                 duration: "25920000s",
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *         {
+ *             name: "_source_uri",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: true,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_version",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_view_count",
+ *             type: "LONG_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *     ],
+ * });
+ * ```
+ * ### Appending additional elements
+ *
+ * The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.Index("example", {
+ *     roleArn: aws_iam_role["this"].arn,
+ *     documentMetadataConfigurationUpdates: [
+ *         {
+ *             name: "_authors",
+ *             type: "STRING_LIST_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *             },
+ *         },
+ *         {
+ *             name: "_category",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_created_at",
+ *             type: "DATE_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 freshness: false,
+ *                 importance: 1,
+ *                 duration: "25920000s",
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *         {
+ *             name: "_data_source_id",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_document_title",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: true,
+ *                 facetable: false,
+ *                 searchable: true,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 2,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_excerpt_page_number",
+ *             type: "LONG_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 2,
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *         {
+ *             name: "_faq_id",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_file_type",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_language_code",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_last_updated_at",
+ *             type: "DATE_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 freshness: false,
+ *                 importance: 1,
+ *                 duration: "25920000s",
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *         {
+ *             name: "_source_uri",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: true,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_version",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_view_count",
+ *             type: "LONG_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *         {
+ *             name: "example-string-value",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: true,
+ *                 facetable: true,
+ *                 searchable: true,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "example-long-value",
+ *             type: "LONG_VALUE",
+ *             search: {
+ *                 displayable: true,
+ *                 facetable: true,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *         {
+ *             name: "example-string-list-value",
+ *             type: "STRING_LIST_VALUE",
+ *             search: {
+ *                 displayable: true,
+ *                 facetable: true,
+ *                 searchable: true,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *             },
+ *         },
+ *         {
+ *             name: "example-date-value",
+ *             type: "DATE_VALUE",
+ *             search: {
+ *                 displayable: true,
+ *                 facetable: true,
+ *                 searchable: false,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 freshness: false,
+ *                 importance: 1,
+ *                 duration: "25920000s",
+ *                 rankOrder: "ASCENDING",
+ *             },
+ *         },
+ *     ],
+ * });
+ * ```
  * ### With JSON token type configuration
  *
  * ```typescript
@@ -110,7 +564,7 @@ export class Index extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A block that sets the number of additional document storage and query capacity units that should be used by the index.
+     * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      */
     public readonly capacityUnits!: pulumi.Output<outputs.kendra.IndexCapacityUnits>;
     /**
@@ -122,9 +576,9 @@ export class Index extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+     * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      */
-    public /*out*/ readonly documentMetadataConfigurationUpdates!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfigurationUpdate[]>;
+    public readonly documentMetadataConfigurationUpdates!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfigurationUpdate[]>;
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
      */
@@ -134,7 +588,7 @@ export class Index extends pulumi.CustomResource {
      */
     public /*out*/ readonly errorMessage!: pulumi.Output<string>;
     /**
-     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      */
     public /*out*/ readonly indexStatistics!: pulumi.Output<outputs.kendra.IndexIndexStatistic[]>;
     /**
@@ -146,7 +600,7 @@ export class Index extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.kendra.IndexServerSideEncryptionConfiguration | undefined>;
     /**
@@ -164,11 +618,11 @@ export class Index extends pulumi.CustomResource {
      */
     public readonly userContextPolicy!: pulumi.Output<string | undefined>;
     /**
-     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      */
     public readonly userGroupResolutionConfiguration!: pulumi.Output<outputs.kendra.IndexUserGroupResolutionConfiguration | undefined>;
     /**
-     * A block that specifies the user token configuration. Documented below.
+     * A block that specifies the user token configuration. Detailed below.
      */
     public readonly userTokenConfigurations!: pulumi.Output<outputs.kendra.IndexUserTokenConfigurations | undefined>;
 
@@ -210,6 +664,7 @@ export class Index extends pulumi.CustomResource {
             }
             resourceInputs["capacityUnits"] = args ? args.capacityUnits : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["documentMetadataConfigurationUpdates"] = args ? args.documentMetadataConfigurationUpdates : undefined;
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
@@ -220,7 +675,6 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["userTokenConfigurations"] = args ? args.userTokenConfigurations : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["documentMetadataConfigurationUpdates"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["indexStatistics"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -241,7 +695,7 @@ export interface IndexState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * A block that sets the number of additional document storage and query capacity units that should be used by the index.
+     * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      */
     capacityUnits?: pulumi.Input<inputs.kendra.IndexCapacityUnits>;
     /**
@@ -253,7 +707,7 @@ export interface IndexState {
      */
     description?: pulumi.Input<string>;
     /**
-     * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+     * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      */
     documentMetadataConfigurationUpdates?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationUpdate>[]>;
     /**
@@ -265,7 +719,7 @@ export interface IndexState {
      */
     errorMessage?: pulumi.Input<string>;
     /**
-     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      */
     indexStatistics?: pulumi.Input<pulumi.Input<inputs.kendra.IndexIndexStatistic>[]>;
     /**
@@ -277,7 +731,7 @@ export interface IndexState {
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.kendra.IndexServerSideEncryptionConfiguration>;
     /**
@@ -295,11 +749,11 @@ export interface IndexState {
      */
     userContextPolicy?: pulumi.Input<string>;
     /**
-     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      */
     userGroupResolutionConfiguration?: pulumi.Input<inputs.kendra.IndexUserGroupResolutionConfiguration>;
     /**
-     * A block that specifies the user token configuration. Documented below.
+     * A block that specifies the user token configuration. Detailed below.
      */
     userTokenConfigurations?: pulumi.Input<inputs.kendra.IndexUserTokenConfigurations>;
 }
@@ -309,13 +763,17 @@ export interface IndexState {
  */
 export interface IndexArgs {
     /**
-     * A block that sets the number of additional document storage and query capacity units that should be used by the index.
+     * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      */
     capacityUnits?: pulumi.Input<inputs.kendra.IndexCapacityUnits>;
     /**
      * The description of the Index.
      */
     description?: pulumi.Input<string>;
+    /**
+     * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+     */
+    documentMetadataConfigurationUpdates?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationUpdate>[]>;
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
      */
@@ -329,7 +787,7 @@ export interface IndexArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.kendra.IndexServerSideEncryptionConfiguration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -338,11 +796,11 @@ export interface IndexArgs {
      */
     userContextPolicy?: pulumi.Input<string>;
     /**
-     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      */
     userGroupResolutionConfiguration?: pulumi.Input<inputs.kendra.IndexUserGroupResolutionConfiguration>;
     /**
-     * A block that specifies the user token configuration. Documented below.
+     * A block that specifies the user token configuration. Detailed below.
      */
     userTokenConfigurations?: pulumi.Input<inputs.kendra.IndexUserTokenConfigurations>;
 }

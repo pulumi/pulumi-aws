@@ -112,6 +112,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly clusterRevisionNumber!: pulumi.Output<string>;
     /**
      * A list of security groups to be associated with this cluster.
+     *
+     * @deprecated With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
      */
     public readonly clusterSecurityGroups!: pulumi.Output<string[]>;
     /**
@@ -416,6 +418,8 @@ export interface ClusterState {
     clusterRevisionNumber?: pulumi.Input<string>;
     /**
      * A list of security groups to be associated with this cluster.
+     *
+     * @deprecated With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
      */
     clusterSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -598,6 +602,8 @@ export interface ClusterArgs {
     clusterRevisionNumber?: pulumi.Input<string>;
     /**
      * A list of security groups to be associated with this cluster.
+     *
+     * @deprecated With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
      */
     clusterSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**

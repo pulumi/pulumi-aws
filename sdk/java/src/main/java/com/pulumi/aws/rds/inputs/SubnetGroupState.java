@@ -94,6 +94,21 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The network type of the db subnet group.
+     * 
+     */
+    @Import(name="supportedNetworkTypes")
+    private @Nullable Output<List<String>> supportedNetworkTypes;
+
+    /**
+     * @return The network type of the db subnet group.
+     * 
+     */
+    public Optional<Output<List<String>>> supportedNetworkTypes() {
+        return Optional.ofNullable(this.supportedNetworkTypes);
+    }
+
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -131,6 +146,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.subnetIds = $.subnetIds;
+        this.supportedNetworkTypes = $.supportedNetworkTypes;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -266,6 +282,37 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
+        }
+
+        /**
+         * @param supportedNetworkTypes The network type of the db subnet group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedNetworkTypes(@Nullable Output<List<String>> supportedNetworkTypes) {
+            $.supportedNetworkTypes = supportedNetworkTypes;
+            return this;
+        }
+
+        /**
+         * @param supportedNetworkTypes The network type of the db subnet group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedNetworkTypes(List<String> supportedNetworkTypes) {
+            return supportedNetworkTypes(Output.of(supportedNetworkTypes));
+        }
+
+        /**
+         * @param supportedNetworkTypes The network type of the db subnet group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedNetworkTypes(String... supportedNetworkTypes) {
+            return supportedNetworkTypes(List.of(supportedNetworkTypes));
         }
 
         /**

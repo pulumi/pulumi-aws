@@ -116,6 +116,9 @@ class ClusterArgs:
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if security_group_names is not None:
+            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
+        if security_group_names is not None:
             pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_arns is not None:
             pulumi.set(__self__, "snapshot_arns", snapshot_arns)
@@ -564,6 +567,9 @@ class _ClusterState:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if security_group_names is not None:
+            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
         if security_group_names is not None:
             pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_arns is not None:
@@ -1293,6 +1299,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["preferred_availability_zones"] = preferred_availability_zones
             __props__.__dict__["replication_group_id"] = replication_group_id
             __props__.__dict__["security_group_ids"] = security_group_ids
+            if security_group_names is not None and not opts.urn:
+                warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+                pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
             __props__.__dict__["security_group_names"] = security_group_names
             __props__.__dict__["snapshot_arns"] = snapshot_arns
             __props__.__dict__["snapshot_name"] = snapshot_name

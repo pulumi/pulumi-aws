@@ -10,13 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache
 {
     /// <summary>
-    /// Provides an ElastiCache Security Group to control access to one or more cache
-    /// clusters.
-    /// 
-    /// &gt; **NOTE:** ElastiCache Security Groups are for use only when working with an
-    /// ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
-    /// ElastiCache Subnet Group resource.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -4961,14 +4961,14 @@ func (o IndexCapacityUnitsPtrOutput) StorageCapacityUnits() pulumi.IntPtrOutput 
 }
 
 type IndexDocumentMetadataConfigurationUpdate struct {
-	// Specifies the name of the Index.
-	Name *string `pulumi:"name"`
-	// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
-	Relevances []IndexDocumentMetadataConfigurationUpdateRelevance `pulumi:"relevances"`
-	// A block that provides information about how the field is used during a search. Documented below.
-	Searches []IndexDocumentMetadataConfigurationUpdateSearch `pulumi:"searches"`
+	// The name of the index field. Minimum length of 1. Maximum length of 30.
+	Name string `pulumi:"name"`
+	// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+	Relevance *IndexDocumentMetadataConfigurationUpdateRelevance `pulumi:"relevance"`
+	// A block that provides information about how the field is used during a search. Documented below. Detailed below
+	Search *IndexDocumentMetadataConfigurationUpdateSearch `pulumi:"search"`
 	// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // IndexDocumentMetadataConfigurationUpdateInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateArgs and IndexDocumentMetadataConfigurationUpdateOutput values.
@@ -4983,14 +4983,14 @@ type IndexDocumentMetadataConfigurationUpdateInput interface {
 }
 
 type IndexDocumentMetadataConfigurationUpdateArgs struct {
-	// Specifies the name of the Index.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
-	Relevances IndexDocumentMetadataConfigurationUpdateRelevanceArrayInput `pulumi:"relevances"`
-	// A block that provides information about how the field is used during a search. Documented below.
-	Searches IndexDocumentMetadataConfigurationUpdateSearchArrayInput `pulumi:"searches"`
+	// The name of the index field. Minimum length of 1. Maximum length of 30.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+	Relevance IndexDocumentMetadataConfigurationUpdateRelevancePtrInput `pulumi:"relevance"`
+	// A block that provides information about how the field is used during a search. Documented below. Detailed below
+	Search IndexDocumentMetadataConfigurationUpdateSearchPtrInput `pulumi:"search"`
 	// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (IndexDocumentMetadataConfigurationUpdateArgs) ElementType() reflect.Type {
@@ -5044,28 +5044,28 @@ func (o IndexDocumentMetadataConfigurationUpdateOutput) ToIndexDocumentMetadataC
 	return o
 }
 
-// Specifies the name of the Index.
-func (o IndexDocumentMetadataConfigurationUpdateOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) *string { return v.Name }).(pulumi.StringPtrOutput)
+// The name of the index field. Minimum length of 1. Maximum length of 30.
+func (o IndexDocumentMetadataConfigurationUpdateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
-func (o IndexDocumentMetadataConfigurationUpdateOutput) Relevances() IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
-	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) []IndexDocumentMetadataConfigurationUpdateRelevance {
-		return v.Relevances
-	}).(IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput)
+// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+func (o IndexDocumentMetadataConfigurationUpdateOutput) Relevance() IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
+	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) *IndexDocumentMetadataConfigurationUpdateRelevance {
+		return v.Relevance
+	}).(IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput)
 }
 
-// A block that provides information about how the field is used during a search. Documented below.
-func (o IndexDocumentMetadataConfigurationUpdateOutput) Searches() IndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
-	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) []IndexDocumentMetadataConfigurationUpdateSearch {
-		return v.Searches
-	}).(IndexDocumentMetadataConfigurationUpdateSearchArrayOutput)
+// A block that provides information about how the field is used during a search. Documented below. Detailed below
+func (o IndexDocumentMetadataConfigurationUpdateOutput) Search() IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
+	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) *IndexDocumentMetadataConfigurationUpdateSearch {
+		return v.Search
+	}).(IndexDocumentMetadataConfigurationUpdateSearchPtrOutput)
 }
 
 // The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-func (o IndexDocumentMetadataConfigurationUpdateOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IndexDocumentMetadataConfigurationUpdateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type IndexDocumentMetadataConfigurationUpdateArrayOutput struct{ *pulumi.OutputState }
@@ -5137,29 +5137,45 @@ func (i IndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToIndexDocumentMe
 	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateRelevanceOutput)
 }
 
-// IndexDocumentMetadataConfigurationUpdateRelevanceArrayInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateRelevanceArray and IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput values.
-// You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateRelevanceArrayInput` via:
+func (i IndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutput() IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
+	return i.ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(context.Background())
+}
+
+func (i IndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateRelevanceOutput).ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(ctx)
+}
+
+// IndexDocumentMetadataConfigurationUpdateRelevancePtrInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateRelevanceArgs, IndexDocumentMetadataConfigurationUpdateRelevancePtr and IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput values.
+// You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateRelevancePtrInput` via:
 //
-//	IndexDocumentMetadataConfigurationUpdateRelevanceArray{ IndexDocumentMetadataConfigurationUpdateRelevanceArgs{...} }
-type IndexDocumentMetadataConfigurationUpdateRelevanceArrayInput interface {
+//	        IndexDocumentMetadataConfigurationUpdateRelevanceArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexDocumentMetadataConfigurationUpdateRelevancePtrInput interface {
 	pulumi.Input
 
-	ToIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput() IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput
-	ToIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(context.Context) IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput
+	ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutput() IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput
+	ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(context.Context) IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput
 }
 
-type IndexDocumentMetadataConfigurationUpdateRelevanceArray []IndexDocumentMetadataConfigurationUpdateRelevanceInput
+type indexDocumentMetadataConfigurationUpdateRelevancePtrType IndexDocumentMetadataConfigurationUpdateRelevanceArgs
 
-func (IndexDocumentMetadataConfigurationUpdateRelevanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IndexDocumentMetadataConfigurationUpdateRelevance)(nil)).Elem()
+func IndexDocumentMetadataConfigurationUpdateRelevancePtr(v *IndexDocumentMetadataConfigurationUpdateRelevanceArgs) IndexDocumentMetadataConfigurationUpdateRelevancePtrInput {
+	return (*indexDocumentMetadataConfigurationUpdateRelevancePtrType)(v)
 }
 
-func (i IndexDocumentMetadataConfigurationUpdateRelevanceArray) ToIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput() IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
-	return i.ToIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(context.Background())
+func (*indexDocumentMetadataConfigurationUpdateRelevancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexDocumentMetadataConfigurationUpdateRelevance)(nil)).Elem()
 }
 
-func (i IndexDocumentMetadataConfigurationUpdateRelevanceArray) ToIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput)
+func (i *indexDocumentMetadataConfigurationUpdateRelevancePtrType) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutput() IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
+	return i.ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(context.Background())
+}
+
+func (i *indexDocumentMetadataConfigurationUpdateRelevancePtrType) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput)
 }
 
 type IndexDocumentMetadataConfigurationUpdateRelevanceOutput struct{ *pulumi.OutputState }
@@ -5174,6 +5190,16 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToIndexDocument
 
 func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToIndexDocumentMetadataConfigurationUpdateRelevanceOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateRelevanceOutput {
 	return o
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutput() IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
+	return o.ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(context.Background())
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexDocumentMetadataConfigurationUpdateRelevance) *IndexDocumentMetadataConfigurationUpdateRelevance {
+		return &v
+	}).(IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput)
 }
 
 // Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
@@ -5201,24 +5227,78 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ValuesImportanc
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateRelevance) map[string]int { return v.ValuesImportanceMap }).(pulumi.IntMapOutput)
 }
 
-type IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput struct{ *pulumi.OutputState }
+type IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput struct{ *pulumi.OutputState }
 
-func (IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IndexDocumentMetadataConfigurationUpdateRelevance)(nil)).Elem()
+func (IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexDocumentMetadataConfigurationUpdateRelevance)(nil)).Elem()
 }
 
-func (o IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) ToIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput() IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
+func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutput() IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
 	return o
 }
 
-func (o IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) ToIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
+func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
 	return o
 }
 
-func (o IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) Index(i pulumi.IntInput) IndexDocumentMetadataConfigurationUpdateRelevanceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexDocumentMetadataConfigurationUpdateRelevance {
-		return vs[0].([]IndexDocumentMetadataConfigurationUpdateRelevance)[vs[1].(int)]
+func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Elem() IndexDocumentMetadataConfigurationUpdateRelevanceOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) IndexDocumentMetadataConfigurationUpdateRelevance {
+		if v != nil {
+			return *v
+		}
+		var ret IndexDocumentMetadataConfigurationUpdateRelevance
+		return ret
 	}).(IndexDocumentMetadataConfigurationUpdateRelevanceOutput)
+}
+
+// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Freshness() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Freshness
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Importance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Importance
+	}).(pulumi.IntPtrOutput)
+}
+
+// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) RankOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RankOrder
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) ValuesImportanceMap() pulumi.IntMapOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) map[string]int {
+		if v == nil {
+			return nil
+		}
+		return v.ValuesImportanceMap
+	}).(pulumi.IntMapOutput)
 }
 
 type IndexDocumentMetadataConfigurationUpdateSearch struct {
@@ -5266,29 +5346,45 @@ func (i IndexDocumentMetadataConfigurationUpdateSearchArgs) ToIndexDocumentMetad
 	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateSearchOutput)
 }
 
-// IndexDocumentMetadataConfigurationUpdateSearchArrayInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateSearchArray and IndexDocumentMetadataConfigurationUpdateSearchArrayOutput values.
-// You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateSearchArrayInput` via:
+func (i IndexDocumentMetadataConfigurationUpdateSearchArgs) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutput() IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
+	return i.ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(context.Background())
+}
+
+func (i IndexDocumentMetadataConfigurationUpdateSearchArgs) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateSearchOutput).ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(ctx)
+}
+
+// IndexDocumentMetadataConfigurationUpdateSearchPtrInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateSearchArgs, IndexDocumentMetadataConfigurationUpdateSearchPtr and IndexDocumentMetadataConfigurationUpdateSearchPtrOutput values.
+// You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateSearchPtrInput` via:
 //
-//	IndexDocumentMetadataConfigurationUpdateSearchArray{ IndexDocumentMetadataConfigurationUpdateSearchArgs{...} }
-type IndexDocumentMetadataConfigurationUpdateSearchArrayInput interface {
+//	        IndexDocumentMetadataConfigurationUpdateSearchArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexDocumentMetadataConfigurationUpdateSearchPtrInput interface {
 	pulumi.Input
 
-	ToIndexDocumentMetadataConfigurationUpdateSearchArrayOutput() IndexDocumentMetadataConfigurationUpdateSearchArrayOutput
-	ToIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(context.Context) IndexDocumentMetadataConfigurationUpdateSearchArrayOutput
+	ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutput() IndexDocumentMetadataConfigurationUpdateSearchPtrOutput
+	ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(context.Context) IndexDocumentMetadataConfigurationUpdateSearchPtrOutput
 }
 
-type IndexDocumentMetadataConfigurationUpdateSearchArray []IndexDocumentMetadataConfigurationUpdateSearchInput
+type indexDocumentMetadataConfigurationUpdateSearchPtrType IndexDocumentMetadataConfigurationUpdateSearchArgs
 
-func (IndexDocumentMetadataConfigurationUpdateSearchArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IndexDocumentMetadataConfigurationUpdateSearch)(nil)).Elem()
+func IndexDocumentMetadataConfigurationUpdateSearchPtr(v *IndexDocumentMetadataConfigurationUpdateSearchArgs) IndexDocumentMetadataConfigurationUpdateSearchPtrInput {
+	return (*indexDocumentMetadataConfigurationUpdateSearchPtrType)(v)
 }
 
-func (i IndexDocumentMetadataConfigurationUpdateSearchArray) ToIndexDocumentMetadataConfigurationUpdateSearchArrayOutput() IndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
-	return i.ToIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(context.Background())
+func (*indexDocumentMetadataConfigurationUpdateSearchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexDocumentMetadataConfigurationUpdateSearch)(nil)).Elem()
 }
 
-func (i IndexDocumentMetadataConfigurationUpdateSearchArray) ToIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateSearchArrayOutput)
+func (i *indexDocumentMetadataConfigurationUpdateSearchPtrType) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutput() IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
+	return i.ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(context.Background())
+}
+
+func (i *indexDocumentMetadataConfigurationUpdateSearchPtrType) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateSearchPtrOutput)
 }
 
 type IndexDocumentMetadataConfigurationUpdateSearchOutput struct{ *pulumi.OutputState }
@@ -5303,6 +5399,16 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) ToIndexDocumentMet
 
 func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) ToIndexDocumentMetadataConfigurationUpdateSearchOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateSearchOutput {
 	return o
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutput() IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
+	return o.ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(context.Background())
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexDocumentMetadataConfigurationUpdateSearch) *IndexDocumentMetadataConfigurationUpdateSearch {
+		return &v
+	}).(IndexDocumentMetadataConfigurationUpdateSearchPtrOutput)
 }
 
 // Determines whether the field is returned in the query response. The default is `true`.
@@ -5325,30 +5431,74 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) Sortable() pulumi.
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateSearch) *bool { return v.Sortable }).(pulumi.BoolPtrOutput)
 }
 
-type IndexDocumentMetadataConfigurationUpdateSearchArrayOutput struct{ *pulumi.OutputState }
+type IndexDocumentMetadataConfigurationUpdateSearchPtrOutput struct{ *pulumi.OutputState }
 
-func (IndexDocumentMetadataConfigurationUpdateSearchArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IndexDocumentMetadataConfigurationUpdateSearch)(nil)).Elem()
+func (IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexDocumentMetadataConfigurationUpdateSearch)(nil)).Elem()
 }
 
-func (o IndexDocumentMetadataConfigurationUpdateSearchArrayOutput) ToIndexDocumentMetadataConfigurationUpdateSearchArrayOutput() IndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
+func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutput() IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
 	return o
 }
 
-func (o IndexDocumentMetadataConfigurationUpdateSearchArrayOutput) ToIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
+func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
 	return o
 }
 
-func (o IndexDocumentMetadataConfigurationUpdateSearchArrayOutput) Index(i pulumi.IntInput) IndexDocumentMetadataConfigurationUpdateSearchOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexDocumentMetadataConfigurationUpdateSearch {
-		return vs[0].([]IndexDocumentMetadataConfigurationUpdateSearch)[vs[1].(int)]
+func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Elem() IndexDocumentMetadataConfigurationUpdateSearchOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateSearch) IndexDocumentMetadataConfigurationUpdateSearch {
+		if v != nil {
+			return *v
+		}
+		var ret IndexDocumentMetadataConfigurationUpdateSearch
+		return ret
 	}).(IndexDocumentMetadataConfigurationUpdateSearchOutput)
 }
 
+// Determines whether the field is returned in the query response. The default is `true`.
+func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Displayable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateSearch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Displayable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Facetable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateSearch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Facetable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
+func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Searchable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateSearch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Searchable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
+func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Sortable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateSearch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Sortable
+	}).(pulumi.BoolPtrOutput)
+}
+
 type IndexIndexStatistic struct {
-	// A block that specifies the number of question and answer topics in the index. Documented below.
+	// A block that specifies the number of question and answer topics in the index. Detailed below.
 	FaqStatistics []IndexIndexStatisticFaqStatistic `pulumi:"faqStatistics"`
-	// A block that specifies the number of text documents indexed.
+	// A block that specifies the number of text documents indexed. Detailed below.
 	TextDocumentStatistics []IndexIndexStatisticTextDocumentStatistic `pulumi:"textDocumentStatistics"`
 }
 
@@ -5364,9 +5514,9 @@ type IndexIndexStatisticInput interface {
 }
 
 type IndexIndexStatisticArgs struct {
-	// A block that specifies the number of question and answer topics in the index. Documented below.
+	// A block that specifies the number of question and answer topics in the index. Detailed below.
 	FaqStatistics IndexIndexStatisticFaqStatisticArrayInput `pulumi:"faqStatistics"`
-	// A block that specifies the number of text documents indexed.
+	// A block that specifies the number of text documents indexed. Detailed below.
 	TextDocumentStatistics IndexIndexStatisticTextDocumentStatisticArrayInput `pulumi:"textDocumentStatistics"`
 }
 
@@ -5421,12 +5571,12 @@ func (o IndexIndexStatisticOutput) ToIndexIndexStatisticOutputWithContext(ctx co
 	return o
 }
 
-// A block that specifies the number of question and answer topics in the index. Documented below.
+// A block that specifies the number of question and answer topics in the index. Detailed below.
 func (o IndexIndexStatisticOutput) FaqStatistics() IndexIndexStatisticFaqStatisticArrayOutput {
 	return o.ApplyT(func(v IndexIndexStatistic) []IndexIndexStatisticFaqStatistic { return v.FaqStatistics }).(IndexIndexStatisticFaqStatisticArrayOutput)
 }
 
-// A block that specifies the number of text documents indexed.
+// A block that specifies the number of text documents indexed. Detailed below.
 func (o IndexIndexStatisticOutput) TextDocumentStatistics() IndexIndexStatisticTextDocumentStatisticArrayOutput {
 	return o.ApplyT(func(v IndexIndexStatistic) []IndexIndexStatisticTextDocumentStatistic {
 		return v.TextDocumentStatistics
@@ -5931,9 +6081,9 @@ func (o IndexUserGroupResolutionConfigurationPtrOutput) UserGroupResolutionMode(
 }
 
 type IndexUserTokenConfigurations struct {
-	// A block that specifies the information about the JSON token type configuration.
+	// A block that specifies the information about the JSON token type configuration. Detailed below.
 	JsonTokenTypeConfiguration *IndexUserTokenConfigurationsJsonTokenTypeConfiguration `pulumi:"jsonTokenTypeConfiguration"`
-	// A block that specifies the information about the JWT token type configuration.
+	// A block that specifies the information about the JWT token type configuration. Detailed below.
 	JwtTokenTypeConfiguration *IndexUserTokenConfigurationsJwtTokenTypeConfiguration `pulumi:"jwtTokenTypeConfiguration"`
 }
 
@@ -5949,9 +6099,9 @@ type IndexUserTokenConfigurationsInput interface {
 }
 
 type IndexUserTokenConfigurationsArgs struct {
-	// A block that specifies the information about the JSON token type configuration.
+	// A block that specifies the information about the JSON token type configuration. Detailed below.
 	JsonTokenTypeConfiguration IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrInput `pulumi:"jsonTokenTypeConfiguration"`
-	// A block that specifies the information about the JWT token type configuration.
+	// A block that specifies the information about the JWT token type configuration. Detailed below.
 	JwtTokenTypeConfiguration IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrInput `pulumi:"jwtTokenTypeConfiguration"`
 }
 
@@ -6032,14 +6182,14 @@ func (o IndexUserTokenConfigurationsOutput) ToIndexUserTokenConfigurationsPtrOut
 	}).(IndexUserTokenConfigurationsPtrOutput)
 }
 
-// A block that specifies the information about the JSON token type configuration.
+// A block that specifies the information about the JSON token type configuration. Detailed below.
 func (o IndexUserTokenConfigurationsOutput) JsonTokenTypeConfiguration() IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurations) *IndexUserTokenConfigurationsJsonTokenTypeConfiguration {
 		return v.JsonTokenTypeConfiguration
 	}).(IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput)
 }
 
-// A block that specifies the information about the JWT token type configuration.
+// A block that specifies the information about the JWT token type configuration. Detailed below.
 func (o IndexUserTokenConfigurationsOutput) JwtTokenTypeConfiguration() IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurations) *IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
 		return v.JwtTokenTypeConfiguration
@@ -6070,7 +6220,7 @@ func (o IndexUserTokenConfigurationsPtrOutput) Elem() IndexUserTokenConfiguratio
 	}).(IndexUserTokenConfigurationsOutput)
 }
 
-// A block that specifies the information about the JSON token type configuration.
+// A block that specifies the information about the JSON token type configuration. Detailed below.
 func (o IndexUserTokenConfigurationsPtrOutput) JsonTokenTypeConfiguration() IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurations) *IndexUserTokenConfigurationsJsonTokenTypeConfiguration {
 		if v == nil {
@@ -6080,7 +6230,7 @@ func (o IndexUserTokenConfigurationsPtrOutput) JsonTokenTypeConfiguration() Inde
 	}).(IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput)
 }
 
-// A block that specifies the information about the JWT token type configuration.
+// A block that specifies the information about the JWT token type configuration. Detailed below.
 func (o IndexUserTokenConfigurationsPtrOutput) JwtTokenTypeConfiguration() IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurations) *IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
 		if v == nil {
@@ -8986,9 +9136,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationUpdateInput)(nil)).Elem(), IndexDocumentMetadataConfigurationUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationUpdateArrayInput)(nil)).Elem(), IndexDocumentMetadataConfigurationUpdateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationUpdateRelevanceInput)(nil)).Elem(), IndexDocumentMetadataConfigurationUpdateRelevanceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationUpdateRelevanceArrayInput)(nil)).Elem(), IndexDocumentMetadataConfigurationUpdateRelevanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationUpdateRelevancePtrInput)(nil)).Elem(), IndexDocumentMetadataConfigurationUpdateRelevanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationUpdateSearchInput)(nil)).Elem(), IndexDocumentMetadataConfigurationUpdateSearchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationUpdateSearchArrayInput)(nil)).Elem(), IndexDocumentMetadataConfigurationUpdateSearchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationUpdateSearchPtrInput)(nil)).Elem(), IndexDocumentMetadataConfigurationUpdateSearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexIndexStatisticInput)(nil)).Elem(), IndexIndexStatisticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexIndexStatisticArrayInput)(nil)).Elem(), IndexIndexStatisticArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexIndexStatisticFaqStatisticInput)(nil)).Elem(), IndexIndexStatisticFaqStatisticArgs{})
@@ -9108,9 +9258,9 @@ func init() {
 	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationUpdateOutput{})
 	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationUpdateArrayOutput{})
 	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationUpdateRelevanceOutput{})
-	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput{})
+	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput{})
 	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationUpdateSearchOutput{})
-	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationUpdateSearchArrayOutput{})
+	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationUpdateSearchPtrOutput{})
 	pulumi.RegisterOutputType(IndexIndexStatisticOutput{})
 	pulumi.RegisterOutputType(IndexIndexStatisticArrayOutput{})
 	pulumi.RegisterOutputType(IndexIndexStatisticFaqStatisticOutput{})

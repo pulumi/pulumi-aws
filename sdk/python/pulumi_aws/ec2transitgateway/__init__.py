@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .connect import *
 from .connect_peer import *
+from .get_attachment import *
 from .get_connect import *
 from .get_connect_peer import *
 from .get_direct_connect_gateway_attachment import *
@@ -23,6 +24,8 @@ from .multicast_group_member import *
 from .multicast_group_source import *
 from .peering_attachment import *
 from .peering_attachment_accepter import *
+from .policy_table import *
+from .policy_table_association import *
 from .prefix_list_reference import *
 from .route import *
 from .route_table import *

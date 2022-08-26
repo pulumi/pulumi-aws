@@ -13,11 +13,14 @@ import com.pulumi.aws.location.inputs.GetPlaceIndexPlainArgs;
 import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
 import com.pulumi.aws.location.inputs.GetRouteCalculatorPlainArgs;
 import com.pulumi.aws.location.inputs.GetTrackerArgs;
+import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
+import com.pulumi.aws.location.inputs.GetTrackerAssociationPlainArgs;
 import com.pulumi.aws.location.inputs.GetTrackerPlainArgs;
 import com.pulumi.aws.location.outputs.GetGeofenceCollectionResult;
 import com.pulumi.aws.location.outputs.GetMapResult;
 import com.pulumi.aws.location.outputs.GetPlaceIndexResult;
 import com.pulumi.aws.location.outputs.GetRouteCalculatorResult;
+import com.pulumi.aws.location.outputs.GetTrackerAssociationResult;
 import com.pulumi.aws.location.outputs.GetTrackerResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -769,5 +772,161 @@ public final class LocationFunctions {
      */
     public static CompletableFuture<GetTrackerResult> getTrackerPlain(GetTrackerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:location/getTracker:getTracker", TypeShape.of(GetTrackerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Location Service Tracker Association.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
+     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
+     *             .trackerName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTrackerAssociationResult> getTrackerAssociation(GetTrackerAssociationArgs args) {
+        return getTrackerAssociation(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Location Service Tracker Association.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
+     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
+     *             .trackerName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTrackerAssociationResult> getTrackerAssociationPlain(GetTrackerAssociationPlainArgs args) {
+        return getTrackerAssociationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Location Service Tracker Association.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
+     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
+     *             .trackerName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTrackerAssociationResult> getTrackerAssociation(GetTrackerAssociationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:location/getTrackerAssociation:getTrackerAssociation", TypeShape.of(GetTrackerAssociationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Location Service Tracker Association.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
+     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
+     *             .trackerName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTrackerAssociationResult> getTrackerAssociationPlain(GetTrackerAssociationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:location/getTrackerAssociation:getTrackerAssociation", TypeShape.of(GetTrackerAssociationResult.class), args, Utilities.withVersion(options));
     }
 }

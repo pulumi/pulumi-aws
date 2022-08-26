@@ -3474,6 +3474,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/networkInsightsAnalysis",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis": "NetworkInsightsAnalysis"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/networkInsightsPath",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -3998,6 +4006,22 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2transitgateway",
   "classes": {
    "aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter": "PeeringAttachmentAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/policyTable",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/policyTable:PolicyTable": "PolicyTable"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/policyTableAssociation",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation": "PolicyTableAssociation"
   }
  },
  {
@@ -5038,6 +5062,14 @@ _utilities.register(
   "fqn": "pulumi_aws.grafana",
   "classes": {
    "aws:grafana/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "grafana/workspaceApiKey",
+  "fqn": "pulumi_aws.grafana",
+  "classes": {
+   "aws:grafana/workspaceApiKey:WorkspaceApiKey": "WorkspaceApiKey"
   }
  },
  {
@@ -6466,10 +6498,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkmanager/transitGatewayPeering",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/transitGatewayPeering:TransitGatewayPeering": "TransitGatewayPeering"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/transitGatewayRegistration",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration": "TransitGatewayRegistration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/transitGatewayRouteTableAttachment",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment": "TransitGatewayRouteTableAttachment"
   }
  },
  {
@@ -7166,6 +7214,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshiftserverless",
   "classes": {
    "aws:redshiftserverless/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshiftserverless/workgroup",
+  "fqn": "pulumi_aws.redshiftserverless",
+  "classes": {
+   "aws:redshiftserverless/workgroup:Workgroup": "Workgroup"
   }
  },
  {

@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RoleAssociation{}
 	case "aws:grafana/workspace:Workspace":
 		r = &Workspace{}
+	case "aws:grafana/workspaceApiKey:WorkspaceApiKey":
+		r = &WorkspaceApiKey{}
 	case "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration":
 		r = &WorkspaceSamlConfiguration{}
 	default:
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"grafana/workspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"grafana/workspaceApiKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

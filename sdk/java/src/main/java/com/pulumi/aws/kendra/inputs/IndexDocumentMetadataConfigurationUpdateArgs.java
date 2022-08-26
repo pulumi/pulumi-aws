@@ -8,7 +8,6 @@ import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateSear
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,71 +18,71 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
     public static final IndexDocumentMetadataConfigurationUpdateArgs Empty = new IndexDocumentMetadataConfigurationUpdateArgs();
 
     /**
-     * Specifies the name of the Index.
+     * The name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
-     * @return Specifies the name of the Index.
+     * @return The name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
-     * A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+     * A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
      * 
      */
-    @Import(name="relevances")
-    private @Nullable Output<List<IndexDocumentMetadataConfigurationUpdateRelevanceArgs>> relevances;
+    @Import(name="relevance")
+    private @Nullable Output<IndexDocumentMetadataConfigurationUpdateRelevanceArgs> relevance;
 
     /**
-     * @return A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+     * @return A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
      * 
      */
-    public Optional<Output<List<IndexDocumentMetadataConfigurationUpdateRelevanceArgs>>> relevances() {
-        return Optional.ofNullable(this.relevances);
+    public Optional<Output<IndexDocumentMetadataConfigurationUpdateRelevanceArgs>> relevance() {
+        return Optional.ofNullable(this.relevance);
     }
 
     /**
-     * A block that provides information about how the field is used during a search. Documented below.
+     * A block that provides information about how the field is used during a search. Documented below. Detailed below
      * 
      */
-    @Import(name="searches")
-    private @Nullable Output<List<IndexDocumentMetadataConfigurationUpdateSearchArgs>> searches;
+    @Import(name="search")
+    private @Nullable Output<IndexDocumentMetadataConfigurationUpdateSearchArgs> search;
 
     /**
-     * @return A block that provides information about how the field is used during a search. Documented below.
+     * @return A block that provides information about how the field is used during a search. Documented below. Detailed below
      * 
      */
-    public Optional<Output<List<IndexDocumentMetadataConfigurationUpdateSearchArgs>>> searches() {
-        return Optional.ofNullable(this.searches);
+    public Optional<Output<IndexDocumentMetadataConfigurationUpdateSearchArgs>> search() {
+        return Optional.ofNullable(this.search);
     }
 
     /**
      * The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
-    @Import(name="type")
-    private @Nullable Output<String> type;
+    @Import(name="type", required=true)
+    private Output<String> type;
 
     /**
      * @return The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
-    public Optional<Output<String>> type() {
-        return Optional.ofNullable(this.type);
+    public Output<String> type() {
+        return this.type;
     }
 
     private IndexDocumentMetadataConfigurationUpdateArgs() {}
 
     private IndexDocumentMetadataConfigurationUpdateArgs(IndexDocumentMetadataConfigurationUpdateArgs $) {
         this.name = $.name;
-        this.relevances = $.relevances;
-        this.searches = $.searches;
+        this.relevance = $.relevance;
+        this.search = $.search;
         this.type = $.type;
     }
 
@@ -106,18 +105,18 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param name Specifies the name of the Index.
+         * @param name The name of the index field. Minimum length of 1. Maximum length of 30.
          * 
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
         /**
-         * @param name Specifies the name of the Index.
+         * @param name The name of the index field. Minimum length of 1. Maximum length of 30.
          * 
          * @return builder
          * 
@@ -127,65 +126,45 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param relevances A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+         * @param relevance A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
          * 
          * @return builder
          * 
          */
-        public Builder relevances(@Nullable Output<List<IndexDocumentMetadataConfigurationUpdateRelevanceArgs>> relevances) {
-            $.relevances = relevances;
+        public Builder relevance(@Nullable Output<IndexDocumentMetadataConfigurationUpdateRelevanceArgs> relevance) {
+            $.relevance = relevance;
             return this;
         }
 
         /**
-         * @param relevances A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+         * @param relevance A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
          * 
          * @return builder
          * 
          */
-        public Builder relevances(List<IndexDocumentMetadataConfigurationUpdateRelevanceArgs> relevances) {
-            return relevances(Output.of(relevances));
+        public Builder relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs relevance) {
+            return relevance(Output.of(relevance));
         }
 
         /**
-         * @param relevances A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+         * @param search A block that provides information about how the field is used during a search. Documented below. Detailed below
          * 
          * @return builder
          * 
          */
-        public Builder relevances(IndexDocumentMetadataConfigurationUpdateRelevanceArgs... relevances) {
-            return relevances(List.of(relevances));
-        }
-
-        /**
-         * @param searches A block that provides information about how the field is used during a search. Documented below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder searches(@Nullable Output<List<IndexDocumentMetadataConfigurationUpdateSearchArgs>> searches) {
-            $.searches = searches;
+        public Builder search(@Nullable Output<IndexDocumentMetadataConfigurationUpdateSearchArgs> search) {
+            $.search = search;
             return this;
         }
 
         /**
-         * @param searches A block that provides information about how the field is used during a search. Documented below.
+         * @param search A block that provides information about how the field is used during a search. Documented below. Detailed below
          * 
          * @return builder
          * 
          */
-        public Builder searches(List<IndexDocumentMetadataConfigurationUpdateSearchArgs> searches) {
-            return searches(Output.of(searches));
-        }
-
-        /**
-         * @param searches A block that provides information about how the field is used during a search. Documented below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder searches(IndexDocumentMetadataConfigurationUpdateSearchArgs... searches) {
-            return searches(List.of(searches));
+        public Builder search(IndexDocumentMetadataConfigurationUpdateSearchArgs search) {
+            return search(Output.of(search));
         }
 
         /**
@@ -194,7 +173,7 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder type(@Nullable Output<String> type) {
+        public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
@@ -210,6 +189,8 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         public IndexDocumentMetadataConfigurationUpdateArgs build() {
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             return $;
         }
     }

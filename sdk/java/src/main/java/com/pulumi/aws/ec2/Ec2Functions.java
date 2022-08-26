@@ -64,6 +64,10 @@ import com.pulumi.aws.ec2.inputs.GetNatGatewaysArgs;
 import com.pulumi.aws.ec2.inputs.GetNatGatewaysPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
 import com.pulumi.aws.ec2.inputs.GetNetworkAclsPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
+import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
+import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.GetNetworkInterfacePlainArgs;
 import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
@@ -138,6 +142,8 @@ import com.pulumi.aws.ec2.outputs.GetManagedPrefixListResult;
 import com.pulumi.aws.ec2.outputs.GetNatGatewayResult;
 import com.pulumi.aws.ec2.outputs.GetNatGatewaysResult;
 import com.pulumi.aws.ec2.outputs.GetNetworkAclsResult;
+import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisResult;
+import com.pulumi.aws.ec2.outputs.GetNetworkInsightsPathResult;
 import com.pulumi.aws.ec2.outputs.GetNetworkInterfaceResult;
 import com.pulumi.aws.ec2.outputs.GetNetworkInterfacesResult;
 import com.pulumi.aws.ec2.outputs.GetPrefixListResult;
@@ -8026,6 +8032,450 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetNetworkAclsResult> getNetworkAclsPlain(GetNetworkAclsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getNetworkAcls:getNetworkAcls", TypeShape.of(GetNetworkAclsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
+     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysis() {
+        return getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
+     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysisPlain() {
+        return getNetworkInsightsAnalysisPlain(GetNetworkInsightsAnalysisPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
+     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs args) {
+        return getNetworkInsightsAnalysis(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
+     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysisPlain(GetNetworkInsightsAnalysisPlainArgs args) {
+        return getNetworkInsightsAnalysisPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
+     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", TypeShape.of(GetNetworkInsightsAnalysisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
+     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysisPlain(GetNetworkInsightsAnalysisPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", TypeShape.of(GetNetworkInsightsAnalysisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
+     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkInsightsPathResult> getNetworkInsightsPath() {
+        return getNetworkInsightsPath(GetNetworkInsightsPathArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
+     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkInsightsPathResult> getNetworkInsightsPathPlain() {
+        return getNetworkInsightsPathPlain(GetNetworkInsightsPathPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
+     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkInsightsPathResult> getNetworkInsightsPath(GetNetworkInsightsPathArgs args) {
+        return getNetworkInsightsPath(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
+     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkInsightsPathResult> getNetworkInsightsPathPlain(GetNetworkInsightsPathPlainArgs args) {
+        return getNetworkInsightsPathPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
+     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkInsightsPathResult> getNetworkInsightsPath(GetNetworkInsightsPathArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", TypeShape.of(GetNetworkInsightsPathResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
+     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkInsightsPathResult> getNetworkInsightsPathPlain(GetNetworkInsightsPathPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", TypeShape.of(GetNetworkInsightsPathResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a Network Interface.

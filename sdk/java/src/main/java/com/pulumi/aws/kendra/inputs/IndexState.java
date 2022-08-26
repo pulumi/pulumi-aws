@@ -39,14 +39,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that sets the number of additional document storage and query capacity units that should be used by the index.
+     * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
     @Import(name="capacityUnits")
     private @Nullable Output<IndexCapacityUnitsArgs> capacityUnits;
 
     /**
-     * @return A block that sets the number of additional document storage and query capacity units that should be used by the index.
+     * @return A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
     public Optional<Output<IndexCapacityUnitsArgs>> capacityUnits() {
@@ -84,14 +84,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+     * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      * 
      */
     @Import(name="documentMetadataConfigurationUpdates")
     private @Nullable Output<List<IndexDocumentMetadataConfigurationUpdateArgs>> documentMetadataConfigurationUpdates;
 
     /**
-     * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+     * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      * 
      */
     public Optional<Output<List<IndexDocumentMetadataConfigurationUpdateArgs>>> documentMetadataConfigurationUpdates() {
@@ -129,14 +129,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
     @Import(name="indexStatistics")
     private @Nullable Output<List<IndexIndexStatisticArgs>> indexStatistics;
 
     /**
-     * @return A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+     * @return A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
     public Optional<Output<List<IndexIndexStatisticArgs>>> indexStatistics() {
@@ -174,14 +174,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
+     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
     @Import(name="serverSideEncryptionConfiguration")
     private @Nullable Output<IndexServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration;
 
     /**
-     * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
+     * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
     public Optional<Output<IndexServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfiguration() {
@@ -248,14 +248,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      * 
      */
     @Import(name="userGroupResolutionConfiguration")
     private @Nullable Output<IndexUserGroupResolutionConfigurationArgs> userGroupResolutionConfiguration;
 
     /**
-     * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+     * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      * 
      */
     public Optional<Output<IndexUserGroupResolutionConfigurationArgs>> userGroupResolutionConfiguration() {
@@ -263,14 +263,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that specifies the user token configuration. Documented below.
+     * A block that specifies the user token configuration. Detailed below.
      * 
      */
     @Import(name="userTokenConfigurations")
     private @Nullable Output<IndexUserTokenConfigurationsArgs> userTokenConfigurations;
 
     /**
-     * @return A block that specifies the user token configuration. Documented below.
+     * @return A block that specifies the user token configuration. Detailed below.
      * 
      */
     public Optional<Output<IndexUserTokenConfigurationsArgs>> userTokenConfigurations() {
@@ -340,7 +340,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityUnits A block that sets the number of additional document storage and query capacity units that should be used by the index.
+         * @param capacityUnits A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityUnits A block that sets the number of additional document storage and query capacity units that should be used by the index.
+         * @param capacityUnits A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentMetadataConfigurationUpdates One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+         * @param documentMetadataConfigurationUpdates One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentMetadataConfigurationUpdates One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+         * @param documentMetadataConfigurationUpdates One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentMetadataConfigurationUpdates One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+         * @param documentMetadataConfigurationUpdates One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexStatistics A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+         * @param indexStatistics A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexStatistics A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+         * @param indexStatistics A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexStatistics A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+         * @param indexStatistics A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryptionConfiguration A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
+         * @param serverSideEncryptionConfiguration A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryptionConfiguration A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
+         * @param serverSideEncryptionConfiguration A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userGroupResolutionConfiguration A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+         * @param userGroupResolutionConfiguration A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userGroupResolutionConfiguration A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+         * @param userGroupResolutionConfiguration A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
          * 
          * @return builder
          * 
@@ -672,7 +672,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTokenConfigurations A block that specifies the user token configuration. Documented below.
+         * @param userTokenConfigurations A block that specifies the user token configuration. Detailed below.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTokenConfigurations A block that specifies the user token configuration. Documented below.
+         * @param userTokenConfigurations A block that specifies the user token configuration. Detailed below.
          * 
          * @return builder
          * 

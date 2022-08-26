@@ -102,7 +102,13 @@ class LaunchConfigurationArgs:
         if user_data_base64 is not None:
             pulumi.set(__self__, "user_data_base64", user_data_base64)
         if vpc_classic_link_id is not None:
+            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
+        if vpc_classic_link_id is not None:
             pulumi.set(__self__, "vpc_classic_link_id", vpc_classic_link_id)
+        if vpc_classic_link_security_groups is not None:
+            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
         if vpc_classic_link_security_groups is not None:
             pulumi.set(__self__, "vpc_classic_link_security_groups", vpc_classic_link_security_groups)
 
@@ -450,7 +456,13 @@ class _LaunchConfigurationState:
         if user_data_base64 is not None:
             pulumi.set(__self__, "user_data_base64", user_data_base64)
         if vpc_classic_link_id is not None:
+            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
+        if vpc_classic_link_id is not None:
             pulumi.set(__self__, "vpc_classic_link_id", vpc_classic_link_id)
+        if vpc_classic_link_security_groups is not None:
+            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
         if vpc_classic_link_security_groups is not None:
             pulumi.set(__self__, "vpc_classic_link_security_groups", vpc_classic_link_security_groups)
 
@@ -1174,7 +1186,13 @@ class LaunchConfiguration(pulumi.CustomResource):
             __props__.__dict__["spot_price"] = spot_price
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["user_data_base64"] = user_data_base64
+            if vpc_classic_link_id is not None and not opts.urn:
+                warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+                pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
             __props__.__dict__["vpc_classic_link_id"] = vpc_classic_link_id
+            if vpc_classic_link_security_groups is not None and not opts.urn:
+                warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+                pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
             __props__.__dict__["vpc_classic_link_security_groups"] = vpc_classic_link_security_groups
             __props__.__dict__["arn"] = None
         super(LaunchConfiguration, __self__).__init__(

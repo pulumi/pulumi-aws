@@ -235,6 +235,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
      * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+     *
+     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
      */
     public readonly securityGroupNames!: pulumi.Output<string[]>;
     /**
@@ -454,6 +456,8 @@ export interface ClusterState {
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+     *
+     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -571,6 +575,8 @@ export interface ClusterArgs {
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+     *
+     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**

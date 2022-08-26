@@ -296,10 +296,14 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     public readonly userDataBase64!: pulumi.Output<string | undefined>;
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
+     *
+     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
      */
     public readonly vpcClassicLinkId!: pulumi.Output<string | undefined>;
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
+     *
+     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
      */
     public readonly vpcClassicLinkSecurityGroups!: pulumi.Output<string[] | undefined>;
 
@@ -462,10 +466,14 @@ export interface LaunchConfigurationState {
     userDataBase64?: pulumi.Input<string>;
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
+     *
+     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
      */
     vpcClassicLinkId?: pulumi.Input<string>;
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
+     *
+     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
      */
     vpcClassicLinkSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -556,10 +564,14 @@ export interface LaunchConfigurationArgs {
     userDataBase64?: pulumi.Input<string>;
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
+     *
+     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
      */
     vpcClassicLinkId?: pulumi.Input<string>;
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
+     *
+     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
      */
     vpcClassicLinkSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
 }

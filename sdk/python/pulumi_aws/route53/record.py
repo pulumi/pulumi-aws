@@ -37,7 +37,7 @@ class RecordArgs:
         :param pulumi.Input[Union[str, 'RecordType']] type: `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
         :param pulumi.Input[str] zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         :param pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]] aliases: An alias block. Conflicts with `ttl` & `records`.
-               Alias record documented below.
+               Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
         :param pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
@@ -115,7 +115,7 @@ class RecordArgs:
     def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]]:
         """
         An alias block. Conflicts with `ttl` & `records`.
-        Alias record documented below.
+        Documented below.
         """
         return pulumi.get(self, "aliases")
 
@@ -262,7 +262,7 @@ class _RecordState:
         """
         Input properties used for looking up and filtering Record resources.
         :param pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]] aliases: An alias block. Conflicts with `ttl` & `records`.
-               Alias record documented below.
+               Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
         :param pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -313,7 +313,7 @@ class _RecordState:
     def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]]:
         """
         An alias block. Conflicts with `ttl` & `records`.
-        Alias record documented below.
+        Documented below.
         """
         return pulumi.get(self, "aliases")
 
@@ -525,6 +525,7 @@ class Record(pulumi.CustomResource):
             records=[aws_eip["lb"]["public_ip"]])
         ```
         ### Weighted routing policy
+
         Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
 
         ```python
@@ -553,6 +554,7 @@ class Record(pulumi.CustomResource):
             records=["live.example.com"])
         ```
         ### Alias record
+
         See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
         to understand differences between alias and non-alias records.
 
@@ -621,7 +623,7 @@ class Record(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
-               Alias record documented below.
+               Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordGeolocationRoutingPolicyArgs']]]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
@@ -659,6 +661,7 @@ class Record(pulumi.CustomResource):
             records=[aws_eip["lb"]["public_ip"]])
         ```
         ### Weighted routing policy
+
         Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
 
         ```python
@@ -687,6 +690,7 @@ class Record(pulumi.CustomResource):
             records=["live.example.com"])
         ```
         ### Alias record
+
         See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
         to understand differences between alias and non-alias records.
 
@@ -844,7 +848,7 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
-               Alias record documented below.
+               Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -885,7 +889,7 @@ class Record(pulumi.CustomResource):
     def aliases(self) -> pulumi.Output[Optional[Sequence['outputs.RecordAlias']]]:
         """
         An alias block. Conflicts with `ttl` & `records`.
-        Alias record documented below.
+        Documented below.
         """
         return pulumi.get(self, "aliases")
 

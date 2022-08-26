@@ -313,14 +313,22 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
     @Import(name="securityGroupNames")
     private @Nullable Output<List<String>> securityGroupNames;
 
     /**
      * @return List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
     public Optional<Output<List<String>>> securityGroupNames() {
         return Optional.ofNullable(this.securityGroupNames);
     }
@@ -896,7 +904,11 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
         public Builder securityGroupNames(@Nullable Output<List<String>> securityGroupNames) {
             $.securityGroupNames = securityGroupNames;
             return this;
@@ -907,7 +919,11 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
         public Builder securityGroupNames(List<String> securityGroupNames) {
             return securityGroupNames(Output.of(securityGroupNames));
         }
@@ -917,7 +933,11 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
         public Builder securityGroupNames(String... securityGroupNames) {
             return securityGroupNames(List.of(securityGroupNames));
         }

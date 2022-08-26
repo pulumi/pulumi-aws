@@ -1691,7 +1691,7 @@ class JobCommandArgs:
         """
         :param pulumi.Input[str] script_location: Specifies the S3 path to a script that executes a job.
         :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
-        :param pulumi.Input[str] python_version: The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+        :param pulumi.Input[str] python_version: The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
         """
         pulumi.set(__self__, "script_location", script_location)
         if name is not None:
@@ -1727,7 +1727,7 @@ class JobCommandArgs:
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+        The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
         """
         return pulumi.get(self, "python_version")
 

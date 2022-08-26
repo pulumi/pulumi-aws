@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
-//
 // ## Example Usage
 //
 // ```go

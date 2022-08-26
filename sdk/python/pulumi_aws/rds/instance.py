@@ -52,6 +52,7 @@ class InstanceArgs:
                  multi_az: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -159,6 +160,7 @@ class InstanceArgs:
         :param pulumi.Input[str] name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
@@ -285,6 +287,8 @@ class InstanceArgs:
             pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if option_group_name is not None:
             pulumi.set(__self__, "option_group_name", option_group_name)
         if parameter_group_name is not None:
@@ -309,6 +313,9 @@ class InstanceArgs:
             pulumi.set(__self__, "restore_to_point_in_time", restore_to_point_in_time)
         if s3_import is not None:
             pulumi.set(__self__, "s3_import", s3_import)
+        if security_group_names is not None:
+            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
         if security_group_names is not None:
             pulumi.set(__self__, "security_group_names", security_group_names)
         if skip_final_snapshot is not None:
@@ -798,6 +805,18 @@ class InstanceArgs:
         pulumi.set(self, "nchar_character_set_name", value)
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
+
+    @property
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1126,6 +1145,7 @@ class _InstanceState:
                  multi_az: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -1244,6 +1264,7 @@ class _InstanceState:
         :param pulumi.Input[str] name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
@@ -1386,6 +1407,8 @@ class _InstanceState:
             pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if option_group_name is not None:
             pulumi.set(__self__, "option_group_name", option_group_name)
         if parameter_group_name is not None:
@@ -1414,6 +1437,9 @@ class _InstanceState:
             pulumi.set(__self__, "restore_to_point_in_time", restore_to_point_in_time)
         if s3_import is not None:
             pulumi.set(__self__, "s3_import", s3_import)
+        if security_group_names is not None:
+            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
         if security_group_names is not None:
             pulumi.set(__self__, "security_group_names", security_group_names)
         if skip_final_snapshot is not None:
@@ -1980,6 +2006,18 @@ class _InstanceState:
         pulumi.set(self, "nchar_character_set_name", value)
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
+
+    @property
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2349,6 +2387,7 @@ class Instance(pulumi.CustomResource):
                  multi_az: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -2520,6 +2559,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
@@ -2693,6 +2733,7 @@ class Instance(pulumi.CustomResource):
                  multi_az: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -2763,6 +2804,7 @@ class Instance(pulumi.CustomResource):
                 pulumi.log.warn("""name is deprecated: Use db_name instead""")
             __props__.__dict__["name"] = name
             __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["option_group_name"] = option_group_name
             __props__.__dict__["parameter_group_name"] = parameter_group_name
             __props__.__dict__["password"] = password
@@ -2775,6 +2817,9 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["replicate_source_db"] = replicate_source_db
             __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
             __props__.__dict__["s3_import"] = s3_import
+            if security_group_names is not None and not opts.urn:
+                warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+                pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
             __props__.__dict__["security_group_names"] = security_group_names
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
@@ -2845,6 +2890,7 @@ class Instance(pulumi.CustomResource):
             multi_az: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             nchar_character_set_name: Optional[pulumi.Input[str]] = None,
+            network_type: Optional[pulumi.Input[str]] = None,
             option_group_name: Optional[pulumi.Input[str]] = None,
             parameter_group_name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
@@ -2968,6 +3014,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
@@ -3070,6 +3117,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["multi_az"] = multi_az
         __props__.__dict__["name"] = name
         __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["option_group_name"] = option_group_name
         __props__.__dict__["parameter_group_name"] = parameter_group_name
         __props__.__dict__["password"] = password
@@ -3474,6 +3522,14 @@ class Instance(pulumi.CustomResource):
         Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         """
         return pulumi.get(self, "nchar_character_set_name")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[str]:
+        """
+        The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+        """
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="optionGroupName")

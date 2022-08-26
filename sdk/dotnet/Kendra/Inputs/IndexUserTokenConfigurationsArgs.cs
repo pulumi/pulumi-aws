@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class IndexUserTokenConfigurationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block that specifies the information about the JSON token type configuration.
+        /// A block that specifies the information about the JSON token type configuration. Detailed below.
         /// </summary>
         [Input("jsonTokenTypeConfiguration")]
         public Input<Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs>? JsonTokenTypeConfiguration { get; set; }
 
         /// <summary>
-        /// A block that specifies the information about the JWT token type configuration.
+        /// A block that specifies the information about the JWT token type configuration. Detailed below.
         /// </summary>
         [Input("jwtTokenTypeConfiguration")]
         public Input<Inputs.IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs>? JwtTokenTypeConfiguration { get; set; }

@@ -67,6 +67,8 @@ type SubnetGroup struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// A list of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// The network type of the db subnet group.
+	SupportedNetworkTypes pulumi.StringArrayOutput `pulumi:"supportedNetworkTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -118,6 +120,8 @@ type subnetGroupState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// A list of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// The network type of the db subnet group.
+	SupportedNetworkTypes []string `pulumi:"supportedNetworkTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -135,6 +139,8 @@ type SubnetGroupState struct {
 	NamePrefix pulumi.StringPtrInput
 	// A list of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayInput
+	// The network type of the db subnet group.
+	SupportedNetworkTypes pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -282,6 +288,11 @@ func (o SubnetGroupOutput) NamePrefix() pulumi.StringOutput {
 // A list of VPC subnet IDs.
 func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The network type of the db subnet group.
+func (o SubnetGroupOutput) SupportedNetworkTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SupportedNetworkTypes }).(pulumi.StringArrayOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

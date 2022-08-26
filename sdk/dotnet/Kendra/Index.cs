@@ -77,6 +77,564 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// ### With Document Metadata Configuration Updates
+    /// ### Specifying the predefined elements
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         DocumentMetadataConfigurationUpdates = new[]
+    ///         {
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_authors",
+    ///                 Type = "STRING_LIST_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = false,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_category",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_created_at",
+    ///                 Type = "DATE_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Freshness = false,
+    ///                     Importance = 1,
+    ///                     Duration = "25920000s",
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_data_source_id",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_document_title",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = true,
+    ///                     Facetable = false,
+    ///                     Searchable = true,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 2,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_excerpt_page_number",
+    ///                 Type = "LONG_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = false,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 2,
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_faq_id",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_file_type",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_language_code",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_last_updated_at",
+    ///                 Type = "DATE_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Freshness = false,
+    ///                     Importance = 1,
+    ///                     Duration = "25920000s",
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_source_uri",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = true,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = false,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_version",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_view_count",
+    ///                 Type = "LONG_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Appending additional elements
+    /// 
+    /// The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         DocumentMetadataConfigurationUpdates = new[]
+    ///         {
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_authors",
+    ///                 Type = "STRING_LIST_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = false,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_category",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_created_at",
+    ///                 Type = "DATE_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Freshness = false,
+    ///                     Importance = 1,
+    ///                     Duration = "25920000s",
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_data_source_id",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_document_title",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = true,
+    ///                     Facetable = false,
+    ///                     Searchable = true,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 2,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_excerpt_page_number",
+    ///                 Type = "LONG_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = false,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 2,
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_faq_id",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_file_type",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_language_code",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_last_updated_at",
+    ///                 Type = "DATE_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Freshness = false,
+    ///                     Importance = 1,
+    ///                     Duration = "25920000s",
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_source_uri",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = true,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = false,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_version",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_view_count",
+    ///                 Type = "LONG_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "example-string-value",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = true,
+    ///                     Facetable = true,
+    ///                     Searchable = true,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = ,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "example-long-value",
+    ///                 Type = "LONG_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = true,
+    ///                     Facetable = true,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "example-string-list-value",
+    ///                 Type = "STRING_LIST_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = true,
+    ///                     Facetable = true,
+    ///                     Searchable = true,
+    ///                     Sortable = false,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "example-date-value",
+    ///                 Type = "DATE_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = true,
+    ///                     Facetable = true,
+    ///                     Searchable = false,
+    ///                     Sortable = false,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Freshness = false,
+    ///                     Importance = 1,
+    ///                     Duration = "25920000s",
+    ///                     RankOrder = "ASCENDING",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### With JSON token type configuration
     /// 
     /// ```csharp
@@ -120,7 +678,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
         [Output("capacityUnits")]
         public Output<Outputs.IndexCapacityUnits> CapacityUnits { get; private set; } = null!;
@@ -138,7 +696,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+        /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         /// </summary>
         [Output("documentMetadataConfigurationUpdates")]
         public Output<ImmutableArray<Outputs.IndexDocumentMetadataConfigurationUpdate>> DocumentMetadataConfigurationUpdates { get; private set; } = null!;
@@ -156,7 +714,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
-        /// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        /// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         /// </summary>
         [Output("indexStatistics")]
         public Output<ImmutableArray<Outputs.IndexIndexStatistic>> IndexStatistics { get; private set; } = null!;
@@ -174,7 +732,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.IndexServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
@@ -204,13 +762,13 @@ namespace Pulumi.Aws.Kendra
         public Output<string?> UserContextPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         /// </summary>
         [Output("userGroupResolutionConfiguration")]
         public Output<Outputs.IndexUserGroupResolutionConfiguration?> UserGroupResolutionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A block that specifies the user token configuration. Documented below.
+        /// A block that specifies the user token configuration. Detailed below.
         /// </summary>
         [Output("userTokenConfigurations")]
         public Output<Outputs.IndexUserTokenConfigurations?> UserTokenConfigurations { get; private set; } = null!;
@@ -262,7 +820,7 @@ namespace Pulumi.Aws.Kendra
     public sealed class IndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
         [Input("capacityUnits")]
         public Input<Inputs.IndexCapacityUnitsArgs>? CapacityUnits { get; set; }
@@ -272,6 +830,18 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("documentMetadataConfigurationUpdates")]
+        private InputList<Inputs.IndexDocumentMetadataConfigurationUpdateArgs>? _documentMetadataConfigurationUpdates;
+
+        /// <summary>
+        /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+        /// </summary>
+        public InputList<Inputs.IndexDocumentMetadataConfigurationUpdateArgs> DocumentMetadataConfigurationUpdates
+        {
+            get => _documentMetadataConfigurationUpdates ?? (_documentMetadataConfigurationUpdates = new InputList<Inputs.IndexDocumentMetadataConfigurationUpdateArgs>());
+            set => _documentMetadataConfigurationUpdates = value;
+        }
 
         /// <summary>
         /// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
@@ -292,7 +862,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.IndexServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
@@ -312,13 +882,13 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? UserContextPolicy { get; set; }
 
         /// <summary>
-        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         /// </summary>
         [Input("userGroupResolutionConfiguration")]
         public Input<Inputs.IndexUserGroupResolutionConfigurationArgs>? UserGroupResolutionConfiguration { get; set; }
 
         /// <summary>
-        /// A block that specifies the user token configuration. Documented below.
+        /// A block that specifies the user token configuration. Detailed below.
         /// </summary>
         [Input("userTokenConfigurations")]
         public Input<Inputs.IndexUserTokenConfigurationsArgs>? UserTokenConfigurations { get; set; }
@@ -338,7 +908,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
         [Input("capacityUnits")]
         public Input<Inputs.IndexCapacityUnitsGetArgs>? CapacityUnits { get; set; }
@@ -359,7 +929,7 @@ namespace Pulumi.Aws.Kendra
         private InputList<Inputs.IndexDocumentMetadataConfigurationUpdateGetArgs>? _documentMetadataConfigurationUpdates;
 
         /// <summary>
-        /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+        /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         /// </summary>
         public InputList<Inputs.IndexDocumentMetadataConfigurationUpdateGetArgs> DocumentMetadataConfigurationUpdates
         {
@@ -383,7 +953,7 @@ namespace Pulumi.Aws.Kendra
         private InputList<Inputs.IndexIndexStatisticGetArgs>? _indexStatistics;
 
         /// <summary>
-        /// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        /// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         /// </summary>
         public InputList<Inputs.IndexIndexStatisticGetArgs> IndexStatistics
         {
@@ -404,7 +974,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.IndexServerSideEncryptionConfigurationGetArgs>? ServerSideEncryptionConfiguration { get; set; }
@@ -444,13 +1014,13 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? UserContextPolicy { get; set; }
 
         /// <summary>
-        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         /// </summary>
         [Input("userGroupResolutionConfiguration")]
         public Input<Inputs.IndexUserGroupResolutionConfigurationGetArgs>? UserGroupResolutionConfiguration { get; set; }
 
         /// <summary>
-        /// A block that specifies the user token configuration. Documented below.
+        /// A block that specifies the user token configuration. Detailed below.
         /// </summary>
         [Input("userTokenConfigurations")]
         public Input<Inputs.IndexUserTokenConfigurationsGetArgs>? UserTokenConfigurations { get; set; }

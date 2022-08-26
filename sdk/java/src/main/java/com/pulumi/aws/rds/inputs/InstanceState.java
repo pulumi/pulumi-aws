@@ -748,6 +748,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * Name of the DB option group to associate.
      * 
      */
@@ -980,7 +995,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      * associate. Only used for [DB Instances on the _EC2-Classic_
      * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
     @Import(name="securityGroupNames")
     private @Nullable Output<List<String>> securityGroupNames;
 
@@ -989,7 +1008,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      * associate. Only used for [DB Instances on the _EC2-Classic_
      * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
     public Optional<Output<List<String>>> securityGroupNames() {
         return Optional.ofNullable(this.securityGroupNames);
     }
@@ -1222,6 +1245,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.multiAz = $.multiAz;
         this.name = $.name;
         this.ncharCharacterSetName = $.ncharCharacterSetName;
+        this.networkType = $.networkType;
         this.optionGroupName = $.optionGroupName;
         this.parameterGroupName = $.parameterGroupName;
         this.password = $.password;
@@ -2267,6 +2291,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param networkType The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
+        }
+
+        /**
          * @param optionGroupName Name of the DB option group to associate.
          * 
          * @return builder
@@ -2585,7 +2630,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
         public Builder securityGroupNames(@Nullable Output<List<String>> securityGroupNames) {
             $.securityGroupNames = securityGroupNames;
             return this;
@@ -2598,7 +2647,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
         public Builder securityGroupNames(List<String> securityGroupNames) {
             return securityGroupNames(Output.of(securityGroupNames));
         }
@@ -2610,7 +2663,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
         public Builder securityGroupNames(String... securityGroupNames) {
             return securityGroupNames(List.of(securityGroupNames));
         }

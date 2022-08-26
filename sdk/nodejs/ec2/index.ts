@@ -55,6 +55,8 @@ export * from "./getManagedPrefixList";
 export * from "./getNatGateway";
 export * from "./getNatGateways";
 export * from "./getNetworkAcls";
+export * from "./getNetworkInsightsAnalysis";
+export * from "./getNetworkInsightsPath";
 export * from "./getNetworkInterface";
 export * from "./getNetworkInterfaces";
 export * from "./getPrefixList";
@@ -95,6 +97,7 @@ export * from "./natGateway";
 export * from "./networkAcl";
 export * from "./networkAclAssociation";
 export * from "./networkAclRule";
+export * from "./networkInsightsAnalysis";
 export * from "./networkInsightsPath";
 export * from "./networkInterface";
 export * from "./networkInterfaceAttachment";
@@ -192,6 +195,7 @@ import { NatGateway } from "./natGateway";
 import { NetworkAcl } from "./networkAcl";
 import { NetworkAclAssociation } from "./networkAclAssociation";
 import { NetworkAclRule } from "./networkAclRule";
+import { NetworkInsightsAnalysis } from "./networkInsightsAnalysis";
 import { NetworkInsightsPath } from "./networkInsightsPath";
 import { NetworkInterface } from "./networkInterface";
 import { NetworkInterfaceAttachment } from "./networkInterfaceAttachment";
@@ -321,6 +325,8 @@ const _module = {
                 return new NetworkAclAssociation(name, <any>undefined, { urn })
             case "aws:ec2/networkAclRule:NetworkAclRule":
                 return new NetworkAclRule(name, <any>undefined, { urn })
+            case "aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis":
+                return new NetworkInsightsAnalysis(name, <any>undefined, { urn })
             case "aws:ec2/networkInsightsPath:NetworkInsightsPath":
                 return new NetworkInsightsPath(name, <any>undefined, { urn })
             case "aws:ec2/networkInterface:NetworkInterface":
@@ -469,6 +475,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/natGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAcl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclRule", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/networkInsightsAnalysis", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInsightsPath", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInterface", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInterfaceAttachment", _module)
