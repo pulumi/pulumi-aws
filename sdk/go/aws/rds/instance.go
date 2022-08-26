@@ -243,6 +243,8 @@ type Instance struct {
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName pulumi.StringOutput `pulumi:"ncharCharacterSetName"`
+	// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringOutput `pulumi:"optionGroupName"`
 	// Name of the DB parameter group to
@@ -286,6 +288,8 @@ type Instance struct {
 	// List of DB Security Groups to
 	// associate. Only used for [DB Instances on the _EC2-Classic_
 	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -492,6 +496,8 @@ type instanceState struct {
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName *string `pulumi:"ncharCharacterSetName"`
+	// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType *string `pulumi:"networkType"`
 	// Name of the DB option group to associate.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// Name of the DB parameter group to
@@ -535,6 +541,8 @@ type instanceState struct {
 	// List of DB Security Groups to
 	// associate. Only used for [DB Instances on the _EC2-Classic_
 	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -710,6 +718,8 @@ type InstanceState struct {
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName pulumi.StringPtrInput
+	// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType pulumi.StringPtrInput
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringPtrInput
 	// Name of the DB parameter group to
@@ -753,6 +763,8 @@ type InstanceState struct {
 	// List of DB Security Groups to
 	// associate. Only used for [DB Instances on the _EC2-Classic_
 	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames pulumi.StringArrayInput
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -919,6 +931,8 @@ type instanceArgs struct {
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName *string `pulumi:"ncharCharacterSetName"`
+	// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType *string `pulumi:"networkType"`
 	// Name of the DB option group to associate.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// Name of the DB parameter group to
@@ -959,6 +973,8 @@ type instanceArgs struct {
 	// List of DB Security Groups to
 	// associate. Only used for [DB Instances on the _EC2-Classic_
 	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -1118,6 +1134,8 @@ type InstanceArgs struct {
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName pulumi.StringPtrInput
+	// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType pulumi.StringPtrInput
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringPtrInput
 	// Name of the DB parameter group to
@@ -1158,6 +1176,8 @@ type InstanceArgs struct {
 	// List of DB Security Groups to
 	// associate. Only used for [DB Instances on the _EC2-Classic_
 	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+	//
+	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 	SecurityGroupNames pulumi.StringArrayInput
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -1538,6 +1558,11 @@ func (o InstanceOutput) NcharCharacterSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.NcharCharacterSetName }).(pulumi.StringOutput)
 }
 
+// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+func (o InstanceOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
+}
+
 // Name of the DB option group to associate.
 func (o InstanceOutput) OptionGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.OptionGroupName }).(pulumi.StringOutput)
@@ -1623,6 +1648,8 @@ func (o InstanceOutput) S3Import() InstanceS3ImportPtrOutput {
 // List of DB Security Groups to
 // associate. Only used for [DB Instances on the _EC2-Classic_
 // Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+//
+// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
 func (o InstanceOutput) SecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }

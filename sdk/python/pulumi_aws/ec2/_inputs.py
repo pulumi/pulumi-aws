@@ -89,6 +89,86 @@ __all__ = [
     'ManagedPrefixListEntryArgs',
     'NetworkAclEgressArgs',
     'NetworkAclIngressArgs',
+    'NetworkInsightsAnalysisAlternatePathHintArgs',
+    'NetworkInsightsAnalysisExplanationArgs',
+    'NetworkInsightsAnalysisExplanationAclArgs',
+    'NetworkInsightsAnalysisExplanationAclRuleArgs',
+    'NetworkInsightsAnalysisExplanationAclRulePortRangeArgs',
+    'NetworkInsightsAnalysisExplanationAttachedToArgs',
+    'NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs',
+    'NetworkInsightsAnalysisExplanationComponentArgs',
+    'NetworkInsightsAnalysisExplanationCustomerGatewayArgs',
+    'NetworkInsightsAnalysisExplanationDestinationArgs',
+    'NetworkInsightsAnalysisExplanationDestinationVpcArgs',
+    'NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs',
+    'NetworkInsightsAnalysisExplanationIngressRouteTableArgs',
+    'NetworkInsightsAnalysisExplanationInternetGatewayArgs',
+    'NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs',
+    'NetworkInsightsAnalysisExplanationNatGatewayArgs',
+    'NetworkInsightsAnalysisExplanationNetworkInterfaceArgs',
+    'NetworkInsightsAnalysisExplanationPortRangeArgs',
+    'NetworkInsightsAnalysisExplanationPrefixListArgs',
+    'NetworkInsightsAnalysisExplanationRouteTableArgs',
+    'NetworkInsightsAnalysisExplanationRouteTableRouteArgs',
+    'NetworkInsightsAnalysisExplanationSecurityGroupArgs',
+    'NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs',
+    'NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs',
+    'NetworkInsightsAnalysisExplanationSourceVpcArgs',
+    'NetworkInsightsAnalysisExplanationSubnetArgs',
+    'NetworkInsightsAnalysisExplanationSubnetRouteTableArgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayArgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs',
+    'NetworkInsightsAnalysisExplanationVpcArgs',
+    'NetworkInsightsAnalysisExplanationVpcEndpointArgs',
+    'NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs',
+    'NetworkInsightsAnalysisExplanationVpnConnectionArgs',
+    'NetworkInsightsAnalysisExplanationVpnGatewayArgs',
+    'NetworkInsightsAnalysisForwardPathComponentArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAclRuleArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAttachedToArgs',
+    'NetworkInsightsAnalysisForwardPathComponentComponentArgs',
+    'NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs',
+    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs',
+    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs',
+    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs',
+    'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs',
+    'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs',
+    'NetworkInsightsAnalysisForwardPathComponentSubnetArgs',
+    'NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs',
+    'NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs',
+    'NetworkInsightsAnalysisForwardPathComponentVpcArgs',
+    'NetworkInsightsAnalysisReturnPathComponentArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAclRuleArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAttachedToArgs',
+    'NetworkInsightsAnalysisReturnPathComponentComponentArgs',
+    'NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs',
+    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs',
+    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs',
+    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs',
+    'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs',
+    'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs',
+    'NetworkInsightsAnalysisReturnPathComponentSubnetArgs',
+    'NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs',
+    'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs',
+    'NetworkInsightsAnalysisReturnPathComponentVpcArgs',
     'NetworkInterfaceAttachmentArgs',
     'PeeringConnectionOptionsAccepterArgs',
     'PeeringConnectionOptionsRequesterArgs',
@@ -165,6 +245,8 @@ __all__ = [
     'GetNatGatewayFilterArgs',
     'GetNatGatewaysFilterArgs',
     'GetNetworkAclsFilterArgs',
+    'GetNetworkInsightsAnalysisFilterArgs',
+    'GetNetworkInsightsPathFilterArgs',
     'GetNetworkInterfaceFilterArgs',
     'GetNetworkInterfacesFilterArgs',
     'GetPrefixListFilterArgs',
@@ -6095,6 +6177,5000 @@ class NetworkAclIngressArgs:
 
 
 @pulumi.input_type
+class NetworkInsightsAnalysisAlternatePathHintArgs:
+    def __init__(__self__, *,
+                 component_arn: Optional[pulumi.Input[str]] = None,
+                 component_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] component_arn: The Amazon Resource Name (ARN) of the component.
+        :param pulumi.Input[str] component_id: The ID of the component.
+        """
+        if component_arn is not None:
+            pulumi.set(__self__, "component_arn", component_arn)
+        if component_id is not None:
+            pulumi.set(__self__, "component_id", component_id)
+
+    @property
+    @pulumi.getter(name="componentArn")
+    def component_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the component.
+        """
+        return pulumi.get(self, "component_arn")
+
+    @component_arn.setter
+    def component_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "component_arn", value)
+
+    @property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the component.
+        """
+        return pulumi.get(self, "component_id")
+
+    @component_id.setter
+    def component_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "component_id", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationArgs:
+    def __init__(__self__, *,
+                 acl_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArgs']]]] = None,
+                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArgs']]]] = None,
+                 address: Optional[pulumi.Input[str]] = None,
+                 addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 attached_tos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArgs']]]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 classic_load_balancer_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs']]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArgs']]]] = None,
+                 customer_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArgs']]]] = None,
+                 destination_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArgs']]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArgs']]]] = None,
+                 direction: Optional[pulumi.Input[str]] = None,
+                 elastic_load_balancer_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs']]]] = None,
+                 explanation_code: Optional[pulumi.Input[str]] = None,
+                 ingress_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArgs']]]] = None,
+                 internet_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgs']]]] = None,
+                 load_balancer_arn: Optional[pulumi.Input[str]] = None,
+                 load_balancer_listener_port: Optional[pulumi.Input[int]] = None,
+                 load_balancer_target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]] = None,
+                 load_balancer_target_port: Optional[pulumi.Input[int]] = None,
+                 missing_component: Optional[pulumi.Input[str]] = None,
+                 nat_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArgs']]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArgs']]]] = None,
+                 packet_field: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArgs']]]] = None,
+                 prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArgs']]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgs']]]] = None,
+                 route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgs']]]] = None,
+                 security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs']]]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]] = None,
+                 source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgs']]]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 subnet_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArgs']]]] = None,
+                 transit_gateway_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs']]]] = None,
+                 transit_gateway_route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs']]]] = None,
+                 transit_gateway_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs']]]] = None,
+                 transit_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArgs']]]] = None,
+                 vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArgs']]]] = None,
+                 vpc_peering_connections: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs']]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArgs']]]] = None,
+                 vpn_connections: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArgs']]]] = None,
+                 vpn_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArgs']]]] = None):
+        if acl_rules is not None:
+            pulumi.set(__self__, "acl_rules", acl_rules)
+        if acls is not None:
+            pulumi.set(__self__, "acls", acls)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if addresses is not None:
+            pulumi.set(__self__, "addresses", addresses)
+        if attached_tos is not None:
+            pulumi.set(__self__, "attached_tos", attached_tos)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if cidrs is not None:
+            pulumi.set(__self__, "cidrs", cidrs)
+        if classic_load_balancer_listeners is not None:
+            pulumi.set(__self__, "classic_load_balancer_listeners", classic_load_balancer_listeners)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if customer_gateways is not None:
+            pulumi.set(__self__, "customer_gateways", customer_gateways)
+        if destination_vpcs is not None:
+            pulumi.set(__self__, "destination_vpcs", destination_vpcs)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if elastic_load_balancer_listeners is not None:
+            pulumi.set(__self__, "elastic_load_balancer_listeners", elastic_load_balancer_listeners)
+        if explanation_code is not None:
+            pulumi.set(__self__, "explanation_code", explanation_code)
+        if ingress_route_tables is not None:
+            pulumi.set(__self__, "ingress_route_tables", ingress_route_tables)
+        if internet_gateways is not None:
+            pulumi.set(__self__, "internet_gateways", internet_gateways)
+        if load_balancer_arn is not None:
+            pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
+        if load_balancer_listener_port is not None:
+            pulumi.set(__self__, "load_balancer_listener_port", load_balancer_listener_port)
+        if load_balancer_target_groups is not None:
+            pulumi.set(__self__, "load_balancer_target_groups", load_balancer_target_groups)
+        if load_balancer_target_port is not None:
+            pulumi.set(__self__, "load_balancer_target_port", load_balancer_target_port)
+        if missing_component is not None:
+            pulumi.set(__self__, "missing_component", missing_component)
+        if nat_gateways is not None:
+            pulumi.set(__self__, "nat_gateways", nat_gateways)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if packet_field is not None:
+            pulumi.set(__self__, "packet_field", packet_field)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if prefix_lists is not None:
+            pulumi.set(__self__, "prefix_lists", prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if route_table_routes is not None:
+            pulumi.set(__self__, "route_table_routes", route_table_routes)
+        if route_tables is not None:
+            pulumi.set(__self__, "route_tables", route_tables)
+        if security_group_rules is not None:
+            pulumi.set(__self__, "security_group_rules", security_group_rules)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if source_vpcs is not None:
+            pulumi.set(__self__, "source_vpcs", source_vpcs)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if subnet_route_tables is not None:
+            pulumi.set(__self__, "subnet_route_tables", subnet_route_tables)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if transit_gateway_attachments is not None:
+            pulumi.set(__self__, "transit_gateway_attachments", transit_gateway_attachments)
+        if transit_gateway_route_table_routes is not None:
+            pulumi.set(__self__, "transit_gateway_route_table_routes", transit_gateway_route_table_routes)
+        if transit_gateway_route_tables is not None:
+            pulumi.set(__self__, "transit_gateway_route_tables", transit_gateway_route_tables)
+        if transit_gateways is not None:
+            pulumi.set(__self__, "transit_gateways", transit_gateways)
+        if vpc_endpoints is not None:
+            pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
+        if vpc_peering_connections is not None:
+            pulumi.set(__self__, "vpc_peering_connections", vpc_peering_connections)
+        if vpcs is not None:
+            pulumi.set(__self__, "vpcs", vpcs)
+        if vpn_connections is not None:
+            pulumi.set(__self__, "vpn_connections", vpn_connections)
+        if vpn_gateways is not None:
+            pulumi.set(__self__, "vpn_gateways", vpn_gateways)
+
+    @property
+    @pulumi.getter(name="aclRules")
+    def acl_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArgs']]]]:
+        return pulumi.get(self, "acl_rules")
+
+    @acl_rules.setter
+    def acl_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArgs']]]]):
+        pulumi.set(self, "acl_rules", value)
+
+    @property
+    @pulumi.getter
+    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArgs']]]]:
+        return pulumi.get(self, "acls")
+
+    @acls.setter
+    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArgs']]]]):
+        pulumi.set(self, "acls", value)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "addresses")
+
+    @addresses.setter
+    def addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "addresses", value)
+
+    @property
+    @pulumi.getter(name="attachedTos")
+    def attached_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArgs']]]]:
+        return pulumi.get(self, "attached_tos")
+
+    @attached_tos.setter
+    def attached_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArgs']]]]):
+        pulumi.set(self, "attached_tos", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter
+    def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "cidrs")
+
+    @cidrs.setter
+    def cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cidrs", value)
+
+    @property
+    @pulumi.getter(name="classicLoadBalancerListeners")
+    def classic_load_balancer_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs']]]]:
+        return pulumi.get(self, "classic_load_balancer_listeners")
+
+    @classic_load_balancer_listeners.setter
+    def classic_load_balancer_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs']]]]):
+        pulumi.set(self, "classic_load_balancer_listeners", value)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArgs']]]]:
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArgs']]]]):
+        pulumi.set(self, "components", value)
+
+    @property
+    @pulumi.getter(name="customerGateways")
+    def customer_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArgs']]]]:
+        return pulumi.get(self, "customer_gateways")
+
+    @customer_gateways.setter
+    def customer_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArgs']]]]):
+        pulumi.set(self, "customer_gateways", value)
+
+    @property
+    @pulumi.getter(name="destinationVpcs")
+    def destination_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArgs']]]]:
+        return pulumi.get(self, "destination_vpcs")
+
+    @destination_vpcs.setter
+    def destination_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArgs']]]]):
+        pulumi.set(self, "destination_vpcs", value)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArgs']]]]:
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArgs']]]]):
+        pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter(name="elasticLoadBalancerListeners")
+    def elastic_load_balancer_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs']]]]:
+        return pulumi.get(self, "elastic_load_balancer_listeners")
+
+    @elastic_load_balancer_listeners.setter
+    def elastic_load_balancer_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs']]]]):
+        pulumi.set(self, "elastic_load_balancer_listeners", value)
+
+    @property
+    @pulumi.getter(name="explanationCode")
+    def explanation_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "explanation_code")
+
+    @explanation_code.setter
+    def explanation_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "explanation_code", value)
+
+    @property
+    @pulumi.getter(name="ingressRouteTables")
+    def ingress_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArgs']]]]:
+        return pulumi.get(self, "ingress_route_tables")
+
+    @ingress_route_tables.setter
+    def ingress_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArgs']]]]):
+        pulumi.set(self, "ingress_route_tables", value)
+
+    @property
+    @pulumi.getter(name="internetGateways")
+    def internet_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgs']]]]:
+        return pulumi.get(self, "internet_gateways")
+
+    @internet_gateways.setter
+    def internet_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgs']]]]):
+        pulumi.set(self, "internet_gateways", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerArn")
+    def load_balancer_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "load_balancer_arn")
+
+    @load_balancer_arn.setter
+    def load_balancer_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancer_arn", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerListenerPort")
+    def load_balancer_listener_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "load_balancer_listener_port")
+
+    @load_balancer_listener_port.setter
+    def load_balancer_listener_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "load_balancer_listener_port", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerTargetGroups")
+    def load_balancer_target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]:
+        return pulumi.get(self, "load_balancer_target_groups")
+
+    @load_balancer_target_groups.setter
+    def load_balancer_target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]):
+        pulumi.set(self, "load_balancer_target_groups", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerTargetPort")
+    def load_balancer_target_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "load_balancer_target_port")
+
+    @load_balancer_target_port.setter
+    def load_balancer_target_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "load_balancer_target_port", value)
+
+    @property
+    @pulumi.getter(name="missingComponent")
+    def missing_component(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "missing_component")
+
+    @missing_component.setter
+    def missing_component(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "missing_component", value)
+
+    @property
+    @pulumi.getter(name="natGateways")
+    def nat_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArgs']]]]:
+        return pulumi.get(self, "nat_gateways")
+
+    @nat_gateways.setter
+    def nat_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArgs']]]]):
+        pulumi.set(self, "nat_gateways", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArgs']]]]:
+        return pulumi.get(self, "network_interfaces")
+
+    @network_interfaces.setter
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArgs']]]]):
+        pulumi.set(self, "network_interfaces", value)
+
+    @property
+    @pulumi.getter(name="packetField")
+    def packet_field(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "packet_field")
+
+    @packet_field.setter
+    def packet_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "packet_field", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArgs']]]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter(name="prefixLists")
+    def prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArgs']]]]:
+        return pulumi.get(self, "prefix_lists")
+
+    @prefix_lists.setter
+    def prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArgs']]]]):
+        pulumi.set(self, "prefix_lists", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="routeTableRoutes")
+    def route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgs']]]]:
+        return pulumi.get(self, "route_table_routes")
+
+    @route_table_routes.setter
+    def route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgs']]]]):
+        pulumi.set(self, "route_table_routes", value)
+
+    @property
+    @pulumi.getter(name="routeTables")
+    def route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgs']]]]:
+        return pulumi.get(self, "route_tables")
+
+    @route_tables.setter
+    def route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgs']]]]):
+        pulumi.set(self, "route_tables", value)
+
+    @property
+    @pulumi.getter(name="securityGroupRules")
+    def security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs']]]]:
+        return pulumi.get(self, "security_group_rules")
+
+    @security_group_rules.setter
+    def security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs']]]]):
+        pulumi.set(self, "security_group_rules", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="sourceVpcs")
+    def source_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgs']]]]:
+        return pulumi.get(self, "source_vpcs")
+
+    @source_vpcs.setter
+    def source_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgs']]]]):
+        pulumi.set(self, "source_vpcs", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="subnetRouteTables")
+    def subnet_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArgs']]]]:
+        return pulumi.get(self, "subnet_route_tables")
+
+    @subnet_route_tables.setter
+    def subnet_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArgs']]]]):
+        pulumi.set(self, "subnet_route_tables", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArgs']]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArgs']]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayAttachments")
+    def transit_gateway_attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs']]]]:
+        return pulumi.get(self, "transit_gateway_attachments")
+
+    @transit_gateway_attachments.setter
+    def transit_gateway_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs']]]]):
+        pulumi.set(self, "transit_gateway_attachments", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTableRoutes")
+    def transit_gateway_route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs']]]]:
+        return pulumi.get(self, "transit_gateway_route_table_routes")
+
+    @transit_gateway_route_table_routes.setter
+    def transit_gateway_route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs']]]]):
+        pulumi.set(self, "transit_gateway_route_table_routes", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTables")
+    def transit_gateway_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs']]]]:
+        return pulumi.get(self, "transit_gateway_route_tables")
+
+    @transit_gateway_route_tables.setter
+    def transit_gateway_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs']]]]):
+        pulumi.set(self, "transit_gateway_route_tables", value)
+
+    @property
+    @pulumi.getter(name="transitGateways")
+    def transit_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArgs']]]]:
+        return pulumi.get(self, "transit_gateways")
+
+    @transit_gateways.setter
+    def transit_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArgs']]]]):
+        pulumi.set(self, "transit_gateways", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpoints")
+    def vpc_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArgs']]]]:
+        return pulumi.get(self, "vpc_endpoints")
+
+    @vpc_endpoints.setter
+    def vpc_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArgs']]]]):
+        pulumi.set(self, "vpc_endpoints", value)
+
+    @property
+    @pulumi.getter(name="vpcPeeringConnections")
+    def vpc_peering_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs']]]]:
+        return pulumi.get(self, "vpc_peering_connections")
+
+    @vpc_peering_connections.setter
+    def vpc_peering_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs']]]]):
+        pulumi.set(self, "vpc_peering_connections", value)
+
+    @property
+    @pulumi.getter
+    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArgs']]]]:
+        return pulumi.get(self, "vpcs")
+
+    @vpcs.setter
+    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArgs']]]]):
+        pulumi.set(self, "vpcs", value)
+
+    @property
+    @pulumi.getter(name="vpnConnections")
+    def vpn_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArgs']]]]:
+        return pulumi.get(self, "vpn_connections")
+
+    @vpn_connections.setter
+    def vpn_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArgs']]]]):
+        pulumi.set(self, "vpn_connections", value)
+
+    @property
+    @pulumi.getter(name="vpnGateways")
+    def vpn_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArgs']]]]:
+        return pulumi.get(self, "vpn_gateways")
+
+    @vpn_gateways.setter
+    def vpn_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArgs']]]]):
+        pulumi.set(self, "vpn_gateways", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationAclArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationAclRuleArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 egress: Optional[pulumi.Input[bool]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArgs']]]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 rule_action: Optional[pulumi.Input[str]] = None,
+                 rule_number: Optional[pulumi.Input[int]] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rule_action is not None:
+            pulumi.set(__self__, "rule_action", rule_action)
+        if rule_number is not None:
+            pulumi.set(__self__, "rule_number", rule_number)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter
+    def egress(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "egress")
+
+    @egress.setter
+    def egress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "egress", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArgs']]]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="ruleAction")
+    def rule_action(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rule_action")
+
+    @rule_action.setter
+    def rule_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_action", value)
+
+    @property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "rule_number")
+
+    @rule_number.setter
+    def rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rule_number", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationAclRulePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationAttachedToArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs:
+    def __init__(__self__, *,
+                 instance_port: Optional[pulumi.Input[int]] = None,
+                 load_balancer_port: Optional[pulumi.Input[int]] = None):
+        if instance_port is not None:
+            pulumi.set(__self__, "instance_port", instance_port)
+        if load_balancer_port is not None:
+            pulumi.set(__self__, "load_balancer_port", load_balancer_port)
+
+    @property
+    @pulumi.getter(name="instancePort")
+    def instance_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "instance_port")
+
+    @instance_port.setter
+    def instance_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_port", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerPort")
+    def load_balancer_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "load_balancer_port")
+
+    @load_balancer_port.setter
+    def load_balancer_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "load_balancer_port", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationComponentArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationCustomerGatewayArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationDestinationArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationDestinationVpcArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationIngressRouteTableArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationInternetGatewayArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationNatGatewayArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationPortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationPrefixListArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationRouteTableArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationRouteTableRouteArgs:
+    def __init__(__self__, *,
+                 destination_cidr: Optional[pulumi.Input[str]] = None,
+                 destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 egress_only_internet_gateway_id: Optional[pulumi.Input[str]] = None,
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
+                 nat_gateway_id: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 origin: Optional[pulumi.Input[str]] = None,
+                 transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
+        if egress_only_internet_gateway_id is not None:
+            pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if nat_gateway_id is not None:
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_peering_connection_id is not None:
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+
+    @property
+    @pulumi.getter(name="destinationCidr")
+    def destination_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_cidr")
+
+    @destination_cidr.setter
+    def destination_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_cidr", value)
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_prefix_list_id")
+
+    @destination_prefix_list_id.setter
+    def destination_prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_prefix_list_id", value)
+
+    @property
+    @pulumi.getter(name="egressOnlyInternetGatewayId")
+    def egress_only_internet_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "egress_only_internet_gateway_id")
+
+    @egress_only_internet_gateway_id.setter
+    def egress_only_internet_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "egress_only_internet_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "gateway_id")
+
+    @gateway_id.setter
+    def gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_id", value)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "nat_gateway_id")
+
+    @nat_gateway_id.setter
+    def nat_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nat_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "transit_gateway_id")
+
+    @transit_gateway_id.setter
+    def transit_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="vpcPeeringConnectionId")
+    def vpc_peering_connection_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpc_peering_connection_id")
+
+    @vpc_peering_connection_id.setter
+    def vpc_peering_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_peering_connection_id", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationSecurityGroupArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 direction: Optional[pulumi.Input[str]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs']]]] = None,
+                 prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs']]]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix_list_id")
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_list_id", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_id", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationSourceVpcArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationSubnetArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationSubnetRouteTableArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationTransitGatewayArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs:
+    def __init__(__self__, *,
+                 attachment_id: Optional[pulumi.Input[str]] = None,
+                 destination_cidr: Optional[pulumi.Input[str]] = None,
+                 prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 route_origin: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if route_origin is not None:
+            pulumi.set(__self__, "route_origin", route_origin)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "attachment_id")
+
+    @attachment_id.setter
+    def attachment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attachment_id", value)
+
+    @property
+    @pulumi.getter(name="destinationCidr")
+    def destination_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_cidr")
+
+    @destination_cidr.setter
+    def destination_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_cidr", value)
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix_list_id")
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_list_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="routeOrigin")
+    def route_origin(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "route_origin")
+
+    @route_origin.setter
+    def route_origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_origin", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationVpcArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationVpcEndpointArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationVpnConnectionArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisExplanationVpnGatewayArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentArgs:
+    def __init__(__self__, *,
+                 acl_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArgs']]]] = None,
+                 additional_details: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs']]]] = None,
+                 attached_tos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArgs']]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArgs']]]] = None,
+                 destination_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs']]]] = None,
+                 inbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs']]]] = None,
+                 outbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs']]]] = None,
+                 route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs']]]] = None,
+                 security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs']]]] = None,
+                 sequence_number: Optional[pulumi.Input[int]] = None,
+                 source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArgs']]]] = None,
+                 transit_gateway_route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs']]]] = None,
+                 transit_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs']]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArgs']]]] = None):
+        if acl_rules is not None:
+            pulumi.set(__self__, "acl_rules", acl_rules)
+        if additional_details is not None:
+            pulumi.set(__self__, "additional_details", additional_details)
+        if attached_tos is not None:
+            pulumi.set(__self__, "attached_tos", attached_tos)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if destination_vpcs is not None:
+            pulumi.set(__self__, "destination_vpcs", destination_vpcs)
+        if inbound_headers is not None:
+            pulumi.set(__self__, "inbound_headers", inbound_headers)
+        if outbound_headers is not None:
+            pulumi.set(__self__, "outbound_headers", outbound_headers)
+        if route_table_routes is not None:
+            pulumi.set(__self__, "route_table_routes", route_table_routes)
+        if security_group_rules is not None:
+            pulumi.set(__self__, "security_group_rules", security_group_rules)
+        if sequence_number is not None:
+            pulumi.set(__self__, "sequence_number", sequence_number)
+        if source_vpcs is not None:
+            pulumi.set(__self__, "source_vpcs", source_vpcs)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if transit_gateway_route_table_routes is not None:
+            pulumi.set(__self__, "transit_gateway_route_table_routes", transit_gateway_route_table_routes)
+        if transit_gateways is not None:
+            pulumi.set(__self__, "transit_gateways", transit_gateways)
+        if vpcs is not None:
+            pulumi.set(__self__, "vpcs", vpcs)
+
+    @property
+    @pulumi.getter(name="aclRules")
+    def acl_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArgs']]]]:
+        return pulumi.get(self, "acl_rules")
+
+    @acl_rules.setter
+    def acl_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArgs']]]]):
+        pulumi.set(self, "acl_rules", value)
+
+    @property
+    @pulumi.getter(name="additionalDetails")
+    def additional_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs']]]]:
+        return pulumi.get(self, "additional_details")
+
+    @additional_details.setter
+    def additional_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs']]]]):
+        pulumi.set(self, "additional_details", value)
+
+    @property
+    @pulumi.getter(name="attachedTos")
+    def attached_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArgs']]]]:
+        return pulumi.get(self, "attached_tos")
+
+    @attached_tos.setter
+    def attached_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArgs']]]]):
+        pulumi.set(self, "attached_tos", value)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArgs']]]]:
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArgs']]]]):
+        pulumi.set(self, "components", value)
+
+    @property
+    @pulumi.getter(name="destinationVpcs")
+    def destination_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs']]]]:
+        return pulumi.get(self, "destination_vpcs")
+
+    @destination_vpcs.setter
+    def destination_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs']]]]):
+        pulumi.set(self, "destination_vpcs", value)
+
+    @property
+    @pulumi.getter(name="inboundHeaders")
+    def inbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs']]]]:
+        return pulumi.get(self, "inbound_headers")
+
+    @inbound_headers.setter
+    def inbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs']]]]):
+        pulumi.set(self, "inbound_headers", value)
+
+    @property
+    @pulumi.getter(name="outboundHeaders")
+    def outbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs']]]]:
+        return pulumi.get(self, "outbound_headers")
+
+    @outbound_headers.setter
+    def outbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs']]]]):
+        pulumi.set(self, "outbound_headers", value)
+
+    @property
+    @pulumi.getter(name="routeTableRoutes")
+    def route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs']]]]:
+        return pulumi.get(self, "route_table_routes")
+
+    @route_table_routes.setter
+    def route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs']]]]):
+        pulumi.set(self, "route_table_routes", value)
+
+    @property
+    @pulumi.getter(name="securityGroupRules")
+    def security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs']]]]:
+        return pulumi.get(self, "security_group_rules")
+
+    @security_group_rules.setter
+    def security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs']]]]):
+        pulumi.set(self, "security_group_rules", value)
+
+    @property
+    @pulumi.getter(name="sequenceNumber")
+    def sequence_number(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "sequence_number")
+
+    @sequence_number.setter
+    def sequence_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sequence_number", value)
+
+    @property
+    @pulumi.getter(name="sourceVpcs")
+    def source_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs']]]]:
+        return pulumi.get(self, "source_vpcs")
+
+    @source_vpcs.setter
+    def source_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs']]]]):
+        pulumi.set(self, "source_vpcs", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArgs']]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArgs']]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTableRoutes")
+    def transit_gateway_route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs']]]]:
+        return pulumi.get(self, "transit_gateway_route_table_routes")
+
+    @transit_gateway_route_table_routes.setter
+    def transit_gateway_route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs']]]]):
+        pulumi.set(self, "transit_gateway_route_table_routes", value)
+
+    @property
+    @pulumi.getter(name="transitGateways")
+    def transit_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs']]]]:
+        return pulumi.get(self, "transit_gateways")
+
+    @transit_gateways.setter
+    def transit_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs']]]]):
+        pulumi.set(self, "transit_gateways", value)
+
+    @property
+    @pulumi.getter
+    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArgs']]]]:
+        return pulumi.get(self, "vpcs")
+
+    @vpcs.setter
+    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArgs']]]]):
+        pulumi.set(self, "vpcs", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentAclRuleArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 egress: Optional[pulumi.Input[bool]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs']]]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 rule_action: Optional[pulumi.Input[str]] = None,
+                 rule_number: Optional[pulumi.Input[int]] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rule_action is not None:
+            pulumi.set(__self__, "rule_action", rule_action)
+        if rule_number is not None:
+            pulumi.set(__self__, "rule_number", rule_number)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter
+    def egress(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "egress")
+
+    @egress.setter
+    def egress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "egress", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs']]]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="ruleAction")
+    def rule_action(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rule_action")
+
+    @rule_action.setter
+    def rule_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_action", value)
+
+    @property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "rule_number")
+
+    @rule_number.setter
+    def rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rule_number", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs:
+    def __init__(__self__, *,
+                 additional_detail_type: Optional[pulumi.Input[str]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs']]]] = None):
+        if additional_detail_type is not None:
+            pulumi.set(__self__, "additional_detail_type", additional_detail_type)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+
+    @property
+    @pulumi.getter(name="additionalDetailType")
+    def additional_detail_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_detail_type")
+
+    @additional_detail_type.setter
+    def additional_detail_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_detail_type", value)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs']]]]:
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs']]]]):
+        pulumi.set(self, "components", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentAttachedToArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentComponentArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs:
+    def __init__(__self__, *,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs']]]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs']]]] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs']]]]:
+        return pulumi.get(self, "destination_port_ranges")
+
+    @destination_port_ranges.setter
+    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs']]]]):
+        pulumi.set(self, "destination_port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs']]]]:
+        return pulumi.get(self, "source_port_ranges")
+
+    @source_port_ranges.setter
+    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs']]]]):
+        pulumi.set(self, "source_port_ranges", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs:
+    def __init__(__self__, *,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs']]]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs']]]] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs']]]]:
+        return pulumi.get(self, "destination_port_ranges")
+
+    @destination_port_ranges.setter
+    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs']]]]):
+        pulumi.set(self, "destination_port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs']]]]:
+        return pulumi.get(self, "source_port_ranges")
+
+    @source_port_ranges.setter
+    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs']]]]):
+        pulumi.set(self, "source_port_ranges", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs:
+    def __init__(__self__, *,
+                 destination_cidr: Optional[pulumi.Input[str]] = None,
+                 destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 egress_only_internet_gateway_id: Optional[pulumi.Input[str]] = None,
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
+                 nat_gateway_id: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 origin: Optional[pulumi.Input[str]] = None,
+                 transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
+        if egress_only_internet_gateway_id is not None:
+            pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if nat_gateway_id is not None:
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_peering_connection_id is not None:
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+
+    @property
+    @pulumi.getter(name="destinationCidr")
+    def destination_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_cidr")
+
+    @destination_cidr.setter
+    def destination_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_cidr", value)
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_prefix_list_id")
+
+    @destination_prefix_list_id.setter
+    def destination_prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_prefix_list_id", value)
+
+    @property
+    @pulumi.getter(name="egressOnlyInternetGatewayId")
+    def egress_only_internet_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "egress_only_internet_gateway_id")
+
+    @egress_only_internet_gateway_id.setter
+    def egress_only_internet_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "egress_only_internet_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "gateway_id")
+
+    @gateway_id.setter
+    def gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_id", value)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "nat_gateway_id")
+
+    @nat_gateway_id.setter
+    def nat_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nat_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "transit_gateway_id")
+
+    @transit_gateway_id.setter
+    def transit_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="vpcPeeringConnectionId")
+    def vpc_peering_connection_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpc_peering_connection_id")
+
+    @vpc_peering_connection_id.setter
+    def vpc_peering_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_peering_connection_id", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 direction: Optional[pulumi.Input[str]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs']]]] = None,
+                 prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs']]]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix_list_id")
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_list_id", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_id", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentSubnetArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs:
+    def __init__(__self__, *,
+                 attachment_id: Optional[pulumi.Input[str]] = None,
+                 destination_cidr: Optional[pulumi.Input[str]] = None,
+                 prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 route_origin: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if route_origin is not None:
+            pulumi.set(__self__, "route_origin", route_origin)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "attachment_id")
+
+    @attachment_id.setter
+    def attachment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attachment_id", value)
+
+    @property
+    @pulumi.getter(name="destinationCidr")
+    def destination_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_cidr")
+
+    @destination_cidr.setter
+    def destination_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_cidr", value)
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix_list_id")
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_list_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="routeOrigin")
+    def route_origin(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "route_origin")
+
+    @route_origin.setter
+    def route_origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_origin", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisForwardPathComponentVpcArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentArgs:
+    def __init__(__self__, *,
+                 acl_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArgs']]]] = None,
+                 additional_details: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs']]]] = None,
+                 attached_tos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArgs']]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArgs']]]] = None,
+                 destination_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs']]]] = None,
+                 inbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs']]]] = None,
+                 outbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs']]]] = None,
+                 route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs']]]] = None,
+                 security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs']]]] = None,
+                 sequence_number: Optional[pulumi.Input[int]] = None,
+                 source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArgs']]]] = None,
+                 transit_gateway_route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs']]]] = None,
+                 transit_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs']]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArgs']]]] = None):
+        if acl_rules is not None:
+            pulumi.set(__self__, "acl_rules", acl_rules)
+        if additional_details is not None:
+            pulumi.set(__self__, "additional_details", additional_details)
+        if attached_tos is not None:
+            pulumi.set(__self__, "attached_tos", attached_tos)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if destination_vpcs is not None:
+            pulumi.set(__self__, "destination_vpcs", destination_vpcs)
+        if inbound_headers is not None:
+            pulumi.set(__self__, "inbound_headers", inbound_headers)
+        if outbound_headers is not None:
+            pulumi.set(__self__, "outbound_headers", outbound_headers)
+        if route_table_routes is not None:
+            pulumi.set(__self__, "route_table_routes", route_table_routes)
+        if security_group_rules is not None:
+            pulumi.set(__self__, "security_group_rules", security_group_rules)
+        if sequence_number is not None:
+            pulumi.set(__self__, "sequence_number", sequence_number)
+        if source_vpcs is not None:
+            pulumi.set(__self__, "source_vpcs", source_vpcs)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if transit_gateway_route_table_routes is not None:
+            pulumi.set(__self__, "transit_gateway_route_table_routes", transit_gateway_route_table_routes)
+        if transit_gateways is not None:
+            pulumi.set(__self__, "transit_gateways", transit_gateways)
+        if vpcs is not None:
+            pulumi.set(__self__, "vpcs", vpcs)
+
+    @property
+    @pulumi.getter(name="aclRules")
+    def acl_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArgs']]]]:
+        return pulumi.get(self, "acl_rules")
+
+    @acl_rules.setter
+    def acl_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArgs']]]]):
+        pulumi.set(self, "acl_rules", value)
+
+    @property
+    @pulumi.getter(name="additionalDetails")
+    def additional_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs']]]]:
+        return pulumi.get(self, "additional_details")
+
+    @additional_details.setter
+    def additional_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs']]]]):
+        pulumi.set(self, "additional_details", value)
+
+    @property
+    @pulumi.getter(name="attachedTos")
+    def attached_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArgs']]]]:
+        return pulumi.get(self, "attached_tos")
+
+    @attached_tos.setter
+    def attached_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArgs']]]]):
+        pulumi.set(self, "attached_tos", value)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArgs']]]]:
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArgs']]]]):
+        pulumi.set(self, "components", value)
+
+    @property
+    @pulumi.getter(name="destinationVpcs")
+    def destination_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs']]]]:
+        return pulumi.get(self, "destination_vpcs")
+
+    @destination_vpcs.setter
+    def destination_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs']]]]):
+        pulumi.set(self, "destination_vpcs", value)
+
+    @property
+    @pulumi.getter(name="inboundHeaders")
+    def inbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs']]]]:
+        return pulumi.get(self, "inbound_headers")
+
+    @inbound_headers.setter
+    def inbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs']]]]):
+        pulumi.set(self, "inbound_headers", value)
+
+    @property
+    @pulumi.getter(name="outboundHeaders")
+    def outbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs']]]]:
+        return pulumi.get(self, "outbound_headers")
+
+    @outbound_headers.setter
+    def outbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs']]]]):
+        pulumi.set(self, "outbound_headers", value)
+
+    @property
+    @pulumi.getter(name="routeTableRoutes")
+    def route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs']]]]:
+        return pulumi.get(self, "route_table_routes")
+
+    @route_table_routes.setter
+    def route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs']]]]):
+        pulumi.set(self, "route_table_routes", value)
+
+    @property
+    @pulumi.getter(name="securityGroupRules")
+    def security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs']]]]:
+        return pulumi.get(self, "security_group_rules")
+
+    @security_group_rules.setter
+    def security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs']]]]):
+        pulumi.set(self, "security_group_rules", value)
+
+    @property
+    @pulumi.getter(name="sequenceNumber")
+    def sequence_number(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "sequence_number")
+
+    @sequence_number.setter
+    def sequence_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sequence_number", value)
+
+    @property
+    @pulumi.getter(name="sourceVpcs")
+    def source_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs']]]]:
+        return pulumi.get(self, "source_vpcs")
+
+    @source_vpcs.setter
+    def source_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs']]]]):
+        pulumi.set(self, "source_vpcs", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArgs']]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArgs']]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTableRoutes")
+    def transit_gateway_route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs']]]]:
+        return pulumi.get(self, "transit_gateway_route_table_routes")
+
+    @transit_gateway_route_table_routes.setter
+    def transit_gateway_route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs']]]]):
+        pulumi.set(self, "transit_gateway_route_table_routes", value)
+
+    @property
+    @pulumi.getter(name="transitGateways")
+    def transit_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs']]]]:
+        return pulumi.get(self, "transit_gateways")
+
+    @transit_gateways.setter
+    def transit_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs']]]]):
+        pulumi.set(self, "transit_gateways", value)
+
+    @property
+    @pulumi.getter
+    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArgs']]]]:
+        return pulumi.get(self, "vpcs")
+
+    @vpcs.setter
+    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArgs']]]]):
+        pulumi.set(self, "vpcs", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentAclRuleArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 egress: Optional[pulumi.Input[bool]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs']]]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 rule_action: Optional[pulumi.Input[str]] = None,
+                 rule_number: Optional[pulumi.Input[int]] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rule_action is not None:
+            pulumi.set(__self__, "rule_action", rule_action)
+        if rule_number is not None:
+            pulumi.set(__self__, "rule_number", rule_number)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter
+    def egress(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "egress")
+
+    @egress.setter
+    def egress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "egress", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs']]]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="ruleAction")
+    def rule_action(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rule_action")
+
+    @rule_action.setter
+    def rule_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_action", value)
+
+    @property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "rule_number")
+
+    @rule_number.setter
+    def rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rule_number", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs:
+    def __init__(__self__, *,
+                 additional_detail_type: Optional[pulumi.Input[str]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs']]]] = None):
+        if additional_detail_type is not None:
+            pulumi.set(__self__, "additional_detail_type", additional_detail_type)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+
+    @property
+    @pulumi.getter(name="additionalDetailType")
+    def additional_detail_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_detail_type")
+
+    @additional_detail_type.setter
+    def additional_detail_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_detail_type", value)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs']]]]:
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs']]]]):
+        pulumi.set(self, "components", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentAttachedToArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentComponentArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs:
+    def __init__(__self__, *,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs']]]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs']]]] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs']]]]:
+        return pulumi.get(self, "destination_port_ranges")
+
+    @destination_port_ranges.setter
+    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs']]]]):
+        pulumi.set(self, "destination_port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs']]]]:
+        return pulumi.get(self, "source_port_ranges")
+
+    @source_port_ranges.setter
+    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs']]]]):
+        pulumi.set(self, "source_port_ranges", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs:
+    def __init__(__self__, *,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs']]]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs']]]] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs']]]]:
+        return pulumi.get(self, "destination_port_ranges")
+
+    @destination_port_ranges.setter
+    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs']]]]):
+        pulumi.set(self, "destination_port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs']]]]:
+        return pulumi.get(self, "source_port_ranges")
+
+    @source_port_ranges.setter
+    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs']]]]):
+        pulumi.set(self, "source_port_ranges", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs:
+    def __init__(__self__, *,
+                 destination_cidr: Optional[pulumi.Input[str]] = None,
+                 destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 egress_only_internet_gateway_id: Optional[pulumi.Input[str]] = None,
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
+                 nat_gateway_id: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 origin: Optional[pulumi.Input[str]] = None,
+                 transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
+        if egress_only_internet_gateway_id is not None:
+            pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if nat_gateway_id is not None:
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_peering_connection_id is not None:
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+
+    @property
+    @pulumi.getter(name="destinationCidr")
+    def destination_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_cidr")
+
+    @destination_cidr.setter
+    def destination_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_cidr", value)
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_prefix_list_id")
+
+    @destination_prefix_list_id.setter
+    def destination_prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_prefix_list_id", value)
+
+    @property
+    @pulumi.getter(name="egressOnlyInternetGatewayId")
+    def egress_only_internet_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "egress_only_internet_gateway_id")
+
+    @egress_only_internet_gateway_id.setter
+    def egress_only_internet_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "egress_only_internet_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "gateway_id")
+
+    @gateway_id.setter
+    def gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_id", value)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "nat_gateway_id")
+
+    @nat_gateway_id.setter
+    def nat_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nat_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "transit_gateway_id")
+
+    @transit_gateway_id.setter
+    def transit_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="vpcPeeringConnectionId")
+    def vpc_peering_connection_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpc_peering_connection_id")
+
+    @vpc_peering_connection_id.setter
+    def vpc_peering_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_peering_connection_id", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 direction: Optional[pulumi.Input[str]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs']]]] = None,
+                 prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs']]]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix_list_id")
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_list_id", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_id", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentSubnetArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs:
+    def __init__(__self__, *,
+                 attachment_id: Optional[pulumi.Input[str]] = None,
+                 destination_cidr: Optional[pulumi.Input[str]] = None,
+                 prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 route_origin: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if route_origin is not None:
+            pulumi.set(__self__, "route_origin", route_origin)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "attachment_id")
+
+    @attachment_id.setter
+    def attachment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attachment_id", value)
+
+    @property
+    @pulumi.getter(name="destinationCidr")
+    def destination_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_cidr")
+
+    @destination_cidr.setter
+    def destination_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_cidr", value)
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix_list_id")
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_list_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="routeOrigin")
+    def route_origin(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "route_origin")
+
+    @route_origin.setter
+    def route_origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_origin", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAnalysisReturnPathComponentVpcArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: ARN of the Network Insights Analysis.
+        :param pulumi.Input[str] id: ID of the Network Insights Analysis.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Network Insights Analysis.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class NetworkInterfaceAttachmentArgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[int],
@@ -6160,9 +11236,15 @@ class PeeringConnectionOptionsAccepterArgs:
                connection. This option is not supported for inter-region VPC peering.
         """
         if allow_classic_link_to_remote_vpc is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+        if allow_classic_link_to_remote_vpc is not None:
             pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
+        if allow_vpc_to_remote_classic_link is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
         if allow_vpc_to_remote_classic_link is not None:
             pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
 
@@ -6225,9 +11307,15 @@ class PeeringConnectionOptionsRequesterArgs:
                connection. This option is not supported for inter-region VPC peering.
         """
         if allow_classic_link_to_remote_vpc is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+        if allow_classic_link_to_remote_vpc is not None:
             pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
+        if allow_vpc_to_remote_classic_link is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
         if allow_vpc_to_remote_classic_link is not None:
             pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
 
@@ -9294,9 +14382,15 @@ class VpcPeeringConnectionAccepterArgs:
                connection.
         """
         if allow_classic_link_to_remote_vpc is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+        if allow_classic_link_to_remote_vpc is not None:
             pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
+        if allow_vpc_to_remote_classic_link is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
         if allow_vpc_to_remote_classic_link is not None:
             pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
 
@@ -9357,9 +14451,15 @@ class VpcPeeringConnectionAccepterAccepterArgs:
                connection in the peer VPC over the VPC Peering Connection.
         """
         if allow_classic_link_to_remote_vpc is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+        if allow_classic_link_to_remote_vpc is not None:
             pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
+        if allow_vpc_to_remote_classic_link is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
         if allow_vpc_to_remote_classic_link is not None:
             pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
 
@@ -9418,9 +14518,15 @@ class VpcPeeringConnectionAccepterRequesterArgs:
                connection in the peer VPC over the VPC Peering Connection.
         """
         if allow_classic_link_to_remote_vpc is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+        if allow_classic_link_to_remote_vpc is not None:
             pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
+        if allow_vpc_to_remote_classic_link is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
         if allow_vpc_to_remote_classic_link is not None:
             pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
 
@@ -9481,9 +14587,15 @@ class VpcPeeringConnectionRequesterArgs:
                connection.
         """
         if allow_classic_link_to_remote_vpc is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+        if allow_classic_link_to_remote_vpc is not None:
             pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
+        if allow_vpc_to_remote_classic_link is not None:
+            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
         if allow_vpc_to_remote_classic_link is not None:
             pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
 
@@ -10666,6 +15778,80 @@ class GetNetworkAclsFilterArgs:
         """
         Set of values that are accepted for the given field.
         A VPC will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetNetworkInsightsAnalysisFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetNetworkInsightsPathFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
 

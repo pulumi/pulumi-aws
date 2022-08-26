@@ -65,7 +65,9 @@ type LookupSubnetGroupResult struct {
 	Status string `pulumi:"status"`
 	// Contains a list of subnet identifiers.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Provides the VPC ID of the subnet group.
+	// The network type of the DB subnet group.
+	SupportedNetworkTypes []string `pulumi:"supportedNetworkTypes"`
+	// Provides the VPC ID of the DB subnet group.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -136,7 +138,12 @@ func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Provides the VPC ID of the subnet group.
+// The network type of the DB subnet group.
+func (o LookupSubnetGroupResultOutput) SupportedNetworkTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SupportedNetworkTypes }).(pulumi.StringArrayOutput)
+}
+
+// Provides the VPC ID of the DB subnet group.
 func (o LookupSubnetGroupResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

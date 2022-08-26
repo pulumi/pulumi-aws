@@ -65,7 +65,11 @@ export interface GetSubnetGroupResult {
      */
     readonly subnetIds: string[];
     /**
-     * Provides the VPC ID of the subnet group.
+     * The network type of the DB subnet group.
+     */
+    readonly supportedNetworkTypes: string[];
+    /**
+     * Provides the VPC ID of the DB subnet group.
      */
     readonly vpcId: string;
 }

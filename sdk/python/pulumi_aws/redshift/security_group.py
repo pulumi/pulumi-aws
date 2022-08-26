@@ -138,8 +138,6 @@ class SecurityGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
-
         ## Example Usage
 
         ```python
@@ -172,8 +170,6 @@ class SecurityGroup(pulumi.CustomResource):
                  args: SecurityGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
-
         ## Example Usage
 
         ```python

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Servreless Namespaces can be imported using the `namespace_name`, e.g.,
+ * Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:redshiftserverless/namespace:Namespace example example
@@ -107,14 +107,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dbName", type=String.class, parameters={})
-    private Output</* @Nullable */ String> dbName;
+    private Output<String> dbName;
 
     /**
      * @return The name of the first database created in the namespace.
      * 
      */
-    public Output<Optional<String>> dbName() {
-        return Codegen.optional(this.dbName);
+    public Output<String> dbName() {
+        return this.dbName;
     }
     /**
      * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.

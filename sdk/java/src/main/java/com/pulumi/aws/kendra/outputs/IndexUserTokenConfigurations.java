@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IndexUserTokenConfigurations {
     /**
-     * @return A block that specifies the information about the JSON token type configuration.
+     * @return A block that specifies the information about the JSON token type configuration. Detailed below.
      * 
      */
     private @Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration jsonTokenTypeConfiguration;
     /**
-     * @return A block that specifies the information about the JWT token type configuration.
+     * @return A block that specifies the information about the JWT token type configuration. Detailed below.
      * 
      */
     private @Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration jwtTokenTypeConfiguration;
 
     private IndexUserTokenConfigurations() {}
     /**
-     * @return A block that specifies the information about the JSON token type configuration.
+     * @return A block that specifies the information about the JSON token type configuration. Detailed below.
      * 
      */
     public Optional<IndexUserTokenConfigurationsJsonTokenTypeConfiguration> jsonTokenTypeConfiguration() {
         return Optional.ofNullable(this.jsonTokenTypeConfiguration);
     }
     /**
-     * @return A block that specifies the information about the JWT token type configuration.
+     * @return A block that specifies the information about the JWT token type configuration. Detailed below.
      * 
      */
     public Optional<IndexUserTokenConfigurationsJwtTokenTypeConfiguration> jwtTokenTypeConfiguration() {

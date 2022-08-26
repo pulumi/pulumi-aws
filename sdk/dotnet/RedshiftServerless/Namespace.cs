@@ -31,7 +31,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Import
     /// 
-    /// Redshift Servreless Namespaces can be imported using the `namespace_name`, e.g.,
+    /// Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:redshiftserverless/namespace:Namespace example example
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The name of the first database created in the namespace.
         /// </summary>
         [Output("dbName")]
-        public Output<string?> DbName { get; private set; } = null!;
+        public Output<string> DbName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.

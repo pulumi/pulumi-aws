@@ -4612,7 +4612,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 type JobCommand struct {
 	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name *string `pulumi:"name"`
-	// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+	// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 	PythonVersion *string `pulumi:"pythonVersion"`
 	// Specifies the S3 path to a script that executes a job.
 	ScriptLocation string `pulumi:"scriptLocation"`
@@ -4632,7 +4632,7 @@ type JobCommandInput interface {
 type JobCommandArgs struct {
 	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+	// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
 	// Specifies the S3 path to a script that executes a job.
 	ScriptLocation pulumi.StringInput `pulumi:"scriptLocation"`
@@ -4720,7 +4720,7 @@ func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
 }
@@ -4764,7 +4764,7 @@ func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobCommand) *string {
 		if v == nil {

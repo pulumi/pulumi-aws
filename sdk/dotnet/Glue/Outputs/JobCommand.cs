@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+        /// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
         /// </summary>
         public readonly string? PythonVersion;
         /// <summary>

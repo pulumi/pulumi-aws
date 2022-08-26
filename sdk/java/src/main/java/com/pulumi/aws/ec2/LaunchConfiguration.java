@@ -554,7 +554,11 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
     @Export(name="vpcClassicLinkId", type=String.class, parameters={})
     private Output</* @Nullable */ String> vpcClassicLinkId;
 
@@ -568,7 +572,11 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
     @Export(name="vpcClassicLinkSecurityGroups", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> vpcClassicLinkSecurityGroups;
 

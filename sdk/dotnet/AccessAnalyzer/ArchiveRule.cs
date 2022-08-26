@@ -11,6 +11,47 @@ namespace Pulumi.Aws.AccessAnalyzer
 {
     /// <summary>
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AccessAnalyzer.ArchiveRule("example", new()
+    ///     {
+    ///         AnalyzerName = "example-analyzer",
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
+    ///             {
+    ///                 Criteria = "condition.aws:UserId",
+    ///                 Eqs = new[]
+    ///                 {
+    ///                     "userid",
+    ///                 },
+    ///             },
+    ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
+    ///             {
+    ///                 Criteria = "error",
+    ///                 Exists = "true",
+    ///             },
+    ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
+    ///             {
+    ///                 Criteria = "isPublic",
+    ///                 Eqs = new[]
+    ///                 {
+    ///                     "false",
+    ///                 },
+    ///             },
+    ///         },
+    ///         RuleName = "example-rule",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

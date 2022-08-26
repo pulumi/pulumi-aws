@@ -91,6 +91,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkAclAssociation{}
 	case "aws:ec2/networkAclRule:NetworkAclRule":
 		r = &NetworkAclRule{}
+	case "aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis":
+		r = &NetworkInsightsAnalysis{}
 	case "aws:ec2/networkInsightsPath:NetworkInsightsPath":
 		r = &NetworkInsightsPath{}
 	case "aws:ec2/networkInterface:NetworkInterface":
@@ -385,6 +387,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/networkAclRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/networkInsightsAnalysis",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

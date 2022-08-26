@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'GetAttachmentFilterResult',
     'GetConnectFilterResult',
     'GetConnectPeerFilterResult',
     'GetDirectConnectGatewayAttachmentFilterResult',
@@ -24,6 +25,35 @@ __all__ = [
     'GetVpcAttachmentsFilterResult',
     'GetVpnAttachmentFilterResult',
 ]
+
+@pulumi.output_type
+class GetAttachmentFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
 
 @pulumi.output_type
 class GetConnectFilterResult(dict):

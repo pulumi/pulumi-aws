@@ -13,40 +13,28 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class IndexDocumentMetadataConfigurationUpdateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Index.
+        /// The name of the index field. Minimum length of 1. Maximum length of 30.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("relevances")]
-        private InputList<Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs>? _relevances;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+        /// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
         /// </summary>
-        public InputList<Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs> Relevances
-        {
-            get => _relevances ?? (_relevances = new InputList<Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs>());
-            set => _relevances = value;
-        }
-
-        [Input("searches")]
-        private InputList<Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs>? _searches;
+        [Input("relevance")]
+        public Input<Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs>? Relevance { get; set; }
 
         /// <summary>
-        /// A block that provides information about how the field is used during a search. Documented below.
+        /// A block that provides information about how the field is used during a search. Documented below. Detailed below
         /// </summary>
-        public InputList<Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs> Searches
-        {
-            get => _searches ?? (_searches = new InputList<Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs>());
-            set => _searches = value;
-        }
+        [Input("search")]
+        public Input<Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs>? Search { get; set; }
 
         /// <summary>
         /// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public IndexDocumentMetadataConfigurationUpdateArgs()
         {

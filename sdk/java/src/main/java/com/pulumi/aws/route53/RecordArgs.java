@@ -27,7 +27,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * An alias block. Conflicts with `ttl` &amp; `records`.
-     * Alias record documented below.
+     * Documented below.
      * 
      */
     @Import(name="aliases")
@@ -35,7 +35,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return An alias block. Conflicts with `ttl` &amp; `records`.
-     * Alias record documented below.
+     * Documented below.
      * 
      */
     public Optional<Output<List<RecordAliasArgs>>> aliases() {
@@ -268,7 +268,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param aliases An alias block. Conflicts with `ttl` &amp; `records`.
-         * Alias record documented below.
+         * Documented below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param aliases An alias block. Conflicts with `ttl` &amp; `records`.
-         * Alias record documented below.
+         * Documented below.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param aliases An alias block. Conflicts with `ttl` &amp; `records`.
-         * Alias record documented below.
+         * Documented below.
          * 
          * @return builder
          * 

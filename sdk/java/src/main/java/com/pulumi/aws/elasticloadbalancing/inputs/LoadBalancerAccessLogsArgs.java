@@ -63,14 +63,14 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The publishing interval in minutes. Default: 60 minutes.
+     * The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return The publishing interval in minutes. Default: 60 minutes.
+     * @return The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -168,7 +168,7 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param interval The publishing interval in minutes. Default: 60 minutes.
+         * @param interval The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param interval The publishing interval in minutes. Default: 60 minutes.
+         * @param interval The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
          * 
          * @return builder
          * 

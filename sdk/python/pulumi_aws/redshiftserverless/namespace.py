@@ -379,7 +379,7 @@ class Namespace(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Servreless Namespaces can be imported using the `namespace_name`, e.g.,
+        Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
 
         ```sh
          $ pulumi import aws:redshiftserverless/namespace:Namespace example example
@@ -416,7 +416,7 @@ class Namespace(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Servreless Namespaces can be imported using the `namespace_name`, e.g.,
+        Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
 
         ```sh
          $ pulumi import aws:redshiftserverless/namespace:Namespace example example
@@ -553,7 +553,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbName")
-    def db_name(self) -> pulumi.Output[Optional[str]]:
+    def db_name(self) -> pulumi.Output[str]:
         """
         The name of the first database created in the namespace.
         """

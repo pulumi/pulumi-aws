@@ -108,6 +108,7 @@ class _SubnetGroupState:
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 supported_network_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -117,6 +118,7 @@ class _SubnetGroupState:
         :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_network_types: The network type of the db subnet group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -132,6 +134,8 @@ class _SubnetGroupState:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if supported_network_types is not None:
+            pulumi.set(__self__, "supported_network_types", supported_network_types)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -196,6 +200,18 @@ class _SubnetGroupState:
     @subnet_ids.setter
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="supportedNetworkTypes")
+    def supported_network_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The network type of the db subnet group.
+        """
+        return pulumi.get(self, "supported_network_types")
+
+    @supported_network_types.setter
+    def supported_network_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_network_types", value)
 
     @property
     @pulumi.getter
@@ -340,6 +356,7 @@ class SubnetGroup(pulumi.CustomResource):
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["supported_network_types"] = None
             __props__.__dict__["tags_all"] = None
         super(SubnetGroup, __self__).__init__(
             'aws:rds/subnetGroup:SubnetGroup',
@@ -356,6 +373,7 @@ class SubnetGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            supported_network_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SubnetGroup':
         """
@@ -370,6 +388,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_network_types: The network type of the db subnet group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -382,6 +401,7 @@ class SubnetGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["subnet_ids"] = subnet_ids
+        __props__.__dict__["supported_network_types"] = supported_network_types
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return SubnetGroup(resource_name, opts=opts, __props__=__props__)
@@ -425,6 +445,14 @@ class SubnetGroup(pulumi.CustomResource):
         A list of VPC subnet IDs.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="supportedNetworkTypes")
+    def supported_network_types(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The network type of the db subnet group.
+        """
+        return pulumi.get(self, "supported_network_types")
 
     @property
     @pulumi.getter

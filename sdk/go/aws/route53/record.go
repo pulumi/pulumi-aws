@@ -46,6 +46,7 @@ import (
 //
 // ```
 // ### Weighted routing policy
+//
 // Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
 //
 // ```go
@@ -102,6 +103,7 @@ import (
 //
 // ```
 // ### Alias record
+//
 // See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
 // to understand differences between alias and non-alias records.
 //
@@ -228,7 +230,7 @@ type Record struct {
 	pulumi.CustomResourceState
 
 	// An alias block. Conflicts with `ttl` & `records`.
-	// Alias record documented below.
+	// Documented below.
 	Aliases RecordAliasArrayOutput `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite pulumi.BoolOutput `pulumi:"allowOverwrite"`
@@ -298,7 +300,7 @@ func GetRecord(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Record resources.
 type recordState struct {
 	// An alias block. Conflicts with `ttl` & `records`.
-	// Alias record documented below.
+	// Documented below.
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
@@ -331,7 +333,7 @@ type recordState struct {
 
 type RecordState struct {
 	// An alias block. Conflicts with `ttl` & `records`.
-	// Alias record documented below.
+	// Documented below.
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite pulumi.BoolPtrInput
@@ -368,7 +370,7 @@ func (RecordState) ElementType() reflect.Type {
 
 type recordArgs struct {
 	// An alias block. Conflicts with `ttl` & `records`.
-	// Alias record documented below.
+	// Documented below.
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
@@ -400,7 +402,7 @@ type recordArgs struct {
 // The set of arguments for constructing a Record resource.
 type RecordArgs struct {
 	// An alias block. Conflicts with `ttl` & `records`.
-	// Alias record documented below.
+	// Documented below.
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite pulumi.BoolPtrInput
@@ -517,7 +519,7 @@ func (o RecordOutput) ToRecordOutputWithContext(ctx context.Context) RecordOutpu
 }
 
 // An alias block. Conflicts with `ttl` & `records`.
-// Alias record documented below.
+// Documented below.
 func (o RecordOutput) Aliases() RecordAliasArrayOutput {
 	return o.ApplyT(func(v *Record) RecordAliasArrayOutput { return v.Aliases }).(RecordAliasArrayOutput)
 }

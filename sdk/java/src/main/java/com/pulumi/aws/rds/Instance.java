@@ -805,6 +805,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.ncharCharacterSetName;
     }
     /**
+     * The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    @Export(name="networkType", type=String.class, parameters={})
+    private Output<String> networkType;
+
+    /**
+     * @return The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
+    }
+    /**
      * Name of the DB option group to associate.
      * 
      */
@@ -1023,7 +1037,11 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * associate. Only used for [DB Instances on the _EC2-Classic_
      * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
     @Export(name="securityGroupNames", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> securityGroupNames;
 

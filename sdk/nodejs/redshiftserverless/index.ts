@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./namespace";
+export * from "./workgroup";
 
 // Import resources to register:
 import { Namespace } from "./namespace";
+import { Workgroup } from "./workgroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:redshiftserverless/namespace:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "aws:redshiftserverless/workgroup:Workgroup":
+                return new Workgroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/namespace", _module)
+pulumi.runtime.registerResourceModule("aws", "redshiftserverless/workgroup", _module)

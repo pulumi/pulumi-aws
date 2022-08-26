@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Elb.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The publishing interval in minutes. Default: 60 minutes.
+        /// The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }

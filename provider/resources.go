@@ -1525,6 +1525,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_ipam_preview_next_cidr":          {Tok: awsResource(ec2Mod, "VpcIpamPreviewNextCidr")},
 			"aws_ec2_network_insights_path":           {Tok: awsResource(ec2Mod, "NetworkInsightsPath")},
 			"aws_ec2_serial_console_access":           {Tok: awsResource(ec2Mod, "SerialConsoleAccess")},
+			"aws_ec2_network_insights_analysis":       {Tok: awsResource(ec2Mod, "NetworkInsightsAnalysis")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -1557,6 +1558,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_multicast_domain_association": {Tok: awsResource(ec2TransitGatewayMod, "MulticastDomainAssociation")},
 			"aws_ec2_transit_gateway_multicast_group_member":       {Tok: awsResource(ec2TransitGatewayMod, "MulticastGroupMember")},
 			"aws_ec2_transit_gateway_multicast_group_source":       {Tok: awsResource(ec2TransitGatewayMod, "MulticastGroupSource")},
+			"aws_ec2_transit_gateway_policy_table":                 {Tok: awsResource(ec2TransitGatewayMod, "PolicyTable")},
+			"aws_ec2_transit_gateway_policy_table_association":     {Tok: awsResource(ec2TransitGatewayMod, "PolicyTableAssociation")},
 			// Elastic Container Registry
 			"aws_ecr_repository": {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {
@@ -1830,6 +1833,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_grafana_workspace":                    {Tok: awsResource(grafanaMod, "Workspace")},
 			"aws_grafana_workspace_saml_configuration": {Tok: awsResource(grafanaMod, "WorkspaceSamlConfiguration")},
 			"aws_grafana_role_association":             {Tok: awsResource(grafanaMod, "RoleAssociation")},
+			"aws_grafana_workspace_api_key":            {Tok: awsResource(grafanaMod, "WorkspaceApiKey")},
 			// GuardDuty
 			"aws_guardduty_detector":                   {Tok: awsResource(guarddutyMod, "Detector")},
 			"aws_guardduty_invite_accepter":            {Tok: awsResource(guarddutyMod, "InviteAccepter")},
@@ -2307,6 +2311,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_networkmanager_transit_gateway_registration":             {Tok: awsResource(networkManagerMod, "TransitGatewayRegistration")},
 			"aws_networkmanager_attachment_accepter":                      {Tok: awsResource(networkManagerMod, "AttachmentAccepter")},
 			"aws_networkmanager_vpc_attachment":                           {Tok: awsResource(networkManagerMod, "VpcAttachment")},
+			"aws_networkmanager_transit_gateway_peering":                  {Tok: awsResource(networkManagerMod, "TransitGatewayPeering")},
+			"aws_networkmanager_transit_gateway_route_table_attachment":   {Tok: awsResource(networkManagerMod, "TransitGatewayRouteTableAttachment")},
 			// OpenSearch
 			"aws_opensearch_domain": {
 				Tok: awsResource(opensearchMod, "Domain"),
@@ -2517,6 +2523,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshiftdata_statement": {Tok: awsResource(redshiftDataMod, "Statement")},
 			// Redshift serverless
 			"aws_redshiftserverless_namespace": {Tok: awsResource(redshiftServerlessMod, "Namespace")},
+			"aws_redshiftserverless_workgroup": {Tok: awsResource(redshiftServerlessMod, "Workgroup")},
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Roles Anywhere
@@ -4716,6 +4723,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_ipam_preview_next_cidr":       {Tok: awsDataSource(ec2Mod, "getIpamPreviewNextCidr")},
 			"aws_eips":                             {Tok: awsDataSource(ec2Mod, "getEips")},
 			"aws_ec2_serial_console_access":        {Tok: awsDataSource(ec2Mod, "getSerialConsoleAccess")},
+			"aws_ec2_network_insights_analysis":    {Tok: awsDataSource(ec2Mod, "getNetworkInsightsAnalysis")},
+			"aws_ec2_network_insights_path":        {Tok: awsDataSource(ec2Mod, "getNetworkInsightsPath")},
 
 			// Ec2 Client
 			"aws_ec2_client_vpn_endpoint": {Tok: awsDataSource(ec2ClientVpnMod, "getEndpoint")},
@@ -4735,6 +4744,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_peering_attachment": {
 				Tok: awsDataSource(ec2TransitGatewayMod, "getPeeringAttachment"),
 			},
+			"aws_ec2_transit_gateway_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getAttachment")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_application": {
 				Tok: awsDataSource(elasticbeanstalkMod, "getApplication"),
@@ -4925,6 +4935,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_location_route_calculator":    {Tok: awsDataSource(locationMod, "getRouteCalculator")},
 			"aws_location_tracker":             {Tok: awsDataSource(locationMod, "getTracker")},
 			"aws_location_geofence_collection": {Tok: awsDataSource(locationMod, "getGeofenceCollection")},
+			"aws_location_tracker_association": {Tok: awsDataSource(locationMod, "getTrackerAssociation")},
 
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},

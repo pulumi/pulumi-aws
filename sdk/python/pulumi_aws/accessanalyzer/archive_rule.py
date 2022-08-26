@@ -133,6 +133,30 @@ class ArchiveRule(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.accessanalyzer.ArchiveRule("example",
+            analyzer_name="example-analyzer",
+            filters=[
+                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                    criteria="condition.aws:UserId",
+                    eqs=["userid"],
+                ),
+                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                    criteria="error",
+                    exists="true",
+                ),
+                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                    criteria="isPublic",
+                    eqs=["false"],
+                ),
+            ],
+            rule_name="example-rule")
+        ```
 
         ## Import
 
@@ -156,6 +180,30 @@ class ArchiveRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.accessanalyzer.ArchiveRule("example",
+            analyzer_name="example-analyzer",
+            filters=[
+                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                    criteria="condition.aws:UserId",
+                    eqs=["userid"],
+                ),
+                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                    criteria="error",
+                    exists="true",
+                ),
+                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                    criteria="isPublic",
+                    eqs=["false"],
+                ),
+            ],
+            rule_name="example-rule")
+        ```
 
         ## Import
 

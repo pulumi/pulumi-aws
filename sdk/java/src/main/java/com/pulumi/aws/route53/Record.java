@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Weighted routing policy
+ * 
  * Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
  * ```java
  * package generated_program;
@@ -111,6 +112,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Alias record
+ * 
  * See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
  * to understand differences between alias and non-alias records.
  * 
@@ -228,7 +230,7 @@ import javax.annotation.Nullable;
 public class Record extends com.pulumi.resources.CustomResource {
     /**
      * An alias block. Conflicts with `ttl` &amp; `records`.
-     * Alias record documented below.
+     * Documented below.
      * 
      */
     @Export(name="aliases", type=List.class, parameters={RecordAlias.class})
@@ -236,7 +238,7 @@ public class Record extends com.pulumi.resources.CustomResource {
 
     /**
      * @return An alias block. Conflicts with `ttl` &amp; `records`.
-     * Alias record documented below.
+     * Documented below.
      * 
      */
     public Output<Optional<List<RecordAlias>>> aliases() {

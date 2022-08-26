@@ -310,14 +310,22 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
     @Import(name="vpcClassicLinkId")
     private @Nullable Output<String> vpcClassicLinkId;
 
     /**
      * @return The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
     public Optional<Output<String>> vpcClassicLinkId() {
         return Optional.ofNullable(this.vpcClassicLinkId);
     }
@@ -325,14 +333,22 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
     @Import(name="vpcClassicLinkSecurityGroups")
     private @Nullable Output<List<String>> vpcClassicLinkSecurityGroups;
 
     /**
      * @return The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
     public Optional<Output<List<String>>> vpcClassicLinkSecurityGroups() {
         return Optional.ofNullable(this.vpcClassicLinkSecurityGroups);
     }
@@ -811,7 +827,11 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
         public Builder vpcClassicLinkId(@Nullable Output<String> vpcClassicLinkId) {
             $.vpcClassicLinkId = vpcClassicLinkId;
             return this;
@@ -822,7 +842,11 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
         public Builder vpcClassicLinkId(String vpcClassicLinkId) {
             return vpcClassicLinkId(Output.of(vpcClassicLinkId));
         }
@@ -832,7 +856,11 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
         public Builder vpcClassicLinkSecurityGroups(@Nullable Output<List<String>> vpcClassicLinkSecurityGroups) {
             $.vpcClassicLinkSecurityGroups = vpcClassicLinkSecurityGroups;
             return this;
@@ -843,7 +871,11 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
         public Builder vpcClassicLinkSecurityGroups(List<String> vpcClassicLinkSecurityGroups) {
             return vpcClassicLinkSecurityGroups(Output.of(vpcClassicLinkSecurityGroups));
         }
@@ -853,7 +885,11 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
         public Builder vpcClassicLinkSecurityGroups(String... vpcClassicLinkSecurityGroups) {
             return vpcClassicLinkSecurityGroups(List.of(vpcClassicLinkSecurityGroups));
         }

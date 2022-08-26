@@ -56,6 +56,8 @@ from .get_managed_prefix_list import *
 from .get_nat_gateway import *
 from .get_nat_gateways import *
 from .get_network_acls import *
+from .get_network_insights_analysis import *
+from .get_network_insights_path import *
 from .get_network_interface import *
 from .get_network_interfaces import *
 from .get_prefix_list import *
@@ -94,6 +96,7 @@ from .nat_gateway import *
 from .network_acl import *
 from .network_acl_association import *
 from .network_acl_rule import *
+from .network_insights_analysis import *
 from .network_insights_path import *
 from .network_interface import *
 from .network_interface_attachment import *

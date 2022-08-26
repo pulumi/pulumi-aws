@@ -315,6 +315,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ncharCharacterSetName!: pulumi.Output<string>;
     /**
+     * The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+     */
+    public readonly networkType!: pulumi.Output<string>;
+    /**
      * Name of the DB option group to associate.
      */
     public readonly optionGroupName!: pulumi.Output<string>;
@@ -384,6 +388,8 @@ export class Instance extends pulumi.CustomResource {
      * List of DB Security Groups to
      * associate. Only used for [DB Instances on the _EC2-Classic_
      * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+     *
+     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
      */
     public readonly securityGroupNames!: pulumi.Output<string[] | undefined>;
     /**
@@ -498,6 +504,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["multiAz"] = state ? state.multiAz : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ncharCharacterSetName"] = state ? state.ncharCharacterSetName : undefined;
+            resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["optionGroupName"] = state ? state.optionGroupName : undefined;
             resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
@@ -563,6 +570,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["multiAz"] = args ? args.multiAz : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ncharCharacterSetName"] = args ? args.ncharCharacterSetName : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
@@ -821,6 +829,10 @@ export interface InstanceState {
      */
     ncharCharacterSetName?: pulumi.Input<string>;
     /**
+     * The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
      * Name of the DB option group to associate.
      */
     optionGroupName?: pulumi.Input<string>;
@@ -890,6 +902,8 @@ export interface InstanceState {
      * List of DB Security Groups to
      * associate. Only used for [DB Instances on the _EC2-Classic_
      * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+     *
+     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -1147,6 +1161,10 @@ export interface InstanceArgs {
      */
     ncharCharacterSetName?: pulumi.Input<string>;
     /**
+     * The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
      * Name of the DB option group to associate.
      */
     optionGroupName?: pulumi.Input<string>;
@@ -1211,6 +1229,8 @@ export interface InstanceArgs {
      * List of DB Security Groups to
      * associate. Only used for [DB Instances on the _EC2-Classic_
      * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+     *
+     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**

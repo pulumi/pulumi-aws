@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type GetAttachmentFilter struct {
+	// The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetAttachmentFilterInput is an input type that accepts GetAttachmentFilterArgs and GetAttachmentFilterOutput values.
+// You can construct a concrete instance of `GetAttachmentFilterInput` via:
+//
+//	GetAttachmentFilterArgs{...}
+type GetAttachmentFilterInput interface {
+	pulumi.Input
+
+	ToGetAttachmentFilterOutput() GetAttachmentFilterOutput
+	ToGetAttachmentFilterOutputWithContext(context.Context) GetAttachmentFilterOutput
+}
+
+type GetAttachmentFilterArgs struct {
+	// The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAttachmentFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAttachmentFilter)(nil)).Elem()
+}
+
+func (i GetAttachmentFilterArgs) ToGetAttachmentFilterOutput() GetAttachmentFilterOutput {
+	return i.ToGetAttachmentFilterOutputWithContext(context.Background())
+}
+
+func (i GetAttachmentFilterArgs) ToGetAttachmentFilterOutputWithContext(ctx context.Context) GetAttachmentFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAttachmentFilterOutput)
+}
+
+// GetAttachmentFilterArrayInput is an input type that accepts GetAttachmentFilterArray and GetAttachmentFilterArrayOutput values.
+// You can construct a concrete instance of `GetAttachmentFilterArrayInput` via:
+//
+//	GetAttachmentFilterArray{ GetAttachmentFilterArgs{...} }
+type GetAttachmentFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetAttachmentFilterArrayOutput() GetAttachmentFilterArrayOutput
+	ToGetAttachmentFilterArrayOutputWithContext(context.Context) GetAttachmentFilterArrayOutput
+}
+
+type GetAttachmentFilterArray []GetAttachmentFilterInput
+
+func (GetAttachmentFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAttachmentFilter)(nil)).Elem()
+}
+
+func (i GetAttachmentFilterArray) ToGetAttachmentFilterArrayOutput() GetAttachmentFilterArrayOutput {
+	return i.ToGetAttachmentFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAttachmentFilterArray) ToGetAttachmentFilterArrayOutputWithContext(ctx context.Context) GetAttachmentFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAttachmentFilterArrayOutput)
+}
+
+type GetAttachmentFilterOutput struct{ *pulumi.OutputState }
+
+func (GetAttachmentFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAttachmentFilter)(nil)).Elem()
+}
+
+func (o GetAttachmentFilterOutput) ToGetAttachmentFilterOutput() GetAttachmentFilterOutput {
+	return o
+}
+
+func (o GetAttachmentFilterOutput) ToGetAttachmentFilterOutputWithContext(ctx context.Context) GetAttachmentFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+func (o GetAttachmentFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAttachmentFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetAttachmentFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAttachmentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetAttachmentFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAttachmentFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAttachmentFilter)(nil)).Elem()
+}
+
+func (o GetAttachmentFilterArrayOutput) ToGetAttachmentFilterArrayOutput() GetAttachmentFilterArrayOutput {
+	return o
+}
+
+func (o GetAttachmentFilterArrayOutput) ToGetAttachmentFilterArrayOutputWithContext(ctx context.Context) GetAttachmentFilterArrayOutput {
+	return o
+}
+
+func (o GetAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetAttachmentFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAttachmentFilter {
+		return vs[0].([]GetAttachmentFilter)[vs[1].(int)]
+	}).(GetAttachmentFilterOutput)
+}
+
 type GetConnectFilter struct {
 	// Name of the filter.
 	Name string `pulumi:"name"`
@@ -1395,6 +1501,8 @@ func (o GetVpnAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpnAttach
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterInput)(nil)).Elem(), GetAttachmentFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterArrayInput)(nil)).Elem(), GetAttachmentFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectFilterInput)(nil)).Elem(), GetConnectFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectFilterArrayInput)(nil)).Elem(), GetConnectFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectPeerFilterInput)(nil)).Elem(), GetConnectPeerFilterArgs{})
@@ -1421,6 +1529,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentsFilterArrayInput)(nil)).Elem(), GetVpcAttachmentsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterInput)(nil)).Elem(), GetVpnAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterArrayInput)(nil)).Elem(), GetVpnAttachmentFilterArray{})
+	pulumi.RegisterOutputType(GetAttachmentFilterOutput{})
+	pulumi.RegisterOutputType(GetAttachmentFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectFilterOutput{})
 	pulumi.RegisterOutputType(GetConnectFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectPeerFilterOutput{})

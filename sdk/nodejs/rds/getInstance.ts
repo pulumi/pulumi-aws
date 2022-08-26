@@ -155,6 +155,10 @@ export interface GetInstanceResult {
      */
     readonly multiAz: boolean;
     /**
+     * The network type of the DB instance.
+     */
+    readonly networkType: string;
+    /**
      * Provides the list of option group memberships for this DB instance.
      */
     readonly optionGroupMemberships: string[];

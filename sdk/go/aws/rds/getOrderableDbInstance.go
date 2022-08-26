@@ -162,7 +162,9 @@ type GetOrderableDbInstanceResult struct {
 	ReadReplicaCapable bool   `pulumi:"readReplicaCapable"`
 	StorageType        string `pulumi:"storageType"`
 	// A list of the supported DB engine modes.
-	SupportedEngineModes              []string `pulumi:"supportedEngineModes"`
+	SupportedEngineModes []string `pulumi:"supportedEngineModes"`
+	// The network types supported by the DB instance (`IPV4` or `DUAL`).
+	SupportedNetworkTypes             []string `pulumi:"supportedNetworkTypes"`
 	SupportsEnhancedMonitoring        bool     `pulumi:"supportsEnhancedMonitoring"`
 	SupportsGlobalDatabases           bool     `pulumi:"supportsGlobalDatabases"`
 	SupportsIamDatabaseAuthentication bool     `pulumi:"supportsIamDatabaseAuthentication"`
@@ -334,6 +336,11 @@ func (o GetOrderableDbInstanceResultOutput) StorageType() pulumi.StringOutput {
 // A list of the supported DB engine modes.
 func (o GetOrderableDbInstanceResultOutput) SupportedEngineModes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.SupportedEngineModes }).(pulumi.StringArrayOutput)
+}
+
+// The network types supported by the DB instance (`IPV4` or `DUAL`).
+func (o GetOrderableDbInstanceResultOutput) SupportedNetworkTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.SupportedNetworkTypes }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) SupportsEnhancedMonitoring() pulumi.BoolOutput {

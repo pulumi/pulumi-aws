@@ -21,7 +21,7 @@ class GetOrderableDbInstanceResult:
     """
     A collection of values returned by getOrderableDbInstance.
     """
-    def __init__(__self__, availability_zone_group=None, availability_zones=None, engine=None, engine_version=None, id=None, instance_class=None, license_model=None, max_iops_per_db_instance=None, max_iops_per_gib=None, max_storage_size=None, min_iops_per_db_instance=None, min_iops_per_gib=None, min_storage_size=None, multi_az_capable=None, outpost_capable=None, preferred_engine_versions=None, preferred_instance_classes=None, read_replica_capable=None, storage_type=None, supported_engine_modes=None, supports_enhanced_monitoring=None, supports_global_databases=None, supports_iam_database_authentication=None, supports_iops=None, supports_kerberos_authentication=None, supports_performance_insights=None, supports_storage_autoscaling=None, supports_storage_encryption=None, vpc=None):
+    def __init__(__self__, availability_zone_group=None, availability_zones=None, engine=None, engine_version=None, id=None, instance_class=None, license_model=None, max_iops_per_db_instance=None, max_iops_per_gib=None, max_storage_size=None, min_iops_per_db_instance=None, min_iops_per_gib=None, min_storage_size=None, multi_az_capable=None, outpost_capable=None, preferred_engine_versions=None, preferred_instance_classes=None, read_replica_capable=None, storage_type=None, supported_engine_modes=None, supported_network_types=None, supports_enhanced_monitoring=None, supports_global_databases=None, supports_iam_database_authentication=None, supports_iops=None, supports_kerberos_authentication=None, supports_performance_insights=None, supports_storage_autoscaling=None, supports_storage_encryption=None, vpc=None):
         if availability_zone_group and not isinstance(availability_zone_group, str):
             raise TypeError("Expected argument 'availability_zone_group' to be a str")
         pulumi.set(__self__, "availability_zone_group", availability_zone_group)
@@ -82,6 +82,9 @@ class GetOrderableDbInstanceResult:
         if supported_engine_modes and not isinstance(supported_engine_modes, list):
             raise TypeError("Expected argument 'supported_engine_modes' to be a list")
         pulumi.set(__self__, "supported_engine_modes", supported_engine_modes)
+        if supported_network_types and not isinstance(supported_network_types, list):
+            raise TypeError("Expected argument 'supported_network_types' to be a list")
+        pulumi.set(__self__, "supported_network_types", supported_network_types)
         if supports_enhanced_monitoring and not isinstance(supports_enhanced_monitoring, bool):
             raise TypeError("Expected argument 'supports_enhanced_monitoring' to be a bool")
         pulumi.set(__self__, "supports_enhanced_monitoring", supports_enhanced_monitoring)
@@ -247,6 +250,14 @@ class GetOrderableDbInstanceResult:
         return pulumi.get(self, "supported_engine_modes")
 
     @property
+    @pulumi.getter(name="supportedNetworkTypes")
+    def supported_network_types(self) -> Sequence[str]:
+        """
+        The network types supported by the DB instance (`IPV4` or `DUAL`).
+        """
+        return pulumi.get(self, "supported_network_types")
+
+    @property
     @pulumi.getter(name="supportsEnhancedMonitoring")
     def supports_enhanced_monitoring(self) -> bool:
         return pulumi.get(self, "supports_enhanced_monitoring")
@@ -318,6 +329,7 @@ class AwaitableGetOrderableDbInstanceResult(GetOrderableDbInstanceResult):
             read_replica_capable=self.read_replica_capable,
             storage_type=self.storage_type,
             supported_engine_modes=self.supported_engine_modes,
+            supported_network_types=self.supported_network_types,
             supports_enhanced_monitoring=self.supports_enhanced_monitoring,
             supports_global_databases=self.supports_global_databases,
             supports_iam_database_authentication=self.supports_iam_database_authentication,
@@ -448,6 +460,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
         read_replica_capable=__ret__.read_replica_capable,
         storage_type=__ret__.storage_type,
         supported_engine_modes=__ret__.supported_engine_modes,
+        supported_network_types=__ret__.supported_network_types,
         supports_enhanced_monitoring=__ret__.supports_enhanced_monitoring,
         supports_global_databases=__ret__.supports_global_databases,
         supports_iam_database_authentication=__ret__.supports_iam_database_authentication,

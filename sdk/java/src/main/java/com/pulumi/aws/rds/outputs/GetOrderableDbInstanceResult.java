@@ -82,6 +82,11 @@ public final class GetOrderableDbInstanceResult {
      * 
      */
     private List<String> supportedEngineModes;
+    /**
+     * @return The network types supported by the DB instance (`IPV4` or `DUAL`).
+     * 
+     */
+    private List<String> supportedNetworkTypes;
     private Boolean supportsEnhancedMonitoring;
     private Boolean supportsGlobalDatabases;
     private Boolean supportsIamDatabaseAuthentication;
@@ -201,6 +206,13 @@ public final class GetOrderableDbInstanceResult {
     public List<String> supportedEngineModes() {
         return this.supportedEngineModes;
     }
+    /**
+     * @return The network types supported by the DB instance (`IPV4` or `DUAL`).
+     * 
+     */
+    public List<String> supportedNetworkTypes() {
+        return this.supportedNetworkTypes;
+    }
     public Boolean supportsEnhancedMonitoring() {
         return this.supportsEnhancedMonitoring;
     }
@@ -258,6 +270,7 @@ public final class GetOrderableDbInstanceResult {
         private Boolean readReplicaCapable;
         private String storageType;
         private List<String> supportedEngineModes;
+        private List<String> supportedNetworkTypes;
         private Boolean supportsEnhancedMonitoring;
         private Boolean supportsGlobalDatabases;
         private Boolean supportsIamDatabaseAuthentication;
@@ -290,6 +303,7 @@ public final class GetOrderableDbInstanceResult {
     	      this.readReplicaCapable = defaults.readReplicaCapable;
     	      this.storageType = defaults.storageType;
     	      this.supportedEngineModes = defaults.supportedEngineModes;
+    	      this.supportedNetworkTypes = defaults.supportedNetworkTypes;
     	      this.supportsEnhancedMonitoring = defaults.supportsEnhancedMonitoring;
     	      this.supportsGlobalDatabases = defaults.supportsGlobalDatabases;
     	      this.supportsIamDatabaseAuthentication = defaults.supportsIamDatabaseAuthentication;
@@ -414,6 +428,14 @@ public final class GetOrderableDbInstanceResult {
             return supportedEngineModes(List.of(supportedEngineModes));
         }
         @CustomType.Setter
+        public Builder supportedNetworkTypes(List<String> supportedNetworkTypes) {
+            this.supportedNetworkTypes = Objects.requireNonNull(supportedNetworkTypes);
+            return this;
+        }
+        public Builder supportedNetworkTypes(String... supportedNetworkTypes) {
+            return supportedNetworkTypes(List.of(supportedNetworkTypes));
+        }
+        @CustomType.Setter
         public Builder supportsEnhancedMonitoring(Boolean supportsEnhancedMonitoring) {
             this.supportsEnhancedMonitoring = Objects.requireNonNull(supportsEnhancedMonitoring);
             return this;
@@ -480,6 +502,7 @@ public final class GetOrderableDbInstanceResult {
             o.readReplicaCapable = readReplicaCapable;
             o.storageType = storageType;
             o.supportedEngineModes = supportedEngineModes;
+            o.supportedNetworkTypes = supportedNetworkTypes;
             o.supportsEnhancedMonitoring = supportsEnhancedMonitoring;
             o.supportsGlobalDatabases = supportsGlobalDatabases;
             o.supportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;

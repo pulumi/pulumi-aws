@@ -25,7 +25,9 @@ from .link import *
 from .link_association import *
 from .site import *
 from .transit_gateway_connect_peer_association import *
+from .transit_gateway_peering import *
 from .transit_gateway_registration import *
+from .transit_gateway_route_table_attachment import *
 from .vpc_attachment import *
 from ._inputs import *
 from . import outputs

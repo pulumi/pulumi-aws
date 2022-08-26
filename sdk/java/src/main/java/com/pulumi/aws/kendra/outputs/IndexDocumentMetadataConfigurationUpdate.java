@@ -7,7 +7,6 @@ import com.pulumi.aws.kendra.outputs.IndexDocumentMetadataConfigurationUpdateRel
 import com.pulumi.aws.kendra.outputs.IndexDocumentMetadataConfigurationUpdateSearch;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,54 +14,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IndexDocumentMetadataConfigurationUpdate {
     /**
-     * @return Specifies the name of the Index.
+     * @return The name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    private @Nullable String name;
+    private String name;
     /**
-     * @return A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+     * @return A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
      * 
      */
-    private @Nullable List<IndexDocumentMetadataConfigurationUpdateRelevance> relevances;
+    private @Nullable IndexDocumentMetadataConfigurationUpdateRelevance relevance;
     /**
-     * @return A block that provides information about how the field is used during a search. Documented below.
+     * @return A block that provides information about how the field is used during a search. Documented below. Detailed below
      * 
      */
-    private @Nullable List<IndexDocumentMetadataConfigurationUpdateSearch> searches;
+    private @Nullable IndexDocumentMetadataConfigurationUpdateSearch search;
     /**
      * @return The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
-    private @Nullable String type;
+    private String type;
 
     private IndexDocumentMetadataConfigurationUpdate() {}
     /**
-     * @return Specifies the name of the Index.
+     * @return The name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public String name() {
+        return this.name;
     }
     /**
-     * @return A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+     * @return A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
      * 
      */
-    public List<IndexDocumentMetadataConfigurationUpdateRelevance> relevances() {
-        return this.relevances == null ? List.of() : this.relevances;
+    public Optional<IndexDocumentMetadataConfigurationUpdateRelevance> relevance() {
+        return Optional.ofNullable(this.relevance);
     }
     /**
-     * @return A block that provides information about how the field is used during a search. Documented below.
+     * @return A block that provides information about how the field is used during a search. Documented below. Detailed below
      * 
      */
-    public List<IndexDocumentMetadataConfigurationUpdateSearch> searches() {
-        return this.searches == null ? List.of() : this.searches;
+    public Optional<IndexDocumentMetadataConfigurationUpdateSearch> search() {
+        return Optional.ofNullable(this.search);
     }
     /**
      * @return The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
+    public String type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -74,50 +73,44 @@ public final class IndexDocumentMetadataConfigurationUpdate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String name;
-        private @Nullable List<IndexDocumentMetadataConfigurationUpdateRelevance> relevances;
-        private @Nullable List<IndexDocumentMetadataConfigurationUpdateSearch> searches;
-        private @Nullable String type;
+        private String name;
+        private @Nullable IndexDocumentMetadataConfigurationUpdateRelevance relevance;
+        private @Nullable IndexDocumentMetadataConfigurationUpdateSearch search;
+        private String type;
         public Builder() {}
         public Builder(IndexDocumentMetadataConfigurationUpdate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
-    	      this.relevances = defaults.relevances;
-    	      this.searches = defaults.searches;
+    	      this.relevance = defaults.relevance;
+    	      this.search = defaults.search;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
-            this.name = name;
+        public Builder name(String name) {
+            this.name = Objects.requireNonNull(name);
             return this;
         }
         @CustomType.Setter
-        public Builder relevances(@Nullable List<IndexDocumentMetadataConfigurationUpdateRelevance> relevances) {
-            this.relevances = relevances;
+        public Builder relevance(@Nullable IndexDocumentMetadataConfigurationUpdateRelevance relevance) {
+            this.relevance = relevance;
             return this;
         }
-        public Builder relevances(IndexDocumentMetadataConfigurationUpdateRelevance... relevances) {
-            return relevances(List.of(relevances));
-        }
         @CustomType.Setter
-        public Builder searches(@Nullable List<IndexDocumentMetadataConfigurationUpdateSearch> searches) {
-            this.searches = searches;
+        public Builder search(@Nullable IndexDocumentMetadataConfigurationUpdateSearch search) {
+            this.search = search;
             return this;
         }
-        public Builder searches(IndexDocumentMetadataConfigurationUpdateSearch... searches) {
-            return searches(List.of(searches));
-        }
         @CustomType.Setter
-        public Builder type(@Nullable String type) {
-            this.type = type;
+        public Builder type(String type) {
+            this.type = Objects.requireNonNull(type);
             return this;
         }
         public IndexDocumentMetadataConfigurationUpdate build() {
             final var o = new IndexDocumentMetadataConfigurationUpdate();
             o.name = name;
-            o.relevances = relevances;
-            o.searches = searches;
+            o.relevance = relevance;
+            o.search = search;
             o.type = type;
             return o;
         }

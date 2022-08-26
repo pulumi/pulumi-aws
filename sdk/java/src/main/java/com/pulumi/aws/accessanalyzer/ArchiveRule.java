@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ArchiveRule(&#34;example&#34;, ArchiveRuleArgs.builder()        
- *             .analyserName(&#34;example-analyzer&#34;)
+ *             .analyzerName(&#34;example-analyzer&#34;)
  *             .filters(            
  *                 ArchiveRuleFilterArgs.builder()
  *                     .criteria(&#34;condition.aws:UserId&#34;)

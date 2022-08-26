@@ -544,7 +544,11 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
     @Export(name="securityGroupNames", type=List.class, parameters={String.class})
     private Output<List<String>> securityGroupNames;
 

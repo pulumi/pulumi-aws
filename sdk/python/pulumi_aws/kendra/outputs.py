@@ -1776,56 +1776,54 @@ class IndexCapacityUnits(dict):
 @pulumi.output_type
 class IndexDocumentMetadataConfigurationUpdate(dict):
     def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 relevances: Optional[Sequence['outputs.IndexDocumentMetadataConfigurationUpdateRelevance']] = None,
-                 searches: Optional[Sequence['outputs.IndexDocumentMetadataConfigurationUpdateSearch']] = None,
-                 type: Optional[str] = None):
+                 name: str,
+                 type: str,
+                 relevance: Optional['outputs.IndexDocumentMetadataConfigurationUpdateRelevance'] = None,
+                 search: Optional['outputs.IndexDocumentMetadataConfigurationUpdateSearch'] = None):
         """
-        :param str name: Specifies the name of the Index.
-        :param Sequence['IndexDocumentMetadataConfigurationUpdateRelevanceArgs'] relevances: A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
-        :param Sequence['IndexDocumentMetadataConfigurationUpdateSearchArgs'] searches: A block that provides information about how the field is used during a search. Documented below.
+        :param str name: The name of the index field. Minimum length of 1. Maximum length of 30.
         :param str type: The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+        :param 'IndexDocumentMetadataConfigurationUpdateRelevanceArgs' relevance: A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+        :param 'IndexDocumentMetadataConfigurationUpdateSearchArgs' search: A block that provides information about how the field is used during a search. Documented below. Detailed below
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if relevances is not None:
-            pulumi.set(__self__, "relevances", relevances)
-        if searches is not None:
-            pulumi.set(__self__, "searches", searches)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if relevance is not None:
+            pulumi.set(__self__, "relevance", relevance)
+        if search is not None:
+            pulumi.set(__self__, "search", search)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
-        Specifies the name of the Index.
+        The name of the index field. Minimum length of 1. Maximum length of 30.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def relevances(self) -> Optional[Sequence['outputs.IndexDocumentMetadataConfigurationUpdateRelevance']]:
-        """
-        A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
-        """
-        return pulumi.get(self, "relevances")
-
-    @property
-    @pulumi.getter
-    def searches(self) -> Optional[Sequence['outputs.IndexDocumentMetadataConfigurationUpdateSearch']]:
-        """
-        A block that provides information about how the field is used during a search. Documented below.
-        """
-        return pulumi.get(self, "searches")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
         The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def relevance(self) -> Optional['outputs.IndexDocumentMetadataConfigurationUpdateRelevance']:
+        """
+        A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+        """
+        return pulumi.get(self, "relevance")
+
+    @property
+    @pulumi.getter
+    def search(self) -> Optional['outputs.IndexDocumentMetadataConfigurationUpdateSearch']:
+        """
+        A block that provides information about how the field is used during a search. Documented below. Detailed below
+        """
+        return pulumi.get(self, "search")
 
 
 @pulumi.output_type
@@ -1994,8 +1992,8 @@ class IndexIndexStatistic(dict):
                  faq_statistics: Optional[Sequence['outputs.IndexIndexStatisticFaqStatistic']] = None,
                  text_document_statistics: Optional[Sequence['outputs.IndexIndexStatisticTextDocumentStatistic']] = None):
         """
-        :param Sequence['IndexIndexStatisticFaqStatisticArgs'] faq_statistics: A block that specifies the number of question and answer topics in the index. Documented below.
-        :param Sequence['IndexIndexStatisticTextDocumentStatisticArgs'] text_document_statistics: A block that specifies the number of text documents indexed.
+        :param Sequence['IndexIndexStatisticFaqStatisticArgs'] faq_statistics: A block that specifies the number of question and answer topics in the index. Detailed below.
+        :param Sequence['IndexIndexStatisticTextDocumentStatisticArgs'] text_document_statistics: A block that specifies the number of text documents indexed. Detailed below.
         """
         if faq_statistics is not None:
             pulumi.set(__self__, "faq_statistics", faq_statistics)
@@ -2006,7 +2004,7 @@ class IndexIndexStatistic(dict):
     @pulumi.getter(name="faqStatistics")
     def faq_statistics(self) -> Optional[Sequence['outputs.IndexIndexStatisticFaqStatistic']]:
         """
-        A block that specifies the number of question and answer topics in the index. Documented below.
+        A block that specifies the number of question and answer topics in the index. Detailed below.
         """
         return pulumi.get(self, "faq_statistics")
 
@@ -2014,7 +2012,7 @@ class IndexIndexStatistic(dict):
     @pulumi.getter(name="textDocumentStatistics")
     def text_document_statistics(self) -> Optional[Sequence['outputs.IndexIndexStatisticTextDocumentStatistic']]:
         """
-        A block that specifies the number of text documents indexed.
+        A block that specifies the number of text documents indexed. Detailed below.
         """
         return pulumi.get(self, "text_document_statistics")
 
@@ -2201,8 +2199,8 @@ class IndexUserTokenConfigurations(dict):
                  json_token_type_configuration: Optional['outputs.IndexUserTokenConfigurationsJsonTokenTypeConfiguration'] = None,
                  jwt_token_type_configuration: Optional['outputs.IndexUserTokenConfigurationsJwtTokenTypeConfiguration'] = None):
         """
-        :param 'IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs' json_token_type_configuration: A block that specifies the information about the JSON token type configuration.
-        :param 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs' jwt_token_type_configuration: A block that specifies the information about the JWT token type configuration.
+        :param 'IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs' json_token_type_configuration: A block that specifies the information about the JSON token type configuration. Detailed below.
+        :param 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs' jwt_token_type_configuration: A block that specifies the information about the JWT token type configuration. Detailed below.
         """
         if json_token_type_configuration is not None:
             pulumi.set(__self__, "json_token_type_configuration", json_token_type_configuration)
@@ -2213,7 +2211,7 @@ class IndexUserTokenConfigurations(dict):
     @pulumi.getter(name="jsonTokenTypeConfiguration")
     def json_token_type_configuration(self) -> Optional['outputs.IndexUserTokenConfigurationsJsonTokenTypeConfiguration']:
         """
-        A block that specifies the information about the JSON token type configuration.
+        A block that specifies the information about the JSON token type configuration. Detailed below.
         """
         return pulumi.get(self, "json_token_type_configuration")
 
@@ -2221,7 +2219,7 @@ class IndexUserTokenConfigurations(dict):
     @pulumi.getter(name="jwtTokenTypeConfiguration")
     def jwt_token_type_configuration(self) -> Optional['outputs.IndexUserTokenConfigurationsJwtTokenTypeConfiguration']:
         """
-        A block that specifies the information about the JWT token type configuration.
+        A block that specifies the information about the JWT token type configuration. Detailed below.
         """
         return pulumi.get(self, "jwt_token_type_configuration")
 

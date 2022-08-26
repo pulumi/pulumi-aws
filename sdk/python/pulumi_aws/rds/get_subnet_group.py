@@ -21,7 +21,7 @@ class GetSubnetGroupResult:
     """
     A collection of values returned by getSubnetGroup.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, status=None, subnet_ids=None, vpc_id=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, status=None, subnet_ids=None, supported_network_types=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetSubnetGroupResult:
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if supported_network_types and not isinstance(supported_network_types, list):
+            raise TypeError("Expected argument 'supported_network_types' to be a list")
+        pulumi.set(__self__, "supported_network_types", supported_network_types)
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -90,10 +93,18 @@ class GetSubnetGroupResult:
         return pulumi.get(self, "subnet_ids")
 
     @property
+    @pulumi.getter(name="supportedNetworkTypes")
+    def supported_network_types(self) -> Sequence[str]:
+        """
+        The network type of the DB subnet group.
+        """
+        return pulumi.get(self, "supported_network_types")
+
+    @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        Provides the VPC ID of the subnet group.
+        Provides the VPC ID of the DB subnet group.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -110,6 +121,7 @@ class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
             name=self.name,
             status=self.status,
             subnet_ids=self.subnet_ids,
+            supported_network_types=self.supported_network_types,
             vpc_id=self.vpc_id)
 
 
@@ -142,6 +154,7 @@ def get_subnet_group(name: Optional[str] = None,
         name=__ret__.name,
         status=__ret__.status,
         subnet_ids=__ret__.subnet_ids,
+        supported_network_types=__ret__.supported_network_types,
         vpc_id=__ret__.vpc_id)
 
 

@@ -19,6 +19,7 @@ class IndexArgs:
                  role_arn: pulumi.Input[str],
                  capacity_units: Optional[pulumi.Input['IndexCapacityUnitsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 document_metadata_configuration_updates: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationUpdateArgs']]]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']] = None,
@@ -29,20 +30,23 @@ class IndexArgs:
         """
         The set of arguments for constructing a Index resource.
         :param pulumi.Input[str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-        :param pulumi.Input['IndexCapacityUnitsArgs'] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        :param pulumi.Input['IndexCapacityUnitsArgs'] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[str] description: The description of the Index.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationUpdateArgs']]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
         :param pulumi.Input[str] name: Specifies the name of the Index.
-        :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-        :param pulumi.Input['IndexUserGroupResolutionConfigurationArgs'] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
-        :param pulumi.Input['IndexUserTokenConfigurationsArgs'] user_token_configurations: A block that specifies the user token configuration. Documented below.
+        :param pulumi.Input['IndexUserGroupResolutionConfigurationArgs'] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        :param pulumi.Input['IndexUserTokenConfigurationsArgs'] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if capacity_units is not None:
             pulumi.set(__self__, "capacity_units", capacity_units)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if document_metadata_configuration_updates is not None:
+            pulumi.set(__self__, "document_metadata_configuration_updates", document_metadata_configuration_updates)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
         if name is not None:
@@ -74,7 +78,7 @@ class IndexArgs:
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> Optional[pulumi.Input['IndexCapacityUnitsArgs']]:
         """
-        A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         """
         return pulumi.get(self, "capacity_units")
 
@@ -93,6 +97,18 @@ class IndexArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="documentMetadataConfigurationUpdates")
+    def document_metadata_configuration_updates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationUpdateArgs']]]]:
+        """
+        One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+        """
+        return pulumi.get(self, "document_metadata_configuration_updates")
+
+    @document_metadata_configuration_updates.setter
+    def document_metadata_configuration_updates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationUpdateArgs']]]]):
+        pulumi.set(self, "document_metadata_configuration_updates", value)
 
     @property
     @pulumi.getter
@@ -122,7 +138,7 @@ class IndexArgs:
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']]:
         """
-        A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -155,7 +171,7 @@ class IndexArgs:
     @pulumi.getter(name="userGroupResolutionConfiguration")
     def user_group_resolution_configuration(self) -> Optional[pulumi.Input['IndexUserGroupResolutionConfigurationArgs']]:
         """
-        A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+        A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         """
         return pulumi.get(self, "user_group_resolution_configuration")
 
@@ -167,7 +183,7 @@ class IndexArgs:
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> Optional[pulumi.Input['IndexUserTokenConfigurationsArgs']]:
         """
-        A block that specifies the user token configuration. Documented below.
+        A block that specifies the user token configuration. Detailed below.
         """
         return pulumi.get(self, "user_token_configurations")
 
@@ -200,21 +216,21 @@ class _IndexState:
         """
         Input properties used for looking up and filtering Index resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Index.
-        :param pulumi.Input['IndexCapacityUnitsArgs'] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        :param pulumi.Input['IndexCapacityUnitsArgs'] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[str] description: The description of the Index.
-        :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationUpdateArgs']]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationUpdateArgs']]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
         :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
-        :param pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticArgs']]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticArgs']]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         :param pulumi.Input[str] name: Specifies the name of the Index.
         :param pulumi.Input[str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-        :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[str] status: The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         :param pulumi.Input[str] updated_at: The Unix datetime that the index was last updated.
         :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-        :param pulumi.Input['IndexUserGroupResolutionConfigurationArgs'] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
-        :param pulumi.Input['IndexUserTokenConfigurationsArgs'] user_token_configurations: A block that specifies the user token configuration. Documented below.
+        :param pulumi.Input['IndexUserGroupResolutionConfigurationArgs'] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        :param pulumi.Input['IndexUserTokenConfigurationsArgs'] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -269,7 +285,7 @@ class _IndexState:
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> Optional[pulumi.Input['IndexCapacityUnitsArgs']]:
         """
-        A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         """
         return pulumi.get(self, "capacity_units")
 
@@ -305,7 +321,7 @@ class _IndexState:
     @pulumi.getter(name="documentMetadataConfigurationUpdates")
     def document_metadata_configuration_updates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationUpdateArgs']]]]:
         """
-        One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+        One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         """
         return pulumi.get(self, "document_metadata_configuration_updates")
 
@@ -341,7 +357,7 @@ class _IndexState:
     @pulumi.getter(name="indexStatistics")
     def index_statistics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticArgs']]]]:
         """
-        A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         """
         return pulumi.get(self, "index_statistics")
 
@@ -377,7 +393,7 @@ class _IndexState:
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']]:
         """
-        A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -443,7 +459,7 @@ class _IndexState:
     @pulumi.getter(name="userGroupResolutionConfiguration")
     def user_group_resolution_configuration(self) -> Optional[pulumi.Input['IndexUserGroupResolutionConfigurationArgs']]:
         """
-        A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+        A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         """
         return pulumi.get(self, "user_group_resolution_configuration")
 
@@ -455,7 +471,7 @@ class _IndexState:
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> Optional[pulumi.Input['IndexUserTokenConfigurationsArgs']]:
         """
-        A block that specifies the user token configuration. Documented below.
+        A block that specifies the user token configuration. Detailed below.
         """
         return pulumi.get(self, "user_token_configurations")
 
@@ -471,6 +487,7 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_units: Optional[pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 document_metadata_configuration_updates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -524,6 +541,458 @@ class Index(pulumi.CustomResource):
                 kms_key_id=data["aws_kms_key"]["this"]["arn"],
             ))
         ```
+        ### With Document Metadata Configuration Updates
+        ### Specifying the predefined elements
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Index("example",
+            role_arn=aws_iam_role["this"]["arn"],
+            document_metadata_configuration_updates=[
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_authors",
+                    type="STRING_LIST_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_category",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_created_at",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_data_source_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_document_title",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=False,
+                        searchable=True,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=2,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_excerpt_page_number",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=2,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_faq_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_file_type",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_language_code",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_last_updated_at",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_source_uri",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_version",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_view_count",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+            ])
+        ```
+        ### Appending additional elements
+
+        The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Index("example",
+            role_arn=aws_iam_role["this"]["arn"],
+            document_metadata_configuration_updates=[
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_authors",
+                    type="STRING_LIST_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_category",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_created_at",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_data_source_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_document_title",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=False,
+                        searchable=True,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=2,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_excerpt_page_number",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=2,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_faq_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_file_type",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_language_code",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_last_updated_at",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_source_uri",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_version",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_view_count",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="example-string-value",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=True,
+                        searchable=True,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="example-long-value",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=True,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="example-string-list-value",
+                    type="STRING_LIST_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=True,
+                        searchable=True,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="example-date-value",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=True,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+            ])
+        ```
         ### With JSON token type configuration
 
         ```python
@@ -550,15 +1019,16 @@ class Index(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        :param pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[str] description: The description of the Index.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
         :param pulumi.Input[str] name: Specifies the name of the Index.
         :param pulumi.Input[str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-        :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-        :param pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
-        :param pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']] user_token_configurations: A block that specifies the user token configuration. Documented below.
+        :param pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        :param pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
         ...
     @overload
@@ -610,6 +1080,458 @@ class Index(pulumi.CustomResource):
                 kms_key_id=data["aws_kms_key"]["this"]["arn"],
             ))
         ```
+        ### With Document Metadata Configuration Updates
+        ### Specifying the predefined elements
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Index("example",
+            role_arn=aws_iam_role["this"]["arn"],
+            document_metadata_configuration_updates=[
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_authors",
+                    type="STRING_LIST_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_category",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_created_at",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_data_source_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_document_title",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=False,
+                        searchable=True,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=2,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_excerpt_page_number",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=2,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_faq_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_file_type",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_language_code",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_last_updated_at",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_source_uri",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_version",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_view_count",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+            ])
+        ```
+        ### Appending additional elements
+
+        The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Index("example",
+            role_arn=aws_iam_role["this"]["arn"],
+            document_metadata_configuration_updates=[
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_authors",
+                    type="STRING_LIST_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_category",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_created_at",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_data_source_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_document_title",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=False,
+                        searchable=True,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=2,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_excerpt_page_number",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=2,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_faq_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_file_type",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_language_code",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_last_updated_at",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_source_uri",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=False,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_version",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_view_count",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="example-string-value",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=True,
+                        searchable=True,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="example-long-value",
+                    type="LONG_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=True,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        rank_order="ASCENDING",
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="example-string-list-value",
+                    type="STRING_LIST_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=True,
+                        searchable=True,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="example-date-value",
+                    type="DATE_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=True,
+                        facetable=True,
+                        searchable=False,
+                        sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        freshness=False,
+                        importance=1,
+                        duration="25920000s",
+                        rank_order="ASCENDING",
+                    ),
+                ),
+            ])
+        ```
         ### With JSON token type configuration
 
         ```python
@@ -651,6 +1573,7 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_units: Optional[pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 document_metadata_configuration_updates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -670,6 +1593,7 @@ class Index(pulumi.CustomResource):
 
             __props__.__dict__["capacity_units"] = capacity_units
             __props__.__dict__["description"] = description
+            __props__.__dict__["document_metadata_configuration_updates"] = document_metadata_configuration_updates
             __props__.__dict__["edition"] = edition
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
@@ -682,7 +1606,6 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["user_token_configurations"] = user_token_configurations
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
-            __props__.__dict__["document_metadata_configuration_updates"] = None
             __props__.__dict__["error_message"] = None
             __props__.__dict__["index_statistics"] = None
             __props__.__dict__["status"] = None
@@ -724,21 +1647,21 @@ class Index(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Index.
-        :param pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        :param pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[str] description: The description of the Index.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
         :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexIndexStatisticArgs']]]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexIndexStatisticArgs']]]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         :param pulumi.Input[str] name: Specifies the name of the Index.
         :param pulumi.Input[str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-        :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[str] status: The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         :param pulumi.Input[str] updated_at: The Unix datetime that the index was last updated.
         :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-        :param pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
-        :param pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']] user_token_configurations: A block that specifies the user token configuration. Documented below.
+        :param pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        :param pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -776,7 +1699,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> pulumi.Output['outputs.IndexCapacityUnits']:
         """
-        A block that sets the number of additional document storage and query capacity units that should be used by the index.
+        A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         """
         return pulumi.get(self, "capacity_units")
 
@@ -800,7 +1723,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter(name="documentMetadataConfigurationUpdates")
     def document_metadata_configuration_updates(self) -> pulumi.Output[Sequence['outputs.IndexDocumentMetadataConfigurationUpdate']]:
         """
-        One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+        One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         """
         return pulumi.get(self, "document_metadata_configuration_updates")
 
@@ -824,7 +1747,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter(name="indexStatistics")
     def index_statistics(self) -> pulumi.Output[Sequence['outputs.IndexIndexStatistic']]:
         """
-        A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         """
         return pulumi.get(self, "index_statistics")
 
@@ -848,7 +1771,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.IndexServerSideEncryptionConfiguration']]:
         """
-        A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -890,7 +1813,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter(name="userGroupResolutionConfiguration")
     def user_group_resolution_configuration(self) -> pulumi.Output[Optional['outputs.IndexUserGroupResolutionConfiguration']]:
         """
-        A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Documented below.
+        A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         """
         return pulumi.get(self, "user_group_resolution_configuration")
 
@@ -898,7 +1821,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> pulumi.Output[Optional['outputs.IndexUserTokenConfigurations']]:
         """
-        A block that specifies the user token configuration. Documented below.
+        A block that specifies the user token configuration. Detailed below.
         """
         return pulumi.get(self, "user_token_configurations")
 

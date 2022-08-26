@@ -128,6 +128,9 @@ class ClusterArgs:
         if cluster_revision_number is not None:
             pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
         if cluster_security_groups is not None:
+            warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
+        if cluster_security_groups is not None:
             pulumi.set(__self__, "cluster_security_groups", cluster_security_groups)
         if cluster_subnet_group_name is not None:
             pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
@@ -801,6 +804,9 @@ class _ClusterState:
             pulumi.set(__self__, "cluster_public_key", cluster_public_key)
         if cluster_revision_number is not None:
             pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
+        if cluster_security_groups is not None:
+            warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
         if cluster_security_groups is not None:
             pulumi.set(__self__, "cluster_security_groups", cluster_security_groups)
         if cluster_subnet_group_name is not None:
@@ -1638,6 +1644,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_parameter_group_name"] = cluster_parameter_group_name
             __props__.__dict__["cluster_public_key"] = cluster_public_key
             __props__.__dict__["cluster_revision_number"] = cluster_revision_number
+            if cluster_security_groups is not None and not opts.urn:
+                warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+                pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
             __props__.__dict__["cluster_security_groups"] = cluster_security_groups
             __props__.__dict__["cluster_subnet_group_name"] = cluster_subnet_group_name
             __props__.__dict__["cluster_type"] = cluster_type

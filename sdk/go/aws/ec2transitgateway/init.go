@@ -37,6 +37,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PeeringAttachment{}
 	case "aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter":
 		r = &PeeringAttachmentAccepter{}
+	case "aws:ec2transitgateway/policyTable:PolicyTable":
+		r = &PolicyTable{}
+	case "aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation":
+		r = &PolicyTableAssociation{}
 	case "aws:ec2transitgateway/prefixListReference:PrefixListReference":
 		r = &PrefixListReference{}
 	case "aws:ec2transitgateway/route:Route":
@@ -104,6 +108,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2transitgateway/peeringAttachmentAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2transitgateway/policyTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2transitgateway/policyTableAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

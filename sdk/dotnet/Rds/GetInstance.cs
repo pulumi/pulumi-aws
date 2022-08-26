@@ -225,6 +225,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool MultiAz;
         /// <summary>
+        /// The network type of the DB instance.
+        /// </summary>
+        public readonly string NetworkType;
+        /// <summary>
         /// Provides the list of option group memberships for this DB instance.
         /// </summary>
         public readonly ImmutableArray<string> OptionGroupMemberships;
@@ -328,6 +332,8 @@ namespace Pulumi.Aws.Rds
 
             bool multiAz,
 
+            string networkType,
+
             ImmutableArray<string> optionGroupMemberships,
 
             int port,
@@ -380,6 +386,7 @@ namespace Pulumi.Aws.Rds
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;
             MultiAz = multiAz;
+            NetworkType = networkType;
             OptionGroupMemberships = optionGroupMemberships;
             Port = port;
             PreferredBackupWindow = preferredBackupWindow;

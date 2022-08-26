@@ -18,14 +18,14 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
     public static final IndexIndexStatisticArgs Empty = new IndexIndexStatisticArgs();
 
     /**
-     * A block that specifies the number of question and answer topics in the index. Documented below.
+     * A block that specifies the number of question and answer topics in the index. Detailed below.
      * 
      */
     @Import(name="faqStatistics")
     private @Nullable Output<List<IndexIndexStatisticFaqStatisticArgs>> faqStatistics;
 
     /**
-     * @return A block that specifies the number of question and answer topics in the index. Documented below.
+     * @return A block that specifies the number of question and answer topics in the index. Detailed below.
      * 
      */
     public Optional<Output<List<IndexIndexStatisticFaqStatisticArgs>>> faqStatistics() {
@@ -33,14 +33,14 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A block that specifies the number of text documents indexed.
+     * A block that specifies the number of text documents indexed. Detailed below.
      * 
      */
     @Import(name="textDocumentStatistics")
     private @Nullable Output<List<IndexIndexStatisticTextDocumentStatisticArgs>> textDocumentStatistics;
 
     /**
-     * @return A block that specifies the number of text documents indexed.
+     * @return A block that specifies the number of text documents indexed. Detailed below.
      * 
      */
     public Optional<Output<List<IndexIndexStatisticTextDocumentStatisticArgs>>> textDocumentStatistics() {
@@ -73,7 +73,7 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param faqStatistics A block that specifies the number of question and answer topics in the index. Documented below.
+         * @param faqStatistics A block that specifies the number of question and answer topics in the index. Detailed below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param faqStatistics A block that specifies the number of question and answer topics in the index. Documented below.
+         * @param faqStatistics A block that specifies the number of question and answer topics in the index. Detailed below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param faqStatistics A block that specifies the number of question and answer topics in the index. Documented below.
+         * @param faqStatistics A block that specifies the number of question and answer topics in the index. Detailed below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param textDocumentStatistics A block that specifies the number of text documents indexed.
+         * @param textDocumentStatistics A block that specifies the number of text documents indexed. Detailed below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param textDocumentStatistics A block that specifies the number of text documents indexed.
+         * @param textDocumentStatistics A block that specifies the number of text documents indexed. Detailed below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param textDocumentStatistics A block that specifies the number of text documents indexed.
+         * @param textDocumentStatistics A block that specifies the number of text documents indexed. Detailed below.
          * 
          * @return builder
          * 

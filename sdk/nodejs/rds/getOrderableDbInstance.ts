@@ -209,6 +209,10 @@ export interface GetOrderableDbInstanceResult {
      * A list of the supported DB engine modes.
      */
     readonly supportedEngineModes: string[];
+    /**
+     * The network types supported by the DB instance (`IPV4` or `DUAL`).
+     */
+    readonly supportedNetworkTypes: string[];
     readonly supportsEnhancedMonitoring: boolean;
     readonly supportsGlobalDatabases: boolean;
     readonly supportsIamDatabaseAuthentication: boolean;

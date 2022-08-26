@@ -83,6 +83,8 @@ type Cluster struct {
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber pulumi.StringOutput `pulumi:"clusterRevisionNumber"`
 	// A list of security groups to be associated with this cluster.
+	//
+	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
 	ClusterSecurityGroups pulumi.StringArrayOutput `pulumi:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName pulumi.StringOutput `pulumi:"clusterSubnetGroupName"`
@@ -216,6 +218,8 @@ type clusterState struct {
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber *string `pulumi:"clusterRevisionNumber"`
 	// A list of security groups to be associated with this cluster.
+	//
+	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
 	ClusterSecurityGroups []string `pulumi:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName *string `pulumi:"clusterSubnetGroupName"`
@@ -315,6 +319,8 @@ type ClusterState struct {
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber pulumi.StringPtrInput
 	// A list of security groups to be associated with this cluster.
+	//
+	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
 	ClusterSecurityGroups pulumi.StringArrayInput
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName pulumi.StringPtrInput
@@ -414,6 +420,8 @@ type clusterArgs struct {
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber *string `pulumi:"clusterRevisionNumber"`
 	// A list of security groups to be associated with this cluster.
+	//
+	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
 	ClusterSecurityGroups []string `pulumi:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName *string `pulumi:"clusterSubnetGroupName"`
@@ -506,6 +514,8 @@ type ClusterArgs struct {
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber pulumi.StringPtrInput
 	// A list of security groups to be associated with this cluster.
+	//
+	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
 	ClusterSecurityGroups pulumi.StringArrayInput
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName pulumi.StringPtrInput
@@ -723,6 +733,8 @@ func (o ClusterOutput) ClusterRevisionNumber() pulumi.StringOutput {
 }
 
 // A list of security groups to be associated with this cluster.
+//
+// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
 func (o ClusterOutput) ClusterSecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.ClusterSecurityGroups }).(pulumi.StringArrayOutput)
 }

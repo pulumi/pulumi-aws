@@ -17,7 +17,6 @@ yarn.lock
 **/pulumiManifest.go
 
 ci-scripts
-provider/**/schema.go
 provider/**/schema-embed.json
 **/version.txt
 **/nuget

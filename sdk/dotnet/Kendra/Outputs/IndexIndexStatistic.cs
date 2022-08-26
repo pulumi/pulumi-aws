@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class IndexIndexStatistic
     {
         /// <summary>
-        /// A block that specifies the number of question and answer topics in the index. Documented below.
+        /// A block that specifies the number of question and answer topics in the index. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.IndexIndexStatisticFaqStatistic> FaqStatistics;
         /// <summary>
-        /// A block that specifies the number of text documents indexed.
+        /// A block that specifies the number of text documents indexed. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.IndexIndexStatisticTextDocumentStatistic> TextDocumentStatistics;
 

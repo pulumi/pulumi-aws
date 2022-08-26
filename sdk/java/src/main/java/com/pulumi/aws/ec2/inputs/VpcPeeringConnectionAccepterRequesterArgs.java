@@ -19,7 +19,11 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
      * Indicates whether a local ClassicLink connection can communicate
      * with the peer VPC over the VPC Peering Connection.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version. */
     @Import(name="allowClassicLinkToRemoteVpc")
     private @Nullable Output<Boolean> allowClassicLinkToRemoteVpc;
 
@@ -27,7 +31,11 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
      * @return Indicates whether a local ClassicLink connection can communicate
      * with the peer VPC over the VPC Peering Connection.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version. */
     public Optional<Output<Boolean>> allowClassicLinkToRemoteVpc() {
         return Optional.ofNullable(this.allowClassicLinkToRemoteVpc);
     }
@@ -53,7 +61,11 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
      * Indicates whether a local VPC can communicate with a ClassicLink
      * connection in the peer VPC over the VPC Peering Connection.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version. */
     @Import(name="allowVpcToRemoteClassicLink")
     private @Nullable Output<Boolean> allowVpcToRemoteClassicLink;
 
@@ -61,7 +73,11 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
      * @return Indicates whether a local VPC can communicate with a ClassicLink
      * connection in the peer VPC over the VPC Peering Connection.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version. */
     public Optional<Output<Boolean>> allowVpcToRemoteClassicLink() {
         return Optional.ofNullable(this.allowVpcToRemoteClassicLink);
     }
@@ -98,7 +114,11 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version. */
         public Builder allowClassicLinkToRemoteVpc(@Nullable Output<Boolean> allowClassicLinkToRemoteVpc) {
             $.allowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
             return this;
@@ -110,7 +130,11 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version. */
         public Builder allowClassicLinkToRemoteVpc(Boolean allowClassicLinkToRemoteVpc) {
             return allowClassicLinkToRemoteVpc(Output.of(allowClassicLinkToRemoteVpc));
         }
@@ -144,7 +168,11 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version. */
         public Builder allowVpcToRemoteClassicLink(@Nullable Output<Boolean> allowVpcToRemoteClassicLink) {
             $.allowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
             return this;
@@ -156,7 +184,11 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version. */
         public Builder allowVpcToRemoteClassicLink(Boolean allowVpcToRemoteClassicLink) {
             return allowVpcToRemoteClassicLink(Output.of(allowVpcToRemoteClassicLink));
         }

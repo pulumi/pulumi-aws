@@ -29,7 +29,7 @@ public final class LoadBalancerAccessLogs {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return The publishing interval in minutes. Default: 60 minutes.
+     * @return The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
      * 
      */
     private @Nullable Integer interval;
@@ -57,7 +57,7 @@ public final class LoadBalancerAccessLogs {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return The publishing interval in minutes. Default: 60 minutes.
+     * @return The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
      * 
      */
     public Optional<Integer> interval() {

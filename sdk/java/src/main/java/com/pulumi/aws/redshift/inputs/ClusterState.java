@@ -205,14 +205,22 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of security groups to be associated with this cluster.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
     @Import(name="clusterSecurityGroups")
     private @Nullable Output<List<String>> clusterSecurityGroups;
 
     /**
      * @return A list of security groups to be associated with this cluster.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
     public Optional<Output<List<String>>> clusterSecurityGroups() {
         return Optional.ofNullable(this.clusterSecurityGroups);
     }
@@ -1032,7 +1040,11 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
         public Builder clusterSecurityGroups(@Nullable Output<List<String>> clusterSecurityGroups) {
             $.clusterSecurityGroups = clusterSecurityGroups;
             return this;
@@ -1043,7 +1055,11 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
         public Builder clusterSecurityGroups(List<String> clusterSecurityGroups) {
             return clusterSecurityGroups(Output.of(clusterSecurityGroups));
         }
@@ -1053,7 +1069,11 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
         public Builder clusterSecurityGroups(String... clusterSecurityGroups) {
             return clusterSecurityGroups(List.of(clusterSecurityGroups));
         }

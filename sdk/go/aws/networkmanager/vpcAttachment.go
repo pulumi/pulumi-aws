@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// NetworkManager VpcAttachment can be imported using the `attachment_id`, e.g.,
+// `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
 //
 // ```sh
 //
