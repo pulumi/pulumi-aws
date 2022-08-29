@@ -183,7 +183,7 @@ export const InstanceType = {
     I3en_Large: "i3en.large",
     I3en_Metal: "i3en.metal",
     I3en_XLarge: "i3en.xlarge",
-    I4I_LARGE: "i4i.large",
+    I4I_Large: "i4i.large",
     I4I_XLarge: "i4i.xlarge",
     I4I_2XLarge: "i4i.2xlarge",
     I4I_4XLarge: "i4i.4xlarge",
