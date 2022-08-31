@@ -110,48 +110,42 @@ class CertificateValidation(pulumi.CustomResource):
 
         ## Example Usage
         ### DNS Validation with Route 53
-
         ```python
-        import pulumi
         import pulumi_aws as aws
 
         example_certificate = aws.acm.Certificate("exampleCertificate",
-            domain_name="example.com",
-            validation_method="DNS")
-        example_zone = aws.route53.get_zone(name="example.com",
-            private_zone=False)
-        example_record = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domainName: {
-            name: dvo.resourceRecordName,
-            record: dvo.resourceRecordValue,
-            type: dvo.resourceRecordType,
-        } for dvo in example_certificate.domainValidationOptions})]:
-            example_record.append(aws.route53.Record(f"exampleRecord-{range['key']}",
-                allow_overwrite=True,
-                name=range["value"]["name"],
-                records=[range["value"]["record"]],
-                ttl=60,
-                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
-                zone_id=example_zone.zone_id))
-        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation",
-            certificate_arn=example_certificate.arn,
-            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
-        # ... other configuration ...
-        example_listener = aws.lb.Listener("exampleListener", certificate_arn=example_certificate_validation.certificate_arn)
+                                                  domain_name="example.com",
+                                                  validation_method="DNS")
+
+        example_zone = aws.route53.getZone(name="example.com",
+                                           private_zone=False)
+
+        cert_validation = aws.route53.Record("certValidation",
+                                             name=example_certificate.domain_validation_options[0].resource_record_name,
+                                             records=[example_certificate.domain_validation_options[0].resource_record_value],
+                                             ttl=60,
+                                             type=example_certificate.domain_validation_options[0].resource_record_type,
+                                             zone_id=example_zone.zone_id)
+
+        cert_certificate_validation = aws.route53.CertificateValidation("cert",
+                                                                      certificate_arn=example_certificate.arn,
+                                                                      validation_record_fdqns=[cert_validation.fdqn])
+
+        pulumi.export("certificate_arn", cert_certificate_validation.certificate_arn)
         ```
         ### Email Validation
-
-        In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
-
         ```python
-        import pulumi
         import pulumi_aws as aws
 
         example_certificate = aws.acm.Certificate("exampleCertificate",
-            domain_name="example.com",
-            validation_method="EMAIL")
-        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation", certificate_arn=example_certificate.arn)
+                                                  domain_name="example.com",
+                                                  validation_method="EMAIL")
+
+        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation",
+                                                                       certificate_arn=example_certificate.arn)
         ```
+
+        {{% //examples %}}
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,48 +170,42 @@ class CertificateValidation(pulumi.CustomResource):
 
         ## Example Usage
         ### DNS Validation with Route 53
-
         ```python
-        import pulumi
         import pulumi_aws as aws
 
         example_certificate = aws.acm.Certificate("exampleCertificate",
-            domain_name="example.com",
-            validation_method="DNS")
-        example_zone = aws.route53.get_zone(name="example.com",
-            private_zone=False)
-        example_record = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domainName: {
-            name: dvo.resourceRecordName,
-            record: dvo.resourceRecordValue,
-            type: dvo.resourceRecordType,
-        } for dvo in example_certificate.domainValidationOptions})]:
-            example_record.append(aws.route53.Record(f"exampleRecord-{range['key']}",
-                allow_overwrite=True,
-                name=range["value"]["name"],
-                records=[range["value"]["record"]],
-                ttl=60,
-                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
-                zone_id=example_zone.zone_id))
-        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation",
-            certificate_arn=example_certificate.arn,
-            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
-        # ... other configuration ...
-        example_listener = aws.lb.Listener("exampleListener", certificate_arn=example_certificate_validation.certificate_arn)
+                                                  domain_name="example.com",
+                                                  validation_method="DNS")
+
+        example_zone = aws.route53.getZone(name="example.com",
+                                           private_zone=False)
+
+        cert_validation = aws.route53.Record("certValidation",
+                                             name=example_certificate.domain_validation_options[0].resource_record_name,
+                                             records=[example_certificate.domain_validation_options[0].resource_record_value],
+                                             ttl=60,
+                                             type=example_certificate.domain_validation_options[0].resource_record_type,
+                                             zone_id=example_zone.zone_id)
+
+        cert_certificate_validation = aws.route53.CertificateValidation("cert",
+                                                                      certificate_arn=example_certificate.arn,
+                                                                      validation_record_fdqns=[cert_validation.fdqn])
+
+        pulumi.export("certificate_arn", cert_certificate_validation.certificate_arn)
         ```
         ### Email Validation
-
-        In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
-
         ```python
-        import pulumi
         import pulumi_aws as aws
 
         example_certificate = aws.acm.Certificate("exampleCertificate",
-            domain_name="example.com",
-            validation_method="EMAIL")
-        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation", certificate_arn=example_certificate.arn)
+                                                  domain_name="example.com",
+                                                  validation_method="EMAIL")
+
+        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation",
+                                                                       certificate_arn=example_certificate.arn)
         ```
+
+        {{% //examples %}}
 
         :param str resource_name: The name of the resource.
         :param CertificateValidationArgs args: The arguments to use to populate this resource's properties.

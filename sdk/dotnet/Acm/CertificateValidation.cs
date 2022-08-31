@@ -20,30 +20,76 @@ namespace Pulumi.Aws.Acm
     /// &gt; **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
     /// 
     /// ## Example Usage
-    /// ### Email Validation
-    /// 
-    /// In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
-    /// 
+    /// ### DNS Validation with Route 53
     /// ```csharp
-    /// using System.Collections.Generic;
     /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
+    /// using Pulumi.Aws.Acm;
+    /// using Pulumi.Aws.Route53;
+    /// using System.Collections.Generic;
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
+    /// return await Deployment.RunAsync(() =&gt;
     /// {
-    ///     var exampleCertificate = new Aws.Acm.Certificate("exampleCertificate", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///         ValidationMethod = "EMAIL",
-    ///     });
+    ///    var exampleCertificate = new Certificate("exampleCertificate", new CertificateArgs
+    ///    {
+    ///       DomainName = "example.com",
+    ///       ValidationMethod = "DNS"
+    ///    });
     /// 
-    ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("exampleCertificateValidation", new()
-    ///     {
-    ///         CertificateArn = exampleCertificate.Arn,
-    ///     });
+    ///    var exampleZone = GetZone.Invoke(new GetZoneInvokeArgs
+    ///    {
+    ///       Name = "example.com",
+    ///       PrivateZone = false,
+    ///    });
     /// 
+    ///    var certValidation = new Record("certValidation", new RecordArgs
+    ///    {
+    ///       Name = exampleCertificate.DomainValidationOptions.Apply(options =&gt; options[0].ResourceRecordName!),
+    ///       Records =
+    ///       {
+    ///          exampleCertificate.DomainValidationOptions.Apply(options =&gt; options[0].ResourceRecordValue!),
+    ///       },
+    ///       Ttl = 60,
+    ///       Type = exampleCertificate.DomainValidationOptions.Apply(options =&gt; options[0].ResourceRecordType!),
+    ///       ZoneId = exampleZone.Apply(zone =&gt; zone.Id),
+    ///    });
+    /// 
+    ///    var certCertificateValidation = new CertificateValidation("cert", new CertificateValidationArgs
+    ///    {
+    ///       CertificateArn = exampleCertificate.Arn,
+    ///       ValidationRecordFqdns =
+    ///       {
+    ///          certValidation.Fqdn,
+    ///       },
+    ///    });
+    ///    
+    ///    return new Dictionary&lt;string, object?&gt;
+    ///    {
+    ///       ["certificateArn"] = certCertificateValidation.CertificateArn,
+    ///    };
     /// });
     /// ```
+    /// ### Email Validation
+    /// ```csharp
+    /// using Pulumi;
+    /// using Pulumi.Aws.Acm;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt;
+    /// {
+    ///    var exampleCertificate = new Certificate("exampleCertificate", new CertificateArgs
+    ///    {
+    ///       DomainName = "example.com",
+    ///       ValidationMethod = "EMAIL"
+    ///    });
+    /// 
+    ///    var certCertificateValidation = new CertificateValidation("cert", new CertificateValidationArgs
+    ///    {
+    ///       CertificateArn = exampleCertificate.Arn,
+    ///    });
+    /// });
+    /// 
+    /// ```
+    /// 
+    /// {{% //examples %}}
     /// </summary>
     [AwsResourceType("aws:acm/certificateValidation:CertificateValidation")]
     public partial class CertificateValidation : global::Pulumi.CustomResource
