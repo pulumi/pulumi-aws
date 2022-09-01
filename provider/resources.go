@@ -17,7 +17,6 @@ package provider
 import (
 	"context"
 	"fmt"
-	"math/rand"
 	"os"
 	"path/filepath"
 	"strings"
@@ -1773,7 +1772,7 @@ func Provider() tfbridge.ProviderInfo {
 							// https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
 								Separator: "_",
-								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Charset:   []rune("abcdefghijklmnopqrstuvwxyz"),
 								Randlen:   8,
 								Transform: func(name string) string {
 									return strings.ToLower(name)
@@ -1792,7 +1791,7 @@ func Provider() tfbridge.ProviderInfo {
 							// https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
 								Separator: "_",
-								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Charset:   []rune("abcdefghijklmnopqrstuvwxyz"),
 								Randlen:   8,
 								Transform: func(name string) string {
 									return strings.ToLower(name)
@@ -3225,7 +3224,7 @@ func Provider() tfbridge.ProviderInfo {
 							// https://docs.aws.amazon.com/lex/latest/dg/API_PutSlotType.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
 								Separator: "_",
-								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Charset:   []rune("abcdefghijklmnopqrstuvwxyz"),
 								Randlen:   8,
 							}),
 						},
@@ -3241,7 +3240,7 @@ func Provider() tfbridge.ProviderInfo {
 							// https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
 								Separator: "_",
-								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Charset:   []rune("abcdefghijklmnopqrstuvwxyz"),
 								Randlen:   8,
 							}),
 						},
@@ -3257,7 +3256,7 @@ func Provider() tfbridge.ProviderInfo {
 							// https://docs.aws.amazon.com/lex/latest/dg/API_PutIntent.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
 								Separator: "_",
-								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Charset:   []rune("abcdefghijklmnopqrstuvwxyz"),
 								Randlen:   8,
 							}),
 						},
@@ -3273,7 +3272,7 @@ func Provider() tfbridge.ProviderInfo {
 							// https://docs.aws.amazon.com/lex/latest/dg/API_PutBotAlias.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
 								Separator: "_",
-								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Charset:   []rune("abcdefghijklmnopqrstuvwxyz"),
 								Randlen:   8,
 							}),
 						},
