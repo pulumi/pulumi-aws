@@ -1772,9 +1772,11 @@ func Provider() tfbridge.ProviderInfo {
 							// This means the name will adhere to ^[a-z]+(_[a-z]+)*$  as per
 							// https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Separator: "_",
+								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Randlen:   8,
 								Transform: func(name string) string {
-									newName := fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
-									return strings.ToLower(newName)
+									return strings.ToLower(name)
 								},
 							}),
 						},
@@ -1789,9 +1791,11 @@ func Provider() tfbridge.ProviderInfo {
 							// This means the name will adhere to ^[a-z]+(_[a-z]+)*$  as per
 							// https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Separator: "_",
+								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Randlen:   8,
 								Transform: func(name string) string {
-									newName := fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
-									return strings.ToLower(newName)
+									return strings.ToLower(name)
 								},
 							}),
 						},
@@ -3220,9 +3224,9 @@ func Provider() tfbridge.ProviderInfo {
 							// This means the name will adhere to ^([A-Za-z]_?)+$  as per
 							// https://docs.aws.amazon.com/lex/latest/dg/API_PutSlotType.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
-								Transform: func(name string) string {
-									return fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
-								},
+								Separator: "_",
+								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Randlen:   8,
 							}),
 						},
 					},
@@ -3236,9 +3240,9 @@ func Provider() tfbridge.ProviderInfo {
 							// This means the name will adhere to ^([A-Za-z]_?)+$  as per
 							// https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
-								Transform: func(name string) string {
-									return fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
-								},
+								Separator: "_",
+								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Randlen:   8,
 							}),
 						},
 					},
@@ -3252,9 +3256,9 @@ func Provider() tfbridge.ProviderInfo {
 							// This means the name will adhere to ^([A-Za-z]_?)+$  as per
 							// https://docs.aws.amazon.com/lex/latest/dg/API_PutIntent.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
-								Transform: func(name string) string {
-									return fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
-								},
+								Separator: "_",
+								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Randlen:   8,
 							}),
 						},
 					},
@@ -3268,9 +3272,9 @@ func Provider() tfbridge.ProviderInfo {
 							// This means the name will adhere to ^([A-Za-z]_?)+$  as per
 							// https://docs.aws.amazon.com/lex/latest/dg/API_PutBotAlias.html
 							From: tfbridge.FromName(tfbridge.AutoNameOptions{
-								Transform: func(name string) string {
-									return fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
-								},
+								Separator: "_",
+								Charset: rune[]("abcdefghijklmnopqrstuvwxyz"),
+								Randlen:   8,
 							}),
 						},
 					},
@@ -5509,14 +5513,4 @@ func Provider() tfbridge.ProviderInfo {
 	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
 
 	return prov
-}
-
-func transformWithRandomString(n int) string {
-	var letter = []rune("abcdefghijklmnopqrstuvwxyz")
-
-	b := make([]rune, n)
-	for i := range b {
-		b[i] = letter[rand.Intn(len(letter))]
-	}
-	return string(b)
 }
