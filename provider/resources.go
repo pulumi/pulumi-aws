@@ -274,6 +274,25 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []st
 	return ""
 }
 
+func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) []string {
+	val, ok := vars[prop]
+	var vals []string
+	if ok && val.IsArray() {
+		for _, v := range val.ArrayValue() {
+			vals = append(vals, v.StringValue())
+		}
+		return vals
+	}
+
+	for _, env := range envs {
+		val, ok := os.LookupEnv(env)
+		if ok {
+			return strings.Split(val, ";")
+		}
+	}
+	return vals
+}
+
 func stringRef(s string) *string {
 	return &s
 }
@@ -327,19 +346,28 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 
 	// lastly let's set the sharedCreds and sharedConfig file. If these are not found then let's default to the
 	// locations that AWS cli will store these values.
-	var sharedCredentialsFile string
-	sharedCredentialsFile = stringValue(vars, "sharedCredentialsFile", []string{})
-	if sharedCredentialsFile == "" {
-		sharedCredentialsFile = stringValue(vars, "sharedCredentialsFiles",
-			[]string{"AWS_SHARED_CREDENTIALS_FILE", "AWS_SHARED_CREDENTIALS_FILES"})
+	var sharedCredentialsFilePaths []string
+	sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
+	if sharedCredentialsFile != "" {
+		sharedCredentialsFilePaths = append(sharedCredentialsFilePaths, sharedCredentialsFile)
 	}
-	if sharedCredentialsFile == "" {
-		sharedCredentialsFile = "~/.aws/credentials"
+
+	sharedCredentialsFiles := arrayValue(vars, "sharedCredentialsFiles",
+		[]string{"AWS_SHARED_CREDENTIALS_FILE", "AWS_SHARED_CREDENTIALS_FILES"})
+	if len(sharedCredentialsFiles) > 0 {
+		sharedCredentialsFilePaths = append(sharedCredentialsFilePaths, sharedCredentialsFiles...)
 	}
-	credsPath, err := homedir.Expand(sharedCredentialsFile)
-	if err != nil {
-		return err
+
+	if len(sharedCredentialsFilePaths) == 0 {
+		sharedCredentialsFile := "~/.aws/credentials"
+		credsPath, err := homedir.Expand(sharedCredentialsFile)
+		if err != nil {
+			return err
+		}
+
+		sharedCredentialsFilePaths = append(sharedCredentialsFilePaths, credsPath)
 	}
+	config.SharedCredentialsFiles = sharedCredentialsFilePaths
 
 	sharedConfigFile := stringValue(vars, "sharedConfigFile", []string{"AWS_CONFIG_FILE"})
 	if sharedConfigFile == "" {
@@ -350,7 +378,6 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 		return err
 	}
 
-	config.SharedCredentialsFiles = []string{credsPath}
 	config.SharedConfigFiles = []string{configPath}
 
 	if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
