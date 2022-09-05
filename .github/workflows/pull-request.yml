@@ -26,6 +26,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+      with:
+        lfs: true
     - name: Comment PR
       uses: thollander/actions-comment-pull-request@v1
       with:

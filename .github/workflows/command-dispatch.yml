@@ -25,6 +25,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+      with:
+        lfs: true
     - uses: peter-evans/slash-command-dispatch@v2
       with:
         commands: run-acceptance-tests

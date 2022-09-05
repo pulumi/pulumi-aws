@@ -26,6 +26,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+      with:
+        lfs: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v2
       with:
@@ -127,6 +129,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+      with:
+        lfs: true
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -179,6 +183,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+      with:
+        lfs: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v2
       with:
@@ -254,6 +260,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+      with:
+        lfs: true
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
@@ -283,7 +291,7 @@ jobs:
       uses: goreleaser/goreleaser-action@v2
       with:
         args: -p 1 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
-          120m0s
+          90m0s
         version: latest
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
@@ -310,6 +318,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+      with:
+        lfs: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v2
       with:
@@ -419,6 +429,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+      with:
+        lfs: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v2
       with:

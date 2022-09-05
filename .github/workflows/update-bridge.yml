@@ -9,6 +9,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
+      with:
+        lfs: true
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
