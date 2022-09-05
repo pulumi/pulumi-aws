@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getPipeline";
-export * from "./getPipelineDefinition";
-export * from "./pipeline";
-export * from "./pipelineDefinition";
+export { GetPipelineArgs, GetPipelineResult, GetPipelineOutputArgs } from "./getPipeline";
+export const getPipeline: typeof import("./getPipeline").getPipeline = null as any;
+export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
 
-// Import resources to register:
-import { Pipeline } from "./pipeline";
-import { PipelineDefinition } from "./pipelineDefinition";
+export { GetPipelineDefinitionArgs, GetPipelineDefinitionResult, GetPipelineDefinitionOutputArgs } from "./getPipelineDefinition";
+export const getPipelineDefinition: typeof import("./getPipelineDefinition").getPipelineDefinition = null as any;
+export const getPipelineDefinitionOutput: typeof import("./getPipelineDefinition").getPipelineDefinitionOutput = null as any;
+
+export { PipelineArgs, PipelineState } from "./pipeline";
+export type Pipeline = import("./pipeline").Pipeline;
+export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
+
+export { PipelineDefinitionArgs, PipelineDefinitionState } from "./pipelineDefinition";
+export type PipelineDefinition = import("./pipelineDefinition").PipelineDefinition;
+export const PipelineDefinition: typeof import("./pipelineDefinition").PipelineDefinition = null as any;
+
+utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
+utilities.lazyLoad(exports, ["getPipelineDefinition","getPipelineDefinitionOutput"], () => require("./getPipelineDefinition"));
+utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
+utilities.lazyLoad(exports, ["PipelineDefinition"], () => require("./pipelineDefinition"));
 
 const _module = {
     version: utilities.getVersion(),

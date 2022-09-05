@@ -5,16 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cell";
-export * from "./readinessCheck";
-export * from "./recoveryGroup";
-export * from "./resourceSet";
+export { CellArgs, CellState } from "./cell";
+export type Cell = import("./cell").Cell;
+export const Cell: typeof import("./cell").Cell = null as any;
 
-// Import resources to register:
-import { Cell } from "./cell";
-import { ReadinessCheck } from "./readinessCheck";
-import { RecoveryGroup } from "./recoveryGroup";
-import { ResourceSet } from "./resourceSet";
+export { ReadinessCheckArgs, ReadinessCheckState } from "./readinessCheck";
+export type ReadinessCheck = import("./readinessCheck").ReadinessCheck;
+export const ReadinessCheck: typeof import("./readinessCheck").ReadinessCheck = null as any;
+
+export { RecoveryGroupArgs, RecoveryGroupState } from "./recoveryGroup";
+export type RecoveryGroup = import("./recoveryGroup").RecoveryGroup;
+export const RecoveryGroup: typeof import("./recoveryGroup").RecoveryGroup = null as any;
+
+export { ResourceSetArgs, ResourceSetState } from "./resourceSet";
+export type ResourceSet = import("./resourceSet").ResourceSet;
+export const ResourceSet: typeof import("./resourceSet").ResourceSet = null as any;
+
+utilities.lazyLoad(exports, ["Cell"], () => require("./cell"));
+utilities.lazyLoad(exports, ["ReadinessCheck"], () => require("./readinessCheck"));
+utilities.lazyLoad(exports, ["RecoveryGroup"], () => require("./recoveryGroup"));
+utilities.lazyLoad(exports, ["ResourceSet"], () => require("./resourceSet"));
 
 const _module = {
     version: utilities.getVersion(),

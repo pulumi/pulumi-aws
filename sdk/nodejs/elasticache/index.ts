@@ -5,29 +5,66 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./getCluster";
-export * from "./getReplicationGroup";
-export * from "./getUser";
-export * from "./globalReplicationGroup";
-export * from "./parameterGroup";
-export * from "./replicationGroup";
-export * from "./securityGroup";
-export * from "./subnetGroup";
-export * from "./user";
-export * from "./userGroup";
-export * from "./userGroupAssociation";
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
 
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { GlobalReplicationGroup } from "./globalReplicationGroup";
-import { ParameterGroup } from "./parameterGroup";
-import { ReplicationGroup } from "./replicationGroup";
-import { SecurityGroup } from "./securityGroup";
-import { SubnetGroup } from "./subnetGroup";
-import { User } from "./user";
-import { UserGroup } from "./userGroup";
-import { UserGroupAssociation } from "./userGroupAssociation";
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetReplicationGroupArgs, GetReplicationGroupResult, GetReplicationGroupOutputArgs } from "./getReplicationGroup";
+export const getReplicationGroup: typeof import("./getReplicationGroup").getReplicationGroup = null as any;
+export const getReplicationGroupOutput: typeof import("./getReplicationGroup").getReplicationGroupOutput = null as any;
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+
+export { GlobalReplicationGroupArgs, GlobalReplicationGroupState } from "./globalReplicationGroup";
+export type GlobalReplicationGroup = import("./globalReplicationGroup").GlobalReplicationGroup;
+export const GlobalReplicationGroup: typeof import("./globalReplicationGroup").GlobalReplicationGroup = null as any;
+
+export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
+export type ParameterGroup = import("./parameterGroup").ParameterGroup;
+export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
+
+export { ReplicationGroupArgs, ReplicationGroupState } from "./replicationGroup";
+export type ReplicationGroup = import("./replicationGroup").ReplicationGroup;
+export const ReplicationGroup: typeof import("./replicationGroup").ReplicationGroup = null as any;
+
+export { SecurityGroupArgs, SecurityGroupState } from "./securityGroup";
+export type SecurityGroup = import("./securityGroup").SecurityGroup;
+export const SecurityGroup: typeof import("./securityGroup").SecurityGroup = null as any;
+
+export { SubnetGroupArgs, SubnetGroupState } from "./subnetGroup";
+export type SubnetGroup = import("./subnetGroup").SubnetGroup;
+export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+export { UserGroupArgs, UserGroupState } from "./userGroup";
+export type UserGroup = import("./userGroup").UserGroup;
+export const UserGroup: typeof import("./userGroup").UserGroup = null as any;
+
+export { UserGroupAssociationArgs, UserGroupAssociationState } from "./userGroupAssociation";
+export type UserGroupAssociation = import("./userGroupAssociation").UserGroupAssociation;
+export const UserGroupAssociation: typeof import("./userGroupAssociation").UserGroupAssociation = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getReplicationGroup","getReplicationGroupOutput"], () => require("./getReplicationGroup"));
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+utilities.lazyLoad(exports, ["GlobalReplicationGroup"], () => require("./globalReplicationGroup"));
+utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
+utilities.lazyLoad(exports, ["ReplicationGroup"], () => require("./replicationGroup"));
+utilities.lazyLoad(exports, ["SecurityGroup"], () => require("./securityGroup"));
+utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+utilities.lazyLoad(exports, ["UserGroup"], () => require("./userGroup"));
+utilities.lazyLoad(exports, ["UserGroupAssociation"], () => require("./userGroupAssociation"));
 
 const _module = {
     version: utilities.getVersion(),

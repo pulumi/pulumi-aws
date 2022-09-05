@@ -5,24 +5,47 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./contributorInsights";
-export * from "./dynamodbMixins";
-export * from "./getTable";
-export * from "./globalTable";
-export * from "./kinesisStreamingDestination";
-export * from "./table";
-export * from "./tableItem";
-export * from "./tableReplica";
-export * from "./tag";
+export { ContributorInsightsArgs, ContributorInsightsState } from "./contributorInsights";
+export type ContributorInsights = import("./contributorInsights").ContributorInsights;
+export const ContributorInsights: typeof import("./contributorInsights").ContributorInsights = null as any;
 
-// Import resources to register:
-import { ContributorInsights } from "./contributorInsights";
-import { GlobalTable } from "./globalTable";
-import { KinesisStreamingDestination } from "./kinesisStreamingDestination";
-import { Table } from "./table";
-import { TableItem } from "./tableItem";
-import { TableReplica } from "./tableReplica";
-import { Tag } from "./tag";
+export * from "./dynamodbMixins";
+export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
+export const getTable: typeof import("./getTable").getTable = null as any;
+export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+
+export { GlobalTableArgs, GlobalTableState } from "./globalTable";
+export type GlobalTable = import("./globalTable").GlobalTable;
+export const GlobalTable: typeof import("./globalTable").GlobalTable = null as any;
+
+export { KinesisStreamingDestinationArgs, KinesisStreamingDestinationState } from "./kinesisStreamingDestination";
+export type KinesisStreamingDestination = import("./kinesisStreamingDestination").KinesisStreamingDestination;
+export const KinesisStreamingDestination: typeof import("./kinesisStreamingDestination").KinesisStreamingDestination = null as any;
+
+export { TableArgs, TableState } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+
+export { TableItemArgs, TableItemState } from "./tableItem";
+export type TableItem = import("./tableItem").TableItem;
+export const TableItem: typeof import("./tableItem").TableItem = null as any;
+
+export { TableReplicaArgs, TableReplicaState } from "./tableReplica";
+export type TableReplica = import("./tableReplica").TableReplica;
+export const TableReplica: typeof import("./tableReplica").TableReplica = null as any;
+
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+
+utilities.lazyLoad(exports, ["ContributorInsights"], () => require("./contributorInsights"));
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
+utilities.lazyLoad(exports, ["GlobalTable"], () => require("./globalTable"));
+utilities.lazyLoad(exports, ["KinesisStreamingDestination"], () => require("./kinesisStreamingDestination"));
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+utilities.lazyLoad(exports, ["TableItem"], () => require("./tableItem"));
+utilities.lazyLoad(exports, ["TableReplica"], () => require("./tableReplica"));
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 
 const _module = {
     version: utilities.getVersion(),

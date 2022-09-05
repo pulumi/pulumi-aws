@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./canary";
+export { CanaryArgs, CanaryState } from "./canary";
+export type Canary = import("./canary").Canary;
+export const Canary: typeof import("./canary").Canary = null as any;
 
-// Import resources to register:
-import { Canary } from "./canary";
+utilities.lazyLoad(exports, ["Canary"], () => require("./canary"));
 
 const _module = {
     version: utilities.getVersion(),

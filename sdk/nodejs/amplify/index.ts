@@ -5,18 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./app";
-export * from "./backendEnvironment";
-export * from "./branch";
-export * from "./domainAssociation";
-export * from "./webhook";
+export { AppArgs, AppState } from "./app";
+export type App = import("./app").App;
+export const App: typeof import("./app").App = null as any;
 
-// Import resources to register:
-import { App } from "./app";
-import { BackendEnvironment } from "./backendEnvironment";
-import { Branch } from "./branch";
-import { DomainAssociation } from "./domainAssociation";
-import { Webhook } from "./webhook";
+export { BackendEnvironmentArgs, BackendEnvironmentState } from "./backendEnvironment";
+export type BackendEnvironment = import("./backendEnvironment").BackendEnvironment;
+export const BackendEnvironment: typeof import("./backendEnvironment").BackendEnvironment = null as any;
+
+export { BranchArgs, BranchState } from "./branch";
+export type Branch = import("./branch").Branch;
+export const Branch: typeof import("./branch").Branch = null as any;
+
+export { DomainAssociationArgs, DomainAssociationState } from "./domainAssociation";
+export type DomainAssociation = import("./domainAssociation").DomainAssociation;
+export const DomainAssociation: typeof import("./domainAssociation").DomainAssociation = null as any;
+
+export { WebhookArgs, WebhookState } from "./webhook";
+export type Webhook = import("./webhook").Webhook;
+export const Webhook: typeof import("./webhook").Webhook = null as any;
+
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
+utilities.lazyLoad(exports, ["BackendEnvironment"], () => require("./backendEnvironment"));
+utilities.lazyLoad(exports, ["Branch"], () => require("./branch"));
+utilities.lazyLoad(exports, ["DomainAssociation"], () => require("./domainAssociation"));
+utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 
 const _module = {
     version: utilities.getVersion(),

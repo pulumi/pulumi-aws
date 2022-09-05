@@ -5,14 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./endpointAccess";
-export * from "./namespace";
-export * from "./workgroup";
+export { EndpointAccessArgs, EndpointAccessState } from "./endpointAccess";
+export type EndpointAccess = import("./endpointAccess").EndpointAccess;
+export const EndpointAccess: typeof import("./endpointAccess").EndpointAccess = null as any;
 
-// Import resources to register:
-import { EndpointAccess } from "./endpointAccess";
-import { Namespace } from "./namespace";
-import { Workgroup } from "./workgroup";
+export { NamespaceArgs, NamespaceState } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+
+export { WorkgroupArgs, WorkgroupState } from "./workgroup";
+export type Workgroup = import("./workgroup").Workgroup;
+export const Workgroup: typeof import("./workgroup").Workgroup = null as any;
+
+utilities.lazyLoad(exports, ["EndpointAccess"], () => require("./endpointAccess"));
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+utilities.lazyLoad(exports, ["Workgroup"], () => require("./workgroup"));
 
 const _module = {
     version: utilities.getVersion(),

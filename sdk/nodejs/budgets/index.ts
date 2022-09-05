@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./budget";
-export * from "./budgetAction";
+export { BudgetArgs, BudgetState } from "./budget";
+export type Budget = import("./budget").Budget;
+export const Budget: typeof import("./budget").Budget = null as any;
 
-// Import resources to register:
-import { Budget } from "./budget";
-import { BudgetAction } from "./budgetAction";
+export { BudgetActionArgs, BudgetActionState } from "./budgetAction";
+export type BudgetAction = import("./budgetAction").BudgetAction;
+export const BudgetAction: typeof import("./budgetAction").BudgetAction = null as any;
+
+utilities.lazyLoad(exports, ["Budget"], () => require("./budget"));
+utilities.lazyLoad(exports, ["BudgetAction"], () => require("./budgetAction"));
 
 const _module = {
     version: utilities.getVersion(),

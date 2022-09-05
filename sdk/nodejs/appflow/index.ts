@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./connectorProfile";
-export * from "./flow";
+export { ConnectorProfileArgs, ConnectorProfileState } from "./connectorProfile";
+export type ConnectorProfile = import("./connectorProfile").ConnectorProfile;
+export const ConnectorProfile: typeof import("./connectorProfile").ConnectorProfile = null as any;
 
-// Import resources to register:
-import { ConnectorProfile } from "./connectorProfile";
-import { Flow } from "./flow";
+export { FlowArgs, FlowState } from "./flow";
+export type Flow = import("./flow").Flow;
+export const Flow: typeof import("./flow").Flow = null as any;
+
+utilities.lazyLoad(exports, ["ConnectorProfile"], () => require("./connectorProfile"));
+utilities.lazyLoad(exports, ["Flow"], () => require("./flow"));
 
 const _module = {
     version: utilities.getVersion(),

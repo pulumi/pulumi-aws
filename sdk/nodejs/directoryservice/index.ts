@@ -5,23 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./conditionalForwader";
-export * from "./directory";
-export * from "./getDirectory";
-export * from "./logService";
-export * from "./radiusSettings";
-export * from "./serviceRegion";
-export * from "./sharedDirectory";
-export * from "./sharedDirectoryAccepter";
+export { ConditionalForwaderArgs, ConditionalForwaderState } from "./conditionalForwader";
+export type ConditionalForwader = import("./conditionalForwader").ConditionalForwader;
+export const ConditionalForwader: typeof import("./conditionalForwader").ConditionalForwader = null as any;
 
-// Import resources to register:
-import { ConditionalForwader } from "./conditionalForwader";
-import { Directory } from "./directory";
-import { LogService } from "./logService";
-import { RadiusSettings } from "./radiusSettings";
-import { ServiceRegion } from "./serviceRegion";
-import { SharedDirectory } from "./sharedDirectory";
-import { SharedDirectoryAccepter } from "./sharedDirectoryAccepter";
+export { DirectoryArgs, DirectoryState } from "./directory";
+export type Directory = import("./directory").Directory;
+export const Directory: typeof import("./directory").Directory = null as any;
+
+export { GetDirectoryArgs, GetDirectoryResult, GetDirectoryOutputArgs } from "./getDirectory";
+export const getDirectory: typeof import("./getDirectory").getDirectory = null as any;
+export const getDirectoryOutput: typeof import("./getDirectory").getDirectoryOutput = null as any;
+
+export { LogServiceArgs, LogServiceState } from "./logService";
+export type LogService = import("./logService").LogService;
+export const LogService: typeof import("./logService").LogService = null as any;
+
+export { RadiusSettingsArgs, RadiusSettingsState } from "./radiusSettings";
+export type RadiusSettings = import("./radiusSettings").RadiusSettings;
+export const RadiusSettings: typeof import("./radiusSettings").RadiusSettings = null as any;
+
+export { ServiceRegionArgs, ServiceRegionState } from "./serviceRegion";
+export type ServiceRegion = import("./serviceRegion").ServiceRegion;
+export const ServiceRegion: typeof import("./serviceRegion").ServiceRegion = null as any;
+
+export { SharedDirectoryArgs, SharedDirectoryState } from "./sharedDirectory";
+export type SharedDirectory = import("./sharedDirectory").SharedDirectory;
+export const SharedDirectory: typeof import("./sharedDirectory").SharedDirectory = null as any;
+
+export { SharedDirectoryAccepterArgs, SharedDirectoryAccepterState } from "./sharedDirectoryAccepter";
+export type SharedDirectoryAccepter = import("./sharedDirectoryAccepter").SharedDirectoryAccepter;
+export const SharedDirectoryAccepter: typeof import("./sharedDirectoryAccepter").SharedDirectoryAccepter = null as any;
+
+utilities.lazyLoad(exports, ["ConditionalForwader"], () => require("./conditionalForwader"));
+utilities.lazyLoad(exports, ["Directory"], () => require("./directory"));
+utilities.lazyLoad(exports, ["getDirectory","getDirectoryOutput"], () => require("./getDirectory"));
+utilities.lazyLoad(exports, ["LogService"], () => require("./logService"));
+utilities.lazyLoad(exports, ["RadiusSettings"], () => require("./radiusSettings"));
+utilities.lazyLoad(exports, ["ServiceRegion"], () => require("./serviceRegion"));
+utilities.lazyLoad(exports, ["SharedDirectory"], () => require("./sharedDirectory"));
+utilities.lazyLoad(exports, ["SharedDirectoryAccepter"], () => require("./sharedDirectoryAccepter"));
 
 const _module = {
     version: utilities.getVersion(),

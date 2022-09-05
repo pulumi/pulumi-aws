@@ -5,15 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alertManagerDefinition";
-export * from "./getWorkspace";
-export * from "./ruleGroupNamespace";
-export * from "./workspace";
+export { AlertManagerDefinitionArgs, AlertManagerDefinitionState } from "./alertManagerDefinition";
+export type AlertManagerDefinition = import("./alertManagerDefinition").AlertManagerDefinition;
+export const AlertManagerDefinition: typeof import("./alertManagerDefinition").AlertManagerDefinition = null as any;
 
-// Import resources to register:
-import { AlertManagerDefinition } from "./alertManagerDefinition";
-import { RuleGroupNamespace } from "./ruleGroupNamespace";
-import { Workspace } from "./workspace";
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { RuleGroupNamespaceArgs, RuleGroupNamespaceState } from "./ruleGroupNamespace";
+export type RuleGroupNamespace = import("./ruleGroupNamespace").RuleGroupNamespace;
+export const RuleGroupNamespace: typeof import("./ruleGroupNamespace").RuleGroupNamespace = null as any;
+
+export { WorkspaceArgs, WorkspaceState } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["AlertManagerDefinition"], () => require("./alertManagerDefinition"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["RuleGroupNamespace"], () => require("./ruleGroupNamespace"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 const _module = {
     version: utilities.getVersion(),

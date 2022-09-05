@@ -5,16 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./controlPanel";
-export * from "./routingControl";
-export * from "./safetyRule";
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
 
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { ControlPanel } from "./controlPanel";
-import { RoutingControl } from "./routingControl";
-import { SafetyRule } from "./safetyRule";
+export { ControlPanelArgs, ControlPanelState } from "./controlPanel";
+export type ControlPanel = import("./controlPanel").ControlPanel;
+export const ControlPanel: typeof import("./controlPanel").ControlPanel = null as any;
+
+export { RoutingControlArgs, RoutingControlState } from "./routingControl";
+export type RoutingControl = import("./routingControl").RoutingControl;
+export const RoutingControl: typeof import("./routingControl").RoutingControl = null as any;
+
+export { SafetyRuleArgs, SafetyRuleState } from "./safetyRule";
+export type SafetyRule = import("./safetyRule").SafetyRule;
+export const SafetyRule: typeof import("./safetyRule").SafetyRule = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["ControlPanel"], () => require("./controlPanel"));
+utilities.lazyLoad(exports, ["RoutingControl"], () => require("./routingControl"));
+utilities.lazyLoad(exports, ["SafetyRule"], () => require("./safetyRule"));
 
 const _module = {
     version: utilities.getVersion(),

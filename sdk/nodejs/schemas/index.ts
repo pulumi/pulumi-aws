@@ -5,14 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./discoverer";
-export * from "./registry";
-export * from "./schema";
+export { DiscovererArgs, DiscovererState } from "./discoverer";
+export type Discoverer = import("./discoverer").Discoverer;
+export const Discoverer: typeof import("./discoverer").Discoverer = null as any;
 
-// Import resources to register:
-import { Discoverer } from "./discoverer";
-import { Registry } from "./registry";
-import { Schema } from "./schema";
+export { RegistryArgs, RegistryState } from "./registry";
+export type Registry = import("./registry").Registry;
+export const Registry: typeof import("./registry").Registry = null as any;
+
+export { SchemaArgs, SchemaState } from "./schema";
+export type Schema = import("./schema").Schema;
+export const Schema: typeof import("./schema").Schema = null as any;
+
+utilities.lazyLoad(exports, ["Discoverer"], () => require("./discoverer"));
+utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
+utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
 
 const _module = {
     version: utilities.getVersion(),

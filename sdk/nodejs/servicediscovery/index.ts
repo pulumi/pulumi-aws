@@ -5,21 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getDnsNamespace";
-export * from "./getHttpNamespace";
-export * from "./getService";
-export * from "./httpNamespace";
-export * from "./instance";
-export * from "./privateDnsNamespace";
-export * from "./publicDnsNamespace";
-export * from "./service";
+export { GetDnsNamespaceArgs, GetDnsNamespaceResult, GetDnsNamespaceOutputArgs } from "./getDnsNamespace";
+export const getDnsNamespace: typeof import("./getDnsNamespace").getDnsNamespace = null as any;
+export const getDnsNamespaceOutput: typeof import("./getDnsNamespace").getDnsNamespaceOutput = null as any;
 
-// Import resources to register:
-import { HttpNamespace } from "./httpNamespace";
-import { Instance } from "./instance";
-import { PrivateDnsNamespace } from "./privateDnsNamespace";
-import { PublicDnsNamespace } from "./publicDnsNamespace";
-import { Service } from "./service";
+export { GetHttpNamespaceArgs, GetHttpNamespaceResult, GetHttpNamespaceOutputArgs } from "./getHttpNamespace";
+export const getHttpNamespace: typeof import("./getHttpNamespace").getHttpNamespace = null as any;
+export const getHttpNamespaceOutput: typeof import("./getHttpNamespace").getHttpNamespaceOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { HttpNamespaceArgs, HttpNamespaceState } from "./httpNamespace";
+export type HttpNamespace = import("./httpNamespace").HttpNamespace;
+export const HttpNamespace: typeof import("./httpNamespace").HttpNamespace = null as any;
+
+export { InstanceArgs, InstanceState } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+
+export { PrivateDnsNamespaceArgs, PrivateDnsNamespaceState } from "./privateDnsNamespace";
+export type PrivateDnsNamespace = import("./privateDnsNamespace").PrivateDnsNamespace;
+export const PrivateDnsNamespace: typeof import("./privateDnsNamespace").PrivateDnsNamespace = null as any;
+
+export { PublicDnsNamespaceArgs, PublicDnsNamespaceState } from "./publicDnsNamespace";
+export type PublicDnsNamespace = import("./publicDnsNamespace").PublicDnsNamespace;
+export const PublicDnsNamespace: typeof import("./publicDnsNamespace").PublicDnsNamespace = null as any;
+
+export { ServiceArgs, ServiceState } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+utilities.lazyLoad(exports, ["getDnsNamespace","getDnsNamespaceOutput"], () => require("./getDnsNamespace"));
+utilities.lazyLoad(exports, ["getHttpNamespace","getHttpNamespaceOutput"], () => require("./getHttpNamespace"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["HttpNamespace"], () => require("./httpNamespace"));
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+utilities.lazyLoad(exports, ["PrivateDnsNamespace"], () => require("./privateDnsNamespace"));
+utilities.lazyLoad(exports, ["PublicDnsNamespace"], () => require("./publicDnsNamespace"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
 const _module = {
     version: utilities.getVersion(),

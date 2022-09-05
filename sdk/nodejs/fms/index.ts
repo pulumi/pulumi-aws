@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./adminAccount";
-export * from "./policy";
+export { AdminAccountArgs, AdminAccountState } from "./adminAccount";
+export type AdminAccount = import("./adminAccount").AdminAccount;
+export const AdminAccount: typeof import("./adminAccount").AdminAccount = null as any;
 
-// Import resources to register:
-import { AdminAccount } from "./adminAccount";
-import { Policy } from "./policy";
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+utilities.lazyLoad(exports, ["AdminAccount"], () => require("./adminAccount"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 const _module = {
     version: utilities.getVersion(),

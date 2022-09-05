@@ -5,29 +5,67 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accountSettingDefault";
-export * from "./capacityProvider";
-export * from "./cluster";
-export * from "./clusterCapacityProviders";
-export * from "./container";
-export * from "./getCluster";
-export * from "./getContainerDefinition";
-export * from "./getService";
-export * from "./getTaskDefinition";
-export * from "./service";
-export * from "./tag";
-export * from "./taskDefinition";
-export * from "./taskSet";
+export { AccountSettingDefaultArgs, AccountSettingDefaultState } from "./accountSettingDefault";
+export type AccountSettingDefault = import("./accountSettingDefault").AccountSettingDefault;
+export const AccountSettingDefault: typeof import("./accountSettingDefault").AccountSettingDefault = null as any;
 
-// Import resources to register:
-import { AccountSettingDefault } from "./accountSettingDefault";
-import { CapacityProvider } from "./capacityProvider";
-import { Cluster } from "./cluster";
-import { ClusterCapacityProviders } from "./clusterCapacityProviders";
-import { Service } from "./service";
-import { Tag } from "./tag";
-import { TaskDefinition } from "./taskDefinition";
-import { TaskSet } from "./taskSet";
+export { CapacityProviderArgs, CapacityProviderState } from "./capacityProvider";
+export type CapacityProvider = import("./capacityProvider").CapacityProvider;
+export const CapacityProvider: typeof import("./capacityProvider").CapacityProvider = null as any;
+
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { ClusterCapacityProvidersArgs, ClusterCapacityProvidersState } from "./clusterCapacityProviders";
+export type ClusterCapacityProviders = import("./clusterCapacityProviders").ClusterCapacityProviders;
+export const ClusterCapacityProviders: typeof import("./clusterCapacityProviders").ClusterCapacityProviders = null as any;
+
+export * from "./container";
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetContainerDefinitionArgs, GetContainerDefinitionResult, GetContainerDefinitionOutputArgs } from "./getContainerDefinition";
+export const getContainerDefinition: typeof import("./getContainerDefinition").getContainerDefinition = null as any;
+export const getContainerDefinitionOutput: typeof import("./getContainerDefinition").getContainerDefinitionOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { GetTaskDefinitionArgs, GetTaskDefinitionResult, GetTaskDefinitionOutputArgs } from "./getTaskDefinition";
+export const getTaskDefinition: typeof import("./getTaskDefinition").getTaskDefinition = null as any;
+export const getTaskDefinitionOutput: typeof import("./getTaskDefinition").getTaskDefinitionOutput = null as any;
+
+export { ServiceArgs, ServiceState } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+
+export { TaskDefinitionArgs, TaskDefinitionState } from "./taskDefinition";
+export type TaskDefinition = import("./taskDefinition").TaskDefinition;
+export const TaskDefinition: typeof import("./taskDefinition").TaskDefinition = null as any;
+
+export { TaskSetArgs, TaskSetState } from "./taskSet";
+export type TaskSet = import("./taskSet").TaskSet;
+export const TaskSet: typeof import("./taskSet").TaskSet = null as any;
+
+utilities.lazyLoad(exports, ["AccountSettingDefault"], () => require("./accountSettingDefault"));
+utilities.lazyLoad(exports, ["CapacityProvider"], () => require("./capacityProvider"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["ClusterCapacityProviders"], () => require("./clusterCapacityProviders"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getContainerDefinition","getContainerDefinitionOutput"], () => require("./getContainerDefinition"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["getTaskDefinition","getTaskDefinitionOutput"], () => require("./getTaskDefinition"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+utilities.lazyLoad(exports, ["TaskDefinition"], () => require("./taskDefinition"));
+utilities.lazyLoad(exports, ["TaskSet"], () => require("./taskSet"));
 
 const _module = {
     version: utilities.getVersion(),

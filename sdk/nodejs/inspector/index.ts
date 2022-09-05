@@ -5,15 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assessmentTarget";
-export * from "./assessmentTemplate";
-export * from "./getRulesPackages";
-export * from "./resourceGroup";
+export { AssessmentTargetArgs, AssessmentTargetState } from "./assessmentTarget";
+export type AssessmentTarget = import("./assessmentTarget").AssessmentTarget;
+export const AssessmentTarget: typeof import("./assessmentTarget").AssessmentTarget = null as any;
 
-// Import resources to register:
-import { AssessmentTarget } from "./assessmentTarget";
-import { AssessmentTemplate } from "./assessmentTemplate";
-import { ResourceGroup } from "./resourceGroup";
+export { AssessmentTemplateArgs, AssessmentTemplateState } from "./assessmentTemplate";
+export type AssessmentTemplate = import("./assessmentTemplate").AssessmentTemplate;
+export const AssessmentTemplate: typeof import("./assessmentTemplate").AssessmentTemplate = null as any;
+
+export { GetRulesPackagesResult } from "./getRulesPackages";
+export const getRulesPackages: typeof import("./getRulesPackages").getRulesPackages = null as any;
+
+export { ResourceGroupArgs, ResourceGroupState } from "./resourceGroup";
+export type ResourceGroup = import("./resourceGroup").ResourceGroup;
+export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
+
+utilities.lazyLoad(exports, ["AssessmentTarget"], () => require("./assessmentTarget"));
+utilities.lazyLoad(exports, ["AssessmentTemplate"], () => require("./assessmentTemplate"));
+utilities.lazyLoad(exports, ["getRulesPackages"], () => require("./getRulesPackages"));
+utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
 
 const _module = {
     version: utilities.getVersion(),

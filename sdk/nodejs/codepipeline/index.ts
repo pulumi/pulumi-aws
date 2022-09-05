@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./pipeline";
-export * from "./webhook";
+export { PipelineArgs, PipelineState } from "./pipeline";
+export type Pipeline = import("./pipeline").Pipeline;
+export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
 
-// Import resources to register:
-import { Pipeline } from "./pipeline";
-import { Webhook } from "./webhook";
+export { WebhookArgs, WebhookState } from "./webhook";
+export type Webhook = import("./webhook").Webhook;
+export const Webhook: typeof import("./webhook").Webhook = null as any;
+
+utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
+utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 
 const _module = {
     version: utilities.getVersion(),

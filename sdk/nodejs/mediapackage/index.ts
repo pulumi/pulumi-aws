@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./channel";
+export { ChannelArgs, ChannelState } from "./channel";
+export type Channel = import("./channel").Channel;
+export const Channel: typeof import("./channel").Channel = null as any;
 
-// Import resources to register:
-import { Channel } from "./channel";
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 
 const _module = {
     version: utilities.getVersion(),

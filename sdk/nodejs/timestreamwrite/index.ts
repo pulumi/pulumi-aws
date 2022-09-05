@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./database";
-export * from "./table";
+export { DatabaseArgs, DatabaseState } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
 
-// Import resources to register:
-import { Database } from "./database";
-import { Table } from "./table";
+export { TableArgs, TableState } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
 
 const _module = {
     version: utilities.getVersion(),

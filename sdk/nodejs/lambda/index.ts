@@ -5,41 +5,96 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alias";
-export * from "./codeSigningConfig";
-export * from "./eventSourceMapping";
-export * from "./function";
-export * from "./functionEventInvokeConfig";
-export * from "./functionUrl";
-export * from "./getAlias";
-export * from "./getCodeSigningConfig";
-export * from "./getFunction";
-export * from "./getFunctionUrl";
-export * from "./getInvocation";
-export * from "./getLayerVersion";
-export * from "./invocation";
+export { AliasArgs, AliasState } from "./alias";
+export type Alias = import("./alias").Alias;
+export const Alias: typeof import("./alias").Alias = null as any;
+
+export { CodeSigningConfigArgs, CodeSigningConfigState } from "./codeSigningConfig";
+export type CodeSigningConfig = import("./codeSigningConfig").CodeSigningConfig;
+export const CodeSigningConfig: typeof import("./codeSigningConfig").CodeSigningConfig = null as any;
+
+export { EventSourceMappingArgs, EventSourceMappingState } from "./eventSourceMapping";
+export type EventSourceMapping = import("./eventSourceMapping").EventSourceMapping;
+export const EventSourceMapping: typeof import("./eventSourceMapping").EventSourceMapping = null as any;
+
+export { FunctionArgs, FunctionState } from "./function";
+export type Function = import("./function").Function;
+export const Function: typeof import("./function").Function = null as any;
+
+export { FunctionEventInvokeConfigArgs, FunctionEventInvokeConfigState } from "./functionEventInvokeConfig";
+export type FunctionEventInvokeConfig = import("./functionEventInvokeConfig").FunctionEventInvokeConfig;
+export const FunctionEventInvokeConfig: typeof import("./functionEventInvokeConfig").FunctionEventInvokeConfig = null as any;
+
+export { FunctionUrlArgs, FunctionUrlState } from "./functionUrl";
+export type FunctionUrl = import("./functionUrl").FunctionUrl;
+export const FunctionUrl: typeof import("./functionUrl").FunctionUrl = null as any;
+
+export { GetAliasArgs, GetAliasResult, GetAliasOutputArgs } from "./getAlias";
+export const getAlias: typeof import("./getAlias").getAlias = null as any;
+export const getAliasOutput: typeof import("./getAlias").getAliasOutput = null as any;
+
+export { GetCodeSigningConfigArgs, GetCodeSigningConfigResult, GetCodeSigningConfigOutputArgs } from "./getCodeSigningConfig";
+export const getCodeSigningConfig: typeof import("./getCodeSigningConfig").getCodeSigningConfig = null as any;
+export const getCodeSigningConfigOutput: typeof import("./getCodeSigningConfig").getCodeSigningConfigOutput = null as any;
+
+export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
+export const getFunction: typeof import("./getFunction").getFunction = null as any;
+export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
+
+export { GetFunctionUrlArgs, GetFunctionUrlResult, GetFunctionUrlOutputArgs } from "./getFunctionUrl";
+export const getFunctionUrl: typeof import("./getFunctionUrl").getFunctionUrl = null as any;
+export const getFunctionUrlOutput: typeof import("./getFunctionUrl").getFunctionUrlOutput = null as any;
+
+export { GetInvocationArgs, GetInvocationResult, GetInvocationOutputArgs } from "./getInvocation";
+export const getInvocation: typeof import("./getInvocation").getInvocation = null as any;
+export const getInvocationOutput: typeof import("./getInvocation").getInvocationOutput = null as any;
+
+export { GetLayerVersionArgs, GetLayerVersionResult, GetLayerVersionOutputArgs } from "./getLayerVersion";
+export const getLayerVersion: typeof import("./getLayerVersion").getLayerVersion = null as any;
+export const getLayerVersionOutput: typeof import("./getLayerVersion").getLayerVersionOutput = null as any;
+
+export { InvocationArgs, InvocationState } from "./invocation";
+export type Invocation = import("./invocation").Invocation;
+export const Invocation: typeof import("./invocation").Invocation = null as any;
+
 export * from "./lambdaMixins";
-export * from "./layerVersion";
-export * from "./layerVersionPermission";
-export * from "./permission";
-export * from "./provisionedConcurrencyConfig";
+export { LayerVersionArgs, LayerVersionState } from "./layerVersion";
+export type LayerVersion = import("./layerVersion").LayerVersion;
+export const LayerVersion: typeof import("./layerVersion").LayerVersion = null as any;
+
+export { LayerVersionPermissionArgs, LayerVersionPermissionState } from "./layerVersionPermission";
+export type LayerVersionPermission = import("./layerVersionPermission").LayerVersionPermission;
+export const LayerVersionPermission: typeof import("./layerVersionPermission").LayerVersionPermission = null as any;
+
+export { PermissionArgs, PermissionState } from "./permission";
+export type Permission = import("./permission").Permission;
+export const Permission: typeof import("./permission").Permission = null as any;
+
+export { ProvisionedConcurrencyConfigArgs, ProvisionedConcurrencyConfigState } from "./provisionedConcurrencyConfig";
+export type ProvisionedConcurrencyConfig = import("./provisionedConcurrencyConfig").ProvisionedConcurrencyConfig;
+export const ProvisionedConcurrencyConfig: typeof import("./provisionedConcurrencyConfig").ProvisionedConcurrencyConfig = null as any;
+
 export * from "./runtimes";
+utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
+utilities.lazyLoad(exports, ["CodeSigningConfig"], () => require("./codeSigningConfig"));
+utilities.lazyLoad(exports, ["EventSourceMapping"], () => require("./eventSourceMapping"));
+utilities.lazyLoad(exports, ["Function"], () => require("./function"));
+utilities.lazyLoad(exports, ["FunctionEventInvokeConfig"], () => require("./functionEventInvokeConfig"));
+utilities.lazyLoad(exports, ["FunctionUrl"], () => require("./functionUrl"));
+utilities.lazyLoad(exports, ["getAlias","getAliasOutput"], () => require("./getAlias"));
+utilities.lazyLoad(exports, ["getCodeSigningConfig","getCodeSigningConfigOutput"], () => require("./getCodeSigningConfig"));
+utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
+utilities.lazyLoad(exports, ["getFunctionUrl","getFunctionUrlOutput"], () => require("./getFunctionUrl"));
+utilities.lazyLoad(exports, ["getInvocation","getInvocationOutput"], () => require("./getInvocation"));
+utilities.lazyLoad(exports, ["getLayerVersion","getLayerVersionOutput"], () => require("./getLayerVersion"));
+utilities.lazyLoad(exports, ["Invocation"], () => require("./invocation"));
+utilities.lazyLoad(exports, ["LayerVersion"], () => require("./layerVersion"));
+utilities.lazyLoad(exports, ["LayerVersionPermission"], () => require("./layerVersionPermission"));
+utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
+utilities.lazyLoad(exports, ["ProvisionedConcurrencyConfig"], () => require("./provisionedConcurrencyConfig"));
 
 // Export enums:
 export * from "../types/enums/lambda";
-
-// Import resources to register:
-import { Alias } from "./alias";
-import { CodeSigningConfig } from "./codeSigningConfig";
-import { EventSourceMapping } from "./eventSourceMapping";
-import { Function } from "./function";
-import { FunctionEventInvokeConfig } from "./functionEventInvokeConfig";
-import { FunctionUrl } from "./functionUrl";
-import { Invocation } from "./invocation";
-import { LayerVersion } from "./layerVersion";
-import { LayerVersionPermission } from "./layerVersionPermission";
-import { Permission } from "./permission";
-import { ProvisionedConcurrencyConfig } from "./provisionedConcurrencyConfig";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,18 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./approvalRuleTemplate";
-export * from "./approvalRuleTemplateAssociation";
-export * from "./getApprovalRuleTemplate";
-export * from "./getRepository";
-export * from "./repository";
-export * from "./trigger";
+export { ApprovalRuleTemplateArgs, ApprovalRuleTemplateState } from "./approvalRuleTemplate";
+export type ApprovalRuleTemplate = import("./approvalRuleTemplate").ApprovalRuleTemplate;
+export const ApprovalRuleTemplate: typeof import("./approvalRuleTemplate").ApprovalRuleTemplate = null as any;
 
-// Import resources to register:
-import { ApprovalRuleTemplate } from "./approvalRuleTemplate";
-import { ApprovalRuleTemplateAssociation } from "./approvalRuleTemplateAssociation";
-import { Repository } from "./repository";
-import { Trigger } from "./trigger";
+export { ApprovalRuleTemplateAssociationArgs, ApprovalRuleTemplateAssociationState } from "./approvalRuleTemplateAssociation";
+export type ApprovalRuleTemplateAssociation = import("./approvalRuleTemplateAssociation").ApprovalRuleTemplateAssociation;
+export const ApprovalRuleTemplateAssociation: typeof import("./approvalRuleTemplateAssociation").ApprovalRuleTemplateAssociation = null as any;
+
+export { GetApprovalRuleTemplateArgs, GetApprovalRuleTemplateResult, GetApprovalRuleTemplateOutputArgs } from "./getApprovalRuleTemplate";
+export const getApprovalRuleTemplate: typeof import("./getApprovalRuleTemplate").getApprovalRuleTemplate = null as any;
+export const getApprovalRuleTemplateOutput: typeof import("./getApprovalRuleTemplate").getApprovalRuleTemplateOutput = null as any;
+
+export { GetRepositoryArgs, GetRepositoryResult, GetRepositoryOutputArgs } from "./getRepository";
+export const getRepository: typeof import("./getRepository").getRepository = null as any;
+export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
+
+export { RepositoryArgs, RepositoryState } from "./repository";
+export type Repository = import("./repository").Repository;
+export const Repository: typeof import("./repository").Repository = null as any;
+
+export { TriggerArgs, TriggerState } from "./trigger";
+export type Trigger = import("./trigger").Trigger;
+export const Trigger: typeof import("./trigger").Trigger = null as any;
+
+utilities.lazyLoad(exports, ["ApprovalRuleTemplate"], () => require("./approvalRuleTemplate"));
+utilities.lazyLoad(exports, ["ApprovalRuleTemplateAssociation"], () => require("./approvalRuleTemplateAssociation"));
+utilities.lazyLoad(exports, ["getApprovalRuleTemplate","getApprovalRuleTemplateOutput"], () => require("./getApprovalRuleTemplate"));
+utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
+utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
+utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
 
 const _module = {
     version: utilities.getVersion(),

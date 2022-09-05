@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./profile";
-export * from "./trustAnchor";
+export { ProfileArgs, ProfileState } from "./profile";
+export type Profile = import("./profile").Profile;
+export const Profile: typeof import("./profile").Profile = null as any;
 
-// Import resources to register:
-import { Profile } from "./profile";
-import { TrustAnchor } from "./trustAnchor";
+export { TrustAnchorArgs, TrustAnchorState } from "./trustAnchor";
+export type TrustAnchor = import("./trustAnchor").TrustAnchor;
+export const TrustAnchor: typeof import("./trustAnchor").TrustAnchor = null as any;
+
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
+utilities.lazyLoad(exports, ["TrustAnchor"], () => require("./trustAnchor"));
 
 const _module = {
     version: utilities.getVersion(),

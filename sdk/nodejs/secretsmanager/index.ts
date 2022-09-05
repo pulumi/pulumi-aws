@@ -5,21 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getRandomPassword";
-export * from "./getSecret";
-export * from "./getSecretRotation";
-export * from "./getSecretVersion";
-export * from "./getSecrets";
-export * from "./secret";
-export * from "./secretPolicy";
-export * from "./secretRotation";
-export * from "./secretVersion";
+export { GetRandomPasswordArgs, GetRandomPasswordResult, GetRandomPasswordOutputArgs } from "./getRandomPassword";
+export const getRandomPassword: typeof import("./getRandomPassword").getRandomPassword = null as any;
+export const getRandomPasswordOutput: typeof import("./getRandomPassword").getRandomPasswordOutput = null as any;
 
-// Import resources to register:
-import { Secret } from "./secret";
-import { SecretPolicy } from "./secretPolicy";
-import { SecretRotation } from "./secretRotation";
-import { SecretVersion } from "./secretVersion";
+export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
+export const getSecret: typeof import("./getSecret").getSecret = null as any;
+export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+
+export { GetSecretRotationArgs, GetSecretRotationResult, GetSecretRotationOutputArgs } from "./getSecretRotation";
+export const getSecretRotation: typeof import("./getSecretRotation").getSecretRotation = null as any;
+export const getSecretRotationOutput: typeof import("./getSecretRotation").getSecretRotationOutput = null as any;
+
+export { GetSecretVersionArgs, GetSecretVersionResult, GetSecretVersionOutputArgs } from "./getSecretVersion";
+export const getSecretVersion: typeof import("./getSecretVersion").getSecretVersion = null as any;
+export const getSecretVersionOutput: typeof import("./getSecretVersion").getSecretVersionOutput = null as any;
+
+export { GetSecretsArgs, GetSecretsResult, GetSecretsOutputArgs } from "./getSecrets";
+export const getSecrets: typeof import("./getSecrets").getSecrets = null as any;
+export const getSecretsOutput: typeof import("./getSecrets").getSecretsOutput = null as any;
+
+export { SecretArgs, SecretState } from "./secret";
+export type Secret = import("./secret").Secret;
+export const Secret: typeof import("./secret").Secret = null as any;
+
+export { SecretPolicyArgs, SecretPolicyState } from "./secretPolicy";
+export type SecretPolicy = import("./secretPolicy").SecretPolicy;
+export const SecretPolicy: typeof import("./secretPolicy").SecretPolicy = null as any;
+
+export { SecretRotationArgs, SecretRotationState } from "./secretRotation";
+export type SecretRotation = import("./secretRotation").SecretRotation;
+export const SecretRotation: typeof import("./secretRotation").SecretRotation = null as any;
+
+export { SecretVersionArgs, SecretVersionState } from "./secretVersion";
+export type SecretVersion = import("./secretVersion").SecretVersion;
+export const SecretVersion: typeof import("./secretVersion").SecretVersion = null as any;
+
+utilities.lazyLoad(exports, ["getRandomPassword","getRandomPasswordOutput"], () => require("./getRandomPassword"));
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
+utilities.lazyLoad(exports, ["getSecretRotation","getSecretRotationOutput"], () => require("./getSecretRotation"));
+utilities.lazyLoad(exports, ["getSecretVersion","getSecretVersionOutput"], () => require("./getSecretVersion"));
+utilities.lazyLoad(exports, ["getSecrets","getSecretsOutput"], () => require("./getSecrets"));
+utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
+utilities.lazyLoad(exports, ["SecretPolicy"], () => require("./secretPolicy"));
+utilities.lazyLoad(exports, ["SecretRotation"], () => require("./secretRotation"));
+utilities.lazyLoad(exports, ["SecretVersion"], () => require("./secretVersion"));
 
 const _module = {
     version: utilities.getVersion(),

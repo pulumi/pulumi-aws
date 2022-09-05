@@ -5,24 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getIpSet";
-export * from "./getRegexPatternSet";
-export * from "./getRuleGroup";
-export * from "./getWebAcl";
-export * from "./ipSet";
-export * from "./regexPatternSet";
-export * from "./ruleGroup";
-export * from "./webAcl";
-export * from "./webAclAssociation";
-export * from "./webAclLoggingConfiguration";
+export { GetIpSetArgs, GetIpSetResult, GetIpSetOutputArgs } from "./getIpSet";
+export const getIpSet: typeof import("./getIpSet").getIpSet = null as any;
+export const getIpSetOutput: typeof import("./getIpSet").getIpSetOutput = null as any;
 
-// Import resources to register:
-import { IpSet } from "./ipSet";
-import { RegexPatternSet } from "./regexPatternSet";
-import { RuleGroup } from "./ruleGroup";
-import { WebAcl } from "./webAcl";
-import { WebAclAssociation } from "./webAclAssociation";
-import { WebAclLoggingConfiguration } from "./webAclLoggingConfiguration";
+export { GetRegexPatternSetArgs, GetRegexPatternSetResult, GetRegexPatternSetOutputArgs } from "./getRegexPatternSet";
+export const getRegexPatternSet: typeof import("./getRegexPatternSet").getRegexPatternSet = null as any;
+export const getRegexPatternSetOutput: typeof import("./getRegexPatternSet").getRegexPatternSetOutput = null as any;
+
+export { GetRuleGroupArgs, GetRuleGroupResult, GetRuleGroupOutputArgs } from "./getRuleGroup";
+export const getRuleGroup: typeof import("./getRuleGroup").getRuleGroup = null as any;
+export const getRuleGroupOutput: typeof import("./getRuleGroup").getRuleGroupOutput = null as any;
+
+export { GetWebAclArgs, GetWebAclResult, GetWebAclOutputArgs } from "./getWebAcl";
+export const getWebAcl: typeof import("./getWebAcl").getWebAcl = null as any;
+export const getWebAclOutput: typeof import("./getWebAcl").getWebAclOutput = null as any;
+
+export { IpSetArgs, IpSetState } from "./ipSet";
+export type IpSet = import("./ipSet").IpSet;
+export const IpSet: typeof import("./ipSet").IpSet = null as any;
+
+export { RegexPatternSetArgs, RegexPatternSetState } from "./regexPatternSet";
+export type RegexPatternSet = import("./regexPatternSet").RegexPatternSet;
+export const RegexPatternSet: typeof import("./regexPatternSet").RegexPatternSet = null as any;
+
+export { RuleGroupArgs, RuleGroupState } from "./ruleGroup";
+export type RuleGroup = import("./ruleGroup").RuleGroup;
+export const RuleGroup: typeof import("./ruleGroup").RuleGroup = null as any;
+
+export { WebAclArgs, WebAclState } from "./webAcl";
+export type WebAcl = import("./webAcl").WebAcl;
+export const WebAcl: typeof import("./webAcl").WebAcl = null as any;
+
+export { WebAclAssociationArgs, WebAclAssociationState } from "./webAclAssociation";
+export type WebAclAssociation = import("./webAclAssociation").WebAclAssociation;
+export const WebAclAssociation: typeof import("./webAclAssociation").WebAclAssociation = null as any;
+
+export { WebAclLoggingConfigurationArgs, WebAclLoggingConfigurationState } from "./webAclLoggingConfiguration";
+export type WebAclLoggingConfiguration = import("./webAclLoggingConfiguration").WebAclLoggingConfiguration;
+export const WebAclLoggingConfiguration: typeof import("./webAclLoggingConfiguration").WebAclLoggingConfiguration = null as any;
+
+utilities.lazyLoad(exports, ["getIpSet","getIpSetOutput"], () => require("./getIpSet"));
+utilities.lazyLoad(exports, ["getRegexPatternSet","getRegexPatternSetOutput"], () => require("./getRegexPatternSet"));
+utilities.lazyLoad(exports, ["getRuleGroup","getRuleGroupOutput"], () => require("./getRuleGroup"));
+utilities.lazyLoad(exports, ["getWebAcl","getWebAclOutput"], () => require("./getWebAcl"));
+utilities.lazyLoad(exports, ["IpSet"], () => require("./ipSet"));
+utilities.lazyLoad(exports, ["RegexPatternSet"], () => require("./regexPatternSet"));
+utilities.lazyLoad(exports, ["RuleGroup"], () => require("./ruleGroup"));
+utilities.lazyLoad(exports, ["WebAcl"], () => require("./webAcl"));
+utilities.lazyLoad(exports, ["WebAclAssociation"], () => require("./webAclAssociation"));
+utilities.lazyLoad(exports, ["WebAclLoggingConfiguration"], () => require("./webAclLoggingConfiguration"));
 
 const _module = {
     version: utilities.getVersion(),

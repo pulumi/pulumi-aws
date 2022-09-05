@@ -13,6 +13,10 @@ Please read about our [contribution guidelines here.](https://github.com/pulumi/
 
 ## Setting up your development environment
 
+### Git LFS
+
+The repository needs Git LFS enabled. Please following the instructions for installing [git lfs](https://git-lfs.github.com/)
+
 ### Pulumi prerequisites
 
 Please refer to the [main Pulumi repo](https://github.com/pulumi/pulumi/)'s [CONTRIBUTING.md file](

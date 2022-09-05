@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alternativeContact";
+export { AlternativeContactArgs, AlternativeContactState } from "./alternativeContact";
+export type AlternativeContact = import("./alternativeContact").AlternativeContact;
+export const AlternativeContact: typeof import("./alternativeContact").AlternativeContact = null as any;
 
-// Import resources to register:
-import { AlternativeContact } from "./alternativeContact";
+utilities.lazyLoad(exports, ["AlternativeContact"], () => require("./alternativeContact"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,22 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./voiceConnector";
-export * from "./voiceConnectorGroup";
-export * from "./voiceConnectorLogging";
-export * from "./voiceConnectorOrganization";
-export * from "./voiceConnectorStreaming";
-export * from "./voiceConnectorTermination";
-export * from "./voiceConnectorTerminationCredentials";
+export { VoiceConnectorArgs, VoiceConnectorState } from "./voiceConnector";
+export type VoiceConnector = import("./voiceConnector").VoiceConnector;
+export const VoiceConnector: typeof import("./voiceConnector").VoiceConnector = null as any;
 
-// Import resources to register:
-import { VoiceConnector } from "./voiceConnector";
-import { VoiceConnectorGroup } from "./voiceConnectorGroup";
-import { VoiceConnectorLogging } from "./voiceConnectorLogging";
-import { VoiceConnectorOrganization } from "./voiceConnectorOrganization";
-import { VoiceConnectorStreaming } from "./voiceConnectorStreaming";
-import { VoiceConnectorTermination } from "./voiceConnectorTermination";
-import { VoiceConnectorTerminationCredentials } from "./voiceConnectorTerminationCredentials";
+export { VoiceConnectorGroupArgs, VoiceConnectorGroupState } from "./voiceConnectorGroup";
+export type VoiceConnectorGroup = import("./voiceConnectorGroup").VoiceConnectorGroup;
+export const VoiceConnectorGroup: typeof import("./voiceConnectorGroup").VoiceConnectorGroup = null as any;
+
+export { VoiceConnectorLoggingArgs, VoiceConnectorLoggingState } from "./voiceConnectorLogging";
+export type VoiceConnectorLogging = import("./voiceConnectorLogging").VoiceConnectorLogging;
+export const VoiceConnectorLogging: typeof import("./voiceConnectorLogging").VoiceConnectorLogging = null as any;
+
+export { VoiceConnectorOrganizationArgs, VoiceConnectorOrganizationState } from "./voiceConnectorOrganization";
+export type VoiceConnectorOrganization = import("./voiceConnectorOrganization").VoiceConnectorOrganization;
+export const VoiceConnectorOrganization: typeof import("./voiceConnectorOrganization").VoiceConnectorOrganization = null as any;
+
+export { VoiceConnectorStreamingArgs, VoiceConnectorStreamingState } from "./voiceConnectorStreaming";
+export type VoiceConnectorStreaming = import("./voiceConnectorStreaming").VoiceConnectorStreaming;
+export const VoiceConnectorStreaming: typeof import("./voiceConnectorStreaming").VoiceConnectorStreaming = null as any;
+
+export { VoiceConnectorTerminationArgs, VoiceConnectorTerminationState } from "./voiceConnectorTermination";
+export type VoiceConnectorTermination = import("./voiceConnectorTermination").VoiceConnectorTermination;
+export const VoiceConnectorTermination: typeof import("./voiceConnectorTermination").VoiceConnectorTermination = null as any;
+
+export { VoiceConnectorTerminationCredentialsArgs, VoiceConnectorTerminationCredentialsState } from "./voiceConnectorTerminationCredentials";
+export type VoiceConnectorTerminationCredentials = import("./voiceConnectorTerminationCredentials").VoiceConnectorTerminationCredentials;
+export const VoiceConnectorTerminationCredentials: typeof import("./voiceConnectorTerminationCredentials").VoiceConnectorTerminationCredentials = null as any;
+
+utilities.lazyLoad(exports, ["VoiceConnector"], () => require("./voiceConnector"));
+utilities.lazyLoad(exports, ["VoiceConnectorGroup"], () => require("./voiceConnectorGroup"));
+utilities.lazyLoad(exports, ["VoiceConnectorLogging"], () => require("./voiceConnectorLogging"));
+utilities.lazyLoad(exports, ["VoiceConnectorOrganization"], () => require("./voiceConnectorOrganization"));
+utilities.lazyLoad(exports, ["VoiceConnectorStreaming"], () => require("./voiceConnectorStreaming"));
+utilities.lazyLoad(exports, ["VoiceConnectorTermination"], () => require("./voiceConnectorTermination"));
+utilities.lazyLoad(exports, ["VoiceConnectorTerminationCredentials"], () => require("./voiceConnectorTerminationCredentials"));
 
 const _module = {
     version: utilities.getVersion(),

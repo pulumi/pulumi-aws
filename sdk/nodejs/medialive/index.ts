@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./input";
-export * from "./inputSecurityGroup";
+export { InputArgs, InputState } from "./input";
+export type Input = import("./input").Input;
+export const Input: typeof import("./input").Input = null as any;
 
-// Import resources to register:
-import { Input } from "./input";
-import { InputSecurityGroup } from "./inputSecurityGroup";
+export { InputSecurityGroupArgs, InputSecurityGroupState } from "./inputSecurityGroup";
+export type InputSecurityGroup = import("./inputSecurityGroup").InputSecurityGroup;
+export const InputSecurityGroup: typeof import("./inputSecurityGroup").InputSecurityGroup = null as any;
+
+utilities.lazyLoad(exports, ["Input"], () => require("./input"));
+utilities.lazyLoad(exports, ["InputSecurityGroup"], () => require("./inputSecurityGroup"));
 
 const _module = {
     version: utilities.getVersion(),

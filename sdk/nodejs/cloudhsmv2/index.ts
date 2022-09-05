@@ -5,13 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./getCluster";
-export * from "./hsm";
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
 
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { Hsm } from "./hsm";
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { HsmArgs, HsmState } from "./hsm";
+export type Hsm = import("./hsm").Hsm;
+export const Hsm: typeof import("./hsm").Hsm = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["Hsm"], () => require("./hsm"));
 
 const _module = {
     version: utilities.getVersion(),

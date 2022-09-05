@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./container";
-export * from "./containerPolicy";
+export { ContainerArgs, ContainerState } from "./container";
+export type Container = import("./container").Container;
+export const Container: typeof import("./container").Container = null as any;
 
-// Import resources to register:
-import { Container } from "./container";
-import { ContainerPolicy } from "./containerPolicy";
+export { ContainerPolicyArgs, ContainerPolicyState } from "./containerPolicy";
+export type ContainerPolicy = import("./containerPolicy").ContainerPolicy;
+export const ContainerPolicy: typeof import("./containerPolicy").ContainerPolicy = null as any;
+
+utilities.lazyLoad(exports, ["Container"], () => require("./container"));
+utilities.lazyLoad(exports, ["ContainerPolicy"], () => require("./containerPolicy"));
 
 const _module = {
     version: utilities.getVersion(),

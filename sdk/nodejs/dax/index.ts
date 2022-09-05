@@ -5,14 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./parameterGroup";
-export * from "./subnetGroup";
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
 
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { ParameterGroup } from "./parameterGroup";
-import { SubnetGroup } from "./subnetGroup";
+export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
+export type ParameterGroup = import("./parameterGroup").ParameterGroup;
+export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
+
+export { SubnetGroupArgs, SubnetGroupState } from "./subnetGroup";
+export type SubnetGroup = import("./subnetGroup").SubnetGroup;
+export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
+utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
 
 const _module = {
     version: utilities.getVersion(),

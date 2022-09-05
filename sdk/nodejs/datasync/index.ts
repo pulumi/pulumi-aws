@@ -5,28 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./agent";
-export * from "./efsLocation";
-export * from "./fsxOpenZfsFileSystem";
-export * from "./locationFsxLustre";
-export * from "./locationFsxWindows";
-export * from "./locationHdfs";
-export * from "./locationSmb";
-export * from "./nfsLocation";
-export * from "./s3location";
-export * from "./task";
+export { AgentArgs, AgentState } from "./agent";
+export type Agent = import("./agent").Agent;
+export const Agent: typeof import("./agent").Agent = null as any;
 
-// Import resources to register:
-import { Agent } from "./agent";
-import { EfsLocation } from "./efsLocation";
-import { FsxOpenZfsFileSystem } from "./fsxOpenZfsFileSystem";
-import { LocationFsxLustre } from "./locationFsxLustre";
-import { LocationFsxWindows } from "./locationFsxWindows";
-import { LocationHdfs } from "./locationHdfs";
-import { LocationSmb } from "./locationSmb";
-import { NfsLocation } from "./nfsLocation";
-import { S3Location } from "./s3location";
-import { Task } from "./task";
+export { EfsLocationArgs, EfsLocationState } from "./efsLocation";
+export type EfsLocation = import("./efsLocation").EfsLocation;
+export const EfsLocation: typeof import("./efsLocation").EfsLocation = null as any;
+
+export { FsxOpenZfsFileSystemArgs, FsxOpenZfsFileSystemState } from "./fsxOpenZfsFileSystem";
+export type FsxOpenZfsFileSystem = import("./fsxOpenZfsFileSystem").FsxOpenZfsFileSystem;
+export const FsxOpenZfsFileSystem: typeof import("./fsxOpenZfsFileSystem").FsxOpenZfsFileSystem = null as any;
+
+export { LocationFsxLustreArgs, LocationFsxLustreState } from "./locationFsxLustre";
+export type LocationFsxLustre = import("./locationFsxLustre").LocationFsxLustre;
+export const LocationFsxLustre: typeof import("./locationFsxLustre").LocationFsxLustre = null as any;
+
+export { LocationFsxWindowsArgs, LocationFsxWindowsState } from "./locationFsxWindows";
+export type LocationFsxWindows = import("./locationFsxWindows").LocationFsxWindows;
+export const LocationFsxWindows: typeof import("./locationFsxWindows").LocationFsxWindows = null as any;
+
+export { LocationHdfsArgs, LocationHdfsState } from "./locationHdfs";
+export type LocationHdfs = import("./locationHdfs").LocationHdfs;
+export const LocationHdfs: typeof import("./locationHdfs").LocationHdfs = null as any;
+
+export { LocationSmbArgs, LocationSmbState } from "./locationSmb";
+export type LocationSmb = import("./locationSmb").LocationSmb;
+export const LocationSmb: typeof import("./locationSmb").LocationSmb = null as any;
+
+export { NfsLocationArgs, NfsLocationState } from "./nfsLocation";
+export type NfsLocation = import("./nfsLocation").NfsLocation;
+export const NfsLocation: typeof import("./nfsLocation").NfsLocation = null as any;
+
+export { S3LocationArgs, S3LocationState } from "./s3location";
+export type S3Location = import("./s3location").S3Location;
+export const S3Location: typeof import("./s3location").S3Location = null as any;
+
+export { TaskArgs, TaskState } from "./task";
+export type Task = import("./task").Task;
+export const Task: typeof import("./task").Task = null as any;
+
+utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
+utilities.lazyLoad(exports, ["EfsLocation"], () => require("./efsLocation"));
+utilities.lazyLoad(exports, ["FsxOpenZfsFileSystem"], () => require("./fsxOpenZfsFileSystem"));
+utilities.lazyLoad(exports, ["LocationFsxLustre"], () => require("./locationFsxLustre"));
+utilities.lazyLoad(exports, ["LocationFsxWindows"], () => require("./locationFsxWindows"));
+utilities.lazyLoad(exports, ["LocationHdfs"], () => require("./locationHdfs"));
+utilities.lazyLoad(exports, ["LocationSmb"], () => require("./locationSmb"));
+utilities.lazyLoad(exports, ["NfsLocation"], () => require("./nfsLocation"));
+utilities.lazyLoad(exports, ["S3Location"], () => require("./s3location"));
+utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 
 const _module = {
     version: utilities.getVersion(),
